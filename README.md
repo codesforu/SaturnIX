@@ -15,5 +15,5 @@ Licence
 
 Goals
 --------
--compliance with Linux standard
--compliance with POSIX, and furthermore compliance with the Single UNIX Specification
+- compliance with Linux standard (Linux Standard Base) (LSB 5.0, released 3. June 2015) (2019)
+- compliance with POSIX, and furthermore compliance with the Single UNIX Specification (SUSv4-2018) (2019)
