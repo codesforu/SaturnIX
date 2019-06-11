@@ -1,0 +1,488 @@
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libc</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification for the PPC32 Architecture 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="Libraries"
+HREF="baselib.html"><LINK
+REL="NEXT"
+TITLE="Interfaces for libm"
+HREF="libm.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification for the PPC32 Architecture 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 16. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libm.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBC-DDEFS">Data Definitions for libc</H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2859">errno.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+#define EDEADLK	35
+#define ENAMETOOLONG	36
+#define ENOLCK	37
+#define ENOSYS	38
+#define ENOTEMPTY	39
+#define ELOOP	40
+#define ENOMSG	42
+#define EIDRM	43
+#define ECHRNG	44
+#define EL2NSYNC	45
+#define EL3HLT	46
+#define EL3RST	47
+#define ELNRNG	48
+#define EUNATCH	49
+#define ENOANO	55
+#define EBADRQC	56
+#define EBADSLT	57
+#define EDEADLOCK	58
+#define EBFONT	59
+#define ENOSTR	60
+#define ENODATA	61
+#define ETIME	62
+#define ENOSR	63
+#define ENONET	64
+#define ENOPKG	65
+#define EREMOTE	66
+#define ENOLINK	67
+#define EADV	68
+#define ESRMNT	69
+#define ECOMM	70
+#define EPROTO	71
+#define EMULTIHOP	72
+#define EDOTDOT	73
+#define EBADMSG	74
+#define EOVERFLOW	75
+#define ENOTUNIQ	76
+#define EBADFD	77
+#define EREMCHG	78
+#define ELIBACC	79
+#define ELIBBAD	80
+#define ELIBSCN	81
+#define ELIBMAX	82
+#define ELIBEXEC	83
+#define EILSEQ	84
+#define ERESTART	85
+#define ESTRPIPE	86
+#define EUSERS	87
+#define ENOTSOCK	88
+#define EDESTADDRREQ	89
+#define EMSGSIZE	90
+#define EPROTOTYPE	91
+#define ENOPROTOOPT	92
+#define EPROTONOSUPPORT	93
+#define ESOCKTNOSUPPORT	94
+#define EOPNOTSUPP	95
+#define EPFNOSUPPORT	96
+#define EAFNOSUPPORT	97
+#define EADDRINUSE	98
+#define EADDRNOTAVAIL	99</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2863">regex.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+#define _RE_SYNTAX_POSIX_COMMON	66244</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2867">signal.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+#define SIGUSR1	10
+#define SIGUSR2	12
+#define SIGSTKFLT	16
+#define SIGCHLD	17
+#define SIGCONT	18
+#define SIGSTOP	19
+#define SIGTSTP	20
+#define SIGTTIN	21
+#define SIGTTOU	22
+#define SIGURG	23
+#define SIGXCPU	24
+#define SIGXFSZ	25
+#define SIGVTALRM	26
+#define SIGPROF	27
+#define SIGWINCH	28
+#define SIGIO	29
+#define SIGPWR	30
+#define SIGSYS	31
+#define SIGUNUSED	31
+#define SIGBUS	7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+struct sigcontext;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2871">sys/ioctl.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define TIOCNOTTY	0x5422
+#define FIONREAD	1074030207</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2875">sys/mman.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define MCL_FUTURE	16384
+#define MCL_CURRENT	8192</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2879">termios.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define TAB1	1024
+#define CR3	12288
+#define CRDLY	12288
+#define FF1	16384
+#define FFDLY	16384
+#define XCASE	16384
+#define ONLCR	2
+#define TAB2	2048
+#define TAB3	3072
+#define TABDLY	3072
+#define BS1	32768
+#define BSDLY	32768
+#define OLCUC	4
+#define CR1	4096
+#define IUCLC	4096
+#define VT1	65536
+#define VTDLY	65536
+#define NLDLY	768
+#define CR2	8192
+
+
+
+
+
+
+
+
+
+#define VWERASE	10
+#define VREPRINT	11
+#define VSUSP	12
+#define VSTART	13
+#define VSTOP	14
+#define VDISCARD	16
+#define VMIN	5
+#define VEOL	6
+#define VEOL2	8
+#define VSWTC	9
+
+
+
+#define IXOFF	1024
+#define IXON	512
+
+
+
+
+
+
+#define CSTOPB	1024
+#define HUPCL	16384
+#define CREAD	2048
+#define CS6	256
+#define CLOCAL	32768
+#define PARENB	4096
+#define CS7	512
+#define VTIME	7
+#define CS8	768
+#define CSIZE	768
+#define PARODD	8192
+
+
+
+#define NOFLSH	-2147483648
+#define ECHOKE	1
+#define IEXTEN	1024
+#define ISIG	128
+#define ECHONL	16
+#define ECHOE	2
+#define ICANON	256
+#define ECHOPRT	32
+#define ECHOK	4
+#define TOSTOP	4194304
+#define PENDIN	536870912
+#define ECHOCTL	64
+#define FLUSHO	8388608</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2883">ucontext.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+
+#define NGREG	48</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libm.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Libraries</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interfaces for libm</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

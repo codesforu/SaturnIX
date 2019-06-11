@@ -1,0 +1,235 @@
+<HTML
+><HEAD
+><TITLE
+>Machine Interface</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification for the PPC32 Architecture 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Low Level System Information"
+HREF="lowlevel.html"><LINK
+REL="PREVIOUS"
+TITLE="Low Level System Information"
+HREF="lowlevel.html"><LINK
+REL="NEXT"
+TITLE="Data Representation"
+HREF="datarepresentation.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification for the PPC32 Architecture 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="lowlevel.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="datarepresentation.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="MACHINEINTERFACE">Chapter 2. Machine Interface</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="machineinterface.html#PROCESSORARCH"
+>Processor Architecture</A
+></DT
+><DT
+><A
+HREF="datarepresentation.html"
+>Data Representation</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="PROCESSORARCH">Processor Architecture</H1
+><P
+>&#13;The PowerPC Architecture is specified by the following documents:
+
+<P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+><A
+HREF="rstandards.html#STD.PPC32.ABI"
+>System V Application Binary Interface PowerPC Processor Supplement</A
+></P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+><A
+HREF="rstandards.html#STD.PPC32.ARCH"
+>The PowerPC &#8482; Architecture: A Specification for a new family of RISC processors</A
+></P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+><A
+HREF="rstandards.html#STD.PPC32.ARCH.CHG1"
+>The PowerPC Architecture Book I changes</A
+></P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+><A
+HREF="rstandards.html#STD.PPC32.ARCH.CHG2"
+>The PowerPC Architecture Book II changes</A
+></P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+><A
+HREF="rstandards.html#STD.PPC32.ARCH.CHG3"
+>The PowerPC Architecture Book III changes</A
+></P
+></LI
+></UL
+></P
+><P
+>&#13;Only the features of the PowerPC processor instruction set may be assumed
+to be present. An application must check <TT
+CLASS="FILENAME"
+>/proc/cpuinfo</TT
+>
+to determine if any additional instruction set features are available before
+using those additional features. If a feature is not present, then the
+application may not use it.&#13;</P
+><P
+>An implementation must support the 32-bit computation mode as
+described in <A
+HREF="rstandards.html#STD.PPC32.ARCH"
+>The PowerPC &#8482; Architecture: A Specification for a new family of RISC processors</A
+>. Conforming applications
+shall not use instructions provided only for the 64-bit mode.</P
+><P
+>Applications conforming to this specification must provide feedback to the
+user if a feature that is required for correct execution of the application
+is not present. Applications conforming to this specification should attempt
+to execute in a diminished capacity if a required feature is not present.</P
+><P
+>This specification does not provide any performance guarantees of a conforming
+system. A system conforming to this specification may be implemented in either
+hardware or software.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="lowlevel.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="datarepresentation.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Low Level System Information</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="lowlevel.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Representation</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

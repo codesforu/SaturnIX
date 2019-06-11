@@ -1,0 +1,358 @@
+<HTML
+><HEAD
+><TITLE
+>Auxiliary Vector</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification for the PPC32 Architecture 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Process Initialization"
+HREF="processinitialization.html"><LINK
+REL="PREVIOUS"
+TITLE="Process Stack (on entry)"
+HREF="processstack.html"><LINK
+REL="NEXT"
+TITLE="Environment"
+HREF="environment.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification for the PPC32 Architecture 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="processstack.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 5. Process Initialization</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="environment.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AUXILIARYVECTOR">Auxiliary Vector</H1
+><P
+>In addition to the types defined in Chapter 3 of the <A
+HREF="rstandards.html#STD.PPC32.ABI"
+>System V Application Binary Interface PowerPC Processor Supplement</A
+> the following are also supported:
+
+<DIV
+CLASS="TABLE"
+><A
+NAME="AEN491"><P
+><B
+>Table 5-1. Extra Auxiliary Types</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Name</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Value</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Comment</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>AT_NOTELF</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>10</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Program is not ELF</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>AT_UID</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>11</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Real uid</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>AT_EUID</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>12</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Effective uid</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>AT_GID</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>13</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Real gid</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>AT_EGID</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>14</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Effective gid</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>AT_PLATFORM</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>15</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>String identifying CPU for optimizations</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>AT_HWCAP</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>16</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Arch dependent hints at CPU capabilities</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>AT_CLKTCK</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>17</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Frequency at which times() increments</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>AT_DCACHEBSIZE</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>19</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>The a_val member of this entry gives the data cache block
+  size for processors on the system on which this program is
+  running. If the processors have unified caches, AT_DCACHEBSIZE is
+  the same as AT_UCACHEBSIZE
+  </TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>AT_ICACHEBSIZE</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>20</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>The a_val member of this entyr gives the instruction cache
+  block size for processors on the system on which this program is
+  running. If the processors have unified caches, AT_DCACHEBSIZE is
+  the same as AT_UCACHEBSIZE.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>AT_UCACHEBSIZE</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>21</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>The a_val member of this entry is zero if the processors on
+  the system on which this program is running do not have a unified
+  instruction and data cache. Otherwise it gives the cache block
+  size.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>AT_IGNOREPPC</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>22</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>All entries of this type should be ignored.</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></P
+><P
+>The last three entries in the table above override the values
+specified in <A
+HREF="rstandards.html#STD.PPC32.ABI"
+>System V Application Binary Interface PowerPC Processor Supplement</A
+>.&#13;</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="processstack.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="environment.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Process Stack (on entry)</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="processinitialization.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Environment</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

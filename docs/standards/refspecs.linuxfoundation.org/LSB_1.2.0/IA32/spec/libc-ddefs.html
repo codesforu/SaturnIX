@@ -1,0 +1,500 @@
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libc</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification for the IA32 Architecture 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="Libraries"
+HREF="baselib.html"><LINK
+REL="NEXT"
+TITLE="Interfaces Definitions for libc"
+HREF="libcman.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification for the IA32 Architecture 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 16. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libcman.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBC-DDEFS">Data Definitions for libc</H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2759">errno.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+#define EDEADLK	35
+#define ENAMETOOLONG	36
+#define ENOLCK	37
+#define ENOSYS	38
+#define ENOTEMPTY	39
+#define ELOOP	40
+#define ENOMSG	42
+#define EIDRM	43
+#define ECHRNG	44
+#define EL2NSYNC	45
+#define EL3HLT	46
+#define EL3RST	47
+#define ELNRNG	48
+#define EUNATCH	49
+#define ENOANO	55
+#define EBADRQC	56
+#define EBADSLT	57
+#define EBFONT	59
+#define ENOSTR	60
+#define ENODATA	61
+#define ETIME	62
+#define ENOSR	63
+#define ENONET	64
+#define ENOPKG	65
+#define EREMOTE	66
+#define ENOLINK	67
+#define EADV	68
+#define ESRMNT	69
+#define ECOMM	70
+#define EPROTO	71
+#define EMULTIHOP	72
+#define EDOTDOT	73
+#define EBADMSG	74
+#define EOVERFLOW	75
+#define ENOTUNIQ	76
+#define EBADFD	77
+#define EREMCHG	78
+#define ELIBACC	79
+#define ELIBBAD	80
+#define ELIBSCN	81
+#define ELIBMAX	82
+#define ELIBEXEC	83
+#define EILSEQ	84
+#define ERESTART	85
+#define ESTRPIPE	86
+#define EUSERS	87
+#define ENOTSOCK	88
+#define EDESTADDRREQ	89
+#define EMSGSIZE	90
+#define EPROTOTYPE	91
+#define ENOPROTOOPT	92
+#define EPROTONOSUPPORT	93
+#define ESOCKTNOSUPPORT	94
+#define EOPNOTSUPP	95
+#define EPFNOSUPPORT	96
+#define EAFNOSUPPORT	97
+#define EADDRINUSE	98
+#define EADDRNOTAVAIL	99</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2763">signal.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+#define SIGUSR1	10
+#define SIGUSR2	12
+#define SIGSTKFLT	16
+#define SIGCHLD	17
+#define SIGCONT	18
+#define SIGSTOP	19
+#define SIGTSTP	20
+#define SIGTTIN	21
+#define SIGTTOU	22
+#define SIGURG	23
+#define SIGXCPU	24
+#define SIGXFSZ	25
+#define SIGVTALRM	26
+#define SIGPROF	27
+#define SIGWINCH	28
+#define SIGIO	29
+#define SIGPWR	30
+#define SIGSYS	31
+#define SIGUNUSED	31
+#define SIGBUS	7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+struct _fpreg
+{
+  unsigned short significand[4];
+  unsigned short exponent;
+}
+ ;
+struct _fpxreg
+{
+  unsigned short significand[4];
+  unsigned short exponent;
+  unsigned short padding[3];
+}
+ ;
+struct _xmmreg
+{
+  unsigned long element[4];
+}
+ ;
+
+
+struct _fpstate
+{
+  unsigned long cw;
+  unsigned long sw;
+  unsigned long tag;
+  unsigned long ipoff;
+  unsigned long cssel;
+  unsigned long dataoff;
+  unsigned long datasel;
+  struct _fpreg _st[8];
+  unsigned short status;
+  unsigned short magic;
+  unsigned long _fxsr_env[6];
+  unsigned long mxcsr;
+  unsigned long reserved;
+  struct _fpxreg _fxsr_st[8];
+  struct _xmmreg _xmm[8];
+  unsigned long padding[56];
+}
+ ;
+
+
+struct sigcontext
+{
+  unsigned short gs;
+  unsigned short __gsh;
+  unsigned short fs;
+  unsigned short __fsh;
+  unsigned short es;
+  unsigned short __esh;
+  unsigned short ds;
+  unsigned short __dsh;
+  unsigned long edi;
+  unsigned long esi;
+  unsigned long ebp;
+  unsigned long esp;
+  unsigned long ebx;
+  unsigned long edx;
+  unsigned long ecx;
+  unsigned long eax;
+  unsigned long trapno;
+  unsigned long err;
+  unsigned long eip;
+  unsigned short cs;
+  unsigned short __csh;
+  unsigned long eflags;
+  unsigned long esp_at_signal;
+  unsigned short ss;
+  unsigned short __ssh;
+  struct _fpstate fpstate;
+  unsigned long oldmask;
+  unsigned long cr2;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2767">sys/ioctl.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define TIOCNOTTY	0x5422</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2771">sys/msg.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+typedef unsigned long msgqnum_t;
+typedef unsigned long msglen_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2775">sys/shm.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+typedef unsigned long shmatt_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2779">ucontext.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+typedef int greg_t;
+#define NGREG	19
+
+
+
+
+
+typedef greg_t gregset_t[19];
+
+
+
+
+
+struct _libc_fpreg
+{
+  unsigned short significand[4];
+  unsigned short exponent;
+}
+ ;
+
+
+
+
+
+struct _libc_fpstate
+{
+  unsigned long cw;
+  unsigned long sw;
+  unsigned long tag;
+  unsigned long ipoff;
+  unsigned long cssel;
+  unsigned long dataoff;
+  unsigned long datasel;
+  struct _libc_fpreg _st[8];
+  unsigned long status;
+}
+ ;
+typedef struct _libc_fpstate *fpregset_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Libraries</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interfaces Definitions for libc</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>
