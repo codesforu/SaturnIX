@@ -1,0 +1,1011 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libgdk_pixbuf-2.0</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libpangoft2-1.0"
+HREF="libpangoft2-1.0-ddefs.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libgdk_pixbuf-2.0"
+HREF="libgdk-pixbuf-2.0-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpangoft2-1.0-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 17. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libgdk-pixbuf-2.0-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBGDK-PIXBUF-2.0"
+>17.25. Interfaces for libgdk_pixbuf-2.0</A
+></H1
+><P
+><A
+HREF="libgdk-pixbuf-2.0.html#LIB-LIBGDK-PIXBUF-2.0-DEF"
+>Table 17-113</A
+> defines the library name and shared object name
+for the libgdk_pixbuf-2.0 library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBGDK-PIXBUF-2.0-DEF"
+></A
+><P
+><B
+>Table 17-113. libgdk_pixbuf-2.0 Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libgdk_pixbuf-2.0</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libgdk_pixbuf-2.0.so.0</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBGDK.PIXBUF.2.0.1"
+></A
+>[Gdk-pixbuf 2.26] <A
+HREF="normativerefs.html#STD.GDK.PIXBUF"
+>Gdk-pixbuf 2.26.0 Reference Manual</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBGDK.PIXBUF.2.0.2"
+></A
+>[Gobject 2.32] <A
+HREF="normativerefs.html#STD.GOBJECT"
+>Gobject 2.32 Reference Manual</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN44862"
+>17.25.1. GDK pixbuf rendering on drawables library</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN44865"
+>17.25.1.1. Interfaces for GDK pixbuf rendering on drawables library</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for GDK pixbuf rendering on drawables library specified in <A
+HREF="libgdk-pixbuf-2.0.html#TBL-LIBGDK-PIXBUF-2.0-GDK-P-INTS"
+>Table 17-114</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBGDK-PIXBUF-2.0-GDK-P-INTS"
+></A
+><P
+><B
+>Table 17-114. libgdk_pixbuf-2.0 - GDK pixbuf rendering on drawables library Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>gdk_colorspace_get_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.2"
+>[Gobject 2.32]</A
+></TD
+><TD
+>gdk_interp_type_get_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.2"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_add_alpha <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_alpha_mode_get_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.2"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_animation_get_height <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_animation_get_iter <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_animation_get_static_image <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_animation_get_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.2"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_animation_get_width <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_animation_is_static_image <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_animation_iter_advance <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_animation_iter_get_delay_time <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_animation_iter_get_pixbuf <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_animation_iter_get_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.2"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_animation_iter_on_currently_loading_frame <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_animation_new_from_file <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_animation_ref <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_animation_unref <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_apply_embedded_orientation <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_composite <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_composite_color <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_composite_color_simple <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_copy <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_copy_area <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_error_get_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.2"
+>[Gobject 2.32]</A
+></TD
+><TD
+>gdk_pixbuf_error_quark <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_fill <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_flip <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_format_copy <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_format_free <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_format_get_description <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_format_get_extensions <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_format_get_license <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_format_get_mime_types <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_format_get_name <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_format_get_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.2"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_format_is_disabled <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_format_is_scalable <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_format_is_writable <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_format_set_disabled <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_from_pixdata <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_get_bits_per_sample <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_get_byte_length <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_get_colorspace <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_get_file_info <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_get_formats <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_get_has_alpha <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_get_height <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_get_n_channels <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_get_option <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_get_pixels <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_get_pixels_with_length <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_get_rowstride <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_get_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.2"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_get_width <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_loader_close <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_loader_get_animation <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_loader_get_format <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_loader_get_pixbuf <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_loader_get_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.2"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_loader_new <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_loader_new_with_mime_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_loader_new_with_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_loader_set_size <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_loader_write <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_new <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_new_from_data <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_new_from_file <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_new_from_file_at_scale <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_new_from_file_at_size <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_new_from_inline <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_new_from_resource <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_new_from_resource_at_scale <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_new_from_stream <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_new_from_stream_async <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_new_from_stream_at_scale <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_new_from_stream_at_scale_async <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_new_from_stream_finish <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_new_from_xpm_data <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_new_subpixbuf <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_ref <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_rotate_simple <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_rotation_get_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.2"
+>[Gobject 2.32]</A
+></TD
+><TD
+>gdk_pixbuf_saturate_and_pixelate <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_save <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_save_to_buffer <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_save_to_bufferv <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_save_to_callback <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_save_to_callbackv <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_save_to_stream <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_save_to_stream_async <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_save_to_stream_finish <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_savev <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_scale <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_scale_simple <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_simple_anim_add_frame <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_simple_anim_get_loop <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_simple_anim_get_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.2"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_simple_anim_iter_get_type <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.2"
+>[Gobject 2.32]</A
+></TD
+><TD
+>gdk_pixbuf_simple_anim_new <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_simple_anim_set_loop <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_unref <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixdata_deserialize <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixdata_from_pixbuf <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixdata_serialize <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixdata_to_csource <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the generic deprecated functions
+for GDK pixbuf rendering on drawables library specified in <A
+HREF="libgdk-pixbuf-2.0.html#TBL-LIBGDK-PIXBUF-2.0-GDK-P-DEPINTS"
+>Table 17-115</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>These interfaces are deprecated, and applications
+should avoid using them.
+These interfaces may be withdrawn
+in future releases of this specification.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBGDK-PIXBUF-2.0-GDK-P-DEPINTS"
+></A
+><P
+><B
+>Table 17-115. libgdk_pixbuf-2.0 - GDK pixbuf rendering on drawables library Deprecated Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>gdk_pixbuf_animation_ref <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_animation_unref <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_ref <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_unref <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the generic data interfaces
+for GDK pixbuf rendering on drawables library specified in <A
+HREF="libgdk-pixbuf-2.0.html#TBL-LIBGDK-PIXBUF-2.0-GDK-P-DATA"
+>Table 17-116</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBGDK-PIXBUF-2.0-GDK-P-DATA"
+></A
+><P
+><B
+>Table 17-116. libgdk_pixbuf-2.0 - GDK pixbuf rendering on drawables library Data Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>gdk_pixbuf_major_version <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_micro_version <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+><TR
+><TD
+>gdk_pixbuf_minor_version <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+><TD
+>gdk_pixbuf_version <A
+HREF="libgdk-pixbuf-2.0.html#REFSTD.LIBGDK.PIXBUF.2.0.1"
+>[Gdk-pixbuf 2.26]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpangoft2-1.0-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libgdk-pixbuf-2.0-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libpangoft2-1.0</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="gtk.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libgdk_pixbuf-2.0</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

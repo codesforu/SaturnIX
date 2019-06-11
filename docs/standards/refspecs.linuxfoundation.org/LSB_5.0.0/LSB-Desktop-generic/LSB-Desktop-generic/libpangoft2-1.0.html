@@ -1,0 +1,450 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libpangoft2-1.0</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libpangoxft-1.0"
+HREF="libpangoxft-1.0-ddefs.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libpangoft2-1.0"
+HREF="libpangoft2-1.0-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpangoxft-1.0-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 17. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpangoft2-1.0-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBPANGOFT2-1.0"
+>17.23. Interfaces for libpangoft2-1.0</A
+></H1
+><P
+><A
+HREF="libpangoft2-1.0.html#LIB-LIBPANGOFT2-1.0-DEF"
+>Table 17-110</A
+> defines the library name and shared object name
+for the libpangoft2-1.0 library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBPANGOFT2-1.0-DEF"
+></A
+><P
+><B
+>Table 17-110. libpangoft2-1.0 Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libpangoft2-1.0</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libpangoft2-1.0.so.0</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBPANGOFT2.1.0.1"
+></A
+>[Gobject 2.32] <A
+HREF="normativerefs.html#STD.GOBJECT"
+>Gobject 2.32 Reference Manual</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBPANGOFT2.1.0.2"
+></A
+>[Pango 1.30] <A
+HREF="normativerefs.html#STD.PANGO"
+>Pango 1.30.1 Reference Manual</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN44694"
+>17.23.1. Pango Freetype Fonts and Rendering library</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN44697"
+>17.23.1.1. Interfaces for Pango Freetype Fonts and Rendering library</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for Pango Freetype Fonts and Rendering library specified in <A
+HREF="libpangoft2-1.0.html#TBL-LIBPANGOFT2-1.0-PANGO-INTS"
+>Table 17-111</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPANGOFT2-1.0-PANGO-INTS"
+></A
+><P
+><B
+>Table 17-111. libpangoft2-1.0 - Pango Freetype Fonts and Rendering library Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>pango_fc_decoder_get_charset <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_fc_decoder_get_glyph <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_fc_decoder_get_type <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_fc_font_description_from_pattern <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_fc_font_get_type <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_fc_font_lock_face <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_fc_font_map_add_decoder_find_func <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_fc_font_map_cache_clear <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_fc_font_map_find_decoder <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_fc_font_map_get_type <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_fc_font_unlock_face <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_ft2_font_map_create_context <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_ft2_font_map_get_type <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_ft2_font_map_new <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_ft2_font_map_set_default_substitute <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_ft2_font_map_set_resolution <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_ft2_font_map_substitute_changed <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_ft2_render <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_ft2_render_layout <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_ft2_render_layout_line <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_ft2_render_layout_line_subpixel <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_ft2_render_layout_subpixel <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_ft2_render_transformed <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the generic deprecated functions
+for Pango Freetype Fonts and Rendering library specified in <A
+HREF="libpangoft2-1.0.html#TBL-LIBPANGOFT2-1.0-PANGO-DEPINTS"
+>Table 17-112</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>These interfaces are deprecated, and applications
+should avoid using them.
+These interfaces may be withdrawn
+in future releases of this specification.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPANGOFT2-1.0-PANGO-DEPINTS"
+></A
+><P
+><B
+>Table 17-112. libpangoft2-1.0 - Pango Freetype Fonts and Rendering library Deprecated Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>pango_ft2_font_map_create_context <A
+HREF="libpangoft2-1.0.html#REFSTD.LIBPANGOFT2.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpangoxft-1.0-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpangoft2-1.0-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libpangoxft-1.0</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="gtk.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libpangoft2-1.0</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

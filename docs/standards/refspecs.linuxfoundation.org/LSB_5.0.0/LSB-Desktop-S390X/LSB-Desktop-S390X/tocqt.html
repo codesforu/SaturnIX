@@ -1,0 +1,1823 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Qt Libraries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification for S390X"
+HREF="book1.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libgtk-x11-2.0"
+HREF="libgtk-x11-2.0-ddefs.html"><LINK
+REL="NEXT"
+TITLE="Libraries"
+HREF="qt.html"></HEAD
+><BODY
+CLASS="PART"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification for S390X</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libgtk-x11-2.0-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="qt.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="TOCQT"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>III. Qt Libraries</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>7. <A
+HREF="qt.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>7.1. <A
+HREF="qt.html#AEN2066"
+>Introduction</A
+></DT
+><DT
+>7.2. <A
+HREF="libqtcore.html"
+>Interfaces for libQtCore</A
+></DT
+><DD
+><DL
+><DT
+>7.2.1. <A
+HREF="libqtcore.html#AEN2126"
+>Qt4 Core Functions</A
+></DT
+><DT
+>7.2.2. <A
+HREF="libqtcore.html#AEN2181"
+>Qt4 Models</A
+></DT
+><DT
+>7.2.3. <A
+HREF="libqtcore.html#AEN2262"
+>Qt4 Internationalization</A
+></DT
+><DT
+>7.2.4. <A
+HREF="libqtcore.html#AEN2342"
+>Qt4 Containers</A
+></DT
+><DT
+>7.2.5. <A
+HREF="libqtcore.html#AEN2373"
+>Qt4 Events</A
+></DT
+><DT
+>7.2.6. <A
+HREF="libqtcore.html#AEN2524"
+>Qt4 Arrays</A
+></DT
+><DT
+>7.2.7. <A
+HREF="libqtcore.html#AEN2530"
+>Qt4 Plugins</A
+></DT
+><DT
+>7.2.8. <A
+HREF="libqtcore.html#AEN2781"
+>Qt4 Date and Time</A
+></DT
+><DT
+>7.2.9. <A
+HREF="libqtcore.html#AEN2812"
+>Qt4 Miscellaneous</A
+></DT
+><DT
+>7.2.10. <A
+HREF="libqtcore.html#AEN2838"
+>Qt4 Text</A
+></DT
+><DT
+>7.2.11. <A
+HREF="libqtcore.html#AEN2844"
+>Qt4 Input/Output</A
+></DT
+><DT
+>7.2.12. <A
+HREF="libqtcore.html#AEN3159"
+>Qt4 Core Application</A
+></DT
+><DT
+>7.2.13. <A
+HREF="libqtcore.html#AEN3190"
+>Qt4 Object Model</A
+></DT
+><DT
+>7.2.14. <A
+HREF="libqtcore.html#AEN3261"
+>Qt4 Threading</A
+></DT
+><DT
+>7.2.15. <A
+HREF="libqtcore.html#AEN3292"
+>Qt4 2D Graphics</A
+></DT
+><DT
+>7.2.16. <A
+HREF="libqtcore.html#AEN3298"
+>Qt4 Internals</A
+></DT
+></DL
+></DD
+><DT
+>7.3. <A
+HREF="libqtcore-ddefs.html"
+>Data Definitions for libQtCore</A
+></DT
+><DD
+><DL
+><DT
+>7.3.1. <A
+HREF="libqtcore-ddefs.html#AEN3310"
+>QtCore/qabstracteventdispatcher.h</A
+></DT
+><DT
+>7.3.2. <A
+HREF="libqtcore-ddefs.html#AEN3314"
+>QtCore/qabstractfileengine.h</A
+></DT
+><DT
+>7.3.3. <A
+HREF="libqtcore-ddefs.html#AEN3318"
+>QtCore/qabstractitemmodel.h</A
+></DT
+><DT
+>7.3.4. <A
+HREF="libqtcore-ddefs.html#AEN3322"
+>QtCore/qatomic.h</A
+></DT
+><DT
+>7.3.5. <A
+HREF="libqtcore-ddefs.html#AEN3326"
+>QtCore/qbasictimer.h</A
+></DT
+><DT
+>7.3.6. <A
+HREF="libqtcore-ddefs.html#AEN3330"
+>QtCore/qbitarray.h</A
+></DT
+><DT
+>7.3.7. <A
+HREF="libqtcore-ddefs.html#AEN3334"
+>QtCore/qbuffer.h</A
+></DT
+><DT
+>7.3.8. <A
+HREF="libqtcore-ddefs.html#AEN3338"
+>QtCore/qbytearray.h</A
+></DT
+><DT
+>7.3.9. <A
+HREF="libqtcore-ddefs.html#AEN3342"
+>QtCore/qbytearraymatcher.h</A
+></DT
+><DT
+>7.3.10. <A
+HREF="libqtcore-ddefs.html#AEN3346"
+>QtCore/qchar.h</A
+></DT
+><DT
+>7.3.11. <A
+HREF="libqtcore-ddefs.html#AEN3350"
+>QtCore/qcoreapplication.h</A
+></DT
+><DT
+>7.3.12. <A
+HREF="libqtcore-ddefs.html#AEN3354"
+>QtCore/qcoreevent.h</A
+></DT
+><DT
+>7.3.13. <A
+HREF="libqtcore-ddefs.html#AEN3358"
+>QtCore/qdatastream.h</A
+></DT
+><DT
+>7.3.14. <A
+HREF="libqtcore-ddefs.html#AEN3362"
+>QtCore/qdatetime.h</A
+></DT
+><DT
+>7.3.15. <A
+HREF="libqtcore-ddefs.html#AEN3366"
+>QtCore/qdebug.h</A
+></DT
+><DT
+>7.3.16. <A
+HREF="libqtcore-ddefs.html#AEN3370"
+>QtCore/qdir.h</A
+></DT
+><DT
+>7.3.17. <A
+HREF="libqtcore-ddefs.html#AEN3374"
+>QtCore/qeventloop.h</A
+></DT
+><DT
+>7.3.18. <A
+HREF="libqtcore-ddefs.html#AEN3378"
+>QtCore/qfactoryinterface.h</A
+></DT
+><DT
+>7.3.19. <A
+HREF="libqtcore-ddefs.html#AEN3382"
+>QtCore/qfile.h</A
+></DT
+><DT
+>7.3.20. <A
+HREF="libqtcore-ddefs.html#AEN3386"
+>QtCore/qfileinfo.h</A
+></DT
+><DT
+>7.3.21. <A
+HREF="libqtcore-ddefs.html#AEN3390"
+>QtCore/qfsfileengine.h</A
+></DT
+><DT
+>7.3.22. <A
+HREF="libqtcore-ddefs.html#AEN3394"
+>QtCore/qglobal.h</A
+></DT
+><DT
+>7.3.23. <A
+HREF="libqtcore-ddefs.html#AEN3398"
+>QtCore/qhash.h</A
+></DT
+><DT
+>7.3.24. <A
+HREF="libqtcore-ddefs.html#AEN3402"
+>QtCore/qiodevice.h</A
+></DT
+><DT
+>7.3.25. <A
+HREF="libqtcore-ddefs.html#AEN3406"
+>QtCore/qlibrary.h</A
+></DT
+><DT
+>7.3.26. <A
+HREF="libqtcore-ddefs.html#AEN3410"
+>QtCore/qlibraryinfo.h</A
+></DT
+><DT
+>7.3.27. <A
+HREF="libqtcore-ddefs.html#AEN3414"
+>QtCore/qline.h</A
+></DT
+><DT
+>7.3.28. <A
+HREF="libqtcore-ddefs.html#AEN3418"
+>QtCore/qlinkedlist.h</A
+></DT
+><DT
+>7.3.29. <A
+HREF="libqtcore-ddefs.html#AEN3422"
+>QtCore/qlist.h</A
+></DT
+><DT
+>7.3.30. <A
+HREF="libqtcore-ddefs.html#AEN3426"
+>QtCore/qlocale.h</A
+></DT
+><DT
+>7.3.31. <A
+HREF="libqtcore-ddefs.html#AEN3430"
+>QtCore/qmap.h</A
+></DT
+><DT
+>7.3.32. <A
+HREF="libqtcore-ddefs.html#AEN3434"
+>QtCore/qmetaobject.h</A
+></DT
+><DT
+>7.3.33. <A
+HREF="libqtcore-ddefs.html#AEN3438"
+>QtCore/qmetatype.h</A
+></DT
+><DT
+>7.3.34. <A
+HREF="libqtcore-ddefs.html#AEN3442"
+>QtCore/qmimedata.h</A
+></DT
+><DT
+>7.3.35. <A
+HREF="libqtcore-ddefs.html#AEN3446"
+>QtCore/qmutex.h</A
+></DT
+><DT
+>7.3.36. <A
+HREF="libqtcore-ddefs.html#AEN3450"
+>QtCore/qnamespace.h</A
+></DT
+><DT
+>7.3.37. <A
+HREF="libqtcore-ddefs.html#AEN3454"
+>QtCore/qobject.h</A
+></DT
+><DT
+>7.3.38. <A
+HREF="libqtcore-ddefs.html#AEN3458"
+>QtCore/qobjectcleanuphandler.h</A
+></DT
+><DT
+>7.3.39. <A
+HREF="libqtcore-ddefs.html#AEN3462"
+>QtCore/qobjectdefs.h</A
+></DT
+><DT
+>7.3.40. <A
+HREF="libqtcore-ddefs.html#AEN3466"
+>QtCore/qpair.h</A
+></DT
+><DT
+>7.3.41. <A
+HREF="libqtcore-ddefs.html#AEN3470"
+>QtCore/qplugin.h</A
+></DT
+><DT
+>7.3.42. <A
+HREF="libqtcore-ddefs.html#AEN3474"
+>QtCore/qpluginloader.h</A
+></DT
+><DT
+>7.3.43. <A
+HREF="libqtcore-ddefs.html#AEN3478"
+>QtCore/qpoint.h</A
+></DT
+><DT
+>7.3.44. <A
+HREF="libqtcore-ddefs.html#AEN3482"
+>QtCore/qprocess.h</A
+></DT
+><DT
+>7.3.45. <A
+HREF="libqtcore-ddefs.html#AEN3486"
+>QtCore/qreadwritelock.h</A
+></DT
+><DT
+>7.3.46. <A
+HREF="libqtcore-ddefs.html#AEN3490"
+>QtCore/qrect.h</A
+></DT
+><DT
+>7.3.47. <A
+HREF="libqtcore-ddefs.html#AEN3494"
+>QtCore/qregexp.h</A
+></DT
+><DT
+>7.3.48. <A
+HREF="libqtcore-ddefs.html#AEN3498"
+>QtCore/qsemaphore.h</A
+></DT
+><DT
+>7.3.49. <A
+HREF="libqtcore-ddefs.html#AEN3502"
+>QtCore/qsettings.h</A
+></DT
+><DT
+>7.3.50. <A
+HREF="libqtcore-ddefs.html#AEN3506"
+>QtCore/qshareddata.h</A
+></DT
+><DT
+>7.3.51. <A
+HREF="libqtcore-ddefs.html#AEN3510"
+>QtCore/qsignalmapper.h</A
+></DT
+><DT
+>7.3.52. <A
+HREF="libqtcore-ddefs.html#AEN3514"
+>QtCore/qsize.h</A
+></DT
+><DT
+>7.3.53. <A
+HREF="libqtcore-ddefs.html#AEN3518"
+>QtCore/qsocketnotifier.h</A
+></DT
+><DT
+>7.3.54. <A
+HREF="libqtcore-ddefs.html#AEN3522"
+>QtCore/qstring.h</A
+></DT
+><DT
+>7.3.55. <A
+HREF="libqtcore-ddefs.html#AEN3526"
+>QtCore/qstringlist.h</A
+></DT
+><DT
+>7.3.56. <A
+HREF="libqtcore-ddefs.html#AEN3530"
+>QtCore/qstringmatcher.h</A
+></DT
+><DT
+>7.3.57. <A
+HREF="libqtcore-ddefs.html#AEN3534"
+>QtCore/qtemporaryfile.h</A
+></DT
+><DT
+>7.3.58. <A
+HREF="libqtcore-ddefs.html#AEN3538"
+>QtCore/qtextcodec.h</A
+></DT
+><DT
+>7.3.59. <A
+HREF="libqtcore-ddefs.html#AEN3542"
+>QtCore/qtextcodecplugin.h</A
+></DT
+><DT
+>7.3.60. <A
+HREF="libqtcore-ddefs.html#AEN3546"
+>QtCore/qtextstream.h</A
+></DT
+><DT
+>7.3.61. <A
+HREF="libqtcore-ddefs.html#AEN3550"
+>QtCore/qthread.h</A
+></DT
+><DT
+>7.3.62. <A
+HREF="libqtcore-ddefs.html#AEN3554"
+>QtCore/qthreadstorage.h</A
+></DT
+><DT
+>7.3.63. <A
+HREF="libqtcore-ddefs.html#AEN3558"
+>QtCore/qtimer.h</A
+></DT
+><DT
+>7.3.64. <A
+HREF="libqtcore-ddefs.html#AEN3562"
+>QtCore/qtranslator.h</A
+></DT
+><DT
+>7.3.65. <A
+HREF="libqtcore-ddefs.html#AEN3566"
+>QtCore/qurl.h</A
+></DT
+><DT
+>7.3.66. <A
+HREF="libqtcore-ddefs.html#AEN3570"
+>QtCore/quuid.h</A
+></DT
+><DT
+>7.3.67. <A
+HREF="libqtcore-ddefs.html#AEN3574"
+>QtCore/qvariant.h</A
+></DT
+><DT
+>7.3.68. <A
+HREF="libqtcore-ddefs.html#AEN3578"
+>QtCore/qvector.h</A
+></DT
+><DT
+>7.3.69. <A
+HREF="libqtcore-ddefs.html#AEN3582"
+>QtCore/qwaitcondition.h</A
+></DT
+></DL
+></DD
+><DT
+>7.4. <A
+HREF="libqtcoreman.html"
+>Interface Definitions for libQtCore</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="libqtcore--z7qmallocm.html"
+>_Z7qMallocm</A
+>&nbsp;--&nbsp;allocate memory block</DT
+><DT
+><A
+HREF="libqtcore--z7qmemsetpvim.html"
+>_Z7qMemSetPvim</A
+>&nbsp;--&nbsp;fill memory with a constant byte</DT
+><DT
+><A
+HREF="libqtcore--z8qmemcopypvpkvm.html"
+>_Z8qMemCopyPvPKvm</A
+>&nbsp;--&nbsp;copy memory area</DT
+><DT
+><A
+HREF="libqtcore--z8qreallocpvm.html"
+>_Z8qReallocPvm</A
+>&nbsp;--&nbsp;change the size of memory block</DT
+></DL
+></DD
+><DT
+>7.5. <A
+HREF="libqtgui.html"
+>Interfaces for libQtGui</A
+></DT
+><DD
+><DL
+><DT
+>7.5.1. <A
+HREF="libqtgui.html#AEN3703"
+>Qt4 GUI Functions</A
+></DT
+><DT
+>7.5.2. <A
+HREF="libqtgui.html#AEN3876"
+>Qt4 Organizers</A
+></DT
+><DT
+>7.5.3. <A
+HREF="libqtgui.html#AEN4988"
+>Qt4 Events</A
+></DT
+><DT
+>7.5.4. <A
+HREF="libqtgui.html#AEN5644"
+>Qt4 Fonts</A
+></DT
+><DT
+>7.5.5. <A
+HREF="libqtgui.html#AEN5650"
+>Qt4 Colors</A
+></DT
+><DT
+>7.5.6. <A
+HREF="libqtgui.html#AEN5656"
+>Qt4 Accessibility</A
+></DT
+><DT
+>7.5.7. <A
+HREF="libqtgui.html#AEN6157"
+>Qt4 Validators</A
+></DT
+><DT
+>7.5.8. <A
+HREF="libqtgui.html#AEN6263"
+>Qt4 Plugins</A
+></DT
+><DT
+>7.5.9. <A
+HREF="libqtgui.html#AEN7154"
+>Qt4 Models and Views</A
+></DT
+><DT
+>7.5.10. <A
+HREF="libqtgui.html#AEN13158"
+>Qt4 Dialogs</A
+></DT
+><DT
+>7.5.11. <A
+HREF="libqtgui.html#AEN16940"
+>Qt4 Date and Time</A
+></DT
+><DT
+>7.5.12. <A
+HREF="libqtgui.html#AEN18104"
+>Qt4 Miscellaneous</A
+></DT
+><DT
+>7.5.13. <A
+HREF="libqtgui.html#AEN18873"
+>Qt4 Paint Device</A
+></DT
+><DT
+>7.5.14. <A
+HREF="libqtgui.html#AEN19044"
+>Qt4 Multimedia</A
+></DT
+><DT
+>7.5.15. <A
+HREF="libqtgui.html#AEN19170"
+>Qt4 Layouts</A
+></DT
+><DT
+>7.5.16. <A
+HREF="libqtgui.html#AEN20966"
+>Qt4 Style</A
+></DT
+><DT
+>7.5.17. <A
+HREF="libqtgui.html#AEN21151"
+>Qt4 Text</A
+></DT
+><DT
+>7.5.18. <A
+HREF="libqtgui.html#AEN21392"
+>Qt4 Main Window and Application</A
+></DT
+><DT
+>7.5.19. <A
+HREF="libqtgui.html#AEN22993"
+>Qt4 Menus</A
+></DT
+><DT
+>7.5.20. <A
+HREF="libqtgui.html#AEN23749"
+>Qt4 Widgets</A
+></DT
+><DT
+>7.5.21. <A
+HREF="libqtgui.html#AEN34977"
+>Qt4 Drag and Drop</A
+></DT
+><DT
+>7.5.22. <A
+HREF="libqtgui.html#AEN35438"
+>Qt4 2D Graphics</A
+></DT
+></DL
+></DD
+><DT
+>7.6. <A
+HREF="libqtgui-ddefs.html"
+>Data Definitions for libQtGui</A
+></DT
+><DD
+><DL
+><DT
+>7.6.1. <A
+HREF="libqtgui-ddefs.html#AEN35754"
+>QtGui/qabstractbutton.h</A
+></DT
+><DT
+>7.6.2. <A
+HREF="libqtgui-ddefs.html#AEN35758"
+>QtGui/qabstractitemdelegate.h</A
+></DT
+><DT
+>7.6.3. <A
+HREF="libqtgui-ddefs.html#AEN35762"
+>QtGui/qabstractitemview.h</A
+></DT
+><DT
+>7.6.4. <A
+HREF="libqtgui-ddefs.html#AEN35766"
+>QtGui/qabstractpagesetupdialog.h</A
+></DT
+><DT
+>7.6.5. <A
+HREF="libqtgui-ddefs.html#AEN35770"
+>QtGui/qabstractprintdialog.h</A
+></DT
+><DT
+>7.6.6. <A
+HREF="libqtgui-ddefs.html#AEN35774"
+>QtGui/qabstractproxymodel.h</A
+></DT
+><DT
+>7.6.7. <A
+HREF="libqtgui-ddefs.html#AEN35778"
+>QtGui/qabstractscrollarea.h</A
+></DT
+><DT
+>7.6.8. <A
+HREF="libqtgui-ddefs.html#AEN35782"
+>QtGui/qabstractslider.h</A
+></DT
+><DT
+>7.6.9. <A
+HREF="libqtgui-ddefs.html#AEN35786"
+>QtGui/qabstractspinbox.h</A
+></DT
+><DT
+>7.6.10. <A
+HREF="libqtgui-ddefs.html#AEN35790"
+>QtGui/qabstracttextdocumentlayout.h</A
+></DT
+><DT
+>7.6.11. <A
+HREF="libqtgui-ddefs.html#AEN35794"
+>QtGui/qaccessible.h</A
+></DT
+><DT
+>7.6.12. <A
+HREF="libqtgui-ddefs.html#AEN35798"
+>QtGui/qaccessiblebridge.h</A
+></DT
+><DT
+>7.6.13. <A
+HREF="libqtgui-ddefs.html#AEN35802"
+>QtGui/qaccessibleobject.h</A
+></DT
+><DT
+>7.6.14. <A
+HREF="libqtgui-ddefs.html#AEN35806"
+>QtGui/qaccessibleplugin.h</A
+></DT
+><DT
+>7.6.15. <A
+HREF="libqtgui-ddefs.html#AEN35810"
+>QtGui/qaccessiblewidget.h</A
+></DT
+><DT
+>7.6.16. <A
+HREF="libqtgui-ddefs.html#AEN35814"
+>QtGui/qaction.h</A
+></DT
+><DT
+>7.6.17. <A
+HREF="libqtgui-ddefs.html#AEN35818"
+>QtGui/qactiongroup.h</A
+></DT
+><DT
+>7.6.18. <A
+HREF="libqtgui-ddefs.html#AEN35822"
+>QtGui/qapplication.h</A
+></DT
+><DT
+>7.6.19. <A
+HREF="libqtgui-ddefs.html#AEN35826"
+>QtGui/qbitmap.h</A
+></DT
+><DT
+>7.6.20. <A
+HREF="libqtgui-ddefs.html#AEN35830"
+>QtGui/qboxlayout.h</A
+></DT
+><DT
+>7.6.21. <A
+HREF="libqtgui-ddefs.html#AEN35834"
+>QtGui/qbrush.h</A
+></DT
+><DT
+>7.6.22. <A
+HREF="libqtgui-ddefs.html#AEN35838"
+>QtGui/qbuttongroup.h</A
+></DT
+><DT
+>7.6.23. <A
+HREF="libqtgui-ddefs.html#AEN35842"
+>QtGui/qcdestyle.h</A
+></DT
+><DT
+>7.6.24. <A
+HREF="libqtgui-ddefs.html#AEN35846"
+>QtGui/qcheckbox.h</A
+></DT
+><DT
+>7.6.25. <A
+HREF="libqtgui-ddefs.html#AEN35850"
+>QtGui/qclipboard.h</A
+></DT
+><DT
+>7.6.26. <A
+HREF="libqtgui-ddefs.html#AEN35854"
+>QtGui/qcolor.h</A
+></DT
+><DT
+>7.6.27. <A
+HREF="libqtgui-ddefs.html#AEN35858"
+>QtGui/qcolordialog.h</A
+></DT
+><DT
+>7.6.28. <A
+HREF="libqtgui-ddefs.html#AEN35862"
+>QtGui/qcolormap.h</A
+></DT
+><DT
+>7.6.29. <A
+HREF="libqtgui-ddefs.html#AEN35866"
+>QtGui/qcombobox.h</A
+></DT
+><DT
+>7.6.30. <A
+HREF="libqtgui-ddefs.html#AEN35870"
+>QtGui/qcommonstyle.h</A
+></DT
+><DT
+>7.6.31. <A
+HREF="libqtgui-ddefs.html#AEN35874"
+>QtGui/qcursor.h</A
+></DT
+><DT
+>7.6.32. <A
+HREF="libqtgui-ddefs.html#AEN35878"
+>QtGui/qdatetimeedit.h</A
+></DT
+><DT
+>7.6.33. <A
+HREF="libqtgui-ddefs.html#AEN35882"
+>QtGui/qdesktopwidget.h</A
+></DT
+><DT
+>7.6.34. <A
+HREF="libqtgui-ddefs.html#AEN35886"
+>QtGui/qdial.h</A
+></DT
+><DT
+>7.6.35. <A
+HREF="libqtgui-ddefs.html#AEN35890"
+>QtGui/qdialog.h</A
+></DT
+><DT
+>7.6.36. <A
+HREF="libqtgui-ddefs.html#AEN35894"
+>QtGui/qdirmodel.h</A
+></DT
+><DT
+>7.6.37. <A
+HREF="libqtgui-ddefs.html#AEN35898"
+>QtGui/qdockwidget.h</A
+></DT
+><DT
+>7.6.38. <A
+HREF="libqtgui-ddefs.html#AEN35902"
+>QtGui/qdrag.h</A
+></DT
+><DT
+>7.6.39. <A
+HREF="libqtgui-ddefs.html#AEN35906"
+>QtGui/qerrormessage.h</A
+></DT
+><DT
+>7.6.40. <A
+HREF="libqtgui-ddefs.html#AEN35910"
+>QtGui/qevent.h</A
+></DT
+><DT
+>7.6.41. <A
+HREF="libqtgui-ddefs.html#AEN35914"
+>QtGui/qfiledialog.h</A
+></DT
+><DT
+>7.6.42. <A
+HREF="libqtgui-ddefs.html#AEN35918"
+>QtGui/qfocusframe.h</A
+></DT
+><DT
+>7.6.43. <A
+HREF="libqtgui-ddefs.html#AEN35922"
+>QtGui/qfont.h</A
+></DT
+><DT
+>7.6.44. <A
+HREF="libqtgui-ddefs.html#AEN35926"
+>QtGui/qfontdatabase.h</A
+></DT
+><DT
+>7.6.45. <A
+HREF="libqtgui-ddefs.html#AEN35930"
+>QtGui/qfontdialog.h</A
+></DT
+><DT
+>7.6.46. <A
+HREF="libqtgui-ddefs.html#AEN35934"
+>QtGui/qfontinfo.h</A
+></DT
+><DT
+>7.6.47. <A
+HREF="libqtgui-ddefs.html#AEN35938"
+>QtGui/qfontmetrics.h</A
+></DT
+><DT
+>7.6.48. <A
+HREF="libqtgui-ddefs.html#AEN35942"
+>QtGui/qframe.h</A
+></DT
+><DT
+>7.6.49. <A
+HREF="libqtgui-ddefs.html#AEN35946"
+>QtGui/qgridlayout.h</A
+></DT
+><DT
+>7.6.50. <A
+HREF="libqtgui-ddefs.html#AEN35950"
+>QtGui/qgroupbox.h</A
+></DT
+><DT
+>7.6.51. <A
+HREF="libqtgui-ddefs.html#AEN35954"
+>QtGui/qheaderview.h</A
+></DT
+><DT
+>7.6.52. <A
+HREF="libqtgui-ddefs.html#AEN35958"
+>QtGui/qicon.h</A
+></DT
+><DT
+>7.6.53. <A
+HREF="libqtgui-ddefs.html#AEN35962"
+>QtGui/qiconengine.h</A
+></DT
+><DT
+>7.6.54. <A
+HREF="libqtgui-ddefs.html#AEN35966"
+>QtGui/qiconengineplugin.h</A
+></DT
+><DT
+>7.6.55. <A
+HREF="libqtgui-ddefs.html#AEN35970"
+>QtGui/qimage.h</A
+></DT
+><DT
+>7.6.56. <A
+HREF="libqtgui-ddefs.html#AEN35974"
+>QtGui/qimageiohandler.h</A
+></DT
+><DT
+>7.6.57. <A
+HREF="libqtgui-ddefs.html#AEN35978"
+>QtGui/qimagereader.h</A
+></DT
+><DT
+>7.6.58. <A
+HREF="libqtgui-ddefs.html#AEN35982"
+>QtGui/qimagewriter.h</A
+></DT
+><DT
+>7.6.59. <A
+HREF="libqtgui-ddefs.html#AEN35986"
+>QtGui/qinputcontext.h</A
+></DT
+><DT
+>7.6.60. <A
+HREF="libqtgui-ddefs.html#AEN35990"
+>QtGui/qinputcontextfactory.h</A
+></DT
+><DT
+>7.6.61. <A
+HREF="libqtgui-ddefs.html#AEN35994"
+>QtGui/qinputcontextplugin.h</A
+></DT
+><DT
+>7.6.62. <A
+HREF="libqtgui-ddefs.html#AEN35998"
+>QtGui/qinputdialog.h</A
+></DT
+><DT
+>7.6.63. <A
+HREF="libqtgui-ddefs.html#AEN36002"
+>QtGui/qitemdelegate.h</A
+></DT
+><DT
+>7.6.64. <A
+HREF="libqtgui-ddefs.html#AEN36006"
+>QtGui/qitemeditorfactory.h</A
+></DT
+><DT
+>7.6.65. <A
+HREF="libqtgui-ddefs.html#AEN36010"
+>QtGui/qitemselectionmodel.h</A
+></DT
+><DT
+>7.6.66. <A
+HREF="libqtgui-ddefs.html#AEN36014"
+>QtGui/qkeysequence.h</A
+></DT
+><DT
+>7.6.67. <A
+HREF="libqtgui-ddefs.html#AEN36018"
+>QtGui/qlabel.h</A
+></DT
+><DT
+>7.6.68. <A
+HREF="libqtgui-ddefs.html#AEN36022"
+>QtGui/qlayout.h</A
+></DT
+><DT
+>7.6.69. <A
+HREF="libqtgui-ddefs.html#AEN36026"
+>QtGui/qlayoutitem.h</A
+></DT
+><DT
+>7.6.70. <A
+HREF="libqtgui-ddefs.html#AEN36030"
+>QtGui/qlcdnumber.h</A
+></DT
+><DT
+>7.6.71. <A
+HREF="libqtgui-ddefs.html#AEN36034"
+>QtGui/qlineedit.h</A
+></DT
+><DT
+>7.6.72. <A
+HREF="libqtgui-ddefs.html#AEN36038"
+>QtGui/qlistview.h</A
+></DT
+><DT
+>7.6.73. <A
+HREF="libqtgui-ddefs.html#AEN36042"
+>QtGui/qlistwidget.h</A
+></DT
+><DT
+>7.6.74. <A
+HREF="libqtgui-ddefs.html#AEN36046"
+>QtGui/qmainwindow.h</A
+></DT
+><DT
+>7.6.75. <A
+HREF="libqtgui-ddefs.html#AEN36050"
+>QtGui/qmatrix.h</A
+></DT
+><DT
+>7.6.76. <A
+HREF="libqtgui-ddefs.html#AEN36054"
+>QtGui/qmenu.h</A
+></DT
+><DT
+>7.6.77. <A
+HREF="libqtgui-ddefs.html#AEN36058"
+>QtGui/qmenubar.h</A
+></DT
+><DT
+>7.6.78. <A
+HREF="libqtgui-ddefs.html#AEN36062"
+>QtGui/qmenudata.h</A
+></DT
+><DT
+>7.6.79. <A
+HREF="libqtgui-ddefs.html#AEN36066"
+>QtGui/qmessagebox.h</A
+></DT
+><DT
+>7.6.80. <A
+HREF="libqtgui-ddefs.html#AEN36070"
+>QtGui/qmime.h</A
+></DT
+><DT
+>7.6.81. <A
+HREF="libqtgui-ddefs.html#AEN36074"
+>QtGui/qmotifstyle.h</A
+></DT
+><DT
+>7.6.82. <A
+HREF="libqtgui-ddefs.html#AEN36078"
+>QtGui/qmovie.h</A
+></DT
+><DT
+>7.6.83. <A
+HREF="libqtgui-ddefs.html#AEN36082"
+>QtGui/qpagesetupdialog.h</A
+></DT
+><DT
+>7.6.84. <A
+HREF="libqtgui-ddefs.html#AEN36086"
+>QtGui/qpaintdevice.h</A
+></DT
+><DT
+>7.6.85. <A
+HREF="libqtgui-ddefs.html#AEN36090"
+>QtGui/qpaintengine.h</A
+></DT
+><DT
+>7.6.86. <A
+HREF="libqtgui-ddefs.html#AEN36094"
+>QtGui/qpainter.h</A
+></DT
+><DT
+>7.6.87. <A
+HREF="libqtgui-ddefs.html#AEN36098"
+>QtGui/qpainterpath.h</A
+></DT
+><DT
+>7.6.88. <A
+HREF="libqtgui-ddefs.html#AEN36102"
+>QtGui/qpalette.h</A
+></DT
+><DT
+>7.6.89. <A
+HREF="libqtgui-ddefs.html#AEN36106"
+>QtGui/qpen.h</A
+></DT
+><DT
+>7.6.90. <A
+HREF="libqtgui-ddefs.html#AEN36110"
+>QtGui/qpicture.h</A
+></DT
+><DT
+>7.6.91. <A
+HREF="libqtgui-ddefs.html#AEN36114"
+>QtGui/qpictureformatplugin.h</A
+></DT
+><DT
+>7.6.92. <A
+HREF="libqtgui-ddefs.html#AEN36118"
+>QtGui/qpixmap.h</A
+></DT
+><DT
+>7.6.93. <A
+HREF="libqtgui-ddefs.html#AEN36122"
+>QtGui/qpixmapcache.h</A
+></DT
+><DT
+>7.6.94. <A
+HREF="libqtgui-ddefs.html#AEN36126"
+>QtGui/qplastiquestyle.h</A
+></DT
+><DT
+>7.6.95. <A
+HREF="libqtgui-ddefs.html#AEN36130"
+>QtGui/qpolygon.h</A
+></DT
+><DT
+>7.6.96. <A
+HREF="libqtgui-ddefs.html#AEN36134"
+>QtGui/qprintdialog.h</A
+></DT
+><DT
+>7.6.97. <A
+HREF="libqtgui-ddefs.html#AEN36138"
+>QtGui/qprintengine.h</A
+></DT
+><DT
+>7.6.98. <A
+HREF="libqtgui-ddefs.html#AEN36142"
+>QtGui/qprinter.h</A
+></DT
+><DT
+>7.6.99. <A
+HREF="libqtgui-ddefs.html#AEN36146"
+>QtGui/qprogressbar.h</A
+></DT
+><DT
+>7.6.100. <A
+HREF="libqtgui-ddefs.html#AEN36150"
+>QtGui/qprogressdialog.h</A
+></DT
+><DT
+>7.6.101. <A
+HREF="libqtgui-ddefs.html#AEN36154"
+>QtGui/qproxymodel.h</A
+></DT
+><DT
+>7.6.102. <A
+HREF="libqtgui-ddefs.html#AEN36158"
+>QtGui/qpushbutton.h</A
+></DT
+><DT
+>7.6.103. <A
+HREF="libqtgui-ddefs.html#AEN36162"
+>QtGui/qradiobutton.h</A
+></DT
+><DT
+>7.6.104. <A
+HREF="libqtgui-ddefs.html#AEN36166"
+>QtGui/qregion.h</A
+></DT
+><DT
+>7.6.105. <A
+HREF="libqtgui-ddefs.html#AEN36170"
+>QtGui/qrgb.h</A
+></DT
+><DT
+>7.6.106. <A
+HREF="libqtgui-ddefs.html#AEN36174"
+>QtGui/qrubberband.h</A
+></DT
+><DT
+>7.6.107. <A
+HREF="libqtgui-ddefs.html#AEN36178"
+>QtGui/qscrollarea.h</A
+></DT
+><DT
+>7.6.108. <A
+HREF="libqtgui-ddefs.html#AEN36182"
+>QtGui/qscrollbar.h</A
+></DT
+><DT
+>7.6.109. <A
+HREF="libqtgui-ddefs.html#AEN36186"
+>QtGui/qsessionmanager.h</A
+></DT
+><DT
+>7.6.110. <A
+HREF="libqtgui-ddefs.html#AEN36190"
+>QtGui/qshortcut.h</A
+></DT
+><DT
+>7.6.111. <A
+HREF="libqtgui-ddefs.html#AEN36194"
+>QtGui/qsizegrip.h</A
+></DT
+><DT
+>7.6.112. <A
+HREF="libqtgui-ddefs.html#AEN36198"
+>QtGui/qsizepolicy.h</A
+></DT
+><DT
+>7.6.113. <A
+HREF="libqtgui-ddefs.html#AEN36202"
+>QtGui/qslider.h</A
+></DT
+><DT
+>7.6.114. <A
+HREF="libqtgui-ddefs.html#AEN36206"
+>QtGui/qsortfilterproxymodel.h</A
+></DT
+><DT
+>7.6.115. <A
+HREF="libqtgui-ddefs.html#AEN36210"
+>QtGui/qsound.h</A
+></DT
+><DT
+>7.6.116. <A
+HREF="libqtgui-ddefs.html#AEN36214"
+>QtGui/qspinbox.h</A
+></DT
+><DT
+>7.6.117. <A
+HREF="libqtgui-ddefs.html#AEN36218"
+>QtGui/qsplashscreen.h</A
+></DT
+><DT
+>7.6.118. <A
+HREF="libqtgui-ddefs.html#AEN36222"
+>QtGui/qsplitter.h</A
+></DT
+><DT
+>7.6.119. <A
+HREF="libqtgui-ddefs.html#AEN36226"
+>QtGui/qstackedlayout.h</A
+></DT
+><DT
+>7.6.120. <A
+HREF="libqtgui-ddefs.html#AEN36230"
+>QtGui/qstackedwidget.h</A
+></DT
+><DT
+>7.6.121. <A
+HREF="libqtgui-ddefs.html#AEN36234"
+>QtGui/qstandarditemmodel.h</A
+></DT
+><DT
+>7.6.122. <A
+HREF="libqtgui-ddefs.html#AEN36238"
+>QtGui/qstatusbar.h</A
+></DT
+><DT
+>7.6.123. <A
+HREF="libqtgui-ddefs.html#AEN36242"
+>QtGui/qstringlistmodel.h</A
+></DT
+><DT
+>7.6.124. <A
+HREF="libqtgui-ddefs.html#AEN36246"
+>QtGui/qstyle.h</A
+></DT
+><DT
+>7.6.125. <A
+HREF="libqtgui-ddefs.html#AEN36250"
+>QtGui/qstylefactory.h</A
+></DT
+><DT
+>7.6.126. <A
+HREF="libqtgui-ddefs.html#AEN36254"
+>QtGui/qstyleoption.h</A
+></DT
+><DT
+>7.6.127. <A
+HREF="libqtgui-ddefs.html#AEN36258"
+>QtGui/qstylepainter.h</A
+></DT
+><DT
+>7.6.128. <A
+HREF="libqtgui-ddefs.html#AEN36262"
+>QtGui/qstyleplugin.h</A
+></DT
+><DT
+>7.6.129. <A
+HREF="libqtgui-ddefs.html#AEN36266"
+>QtGui/qsyntaxhighlighter.h</A
+></DT
+><DT
+>7.6.130. <A
+HREF="libqtgui-ddefs.html#AEN36270"
+>QtGui/qtabbar.h</A
+></DT
+><DT
+>7.6.131. <A
+HREF="libqtgui-ddefs.html#AEN36274"
+>QtGui/qtableview.h</A
+></DT
+><DT
+>7.6.132. <A
+HREF="libqtgui-ddefs.html#AEN36278"
+>QtGui/qtablewidget.h</A
+></DT
+><DT
+>7.6.133. <A
+HREF="libqtgui-ddefs.html#AEN36282"
+>QtGui/qtabwidget.h</A
+></DT
+><DT
+>7.6.134. <A
+HREF="libqtgui-ddefs.html#AEN36286"
+>QtGui/qtextbrowser.h</A
+></DT
+><DT
+>7.6.135. <A
+HREF="libqtgui-ddefs.html#AEN36290"
+>QtGui/qtextcursor.h</A
+></DT
+><DT
+>7.6.136. <A
+HREF="libqtgui-ddefs.html#AEN36294"
+>QtGui/qtextdocument.h</A
+></DT
+><DT
+>7.6.137. <A
+HREF="libqtgui-ddefs.html#AEN36298"
+>QtGui/qtextdocumentfragment.h</A
+></DT
+><DT
+>7.6.138. <A
+HREF="libqtgui-ddefs.html#AEN36302"
+>QtGui/qtextedit.h</A
+></DT
+><DT
+>7.6.139. <A
+HREF="libqtgui-ddefs.html#AEN36306"
+>QtGui/qtextformat.h</A
+></DT
+><DT
+>7.6.140. <A
+HREF="libqtgui-ddefs.html#AEN36310"
+>QtGui/qtextlayout.h</A
+></DT
+><DT
+>7.6.141. <A
+HREF="libqtgui-ddefs.html#AEN36314"
+>QtGui/qtextlist.h</A
+></DT
+><DT
+>7.6.142. <A
+HREF="libqtgui-ddefs.html#AEN36318"
+>QtGui/qtextobject.h</A
+></DT
+><DT
+>7.6.143. <A
+HREF="libqtgui-ddefs.html#AEN36322"
+>QtGui/qtextoption.h</A
+></DT
+><DT
+>7.6.144. <A
+HREF="libqtgui-ddefs.html#AEN36326"
+>QtGui/qtexttable.h</A
+></DT
+><DT
+>7.6.145. <A
+HREF="libqtgui-ddefs.html#AEN36330"
+>QtGui/qtoolbar.h</A
+></DT
+><DT
+>7.6.146. <A
+HREF="libqtgui-ddefs.html#AEN36334"
+>QtGui/qtoolbox.h</A
+></DT
+><DT
+>7.6.147. <A
+HREF="libqtgui-ddefs.html#AEN36338"
+>QtGui/qtoolbutton.h</A
+></DT
+><DT
+>7.6.148. <A
+HREF="libqtgui-ddefs.html#AEN36342"
+>QtGui/qtooltip.h</A
+></DT
+><DT
+>7.6.149. <A
+HREF="libqtgui-ddefs.html#AEN36346"
+>QtGui/qtreeview.h</A
+></DT
+><DT
+>7.6.150. <A
+HREF="libqtgui-ddefs.html#AEN36350"
+>QtGui/qtreewidget.h</A
+></DT
+><DT
+>7.6.151. <A
+HREF="libqtgui-ddefs.html#AEN36354"
+>QtGui/qtreewidgetitemiterator.h</A
+></DT
+><DT
+>7.6.152. <A
+HREF="libqtgui-ddefs.html#AEN36358"
+>QtGui/qvalidator.h</A
+></DT
+><DT
+>7.6.153. <A
+HREF="libqtgui-ddefs.html#AEN36362"
+>QtGui/qvfbhdr.h</A
+></DT
+><DT
+>7.6.154. <A
+HREF="libqtgui-ddefs.html#AEN36366"
+>QtGui/qwhatsthis.h</A
+></DT
+><DT
+>7.6.155. <A
+HREF="libqtgui-ddefs.html#AEN36370"
+>QtGui/qwidget.h</A
+></DT
+><DT
+>7.6.156. <A
+HREF="libqtgui-ddefs.html#AEN36374"
+>QtGui/qwindowdefs.h</A
+></DT
+><DT
+>7.6.157. <A
+HREF="libqtgui-ddefs.html#AEN36378"
+>QtGui/qwindowsstyle.h</A
+></DT
+><DT
+>7.6.158. <A
+HREF="libqtgui-ddefs.html#AEN36382"
+>QtGui/qwmatrix.h</A
+></DT
+><DT
+>7.6.159. <A
+HREF="libqtgui-ddefs.html#AEN36386"
+>QtGui/qworkspace.h</A
+></DT
+></DL
+></DD
+><DT
+>7.7. <A
+HREF="libqtxml.html"
+>Interfaces for libQtXml</A
+></DT
+><DD
+><DL
+><DT
+>7.7.1. <A
+HREF="libqtxml.html#AEN36408"
+>Qt4 XML</A
+></DT
+></DL
+></DD
+><DT
+>7.8. <A
+HREF="libqtxml-ddefs.html"
+>Data Definitions for libQtXml</A
+></DT
+><DD
+><DL
+><DT
+>7.8.1. <A
+HREF="libqtxml-ddefs.html#AEN37201"
+>QtXml/qdom.h</A
+></DT
+><DT
+>7.8.2. <A
+HREF="libqtxml-ddefs.html#AEN37205"
+>QtXml/qxml.h</A
+></DT
+></DL
+></DD
+><DT
+>7.9. <A
+HREF="libqtopengl.html"
+>Interfaces for libQtOpenGL</A
+></DT
+><DD
+><DL
+><DT
+>7.9.1. <A
+HREF="libqtopengl.html#AEN37227"
+>Qt4 OpenGL</A
+></DT
+></DL
+></DD
+><DT
+>7.10. <A
+HREF="libqtopengl-ddefs.html"
+>Data Definitions for libQtOpenGL</A
+></DT
+><DD
+><DL
+><DT
+>7.10.1. <A
+HREF="libqtopengl-ddefs.html#AEN37730"
+>QtOpenGL/qgl.h</A
+></DT
+><DT
+>7.10.2. <A
+HREF="libqtopengl-ddefs.html#AEN37734"
+>QtOpenGL/qglcolormap.h</A
+></DT
+><DT
+>7.10.3. <A
+HREF="libqtopengl-ddefs.html#AEN37738"
+>QtOpenGL/qglpixelbuffer.h</A
+></DT
+></DL
+></DD
+><DT
+>7.11. <A
+HREF="libqtsql.html"
+>Interfaces for libQtSql</A
+></DT
+><DD
+><DL
+><DT
+>7.11.1. <A
+HREF="libqtsql.html#AEN37760"
+>Qt4 SQL</A
+></DT
+></DL
+></DD
+><DT
+>7.12. <A
+HREF="libqtsql-ddefs.html"
+>Data Definitions for libQtSql</A
+></DT
+><DD
+><DL
+><DT
+>7.12.1. <A
+HREF="libqtsql-ddefs.html#AEN38087"
+>QtSql/qsql.h</A
+></DT
+><DT
+>7.12.2. <A
+HREF="libqtsql-ddefs.html#AEN38091"
+>QtSql/qsqldatabase.h</A
+></DT
+><DT
+>7.12.3. <A
+HREF="libqtsql-ddefs.html#AEN38095"
+>QtSql/qsqldriver.h</A
+></DT
+><DT
+>7.12.4. <A
+HREF="libqtsql-ddefs.html#AEN38099"
+>QtSql/qsqldriverplugin.h</A
+></DT
+><DT
+>7.12.5. <A
+HREF="libqtsql-ddefs.html#AEN38103"
+>QtSql/qsqlerror.h</A
+></DT
+><DT
+>7.12.6. <A
+HREF="libqtsql-ddefs.html#AEN38107"
+>QtSql/qsqlfield.h</A
+></DT
+><DT
+>7.12.7. <A
+HREF="libqtsql-ddefs.html#AEN38111"
+>QtSql/qsqlindex.h</A
+></DT
+><DT
+>7.12.8. <A
+HREF="libqtsql-ddefs.html#AEN38115"
+>QtSql/qsqlquery.h</A
+></DT
+><DT
+>7.12.9. <A
+HREF="libqtsql-ddefs.html#AEN38119"
+>QtSql/qsqlquerymodel.h</A
+></DT
+><DT
+>7.12.10. <A
+HREF="libqtsql-ddefs.html#AEN38123"
+>QtSql/qsqlrecord.h</A
+></DT
+><DT
+>7.12.11. <A
+HREF="libqtsql-ddefs.html#AEN38127"
+>QtSql/qsqlrelationaltablemodel.h</A
+></DT
+><DT
+>7.12.12. <A
+HREF="libqtsql-ddefs.html#AEN38131"
+>QtSql/qsqlresult.h</A
+></DT
+><DT
+>7.12.13. <A
+HREF="libqtsql-ddefs.html#AEN38135"
+>QtSql/qsqltablemodel.h</A
+></DT
+></DL
+></DD
+><DT
+>7.13. <A
+HREF="libqtsvg.html"
+>Interfaces for libQtSvg</A
+></DT
+><DD
+><DL
+><DT
+>7.13.1. <A
+HREF="libqtsvg.html#AEN38157"
+>Qt4 Svg</A
+></DT
+></DL
+></DD
+><DT
+>7.14. <A
+HREF="libqtsvg-ddefs.html"
+>Data Definitions for libQtSvg</A
+></DT
+><DD
+><DL
+><DT
+>7.14.1. <A
+HREF="libqtsvg-ddefs.html#AEN38574"
+>QtSvg/qsvgrenderer.h</A
+></DT
+><DT
+>7.14.2. <A
+HREF="libqtsvg-ddefs.html#AEN38578"
+>QtSvg/qsvgwidget.h</A
+></DT
+></DL
+></DD
+><DT
+>7.15. <A
+HREF="libqtnetwork.html"
+>Interfaces for libQtNetwork</A
+></DT
+><DD
+><DL
+><DT
+>7.15.1. <A
+HREF="libqtnetwork.html#AEN38597"
+>Qt4 Network</A
+></DT
+></DL
+></DD
+><DT
+>7.16. <A
+HREF="libqtnetwork-ddefs.html"
+>Data Definitions for libQtNetwork</A
+></DT
+><DD
+><DL
+><DT
+>7.16.1. <A
+HREF="libqtnetwork-ddefs.html#AEN38849"
+>QtNetwork/qabstractsocket.h</A
+></DT
+><DT
+>7.16.2. <A
+HREF="libqtnetwork-ddefs.html#AEN38853"
+>QtNetwork/qftp.h</A
+></DT
+><DT
+>7.16.3. <A
+HREF="libqtnetwork-ddefs.html#AEN38857"
+>QtNetwork/qhostaddress.h</A
+></DT
+><DT
+>7.16.4. <A
+HREF="libqtnetwork-ddefs.html#AEN38861"
+>QtNetwork/qhostinfo.h</A
+></DT
+><DT
+>7.16.5. <A
+HREF="libqtnetwork-ddefs.html#AEN38865"
+>QtNetwork/qhttp.h</A
+></DT
+><DT
+>7.16.6. <A
+HREF="libqtnetwork-ddefs.html#AEN38869"
+>QtNetwork/qnetworkproxy.h</A
+></DT
+><DT
+>7.16.7. <A
+HREF="libqtnetwork-ddefs.html#AEN38873"
+>QtNetwork/qtcpserver.h</A
+></DT
+><DT
+>7.16.8. <A
+HREF="libqtnetwork-ddefs.html#AEN38877"
+>QtNetwork/qtcpsocket.h</A
+></DT
+><DT
+>7.16.9. <A
+HREF="libqtnetwork-ddefs.html#AEN38881"
+>QtNetwork/qudpsocket.h</A
+></DT
+><DT
+>7.16.10. <A
+HREF="libqtnetwork-ddefs.html#AEN38885"
+>QtNetwork/qurlinfo.h</A
+></DT
+></DL
+></DD
+></DL
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libgtk-x11-2.0-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="qt.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libgtk-x11-2.0</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Libraries</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,3148 @@
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libc</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="Libraries"
+HREF="baselib.html"><LINK
+REL="NEXT"
+TITLE="Interfaces Definitions for libc"
+HREF="libcman.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 11. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libcman.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBC-DDEFS">Data Definitions for libc</H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3285">assert.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define assert(expr)	((void)0)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3289">ctype.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+enum
+{
+  _ISupper, _ISlower, _ISalpha, _ISdigit, _ISxdigit, _ISspace, _ISprint,
+    _ISgraph, _ISblank, _IScntrl, _ISpunct, _ISalnum
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3293">dirent.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+typedef struct __dirstream DIR;
+
+
+
+
+
+struct dirent
+{
+  long d_ino;
+  off_t d_off;
+  unsigned short d_reclen;
+  unsigned char d_type;
+  char d_name[256];
+}
+ ;
+struct dirent64
+{
+  uint64_t d_ino;
+  int64_t d_off;
+  unsigned short d_reclen;
+  unsigned char d_type;
+  char d_name[256];
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3297">errno.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define errno	(*__errno_location())
+
+
+
+#define EPERM	1
+#define ECHILD	10
+#define ENETDOWN	100
+#define ENETUNREACH	101
+#define ENETRESET	102
+#define ECONNABORTED	103
+#define ECONNRESET	104
+#define ENOBUFS	105
+#define EISCONN	106
+#define ENOTCONN	107
+#define ESHUTDOWN	108
+#define ETOOMANYREFS	109
+#define EAGAIN	11
+#define ETIMEDOUT	110
+#define ECONNREFUSED	111
+#define EHOSTDOWN	112
+#define EHOSTUNREACH	113
+#define EALREADY	114
+#define EINPROGRESS	115
+#define ESTALE	116
+#define EUCLEAN	117
+#define ENOTNAM	118
+#define ENAVAIL	119
+#define ENOMEM	12
+#define EISNAM	120
+#define EREMOTEIO	121
+#define EDQUOT	122
+#define ENOMEDIUM	123
+#define EMEDIUMTYPE	124
+#define ECANCELED	125
+#define EACCES	13
+#define EFAULT	14
+#define ENOTBLK	15
+#define EBUSY	16
+#define EEXIST	17
+#define EXDEV	18
+#define ENODEV	19
+#define ENOENT	2
+#define ENOTDIR	20
+#define EISDIR	21
+#define EINVAL	22
+#define ENFILE	23
+#define EMFILE	24
+#define ENOTTY	25
+#define ETXTBSY	26
+#define EFBIG	27
+#define ENOSPC	28
+#define ESPIPE	29
+#define ESRCH	3
+#define EROFS	30
+#define EMLINK	31
+#define EPIPE	32
+#define EDOM	33
+#define ERANGE	34
+#define EINTR	4
+#define EIO	5
+#define ENXIO	6
+#define E2BIG	7
+#define ENOEXEC	8
+#define EBADF	9
+#define EWOULDBLOCK	EAGAIN
+#define EDEADLOCK	EDEADLK
+#define ENOTSUP	EOPNOTSUPP</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3301">fcntl.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define O_RDONLY	00
+#define O_ACCMODE	0003
+#define O_WRONLY	01
+#define O_CREAT	0100
+#define O_TRUNC	01000
+#define O_SYNC	010000
+#define O_RDWR	02
+#define O_EXCL	0200
+#define O_APPEND	02000
+#define O_ASYNC	020000
+#define O_NOCTTY	0400
+#define O_NDELAY	04000
+#define O_NONBLOCK	04000
+
+
+struct flock
+{
+  short l_type;
+  short l_whence;
+  off_t l_start;
+  off_t l_len;
+  pid_t l_pid;
+}
+ ;
+struct flock64
+{
+  short l_type;
+  short l_whence;
+  loff_t l_start;
+  loff_t l_len;
+  pid_t l_pid;
+}
+ ;
+
+
+
+
+
+
+#define F_DUPFD	0
+#define F_RDLCK	0
+#define F_GETFD	1
+#define F_WRLCK	1
+#define F_SETFD	2
+#define F_UNLCK	2
+#define F_GETFL	3
+#define F_SETFL	4
+#define F_GETLK	5
+#define F_SETLK	6
+#define F_SETLKW	7
+#define F_SETOWN	8
+#define F_GETOWN	9</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3305">fmtmsg.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+#define MM_HARD	1
+#define MM_NRECOV	128
+#define MM_UTIL	16
+#define MM_SOFT	2
+#define MM_OPSYS	32
+#define MM_FIRM	4
+#define MM_RECOVER	64
+#define MM_APPL	8
+
+
+
+#define MM_NOSEV	0
+#define MM_HALT	1
+#define MM_ERROR	2
+
+
+
+#define MM_NULLLBL	((char *) 0)</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3309">fnmatch.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+#define FNM_PATHNAME	(1&#60;&#60;0)
+#define FNM_NOESCAPE	(1&#60;&#60;1)
+#define FNM_PERIOD	(1&#60;&#60;2)
+#define FNM_NOMATCH	1</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3313">ftw.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+#define FTW_D	FTW_D
+#define FTW_DNR	FTW_DNR
+#define FTW_DP	FTW_DP
+#define FTW_F	FTW_F
+#define FTW_NS	FTW_NS
+#define FTW_SL	FTW_SL
+#define FTW_SLN	FTW_SLN
+
+
+enum
+{
+  FTW_F, FTW_D, FTW_DNR, FTW_NS, FTW_SL, FTW_DP, FTW_SLN
+}
+ ;
+
+
+enum
+{
+  FTW_PHYS, FTW_MOUNT, FTW_CHDIR, FTW_DEPTH
+}
+ ;
+
+
+struct FTW
+{
+  int base;
+  int level;
+}
+ ;
+
+
+typedef int (*__ftw_func_t) (char *__filename, struct stat * __status,
+			     int __flag);
+typedef int (*__ftw64_func_t) (char *__filename, struct stat64 * __status,
+			       int __flag);
+typedef int (*__nftw_func_t) (char *__filename, struct stat * __status,
+			      int __flag, struct FTW * __info);
+typedef int (*__nftw64_func_t) (char *__filename, struct stat64 * __status,
+				int __flag, struct FTW * __info);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3317">getopt.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+struct option
+{
+  char *name;
+  int has_arg;
+  int *flag;
+  int val;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3321">glob.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+typedef struct
+{
+  size_t gl_pathc;
+  char **gl_pathv;
+  size_t gl_offs;
+  int gl_flags;
+  void (*gl_closedir) (void);
+  struct dirent *(*gl_readdir) (void);
+  void *(*gl_opendir) (void);
+  int (*gl_lstat) (void);
+  int (*gl_stat) (void);
+}
+glob_t;
+
+
+typedef struct
+{
+  size_t gl_pathc;
+  char **gl_pathv;
+  size_t gl_offs;
+  int gl_flags;
+  void (*gl_closedir) (void);
+  struct dirent *(*gl_readdir) (void);
+  void *(*gl_opendir) (void);
+  int (*gl_lstat) (void);
+  int (*gl_stat) (void);
+}
+glob64_t;
+#define GLOB_ERR	(1&#60;&#60;0)
+#define GLOB_MARK	(1&#60;&#60;1)
+#define GLOB_BRACE	(1&#60;&#60;10)
+#define GLOB_NOMAGIC	(1&#60;&#60;11)
+#define GLOB_TILDE	(1&#60;&#60;12)
+#define GLOB_ONLYDIR	(1&#60;&#60;13)
+#define GLOB_TILDE_CHECK	(1&#60;&#60;14)
+#define GLOB_NOSORT	(1&#60;&#60;2)
+#define GLOB_DOOFFS	(1&#60;&#60;3)
+#define GLOB_NOCHECK	(1&#60;&#60;4)
+#define GLOB_APPEND	(1&#60;&#60;5)
+#define GLOB_NOESCAPE	(1&#60;&#60;6)
+#define GLOB_PERIOD	(1&#60;&#60;7)
+#define GLOB_MAGCHAR	(1&#60;&#60;8)
+#define GLOB_ALTDIRFUNC	(1&#60;&#60;9)
+
+
+
+#define GLOB_NOSPACE	1
+#define GLOB_ABORTED	2
+#define GLOB_NOMATCH	3
+#define GLOB_NOSYS	4</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3325">grp.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+struct group
+{
+  char *gr_name;
+  char *gr_passwd;
+  gid_t gr_gid;
+  char **gr_mem;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3329">iconv.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+typedef void *iconv_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3333">inttypes.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+typedef lldiv_t imaxdiv_t;
+typedef long long intmax_t;
+typedef unsigned long long uintmax_t;
+typedef unsigned int u_int;
+typedef unsigned int uint;
+typedef unsigned char uint8_t;
+typedef unsigned short uint16_t;
+typedef unsigned int uint32_t;
+typedef unsigned int *uintptr_t;
+typedef long long uint64_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3337">langinfo.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+
+#define ABDAY_1	0x20000
+#define ABDAY_2	0x20001
+#define ABDAY_3	0x20002
+#define ABDAY_4	0x20003
+#define ABDAY_5	0x20004
+#define ABDAY_6	0x20005
+#define ABDAY_7	0x20006
+
+
+
+#define DAY_1	0x20007
+#define DAY_2	0x20008
+#define DAY_3	0x20009
+#define DAY_4	0x2000A
+#define DAY_5	0x2000B
+#define DAY_6	0x2000C
+#define DAY_7	0x2000D
+
+
+
+#define ABMON_1	0x2000E
+#define ABMON_2	0x2000F
+#define ABMON_3	0x20010
+#define ABMON_4	0x20011
+#define ABMON_5	0x20012
+#define ABMON_6	0x20013
+#define ABMON_7	0x20014
+#define ABMON_8	0x20015
+#define ABMON_9	0x20016
+#define ABMON_10	0x20017
+#define ABMON_11	0x20018
+#define ABMON_12	0x20019
+
+
+
+#define MON_1	0x2001A
+#define MON_2	0x2001B
+#define MON_3	0x2001C
+#define MON_4	0x2001D
+#define MON_5	0x2001E
+#define MON_6	0x2001F
+#define MON_7	0x20020
+#define MON_8	0x20021
+#define MON_9	0x20022
+#define MON_10	0x20023
+#define MON_11	0x20024
+#define MON_12	0x20025
+
+
+
+#define AM_STR	0x20026
+#define PM_STR	0x20027
+
+
+
+#define D_T_FMT	0x20028
+#define D_FMT	0x20029
+#define T_FMT	0x2002A
+#define T_FMT_AMPM	0x2002B
+
+
+
+#define ERA	0x2002C
+#define ERA_D_FMT	0x2002E
+#define ALT_DIGITS	0x2002F
+#define ERA_D_T_FMT	0x20030
+#define ERA_T_FMT	0x20031
+
+
+
+
+
+
+#define CODESET	14
+
+
+
+#define CRNCYSTR	0x4000F
+
+
+
+#define RADIXCHAR	0x10000
+#define THOUSEP	0x10001
+#define YESEXPR	0x50000
+#define NOEXPR	0x50001
+#define YESSTR	0x50002
+#define NOSTR	0x50003</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3341">locale.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define LC_CTYPE	0
+#define LC_NUMERIC	1
+#define LC_TELEPHONE	10
+#define LC_MEASUREMENT	11
+#define LC_IDENTIFICATION	12
+#define LC_TIME	2
+#define LC_COLLATE	3
+#define LC_MONETARY	4
+#define LC_MESSAGES	5
+#define LC_ALL	6
+#define LC_PAPER	7
+#define LC_NAME	8
+#define LC_ADDRESS	9
+
+
+
+
+
+struct lconv
+{
+  char *decimal_point;
+  char *thousands_sep;
+  char *grouping;
+  char *int_curr_symbol;
+  char *currency_symbol;
+  char *mon_decimal_point;
+  char *mon_thousands_sep;
+  char *mon_grouping;
+  char *positive_sign;
+  char *negative_sign;
+  char int_frac_digits;
+  char frac_digits;
+  char p_cs_precedes;
+  char p_sep_by_space;
+  char n_cs_precedes;
+  char n_sep_by_space;
+  char p_sign_posn;
+  char n_sign_posn;
+  char int_p_cs_precedes;
+  char int_p_sep_by_space;
+  char int_n_cs_precedes;
+  char int_n_sep_by_space;
+  char int_p_sign_posn;
+  char int_n_sign_posn;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3345">math.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define HUGE_VAL	0x7FF00000UL
+#define DOMAIN	1
+#define SING	2
+
+
+struct exception
+{
+  int type;
+  char *name;
+  double arg1;
+  double arg2;
+  double retval;
+}
+ ;
+#define M_1_PI	0.31830988618379067154
+#define M_LOG10E	0.43429448190325182765
+#define M_2_PI	0.63661977236758134308
+#define M_LN2	0.69314718055994530942
+#define M_SQRT1_2	0.70710678118654752440
+#define M_PI_4	0.78539816339744830962
+#define M_2_SQRTPI	1.12837916709551257390
+#define M_SQRT2	1.41421356237309504880
+#define M_LOG2E	1.4426950408889634074
+#define M_PI_2	1.57079632679489661923
+#define M_LN10	2.30258509299404568402
+#define M_E	2.7182818284590452354
+#define M_PI	3.14159265358979323846</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3349">netdb.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define h_errno	(*__h_errno_location ())
+#define NETDB_INTERNAL	-1
+#define NETDB_SUCCESS	0
+#define HOST_NOT_FOUND	1
+#define TRY_AGAIN	2
+#define NO_RECOVERY	3
+#define NO_DATA	4
+#define h_addr	h_addr_list[0]
+#define NO_ADDRESS	NO_DATA
+
+
+struct servent
+{
+  char *s_name;
+  char **s_aliases;
+  int s_port;
+  char *s_proto;
+}
+ ;
+struct hostent
+{
+  char *h_name;
+  char **h_aliases;
+  int h_addrtype;
+  socklen_t h_length;
+  char **h_addr_list;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3353">netinet/in.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define INADDR_NONE	((unsigned long int) 0xffffffff)
+#define INADDR_BROADCAST	(0xffffffff)
+#define INADDR_ANY	0
+#define IPPROTO_IP	0
+#define IPPROTO_ICMP	1
+#define IP_TOS	1
+#define IPPROTO_UDP	17
+#define IPPROTO_IGMP	2
+#define IPPROTO_RAW	255
+#define IPPROTO_TCP	6
+
+
+
+
+
+struct in_addr
+{
+  uint32_t s_addr;
+}
+ ;
+
+
+struct sockaddr_in
+{
+  sa_family_t sin_family;
+  unsigned short sin_port;
+  struct in_addr sin_addr;
+  unsigned char __pad[8];
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3357">nl_types.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define NL_CAT_LOCALE	1
+#define NL_SETD	1
+
+
+
+
+
+typedef void *nl_catd;
+
+
+typedef int nl_item;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3361">pwd.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+struct passwd
+{
+  char *pw_name;
+  char *pw_passwd;
+  uid_t pw_uid;
+  gid_t pw_gid;
+  char *pw_gecos;
+  char *pw_dir;
+  char *pw_shell;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3365">regex.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+#define RE_SYNTAX_GNU_AWK	((RE_SYNTAX_POSIX_EXTENDED|RE_BACKSLASH_ESCAPE_IN_LISTS|RE_DEBUG)&amp;  ~(RE_DOT_NOT_NULL | RE_INTERVALS | RE_CONTEXT_INDEP_OPS))
+#define RE_BACKSLASH_ESCAPE_IN_LISTS	((unsigned long int)1)
+#define RE_BK_PLUS_QM	(RE_BACKSLASH_ESCAPE_IN_LISTS&#60;&#60;1)
+#define RE_SYNTAX_AWK	(RE_BACKSLASH_ESCAPE_IN_LISTS|RE_DOT_NOT_NULL|RE_NO_BK_PARENS| RE_NO_BK_REFS| RE_NO_BK_VBAR| RE_NO_EMPTY_RANGES| RE_DOT_NEWLINE| RE_CONTEXT_INDEP_ANCHORS| RE_UNMATCHED_RIGHT_PAREN_ORD | RE_NO_GNU_OPS)
+#define RE_CHAR_CLASSES	(RE_BK_PLUS_QM&#60;&#60;1)
+#define RE_SYNTAX_GREP	(RE_BK_PLUS_QM|RE_CHAR_CLASSES|RE_HAT_LISTS_NOT_NEWLINE|RE_INTERVALS|RE_NEWLINE_ALT)
+#define RE_CONTEXT_INDEP_ANCHORS	(RE_CHAR_CLASSES&#60;&#60;1)
+#define RE_SYNTAX_EGREP	(RE_CHAR_CLASSES|RE_CONTEXT_INDEP_ANCHORS| RE_CONTEXT_INDEP_OPS|RE_HAT_LISTS_NOT_NEWLINE|RE_NEWLINE_ALT|RE_NO_BK_PARENS|RE_NO_BK_VBAR)
+#define _RE_SYNTAX_POSIX_COMMON	(RE_CHAR_CLASSES|RE_DOT_NEWLINE|RE_DOT_NOT_NULL|RE_INTERVALS)
+#define RE_CONTEXT_INDEP_OPS	(RE_CONTEXT_INDEP_ANCHORS&#60;&#60;1)
+#define RE_CONTEXT_INVALID_OPS	(RE_CONTEXT_INDEP_OPS&#60;&#60;1)
+#define RE_DOT_NEWLINE	(RE_CONTEXT_INVALID_OPS&#60;&#60;1)
+#define RE_INVALID_INTERVAL_ORD	(RE_DEBUG&#60;&#60;1)
+#define RE_DOT_NOT_NULL	(RE_DOT_NEWLINE&#60;&#60;1)
+#define RE_HAT_LISTS_NOT_NEWLINE	(RE_DOT_NOT_NULL&#60;&#60;1)
+#define RE_INTERVALS	(RE_HAT_LISTS_NOT_NEWLINE&#60;&#60;1)
+#define RE_LIMITED_OPS	(RE_INTERVALS&#60;&#60;1)
+#define RE_NEWLINE_ALT	(RE_LIMITED_OPS&#60;&#60;1)
+#define RE_NO_BK_BRACES	(RE_NEWLINE_ALT&#60;&#60;1)
+#define RE_NO_BK_PARENS	(RE_NO_BK_BRACES&#60;&#60;1)
+#define RE_NO_BK_REFS	(RE_NO_BK_PARENS&#60;&#60;1)
+#define RE_NO_BK_VBAR	(RE_NO_BK_REFS&#60;&#60;1)
+#define RE_NO_EMPTY_RANGES	(RE_NO_BK_VBAR&#60;&#60;1)
+#define RE_UNMATCHED_RIGHT_PAREN_ORD	(RE_NO_EMPTY_RANGES&#60;&#60;1)
+#define RE_DEBUG	(RE_NO_GNU_OPS&#60;&#60;1)
+#define RE_NO_GNU_OPS	(RE_NO_POSIX_BACKTRACKING&#60;&#60;1)
+#define RE_SYNTAX_POSIX_EGREP	(RE_SYNTAX_EGREP|RE_INTERVALS|RE_NO_BK_BRACES|RE_INVALID_INTERVAL_ORD)
+#define RE_SYNTAX_POSIX_AWK	(RE_SYNTAX_POSIX_EXTENDED|RE_BACKSLASH_ESCAPE_IN_LISTS|RE_INTERVALS|RE_NO_GNU_OPS)
+#define RE_NO_POSIX_BACKTRACKING	(RE_UNMATCHED_RIGHT_PAREN_ORD&#60;&#60;1)
+#define RE_SYNTAX_POSIX_BASIC	(_RE_SYNTAX_POSIX_COMMON|RE_BK_PLUS_QM)
+#define RE_SYNTAX_POSIX_EXTENDED	(_RE_SYNTAX_POSIX_COMMON|RE_CONTEXT_INDEP_ANCHORS|RE_CONTEXT_INDEP_OPS|RE_NO_BK_BRACES|RE_NO_BK_PARENS|RE_NO_BK_VBAR|RE_CONTEXT_INVALID_OPS|RE_UNMATCHED_RIGHT_PAREN_ORD)
+#define RE_SYNTAX_POSIX_MINIMAL_EXTENDED	(_RE_SYNTAX_POSIX_COMMON|RE_CONTEXT_INDEP_ANCHORS|RE_CONTEXT_INVALID_OPS|RE_NO_BK_BRACES|RE_NO_BK_PARENS|RE_NO_BK_REFS|RE_NO_BK_VBAR|RE_UNMATCHED_RIGHT_PAREN_ORD)
+#define RE_SYNTAX_POSIX_MINIMAL_BASIC	(_RE_SYNTAX_POSIX_COMMON|RE_LIMITED_OPS)
+#define RE_SYNTAX_ED	RE_SYNTAX_POSIX_BASIC
+#define RE_SYNTAX_SED	RE_SYNTAX_POSIX_BASIC
+
+
+typedef unsigned long reg_syntax_t;
+
+
+
+
+
+typedef struct re_pattern_buffer
+{
+  unsigned char *buffer;
+  unsigned long allocated;
+  unsigned long used;
+  reg_syntax_t syntax;
+  char *fastmap;
+  char *translate;
+  size_t re_nsub;
+  unsigned int can_be_null:1;
+  unsigned int regs_allocated:2;
+  unsigned int fastmap_accurate:1;
+  unsigned int no_sub:1;
+  unsigned int not_bol:1;
+  unsigned int not_eol:1;
+  unsigned int newline_anchor:1;
+}
+regex_t;
+typedef int regoff_t;
+typedef struct
+{
+  regoff_t rm_so;
+  regoff_t rm_eo;
+}
+regmatch_t;
+#define REG_NOTEOL	(1&#60;&#60;1)
+#define REG_ICASE	(REG_EXTENDED&#60;&#60;1)
+#define REG_NEWLINE	(REG_ICASE&#60;&#60;1)
+#define REG_NOSUB	(REG_NEWLINE&#60;&#60;1)
+#define REG_NOMATCH	-1
+#define REG_EXTENDED	1
+#define REG_NOTBOL	1</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3369">sched.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SCHED_OTHER	0
+#define SCHED_FIFO	1
+#define SCHED_RR	2
+
+
+struct sched_param
+{
+  int sched_priority;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3373">search.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+typedef struct entry
+{
+  char *key;
+  void *data;
+}
+ENTRY;
+typedef enum
+{
+  FIND, ENTER
+}
+ACTION;
+typedef enum
+{
+  preorder, postorder, endorder, leaf
+}
+VISIT;
+
+
+typedef void (*__action_fn_t) (void *__nodep, VISIT __value, int __level);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3377">setjmp.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define setjmp(env)	_setjmp(env)
+#define sigsetjmp(a,b)	__sigsetjmp(a,b)
+
+
+
+
+
+typedef int __jmp_buf[6];
+
+
+struct __jmp_buf_tag
+{
+  __jmp_buf __jmpbuf;
+  int __mask_was_saved;
+  sigset_t __saved_mask;
+}
+ ;
+
+
+typedef struct __jmp_buf_tag jmp_buf[1];
+typedef jmp_buf sigjmp_buf;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3381">signal.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SIGRTMAX	(__libc_current_sigrtmax ())
+#define SIGRTMIN	(__libc_current_sigrtmin ())
+#define SIGEV_SIGNAL	0
+#define SIG_BLOCK	0
+#define SIG_UNBLOCK	1
+#define SIGEV_THREAD	2
+#define SIG_SETMASK	2
+#define NSIG	64
+
+
+typedef int sig_atomic_t;
+struct sigstack
+{
+  void *ss_sp;
+  int ss_onstack;
+}
+ ;
+#define SIG_ERR	((__sighandler_t)-1)
+#define SIG_DFL	((__sighandler_t)0)
+#define SIG_IGN	((__sighandler_t)1)
+#define SIGHUP	1
+#define SIGSEGV	11
+#define SIGPIPE	13
+#define SIGALRM	14
+#define SIGTERM	15
+#define SIGINT	2
+#define SIGPROF	27
+#define SIGQUIT	3
+#define SIGILL	4
+#define SIGTRAP	5
+#define SIGABRT	6
+#define SIGIOT	6
+#define SIGFPE	8
+#define SIGKILL	9
+#define SIGCLD	SIGCHLD
+#define SIGPOLL	SIGIO
+
+
+
+
+
+typedef void (*__sighandler_t) (void);
+#define SV_ONSTACK	(1&#60;&#60;0)
+#define SV_INTERRUPT	(1&#60;&#60;1)
+#define SV_RESETHAND	(1&#60;&#60;2)
+
+
+typedef union sigval
+{
+  int sival_int;
+  void *sival_ptr;
+}
+sigval_t;
+#define SIGEV_NONE	1
+
+
+typedef struct sigevent
+{
+  sigval_t sigev_value;
+  int sigev_signo;
+  int sigev_notify;
+  union
+  {
+    int _pad[SI_PAD_SIZE];
+    struct
+    {
+      void (*sigev_thread_func) (void);
+      void *_attribute;
+    }
+    _sigev_thread;
+  }
+  _sigev_un;
+}
+sigevent_t;
+#define SI_QUEUE	-1
+#define SI_TIMER	-2
+#define SI_MESGQ	-3
+#define SI_ASYNCIO	-4
+#define SI_USER	0
+#define si_pid	_sifields._kill._pid
+#define si_uid	_sifields._kill._uid
+#define si_value	_sifields._rt._sigval
+#define si_int	_sifields._rt._sigval.sival_int
+#define si_ptr	_sifields._rt._sigval.sival_ptr
+#define si_status	_sifields._sigchld._status
+#define si_stime	_sifields._sigchld._stime
+#define si_utime	_sifields._sigchld._utime
+#define si_addr	_sifields._sigfault._addr
+#define si_band	_sifields._sigpoll._band
+#define si_fd	_sifields._sigpoll._fd
+#define si_timer1	_sifields._timer._timer1
+
+
+typedef struct siginfo
+{
+  int si_signo;
+  int si_errno;
+  int si_code;
+  union
+  {
+    int _pad[SI_PAD_SIZE];
+    struct
+    {
+      pid_t _pid;
+      uid_t _uid;
+    }
+    _kill;
+    struct
+    {
+      unsigned int _timer1;
+      unsigned int _timer2;
+    }
+    _timer;
+    struct
+    {
+      pid_t _pid;
+      uid_t _uid;
+      sigval_t _sigval;
+    }
+    _rt;
+    struct
+    {
+      pid_t _pid;
+      uid_t _uid;
+      int _status;
+      clock_t _utime;
+      clock_t _stime;
+    }
+    _sigchld;
+    struct
+    {
+      void *_addr;
+    }
+    _sigfault;
+    struct
+    {
+      int _band;
+      int _fd;
+    }
+    _sigpoll;
+  }
+  _sifields;
+}
+siginfo_t;
+
+
+typedef struct
+{
+  unsigned long sig[_SIGSET_NWORDS];
+}
+sigset_t;
+#define SA_NOCLDSTOP	0x00000001
+#define SA_NOCLDWAIT	0x00000002
+#define SA_SIGINFO	0x00000004
+#define SA_ONSTACK	0x08000000
+#define SA_RESTART	0x10000000
+#define SA_INTERRUPT	0x20000000
+#define SA_NODEFER	0x40000000
+#define SA_RESETHAND	0x80000000
+#define SA_NOMASK	SA_NODEFER
+#define SA_ONESHOT	SA_RESETHAND
+
+
+struct sigaction
+{
+  union
+  {
+    __sighandler_t _sa_handler;
+    void (*_sa_sigaction) (void);
+  }
+  __sigaction_handler;
+  unsigned long sa_flags;
+  void (*sa_restorer) (void);
+  sigset_t sa_mask;
+}
+ ;
+
+
+typedef struct sigaltstack
+{
+  void *ss_sp;
+  int ss_flags;
+  size_t ss_size;
+}
+stack_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3385">stdio.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define EOF	(-1)
+#define P_tmpdir	"/tmp"
+#define FOPEN_MAX	16
+#define L_tmpnam	20
+#define FILENAME_MAX	4096
+#define BUFSIZ	8192
+#define L_ctermid	9
+#define L_cuserid	9
+
+
+typedef struct _IO_FILE *FILE;
+typedef struct
+{
+  off_t __pos;
+  mbstate_t __state;
+}
+fpos_t;
+typedef struct
+{
+  off64_t __pos;
+  mbstate_t __state;
+}
+fpos64_t;
+
+
+
+#define _IOFBF	0
+#define _IOLBF	1
+#define _IONBF	2</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3389">stdlib.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define MB_CUR_MAX	(__ctype_get_mb_cur_max())
+#define EXIT_SUCCESS	0
+#define EXIT_FAILURE	1
+#define RAND_MAX	2147483647
+
+
+typedef int (*__compar_fn_t) (void);
+
+
+typedef struct
+{
+  int quot;
+  int rem;
+}
+div_t;
+
+
+typedef struct
+{
+  long quot;
+  long rem;
+}
+ldiv_t;
+
+
+typedef struct
+{
+  long long quot;
+  long long rem;
+}
+lldiv_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3393">sys/file.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define LOCK_SH	1
+#define LOCK_EX	2
+#define LOCK_NB	4
+#define LOCK_UN	8</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3397">sys/ioctl.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define FIONREAD	0x541B</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3401">sys/ipc.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define IPC_PRIVATE	((key_t)0)
+#define IPC_RMID	0
+#define IPC_CREAT	00001000
+#define IPC_EXCL	00002000
+#define IPC_NOWAIT	00004000
+#define IPC_SET	1
+#define IPC_STAT	2
+
+
+struct ipc_perm
+{
+  key_t __key;
+  uid_t uid;
+  gid_t gid;
+  uid_t cuid;
+  gid_t cgid;
+  unsigned short mode;
+  unsigned short __pad1;
+  unsigned short __seq;
+  unsigned short __pad2;
+  unsigned long __unused1;
+  unsigned long __unused2;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3405">sys/mman.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define MAP_FAILED	((void*)-1)
+#define PROT_NONE	0x0
+#define MAP_SHARED	0x01
+#define MAP_PRIVATE	0x02
+#define PROT_READ	0x1
+#define MAP_FIXED	0x10
+#define PROT_WRITE	0x2
+#define MAP_ANONYMOUS	0x20
+#define PROT_EXEC	0x4
+#define MCL_CURRENT	1
+#define MS_ASYNC	1
+#define MCL_FUTURE	2
+#define MS_INVALIDATE	2
+#define MS_SYNC	4
+#define MAP_ANON	MAP_ANONYMOUS</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3409">sys/msg.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define MSG_NOERROR	010000
+
+
+
+
+
+
+
+
+struct msqid_ds
+{
+  struct ipc_perm msg_perm;
+  time_t msg_stime;
+  unsigned long __unused1;
+  time_t msg_rtime;
+  unsigned long __unused2;
+  time_t msg_ctime;
+  unsigned long __unused3;
+  unsigned long __msg_cbytes;
+  msgqnum_t msg_qnum;
+  msglen_t msg_qbytes;
+  pid_t msg_lspid;
+  pid_t msg_lrpid;
+  unsigned long __unused4;
+  unsigned long __unused5;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3413">sys/resource.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define RLIM_INFINITY	(~0UL)
+#define RLIM_SAVED_CUR	-1
+#define RLIM_SAVED_MAX	-1
+#define RLIMIT_CPU	0
+#define RUSAGE_SELF	0
+#define RLIMIT_FSIZE	1
+#define RLIMIT_DATA	2
+#define RLIMIT_STACK	3
+#define RLIMIT_CORE	4
+#define RLIMIT_NOFILE	7
+#define RLIMIT_AS	9
+
+
+
+
+
+typedef unsigned long rlim_t;
+typedef unsigned long long rlim64_t;
+
+
+struct rlimit
+{
+  rlim_t rlim_cur;
+  rlim_t rlim_max;
+}
+ ;
+struct rlimit64
+{
+  rlim64_t rlim_cur;
+  rlim64_t rlim_max;
+}
+ ;
+
+
+struct rusage
+{
+  struct timeval ru_utime;
+  struct timeval ru_stime;
+  long ru_maxrss;
+  long ru_ixrss;
+  long ru_idrss;
+  long ru_isrss;
+  long ru_minflt;
+  long ru_majflt;
+  long ru_nswap;
+  long ru_inblock;
+  long ru_oublock;
+  long ru_msgsnd;
+  long ru_msgrcv;
+  long ru_nsignals;
+  long ru_nvcsw;
+  long ru_nivcsw;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3417">sys/sem.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SEM_UNDO	0x1000
+#define GETPID	11
+#define GETVAL	12
+#define GETALL	13
+#define GETNCNT	14
+#define GETZCNT	15
+#define SETVAL	16
+#define SETALL	17
+
+
+struct sembuf
+{
+  short sem_num;
+  short sem_op;
+  short sem_flg;
+}
+ ;
+struct semid_ds
+{
+  struct ipc_perm sem_perm;
+  time_t sem_otime;
+  unsigned long __unused1;
+  time_t sem_ctime;
+  unsigned long __unused2;
+  unsigned long sem_nsems;
+  unsigned long __unused3;
+  unsigned long __unused4;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3421">sys/shm.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SHMLBA	(__getpagesize())
+#define SHM_RND	020000
+#define SHM_RDONLY	4096
+
+
+
+
+
+
+
+
+struct shmid_ds
+{
+  struct ipc_perm shm_perm;
+  int shm_segsz;
+  time_t shm_atime;
+  unsigned long __unused1;
+  time_t shm_dtime;
+  unsigned long __unused2;
+  time_t shm_ctime;
+  unsigned long __unused3;
+  pid_t shm_cpid;
+  pid_t shm_lpid;
+  shmatt_t shm_nattch;
+  unsigned long __unused4;
+  unsigned long __unused5;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3425">sys/socket.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SHUT_RD	0
+#define MSG_WAITALL	0x100
+#define MSG_TRUNC	0x20
+#define MSG_EOR	0x80
+#define SIOCGIFCONF	0x8912
+#define MSG_OOB	1
+#define SHUT_WR	1
+#define MSG_PEEK	2
+#define SHUT_RDWR	2
+#define MSG_DONTROUTE	4
+#define MSG_CTRUNC	8
+#define PF_INET	AF_INET
+#define PF_INET6	AF_INET6
+
+
+struct linger
+{
+  int l_onoff;
+  int l_linger;
+}
+ ;
+struct cmsghdr
+{
+  size_t cmsg_len;
+  int cmsg_level;
+  int cmsg_type;
+}
+ ;
+struct iovec
+{
+  void *iov_base;
+  size_t iov_len;
+}
+ ;
+
+
+typedef unsigned short sa_family_t;
+typedef unsigned int socklen_t;
+
+
+struct sockaddr
+{
+  sa_family_t sa_family;
+  char sa_data[14];
+}
+ ;
+
+
+struct msghdr
+{
+  void *msg_name;
+  int msg_namelen;
+  struct iovec *msg_iov;
+  size_t msg_iovlen;
+  void *msg_control;
+  size_t msg_controllen;
+  unsigned int msg_flags;
+}
+ ;
+#define AF_UNSPEC	0
+#define AF_LOCAL	1
+#define AF_UNIX	1
+#define AF_INET6	10
+#define AF_INET	2
+#define AF_AX25	3
+#define AF_IPX	4
+#define AF_APPLETALK	5
+#define AF_NETROM	6
+#define AF_BRIDGE	7
+#define AF_ATMPVC	8
+#define AF_X25	9
+
+
+
+#define SOCK_STREAM	1
+#define SOCK_PACKET	10
+#define SOCK_DGRAM	2
+#define SOCK_RAW	3
+#define SOCK_RDM	4
+#define SOCK_SEQPACKET	5
+
+
+
+#define SOL_IP	0
+#define SOL_SOCKET	1
+#define SO_DEBUG	1
+#define SO_OOBINLINE	10
+#define SO_NO_CHECK	11
+#define SO_PRIORITY	12
+#define SO_LINGER	13
+#define SOL_UDP	17
+#define SO_REUSEADDR	2
+#define SOL_RAW	255
+#define SO_TYPE	3
+#define SO_ERROR	4
+#define SO_DONTROUTE	5
+#define SOL_TCP	6
+#define SO_BROADCAST	6
+#define SO_SNDBUF	7
+#define SO_RCVBUF	8
+#define SO_KEEPALIVE	9</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3429">sys/stat.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define S_ISBLK(m)	(((m)&amp; S_IFMT)==S_IFBLK)
+#define S_ISCHR(m)	(((m)&amp; S_IFMT)==S_IFCHR)
+#define S_ISDIR(m)	(((m)&amp; S_IFMT)==S_IFDIR)
+#define S_ISFIFO(m)	(((m)&amp; S_IFMT)==S_IFIFO)
+#define S_ISLNK(m)	(((m)&amp; S_IFMT)==S_IFLNK)
+#define S_ISREG(m)	(((m)&amp; S_IFMT)==S_IFREG)
+#define S_ISSOCK(m)	(((m)&amp; S_IFMT)==S_IFSOCK)
+#define S_TYPEISMQ(buf)	((buf)-&#62;st_mode - (buf)-&#62;st_mode)
+#define S_TYPEISSEM(buf)	((buf)-&#62;st_mode - (buf)-&#62;st_mode)
+#define S_TYPEISSHM(buf)	((buf)-&#62;st_mode - (buf)-&#62;st_mode)
+#define S_IRWXU	(S_IREAD|S_IWRITE|S_IEXEC)
+#define S_IROTH	(S_IRGRP&#62;&#62;3)
+#define S_IRGRP	(S_IRUSR&#62;&#62;3)
+#define S_IRWXO	(S_IRWXG&#62;&#62;3)
+#define S_IRWXG	(S_IRWXU&#62;&#62;3)
+#define S_IWOTH	(S_IWGRP&#62;&#62;3)
+#define S_IWGRP	(S_IWUSR&#62;&#62;3)
+#define S_IXOTH	(S_IXGRP&#62;&#62;3)
+#define S_IXGRP	(S_IXUSR&#62;&#62;3)
+#define S_ISVTX	01000
+#define S_IXUSR	0x0040
+#define S_IWUSR	0x0080
+#define S_IRUSR	0x0100
+#define S_ISGID	0x0400
+#define S_ISUID	0x0800
+#define S_IFIFO	0x1000
+#define S_IFCHR	0x2000
+#define S_IFDIR	0x4000
+#define S_IFBLK	0x6000
+#define S_IFREG	0x8000
+#define S_IFLNK	0xa000
+#define S_IFSOCK	0xc000
+#define S_IFMT	0xf000
+#define _STAT_VER	3
+#define S_IREAD	S_IRUSR
+#define S_IWRITE	S_IWUSR
+#define S_IEXEC	S_IXUSR
+
+
+struct stat
+{
+  dev_t st_dev;
+  unsigned short __pad1;
+  unsigned long st_ino;
+  mode_t st_mode;
+  nlink_t st_nlink;
+  pid_t st_uid;
+  gid_t st_gid;
+  dev_t st_rdev;
+  unsigned short __pad2;
+  off_t st_size;
+  blksize_t st_blksize;
+  blkcnt_t st_blocks;
+  time_t st_atime;
+  unsigned long __unused1;
+  time_t st_mtime;
+  unsigned long __unused2;
+  time_t st_ctime;
+  unsigned long __unused3;
+  unsigned long __unused4;
+  unsigned long __unused5;
+}
+ ;
+struct stat64
+{
+  dev_t st_dev;
+  unsigned int __pad0;
+  ino_t __st_ino;
+  mode_t st_mode;
+  nlink_t st_nlink;
+  uid_t st_uid;
+  gid_t st_gid;
+  dev_t st_rdev;
+  unsigned int __pad2;
+  off64_t st_size;
+  blksize_t st_blksize;
+  blkcnt64_t st_blocks;
+  time_t st_atime;
+  unsigned long __unused1;
+  time_t st_mtime;
+  unsigned long __unused2;
+  time_t st_ctime;
+  unsigned long __unused3;
+  ino64_t st_ino;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3433">sys/time.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define ITIMER_REAL	0
+#define ITIMER_VIRTUAL	1
+#define ITIMER_PROF	2
+
+
+struct timezone
+{
+  int tz_minuteswest;
+  int tz_dsttime;
+}
+ ;
+
+
+
+
+
+
+
+
+struct timespec
+{
+  time_t tv_sec;
+  long tv_nsec;
+}
+ ;
+
+
+
+
+
+struct timeval
+{
+  time_t tv_sec;
+  suseconds_t tv_usec;
+}
+ ;
+
+
+struct itimerval
+{
+  struct timeval it_interval;
+  struct timeval it_value;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3437">sys/timeb.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+struct timeb
+{
+  time_t time;
+  unsigned short millitm;
+  short timezone;
+  short dstflag;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3441">sys/times.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+struct tms
+{
+  clock_t tms_utime;
+  clock_t tms_stime;
+  clock_t tms_cutime;
+  clock_t tms_cstime;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3445">sys/utsname.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+struct utsname
+{
+  char sysname[65];
+  char nodename[65];
+  char release[65];
+  char version[65];
+  char machine[65];
+  char domainname[65];
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3449">sys/wait.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define WIFSIGNALED(status)	(!WIFSTOPPED(status) &amp; &#38; !WIFEXITED(status))
+#define WIFSTOPPED(status)	(((status) &amp;  0xff) == 0x7f)
+#define WEXITSTATUS(status)	(((status) &amp;  0xff00) &#62;&#62; 8)
+#define WTERMSIG(status)	((status) &amp;  0x7f)
+#define WCOREDUMP(status)	((status) &amp;  0x80)
+#define WIFEXITED(status)	(WTERMSIG(status) == 0)
+#define WNOHANG	0x00000001
+#define WUNTRACED	0x00000002
+#define WCOREFLAG	0x80
+#define WSTOPSIG(status)	WEXITSTATUS(status)
+
+
+typedef enum
+{
+  P_ALL, P_PID, P_PGID
+}
+idtype_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3453">syslog.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+#define LOG_EMERG	0
+#define LOG_ALERT	1
+#define LOG_CRIT	2
+#define LOG_ERR	3
+#define LOG_WARNING	4
+#define LOG_NOTICE	5
+#define LOG_INFO	6
+#define LOG_DEBUG	7
+
+
+
+#define LOG_KERN	(0&#60;&#60;3)
+#define LOG_AUTHPRIV	(10&#60;&#60;3)
+#define LOG_FTP	(11&#60;&#60;3)
+#define LOG_USER	(1&#60;&#60;3)
+#define LOG_MAIL	(2&#60;&#60;3)
+#define LOG_DAEMON	(3&#60;&#60;3)
+#define LOG_AUTH	(4&#60;&#60;3)
+#define LOG_SYSLOG	(5&#60;&#60;3)
+#define LOG_LPR	(6&#60;&#60;3)
+#define LOG_NEWS	(7&#60;&#60;3)
+#define LOG_UUCP	(8&#60;&#60;3)
+#define LOG_CRON	(9&#60;&#60;3)
+
+
+
+#define LOG_LOCAL0	(16&#60;&#60;3)
+#define LOG_LOCAL1	(17&#60;&#60;3)
+#define LOG_LOCAL2	(18&#60;&#60;3)
+#define LOG_LOCAL3	(19&#60;&#60;3)
+#define LOG_LOCAL4	(20&#60;&#60;3)
+#define LOG_LOCAL5	(21&#60;&#60;3)
+#define LOG_LOCAL6	(22&#60;&#60;3)
+#define LOG_LOCAL7	(23&#60;&#60;3)
+
+
+
+#define LOG_UPTO(pri)	((1 &#60;&#60; ((pri)+1)) - 1)
+#define LOG_MASK(pri)	(1 &#60;&#60; (pri))
+
+
+
+#define LOG_PID	0x01
+#define LOG_CONS	0x02
+#define LOG_ODELAY	0x04
+#define LOG_NDELAY	0x08
+#define LOG_NOWAIT	0x10
+#define LOG_PERROR	0x20</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3457">termios.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define TCIFLUSH	0
+#define TCOOFF	0
+#define TCSANOW	0
+#define BS0	0000000
+#define CR0	0000000
+#define FF0	0000000
+#define NL0	0000000
+#define TAB0	0000000
+#define VT0	0000000
+#define OPOST	0000001
+#define OLCUC	0000002
+#define ONLCR	0000004
+#define XCASE	0000004
+#define OCRNL	0000010
+#define ONOCR	0000020
+#define ONLRET	0000040
+#define OFILL	0000100
+#define OFDEL	0000200
+#define NL1	0000400
+#define NLDLY	0000400
+#define CR1	0001000
+#define IUCLC	0001000
+#define CR2	0002000
+#define CR3	0003000
+#define CRDLY	0003000
+#define TAB1	0004000
+#define TAB2	0010000
+#define TAB3	0014000
+#define TABDLY	0014000
+#define BS1	0020000
+#define BSDLY	0020000
+#define VT1	0040000
+#define VTDLY	0040000
+#define FF1	0100000
+#define FFDLY	0100000
+#define TCOFLUSH	1
+#define TCOON	1
+#define TCSADRAIN	1
+#define TCIOFF	2
+#define TCIOFLUSH	2
+#define TCSAFLUSH	2
+#define TCION	3
+
+
+struct winsize
+{
+  unsigned short ws_row;
+  unsigned short ws_col;
+  unsigned short ws_xpixel;
+  unsigned short ws_ypixel;
+}
+ ;
+
+
+typedef int speed_t;
+typedef unsigned char cc_t;
+typedef unsigned int tcflag_t;
+#define NCCS	32
+
+
+struct termios
+{
+  tcflag_t c_iflag;
+  tcflag_t c_oflag;
+  tcflag_t c_cflag;
+  tcflag_t c_lflag;
+  cc_t c_line;
+  cc_t c_cc[NCCS];
+  speed_t c_ispeed;
+  speed_t c_ospeed;
+}
+ ;
+#define VINTR	0
+#define VQUIT	1
+#define VSUSP	10
+#define VEOL	11
+#define VREPRINT	12
+#define VDISCARD	13
+#define VWERASE	14
+#define VLNEXT	15
+#define VEOL2	16
+#define VERASE	2
+#define VKILL	3
+#define VEOF	4
+#define VMIN	6
+#define VSWTC	7
+#define VSTART	8
+#define VSTOP	9
+
+
+
+#define IGNBRK	0000001
+#define BRKINT	0000002
+#define IGNPAR	0000004
+#define PARMRK	0000010
+#define INPCK	0000020
+#define ISTRIP	0000040
+#define INLCR	0000100
+#define IGNCR	0000200
+#define ICRNL	0000400
+#define IXON	0002000
+#define IXANY	0004000
+#define IXOFF	0010000
+#define IMAXBEL	0020000
+
+
+
+
+
+
+#define CS5	0000000
+#define CS6	0000020
+#define CS7	0000040
+#define CS8	0000060
+#define CSIZE	0000060
+#define CSTOPB	0000100
+#define CREAD	0000200
+#define PARENB	0000400
+#define PARODD	0001000
+#define HUPCL	0002000
+#define CLOCAL	0004000
+#define VTIME	5
+
+
+
+#define ISIG	0000001
+#define ICANON	0000002
+#define ECHO	0000010
+#define ECHOE	0000020
+#define ECHOK	0000040
+#define ECHONL	0000100
+#define NOFLSH	0000200
+#define TOSTOP	0000400
+#define ECHOCTL	0001000
+#define ECHOPRT	0002000
+#define ECHOKE	0004000
+#define FLUSHO	0010000
+#define PENDIN	0040000
+#define IEXTEN	0100000
+
+
+
+#define B0	0000000
+#define B50	0000001
+#define B75	0000002
+#define B110	0000003
+#define B134	0000004
+#define B150	0000005
+#define B200	0000006
+#define B300	0000007
+#define B600	0000010
+#define B1200	0000011
+#define B1800	0000012
+#define B2400	0000013
+#define B4800	0000014
+#define B9600	0000015
+#define B19200	0000016
+#define B38400	0000017</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3461">time.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define CLOCK_REALTIME	0
+#define TIMER_ABSTIME	1
+#define CLOCKS_PER_SEC	1000000l
+
+
+struct tm
+{
+  int tm_sec;
+  int tm_min;
+  int tm_hour;
+  int tm_mday;
+  int tm_mon;
+  int tm_year;
+  int tm_wday;
+  int tm_yday;
+  int tm_isdst;
+  long tm_gmtoff;
+  char *tm_zone;
+}
+ ;
+struct itimerspec
+{
+  struct timespec it_interval;
+  struct timespec it_value;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3465">ucontext.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+typedef struct
+{
+  gregset_t gregs;
+  fpregset_t fpregs;
+  unsigned long oldmask;
+  unsigned long cr2;
+}
+mcontext_t;
+
+
+typedef struct ucontext
+{
+  unsigned long uc_flags;
+  struct ucontext *uc_link;
+  stack_t uc_stack;
+  mcontext_t uc_mcontext;
+  sigset_t uc_sigmask;
+  struct _libc_fpstate __fpregs_mem;
+}
+ucontext_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3469">ulimit.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define UL_GETFSIZE	1
+#define UL_SETFSIZE	2</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3473">unistd.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SEEK_SET	0
+#define STDIN_FILENO	0
+#define SEEK_CUR	1
+#define STDOUT_FILENO	1
+#define SEEK_END	2
+#define STDERR_FILENO	2
+
+
+typedef long long off64_t;
+typedef int *intptr_t;
+#define F_OK	0
+#define X_OK	1
+#define W_OK	2
+#define R_OK	4
+
+
+
+#define _POSIX_ASYNCHRONOUS_IO	1
+#define _POSIX_FSYNC	1
+#define _POSIX_MAPPED_FILES	1
+#define _POSIX_MEMLOCK	1
+#define _POSIX_MEMLOCK_RANGE	1
+#define _POSIX_MEMORY_PROTECTION	1
+#define _POSIX_MESSAGE_PASSING	1
+#define _POSIX_PRIORITY_SCHEDULING	1
+#define _POSIX_REALTIME_SIGNALS	1
+#define _POSIX_SEMAPHORES	1
+#define _POSIX_SHARED_MEMORY_OBJECTS	1
+#define _POSIX_SYNCHRONIZED_IO	1
+#define _POSIX_TIMERS	1
+#define _POSIX2_C_VERSION	199209L
+#define _POSIX2_VERSION	199209L
+#define _POSIX_VERSION	199506L
+
+
+
+#define _PC_LINK_MAX	0
+#define _PC_MAX_CANON	1
+#define _PC_ASYNC_IO	10
+#define _PC_PRIO_IO	11
+#define _PC_FILESIZEBITS	13
+#define _PC_MAX_INPUT	2
+#define _PC_NAME_MAX	3
+#define _PC_PATH_MAX	4
+#define _PC_PIPE_BUF	5
+#define _PC_CHOWN_RESTRICTED	6
+#define _PC_NO_TRUNC	7
+#define _PC_VDISABLE	8
+#define _PC_SYNC_IO	9
+
+
+
+#define _SC_ARG_MAX	0
+#define _SC_CHILD_MAX	1
+#define _SC_PRIORITY_SCHEDULING	10
+#define _SC_TIMERS	11
+#define _SC_ASYNCHRONOUS_IO	12
+#define _SC_XBS5_ILP32_OFF32	125
+#define _SC_XBS5_ILP32_OFFBIG	126
+#define _SC_XBS5_LP64_OFF64	127
+#define _SC_XBS5_LPBIG_OFFBIG	128
+#define _SC_XOPEN_LEGACY	129
+#define _SC_PRIORITIZED_IO	13
+#define _SC_XOPEN_REALTIME	130
+#define _SC_SYNCHRONIZED_IO	14
+#define _SC_MAPPED_FILES	16
+#define _SC_MEMLOCK	17
+#define _SC_MEMLOCK_RANGE	18
+#define _SC_MEMORY_PROTECTION	19
+#define _SC_CLK_TCK	2
+#define _SC_MESSAGE_PASSING	20
+#define _SC_SEMAPHORES	21
+#define _SC_SHARED_MEMORY_OBJECTS	22
+#define _SC_AIO_LISTIO_MAX	23
+#define _SC_AIO_MAX	24
+#define _SC_AIO_PRIO_DELTA_MAX	25
+#define _SC_DELAYTIMER_MAX	26
+#define _SC_MQ_OPEN_MAX	27
+#define _SC_MQ_PRIO_MAX	28
+#define _SC_VERSION	29
+#define _SC_NGROUPS_MAX	3
+#define _SC_PAGESIZE	30
+#define _SC_RTSIG_MAX	31
+#define _SC_SEM_NSEMS_MAX	32
+#define _SC_SEM_VALUE_MAX	33
+#define _SC_SIGQUEUE_MAX	34
+#define _SC_TIMER_MAX	35
+#define _SC_BC_BASE_MAX	36
+#define _SC_BC_DIM_MAX	37
+#define _SC_BC_SCALE_MAX	38
+#define _SC_BC_STRING_MAX	39
+#define _SC_OPEN_MAX	4
+#define _SC_COLL_WEIGHTS_MAX	40
+#define _SC_EXPR_NEST_MAX	42
+#define _SC_LINE_MAX	43
+#define _SC_RE_DUP_MAX	44
+#define _SC_2_VERSION	46
+#define _SC_2_C_BIND	47
+#define _SC_2_C_DEV	48
+#define _SC_2_FORT_DEV	49
+#define _SC_STREAM_MAX	5
+#define _SC_2_FORT_RUN	50
+#define _SC_2_SW_DEV	51
+#define _SC_2_LOCALEDEF	52
+#define _SC_TZNAME_MAX	6
+#define _SC_THREADS	67
+#define _SC_THREAD_SAFE_FUNCTIONS	68
+#define _SC_JOB_CONTROL	7
+#define _SC_THREAD_DESTRUCTOR_ITERATIONS	73
+#define _SC_THREAD_KEYS_MAX	74
+#define _SC_THREAD_STACK_MIN	75
+#define _SC_THREAD_THREADS_MAX	76
+#define _SC_THREAD_ATTR_STACKADDR	77
+#define _SC_THREAD_ATTR_STACKSIZE	78
+#define _SC_THREAD_PRIORITY_SCHEDULING	79
+#define _SC_SAVED_IDS	8
+#define _SC_THREAD_PRIO_INHERIT	80
+#define _SC_THREAD_PRIO_PROTECT	81
+#define _SC_THREAD_PROCESS_SHARED	82
+#define _SC_PASS_MAX	88
+#define _SC_XOPEN_VERSION	89
+#define _SC_REALTIME_SIGNALS	9
+#define _SC_XOPEN_CRYPT	92
+#define _SC_XOPEN_ENH_I18N	93
+#define _SC_XOPEN_SHM	94
+#define _SC_2_C_VERSION	96
+#define _SC_2_UPE	97
+
+
+
+#define _CS_PATH	0
+#define _CS_XBS5_ILP32_OFF32_CFLAGS	1100
+#define _CS_XBS5_ILP32_OFF32_LDFLAGS	1101
+#define _CS_XBS5_ILP32_OFF32_LIBS	1102
+#define _CS_XBS5_ILP32_OFF32_LINTFLAGS	1103
+#define _CS_XBS5_ILP32_OFFBIG_CFLAGS	1104
+#define _CS_XBS5_ILP32_OFFBIG_LDFLAGS	1105
+#define _CS_XBS5_ILP32_OFFBIG_LIBS	1106
+#define _CS_XBS5_ILP32_OFFBIG_LINTFLAGS	1107
+#define _CS_XBS5_LP64_OFF64_CFLAGS	1108
+#define _CS_XBS5_LP64_OFF64_LDFLAGS	1109
+#define _CS_XBS5_LP64_OFF64_LIBS	1110
+#define _CS_XBS5_LP64_OFF64_LINTFLAGS	1111
+#define _CS_XBS5_LPBIG_OFFBIG_CFLAGS	1112
+#define _CS_XBS5_LPBIG_OFFBIG_LDFLAGS	1113
+#define _CS_XBS5_LPBIG_OFFBIG_LIBS	1114
+#define _CS_XBS5_LPBIG_OFFBIG_LINTFLAGS	1115
+
+
+
+#define _XOPEN_REALTIME	1
+#define _XOPEN_XPG4	1
+#define _XOPEN_XCU_VERSION	4
+#define _XOPEN_VERSION	500</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3477">utime.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+struct utimbuf
+{
+  time_t actime;
+  time_t modtime;
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3481">utmp.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define UT_HOSTSIZE	256
+#define UT_LINESIZE	32
+#define UT_NAMESIZE	32
+
+
+struct exit_status
+{
+  short e_termination;
+  short e_exit;
+}
+ ;
+struct lastlog
+{
+  timer_t ll_time;
+  char ll_line[UT_LINESIZE];
+  char ll_host[UT_HOSTSIZE];
+}
+ ;
+
+
+struct utmp
+{
+  short ut_type;
+  pid_t ut_pid;
+  char ut_line[UT_LINESIZE];
+  char ut_id[4];
+  char ut_user[UT_NAMESIZE];
+  char ut_host[UT_HOSTSIZE];
+  struct exit_status ut_exit;
+  long ut_session;
+  struct timeval ut_tv;
+  int32_t ut_addr_v6[4];
+  char __unused[20];
+}
+ ;
+#define EMPTY	0
+#define RUN_LVL	1
+#define BOOT_TIME	2
+#define NEW_TIME	3
+#define OLD_TIME	4
+#define INIT_PROCESS	5
+#define LOGIN_PROCESS	6
+#define USER_PROCESS	7
+#define DEAD_PROCESS	8
+#define ACCOUNTING	9</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3485">wchar.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define WEOF	(0xffffffffu)
+#define WCHAR_MAX	0x7FFFFFFF
+#define WCHAR_MIN	0x80000000</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3489">wctype.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+typedef unsigned long wctype_t;
+typedef unsigned int wint_t;
+typedef int wctrans_t;
+typedef struct
+{
+  int count;
+  wint_t value;
+}
+mbstate_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN3493">wordexp.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+enum
+{
+  WRDE_DOOFFS, WRDE_APPEND, WRDE_NOCMD, WRDE_REUSE, WRDE_SHOWERR, WRDE_UNDEF,
+    __WRDE_FLAGS
+}
+ ;
+
+
+typedef struct
+{
+  int we_wordc;
+  char **we_wordv;
+  int we_offs;
+}
+wordexp_t;
+
+
+enum
+{
+  WRDE_NOSYS, WRDE_NOSPACE, WRDE_BADCHAR, WRDE_BADVAL, WRDE_CMDSUB,
+    WRDE_SYNTAX
+}
+ ;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Libraries</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interfaces Definitions for libc</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

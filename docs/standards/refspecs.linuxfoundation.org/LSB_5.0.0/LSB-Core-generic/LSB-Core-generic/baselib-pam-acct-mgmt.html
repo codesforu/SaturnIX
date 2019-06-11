@@ -1,0 +1,431 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>pam_acct_mgmt</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libpam"
+HREF="libpamman.html"><LINK
+REL="PREVIOUS"
+TITLE="Interface Definitions for libpam"
+HREF="libpamman.html"><LINK
+REL="NEXT"
+TITLE="pam_authenticate"
+HREF="baselib-pam-authenticate.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpamman.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-pam-authenticate.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-PAM-ACCT-MGMT"
+></A
+>pam_acct_mgmt</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN27665"
+></A
+><H2
+>Name</H2
+>pam_acct_mgmt&nbsp;--&nbsp;establish the status of a user's account</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN27668"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN27671"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;security/pam_appl.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int 
+  <TT
+CLASS="FUNCTION"
+>pam_acct_mgmt</TT
+></CODE
+>(pam_handle_t *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>pamh</I
+></TT
+></I
+></TT
+>, int 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>flags</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN27682"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="FUNCTION"
+>pam_acct_mgmt()</TT
+> establishes the account's usability 
+and the user's accessibility to the system. It is typically called 
+after the user has been authenticated.</P
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+> may be specified as any valid flag (namely, 
+one of those applicable to the <TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+> argument of 
+<TT
+CLASS="FUNCTION"
+>pam_authenticate()</TT
+>). Additionally, the value of 
+<TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+> may be logically or'd 
+with <CODE
+CLASS="CONSTANT"
+>PAM_SILENT</CODE
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN27694"
+></A
+><H2
+>Return Value</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN27697"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PAM_SUCCESS</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Success.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN27701"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PAM_NEW_AUTHTOK_REQD</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>User is valid, but user's authentication token has expired.
+The correct response to this return-value is to require that the
+user satisfy the <TT
+CLASS="FUNCTION"
+>pam_chauthtok()</TT
+> function before 
+obtaining service. It may not be possible for an application to do 
+this. In such a case, the user should be denied access until the
+account password is updated.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN27706"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PAM_ACCT_EXPIRED</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>User is no longer permitted access to the system.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN27710"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PAM_AUTH_ERR</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Authentication error.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN27714"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PAM_PERM_DENIED</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>User is not permitted to gain access at this time.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN27718"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PAM_USER_UNKNOWN</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>User is not known to a module's account management component.</P
+></TD
+></TR
+></TBODY
+></TABLE
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>Errors may be translated to text with <TT
+CLASS="FUNCTION"
+>pam_strerror()</TT
+>.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpamman.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-pam-authenticate.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interface Definitions for libpam</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libpamman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>pam_authenticate</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

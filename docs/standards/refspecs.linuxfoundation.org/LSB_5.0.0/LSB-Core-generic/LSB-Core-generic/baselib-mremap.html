@@ -1,0 +1,603 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>mremap</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="mrand48_r"
+HREF="baselib-mrand48-r-1.html"><LINK
+REL="NEXT"
+TITLE="ngettext"
+HREF="baselib-ngettext.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-mrand48-r-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-ngettext.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-MREMAP"
+></A
+>mremap</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN17849"
+></A
+><H2
+>Name</H2
+>mremap&nbsp;--&nbsp;remap a virtual memory address</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN17852"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN17853"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;sys/mman.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void * <TT
+CLASS="FUNCTION"
+>mremap</TT
+></CODE
+>(void * <TT
+CLASS="PARAMETER"
+><I
+>old_address</I
+></TT
+>, size_t <TT
+CLASS="PARAMETER"
+><I
+>old_size</I
+></TT
+>, size_t <TT
+CLASS="PARAMETER"
+><I
+>new_size</I
+></TT
+>, int <TT
+CLASS="PARAMETER"
+><I
+>flags</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN17866"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>mremap()</TT
+> function expands (or shrinks)
+an existing memory mapping, potentially moving it at
+the same time, depending on the flags argument and the
+available virtual address space.</P
+><P
+><CODE
+CLASS="VARNAME"
+>old_address</CODE
+> is the old address of the
+virtual memory block to be resized. 
+Note that <CODE
+CLASS="VARNAME"
+>old_address</CODE
+> must be page aligned. 
+<CODE
+CLASS="VARNAME"
+>old_size</CODE
+> is the old size of the virtual memory block. 
+<CODE
+CLASS="VARNAME"
+>new_size</CODE
+> is the requested size of the
+virtual memory block after the resize.</P
+><P
+>In Linux the memory is divided into pages. A user process has (one or)
+several linear virtual memory segments. Each virtual memory segment
+has one or more mappings to real memory pages (in the page table).
+Each virtual memory segment has its own protection (access rights),
+which may cause a segmentation violation if the memory is accessed
+incorrectly (e.g., writing to a read-only segment). Accessing virtual
+memory outside of the segments will also cause a segmentation violation.</P
+><P
+><TT
+CLASS="FUNCTION"
+>mremap()</TT
+> uses the Linux page table
+scheme. <TT
+CLASS="FUNCTION"
+>mremap()</TT
+> changes the mapping between
+virtual addresses and memory pages. This can be used to implement a
+very efficient form of <TT
+CLASS="FUNCTION"
+>realloc()</TT
+>.</P
+><P
+>The flags bit-mask argument may be 0, or include the following flag:</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17882"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>MREMAP_MAYMOVE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>By default, if there is not sufficient space to expand a mapping
+at its current location, then <TT
+CLASS="FUNCTION"
+>mremap()</TT
+> fails.
+If this flag is specified, then the kernel is permitted to relocate
+the mapping to a new virtual address, if necessary. If the mapping
+is relocated, then absolute pointers into the old mapping location
+become invalid (offsets relative to the starting address of the
+mapping should be employed).</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17887"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>MREMAP_FIXED</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This flag serves a similar purpose to the <CODE
+CLASS="CONSTANT"
+>MAP_FIXED</CODE
+>
+flag of <TT
+CLASS="FUNCTION"
+>mmap()</TT
+>. If this flag is specified,
+then <TT
+CLASS="FUNCTION"
+>mremap()</TT
+>accepts a fifth argument,
+<SPAN
+CLASS="TYPE"
+>void *</SPAN
+><CODE
+CLASS="VARNAME"
+>new_address</CODE
+>,
+which specifies a pagealigned address to which the mapping must
+be moved. Any previous mapping at the address range specified by
+<CODE
+CLASS="VARNAME"
+>new_address</CODE
+> and <CODE
+CLASS="VARNAME"
+>new_size</CODE
+> is
+unmapped. If <CODE
+CLASS="CONSTANT"
+>MREMAP_FIXED</CODE
+> is specified, then
+<CODE
+CLASS="CONSTANT"
+>MREMAP_MAYMOVE</CODE
+> must also be specified.</P
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+>If the memory segment specified by <CODE
+CLASS="VARNAME"
+>old_address</CODE
+>
+and <CODE
+CLASS="VARNAME"
+>old_size</CODE
+> is locked (using
+<TT
+CLASS="FUNCTION"
+>mlock()</TT
+> or similar), then this lock is maintained
+when the segment is resized and/or relocated. As a consequence, the
+amount of memory locked by the process may change.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN17904"
+></A
+><H2
+>Return Value</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>mremap()</TT
+> function returns a pointer
+to the new virtual memory area on success.  On error, the value
+<CODE
+CLASS="CONSTANT"
+>MAP_FAILED</CODE
+> is returned, and <CODE
+CLASS="VARNAME"
+>errno</CODE
+>
+is set appropriately.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN17910"
+></A
+><H2
+>Errors</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17913"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><SPAN
+CLASS="ERRORCODE"
+>EAGAIN</SPAN
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The caller tried to expand a memory segment that is locked, but this was
+not possible without exceeding the <CODE
+CLASS="CONSTANT"
+>RLIMIT_MEMLOCK</CODE
+>
+resource limit.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17919"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><SPAN
+CLASS="ERRORCODE"
+>EFAULT</SPAN
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>"Segmentation fault." Some address in the range old_address to
+<CODE
+CLASS="VARNAME"
+>old_address</CODE
+>+<CODE
+CLASS="VARNAME"
+>old_size</CODE
+> is
+an invalid virtual memory address for this process. You can also get
+<SPAN
+CLASS="ERRORCODE"
+>EFAULT</SPAN
+> even if there exist mappings that cover the
+whole address space requested, but those mappings are of different types.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17927"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><SPAN
+CLASS="ERRORCODE"
+>EINVAL</SPAN
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>An invalid argument was given. Possible causes are:
+<CODE
+CLASS="VARNAME"
+>old_address</CODE
+> was not page aligned;
+a value other than <CODE
+CLASS="CONSTANT"
+>MREMAP_MAYMOVE</CODE
+>
+or <CODE
+CLASS="CONSTANT"
+>MREMAP_FIXED</CODE
+> was specified in
+<CODE
+CLASS="VARNAME"
+>flags;</CODE
+> <CODE
+CLASS="VARNAME"
+>new_size</CODE
+> was zero;
+<CODE
+CLASS="VARNAME"
+>new_size</CODE
+> or <CODE
+CLASS="VARNAME"
+>new_address</CODE
+>
+was invalid;
+or the new address range specified by <CODE
+CLASS="VARNAME"
+>new_address</CODE
+>
+and <CODE
+CLASS="VARNAME"
+>new_size</CODE
+> overlapped the old address range specified
+by <CODE
+CLASS="VARNAME"
+>old_address</CODE
+> and <CODE
+CLASS="VARNAME"
+>old_size</CODE
+>;
+or <CODE
+CLASS="CONSTANT"
+>MREMAP_FIXED</CODE
+> was specified without also specifying
+<CODE
+CLASS="CONSTANT"
+>MREMAP_MAYMOVE.</CODE
+></P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17945"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><SPAN
+CLASS="ERRORCODE"
+>ENOMEM</SPAN
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The memory area cannot be expanded at the current virtual address,
+and the <CODE
+CLASS="CONSTANT"
+>MREMAP_MAYMOVE</CODE
+> flag is not set in
+<CODE
+CLASS="VARNAME"
+>flags</CODE
+>, or, there is not enough (virtual) memory
+available.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-mrand48-r-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-ngettext.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>mrand48_r</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>ngettext</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

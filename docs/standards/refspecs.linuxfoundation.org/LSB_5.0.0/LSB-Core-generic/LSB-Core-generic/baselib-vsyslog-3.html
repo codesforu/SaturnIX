@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>vsyslog</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="vswscanf"
+HREF="baselib-vswscanf.html"><LINK
+REL="NEXT"
+TITLE="vwscanf"
+HREF="baselib-vwscanf.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-vswscanf.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-vwscanf.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-VSYSLOG-3"
+></A
+>vsyslog</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN21012"
+></A
+><H2
+>Name</H2
+>vsyslog&nbsp;--&nbsp;log to system log</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN21015"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN21016"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;stdarg.h&#62;
+#include &#60;syslog.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void 
+  <TT
+CLASS="FUNCTION"
+>vsyslog</TT
+></CODE
+>(int 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>priority</I
+></TT
+></I
+></TT
+>, char *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>message</I
+></TT
+></I
+></TT
+>, va_list 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>arglist</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN21030"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>vsyslog()</TT
+> function
+is identical to <TT
+CLASS="FUNCTION"
+>syslog()</TT
+> 
+as specified in <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>,
+except that <TT
+CLASS="PARAMETER"
+><I
+>arglist</I
+></TT
+> 
+(as defined by <TT
+CLASS="FILENAME"
+>stdarg.h</TT
+>) replaces the variable 
+number of arguments.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-vswscanf.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-vwscanf.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>vswscanf</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>vwscanf</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Symbol Table</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for Itanium&#8482;"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Object Format"
+HREF="tocobjformat.html"><LINK
+REL="PREVIOUS"
+TITLE="Sections"
+HREF="sections.html"><LINK
+REL="NEXT"
+TITLE="Relocation"
+HREF="relocation.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for Itanium&#8482;</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="sections.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 8. Object Format</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="relocation.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="SYMBOLTABLE"
+>8.4. Symbol Table</A
+></H1
+><P
+>If an executable file contains a reference to a function defined in
+one of its associated shared objects, the symbol table section for
+that file shall contain an entry for that symbol.  The 
+<CODE
+CLASS="STRUCTFIELD"
+>st_shndx</CODE
+> member of that
+symbol table
+entry contains <CODE
+CLASS="STRUCTFIELD"
+>SHN_UNDEF</CODE
+>.
+This signals to the dynamic linker that the symbol definition for that
+function is not contained in the executable file itself.  If that symbol
+has been allocated a procedure linkage table entry in the executable file,
+and the <CODE
+CLASS="STRUCTFIELD"
+>st_value</CODE
+> member for
+that symbol table entry is non-zero, the value shall contain the virtual
+address of the first instruction of that procedure linkage table entry.
+Otherwise, the <CODE
+CLASS="STRUCTFIELD"
+> st_value</CODE
+> member
+contains zero.  This procedure linkage table entry address is used by
+the dynamic linker in resolving references to the address of the function.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="sections.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="relocation.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Sections</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tocobjformat.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Relocation</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

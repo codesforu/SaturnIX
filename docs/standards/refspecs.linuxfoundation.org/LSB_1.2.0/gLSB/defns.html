@@ -1,0 +1,311 @@
+<HTML
+><HEAD
+><TITLE
+>Definitions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Introduction"
+HREF="introduction.html"><LINK
+REL="PREVIOUS"
+TITLE="How to Use this Standard"
+HREF="howto.html"><LINK
+REL="NEXT"
+TITLE="Terminology"
+HREF="terms.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="howto.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 1. Introduction</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="terms.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="DEFNS">Definitions</H1
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>gLSB</DT
+><DD
+><P
+>The common part of the LSB Specification that describes those parts of the
+interface that remain constant across all hardware implementations of the LSB.</P
+></DD
+><DT
+>archLSB</DT
+><DD
+><P
+>The architectural part of the LSB Specification which describes 
+the specific parts of the interface that are platform specific.
+The archLSB is complementary to the gLSB.</P
+></DD
+><DT
+>LSB Implementation Conformance</DT
+><DD
+><P
+>An implementation satisfying the following requirements:
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>The implementation shall implement fully the architecture described in the hardware manual for the target processor architecture. </P
+></LI
+><LI
+><P
+>The implementation shall be capable of executing compiled applications having the format and using the system interfaces described in this document.</P
+></LI
+><LI
+><P
+>The implementation shall provide libraries containing the interfaces
+specified by this document, and shall provide a dynamic linking
+mechanism that allows these interfaces to be attached to applications
+at runtime. All the interfaces shall behave as specified in
+this document.</P
+></LI
+><LI
+><P
+>The map of virtual memory provided by the implementation shall conform to the requirements of this document. </P
+></LI
+><LI
+><P
+>The implementation's low-level behavior with respect to function call linkage, system traps, signals, and other such activities shall conform to the formats described in this document. </P
+></LI
+><LI
+><P
+>The implementation shall provide all of the mandatory interfaces
+in their entirety. </P
+></LI
+><LI
+><P
+>The implementation may provide one or more of the optional interfaces. Each optional interface that is provided shall be provided in its entirety. The product documentation shall state which optional interfaces are provided. </P
+></LI
+><LI
+><P
+>The implementation shall provide all files and utilities specified as part of this document in the format defined here and in other referenced documents. All commands and utilities shall behave as required by this document. The implementation shall also provide all mandatory components of an application's runtime environment that are included or referenced in this document. </P
+></LI
+><LI
+><P
+>The implementation, when provided with standard data formats and
+values at a named interface, shall provide the behavior defined for
+those values and data formats at that interface. However, a conforming
+implementation may consist of components which are separately packaged
+and/or sold. For example, a vendor of a conforming implementation
+might sell the hardware, operating system, and windowing system as
+separately packaged items.</P
+></LI
+><LI
+><P
+>The implementation may provide additional interfaces with different names. It may also provide additional behavior corresponding to data values outside the standard ranges, for standard named interfaces.</P
+></LI
+></OL
+></P
+></DD
+><DT
+>LSB Application Conformance</DT
+><DD
+><P
+>An application with the following characteristics: 
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Its executable files are either shell scripts or object files in the format defined for the Object File Format system interface.</P
+></LI
+><LI
+><P
+>Its object files participate in dynamic linking as defined in the Program Loading and Linking System interface.</P
+></LI
+><LI
+><P
+>It employs only the instructions, traps, and other low-level facilities defined in the Low-Level System interface as being for use by applications.</P
+></LI
+><LI
+><P
+>If it requires any optional interface defined in this document in order to be installed or to execute successfully, the requirement for that optional interface is stated in the application's documentation. </P
+></LI
+><LI
+><P
+>It does not use any interface or data format that is not required to be provided by a conforming implementation, unless: 
+<P
+></P
+><UL
+><LI
+STYLE="list-style-type: BULLET"
+><P
+>If such an interface or data format is supplied by another application through direct invocation of that application during execution, that application is in turn an LSB conforming application.</P
+></LI
+><LI
+STYLE="list-style-type: BULLET"
+><P
+>The use of that interface or data format, as well as its source, is identified in the documentation of the application. </P
+></LI
+></UL
+></P
+></LI
+><LI
+><P
+>It must not use any values for a named interface that are reserved for vendor extensions. </P
+></LI
+></OL
+>
+A strictly conforming application does not require or use any interface, facility, or implementation-defined extension that is not defined in this document in order to be installed or to execute successfully. </P
+></DD
+><DT
+>Rationale</DT
+><DD
+><P
+>An LSB conforming application is expected to have no dependencies on any 
+vendor extensions to this document. The most common such extensions are 
+additional function entry points and additional libraries other than the 
+ones defined in this document. If an application requires such extensions, 
+it is not portable, since other LSB conforming implementations may not 
+provide those extensions. </P
+><P
+>An LSB conforming application is required to use system services on the 
+implementation on which it is running, rather than importing system 
+routines from some other implementation. Thus, it must link dynamically 
+to any routines in the implementation that perform system traps to 
+kernel services. </P
+><P
+>It is to be expected that some applications may be companion applications 
+to other applications. For example, a query application may be a 
+companion to a database application; a preprocessor may be an adjunct 
+to one or more compilers; a data reformatter may convert data from one 
+document manager to another. In such cases, the application may or may 
+not be LSB conforming, regardless of whether the other application on 
+which it is dependent is LSB conforming. If such an application merely 
+uses data produced by another application, the application's compliance is 
+independent of the other application's compliance. If such an application 
+actually invokes another application during execution (as, for example, 
+a third-party math library), the invoking application is LSB conforming
+only if it also constitutes a LSB conforming application in combination 
+with the invoked application. </P
+></DD
+><DT
+>Shell Script</DT
+><DD
+><P
+>A file that is read by an interpreter (e.g., awk). The first line of the shell script includes a reference to its interpreter binary.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="howto.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="terms.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>How to Use this Standard</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="introduction.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Terminology</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

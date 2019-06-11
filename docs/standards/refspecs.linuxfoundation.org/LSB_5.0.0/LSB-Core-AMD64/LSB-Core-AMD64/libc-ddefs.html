@@ -1,0 +1,3002 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libc</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for X86-64"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libc"
+HREF="libc.html"><LINK
+REL="NEXT"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for X86-64</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libc.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 10. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libcman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBC-DDEFS"
+>10.3. Data Definitions for libc</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libc.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5483"
+>10.3.1. argz.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5487"
+>10.3.2. assert.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5491"
+>10.3.3. cpio.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5495"
+>10.3.4. ctype.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;enum {
+    _ISupper = 256,
+    _ISlower = 512,
+    _ISalpha = 1024,
+    _ISdigit = 2048,
+    _ISxdigit = 4096,
+    _ISspace = 8192,
+    _ISprint = 16384,
+    _ISgraph = 32768,
+    _ISblank = 1,
+    _IScntrl = 2,
+    _ISpunct = 4,
+    _ISalnum = 8
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5499"
+>10.3.5. dirent.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5503"
+>10.3.6. elf.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5507"
+>10.3.7. endian.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define __BYTE_ORDER	__LITTLE_ENDIAN</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5511"
+>10.3.8. errno.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define EDEADLOCK	EDEADLK</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5515"
+>10.3.9. fcntl.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define O_LARGEFILE	0
+#define O_DIRECTORY	0200000
+#define O_NOFOLLOW	0400000
+#define POSIX_FADV_DONTNEED	4
+#define POSIX_FADV_NOREUSE	5
+
+#define F_GETLK64	5
+#define F_SETLK64	6
+#define F_SETLKW64	7</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5519"
+>10.3.10. fmtmsg.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5523"
+>10.3.11. fnmatch.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5527"
+>10.3.12. ftw.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5531"
+>10.3.13. getopt.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5535"
+>10.3.14. glob.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5539"
+>10.3.15. iconv.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5543"
+>10.3.16. ifaddrs.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5547"
+>10.3.17. inttypes.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define __PRI64_PREFIX	"l"
+#define __PRIPTR_PREFIX	"l"
+
+typedef ldiv_t imaxdiv_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5551"
+>10.3.18. langinfo.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5555"
+>10.3.19. limits.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define LONG_MAX	0x7FFFFFFFFFFFFFFFL
+#define ULONG_MAX	0xFFFFFFFFFFFFFFFFUL
+#define LONG_BIT	64
+
+#define CHAR_MAX	127
+#define CHAR_MIN	SCHAR_MIN
+
+#define PTHREAD_STACK_MIN	16384</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5559"
+>10.3.20. link.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct dl_phdr_info {
+    Elf64_Addr dlpi_addr;
+    const char *dlpi_name;
+    const Elf64_Phdr *dlpi_phdr;
+    Elf64_Half dlpi_phnum;
+    unsigned long long int dlpi_adds;
+    unsigned long long int dlpi_subs;
+    size_t dlpi_tls_modid;
+    void *dlpi_tls_data;
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5563"
+>10.3.21. locale.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5567"
+>10.3.22. lsb/time.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5571"
+>10.3.23. lsb/types.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef int64_t ssize_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5575"
+>10.3.24. lsb/wchar.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5579"
+>10.3.25. net/if.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5583"
+>10.3.26. netdb.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5587"
+>10.3.27. netinet/icmp6.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define ND_NA_FLAG_OVERRIDE	0x00000020
+#define ND_NA_FLAG_SOLICITED	0x00000040
+#define ND_NA_FLAG_ROUTER	0x00000080
+#define ICMP6_RR_RESULT_FLAGS_FORBIDDEN	0x0010
+#define ICMP6_RR_RESULT_FLAGS_OOB	0x0020</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5591"
+>10.3.28. netinet/igmp.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5595"
+>10.3.29. netinet/in.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5599"
+>10.3.30. netinet/in_systm.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5603"
+>10.3.31. netinet/ip.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct timestamp {
+    u_int8_t len;
+    u_int8_t ptr;
+    unsigned int flags:4;
+    unsigned int overflow:4;
+    u_int32_t data[9];
+};
+struct iphdr {
+    unsigned int ihl:4;
+    unsigned int version:4;
+    u_int8_t tos;
+    u_int16_t tot_len;
+    u_int16_t id;
+    u_int16_t frag_off;
+    u_int8_t ttl;
+    u_int8_t protocol;
+    u_int16_t check;
+    u_int32_t saddr;
+    u_int32_t daddr;
+};
+struct ip {
+    unsigned int ip_hl:4;
+    unsigned int ip_v:4;
+    u_int8_t ip_tos;
+    u_short ip_len;
+    u_short ip_id;
+    u_short ip_off;
+    u_int8_t ip_ttl;
+    u_int8_t ip_p;
+    u_short ip_sum;
+    struct in_addr ip_src;
+    struct in_addr ip_dst;
+};
+struct ip_timestamp {
+    u_int8_t ipt_code;
+    u_int8_t ipt_len;
+    u_int8_t ipt_ptr;
+    unsigned int ipt_flg:4;
+    unsigned int ipt_oflw:4;
+    u_int32_t data[9];
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5607"
+>10.3.32. netinet/ip6.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define IP6_ALERT_MLD	0x0000
+#define IP6F_MORE_FRAG	0x0100
+#define IP6_ALERT_RSVP	0x0100
+#define IP6_ALERT_AN	0x0200
+#define IP6F_RESERVED_MASK	0x0600
+#define IP6F_OFF_MASK	0xf8ff</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5611"
+>10.3.33. netinet/ip_icmp.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5615"
+>10.3.34. netinet/tcp.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct tcphdr {
+    uint16_t source;
+    uint16_t dest;
+    uint32_t seq;
+    uint32_t ack_seq;
+    uint16_t res1:4;
+    uint16_t doff:4;
+    uint16_t fin:1;
+    uint16_t syn:1;
+    uint16_t rst:1;
+    uint16_t psh:1;
+    uint16_t ack:1;
+    uint16_t urg:1;
+    uint16_t res2:2;
+    uint16_t window;
+    uint16_t check;
+    uint16_t urg_ptr;
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5619"
+>10.3.35. netinet/udp.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5623"
+>10.3.36. nl_types.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5627"
+>10.3.37. pwd.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5631"
+>10.3.38. regex.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5635"
+>10.3.39. rpc/auth.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5639"
+>10.3.40. rpc/clnt.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5643"
+>10.3.41. rpc/rpc_msg.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5647"
+>10.3.42. rpc/svc.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5651"
+>10.3.43. rpc/types.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5655"
+>10.3.44. rpc/xdr.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5659"
+>10.3.45. sched.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5663"
+>10.3.46. search.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5667"
+>10.3.47. setjmp.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef long int __jmp_buf[8];</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5671"
+>10.3.48. signal.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SIGEV_PAD_SIZE	((SIGEV_MAX_SIZE/sizeof(int))-4)
+
+#define SI_PAD_SIZE	((SI_MAX_SIZE/sizeof(int))-4)
+
+struct sigaction {
+    union {
+	sighandler_t _sa_handler;
+	void (*_sa_sigaction) (int, siginfo_t *, void *);
+    } __sigaction_handler;
+    sigset_t sa_mask;
+    int sa_flags;
+    void (*sa_restorer) (void);
+};
+
+#define MINSIGSTKSZ	2048	/* Minimum stack size for a signal handler. */
+#define SIGSTKSZ	8192	/* System default stack size. */
+
+struct _fpxreg {
+    unsigned short significand[4];
+    unsigned short exponent;
+    unsigned short padding[3];
+};
+struct _xmmreg {
+    uint32_t element[4];
+};
+
+struct _fpstate {
+    uint16_t cwd;
+    uint16_t swd;
+    uint16_t ftw;
+    uint16_t fop;
+    uint64_t rip;
+    uint64_t rdp;
+    uint32_t mxcsr;
+    uint32_t mxcr_mask;
+    struct _fpxreg _st[8];
+    struct _xmmreg _xmm[16];
+    uint32_t padding[24];
+};
+
+struct sigcontext {
+    unsigned long int r8;
+    unsigned long int r9;
+    unsigned long int r10;
+    unsigned long int r11;
+    unsigned long int r12;
+    unsigned long int r13;
+    unsigned long int r14;
+    unsigned long int r15;
+    unsigned long int rdi;
+    unsigned long int rsi;
+    unsigned long int rbp;
+    unsigned long int rbx;
+    unsigned long int rdx;
+    unsigned long int rax;
+    unsigned long int rcx;
+    unsigned long int rsp;
+    unsigned long int rip;
+    unsigned long int eflags;
+    unsigned short cs;
+    unsigned short gs;
+    unsigned short fs;
+    unsigned short __pad0;
+    unsigned long int err;
+    unsigned long int trapno;
+    unsigned long int oldmask;
+    unsigned long int cr2;
+    struct _fpstate *fpstate;
+    unsigned long int __reserved1[8];
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5675"
+>10.3.49. spawn.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5679"
+>10.3.50. stddef.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef int wchar_t;
+typedef unsigned long int size_t;
+typedef long int ptrdiff_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5683"
+>10.3.51. stdint.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define INT64_C(c)	c ## L
+#define INTMAX_C(c)	c ## L
+#define __INT64_C(c)	c ## L
+#define UINT64_C(c)	c ## UL
+#define UINTMAX_C(c)	c ## UL
+#define __UINT64_C(c)	c ## UL
+
+#define INTPTR_MIN	(-9223372036854775807L-1)
+#define INT_FAST16_MIN	(-9223372036854775807L-1)
+#define INT_FAST32_MIN	(-9223372036854775807L-1)
+#define PTRDIFF_MIN	(-9223372036854775807L-1)
+#define SIZE_MAX	(18446744073709551615UL)
+#define UINTPTR_MAX	(18446744073709551615UL)
+#define UINT_FAST16_MAX	(18446744073709551615UL)
+#define UINT_FAST32_MAX	(18446744073709551615UL)
+#define INTPTR_MAX	(9223372036854775807L)
+#define INT_FAST16_MAX	(9223372036854775807L)
+#define INT_FAST32_MAX	(9223372036854775807L)
+#define PTRDIFF_MAX	(9223372036854775807L)
+
+typedef long int int64_t;
+typedef long int intmax_t;
+typedef unsigned long int uintmax_t;
+typedef long int intptr_t;
+typedef unsigned long int uintptr_t;
+typedef unsigned long int uint64_t;
+typedef long int int_least64_t;
+typedef unsigned long int uint_least64_t;
+typedef long int int_fast16_t;
+typedef long int int_fast32_t;
+typedef long int int_fast64_t;
+typedef unsigned long int uint_fast16_t;
+typedef unsigned long int uint_fast32_t;
+typedef unsigned long int uint_fast64_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5687"
+>10.3.52. stdio.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define __IO_FILE_SIZE	216</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5691"
+>10.3.53. stdlib.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5695"
+>10.3.54. string.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5699"
+>10.3.55. sys/epoll.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5703"
+>10.3.56. sys/file.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5707"
+>10.3.57. sys/inotify.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5711"
+>10.3.58. sys/io.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;extern int ioperm(unsigned long int from, unsigned long int num,
+		  int turn_on);
+extern int iopl(int level);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5715"
+>10.3.59. sys/ioctl.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define TIOCGWINSZ	0x5413
+#define TIOCSWINSZ	0x5414
+#define FIONREAD	0x541B
+#define TIOCNOTTY	21538</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5719"
+>10.3.60. sys/ipc.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct ipc_perm {
+    key_t __key;
+    uid_t uid;
+    gid_t gid;
+    uid_t cuid;
+    uid_t cgid;
+    unsigned short mode;
+    unsigned short __pad1;
+    unsigned short __seq;
+    unsigned short __pad2;
+    unsigned long int __unused1;
+    unsigned long int __unused2;
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5723"
+>10.3.61. sys/mman.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define MCL_CURRENT	1
+#define MCL_FUTURE	2</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5727"
+>10.3.62. sys/msg.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef unsigned long int msgqnum_t;
+typedef unsigned long int msglen_t;
+
+struct msqid_ds {
+    struct ipc_perm msg_perm;	/* structure describing operation permission */
+    time_t msg_stime;		/* time of last msgsnd command */
+    time_t msg_rtime;		/*  time of last msgrcv command */
+    time_t msg_ctime;		/* time of last change */
+    unsigned long int __msg_cbytes;	/* current number of bytes on queue */
+    msgqnum_t msg_qnum;		/* number of messages currently on queue */
+    msglen_t msg_qbytes;	/* max number of bytes allowed on queue */
+    pid_t msg_lspid;		/* pid of last msgsnd() */
+    pid_t msg_lrpid;		/* pid of last msgrcv() */
+    unsigned long int __unused4;
+    unsigned long int __unused5;
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5731"
+>10.3.63. sys/param.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5735"
+>10.3.64. sys/poll.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5739"
+>10.3.65. sys/ptrace.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;enum __ptrace_request {
+    PTRACE_TRACEME = 0,
+    PTRACE_PEEKTEXT = 1,
+    PTRACE_PEEKDATA = 2,
+    PTRACE_PEEKUSER = 3,
+    PTRACE_POKETEXT = 4,
+    PTRACE_POKEDATA = 5,
+    PTRACE_POKEUSER = 6,
+    PTRACE_CONT = 7,
+    PTRACE_KILL = 8,
+    PTRACE_SINGLESTEP = 9,
+    PTRACE_GETREGS = 12,
+    PTRACE_SETREGS = 13,
+    PTRACE_GETFPREGS = 14,
+    PTRACE_SETFPREGS = 15,
+    PTRACE_ATTACH = 16,
+    PTRACE_DETACH = 17,
+    PTRACE_GETFPXREGS = 18,
+    PTRACE_SETFPXREGS = 19,
+    PTRACE_SYSCALL = 24,
+    PTRACE_SETOPTIONS = 0x4200,
+    PTRACE_GETEVENTMSG = 0x4201,
+    PTRACE_GETSIGINFO = 0x4202,
+    PTRACE_SETSIGINFO = 0x4203
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5743"
+>10.3.66. sys/resource.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5747"
+>10.3.67. sys/select.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5751"
+>10.3.68. sys/sem.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct semid_ds {
+    struct ipc_perm sem_perm;
+    time_t sem_otime;
+    unsigned long int __unused1;
+    time_t sem_ctime;
+    unsigned long int __unused2;
+    unsigned long int sem_nsems;
+    unsigned long int __unused3;
+    unsigned long int __unused4;
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5755"
+>10.3.69. sys/shm.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SHMLBA	(__getpagesize())
+
+typedef unsigned long int shmatt_t;
+
+struct shmid_ds {
+    struct ipc_perm shm_perm;	/* operation permission struct */
+    size_t shm_segsz;		/* size of segment in bytes */
+    time_t shm_atime;		/* time of last shmat() */
+    time_t shm_dtime;		/* time of last shmdt() */
+    time_t shm_ctime;		/* time of last change by shmctl() */
+    pid_t shm_cpid;		/* pid of creator */
+    pid_t shm_lpid;		/* pid of last shmop */
+    shmatt_t shm_nattch;	/* number of current attaches */
+    unsigned long int __unused4;
+    unsigned long int __unused5;
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5759"
+>10.3.70. sys/socket.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef uint64_t __ss_aligntype;
+
+#define SO_RCVLOWAT	18
+#define SO_SNDLOWAT	19
+#define SO_RCVTIMEO	20
+#define SO_SNDTIMEO	21</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5763"
+>10.3.71. sys/stat.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define _MKNOD_VER	0
+#define _STAT_VER	1
+
+struct stat {
+    dev_t st_dev;
+    ino_t st_ino;
+    nlink_t st_nlink;
+    mode_t st_mode;
+    uid_t st_uid;
+    gid_t st_gid;
+    int pad0;
+    dev_t st_rdev;
+    off_t st_size;
+    blksize_t st_blksize;
+    blkcnt_t st_blocks;
+    struct timespec st_atim;
+    struct timespec st_mtim;
+    struct timespec st_ctim;
+    unsigned long int __unused[3];
+};
+struct stat64 {
+    dev_t st_dev;
+    ino64_t st_ino;
+    nlink_t st_nlink;
+    mode_t st_mode;
+    uid_t st_uid;
+    gid_t st_gid;
+    int pad0;
+    dev_t st_rdev;
+    off_t st_size;
+    blksize_t st_blksize;
+    blkcnt64_t st_blocks;
+    struct timespec st_atim;
+    struct timespec st_mtim;
+    struct timespec st_ctim;
+    unsigned long int __unused[3];
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5767"
+>10.3.72. sys/statfs.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct statfs {
+    long int f_type;		/* type of filesystem */
+    long int f_bsize;		/* optimal transfer block size */
+    fsblkcnt_t f_blocks;	/* total data blocks in file system */
+    fsblkcnt_t f_bfree;		/* free blocks in fs */
+    fsblkcnt_t f_bavail;	/* free blocks avail to non-superuser */
+    fsfilcnt_t f_files;		/* total file nodes in file system */
+    fsfilcnt_t f_ffree;		/* free file nodes in file system */
+    fsid_t f_fsid;		/* file system id */
+    long int f_namelen;		/* maximum length of filenames */
+    long int f_frsize;		/* fragment size */
+    long int f_spare[5];	/* spare for later */
+};
+struct statfs64 {
+    long int f_type;		/* type of filesystem */
+    long int f_bsize;		/* optimal transfer block size */
+    fsblkcnt64_t f_blocks;	/* total data blocks in file system */
+    fsblkcnt64_t f_bfree;	/* free blocks in fs */
+    fsblkcnt64_t f_bavail;	/* free blocks avail to non-superuser */
+    fsfilcnt64_t f_files;	/* total file nodes in file system */
+    fsfilcnt64_t f_ffree;	/* free file nodes in file system */
+    fsid_t f_fsid;		/* file system id */
+    long int f_namelen;		/* maximum length of filenames */
+    long int f_frsize;		/* fragment size */
+    long int f_spare[5];	/* spare for later */
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5771"
+>10.3.73. sys/statvfs.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct statvfs {
+    unsigned long int f_bsize;
+    unsigned long int f_frsize;
+    fsblkcnt_t f_blocks;
+    fsblkcnt_t f_bfree;
+    fsblkcnt_t f_bavail;
+    fsfilcnt_t f_files;
+    fsfilcnt_t f_ffree;
+    fsfilcnt_t f_favail;
+    unsigned long int f_fsid;
+    unsigned long int f_flag;
+    unsigned long int f_namemax;
+    int __f_spare[6];
+};
+struct statvfs64 {
+    unsigned long int f_bsize;
+    unsigned long int f_frsize;
+    fsblkcnt64_t f_blocks;
+    fsblkcnt64_t f_bfree;
+    fsblkcnt64_t f_bavail;
+    fsfilcnt64_t f_files;
+    fsfilcnt64_t f_ffree;
+    fsfilcnt64_t f_favail;
+    unsigned long int f_fsid;
+    unsigned long int f_flag;
+    unsigned long int f_namemax;
+    int __f_spare[6];
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5775"
+>10.3.74. sys/sysinfo.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5779"
+>10.3.75. sys/time.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5783"
+>10.3.76. sys/timeb.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5787"
+>10.3.77. sys/times.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5791"
+>10.3.78. sys/un.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5795"
+>10.3.79. sys/utsname.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5799"
+>10.3.80. sys/wait.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5803"
+>10.3.81. sysexits.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5807"
+>10.3.82. syslog.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5811"
+>10.3.83. tar.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5815"
+>10.3.84. termios.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define OLCUC	0000002
+#define ONLCR	0000004
+#define XCASE	0000004
+#define NLDLY	0000400
+#define CR1	0001000
+#define IUCLC	0001000
+#define CR2	0002000
+#define CR3	0003000
+#define CRDLY	0003000
+#define TAB1	0004000
+#define TAB2	0010000
+#define TAB3	0014000
+#define TABDLY	0014000
+#define BS1	0020000
+#define BSDLY	0020000
+#define VT1	0040000
+#define VTDLY	0040000
+#define FF1	0100000
+#define FFDLY	0100000
+
+#define VSUSP	10
+#define VEOL	11
+#define VREPRINT	12
+#define VDISCARD	13
+#define VWERASE	14
+#define VEOL2	16
+#define VMIN	6
+#define VSWTC	7
+#define VSTART	8
+#define VSTOP	9
+
+#define IXON	0002000
+#define IXOFF	0010000
+
+#define CS6	0000020
+#define CS7	0000040
+#define CS8	0000060
+#define CSIZE	0000060
+#define CSTOPB	0000100
+#define CREAD	0000200
+#define PARENB	0000400
+#define PARODD	0001000
+#define HUPCL	0002000
+#define CLOCAL	0004000
+#define VTIME	5
+
+#define ISIG	0000001
+#define ICANON	0000002
+#define ECHOE	0000020
+#define ECHOK	0000040
+#define ECHONL	0000100
+#define NOFLSH	0000200
+#define TOSTOP	0000400
+#define ECHOCTL	0001000
+#define ECHOPRT	0002000
+#define ECHOKE	0004000
+#define FLUSHO	0010000
+#define PENDIN	0040000
+#define IEXTEN	0100000</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5819"
+>10.3.85. time.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5823"
+>10.3.86. ucontext.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct _libc_fpxreg {
+    unsigned short significand[4];
+    unsigned short exponent;
+    unsigned short padding[3];
+};
+struct _libc_xmmreg {
+    uint32_t element[4];
+};
+enum {
+    REG_R8 = 0,
+    REG_R9 = 1,
+    REG_R10 = 2,
+    REG_R11 = 3,
+    REG_R12 = 4,
+    REG_R13 = 5,
+    REG_R14 = 6,
+    REG_R15 = 7,
+    REG_RDI = 8,
+    REG_RSI = 9,
+    REG_RBP = 10,
+    REG_RBX = 11,
+    REG_RDX = 12,
+    REG_RAX = 13,
+    REG_RCX = 14,
+    REG_RSP = 15,
+    REG_RIP = 16,
+    REG_EFL = 17,
+    REG_CSGSFS = 18,
+    REG_ERR = 19,
+    REG_TRAPNO = 20,
+    REG_OLDMASK = 21,
+    REG_CR2 = 22
+};
+
+typedef long int greg_t;
+
+#define NGREG	23
+
+typedef greg_t gregset_t[23];
+
+struct _libc_fpstate {
+    uint16_t cwd;
+    uint16_t swd;
+    uint16_t ftw;
+    uint16_t fop;
+    uint64_t rip;
+    uint64_t rdp;
+    uint32_t mxcsr;
+    uint32_t mxcr_mask;
+    struct _libc_fpxreg _st[8];
+    struct _libc_xmmreg _xmm[16];
+    uint32_t padding[24];
+};
+typedef struct _libc_fpstate *fpregset_t;
+
+typedef struct {
+    gregset_t gregs;
+    fpregset_t fpregs;
+    unsigned long int __reserved1[8];
+} mcontext_t;
+
+typedef struct ucontext {
+    unsigned long int uc_flags;
+    struct ucontext *uc_link;
+    stack_t uc_stack;
+    mcontext_t uc_mcontext;
+    sigset_t uc_sigmask;
+    struct _libc_fpstate __fpregs_mem;
+} ucontext_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5827"
+>10.3.87. ulimit.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5831"
+>10.3.88. unistd.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5835"
+>10.3.89. utime.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5839"
+>10.3.90. utmp.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct lastlog {
+    int32_t ll_time;
+    char ll_line[UT_LINESIZE];
+    char ll_host[UT_HOSTSIZE];
+};
+
+struct utmp {
+    short ut_type;		/* Type of login. */
+    pid_t ut_pid;		/* Process ID of login process. */
+    char ut_line[UT_LINESIZE];	/* Devicename. */
+    char ut_id[4];		/* Inittab ID. */
+    char ut_user[UT_NAMESIZE];	/* Username. */
+    char ut_host[UT_HOSTSIZE];	/* Hostname for remote login. */
+    struct exit_status ut_exit;	/* Exit status of a process marked as DEAD_PROCESS. */
+    int ut_session;		/* Session ID, used for windowing. */
+    struct {
+	int32_t tv_sec;
+	int32_t tv_usec;
+    } ut_tv;			/* Time entry was made. */
+    int32_t ut_addr_v6[4];	/* Internet address of remote host. */
+    char __unused[20];		/* Reserved for future use. */
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5843"
+>10.3.91. utmpx.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct utmpx {
+    short ut_type;		/* Type of login. */
+    pid_t ut_pid;		/* Process ID of login process. */
+    char ut_line[UT_LINESIZE];	/* Devicename. */
+    char ut_id[4];		/* Inittab ID. */
+    char ut_user[UT_NAMESIZE];	/* Username. */
+    char ut_host[UT_HOSTSIZE];	/* Hostname for remote login. */
+    struct exit_status ut_exit;	/* Exit status of a process marked as DEAD_PROCESS. */
+    int32_t ut_session;		/* Session ID, used for windowing. */
+    struct {
+	int32_t tv_sec;		/* Seconds. */
+	int32_t tv_usec;	/* Microseconds. */
+    } ut_tv;			/* Time entry was made. */
+    int32_t ut_addr_v6[4];	/* Internet address of remote host. */
+    char __unused[20];		/* Reserved for future use. */
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5847"
+>10.3.92. wordexp.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;/*
+ * This header is architecture neutral
+ * Please refer to the generic specification for details
+ */</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libc.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libc</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interface Definitions for libc</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

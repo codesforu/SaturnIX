@@ -1,0 +1,415 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Executable And Linking Format (ELF)</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="PREVIOUS"
+TITLE="Relationship To Other Linux Foundation Specifications"
+HREF="reltolf.html"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="elfintro.html"></HEAD
+><BODY
+CLASS="PART"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="reltolf.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="elfintro.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="ELF-GENERIC"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>II. Executable And Linking Format (ELF)</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>8. <A
+HREF="elfintro.html"
+>Introduction</A
+></DT
+><DT
+>9. <A
+HREF="lowlevel.html"
+>Low Level System Information</A
+></DT
+><DD
+><DL
+><DT
+>9.1. <A
+HREF="lowlevel.html#OSINTERFACE"
+>Operating System Interface</A
+></DT
+><DT
+>9.2. <A
+HREF="machineinterface.html"
+>Machine Interface</A
+></DT
+><DD
+><DL
+><DT
+>9.2.1. <A
+HREF="machineinterface.html#DATAREPRESENTATION"
+>Data Representation</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>10. <A
+HREF="tocobjformat.html"
+>Object Format</A
+></DT
+><DD
+><DL
+><DT
+>10.1. <A
+HREF="tocobjformat.html#OBJFMT"
+>Object Files</A
+></DT
+><DT
+>10.2. <A
+HREF="sections.html"
+>Sections</A
+></DT
+><DD
+><DL
+><DT
+>10.2.1. <A
+HREF="sections.html#AEN623"
+>Introduction</A
+></DT
+><DT
+>10.2.2. <A
+HREF="sections.html#ELFTYPES"
+>Sections Types</A
+></DT
+></DL
+></DD
+><DT
+>10.3. <A
+HREF="specialsections.html"
+>Special Sections</A
+></DT
+><DD
+><DL
+><DT
+>10.3.1. <A
+HREF="specialsections.html#ELFSPECIAL"
+>Special Sections</A
+></DT
+></DL
+></DD
+><DT
+>10.4. <A
+HREF="symmap.html"
+>Symbol Mapping</A
+></DT
+><DD
+><DL
+><DT
+>10.4.1. <A
+HREF="symmap.html#AEN1086"
+>Introduction</A
+></DT
+></DL
+></DD
+><DT
+>10.5. <A
+HREF="dwarfext.html"
+>DWARF Extensions</A
+></DT
+><DD
+><DL
+><DT
+>10.5.1. <A
+HREF="dwarfext.html#DWARFEHENCODING"
+>DWARF Exception Header Encoding</A
+></DT
+><DT
+>10.5.2. <A
+HREF="dwarfext.html#DWARFCFIEXT"
+>DWARF CFI Extensions</A
+></DT
+></DL
+></DD
+><DT
+>10.6. <A
+HREF="ehframechpt.html"
+>Exception Frames</A
+></DT
+><DD
+><DL
+><DT
+>10.6.1. <A
+HREF="ehframechpt.html#EHFRAME"
+>The <SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame</SAMP
+> section</A
+></DT
+><DT
+>10.6.2. <A
+HREF="ehframechpt.html#EHFRAMEHDR"
+>The <SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame_hdr</SAMP
+> section</A
+></DT
+></DL
+></DD
+><DT
+>10.7. <A
+HREF="symversion.html"
+>Symbol Versioning</A
+></DT
+><DD
+><DL
+><DT
+>10.7.1. <A
+HREF="symversion.html#AEN1505"
+>Introduction</A
+></DT
+><DT
+>10.7.2. <A
+HREF="symversion.html#SYMVERTBL"
+>Symbol Version Table</A
+></DT
+><DT
+>10.7.3. <A
+HREF="symversion.html#SYMVERDEFS"
+>Version Definitions</A
+></DT
+><DT
+>10.7.4. <A
+HREF="symversion.html#SYMVERRQMTS"
+>Version Requirements</A
+></DT
+><DT
+>10.7.5. <A
+HREF="symversion.html#SYMSTARTSEQ"
+>Startup Sequence</A
+></DT
+><DT
+>10.7.6. <A
+HREF="symversion.html#SYMRESOLUTION"
+>Symbol Resolution</A
+></DT
+></DL
+></DD
+><DT
+>10.8. <A
+HREF="noteabitag.html"
+>ABI note tag</A
+></DT
+></DL
+></DD
+><DT
+>11. <A
+HREF="tocdynlnk.html"
+>Dynamic Linking</A
+></DT
+><DD
+><DL
+><DT
+>11.1. <A
+HREF="tocdynlnk.html#DYNLNK"
+>Program Loading and Dynamic Linking</A
+></DT
+><DT
+>11.2. <A
+HREF="progheader.html"
+>Program Header</A
+></DT
+><DT
+>11.3. <A
+HREF="dynamicsection.html"
+>Dynamic Entries</A
+></DT
+><DD
+><DL
+><DT
+>11.3.1. <A
+HREF="dynamicsection.html#AEN1782"
+>Introduction</A
+></DT
+><DT
+>11.3.2. <A
+HREF="dynamicsection.html#DYNSECTENT"
+>Dynamic Entries</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>12. <A
+HREF="cxxclasses.html"
+>C++ Class Representations</A
+></DT
+><DD
+><DL
+><DT
+>12.1. <A
+HREF="cxxclasses.html#CXXDATAREPRESENTATION"
+>C++ Data Representation</A
+></DT
+><DD
+><DL
+><DT
+>12.1.1. <A
+HREF="cxxclasses.html#CLASSES"
+>Class Representation</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>13. <A
+HREF="symmap.cxx.html"
+>Symbol Mapping</A
+></DT
+><DD
+><DL
+><DT
+>13.1. <A
+HREF="symmap.cxx.html#SYMMAPPING"
+>Symbol Mapping</A
+></DT
+><DD
+><DL
+><DT
+>13.1.1. <A
+HREF="symmap.cxx.html#AEN2155"
+>C++ Language</A
+></DT
+></DL
+></DD
+></DL
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="reltolf.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="elfintro.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Relationship To Other Linux Foundation Specifications</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

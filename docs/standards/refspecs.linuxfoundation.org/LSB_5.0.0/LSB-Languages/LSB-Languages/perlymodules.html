@@ -1,0 +1,1887 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Perl Modules</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Languages Specification"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Perl Interpreter"
+HREF="perl-int.html"><LINK
+REL="PREVIOUS"
+TITLE="Perl Operators and Functions"
+HREF="perloper.html"><LINK
+REL="NEXT"
+TITLE="Perl Interpreter Command"
+HREF="perlcommand.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Languages Specification</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="perloper.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 7. Perl Interpreter</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="perlcommand.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="PERLYMODULES"
+>7.5. Perl Modules</A
+></H1
+><P
+>An LSB conforming implementation shall provide the
+Perl modules as described in <A
+HREF="perlymodules.html#TBL-PERL-MODS"
+>Table 7-1</A
+>
+with at least the behavior described as mandatory
+in the referenced underlying specification.
+Some Perl modules may be marked as deprecated, and applications
+should avoid using these as they may be withdrawn
+in future releases of this specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-PERL-MODS"
+></A
+><P
+><B
+>Table 7-1. Perl Modules</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>AnyDBM_File
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Encode::JP
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>I18N::Collate
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::Time
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Test::More
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Attribute::Handlers
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Encode::JP::H2Z
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>I18N::LangTags
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::hostent
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Test::Simple
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>AutoLoader
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Encode::JP::JIS7
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>I18N::LangTags::Detect
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::netent
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Text::Abbrev
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>AutoSplit
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Encode::KR
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>I18N::LangTags::List
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::protoent
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Text::Balanced
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>B::Concise
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Encode::KR::2022_KR
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>I18N::Langinfo
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::servent
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Text::ParseWords
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>B::Debug
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Encode::MIME::Header
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IO
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>O
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Text::Soundex
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>B::Deparse
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Encode::Symbol
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IO::Dir
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Opcode
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Text::Tabs
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>B::Lint
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Encode::TW
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IO::File
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>POSIX
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Text::Wrap
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>B::Showlex
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Encode::Unicode
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IO::Handle
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>PerlIO
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Tie::Array
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>B::Terse
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Encode::Unicode::UTF7
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IO::Pipe
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>PerlIO::encoding
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Tie::File
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>B::Xref
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>English
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IO::Poll
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>PerlIO::scalar
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Tie::Handle
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Benchmark
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Env
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IO::Seekable
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>PerlIO::via
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Tie::Hash
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>CGI
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Exporter
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IO::Select
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>PerlIO::via::QuotedPrint
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Tie::Memoize
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>CGI::Apache
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Exporter::Heavy
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IO::Socket
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Checker
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Tie::RefHash
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>CGI::Carp
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::Command
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IO::Socket::INET
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Find
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Tie::Scalar
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>CGI::Cookie
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::Command::MM
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IO::Socket::UNIX
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Functions
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Tie::SubstrHash
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>CGI::Pretty
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::Install
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IPC::Msg
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Html
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Time::HiRes
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>CGI::Push
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::Installed
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IPC::Open2
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::InputObjects
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Time::Local
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>CGI::Util
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::Liblist
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IPC::Open3
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::LaTeX
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Time::gmtime
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>CPAN
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::Liblist::Kid
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IPC::Semaphore
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Man
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Time::localtime
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>CPAN::FirstTime
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::MM_Unix
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>IPC::SysV
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::ParseLink
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Time::tm
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>CPAN::Nox
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::MY
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>List::Util
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::ParseUtils
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Unicode::Collate
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Carp
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::MakeMaker
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Locale::Country
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Parser
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Unicode::Normalize
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Carp::Heavy
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::MakeMaker::Config
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Locale::Currency
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Perldoc::ToChecker
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Unicode::UCD
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Class::Struct
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::Manifest
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Locale::Language
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Perldoc::ToMan
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>User::grent
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Cwd
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::Mkbootstrap
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Locale::Maketext
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Perldoc::ToNroff
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>User::pwent
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>DB
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::Mksymlists
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Locale::Script
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Perldoc::ToPod
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>attributes
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>DBM_Filter
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::Packlist
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>MIME::Base64
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Perldoc::ToText
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>autouse
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>DBM_Filter::encode
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>ExtUtils::testlib
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>MIME::QuotedPrint
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::PlainText
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>base
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>DBM_Filter::int32
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Fatal
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Math::BigFloat
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Select
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>bigint
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>DBM_Filter::null
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Fcntl
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Math::BigInt
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Text
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>bignum
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>DBM_Filter::utf8
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>File::Basename
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Math::BigInt::Calc
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Text::Color
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>bigrat
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Data::Dumper
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>File::CheckTree
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Math::BigInt::CalcEmu
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Text::Overstrike
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>blib
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Devel::PPPort
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>File::Compare
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Math::BigRat
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Text::Termcap
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>bytes
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Devel::Peek
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>File::Copy
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Math::Complex
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Pod::Usage
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>charnames
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Devel::SelfStubber
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>File::DosGlob
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Math::Trig
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>SDBM_File
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>constant
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Digest
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>File::Find
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Memoize
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Safe
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>diagnostics
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Digest::MD5
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>File::Glob
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Memoize::AnyDBM_File
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Scalar::Util
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>fields
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Digest::base
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>File::Path
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Memoize::Expire
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Search::Dict
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>filetest
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Digest::file
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>File::Spec
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Memoize::ExpireFile
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>SelectSaver
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>if
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>DirHandle
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>File::Spec::Functions
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Memoize::ExpireTest
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>SelfLoader
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>integer
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Dumpvalue
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>File::Spec::Unix
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Memoize::SDBM_File
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Socket
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>less
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Encode
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>File::Temp
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Memoize::Storable
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Storable
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>locale
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Encode::Alias
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>File::stat
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>NEXT
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Sys::Hostname
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>open
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Encode::Byte
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>FileCache
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::Cmd
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Sys::Syslog
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>overload
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Encode::CJKConstants
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>FileHandle
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::Config
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Term::ANSIColor
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>re
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Encode::CN
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Filter::Simple
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::Domain
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Term::Complete
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>sigtrap
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Encode::CN::HZ
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Filter::Util::Call
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::FTP
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Term::ReadLine
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>sort
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Encode::Config
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>FindBin
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::NNTP
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Test::Builder
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>strict
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Encode::EBCDIC
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>GDBM_File
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::Netrc
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Test::Builder::Module
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>subs
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Encode::Encoder
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Getopt::Long
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::POP3
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Test::Builder::Tester
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>utf8
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Encode::Encoding
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Getopt::Std
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::Ping
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Test::Builder::Tester::Color
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>warnings
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>Encode::Guess
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Hash::Util
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Net::SMTP
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>Test::Harness
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+><TD
+>warnings::register
+<A
+HREF="perlymodules.html#AEN1332"
+> [1]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+><I
+CLASS="EMPHASIS"
+>Referenced Specification(s)</I
+></P
+><DIV
+CLASS="FORMALPARA"
+><P
+><B
+><B
+>[1]. </B
+></B
+><A
+HREF="normativerefs.html#STD.PERLLANG"
+>Perl Language Reference</A
+></P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="perloper.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="perlcommand.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Perl Operators and Functions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="perl-int.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Perl Interpreter Command</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

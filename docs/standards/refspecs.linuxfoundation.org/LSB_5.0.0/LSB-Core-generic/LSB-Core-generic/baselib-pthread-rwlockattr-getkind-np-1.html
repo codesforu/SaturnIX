@@ -1,0 +1,375 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>pthread_rwlockattr_getkind_np, pthread_rwlockattr_setkind_np</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libpthread"
+HREF="libpthreadman.html"><LINK
+REL="PREVIOUS"
+TITLE="pthread_mutexattr_getrobust_np, pthread_mutexattr_setrobust_np"
+HREF="baselib-pthread-mutexattr-getrobust-np-1.html"><LINK
+REL="NEXT"
+TITLE="waitpid"
+HREF="baselib-waitpid-3.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-pthread-mutexattr-getrobust-np-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-waitpid-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-PTHREAD-RWLOCKATTR-GETKIND-NP-1"
+></A
+>pthread_rwlockattr_getkind_np, pthread_rwlockattr_setkind_np</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN26165"
+></A
+><H2
+>Name</H2
+>pthread_rwlockattr_getkind_np, pthread_rwlockattr_setkind_np&nbsp;--&nbsp;get/set the read-write lock kind of the thread read-write lock attribute object</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN26172"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN26173"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;pthread.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>pthread_rwlockattr_getkind_np</TT
+></CODE
+>(const pthread_rwlockattr_t *
+<TT
+CLASS="PARAMETER"
+><I
+>attr</I
+></TT
+>, int *
+<TT
+CLASS="PARAMETER"
+><I
+>pref</I
+></TT
+>);</CODE
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>pthread_rwlockattr_setkind_np</TT
+></CODE
+>(pthread_rwlockattr_t *
+<TT
+CLASS="PARAMETER"
+><I
+>attr</I
+></TT
+>, int *
+<TT
+CLASS="PARAMETER"
+><I
+>pref</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26189"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>pthread_rwlockattr_setkind_np()</TT
+> function sets the kind 
+of read-write lock of the thread read-write lock attribute object referred to
+by attr to the value specified with pref. The argument pref may be set
+to <CODE
+CLASS="CONSTANT"
+>PTHREAD_RWLOCK_PREFER_READER_NP</CODE
+>,
+<CODE
+CLASS="CONSTANT"
+>PTHREAD_RWLOCK_PREFER_WRITER_NONRECURSIVE_NP</CODE
+>,
+or <CODE
+CLASS="CONSTANT"
+>PTHREAD_RWLOCK_PREFER_WRITER_NP</CODE
+>.
+The default lock setting is <CODE
+CLASS="CONSTANT"
+>PTHREAD_RWLOCK_PREFER_READER_NP</CODE
+>.
+A thread may hold multiple read locks, i.e. read locks are recursive.
+According to The Single Unix Specification, the behavior is unspecified when 
+a reader tries to place a lock, and there is no write lock but writers are 
+waiting. Giving preference to the reader, as is set by default with 
+the <CODE
+CLASS="CONSTANT"
+>PTHREAD_RWLOCK_PREFER_READER_NP</CODE
+> value implies
+that the reader will receive the requested lock, even if a writer is waiting.
+As long as there are readers the writer will be starved. Setting the kind to
+<CODE
+CLASS="CONSTANT"
+>PTHREAD_RWLOCK_PREFER_WRITER_NONRECURSIVE_NP</CODE
+>, avoids writer
+starvation as long as any read locking is not done in a recursive fashion.
+
+The <TT
+CLASS="FUNCTION"
+>pthread_rwlockattr_getkind_np()</TT
+> function returns the 
+value of the read-write lock attribute of the thread read-write lock attribute
+object referred to by <TT
+CLASS="PARAMETER"
+><I
+>attr</I
+></TT
+> in the pointer <TT
+CLASS="PARAMETER"
+><I
+>pref</I
+></TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26202"
+></A
+><H2
+>Return Value</H2
+><P
+><TT
+CLASS="FUNCTION"
+>pthread_rwlockattr_setkind_np()</TT
+> function returns 0 on success; on error, it returns a non-zero error number.
+
+<TT
+CLASS="FUNCTION"
+>pthread_rwlockattr_setkind_np()</TT
+> function always returns 0.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26207"
+></A
+><H2
+>Errors</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN26210"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EINVAL</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>pref</I
+></TT
+> is set to an unsupported value.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26215"
+></A
+><H2
+>Notes</H2
+><P
+>Setting the value read-write lock kind to <CODE
+CLASS="CONSTANT"
+>PTHREAD_RWLOCK_PREFER_WRITER_NP</CODE
+>,
+results in the same behavior as setting the value to
+<CODE
+CLASS="CONSTANT"
+>PTHREAD_RWLOCK_PREFER_READER_NP</CODE
+>. As long as a reader thread holds the
+lock the thread holding a write lock will be starved. Setting the kind
+value to <CODE
+CLASS="CONSTANT"
+>PTHREAD_RWLOCK_PREFER_WRITER_NONRECURSIVE_NP</CODE
+>, allows the
+writer to run. However, the writer may not be recursive as is implied by the name. </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-pthread-mutexattr-getrobust-np-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-waitpid-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>pthread_mutexattr_getrobust_np, pthread_mutexattr_setrobust_np</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libpthreadman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>waitpid</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,506 @@
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libpthread</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libpthread"
+HREF="libpthread.html"><LINK
+REL="NEXT"
+TITLE="Interfaces Definitions for libpthread"
+HREF="libpthreadman.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpthread.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 11. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpthreadman.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBPTHREAD-DDEFS">Data Definitions for libpthread</H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN7779">pthread.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define PTHREAD_MUTEX_DEFAULT	1
+#define PTHREAD_MUTEX_NORMAL	1
+#define PTHREAD_MUTEX_TIMED_NP	1
+#define PTHREAD_RWLOCK_INITIALIZER	1
+#define PTHREAD_MUTEX_RECURSIVE	2
+#define PTHREAD_MUTEX_ERRORCHECK	3
+#define __LOCK_INITIALIZER	{ 0, 0 }
+#define PTHREAD_MUTEX_INITIALIZER	{0,0,0,PTHREAD_MUTEX_TIMED_NP,__LOCK_INITIALIZER}
+#define PTHREAD_COND_INITIALIZER	{__LOCK_INITIALIZER,0}
+
+
+typedef unsigned int pthread_key_t;
+typedef int pthread_once_t;
+typedef int __atomic_lock_t;
+
+
+typedef unsigned long pthread_t;
+struct _pthread_fastlock
+{
+  long __status;
+  __atomic_lock_t __spinlock;
+}
+ ;
+
+
+typedef struct _pthread_descr_struct *_pthread_descr;
+
+
+typedef struct
+{
+  int __m_reserved;
+  int __m_count;
+  _pthread_descr __m_owner;
+  int __m_kind;
+  struct _pthread_fastlock __m_lock;
+}
+pthread_mutex_t;
+typedef struct
+{
+  int __mutexkind;
+}
+pthread_mutexattr_t;
+
+
+typedef struct
+{
+  int __detachstate;
+  int __schedpolicy;
+  struct sched_param __schedparam;
+  int __inheritsched;
+  int __scope;
+  size_t __guardsize;
+  int __stackaddr_set;
+  void *__stackaddr;
+  unsigned long __stacksize;
+}
+pthread_attr_t;
+
+
+typedef struct
+{
+  struct _pthread_fastlock lock;
+  _pthread_descr wait_chain;
+}
+pthread_cond_t;
+typedef void *pthread_condattr_t;
+
+
+typedef struct _pthread_rwlock_t
+{
+  struct _pthread_fastlock __rw_lock;
+  int __rw_readers;
+  _pthread_descr __rw_writer;
+  _pthread_descr __rw_read_waiting;
+  _pthread_descr __rw_write_waiting;
+  int __rw_kind;
+  int __rw_pshared;
+}
+pthread_rwlock_t;
+typedef struct
+{
+  int __lockkind;
+  int __pshared;
+}
+pthread_rwlockattr_t;
+
+
+
+#define PTHREAD_CREATE_JOINABLE	0
+#define PTHREAD_INHERIT_SCHED	0
+#define PTHREAD_ONCE_INIT	0
+#define PTHREAD_PROCESS_PRIVATE	0
+#define PTHREAD_SCOPE_SYSTEM	0
+#define PTHREAD_CREATE_DETACHED	1
+#define PTHREAD_EXPLICIT_SCHED	1
+#define PTHREAD_PROCESS_SHARED	1
+#define PTHREAD_SCOPE_PROCESS	1
+
+
+
+#define PTHREAD_CANCELED	((void*)-1)
+#define PTHREAD_CANCEL_DEFERRED	0
+#define PTHREAD_CANCEL_ENABLE	0
+#define PTHREAD_CANCEL_ASYNCHRONOUS	1
+#define PTHREAD_CANCEL_DISABLE	1</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN7783">semaphore.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+typedef struct
+{
+  struct _pthread_fastlock __sem_lock;
+  int __sem_value;
+  _pthread_descr __sem_waiting;
+}
+sem_t;
+#define SEM_FAILED	((sem_t*)0)
+
+
+
+#define SEM_VALUE_MAX	((int)((~0u)&#62;&#62;1))</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN7787">signal.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SIGRTMAX	(__libc_current_sigrtmax ())
+#define SIGRTMIN	(__libc_current_sigrtmin ())
+#define SIGEV_SIGNAL	0
+#define SIG_BLOCK	0
+#define SIG_UNBLOCK	1
+#define SIGEV_THREAD	2
+#define SIG_SETMASK	2
+#define NSIG	64
+
+
+typedef int sig_atomic_t;
+struct sigstack
+{
+  void *ss_sp;
+  int ss_onstack;
+}
+ ;
+#define SIG_ERR	((__sighandler_t)-1)
+#define SIG_DFL	((__sighandler_t)0)
+#define SIG_IGN	((__sighandler_t)1)
+#define SIGHUP	1
+#define SIGSEGV	11
+#define SIGPIPE	13
+#define SIGALRM	14
+#define SIGTERM	15
+#define SIGINT	2
+#define SIGPROF	27
+#define SIGQUIT	3
+#define SIGILL	4
+#define SIGTRAP	5
+#define SIGABRT	6
+#define SIGIOT	6
+#define SIGFPE	8
+#define SIGKILL	9
+#define SIGCLD	SIGCHLD
+#define SIGPOLL	SIGIO
+
+
+
+
+
+typedef void (*__sighandler_t) (void);
+#define SV_ONSTACK	(1&#60;&#60;0)
+#define SV_INTERRUPT	(1&#60;&#60;1)
+#define SV_RESETHAND	(1&#60;&#60;2)
+
+
+typedef union sigval
+{
+  int sival_int;
+  void *sival_ptr;
+}
+sigval_t;
+#define SIGEV_NONE	1
+
+
+typedef struct sigevent
+{
+  sigval_t sigev_value;
+  int sigev_signo;
+  int sigev_notify;
+  union
+  {
+    int _pad[SI_PAD_SIZE];
+    struct
+    {
+      void (*sigev_thread_func) (void);
+      void *_attribute;
+    }
+    _sigev_thread;
+  }
+  _sigev_un;
+}
+sigevent_t;
+#define SI_QUEUE	-1
+#define SI_TIMER	-2
+#define SI_MESGQ	-3
+#define SI_ASYNCIO	-4
+#define SI_USER	0
+#define si_pid	_sifields._kill._pid
+#define si_uid	_sifields._kill._uid
+#define si_value	_sifields._rt._sigval
+#define si_int	_sifields._rt._sigval.sival_int
+#define si_ptr	_sifields._rt._sigval.sival_ptr
+#define si_status	_sifields._sigchld._status
+#define si_stime	_sifields._sigchld._stime
+#define si_utime	_sifields._sigchld._utime
+#define si_addr	_sifields._sigfault._addr
+#define si_band	_sifields._sigpoll._band
+#define si_fd	_sifields._sigpoll._fd
+#define si_timer1	_sifields._timer._timer1
+
+
+typedef struct siginfo
+{
+  int si_signo;
+  int si_errno;
+  int si_code;
+  union
+  {
+    int _pad[SI_PAD_SIZE];
+    struct
+    {
+      pid_t _pid;
+      uid_t _uid;
+    }
+    _kill;
+    struct
+    {
+      unsigned int _timer1;
+      unsigned int _timer2;
+    }
+    _timer;
+    struct
+    {
+      pid_t _pid;
+      uid_t _uid;
+      sigval_t _sigval;
+    }
+    _rt;
+    struct
+    {
+      pid_t _pid;
+      uid_t _uid;
+      int _status;
+      clock_t _utime;
+      clock_t _stime;
+    }
+    _sigchld;
+    struct
+    {
+      void *_addr;
+    }
+    _sigfault;
+    struct
+    {
+      int _band;
+      int _fd;
+    }
+    _sigpoll;
+  }
+  _sifields;
+}
+siginfo_t;
+
+
+typedef struct
+{
+  unsigned long sig[_SIGSET_NWORDS];
+}
+sigset_t;
+#define SA_NOCLDSTOP	0x00000001
+#define SA_NOCLDWAIT	0x00000002
+#define SA_SIGINFO	0x00000004
+#define SA_ONSTACK	0x08000000
+#define SA_RESTART	0x10000000
+#define SA_INTERRUPT	0x20000000
+#define SA_NODEFER	0x40000000
+#define SA_RESETHAND	0x80000000
+#define SA_NOMASK	SA_NODEFER
+#define SA_ONESHOT	SA_RESETHAND
+
+
+struct sigaction
+{
+  union
+  {
+    __sighandler_t _sa_handler;
+    void (*_sa_sigaction) (void);
+  }
+  __sigaction_handler;
+  unsigned long sa_flags;
+  void (*sa_restorer) (void);
+  sigset_t sa_mask;
+}
+ ;
+
+
+typedef struct sigaltstack
+{
+  void *ss_sp;
+  int ss_flags;
+  size_t ss_size;
+}
+stack_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpthread.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpthreadman.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libpthread</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interfaces Definitions for libpthread</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

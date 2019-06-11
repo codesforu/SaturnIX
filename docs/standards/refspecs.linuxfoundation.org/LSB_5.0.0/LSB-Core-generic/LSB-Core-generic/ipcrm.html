@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>ipcrm</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="install_initd"
+HREF="installinitd.html"><LINK
+REL="NEXT"
+TITLE="ipcs"
+HREF="ipcs.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="installinitd.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="ipcs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="IPCRM"
+></A
+>ipcrm</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN58605"
+></A
+><H2
+>Name</H2
+>ipcrm&nbsp;--&nbsp;remove IPC Resources</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN58608"
+></A
+><H2
+>Synopsis</H2
+><TT
+CLASS="CMDSYNOPSIS"
+><B
+CLASS="COMMAND"
+>ipcrm</B
+> [-q <TT
+CLASS="REPLACEABLE"
+><I
+>msgid</I
+></TT
+> | -Q <TT
+CLASS="REPLACEABLE"
+><I
+>msgkey</I
+></TT
+> | -s <TT
+CLASS="REPLACEABLE"
+><I
+>semid</I
+></TT
+> | -S <TT
+CLASS="REPLACEABLE"
+><I
+>semkey</I
+></TT
+> | -m <TT
+CLASS="REPLACEABLE"
+><I
+>shmid</I
+></TT
+> | -M <TT
+CLASS="REPLACEABLE"
+><I
+>shmkey</I
+></TT
+>]...<BR><B
+CLASS="COMMAND"
+>ipcrm</B
+> [shm | msg | msg]  id... </TT
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58631"
+></A
+><H2
+>Description</H2
+><P
+>If any of the 
+<TT
+CLASS="PARAMETER"
+><I
+>-q</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>-Q</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>-s</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>-S</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>-m</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>or -M</I
+></TT
+>
+arguments are given, the <B
+CLASS="COMMAND"
+>ipcrm</B
+> shall
+behave as described in <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>.</P
+><P
+>Otherwise,
+<B
+CLASS="COMMAND"
+>ipcrm</B
+> shall remove the resource of
+the specified type identified by <TT
+CLASS="PARAMETER"
+><I
+>id</I
+></TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58652"
+></A
+><H2
+>Future Directions</H2
+><P
+>A future revision of this specification may deprecate the second synopsis form.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Rationale: </B
+>In  its  first  Linux  implementation, <B
+CLASS="COMMAND"
+>ipcrm</B
+> used the second syntax
+shown in the SYNOPSIS.  Functionality present in other implementations
+of  <B
+CLASS="COMMAND"
+>ipcrm</B
+>  has  since  been  added, namely the ability to delete
+resources by key (not just identifier), and to respect  the  same  command
+line  syntax.  The previous syntax is
+still supported for backwards compatibility only.</P
+></BLOCKQUOTE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="installinitd.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="ipcs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>install_initd</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>ipcs</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

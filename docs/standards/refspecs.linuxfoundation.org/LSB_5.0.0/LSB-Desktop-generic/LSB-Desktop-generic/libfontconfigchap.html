@@ -1,0 +1,1261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Libraries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Fontconfig library"
+HREF="toclibfontconfig.html"><LINK
+REL="PREVIOUS"
+TITLE="Fontconfig library"
+HREF="toclibfontconfig.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libfontconfig"
+HREF="libfontconfig-ddefs.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="toclibfontconfig.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libfontconfig-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="LIBFONTCONFIGCHAP"
+></A
+>Chapter 10. Libraries</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBFONTCONFIG"
+>10.1. Interfaces for libfontconfig</A
+></H1
+><P
+><A
+HREF="libfontconfigchap.html#LIB-LIBFONTCONFIG-DEF"
+>Table 10-1</A
+> defines the library name and shared object name
+for the libfontconfig library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBFONTCONFIG-DEF"
+></A
+><P
+><B
+>Table 10-1. libfontconfig Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libfontconfig</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libfontconfig.so.1</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBFONTCONFIG.1"
+></A
+>[fontconfig] <A
+HREF="normativerefs.html#STD.FONTCONFIG"
+>Fontconfig Developers Reference</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN18354"
+>10.1.1. Font Customization and Configuration Library</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN18357"
+>10.1.1.1. Interfaces for Font Customization and Configuration Library</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for Font Customization and Configuration Library specified in <A
+HREF="libfontconfigchap.html#TBL-LIBFONTCONFIG-FONT-INTS"
+>Table 10-2</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBFONTCONFIG-FONT-INTS"
+></A
+><P
+><B
+>Table 10-2. libfontconfig - Font Customization and Configuration Library Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>FcAtomicCreate <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcAtomicDeleteNew <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcAtomicDestroy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcAtomicLock <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcAtomicNewFile <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcAtomicOrigFile <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcAtomicReplaceOrig <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcAtomicUnlock <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcBlanksAdd <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcBlanksCreate <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcBlanksDestroy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcBlanksIsMember <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcCharSetAddChar <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcCharSetCopy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcCharSetCount <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcCharSetCreate <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcCharSetDestroy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcCharSetEqual <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcCharSetFirstPage <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcCharSetHasChar <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcCharSetIntersect <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcCharSetIntersectCount <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcCharSetIsSubset <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcCharSetNextPage <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcCharSetSubtract <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcCharSetSubtractCount <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcCharSetUnion <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcConfigAppFontAddDir <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigAppFontAddFile <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigAppFontClear <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcConfigBuildFonts <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigDestroy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigEnableHome <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcConfigFilename <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigGetBlanks <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigGetCache <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcConfigGetConfigDirs <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigGetConfigFiles <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigGetCurrent <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcConfigGetFontDirs <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigGetFonts <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigGetRescanInterval <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcConfigGetRescanInverval <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigHome <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigParseAndLoad <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcConfigSetCurrent <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigSetRescanInterval <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigSetRescanInverval <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcConfigSubstitute <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigSubstituteWithPat <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigUptoDate <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcDefaultSubstitute <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcDirCacheValid <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcDirSave <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcDirScan <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcFileScan <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcFini <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcFontList <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcFontMatch <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcFontRenderPrepare <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcFontSetAdd <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcFontSetCreate <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcFontSetDestroy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcFontSetList <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcFontSetMatch <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcFontSetPrint <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcFontSetSort <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcFontSetSortDestroy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcFontSort <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcFreeTypeCharIndex <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcFreeTypeCharSet <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcFreeTypeCharSetAndSpacing <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcFreeTypeQuery <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcGetVersion <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcInit <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcInitBringUptoDate <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcInitLoadConfig <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcInitLoadConfigAndFonts <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcInitReinitialize <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcLangSetAdd <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcLangSetCompare <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcLangSetContains <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcLangSetCopy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcLangSetCreate <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcLangSetDestroy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcLangSetEqual <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcLangSetHasLang <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcLangSetHash <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcMatrixCopy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcMatrixEqual <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcMatrixMultiply <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcMatrixRotate <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcMatrixScale <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcMatrixShear <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcNameConstant <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcNameGetConstant <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcNameGetObjectType <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcNameParse <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcNameRegisterConstants <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcNameRegisterObjectTypes <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcNameUnparse <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcNameUnregisterConstants <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcNameUnregisterObjectTypes <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcObjectSetAdd <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcObjectSetBuild <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcObjectSetCreate <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcObjectSetDestroy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcObjectSetVaBuild <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcPatternAdd <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternAddBool <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternAddCharSet <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcPatternAddDouble <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternAddFTFace <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternAddInteger <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcPatternAddLangSet <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternAddMatrix <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternAddString <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcPatternAddWeak <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternBuild <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternCreate <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcPatternDel <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternDestroy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternDuplicate <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcPatternEqual <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternEqualSubset <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternGet <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcPatternGetBool <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternGetCharSet <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternGetDouble <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcPatternGetFTFace <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternGetInteger <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternGetLangSet <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcPatternGetMatrix <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternGetString <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternHash <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcPatternPrint <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternReference <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcPatternVaBuild <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcStrBasename <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcStrCmp <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcStrCmpIgnoreCase <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcStrCopy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcStrCopyFilename <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcStrDirname <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcStrListCreate <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcStrListDone <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcStrListNext <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcStrSetAdd <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcStrSetAddFilename <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcStrSetCreate <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcStrSetDel <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcStrSetDestroy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcStrSetEqual <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcStrSetMember <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcUcs4ToUtf8 <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcUtf16Len <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcUtf16ToUcs4 <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcUtf8Len <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcUtf8ToUcs4 <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcValueDestroy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcValueEqual <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcValuePrint <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcValueSave <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the generic deprecated functions
+for Font Customization and Configuration Library specified in <A
+HREF="libfontconfigchap.html#TBL-LIBFONTCONFIG-FONT-DEPINTS"
+>Table 10-3</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>These interfaces are deprecated, and applications
+should avoid using them.
+These interfaces may be withdrawn
+in future releases of this specification.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBFONTCONFIG-FONT-DEPINTS"
+></A
+><P
+><B
+>Table 10-3. libfontconfig - Font Customization and Configuration Library Deprecated Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>FcConfigGetCache <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigGetRescanInverval <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcConfigSetRescanInverval <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+><TR
+><TD
+>FcDirSave <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcDirScan <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+><TD
+>FcFontSetSortDestroy <A
+HREF="libfontconfigchap.html#REFSTD.LIBFONTCONFIG.1"
+>[fontconfig]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="toclibfontconfig.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libfontconfig-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Fontconfig library</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="toclibfontconfig.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libfontconfig</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

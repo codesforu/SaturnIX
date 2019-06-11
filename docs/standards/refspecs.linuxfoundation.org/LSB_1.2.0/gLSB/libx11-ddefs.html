@@ -1,0 +1,604 @@
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libX11</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="graphlib.html"><LINK
+REL="PREVIOUS"
+TITLE="Libraries"
+HREF="graphlib.html"><LINK
+REL="NEXT"
+TITLE="Interfaces for libXext"
+HREF="libxext.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="graphlib.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 13. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libxext.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBX11-DDEFS">Data Definitions for libX11</H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN10513">X11/Xauth.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+typedef struct xauth
+{
+  unsigned short family;
+  unsigned short address_length;
+  char *address;
+  unsigned short number_length;
+  char *number;
+  unsigned short name_length;
+  char *name;
+  unsigned short data_length;
+  char *data;
+}
+Xauth;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN10517">X11/Xcms.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+typedef struct _XcmsFunctionSet
+{
+  XcmsColorSpace **DDColorSpaces;
+  XcmsScreenInitProc screenInitProc;
+  XcmsScreenFreeProc screenFreeProc;
+}
+XcmsFunctionSet;
+
+
+typedef unsigned long XcmsColorFormat;
+typedef double XcmsFloat;
+typedef struct
+{
+  unsigned short red;
+  unsigned short green;
+  unsigned short blue;
+}
+XcmsRGB;
+typedef struct
+{
+  XcmsFloat red;
+  XcmsFloat green;
+  XcmsFloat blue;
+}
+XcmsRGBi;
+typedef struct
+{
+  XcmsFloat X;
+  XcmsFloat Y;
+  XcmsFloat Z;
+}
+XcmsCIEXYZ;
+typedef struct
+{
+  XcmsFloat u_prime;
+  XcmsFloat v_prime;
+  XcmsFloat Y;
+}
+XcmsCIEuvY;
+typedef struct
+{
+  XcmsFloat x;
+  XcmsFloat y;
+  XcmsFloat Y;
+}
+XcmsCIExyY;
+typedef struct
+{
+  XcmsFloat L_star;
+  XcmsFloat a_star;
+  XcmsFloat b_star;
+}
+XcmsCIELab;
+typedef struct
+{
+  XcmsFloat L_star;
+  XcmsFloat u_star;
+  XcmsFloat v_star;
+}
+XcmsCIELuv;
+typedef struct
+{
+  XcmsFloat H;
+  XcmsFloat V;
+  XcmsFloat C;
+}
+XcmsTekHVC;
+typedef struct
+{
+  XcmsFloat pad0;
+  XcmsFloat pad1;
+  XcmsFloat pad2;
+  XcmsFloat pad3;
+}
+XcmsPad;
+
+
+typedef union
+{
+  XcmsRGB RGB;
+  XcmsRGBi RGBi;
+  XcmsCIEXYZ CIEXYZ;
+  XcmsCIEuvY CIEuvY;
+  XcmsCIExyY CIExyY;
+  XcmsCIELab CIELab;
+  XcmsCIELuv CIELuv;
+  XcmsTekHVC TekHVC;
+  XcmsPad Pad;
+}
+XcmsColor;
+
+
+typedef struct _XcmsPerScrnInfo
+{
+  XcmsColor screenWhitePt;
+  XPointer functionSet;
+  XPointer screenData;
+  unsigned char state;
+  char pad[1];
+}
+XcmsPerScrnInfo;
+
+
+typedef int (*XcmsCompressionProc) (void);
+typedef int (*XcmsWhiteAdjustProc) (void);
+typedef int (*XcmsScreenInitProc) (void);
+typedef void (*XcmsScreenFreeProc) (void);
+typedef int (*XcmsConversionProc) (void);
+typedef int (*XcmsParseStringProc) (void);
+
+
+typedef struct _XcmsCCC
+{
+  Display *dpy;
+  int screenNumber;
+  Visual *visual;
+  XcmsColor clientWhitePt;
+  XcmsCompressionProc gamutCompProc;
+  XPointer gamutCompClientData;
+  XcmsWhiteAdjustProc whitePtAdjProc;
+  XPointer whitePtAdjClientData;
+  XcmsPerScrnInfo *pPerScrnInfo;
+}
+ *XcmsCCC;
+
+
+typedef XcmsConversionProc *XcmsFuncListPtr;
+
+
+typedef struct _XcmsColorSpace
+{
+  char *prefix;
+  XcmsColorFormat id;
+  XcmsParseStringProc parseString;
+  XcmsFuncListPtr to_CIEXYZ;
+  XcmsFuncListPtr from_CIEXYZ;
+  int inverse_flag;
+}
+XcmsColorSpace;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN10521">X11/Xlib.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+struct _XDisplay;
+typedef struct XColor;
+typedef void *XVaNestedList;
+typedef int (*XErrorHandler) (void);
+typedef int (*XIOErrorHandler) (void);
+typedef void (*XConnectionWatchProc) (void);
+
+
+typedef char *XPointer;
+
+
+typedef struct _XExtData
+{
+  int number;
+  struct _XExtData *next;
+  int (*free_private) (struct _XExtData * extension);
+  XPointer private_data;
+}
+XExtData;
+typedef struct XExtCodes;
+
+
+typedef struct XPixmapFormatValues;
+
+
+typedef struct XGCValues;
+
+
+typedef struct _XGC *GC;
+
+
+typedef struct Visual;
+
+
+typedef struct Depth;
+
+
+typedef struct Screen;
+
+
+typedef struct ScreenFormat;
+
+
+typedef struct XSetWindowAttributes;
+typedef struct XWindowAttributes;
+
+
+typedef struct XHostAddress;
+
+
+typedef struct _XImage
+{
+  int width;
+  int height;
+  int xoffset;
+  int format;
+  char *data;
+  int byte_order;
+  int bitmap_unit;
+  int bitmap_bit_order;
+  int bitmap_pad;
+  int depth;
+  int bytes_per_line;
+  int bits_per_pixel;
+  unsigned long red_mask;
+  unsigned long green_mask;
+  unsigned long blue_mask;
+  XPointer obdata;
+  struct funcs f;
+}
+XImage;
+
+
+typedef struct XWindowChanges;
+
+
+typedef struct XSegment;
+typedef struct XPoint;
+typedef struct XRectangle;
+typedef struct XArc;
+
+
+typedef struct XKeyboardControl;
+
+
+typedef struct XKeyboardState;
+
+
+typedef struct XTimeCoord;
+
+
+typedef struct XModifierKeymap;
+
+
+typedef struct _XDisplay Display;
+
+
+typedef struct XKeyEvent;
+typedef XKeyEvent XKeyPressedEvent;
+typedef XKeyEvent XKeyReleasedEvent;
+typedef struct XButtonEvent;
+typedef XButtonEvent XButtonPressedEvent;
+typedef XButtonEvent XButtonReleasedEvent;
+typedef struct XMotionEvent;
+typedef XMotionEvent XPointerMovedEvent;
+typedef struct XCrossingEvent;
+typedef XCrossingEvent XEnterWindowEvent;
+typedef XCrossingEvent XLeaveWindowEvent;
+typedef struct XFocusChangeEvent;
+typedef XFocusChangeEvent XFocusInEvent;
+typedef XFocusChangeEvent XFocusOutEvent;
+typedef struct XKeymapEvent;
+typedef struct XExposeEvent;
+typedef struct XGraphicsExposeEvent;
+typedef struct XNoExposeEvent;
+typedef struct XVisibilityEvent;
+typedef struct XCreateWindowEvent;
+typedef struct XDestroyWindowEvent;
+typedef struct XUnmapEvent;
+typedef struct XMapEvent;
+typedef struct XMapRequestEvent;
+typedef struct XReparentEvent;
+typedef struct XConfigureEvent;
+typedef struct XGravityEvent;
+typedef struct XResizeRequestEvent;
+typedef struct XConfigureRequestEvent;
+typedef struct XCirculateEvent;
+typedef struct XCirculateRequestEvent;
+typedef struct XPropertyEvent;
+typedef struct XSelectionClearEvent;
+typedef struct XSelectionRequestEvent;
+typedef struct XSelectionEvent;
+typedef struct XColormapEvent;
+typedef union XClientMessageEvent;
+typedef struct XMappingEvent;
+typedef struct XErrorEvent;
+typedef struct XAnyEvent;
+
+
+typedef union _XEvent
+{
+  int type;
+  XAnyEvent xany;
+  XKeyEvent xkey;
+  XButtonEvent xbutton;
+  XMotionEvent xmotion;
+  XCrossingEvent xcrossing;
+  XFocusChangeEvent xfocus;
+  XExposeEvent xexpose;
+  XGraphicsExposeEvent xgraphicsexpose;
+  XNoExposeEvent xnoexpose;
+  XVisibilityEvent xvisibility;
+  XCreateWindowEvent xcreatewindow;
+  XDestroyWindowEvent xdestroywindow;
+  XUnmapEvent xunmap;
+  XMapEvent xmap;
+  XMapRequestEvent xmaprequest;
+  XReparentEvent xreparent;
+  XConfigureEvent xconfigure;
+  XGravityEvent xgravity;
+  XResizeRequestEvent xresizerequest;
+  XConfigureRequestEvent xconfigurerequest;
+  XCirculateEvent xcirculate;
+  XCirculateRequestEvent xcirculaterequest;
+  XPropertyEvent xproperty;
+  XSelectionClearEvent xselectionclear;
+  XSelectionRequestEvent xselectionrequest;
+  XSelectionEvent xselection;
+  XColormapEvent xcolormap;
+  XClientMessageEvent xclient;
+  XMappingEvent xmapping;
+  XErrorEvent xerror;
+  XKeymapEvent xkeymap;
+  long pad[1];
+}
+XEvent;
+
+
+typedef struct XCharStruct;
+
+
+typedef struct XFontProp;
+typedef struct XFontStruct;
+typedef struct XFontSetExtents;
+
+
+typedef struct XTextItem;
+typedef struct XChar2b;
+typedef struct XTextItem16;
+
+
+typedef union XEDataObject;
+
+
+typedef struct _XOM *XOM;
+typedef struct _XOC *XOC;
+typedef struct _XOC *XFontSet;
+
+
+typedef struct XmbTextItem;
+typedef struct XwcTextItem;
+
+
+
+
+
+typedef struct _XIM *XIM;
+typedef struct _XIC *XIC;
+typedef void (*XIDProc) (void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN10525">X11/Xutil.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+typedef struct XSizeHints;
+typedef struct XWMHints;
+typedef struct XTextProperty;
+typedef struct XIconSize;
+typedef struct XClassHint;
+typedef struct _XComposeStatus
+{
+  XPointer compose_ptr;
+  int chars_matched;
+}
+XComposeStatus;
+typedef struct _XRegion *Region;
+typedef struct XVisualInfo;
+typedef struct XStandardColormap;
+typedef int XContext;
+typedef enum XICCEncodingStyle;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="graphlib.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libxext.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Libraries</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="graphlib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interfaces for libXext</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

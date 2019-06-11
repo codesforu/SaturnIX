@@ -1,0 +1,341 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>__xmknodat</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="__xmknod"
+HREF="baselib---xmknod-1.html"><LINK
+REL="NEXT"
+TITLE="__xpg_basename"
+HREF="baselib---xpg-basename.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib---xmknod-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib---xpg-basename.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB---XMKNODAT-1"
+></A
+>__xmknodat</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN11776"
+></A
+><H2
+>Name</H2
+>__xmknodat&nbsp;--&nbsp;make a special file relative to a directory file descriptor</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN11781"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN11782"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;sys/stat.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>__xmknodat</TT
+></CODE
+>(int
+<TT
+CLASS="PARAMETER"
+><I
+>ver</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>dirfd</I
+></TT
+>, const char *
+<TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>, mode_t
+<TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>, dev_t *
+<TT
+CLASS="PARAMETER"
+><I
+>dev</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11797"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>__xmknodat()</TT
+> function shall implement the
+<TT
+CLASS="FUNCTION"
+>mknodat()</TT
+> function.
+The behavior of <TT
+CLASS="FUNCTION"
+>__xmknodat()</TT
+> 
+for values of <TT
+CLASS="PARAMETER"
+><I
+>ver</I
+></TT
+> other than
+<TT
+CLASS="LITERAL"
+>_MKNOD_VER</TT
+> is undefined.
+See Data Definitions in the architecture specific part of this 
+specification for the correct value of <TT
+CLASS="LITERAL"
+>_MKNOD_VER</TT
+>.</P
+><P
+><TT
+CLASS="LITERAL"
+>__xmknodat(<TT
+CLASS="LITERAL"
+>_MKNOD_VER</TT
+>, 
+<TT
+CLASS="PARAMETER"
+><I
+>dirfd</I
+></TT
+>,
+<TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>,
+<TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+>,
+<TT
+CLASS="PARAMETER"
+><I
+>dev</I
+></TT
+>)</TT
+>
+shall behave as
+<TT
+CLASS="LITERAL"
+>mknodat(<TT
+CLASS="PARAMETER"
+><I
+>dirfd</I
+></TT
+>,
+<TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>,
+<TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+>,
+<TT
+CLASS="PARAMETER"
+><I
+>dev</I
+></TT
+>)</TT
+>
+as specified by <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>.</P
+><P
+>The <TT
+CLASS="FUNCTION"
+>__xmknodat()</TT
+> function is not in the source standard;
+it is only in the binary standard.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>The <TT
+CLASS="FUNCTION"
+>mknodat()</TT
+> function is not in the binary standard;
+it is only in the source standard.</P
+></BLOCKQUOTE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib---xmknod-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib---xpg-basename.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>__xmknod</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>__xpg_basename</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

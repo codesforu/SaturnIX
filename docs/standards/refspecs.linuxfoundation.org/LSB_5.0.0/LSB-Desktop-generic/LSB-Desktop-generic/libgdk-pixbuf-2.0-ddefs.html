@@ -1,0 +1,619 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libgdk_pixbuf-2.0</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libgdk_pixbuf-2.0"
+HREF="libgdk-pixbuf-2.0.html"><LINK
+REL="NEXT"
+TITLE="Interfaces for libgdk_pixbuf_xlib-2.0"
+HREF="libgdk-pixbuf-xlib-2.0.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libgdk-pixbuf-2.0.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 17. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libgdk-pixbuf-xlib-2.0.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBGDK-PIXBUF-2.0-DDEFS"
+>17.26. Data Definitions for libgdk_pixbuf-2.0</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libgdk_pixbuf-2.0.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN45406"
+>17.26.1. gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define GDK_TYPE_PIXBUF_ANIMATION_ITER	 \
+	(gdk_pixbuf_animation_iter_get_type ())
+#define GDK_PIXBUF_LOADER_CLASS(klass)	 \
+	(G_TYPE_CHECK_CLASS_CAST ((klass), GDK_TYPE_PIXBUF_LOADER, \
+	GdkPixbufLoaderClass))
+#define GDK_IS_PIXBUF_LOADER_CLASS(klass)	 \
+	(G_TYPE_CHECK_CLASS_TYPE ((klass), GDK_TYPE_PIXBUF_LOADER))
+#define GDK_PIXBUF_LOADER(obj)	 \
+	(G_TYPE_CHECK_INSTANCE_CAST ((obj), GDK_TYPE_PIXBUF_LOADER, \
+	GdkPixbufLoader))
+#define GDK_PIXBUF(object)	 \
+	(G_TYPE_CHECK_INSTANCE_CAST ((object), GDK_TYPE_PIXBUF, GdkPixbuf))
+#define GDK_PIXBUF_ANIMATION(object)	 \
+	(G_TYPE_CHECK_INSTANCE_CAST ((object), GDK_TYPE_PIXBUF_ANIMATION, \
+	GdkPixbufAnimation))
+#define GDK_PIXBUF_ANIMATION_ITER(object)	 \
+	(G_TYPE_CHECK_INSTANCE_CAST ((object), \
+	GDK_TYPE_PIXBUF_ANIMATION_ITER, GdkPixbufAnimationIter))
+#define GDK_IS_PIXBUF_LOADER(obj)	 \
+	(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GDK_TYPE_PIXBUF_LOADER))
+#define GDK_IS_PIXBUF(object)	 \
+	(G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF))
+#define GDK_IS_PIXBUF_ANIMATION(object)	 \
+	(G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF_ANIMATION))
+#define GDK_IS_PIXBUF_ANIMATION_ITER(object)	 \
+	(G_TYPE_CHECK_INSTANCE_TYPE ((object), \
+	GDK_TYPE_PIXBUF_ANIMATION_ITER))
+#define GDK_PIXBUF_LOADER_GET_CLASS(obj)	 \
+	(G_TYPE_INSTANCE_GET_CLASS ((obj), GDK_TYPE_PIXBUF_LOADER, \
+	GdkPixbufLoaderClass))
+#define GDK_PIXBUF_VERSION	"2.26.0"
+#define GDK_PIXBUF_MICRO	(0)
+#define GDK_PIXBUF_MAJOR	(2)
+#define GDK_PIXBUF_MINOR	(26)
+#define GDK_TYPE_COLORSPACE	(gdk_colorspace_get_type())
+#define GDK_TYPE_INTERP_TYPE	(gdk_interp_type_get_type())
+#define GDK_TYPE_PIXBUF_ALPHA_MODE	(gdk_pixbuf_alpha_mode_get_type())
+#define GDK_TYPE_PIXBUF_ANIMATION	(gdk_pixbuf_animation_get_type ())
+#define GDK_TYPE_PIXBUF_ERROR	(gdk_pixbuf_error_get_type())
+#define GDK_TYPE_PIXBUF	(gdk_pixbuf_get_type ())
+#define GDK_TYPE_PIXBUF_LOADER	(gdk_pixbuf_loader_get_type ())
+#define GDK_TYPE_PIXBUF_ROTATION	(gdk_pixbuf_rotation_get_type())
+#define GDK_TYPE_PIXBUF_SIMPLE_ANIM	(gdk_pixbuf_simple_anim_get_type ())
+#define GDK_PIXBUF_SIMPLE_ANIM_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GDK_TYPE_PIXBUF_SIMPLE_ANIM, GdkPixbufSimpleAnimClass))
+
+#define GDK_IS_PIXBUF_SIMPLE_ANIM_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), GDK_TYPE_PIXBUF_SIMPLE_ANIM))
+#define GDK_PIXBUF_SIMPLE_ANIM(object)	(G_TYPE_CHECK_INSTANCE_CAST ((object), GDK_TYPE_PIXBUF_SIMPLE_ANIM, GdkPixbufSimpleAnim))
+#define GDK_IS_PIXBUF_SIMPLE_ANIM(object)	(G_TYPE_CHECK_INSTANCE_TYPE ((object), GDK_TYPE_PIXBUF_SIMPLE_ANIM))
+#define GDK_PIXBUF_SIMPLE_ANIM_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), GDK_TYPE_PIXBUF_SIMPLE_ANIM, GdkPixbufSimpleAnimClass))
+#define GDK_PIXBUF_VAR	extern
+#define GDK_PIXBUF_ERROR	gdk_pixbuf_error_quark ()
+
+typedef struct _GdkPixbuf GdkPixbuf;
+typedef gboolean(*GdkPixbufSaveFunc) (const gchar *, gsize, GError * *,
+				      gpointer);
+typedef struct _GdkPixbufLoader {
+    GObject parent_instance;
+    gpointer priv;
+} GdkPixbufLoader;
+typedef struct _GdkPixbufFormat GdkPixbufFormat;
+typedef enum {
+    GDK_INTERP_NEAREST = 0,
+    GDK_INTERP_TILES = 1,
+    GDK_INTERP_BILINEAR = 2,
+    GDK_INTERP_HYPER = 3
+} GdkInterpType;
+typedef enum {
+    GDK_COLORSPACE_RGB = 0
+} GdkColorspace;
+typedef void (*GdkPixbufDestroyNotify) (guchar *, gpointer);
+typedef struct _GdkPixbufAnimationIter GdkPixbufAnimationIter;
+typedef struct _GdkPixbufAnimation GdkPixbufAnimation;
+typedef enum {
+    GDK_PIXBUF_ROTATE_NONE = 0,
+    GDK_PIXBUF_ROTATE_COUNTERCLOCKWISE = 90,
+    GDK_PIXBUF_ROTATE_UPSIDEDOWN = 180,
+    GDK_PIXBUF_ROTATE_CLOCKWISE = 270
+} GdkPixbufRotation;
+typedef struct _GdkPixbufLoaderClass {
+    GObjectClass parent_class;
+    void (*size_prepared) (GdkPixbufLoader *, int, int);
+    void (*area_prepared) (GdkPixbufLoader *);
+    void (*area_updated) (GdkPixbufLoader *, int, int, int, int);
+    void (*closed) (GdkPixbufLoader *);
+} GdkPixbufLoaderClass;
+typedef enum {
+    GDK_PIXBUF_ERROR_CORRUPT_IMAGE,
+    GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY,
+    GDK_PIXBUF_ERROR_BAD_OPTION,
+    GDK_PIXBUF_ERROR_UNKNOWN_TYPE,
+    GDK_PIXBUF_ERROR_UNSUPPORTED_OPERATION,
+    GDK_PIXBUF_ERROR_FAILED
+} GdkPixbufError;
+typedef enum {
+    GDK_PIXBUF_ALPHA_BILEVEL,
+    GDK_PIXBUF_ALPHA_FULL
+} GdkPixbufAlphaMode;
+typedef struct _GdkPixbufSimpleAnim GdkPixbufSimpleAnim;
+typedef struct _GdkPixbufSimpleAnimClass GdkPixbufSimpleAnimClass;
+extern GType gdk_colorspace_get_type(void);
+extern GType gdk_interp_type_get_type(void);
+extern GdkPixbuf *gdk_pixbuf_add_alpha(const GdkPixbuf * pixbuf,
+				       gboolean substitute_color, guchar r,
+				       guchar g, guchar b);
+extern GType gdk_pixbuf_alpha_mode_get_type(void);
+extern int gdk_pixbuf_animation_get_height(GdkPixbufAnimation * animation);
+extern GdkPixbufAnimationIter
+    *gdk_pixbuf_animation_get_iter(GdkPixbufAnimation * animation,
+				   const GTimeVal * start_time);
+extern GdkPixbuf *gdk_pixbuf_animation_get_static_image(GdkPixbufAnimation
+							* animation);
+extern GType gdk_pixbuf_animation_get_type(void);
+extern int gdk_pixbuf_animation_get_width(GdkPixbufAnimation * animation);
+extern gboolean gdk_pixbuf_animation_is_static_image(GdkPixbufAnimation *
+						     animation);
+extern gboolean gdk_pixbuf_animation_iter_advance(GdkPixbufAnimationIter *
+						  iter,
+						  const GTimeVal *
+						  current_time);
+extern int gdk_pixbuf_animation_iter_get_delay_time(GdkPixbufAnimationIter
+						    * iter);
+extern GdkPixbuf
+    *gdk_pixbuf_animation_iter_get_pixbuf(GdkPixbufAnimationIter * iter);
+extern GType gdk_pixbuf_animation_iter_get_type(void);
+extern gboolean
+gdk_pixbuf_animation_iter_on_currently_loading_frame(GdkPixbufAnimationIter
+						     * iter);
+extern GdkPixbufAnimation *gdk_pixbuf_animation_new_from_file(const char
+							      *filename,
+							      GError *
+							      *error);
+extern GdkPixbufAnimation *gdk_pixbuf_animation_ref(GdkPixbufAnimation *
+						    animation);
+extern void gdk_pixbuf_animation_unref(GdkPixbufAnimation * animation);
+extern GdkPixbuf *gdk_pixbuf_apply_embedded_orientation(GdkPixbuf * src);
+extern void gdk_pixbuf_composite(const GdkPixbuf * src, GdkPixbuf * dest,
+				 int dest_x, int dest_y, int dest_width,
+				 int dest_height, double offset_x,
+				 double offset_y, double scale_x,
+				 double scale_y, GdkInterpType interp_type,
+				 int overall_alpha);
+extern void gdk_pixbuf_composite_color(const GdkPixbuf * src,
+				       GdkPixbuf * dest, int dest_x,
+				       int dest_y, int dest_width,
+				       int dest_height, double offset_x,
+				       double offset_y, double scale_x,
+				       double scale_y,
+				       GdkInterpType interp_type,
+				       int overall_alpha, int check_x,
+				       int check_y, int check_size,
+				       guint32 color1, guint32 color2);
+extern GdkPixbuf *gdk_pixbuf_composite_color_simple(const GdkPixbuf * src,
+						    int dest_width,
+						    int dest_height,
+						    GdkInterpType
+						    interp_type,
+						    int overall_alpha,
+						    int check_size,
+						    guint32 color1,
+						    guint32 color2);
+extern GdkPixbuf *gdk_pixbuf_copy(const GdkPixbuf * pixbuf);
+extern void gdk_pixbuf_copy_area(const GdkPixbuf * src_pixbuf, int src_x,
+				 int src_y, int width, int height,
+				 GdkPixbuf * dest_pixbuf, int dest_x,
+				 int dest_y);
+extern GType gdk_pixbuf_error_get_type(void);
+extern GQuark gdk_pixbuf_error_quark(void);
+extern void gdk_pixbuf_fill(GdkPixbuf * pixbuf, guint32 pixel);
+extern GdkPixbuf *gdk_pixbuf_flip(const GdkPixbuf * src,
+				  gboolean horizontal);
+extern GdkPixbufFormat *gdk_pixbuf_format_copy(const GdkPixbufFormat *
+					       format);
+extern void gdk_pixbuf_format_free(GdkPixbufFormat * format);
+extern gchar *gdk_pixbuf_format_get_description(GdkPixbufFormat * format);
+extern gchar **gdk_pixbuf_format_get_extensions(GdkPixbufFormat * format);
+extern gchar *gdk_pixbuf_format_get_license(GdkPixbufFormat * format);
+extern gchar **gdk_pixbuf_format_get_mime_types(GdkPixbufFormat * format);
+extern gchar *gdk_pixbuf_format_get_name(GdkPixbufFormat * format);
+extern GType gdk_pixbuf_format_get_type(void);
+extern gboolean gdk_pixbuf_format_is_disabled(GdkPixbufFormat * format);
+extern gboolean gdk_pixbuf_format_is_scalable(GdkPixbufFormat * format);
+extern gboolean gdk_pixbuf_format_is_writable(GdkPixbufFormat * format);
+extern void gdk_pixbuf_format_set_disabled(GdkPixbufFormat * format,
+					   gboolean disabled);
+extern int gdk_pixbuf_get_bits_per_sample(const GdkPixbuf * pixbuf);
+extern gsize gdk_pixbuf_get_byte_length(const GdkPixbuf * pixbuf);
+extern GdkColorspace gdk_pixbuf_get_colorspace(const GdkPixbuf * pixbuf);
+extern GdkPixbufFormat *gdk_pixbuf_get_file_info(const gchar * filename,
+						 gint * width,
+						 gint * height);
+extern GSList *gdk_pixbuf_get_formats(void);
+extern gboolean gdk_pixbuf_get_has_alpha(const GdkPixbuf * pixbuf);
+extern int gdk_pixbuf_get_height(const GdkPixbuf * pixbuf);
+extern int gdk_pixbuf_get_n_channels(const GdkPixbuf * pixbuf);
+extern const gchar *gdk_pixbuf_get_option(GdkPixbuf * pixbuf,
+					  const gchar * key);
+extern guchar *gdk_pixbuf_get_pixels(const GdkPixbuf * pixbuf);
+extern guchar *gdk_pixbuf_get_pixels_with_length(const GdkPixbuf * pixbuf,
+						 guint * length);
+extern int gdk_pixbuf_get_rowstride(const GdkPixbuf * pixbuf);
+extern GType gdk_pixbuf_get_type(void);
+extern int gdk_pixbuf_get_width(const GdkPixbuf * pixbuf);
+extern gboolean gdk_pixbuf_loader_close(GdkPixbufLoader * loader,
+					GError * *error);
+extern GdkPixbufAnimation *gdk_pixbuf_loader_get_animation(GdkPixbufLoader
+							   * loader);
+extern GdkPixbufFormat *gdk_pixbuf_loader_get_format(GdkPixbufLoader *
+						     loader);
+extern GdkPixbuf *gdk_pixbuf_loader_get_pixbuf(GdkPixbufLoader * loader);
+extern GType gdk_pixbuf_loader_get_type(void);
+extern GdkPixbufLoader *gdk_pixbuf_loader_new(void);
+extern GdkPixbufLoader *gdk_pixbuf_loader_new_with_mime_type(const char
+							     *mime_type,
+							     GError *
+							     *error);
+extern GdkPixbufLoader *gdk_pixbuf_loader_new_with_type(const char
+							*image_type,
+							GError * *error);
+extern void gdk_pixbuf_loader_set_size(GdkPixbufLoader * loader, int width,
+				       int height);
+extern gboolean gdk_pixbuf_loader_write(GdkPixbufLoader * loader,
+					const guchar * buf, gsize count,
+					GError * *error);
+extern const guint gdk_pixbuf_major_version;
+extern const guint gdk_pixbuf_micro_version;
+extern const guint gdk_pixbuf_minor_version;
+extern GdkPixbuf *gdk_pixbuf_new(GdkColorspace colorspace,
+				 gboolean has_alpha, int bits_per_sample,
+				 int width, int height);
+extern GdkPixbuf *gdk_pixbuf_new_from_data(const guchar * data,
+					   GdkColorspace colorspace,
+					   gboolean has_alpha,
+					   int bits_per_sample, int width,
+					   int height, int rowstride,
+					   GdkPixbufDestroyNotify
+					   destroy_fn,
+					   gpointer destroy_fn_data);
+extern GdkPixbuf *gdk_pixbuf_new_from_file(const char *filename,
+					   GError * *error);
+extern GdkPixbuf *gdk_pixbuf_new_from_file_at_scale(const char *filename,
+						    int width, int height,
+						    gboolean
+						    preserve_aspect_ratio,
+						    GError * *error);
+extern GdkPixbuf *gdk_pixbuf_new_from_file_at_size(const char *filename,
+						   int width, int height,
+						   GError * *error);
+extern GdkPixbuf *gdk_pixbuf_new_from_inline(gint data_length,
+					     const guint8 * data,
+					     gboolean copy_pixels,
+					     GError * *error);
+extern GdkPixbuf *gdk_pixbuf_new_from_resource(const char *resource_path,
+					       GError * *error);
+extern GdkPixbuf *gdk_pixbuf_new_from_resource_at_scale(const char
+							*resource_path,
+							int width,
+							int height,
+							gboolean
+							preserve_aspect_ratio,
+							GError * *error);
+extern GdkPixbuf *gdk_pixbuf_new_from_stream(GInputStream * stream,
+					     GCancellable * cancellable,
+					     GError * *error);
+extern void gdk_pixbuf_new_from_stream_async(GInputStream * stream,
+					     GCancellable * cancellable,
+					     GAsyncReadyCallback callback,
+					     gpointer user_data);
+extern GdkPixbuf *gdk_pixbuf_new_from_stream_at_scale(GInputStream *
+						      stream, gint width,
+						      gint height,
+						      gboolean
+						      preserve_aspect_ratio,
+						      GCancellable *
+						      cancellable,
+						      GError * *error);
+extern void gdk_pixbuf_new_from_stream_at_scale_async(GInputStream *
+						      stream, gint width,
+						      gint height,
+						      gboolean
+						      preserve_aspect_ratio,
+						      GCancellable *
+						      cancellable,
+						      GAsyncReadyCallback
+						      callback,
+						      gpointer user_data);
+extern GdkPixbuf *gdk_pixbuf_new_from_stream_finish(GAsyncResult *
+						    async_result,
+						    GError * *error);
+extern GdkPixbuf *gdk_pixbuf_new_from_xpm_data(const char **data);
+extern GdkPixbuf *gdk_pixbuf_new_subpixbuf(GdkPixbuf * src_pixbuf,
+					   int src_x, int src_y, int width,
+					   int height);
+extern GdkPixbuf *gdk_pixbuf_ref(GdkPixbuf * pixbuf);
+extern GdkPixbuf *gdk_pixbuf_rotate_simple(const GdkPixbuf * src,
+					   GdkPixbufRotation angle);
+extern GType gdk_pixbuf_rotation_get_type(void);
+extern void gdk_pixbuf_saturate_and_pixelate(const GdkPixbuf * src,
+					     GdkPixbuf * dest,
+					     gfloat saturation,
+					     gboolean pixelate);
+extern gboolean gdk_pixbuf_save(GdkPixbuf * pixbuf, const char *filename,
+				const char *type, GError * *error, ...);
+extern gboolean gdk_pixbuf_save_to_buffer(GdkPixbuf * pixbuf,
+					  gchar * *buffer,
+					  gsize * buffer_size,
+					  const char *type,
+					  GError * *error, ...);
+extern gboolean gdk_pixbuf_save_to_bufferv(GdkPixbuf * pixbuf,
+					   gchar * *buffer,
+					   gsize * buffer_size,
+					   const char *type,
+					   char **option_keys,
+					   char **option_values,
+					   GError * *error);
+extern gboolean gdk_pixbuf_save_to_callback(GdkPixbuf * pixbuf,
+					    GdkPixbufSaveFunc save_func,
+					    gpointer user_data,
+					    const char *type,
+					    GError * *error, ...);
+extern gboolean gdk_pixbuf_save_to_callbackv(GdkPixbuf * pixbuf,
+					     GdkPixbufSaveFunc save_func,
+					     gpointer user_data,
+					     const char *type,
+					     char **option_keys,
+					     char **option_values,
+					     GError * *error);
+extern gboolean gdk_pixbuf_save_to_stream(GdkPixbuf * pixbuf,
+					  GOutputStream * stream,
+					  const char *type,
+					  GCancellable * cancellable,
+					  GError * *error, ...);
+extern void gdk_pixbuf_save_to_stream_async(GdkPixbuf * pixbuf,
+					    GOutputStream * stream,
+					    const char *type,
+					    GCancellable * cancellable,
+					    GAsyncReadyCallback callback,
+					    gpointer user_data, ...);
+extern gboolean gdk_pixbuf_save_to_stream_finish(GAsyncResult *
+						 async_result,
+						 GError * *error);
+extern gboolean gdk_pixbuf_savev(GdkPixbuf * pixbuf, const char *filename,
+				 const char *type, char **option_keys,
+				 char **option_values, GError * *error);
+extern void gdk_pixbuf_scale(const GdkPixbuf * src, GdkPixbuf * dest,
+			     int dest_x, int dest_y, int dest_width,
+			     int dest_height, double offset_x,
+			     double offset_y, double scale_x,
+			     double scale_y, GdkInterpType interp_type);
+extern GdkPixbuf *gdk_pixbuf_scale_simple(const GdkPixbuf * src,
+					  int dest_width, int dest_height,
+					  GdkInterpType interp_type);
+extern void gdk_pixbuf_simple_anim_add_frame(GdkPixbufSimpleAnim *
+					     animation,
+					     GdkPixbuf * pixbuf);
+extern gboolean gdk_pixbuf_simple_anim_get_loop(GdkPixbufSimpleAnim *
+						animation);
+extern GType gdk_pixbuf_simple_anim_get_type(void);
+extern GType gdk_pixbuf_simple_anim_iter_get_type(void);
+extern GdkPixbufSimpleAnim *gdk_pixbuf_simple_anim_new(gint width,
+						       gint height,
+						       gfloat rate);
+extern void gdk_pixbuf_simple_anim_set_loop(GdkPixbufSimpleAnim *
+					    animation, gboolean loop);
+extern void gdk_pixbuf_unref(GdkPixbuf * pixbuf);
+extern const char *gdk_pixbuf_version;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN45410"
+>17.26.2. gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixdata.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define GDK_PIXBUF_MAGIC_NUMBER	(0x47646b50)
+#define GDK_PIXDATA_HEADER_LENGTH	(4 + 4 + 4 + 4 + 4 + 4)
+
+typedef struct _GdkPixdata {
+    guint32 magic;
+    gint32 length;
+    guint32 pixdata_type;
+    guint32 rowstride;
+    guint32 width;
+    guint32 height;
+    guint8 *pixel_data;
+} GdkPixdata;
+typedef enum {
+    GDK_PIXDATA_DUMP_PIXDATA_STREAM = 0,
+    GDK_PIXDATA_DUMP_PIXDATA_STRUCT = 1,
+    GDK_PIXDATA_DUMP_MACROS = 2,
+    GDK_PIXDATA_DUMP_GTYPES = 0,
+    GDK_PIXDATA_DUMP_CTYPES = 256,
+    GDK_PIXDATA_DUMP_STATIC = 512,
+    GDK_PIXDATA_DUMP_CONST = 1024,
+    GDK_PIXDATA_DUMP_RLE_DECODER = 65536
+} GdkPixdataDumpType;
+typedef enum {
+    GDK_PIXDATA_COLOR_TYPE_RGB = 0x01,
+    GDK_PIXDATA_COLOR_TYPE_RGBA = 0x02,
+    GDK_PIXDATA_COLOR_TYPE_MASK = 0xff,
+    GDK_PIXDATA_SAMPLE_WIDTH_8 = 0x01 &#60;&#60; 16,
+    GDK_PIXDATA_SAMPLE_WIDTH_MASK = 0x0f &#60;&#60; 16,
+    GDK_PIXDATA_ENCODING_RAW = 0x01 &#60;&#60; 24,
+    GDK_PIXDATA_ENCODING_RLE = 0x02 &#60;&#60; 24,
+    GDK_PIXDATA_ENCODING_MASK = 0x0f &#60;&#60; 24
+} GdkPixdataType;
+extern GdkPixbuf *gdk_pixbuf_from_pixdata(const GdkPixdata * pixdata,
+					  gboolean copy_pixels,
+					  GError * *error);
+extern gboolean gdk_pixdata_deserialize(GdkPixdata * pixdata,
+					guint stream_length,
+					const guint8 * stream,
+					GError * *error);
+extern gpointer gdk_pixdata_from_pixbuf(GdkPixdata * pixdata,
+					const GdkPixbuf * pixbuf,
+					gboolean use_rle);
+extern guint8 *gdk_pixdata_serialize(const GdkPixdata * pixdata,
+				     guint * stream_length_p);
+extern GString *gdk_pixdata_to_csource(GdkPixdata * pixdata,
+				       const gchar * name,
+				       GdkPixdataDumpType dump_type);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libgdk-pixbuf-2.0.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libgdk-pixbuf-xlib-2.0.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libgdk_pixbuf-2.0</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="gtk.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interfaces for libgdk_pixbuf_xlib-2.0</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

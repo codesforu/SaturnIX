@@ -1,0 +1,385 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>getgrent_r</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="getdtablesize"
+HREF="baselib-getdtablesize.html"><LINK
+REL="NEXT"
+TITLE="getgrouplist"
+HREF="baselib-getgrouplist-3.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-getdtablesize.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-getgrouplist-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-GETGRENT-R-1"
+></A
+>getgrent_r</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN14859"
+></A
+><H2
+>Name</H2
+>getgrent_r&nbsp;--&nbsp;reentrantly get entry in group file</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN14864"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN14865"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;grp.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>getgrent_r</TT
+></CODE
+>(struct group *
+<TT
+CLASS="PARAMETER"
+><I
+>gbuf</I
+></TT
+>, char *
+<TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>, size_t
+<TT
+CLASS="PARAMETER"
+><I
+>buflen</I
+></TT
+>, struct group * *
+<TT
+CLASS="PARAMETER"
+><I
+>gbufp</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14878"
+></A
+><H2
+>Description</H2
+><P
+>The reentrant interface <TT
+CLASS="FUNCTION"
+>getgrent_r()</TT
+> shall function in the same
+way as the interface <TT
+CLASS="FUNCTION"
+>getgrent()</TT
+>, except that
+<TT
+CLASS="FUNCTION"
+>getgrent_r()</TT
+> shall
+return the group name, group password, and group members
+in buffers provided by the caller, rather than as a pointer to static storage.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>gbuf</I
+></TT
+> contains the 
+<SPAN
+CLASS="TYPE"
+>struct group</SPAN
+> that was read from the stream, if any.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+> contains 
+additional strings, if any.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>buflen</I
+></TT
+> specifies 
+the size of <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>*gbufp</I
+></TT
+> returns 
+a pointer to the <SPAN
+CLASS="TYPE"
+>struct group</SPAN
+> in <TT
+CLASS="PARAMETER"
+><I
+>*gbuf</I
+></TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14896"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <TT
+CLASS="FUNCTION"
+>getgrent_r()</TT
+> shall return <TT
+CLASS="LITERAL"
+>0</TT
+>,
+and <TT
+CLASS="PARAMETER"
+><I
+>*gbufp</I
+></TT
+> shall contain a pointer to the result.</P
+><P
+>On failure, <TT
+CLASS="PARAMETER"
+><I
+>*gbufp</I
+></TT
+> shall contain 
+<TT
+CLASS="LITERAL"
+>NULL</TT
+>, and <TT
+CLASS="FUNCTION"
+>getgrent_r()</TT
+>
+shall return an error as follows.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14906"
+></A
+><H2
+>Errors</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN14909"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ENOENT</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>No more group entries.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN14913"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ERANGE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Not enough buffer space. Specify a larger buffer and try again.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-getdtablesize.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-getgrouplist-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>getdtablesize</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>getgrouplist</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

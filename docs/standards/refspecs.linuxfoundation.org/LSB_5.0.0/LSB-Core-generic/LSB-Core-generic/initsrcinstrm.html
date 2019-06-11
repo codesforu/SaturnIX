@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Installation and Removal of Init Scripts</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="System Initialization"
+HREF="sysinit.html"><LINK
+REL="PREVIOUS"
+TITLE="Comment Conventions for Init Scripts"
+HREF="initscrcomconv.html"><LINK
+REL="NEXT"
+TITLE="Run Levels"
+HREF="runlevels.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="initscrcomconv.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 22. System Initialization</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="runlevels.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="INITSRCINSTRM"
+>22.4. Installation and Removal of Init Scripts</A
+></H1
+><P
+>Conforming applications may install one or more initialization scripts
+(or <I
+CLASS="EMPHASIS"
+>init scripts</I
+>).
+An init script shall be installed in <TT
+CLASS="FILENAME"
+>/etc/init.d</TT
+>
+(which may be a symbolic link to another location), by the package
+installer.</P
+><P
+>During the installer's post-install processing phase the program
+<B
+CLASS="COMMAND"
+>/usr/lib/lsb/install_initd</B
+> must be called to
+activate the init script. Activation consists of arranging for
+the init script to be called in the correct order on system
+run-level changes (including system boot and shutdown), based on
+dependencies supplied in the init script (see <A
+HREF="initscrcomconv.html"
+>Comment Conventions for Init Scripts</A
+>).
+The <B
+CLASS="COMMAND"
+>install_initd</B
+> command should be thought of as
+a wrapper which hides the implementation details;
+how any given implementation arranges for the init
+script to be called at the appropriate time is not specified.</P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN61726"
+></A
+><A
+NAME="AEN61727"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><P
+>Example: if an init script specified 
+"Default-Start: 3 4 5" and "Default-Stop: 0 1 2 6",
+<B
+CLASS="COMMAND"
+>install_initd</B
+> might create
+"start" symbolic links with names starting with 'S' in 
+<TT
+CLASS="FILENAME"
+>/etc/rc3.d</TT
+>,
+<TT
+CLASS="FILENAME"
+>/etc/rc4.d</TT
+> and
+<TT
+CLASS="FILENAME"
+>/etc/rc5.d</TT
+>
+and "stop" symbolic links with names starting with 'K' in
+<TT
+CLASS="FILENAME"
+>/etc/rc0.d</TT
+>,
+<TT
+CLASS="FILENAME"
+>/etc/rc1.d</TT
+>,
+<TT
+CLASS="FILENAME"
+>/etc/rc2.d</TT
+> and
+<TT
+CLASS="FILENAME"
+>/etc/rc6.d</TT
+>. Such
+a scheme would be similar to the System V Init
+mechanism, but is by no means the only way
+this specification could be implemented.</P
+></BLOCKQUOTE
+><P
+></P
+></DIV
+><P
+>The <B
+CLASS="COMMAND"
+>install_initd</B
+> command takes a single argument, the full pathname
+of the installed init script. The init script must already be installed
+in <TT
+CLASS="FILENAME"
+>/etc/init.d</TT
+>.
+The <B
+CLASS="COMMAND"
+>install_initd</B
+> command will not copy it there, only activate
+it once it has been installed.
+For example:
+<DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN61741"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>	/usr/lib/lsb/install_initd /etc/init.d/example.com-coffeed</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></P
+><P
+>The <B
+CLASS="COMMAND"
+>install_initd</B
+> command
+shall return an exit status of zero if the
+init-script activation was successful or if the init script was
+already activated. If the dependencies in the init script 
+(see <A
+HREF="initscrcomconv.html"
+>Comment Conventions for Init Scripts</A
+>)  cannot be met, 
+an exit status of one shall be returned and the init script shall not be
+activated.</P
+><P
+> 
+When a software package is removed, <B
+CLASS="COMMAND"
+>/usr/lib/lsb/remove_initd</B
+>
+must be called to deactivate the init script. This must occur
+before the init script itself is removed, as the dependency
+information in the script may be required for successful completion.
+Thus the installer's pre-remove processing phase must call
+<B
+CLASS="COMMAND"
+>remove_initd</B
+>, and pass the full pathname of
+the installed init script.
+The package installer is still responsible for removing 
+the init script.
+For example:
+<DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN61749"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>	/usr/lib/lsb/remove_initd /etc/init.d/example.com-coffeed</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></P
+><P
+>The <B
+CLASS="COMMAND"
+>remove_initd</B
+> program shall return an exit status
+of zero if the init script has been successfully deactivated or if the
+init script is not activated. If another init script which depends
+on a boot facility provided by this init script is activated,
+an exit status of one shall be returned and the init script shall
+remain activated. The installer must fail on such an exit code
+so it does not subsequently remove the init script.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>This specification does not describe a mechanism for the system
+administrator to manipulate the run levels at which an init script
+is started or stopped. There is no assurance that modifying the
+comment block for this purpose will have the desired effect.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="initscrcomconv.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="runlevels.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Comment Conventions for Init Scripts</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="sysinit.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Run Levels</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

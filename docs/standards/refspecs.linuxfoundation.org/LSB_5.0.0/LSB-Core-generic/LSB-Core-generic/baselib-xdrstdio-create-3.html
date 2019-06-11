@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>xdrstdio_create</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="xdr_u_int"
+HREF="baselib-xdr-u-int-3.html"><LINK
+REL="NEXT"
+TITLE="Interfaces for libm"
+HREF="libm.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-xdr-u-int-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libm.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-XDRSTDIO-CREATE-3"
+></A
+>xdrstdio_create</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN21405"
+></A
+><H2
+>Name</H2
+>xdrstdio_create&nbsp;--&nbsp;library routines for external data representation</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN21408"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN21409"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;rpc/xdr.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void
+<TT
+CLASS="FUNCTION"
+>xdrstdio_create</TT
+></CODE
+>(XDR *
+<TT
+CLASS="PARAMETER"
+><I
+>xdrs</I
+></TT
+>, FILE *
+<TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+>, enum xdr_op
+<TT
+CLASS="PARAMETER"
+><I
+>op</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN21420"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>xdrstdio_create()</TT
+> function
+shall initialize the XDR stream object referred to by <TT
+CLASS="PARAMETER"
+><I
+>xdrs</I
+></TT
+>.
+The XDR stream data shall be written to, or read from, the standard I/O stream associated
+with <TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+>. If the operation <TT
+CLASS="PARAMETER"
+><I
+>op</I
+></TT
+> is 
+<TT
+CLASS="SYMBOL"
+>XDR_ENCODE</TT
+>, encoded data shall be written to <TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+>.
+If <TT
+CLASS="PARAMETER"
+><I
+>op</I
+></TT
+> is <TT
+CLASS="SYMBOL"
+>XDR_DECODE</TT
+>, encoded data shall be read from 
+<TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+>.
+If <TT
+CLASS="PARAMETER"
+><I
+>op</I
+></TT
+> is <TT
+CLASS="SYMBOL"
+>XDR_FREE</TT
+>, 
+the XDR stream object may be used to deallocate storage allocated by a previous <TT
+CLASS="SYMBOL"
+>XDR_DECODE</TT
+>.</P
+><P
+>The associated destroy function shall flush the <TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+> I/O stream, but not close
+it.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN21439"
+></A
+><H2
+>Return Value</H2
+><P
+>None.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-xdr-u-int-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libm.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>xdr_u_int</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interfaces for libm</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

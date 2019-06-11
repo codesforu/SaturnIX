@@ -1,0 +1,385 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Coding Examples</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for Itanium&#8482;"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Low Level System Information"
+HREF="lowlevel.html"><LINK
+REL="PREVIOUS"
+TITLE="Process Initialization"
+HREF="processinitialization.html"><LINK
+REL="NEXT"
+TITLE="C Stack Frame"
+HREF="cstackframe.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for Itanium&#8482;</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="processinitialization.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 7. Low Level System Information</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="cstackframe.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="CODINGEXAMPLES"
+>7.5. Coding Examples</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="EXAMPLESINTRO"
+>7.5.1. Introduction</A
+></H2
+><P
+>LSB-conforming applications may implement fundamental operations using the
+Coding Examples as shown below.</P
+><P
+>Sample code sequences and coding conventions can be found in
+<A
+HREF="normativerefs.html#STD.IA64.CONVENTIONS"
+>Itanium&#8482; Software Conventions and Runtime Guide</A
+>, Chapter 9.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="CODEMODELOVERVIEW"
+>7.5.2. Code Model Overview/Architecture Constraints</A
+></H2
+><P
+>As defined in 
+<A
+HREF="normativerefs.html#STD.IA64.ABI"
+>Intel® Itanium&#8482; Processor-specific Application Binary Interface</A
+>,
+relocatable files, executable files, and shared object files 
+that are supplied as part of an application shall use
+Position Independent Code, as described in
+<A
+HREF="normativerefs.html#STD.IA64.CONVENTIONS"
+>Itanium&#8482; Software Conventions and Runtime Guide</A
+>, Chapter 12.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="PICPROLOGUE"
+>7.5.3. Position-Independent Function Prologue</A
+></H2
+><P
+>See
+<A
+HREF="normativerefs.html#STD.IA64.CONVENTIONS"
+>Itanium&#8482; Software Conventions and Runtime Guide</A
+>, Chapter 8.4.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="DATAOBJECTS"
+>7.5.4. Data Objects</A
+></H2
+><P
+>See
+<A
+HREF="normativerefs.html#STD.IA64.ABI"
+>Intel® Itanium&#8482; Processor-specific Application Binary Interface</A
+>, Chapter 5.3.4, and
+<A
+HREF="normativerefs.html#STD.IA64.CONVENTIONS"
+>Itanium&#8482; Software Conventions and Runtime Guide</A
+>, Chapter 12.3.</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="DATAOBJECTSABSLOAD"
+>7.5.4.1. Absolute Load &#38; Store</A
+></H3
+><P
+>Conforming applications shall not use absolute addressing.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="DATAOBJECTSRELLOAD"
+>7.5.4.2. Position Relative Load &#38; Store</A
+></H3
+><P
+>See 
+<A
+HREF="normativerefs.html#STD.IA64.ABI"
+>Intel® Itanium&#8482; Processor-specific Application Binary Interface</A
+>, Chapter 5.3.4.</P
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="FUNCTIONCALLS"
+>7.5.5. Function Calls</A
+></H2
+><P
+>See
+<A
+HREF="normativerefs.html#STD.IA64.CONVENTIONS"
+>Itanium&#8482; Software Conventions and Runtime Guide</A
+>, Chapter 8.4.</P
+><P
+>Four types of procedure call are defined in 
+<A
+HREF="normativerefs.html#STD.IA64.CONVENTIONS"
+>Itanium&#8482; Software Conventions and Runtime Guide</A
+>, Chapter 8.3.
+Although special calling conventions
+are permitted, provided that the compiler and runtime library
+agree on these conventions, none are defined for this standard.
+Consequently, no application shall depend on a type of procedure call
+other than Direct Calls, Direct Dynamically Linked Calls, or Indirect Calls,
+as defined in
+<A
+HREF="normativerefs.html#STD.IA64.CONVENTIONS"
+>Itanium&#8482; Software Conventions and Runtime Guide</A
+>, Chapter 8.3.</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="FUNCCALLDIRECT"
+>7.5.5.1. Absolute Direct Function Call</A
+></H3
+><P
+>Conforming applications shall not use absolute addressing.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="FUNCCALLINDIRECT"
+>7.5.5.2. Absolute Indirect Function Call</A
+></H3
+><P
+>Conforming applications shall not use absolute addressing.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="FUNCCALLPICDIRECT"
+>7.5.5.3. Position-Independent Direct Function Call</A
+></H3
+><P
+>See
+<A
+HREF="normativerefs.html#STD.IA64.CONVENTIONS"
+>Itanium&#8482; Software Conventions and Runtime Guide</A
+>, Chapter 8.4.1.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="FUNCCALLPICINDIRECT"
+>7.5.5.4. Position-Independent Indirect Function Call</A
+></H3
+><P
+>See
+<A
+HREF="normativerefs.html#STD.IA64.CONVENTIONS"
+>Itanium&#8482; Software Conventions and Runtime Guide</A
+>, Chapter 8.4.2.</P
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="BRANCHING"
+>7.5.6. Branching</A
+></H2
+><P
+>Branching is described in
+<A
+HREF="normativerefs.html#STD.IA64.SDM.VOL4"
+>Itanium&#8482; Architecture Software Developer's Manual Volume 4</A
+>, Chapter 4.5.</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="BRANCHINSTRUCTION"
+>7.5.6.1. Branch Instruction</A
+></H3
+><P
+>See
+<A
+HREF="normativerefs.html#STD.IA64.SDM.VOL4"
+>Itanium&#8482; Architecture Software Developer's Manual Volume 4</A
+>, Chapter 4.5.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="ABSOLUTESWITCHCODE"
+>7.5.6.2. Absolute switch() code</A
+></H3
+><P
+>Conforming applications shall not use absolute addressing.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="PICSWITCHCODE"
+>7.5.6.3. Position-Independent switch() code</A
+></H3
+><P
+>Where there are several possible targets for a branch,
+the compiler may use a number of different code generation strategies.
+See
+<A
+HREF="normativerefs.html#STD.IA64.CONVENTIONS"
+>Itanium&#8482; Software Conventions and Runtime Guide</A
+>, Chapter 9.1.7.</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="processinitialization.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="cstackframe.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Process Initialization</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="lowlevel.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>C Stack Frame</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

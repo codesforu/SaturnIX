@@ -1,0 +1,479 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Python Modules</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Languages Specification"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Python Interpreter"
+HREF="python-int.html"><LINK
+REL="PREVIOUS"
+TITLE="Operators and Functions"
+HREF="pyoper.html"><LINK
+REL="NEXT"
+TITLE="Python Interpreter Command"
+HREF="pycommand.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Languages Specification</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="pyoper.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. Python Interpreter</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="pycommand.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="PYMODULES"
+>6.5. Python Modules</A
+></H1
+><P
+>An LSB conforming implementation shall provide the
+Python modules as described in <A
+HREF="pymodules.html#TBL-PYTHON-MODS"
+>Table 6-1</A
+>
+with at least the behavior described as mandatory
+in the referenced underlying specification.
+Some Python modules may be marked as deprecated, and applications
+should avoid using these as they may be withdrawn
+in future releases of this specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-PYTHON-MODS"
+></A
+><P
+><B
+>Table 6-1. Python Modules</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>array
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>csv
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>imp
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>posix
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>sys
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>binascii
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>datetime
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>itertools
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>pwd
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>syslog
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>bisect
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>errno
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>locale
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>random
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>termios
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>cPickle
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>exceptions
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>marshal
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>re
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>thread
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>cStringIO
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>fcntl
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>mmap
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>resource
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>time
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>cmath
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>gc
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>operator
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>select
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>unicodedata
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>codecs
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>grp
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>os
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>signal
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>weakref
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>collections
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>heapq
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>ossaudiodev
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>socket
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>zipimport
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+></TR
+><TR
+><TD
+>crypt
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>hotshot
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>parser
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>string
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+><TD
+>zlib
+<A
+HREF="pymodules.html#AEN414"
+> [1]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+><I
+CLASS="EMPHASIS"
+>Referenced Specification(s)</I
+></P
+><DIV
+CLASS="FORMALPARA"
+><P
+><B
+><B
+>[1]. </B
+></B
+><A
+HREF="normativerefs.html#STD.PYTHON"
+>Python Reference Manual</A
+></P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="pyoper.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="pycommand.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Operators and Functions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="python-int.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Python Interpreter Command</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>userdel</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="useradd"
+HREF="useradd.html"><LINK
+REL="NEXT"
+TITLE="usermod"
+HREF="usermod.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="useradd.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="usermod.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="USERDEL"
+></A
+>userdel</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN60819"
+></A
+><H2
+>Name</H2
+>userdel&nbsp;--&nbsp;delete a user account and related files</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN60822"
+></A
+><H2
+>Synopsis</H2
+><TT
+CLASS="CMDSYNOPSIS"
+><B
+CLASS="COMMAND"
+>userdel</B
+> [-r]  login </TT
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN60827"
+></A
+><H2
+>Description</H2
+><P
+>Delete the user account named <TT
+CLASS="REPLACEABLE"
+><I
+>login</I
+></TT
+>.  If there is also a group named
+<TT
+CLASS="REPLACEABLE"
+><I
+>login</I
+></TT
+>, this command may
+delete the group as well, or may leave it alone.
+If the user named <TT
+CLASS="PARAMETER"
+><I
+>login</I
+></TT
+> does not exist
+or is currently logged in,
+<B
+CLASS="COMMAND"
+>userdel</B
+> shall issue a diagnostic message and exit
+with a non-zero exit status.</P
+><P
+>The <B
+CLASS="COMMAND"
+>userdel</B
+> command is a system administration utility,
+see <A
+HREF="fhs-sysadmin.html"
+>Path For System Administration Utilities</A
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN60837"
+></A
+><H2
+>Options</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN60840"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-r</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>removes files in the user's home directory along with the home
+directory itself.  Files located in other file system will have to be
+searched for and deleted manually.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="useradd.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="usermod.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>useradd</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>usermod</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>__mbsnrtowcs_chk</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="__libc_start_main"
+HREF="baselib---libc-start-main-.html"><LINK
+REL="NEXT"
+TITLE="__mbsrtowcs_chk"
+HREF="baselib---mbsrtowcs-chk-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib---libc-start-main-.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib---mbsrtowcs-chk-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB---MBSNRTOWCS-CHK-1"
+></A
+>__mbsnrtowcs_chk</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN9086"
+></A
+><H2
+>Name</H2
+>__mbsnrtowcs_chk&nbsp;--&nbsp;convert a multibyte string to a wide-character string, with buffer overflow checking</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN9091"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN9092"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;wchar.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>size_t
+<TT
+CLASS="FUNCTION"
+>__mbsnrtowcs_chk</TT
+></CODE
+>(wchar_t *
+<TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+>, const char * *
+<TT
+CLASS="PARAMETER"
+><I
+>src</I
+></TT
+>, size_t
+<TT
+CLASS="PARAMETER"
+><I
+>nmc</I
+></TT
+>, size_t
+<TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+>, mbstate_t *
+<TT
+CLASS="PARAMETER"
+><I
+>ps</I
+></TT
+>, size_t
+<TT
+CLASS="PARAMETER"
+><I
+>destlen</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN9109"
+></A
+><H2
+>Description</H2
+><P
+>The interface <TT
+CLASS="FUNCTION"
+>__mbsnrtowcs_chk()</TT
+> shall function in the same
+way as the interface <TT
+CLASS="FUNCTION"
+>mbsnrtowcs()</TT
+>, except that
+<TT
+CLASS="FUNCTION"
+>__mbsnrtowcs_chk()</TT
+> shall check for buffer overflow before
+computing a result.  If an overflow is anticipated,
+the function shall abort
+and the program calling it shall exit.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>destlen</I
+></TT
+> specifies the size of the object
+<TT
+CLASS="PARAMETER"
+><I
+>dest</I
+></TT
+>. If <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> exceeds
+<TT
+CLASS="PARAMETER"
+><I
+>destlen</I
+></TT
+>, the function shall abort, and the program calling it shall exit.</P
+><P
+>The <TT
+CLASS="FUNCTION"
+>__mbsnrtowcs_chk()</TT
+> function is not in the source standard; 
+it is only in the binary standard.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib---libc-start-main-.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib---mbsrtowcs-chk-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>__libc_start_main</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>__mbsrtowcs_chk</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

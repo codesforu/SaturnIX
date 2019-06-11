@@ -1,0 +1,3248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Base Libraries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="PREVIOUS"
+TITLE="Symbol Mapping"
+HREF="symmap.cxx.html"><LINK
+REL="NEXT"
+TITLE="Base Libraries"
+HREF="baselib.html"></HEAD
+><BODY
+CLASS="PART"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="symmap.cxx.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="TOCBASELIB"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>III. Base Libraries</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>14. <A
+HREF="baselib.html"
+>Base Libraries</A
+></DT
+><DD
+><DL
+><DT
+>14.1. <A
+HREF="baselib.html#AEN2163"
+>Introduction</A
+></DT
+><DT
+>14.2. <A
+HREF="proginterp.html"
+>Program Interpreter</A
+></DT
+><DT
+>14.3. <A
+HREF="libc.html"
+>Interfaces for libc</A
+></DT
+><DD
+><DL
+><DT
+>14.3.1. <A
+HREF="libc.html#AEN2220"
+>RPC</A
+></DT
+><DT
+>14.3.2. <A
+HREF="libc.html#AEN2533"
+>Epoll</A
+></DT
+><DT
+>14.3.3. <A
+HREF="libc.html#AEN2558"
+>System Calls</A
+></DT
+><DT
+>14.3.4. <A
+HREF="libc.html#AEN3333"
+>Standard I/O</A
+></DT
+><DT
+>14.3.5. <A
+HREF="libc.html#AEN3796"
+>Signal Handling</A
+></DT
+><DT
+>14.3.6. <A
+HREF="libc.html#AEN3987"
+>Localization Functions</A
+></DT
+><DT
+>14.3.7. <A
+HREF="libc.html#AEN4108"
+>Posix Spawn Option</A
+></DT
+><DT
+>14.3.8. <A
+HREF="libc.html#AEN4212"
+>Posix Advisory Option</A
+></DT
+><DT
+>14.3.9. <A
+HREF="libc.html#AEN4240"
+>Socket Interface</A
+></DT
+><DT
+>14.3.10. <A
+HREF="libc.html#AEN4401"
+>Wide Characters</A
+></DT
+><DT
+>14.3.11. <A
+HREF="libc.html#AEN4990"
+>String Functions</A
+></DT
+><DT
+>14.3.12. <A
+HREF="libc.html#AEN5374"
+>IPC Functions</A
+></DT
+><DT
+>14.3.13. <A
+HREF="libc.html#AEN5436"
+>Regular Expressions</A
+></DT
+><DT
+>14.3.14. <A
+HREF="libc.html#AEN5464"
+>Character Type Functions</A
+></DT
+><DT
+>14.3.15. <A
+HREF="libc.html#AEN5679"
+>Time Manipulation</A
+></DT
+><DT
+>14.3.16. <A
+HREF="libc.html#AEN5783"
+>Terminal Interface Functions</A
+></DT
+><DT
+>14.3.17. <A
+HREF="libc.html#AEN5859"
+>System Database Interface</A
+></DT
+><DT
+>14.3.18. <A
+HREF="libc.html#AEN6124"
+>Language Support</A
+></DT
+><DT
+>14.3.19. <A
+HREF="libc.html#AEN6146"
+>Large File Support</A
+></DT
+><DT
+>14.3.20. <A
+HREF="libc.html#AEN6320"
+>Inotify</A
+></DT
+><DT
+>14.3.21. <A
+HREF="libc.html#AEN6345"
+>Standard Library</A
+></DT
+><DT
+>14.3.22. <A
+HREF="libc.html#AEN7310"
+>GNU Extensions for libc</A
+></DT
+></DL
+></DD
+><DT
+>14.4. <A
+HREF="libc-ddefs.html"
+>Data Definitions for libc</A
+></DT
+><DD
+><DL
+><DT
+>14.4.1. <A
+HREF="libc-ddefs.html#AEN7338"
+>argz.h</A
+></DT
+><DT
+>14.4.2. <A
+HREF="libc-ddefs.html#AEN7342"
+>arpa/inet.h</A
+></DT
+><DT
+>14.4.3. <A
+HREF="libc-ddefs.html#AEN7346"
+>assert.h</A
+></DT
+><DT
+>14.4.4. <A
+HREF="libc-ddefs.html#AEN7350"
+>cpio.h</A
+></DT
+><DT
+>14.4.5. <A
+HREF="libc-ddefs.html#AEN7354"
+>ctype.h</A
+></DT
+><DT
+>14.4.6. <A
+HREF="libc-ddefs.html#AEN7358"
+>dirent.h</A
+></DT
+><DT
+>14.4.7. <A
+HREF="libc-ddefs.html#AEN7362"
+>elf.h</A
+></DT
+><DT
+>14.4.8. <A
+HREF="libc-ddefs.html#AEN7366"
+>endian.h</A
+></DT
+><DT
+>14.4.9. <A
+HREF="libc-ddefs.html#AEN7370"
+>envz.h</A
+></DT
+><DT
+>14.4.10. <A
+HREF="libc-ddefs.html#AEN7374"
+>err.h</A
+></DT
+><DT
+>14.4.11. <A
+HREF="libc-ddefs.html#AEN7378"
+>errno.h</A
+></DT
+><DT
+>14.4.12. <A
+HREF="libc-ddefs.html#AEN7382"
+>error.h</A
+></DT
+><DT
+>14.4.13. <A
+HREF="libc-ddefs.html#AEN7386"
+>execinfo.h</A
+></DT
+><DT
+>14.4.14. <A
+HREF="libc-ddefs.html#AEN7390"
+>fcntl.h</A
+></DT
+><DT
+>14.4.15. <A
+HREF="libc-ddefs.html#AEN7394"
+>fmtmsg.h</A
+></DT
+><DT
+>14.4.16. <A
+HREF="libc-ddefs.html#AEN7398"
+>fnmatch.h</A
+></DT
+><DT
+>14.4.17. <A
+HREF="libc-ddefs.html#AEN7402"
+>ftw.h</A
+></DT
+><DT
+>14.4.18. <A
+HREF="libc-ddefs.html#AEN7406"
+>getopt.h</A
+></DT
+><DT
+>14.4.19. <A
+HREF="libc-ddefs.html#AEN7410"
+>glob.h</A
+></DT
+><DT
+>14.4.20. <A
+HREF="libc-ddefs.html#AEN7414"
+>gnu/libc-version.h</A
+></DT
+><DT
+>14.4.21. <A
+HREF="libc-ddefs.html#AEN7418"
+>grp.h</A
+></DT
+><DT
+>14.4.22. <A
+HREF="libc-ddefs.html#AEN7422"
+>iconv.h</A
+></DT
+><DT
+>14.4.23. <A
+HREF="libc-ddefs.html#AEN7426"
+>ifaddrs.h</A
+></DT
+><DT
+>14.4.24. <A
+HREF="libc-ddefs.html#AEN7430"
+>inttypes.h</A
+></DT
+><DT
+>14.4.25. <A
+HREF="libc-ddefs.html#AEN7434"
+>langinfo.h</A
+></DT
+><DT
+>14.4.26. <A
+HREF="libc-ddefs.html#AEN7438"
+>libgen.h</A
+></DT
+><DT
+>14.4.27. <A
+HREF="libc-ddefs.html#AEN7442"
+>libintl.h</A
+></DT
+><DT
+>14.4.28. <A
+HREF="libc-ddefs.html#AEN7446"
+>limits.h</A
+></DT
+><DT
+>14.4.29. <A
+HREF="libc-ddefs.html#AEN7450"
+>link.h</A
+></DT
+><DT
+>14.4.30. <A
+HREF="libc-ddefs.html#AEN7454"
+>locale.h</A
+></DT
+><DT
+>14.4.31. <A
+HREF="libc-ddefs.html#AEN7458"
+>lsb/time.h</A
+></DT
+><DT
+>14.4.32. <A
+HREF="libc-ddefs.html#AEN7462"
+>lsb/types.h</A
+></DT
+><DT
+>14.4.33. <A
+HREF="libc-ddefs.html#AEN7466"
+>lsb/wchar.h</A
+></DT
+><DT
+>14.4.34. <A
+HREF="libc-ddefs.html#AEN7470"
+>monetary.h</A
+></DT
+><DT
+>14.4.35. <A
+HREF="libc-ddefs.html#AEN7474"
+>net/if.h</A
+></DT
+><DT
+>14.4.36. <A
+HREF="libc-ddefs.html#AEN7478"
+>netdb.h</A
+></DT
+><DT
+>14.4.37. <A
+HREF="libc-ddefs.html#AEN7482"
+>netinet/icmp6.h</A
+></DT
+><DT
+>14.4.38. <A
+HREF="libc-ddefs.html#AEN7486"
+>netinet/igmp.h</A
+></DT
+><DT
+>14.4.39. <A
+HREF="libc-ddefs.html#AEN7490"
+>netinet/in.h</A
+></DT
+><DT
+>14.4.40. <A
+HREF="libc-ddefs.html#AEN7494"
+>netinet/in_systm.h</A
+></DT
+><DT
+>14.4.41. <A
+HREF="libc-ddefs.html#AEN7498"
+>netinet/ip.h</A
+></DT
+><DT
+>14.4.42. <A
+HREF="libc-ddefs.html#AEN7502"
+>netinet/ip6.h</A
+></DT
+><DT
+>14.4.43. <A
+HREF="libc-ddefs.html#AEN7506"
+>netinet/ip_icmp.h</A
+></DT
+><DT
+>14.4.44. <A
+HREF="libc-ddefs.html#AEN7510"
+>netinet/tcp.h</A
+></DT
+><DT
+>14.4.45. <A
+HREF="libc-ddefs.html#AEN7514"
+>netinet/udp.h</A
+></DT
+><DT
+>14.4.46. <A
+HREF="libc-ddefs.html#AEN7518"
+>nl_types.h</A
+></DT
+><DT
+>14.4.47. <A
+HREF="libc-ddefs.html#AEN7522"
+>poll.h</A
+></DT
+><DT
+>14.4.48. <A
+HREF="libc-ddefs.html#AEN7526"
+>pwd.h</A
+></DT
+><DT
+>14.4.49. <A
+HREF="libc-ddefs.html#AEN7530"
+>regex.h</A
+></DT
+><DT
+>14.4.50. <A
+HREF="libc-ddefs.html#AEN7534"
+>rpc/auth.h</A
+></DT
+><DT
+>14.4.51. <A
+HREF="libc-ddefs.html#AEN7538"
+>rpc/clnt.h</A
+></DT
+><DT
+>14.4.52. <A
+HREF="libc-ddefs.html#AEN7542"
+>rpc/pmap_clnt.h</A
+></DT
+><DT
+>14.4.53. <A
+HREF="libc-ddefs.html#AEN7546"
+>rpc/rpc_msg.h</A
+></DT
+><DT
+>14.4.54. <A
+HREF="libc-ddefs.html#AEN7550"
+>rpc/svc.h</A
+></DT
+><DT
+>14.4.55. <A
+HREF="libc-ddefs.html#AEN7554"
+>rpc/types.h</A
+></DT
+><DT
+>14.4.56. <A
+HREF="libc-ddefs.html#AEN7558"
+>rpc/xdr.h</A
+></DT
+><DT
+>14.4.57. <A
+HREF="libc-ddefs.html#AEN7562"
+>sched.h</A
+></DT
+><DT
+>14.4.58. <A
+HREF="libc-ddefs.html#AEN7566"
+>search.h</A
+></DT
+><DT
+>14.4.59. <A
+HREF="libc-ddefs.html#AEN7570"
+>setjmp.h</A
+></DT
+><DT
+>14.4.60. <A
+HREF="libc-ddefs.html#AEN7574"
+>signal.h</A
+></DT
+><DT
+>14.4.61. <A
+HREF="libc-ddefs.html#AEN7578"
+>spawn.h</A
+></DT
+><DT
+>14.4.62. <A
+HREF="libc-ddefs.html#AEN7582"
+>stddef.h</A
+></DT
+><DT
+>14.4.63. <A
+HREF="libc-ddefs.html#AEN7586"
+>stdint.h</A
+></DT
+><DT
+>14.4.64. <A
+HREF="libc-ddefs.html#AEN7590"
+>stdio.h</A
+></DT
+><DT
+>14.4.65. <A
+HREF="libc-ddefs.html#AEN7594"
+>stdlib.h</A
+></DT
+><DT
+>14.4.66. <A
+HREF="libc-ddefs.html#AEN7598"
+>string.h</A
+></DT
+><DT
+>14.4.67. <A
+HREF="libc-ddefs.html#AEN7602"
+>strings.h</A
+></DT
+><DT
+>14.4.68. <A
+HREF="libc-ddefs.html#AEN7606"
+>sys/epoll.h</A
+></DT
+><DT
+>14.4.69. <A
+HREF="libc-ddefs.html#AEN7610"
+>sys/file.h</A
+></DT
+><DT
+>14.4.70. <A
+HREF="libc-ddefs.html#AEN7614"
+>sys/inotify.h</A
+></DT
+><DT
+>14.4.71. <A
+HREF="libc-ddefs.html#AEN7618"
+>sys/ioctl.h</A
+></DT
+><DT
+>14.4.72. <A
+HREF="libc-ddefs.html#AEN7622"
+>sys/ipc.h</A
+></DT
+><DT
+>14.4.73. <A
+HREF="libc-ddefs.html#AEN7626"
+>sys/mman.h</A
+></DT
+><DT
+>14.4.74. <A
+HREF="libc-ddefs.html#AEN7630"
+>sys/msg.h</A
+></DT
+><DT
+>14.4.75. <A
+HREF="libc-ddefs.html#AEN7634"
+>sys/param.h</A
+></DT
+><DT
+>14.4.76. <A
+HREF="libc-ddefs.html#AEN7638"
+>sys/poll.h</A
+></DT
+><DT
+>14.4.77. <A
+HREF="libc-ddefs.html#AEN7642"
+>sys/ptrace.h</A
+></DT
+><DT
+>14.4.78. <A
+HREF="libc-ddefs.html#AEN7646"
+>sys/resource.h</A
+></DT
+><DT
+>14.4.79. <A
+HREF="libc-ddefs.html#AEN7650"
+>sys/select.h</A
+></DT
+><DT
+>14.4.80. <A
+HREF="libc-ddefs.html#AEN7654"
+>sys/sem.h</A
+></DT
+><DT
+>14.4.81. <A
+HREF="libc-ddefs.html#AEN7658"
+>sys/sendfile.h</A
+></DT
+><DT
+>14.4.82. <A
+HREF="libc-ddefs.html#AEN7662"
+>sys/shm.h</A
+></DT
+><DT
+>14.4.83. <A
+HREF="libc-ddefs.html#AEN7666"
+>sys/socket.h</A
+></DT
+><DT
+>14.4.84. <A
+HREF="libc-ddefs.html#AEN7670"
+>sys/stat.h</A
+></DT
+><DT
+>14.4.85. <A
+HREF="libc-ddefs.html#AEN7674"
+>sys/statfs.h</A
+></DT
+><DT
+>14.4.86. <A
+HREF="libc-ddefs.html#AEN7678"
+>sys/statvfs.h</A
+></DT
+><DT
+>14.4.87. <A
+HREF="libc-ddefs.html#AEN7682"
+>sys/sysinfo.h</A
+></DT
+><DT
+>14.4.88. <A
+HREF="libc-ddefs.html#AEN7686"
+>sys/time.h</A
+></DT
+><DT
+>14.4.89. <A
+HREF="libc-ddefs.html#AEN7690"
+>sys/timeb.h</A
+></DT
+><DT
+>14.4.90. <A
+HREF="libc-ddefs.html#AEN7694"
+>sys/times.h</A
+></DT
+><DT
+>14.4.91. <A
+HREF="libc-ddefs.html#AEN7698"
+>sys/types.h</A
+></DT
+><DT
+>14.4.92. <A
+HREF="libc-ddefs.html#AEN7702"
+>sys/uio.h</A
+></DT
+><DT
+>14.4.93. <A
+HREF="libc-ddefs.html#AEN7706"
+>sys/un.h</A
+></DT
+><DT
+>14.4.94. <A
+HREF="libc-ddefs.html#AEN7710"
+>sys/utsname.h</A
+></DT
+><DT
+>14.4.95. <A
+HREF="libc-ddefs.html#AEN7714"
+>sys/wait.h</A
+></DT
+><DT
+>14.4.96. <A
+HREF="libc-ddefs.html#AEN7718"
+>sysexits.h</A
+></DT
+><DT
+>14.4.97. <A
+HREF="libc-ddefs.html#AEN7722"
+>syslog.h</A
+></DT
+><DT
+>14.4.98. <A
+HREF="libc-ddefs.html#AEN7726"
+>tar.h</A
+></DT
+><DT
+>14.4.99. <A
+HREF="libc-ddefs.html#AEN7730"
+>termios.h</A
+></DT
+><DT
+>14.4.100. <A
+HREF="libc-ddefs.html#AEN7734"
+>time.h</A
+></DT
+><DT
+>14.4.101. <A
+HREF="libc-ddefs.html#AEN7738"
+>ucontext.h</A
+></DT
+><DT
+>14.4.102. <A
+HREF="libc-ddefs.html#AEN7742"
+>ulimit.h</A
+></DT
+><DT
+>14.4.103. <A
+HREF="libc-ddefs.html#AEN7746"
+>unistd.h</A
+></DT
+><DT
+>14.4.104. <A
+HREF="libc-ddefs.html#AEN7750"
+>utime.h</A
+></DT
+><DT
+>14.4.105. <A
+HREF="libc-ddefs.html#AEN7754"
+>utmp.h</A
+></DT
+><DT
+>14.4.106. <A
+HREF="libc-ddefs.html#AEN7758"
+>utmpx.h</A
+></DT
+><DT
+>14.4.107. <A
+HREF="libc-ddefs.html#AEN7762"
+>wchar.h</A
+></DT
+><DT
+>14.4.108. <A
+HREF="libc-ddefs.html#AEN7766"
+>wctype.h</A
+></DT
+><DT
+>14.4.109. <A
+HREF="libc-ddefs.html#AEN7770"
+>wordexp.h</A
+></DT
+></DL
+></DD
+><DT
+>14.5. <A
+HREF="libcman.html"
+>Interface Definitions for libc</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="baselib--io-feof-3.html"
+>_IO_feof</A
+>&nbsp;--&nbsp;alias for feof</DT
+><DT
+><A
+HREF="baselib--io-getc-3.html"
+>_IO_getc</A
+>&nbsp;--&nbsp;alias for getc</DT
+><DT
+><A
+HREF="baselib--io-putc-3.html"
+>_IO_putc</A
+>&nbsp;--&nbsp;alias for putc</DT
+><DT
+><A
+HREF="baselib--io-puts-3.html"
+>_IO_puts</A
+>&nbsp;--&nbsp;alias for puts</DT
+><DT
+><A
+HREF="baselib---assert-fail-1.html"
+>__assert_fail</A
+>&nbsp;--&nbsp;abort the program after false assertion</DT
+><DT
+><A
+HREF="baselib---chk-fail-1.html"
+>__chk_fail</A
+>&nbsp;--&nbsp;terminate a function in case of buffer overflow</DT
+><DT
+><A
+HREF="baselib---confstr-chk-1.html"
+>__confstr_chk</A
+>&nbsp;--&nbsp;get configuration dependent string variables, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---ctype-b-loc.html"
+>__ctype_b_loc</A
+>&nbsp;--&nbsp;accessor function for __ctype_b array for ctype functions</DT
+><DT
+><A
+HREF="baselib---ctype-get-mb-cur-max-1.html"
+>__ctype_get_mb_cur_max</A
+>&nbsp;--&nbsp;maximum length of a multibyte character in the current locale</DT
+><DT
+><A
+HREF="libutil---ctype-tolower-loc.html"
+>__ctype_tolower_loc</A
+>&nbsp;--&nbsp;accessor function for __ctype_b_tolower array for ctype tolower() function</DT
+><DT
+><A
+HREF="libutil---ctype-toupper-loc.html"
+>__ctype_toupper_loc</A
+>&nbsp;--&nbsp;accessor function for <TT
+CLASS="FUNCTION"
+>__ctype_b_toupper()</TT
+>
+array for ctype <TT
+CLASS="FUNCTION"
+>toupper()</TT
+> function</DT
+><DT
+><A
+HREF="baselib---cxa-atexit.html"
+>__cxa_atexit</A
+>&nbsp;--&nbsp;register a function to be called by exit or when a shared library is unloaded</DT
+><DT
+><A
+HREF="baselib---cxa-finalize.html"
+>__cxa_finalize</A
+>&nbsp;--&nbsp;call destructors of global (or local static) C++
+objects and exit functions registered with atexit</DT
+><DT
+><A
+HREF="baselib---daylight.html"
+>__daylight</A
+>&nbsp;--&nbsp;external daylight savings time flag</DT
+><DT
+><A
+HREF="baselib---environ.html"
+>__environ</A
+>&nbsp;--&nbsp;alias for environ - user environment </DT
+><DT
+><A
+HREF="baselib---errno-location.html"
+>__errno_location</A
+>&nbsp;--&nbsp;address of errno variable</DT
+><DT
+><A
+HREF="baselib---fgets-chk-1.html"
+>__fgets_chk</A
+>&nbsp;--&nbsp;string input, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---fgets-unlocked-chk-1.html"
+>__fgets_unlocked_chk</A
+>&nbsp;--&nbsp;non-locking string input, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---fgetws-chk-1.html"
+>__fgetws_chk</A
+>&nbsp;--&nbsp;read a wide-character string from a FILE stream, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---fgetws-unlocked-chk-1.html"
+>__fgetws_unlocked_chk</A
+>&nbsp;--&nbsp;read a wide-character string from a FILE stream in a non-locking manner, with stack checking</DT
+><DT
+><A
+HREF="baselib---fpending.html"
+>__fpending</A
+>&nbsp;--&nbsp;returns in bytes the amount of output pending on a stream</DT
+><DT
+><A
+HREF="baselib---fprintf-chk-1.html"
+>__fprintf_chk</A
+>&nbsp;--&nbsp;convert formatted output, with stack checking</DT
+><DT
+><A
+HREF="baselib---fwprintf-chk-1.html"
+>__fwprintf_chk</A
+>&nbsp;--&nbsp;convert formatted wide-character output, with stack checking</DT
+><DT
+><A
+HREF="baselib---fxstatat-1.html"
+>__fxstatat</A
+>&nbsp;--&nbsp;get file status relative to directory file descriptor</DT
+><DT
+><A
+HREF="baselib---fxstatat64-1.html"
+>__fxstatat64, fstatat64</A
+>&nbsp;--&nbsp;get file status relative to a directory file descriptor (Large File Support)</DT
+><DT
+><A
+HREF="baselib---getcwd-chk-1.html"
+>__getcwd_chk</A
+>&nbsp;--&nbsp;get current working directory, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---getgroups-chk-1.html"
+>__getgroups_chk</A
+>&nbsp;--&nbsp;get list of supplementary group IDs, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---gethostname-chk-1.html"
+>__gethostname_chk</A
+>&nbsp;--&nbsp;get host name, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---getlogin-r-chk-1.html"
+>__getlogin_r_chk</A
+>&nbsp;--&nbsp;get user name, with buffer overflow checking (reentrant)</DT
+><DT
+><A
+HREF="baselib---getpagesize.html"
+>__getpagesize</A
+>&nbsp;--&nbsp;alias for getpagesize - get current page size </DT
+><DT
+><A
+HREF="baselib---getpgid-1.html"
+>__getpgid</A
+>&nbsp;--&nbsp;get the process group id</DT
+><DT
+><A
+HREF="baselib---h-errno-location.html"
+>__h_errno_location</A
+>&nbsp;--&nbsp;address of h_errno variable</DT
+><DT
+><A
+HREF="baselib---isinf.html"
+>__isinf</A
+>&nbsp;--&nbsp;test for infinity</DT
+><DT
+><A
+HREF="baselib---isinff.html"
+>__isinff</A
+>&nbsp;--&nbsp;test for infinity</DT
+><DT
+><A
+HREF="baselib---isinfl.html"
+>__isinfl</A
+>&nbsp;--&nbsp;test for infinity</DT
+><DT
+><A
+HREF="baselib---isnan.html"
+>__isnan</A
+>&nbsp;--&nbsp;test for infinity</DT
+><DT
+><A
+HREF="baselib---isnanf.html"
+>__isnanf</A
+>&nbsp;--&nbsp;test for infinity</DT
+><DT
+><A
+HREF="baselib---isnanl.html"
+>__isnanl</A
+>&nbsp;--&nbsp;test for infinity</DT
+><DT
+><A
+HREF="baselib---libc-current-sigrtmax-1.html"
+>__libc_current_sigrtmax</A
+>&nbsp;--&nbsp;return number of available real-time signal with lowest priority</DT
+><DT
+><A
+HREF="baselib---libc-current-sigrtmin-1.html"
+>__libc_current_sigrtmin</A
+>&nbsp;--&nbsp;return number of available real-time signal with highest priority</DT
+><DT
+><A
+HREF="baselib---libc-start-main-.html"
+>__libc_start_main</A
+>&nbsp;--&nbsp;initialization routine</DT
+><DT
+><A
+HREF="baselib---mbsnrtowcs-chk-1.html"
+>__mbsnrtowcs_chk</A
+>&nbsp;--&nbsp;convert a multibyte string to a wide-character string, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---mbsrtowcs-chk-1.html"
+>__mbsrtowcs_chk</A
+>&nbsp;--&nbsp;convert a multibyte string to a wide-character string, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---mbstowcs-chk-1.html"
+>__mbstowcs_chk</A
+>&nbsp;--&nbsp;convert a multibyte string to a wide-character string, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---memcpy-chk-1.html"
+>__memcpy_chk</A
+>&nbsp;--&nbsp;copy memory area, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---memmove-chk-1.html"
+>__memmove_chk</A
+>&nbsp;--&nbsp;copy memory area, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---mempcpy.html"
+>__mempcpy</A
+>&nbsp;--&nbsp;copy given number of bytes of source to destination</DT
+><DT
+><A
+HREF="baselib---mempcpy-chk-1.html"
+>__mempcpy_chk</A
+>&nbsp;--&nbsp;copy memory area, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---memset-chk-1.html"
+>__memset_chk</A
+>&nbsp;--&nbsp;fill memory with a constant byte, using buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---pread64-chk-1.html"
+>__pread64_chk</A
+>&nbsp;--&nbsp;read from a file descriptor at a given offset, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---pread-chk-1.html"
+>__pread_chk</A
+>&nbsp;--&nbsp;read from a file descriptor at a given offset, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---printf-chk-1.html"
+>__printf_chk</A
+>&nbsp;--&nbsp;format and print data, with stack checking</DT
+><DT
+><A
+HREF="baselib---rawmemchr.html"
+>__rawmemchr</A
+>&nbsp;--&nbsp;scan memory</DT
+><DT
+><A
+HREF="baselib---read-chk-1.html"
+>__read_chk</A
+>&nbsp;--&nbsp;read from a file descriptor, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---readlink-chk-1.html"
+>__readlink_chk</A
+>&nbsp;--&nbsp;display value of a symbolic link, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---realpath-chk-1.html"
+>__realpath_chk</A
+>&nbsp;--&nbsp;return the canonicalized absolute pathname, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---recv-chk-1.html"
+>__recv_chk</A
+>&nbsp;--&nbsp;receive a message from a socket, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---recvfrom-chk-1.html"
+>__recvfrom_chk</A
+>&nbsp;--&nbsp;receive a message from a socket, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---register-atfork.html"
+>__register_atfork</A
+>&nbsp;--&nbsp;alias for register_atfork</DT
+><DT
+><A
+HREF="baselib---sigsetjmp-1.html"
+>__sigsetjmp</A
+>&nbsp;--&nbsp;save stack context for non-local goto</DT
+><DT
+><A
+HREF="baselib---snprintf-chk-1.html"
+>__snprintf_chk</A
+>&nbsp;--&nbsp;convert formatted output, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---sprintf-chk-1.html"
+>__sprintf_chk</A
+>&nbsp;--&nbsp;convert formatted output, with stack checking</DT
+><DT
+><A
+HREF="baselib---stack-chk-fail-1.html"
+>__stack_chk_fail</A
+>&nbsp;--&nbsp;terminate a function in case of stack overflow</DT
+><DT
+><A
+HREF="libutil---stpcpy-2.html"
+>__stpcpy</A
+>&nbsp;--&nbsp;alias for stpcpy</DT
+><DT
+><A
+HREF="baselib---stpcpy-chk-1.html"
+>__stpcpy_chk</A
+>&nbsp;--&nbsp;copy a string returning a pointer to its end, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---stpncpy-chk-1.html"
+>__stpncpy_chk</A
+>&nbsp;--&nbsp;copy a fixed-size string, returning a pointer to its end, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---strcat-chk-1.html"
+>__strcat_chk</A
+>&nbsp;--&nbsp;concatenate two strings, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---strcpy-chk-1.html"
+>__strcpy_chk</A
+>&nbsp;--&nbsp;copy a string, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---strdup-1.html"
+>__strdup</A
+>&nbsp;--&nbsp;alias for strdup</DT
+><DT
+><A
+HREF="baselib---strncat-chk-1.html"
+>__strncat_chk</A
+>&nbsp;--&nbsp;concatenate two strings, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---strncpy-chk-1.html"
+>__strncpy_chk</A
+>&nbsp;--&nbsp;copy a string, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---strtod-internal-1.html"
+>__strtod_internal</A
+>&nbsp;--&nbsp;underlying function for strtod</DT
+><DT
+><A
+HREF="baselib---strtof-internal.html"
+>__strtof_internal</A
+>&nbsp;--&nbsp;underlying function for strtof</DT
+><DT
+><A
+HREF="baselib---strtok-r-1.html"
+>__strtok_r</A
+>&nbsp;--&nbsp;alias for strtok_r</DT
+><DT
+><A
+HREF="baselib---strtol-internal-1.html"
+>__strtol_internal</A
+>&nbsp;--&nbsp;alias for strtol</DT
+><DT
+><A
+HREF="baselib---strtold-internal-1.html"
+>__strtold_internal</A
+>&nbsp;--&nbsp;underlying function for strtold</DT
+><DT
+><A
+HREF="baselib---strtoll-internal-1.html"
+>__strtoll_internal</A
+>&nbsp;--&nbsp;underlying function for strtoll</DT
+><DT
+><A
+HREF="baselib---strtoul-internal.html"
+>__strtoul_internal</A
+>&nbsp;--&nbsp;underlying function for strtoul</DT
+><DT
+><A
+HREF="baselib---strtoull-internal-1.html"
+>__strtoull_internal</A
+>&nbsp;--&nbsp;underlying function for strtoull</DT
+><DT
+><A
+HREF="baselib---swprintf-chk-1.html"
+>__swprintf_chk</A
+>&nbsp;--&nbsp;convert formatted wide-character output, with stack checking</DT
+><DT
+><A
+HREF="baselib---sysconf.html"
+>__sysconf</A
+>&nbsp;--&nbsp;get configuration information at runtime</DT
+><DT
+><A
+HREF="baselib---syslog-chk-1.html"
+>__syslog_chk</A
+>&nbsp;--&nbsp;send messages to the system logger, with stack checking</DT
+><DT
+><A
+HREF="baselib---sysv-signal-1.html"
+>__sysv_signal</A
+>&nbsp;--&nbsp;signal handling</DT
+><DT
+><A
+HREF="baselib---timezone.html"
+>__timezone</A
+>&nbsp;--&nbsp;external variable containing timezone</DT
+><DT
+><A
+HREF="baselib---ttyname-r-chk-1.html"
+>__ttyname_r_chk</A
+>&nbsp;--&nbsp;return name of a terminal, with buffer overflow checking (reentrant)</DT
+><DT
+><A
+HREF="baselib---tzname.html"
+>__tzname</A
+>&nbsp;--&nbsp;external variable containing the timezone names</DT
+><DT
+><A
+HREF="baselib---vfprintf-chk-1.html"
+>__vfprintf_chk</A
+>&nbsp;--&nbsp;convert formatted output, with stack checking</DT
+><DT
+><A
+HREF="baselib---vfwprintf-chk-1.html"
+>__vfwprintf_chk</A
+>&nbsp;--&nbsp;convert formatted wide-character output, with stack checking</DT
+><DT
+><A
+HREF="baselib---vprintf-chk-1.html"
+>__vprintf_chk</A
+>&nbsp;--&nbsp;convert formatted output, with stack checking</DT
+><DT
+><A
+HREF="baselib---vsnprintf-chk-1.html"
+>__vsnprintf_chk</A
+>&nbsp;--&nbsp;convert formatted output, with stack checking</DT
+><DT
+><A
+HREF="baselib---vsprintf-chk-1.html"
+>__vsprintf_chk</A
+>&nbsp;--&nbsp;convert formatted output, with stack checking</DT
+><DT
+><A
+HREF="baselib---vswprintf-chk-1.html"
+>__vswprintf_chk</A
+>&nbsp;--&nbsp;convert formatted wide-character output, with stack checking</DT
+><DT
+><A
+HREF="baselib---vsyslog-chk-1.html"
+>__vsyslog_chk</A
+>&nbsp;--&nbsp;send messages to the system logger, with stack checking</DT
+><DT
+><A
+HREF="baselib---vwprintf-chk-1.html"
+>__vwprintf_chk</A
+>&nbsp;--&nbsp;convert formatted wide-character output, with stack checking</DT
+><DT
+><A
+HREF="baselib---wcpcpy-chk-1.html"
+>__wcpcpy_chk</A
+>&nbsp;--&nbsp;copy a wide-character string, returning a pointer to its end, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wcpncpy-chk-1.html"
+>__wcpncpy_chk</A
+>&nbsp;--&nbsp;copy a fixed-size string of wide characters, returning a pointer to its end, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wcrtomb-chk-1.html"
+>__wcrtomb_chk</A
+>&nbsp;--&nbsp;convert a wide character to a multibyte sequence, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wcscat-chk-1.html"
+>__wcscat_chk</A
+>&nbsp;--&nbsp;concatenate two wide-character strings, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wcscpy-chk-1.html"
+>__wcscpy_chk</A
+>&nbsp;--&nbsp;copy a wide-character string, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wcsncat-chk-1.html"
+>__wcsncat_chk</A
+>&nbsp;--&nbsp;concatenate two wide-character strings, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wcsncpy-chk-1.html"
+>__wcsncpy_chk</A
+>&nbsp;--&nbsp;copy a fixed-size string of wide characters, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wcsnrtombs-chk-1.html"
+>__wcsnrtombs_chk</A
+>&nbsp;--&nbsp;convert a wide-character string to a multibyte string, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wcsrtombs-chk-1.html"
+>__wcsrtombs_chk</A
+>&nbsp;--&nbsp;convert a wide-character string to a multibyte string, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wcstod-internal-1.html"
+>__wcstod_internal</A
+>&nbsp;--&nbsp;underlying function for wcstod</DT
+><DT
+><A
+HREF="baselib---wcstof-internal-1.html"
+>__wcstof_internal</A
+>&nbsp;--&nbsp;underlying function for wcstof</DT
+><DT
+><A
+HREF="baselib---wcstol-internal-1.html"
+>__wcstol_internal</A
+>&nbsp;--&nbsp;underlying function for wcstol</DT
+><DT
+><A
+HREF="baselib---wcstold-internal-1.html"
+>__wcstold_internal</A
+>&nbsp;--&nbsp;underlying function for wcstold</DT
+><DT
+><A
+HREF="baselib---wcstombs-chk-1.html"
+>__wcstombs_chk</A
+>&nbsp;--&nbsp;convert a wide-character string to a multibyte string, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wcstoul-internal-1.html"
+>__wcstoul_internal</A
+>&nbsp;--&nbsp;underlying function for wcstoul</DT
+><DT
+><A
+HREF="baselib---wctomb-chk-1.html"
+>__wctomb_chk</A
+>&nbsp;--&nbsp;convert a wide character to a multibyte sequence, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wmemcpy-chk-1.html"
+>__wmemcpy_chk</A
+>&nbsp;--&nbsp;copy an array of wide-characters, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wmemmove-chk-1.html"
+>__wmemmove_chk</A
+>&nbsp;--&nbsp;copy an array of wide-characters, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wmempcpy-chk-1.html"
+>__wmempcpy_chk</A
+>&nbsp;--&nbsp;copy memory area, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wmemset-chk-1.html"
+>__wmemset_chk</A
+>&nbsp;--&nbsp;fill an array of wide-characters with a constant wide character, with buffer overflow checking</DT
+><DT
+><A
+HREF="baselib---wprintf-chk-1.html"
+>__wprintf_chk</A
+>&nbsp;--&nbsp;convert formatted wide-character output, with stack checking</DT
+><DT
+><A
+HREF="baselib---xmknod-1.html"
+>__xmknod</A
+>&nbsp;--&nbsp;make a special file</DT
+><DT
+><A
+HREF="baselib---xmknodat-1.html"
+>__xmknodat</A
+>&nbsp;--&nbsp;make a special file relative to a directory file descriptor</DT
+><DT
+><A
+HREF="baselib---xpg-basename.html"
+>__xpg_basename</A
+>&nbsp;--&nbsp;return the last component of a file name</DT
+><DT
+><A
+HREF="baselib---xpg-sigpause.html"
+>__xpg_sigpause</A
+>&nbsp;--&nbsp;remove a signal from the signal mask and suspend the thread</DT
+><DT
+><A
+HREF="baselib---xpg-strerror-r.html"
+>__xpg_strerror_r</A
+>&nbsp;--&nbsp;return string describing error number</DT
+><DT
+><A
+HREF="baselib---xstat.html"
+>__xstat</A
+>&nbsp;--&nbsp;get File Status</DT
+><DT
+><A
+HREF="baselib---xstat64.html"
+>__xstat64</A
+>&nbsp;--&nbsp;get File Status</DT
+><DT
+><A
+HREF="baselib--environ.html"
+>_environ</A
+>&nbsp;--&nbsp;alias for environ - user environment </DT
+><DT
+><A
+HREF="baselib--nl-msg-cat-cntr.html"
+>_nl_msg_cat_cntr</A
+>&nbsp;--&nbsp;new catalog load counter</DT
+><DT
+><A
+HREF="baselib--sys-errlist.html"
+>_sys_errlist</A
+>&nbsp;--&nbsp;array containing the "C" locale strings used by strerror()</DT
+><DT
+><A
+HREF="baselib--sys-siglist.html"
+>_sys_siglist</A
+>&nbsp;--&nbsp;array containing the names of the signal names</DT
+><DT
+><A
+HREF="baselib-acct-3.html"
+>acct</A
+>&nbsp;--&nbsp;switch process accounting on or off</DT
+><DT
+><A
+HREF="baselib-adjtime-2.html"
+>adjtime</A
+>&nbsp;--&nbsp;correct the time to allow synchronization of the system clock</DT
+><DT
+><A
+HREF="baselib-alphasort64-1.html"
+>alphasort64</A
+>&nbsp;--&nbsp;Comparison function for directory scanning (Large File Support)</DT
+><DT
+><A
+HREF="baselib-argz-add.html"
+>argz_add,
+argz_add_sep,
+argz_append,
+argz_count,
+argz_create,
+argz_create_sep,
+argz_delete,
+argz_extract,
+argz_insert,
+argz_next,
+argz_replace,
+argz_stringify</A
+>&nbsp;--&nbsp;Operate on argz vectors</DT
+><DT
+><A
+HREF="baselib-asprintf.html"
+>asprintf</A
+>&nbsp;--&nbsp;write formatted output to a dynamically allocated string</DT
+><DT
+><A
+HREF="baselib-backtrace-1.html"
+>backtrace, backtrace_symbols, backtrace_symbols_fd</A
+>&nbsp;--&nbsp;runtime stack back tracing</DT
+><DT
+><A
+HREF="baselib-basename-3.html"
+>basename</A
+>&nbsp;--&nbsp;return the last component of a file name</DT
+><DT
+><A
+HREF="baselib-bind-textdomain-codeset.html"
+>bind_textdomain_codeset</A
+>&nbsp;--&nbsp;specify encoding for message retrieval</DT
+><DT
+><A
+HREF="baselib-bindresvport-3.html"
+>bindresvport</A
+>&nbsp;--&nbsp;bind socket to privileged IP port</DT
+><DT
+><A
+HREF="baselib-bindtextdomain.html"
+>bindtextdomain</A
+>&nbsp;--&nbsp;specify the location of a message catalog</DT
+><DT
+><A
+HREF="baselib-cfmakeraw-3.html"
+>cfmakeraw</A
+>&nbsp;--&nbsp;get and set terminal attributes</DT
+><DT
+><A
+HREF="baselib-cfsetspeed-3.html"
+>cfsetspeed</A
+>&nbsp;--&nbsp;set terminal input and output data rate</DT
+><DT
+><A
+HREF="baselib-clearerr-unlocked-1.html"
+>clearerr_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe clearerr</DT
+><DT
+><A
+HREF="baselib-daemon-3.html"
+>daemon</A
+>&nbsp;--&nbsp;run in the background</DT
+><DT
+><A
+HREF="baselib-dcgettext.html"
+>dcgettext</A
+>&nbsp;--&nbsp;perform domain and category specific lookup in message catalog</DT
+><DT
+><A
+HREF="baselib-dcngettext.html"
+>dcngettext</A
+>&nbsp;--&nbsp;perform domain and category specific lookup in message catalog
+with plural</DT
+><DT
+><A
+HREF="baselib-dgettext.html"
+>dgettext</A
+>&nbsp;--&nbsp;perform lookup in message catalog for the current LC_MESSAGES locale</DT
+><DT
+><A
+HREF="baselib-dl-iterate-phdr-1.html"
+>dl_iterate_phdr</A
+>&nbsp;--&nbsp;iterate over a program's loaded shared objects</DT
+><DT
+><A
+HREF="baselib-dngettext.html"
+>dngettext</A
+>&nbsp;--&nbsp;perform lookup in message catalog for the current locale</DT
+><DT
+><A
+HREF="baselib-drand48-r-1.html"
+>drand48_r</A
+>&nbsp;--&nbsp;reentrantly generate pseudorandom numbers in a uniform distribution</DT
+><DT
+><A
+HREF="baselib-endutent-3.html"
+>endutent</A
+>&nbsp;--&nbsp;access utmp file entries</DT
+><DT
+><A
+HREF="baselib-envz-add.html"
+>envz_add,
+envz_entry,
+envz_get,
+envz_merge,
+envz_remove,
+envz_strip</A
+>&nbsp;--&nbsp;Operate on environment vectors</DT
+><DT
+><A
+HREF="baselib-epoll-create-1.html"
+>epoll_create</A
+>&nbsp;--&nbsp;open an epoll file descriptor</DT
+><DT
+><A
+HREF="baselib-epoll-ctl-1.html"
+>epoll_ctl</A
+>&nbsp;--&nbsp;control an epoll file descriptor</DT
+><DT
+><A
+HREF="baselib-epoll-wait-1.html"
+>epoll_wait</A
+>&nbsp;--&nbsp;wait for I/O events on an epoll file descriptor</DT
+><DT
+><A
+HREF="baselib-erand48-r-1.html"
+>erand48_r</A
+>&nbsp;--&nbsp;reentrantly generate pseudorandom numbers in a uniform distribution</DT
+><DT
+><A
+HREF="baselib-err-3.html"
+>err</A
+>&nbsp;--&nbsp;display formatted error messages</DT
+><DT
+><A
+HREF="baselib-error-n.html"
+>error</A
+>&nbsp;--&nbsp;print error message</DT
+><DT
+><A
+HREF="baselib-errx-3.html"
+>errx</A
+>&nbsp;--&nbsp;display formatted error message and exit</DT
+><DT
+><A
+HREF="baselib-fcntl-3.html"
+>fcntl</A
+>&nbsp;--&nbsp;file control</DT
+><DT
+><A
+HREF="baselib-feof-unlocked-1.html"
+>feof_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe feof</DT
+><DT
+><A
+HREF="baselib-ferror-unlocked-1.html"
+>ferror_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe ferror</DT
+><DT
+><A
+HREF="baselib-fflush-unlocked-1.html"
+>fflush_unlocked</A
+>&nbsp;--&nbsp;non thread safe fflush</DT
+><DT
+><A
+HREF="baselib-fgetc-unlocked-1.html"
+>fgetc_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe fgetc</DT
+><DT
+><A
+HREF="baselib-fgets-unlocked-1.html"
+>fgets_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe fgets</DT
+><DT
+><A
+HREF="baselib-fgetwc-unlocked-1.html"
+>fgetwc_unlocked</A
+>&nbsp;--&nbsp;non thread safe fgetwc</DT
+><DT
+><A
+HREF="baselib-fgetws-unlocked-1.html"
+>fgetws_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe fgetws</DT
+><DT
+><A
+HREF="baselib-fileno-unlocked-1.html"
+>fileno_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe fileno</DT
+><DT
+><A
+HREF="baselib-flock-2.html"
+>flock</A
+>&nbsp;--&nbsp;apply or remove an advisory lock on an open file</DT
+><DT
+><A
+HREF="baselib-fnmatch-3.html"
+>fnmatch</A
+>&nbsp;--&nbsp;match a filename or a pathname</DT
+><DT
+><A
+HREF="baselib-fputc-unlocked-1.html"
+>fputc_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe fputc</DT
+><DT
+><A
+HREF="baselib-fputs-unlocked-1.html"
+>fputs_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe fputs</DT
+><DT
+><A
+HREF="baselib-fputwc-unlocked-1.html"
+>fputwc_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe fputwc</DT
+><DT
+><A
+HREF="baselib-fputws-unlocked-1.html"
+>fputws_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe fputws</DT
+><DT
+><A
+HREF="baselib-fread-unlocked-1.html"
+>fread_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe fread</DT
+><DT
+><A
+HREF="baselib-fscanf.html"
+>fscanf</A
+>&nbsp;--&nbsp;convert formatted input</DT
+><DT
+><A
+HREF="baselib-fstatfs-2.html"
+>fstatfs</A
+>&nbsp;--&nbsp;(deprecated)</DT
+><DT
+><A
+HREF="baselib-fstatfs64.html"
+>fstatfs64</A
+>&nbsp;--&nbsp;(deprecated)</DT
+><DT
+><A
+HREF="baselib-futimes.html"
+>futimes</A
+>&nbsp;--&nbsp;set file access and modification times</DT
+><DT
+><A
+HREF="baselib-fwrite-unlocked-1.html"
+>fwrite_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe fwrite</DT
+><DT
+><A
+HREF="baselib-fwscanf.html"
+>fwscanf</A
+>&nbsp;--&nbsp;convert formatted input</DT
+><DT
+><A
+HREF="baselib-getcwd.html"
+>getcwd</A
+>&nbsp;--&nbsp;get the pathname of the current working directory</DT
+><DT
+><A
+HREF="baselib-getdomainname.html"
+>getdomainname</A
+>&nbsp;--&nbsp;get NIS domain name (DEPRECATED).</DT
+><DT
+><A
+HREF="baselib-getdtablesize.html"
+>getdtablesize</A
+>&nbsp;--&nbsp;get file descriptor table size (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-getgrent-r-1.html"
+>getgrent_r</A
+>&nbsp;--&nbsp;reentrantly get entry in group file</DT
+><DT
+><A
+HREF="baselib-getgrouplist-3.html"
+>getgrouplist</A
+>&nbsp;--&nbsp;get groups a user belongs to</DT
+><DT
+><A
+HREF="baselib-gethostbyaddr-r-3.html"
+>gethostbyaddr_r</A
+>&nbsp;--&nbsp;find network host database entry matching host name (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-gethostbyname2-3.html"
+>gethostbyname2</A
+>&nbsp;--&nbsp;find network host database entry matching host name (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-gethostbyname2-r-3.html"
+>gethostbyname2_r</A
+>&nbsp;--&nbsp;find network host database entry matching host name (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-gethostbyname-r-3.html"
+>gethostbyname_r</A
+>&nbsp;--&nbsp;find network host database entry matching host name (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-getifaddrs.html"
+>getifaddrs</A
+>&nbsp;--&nbsp;get interface addresses</DT
+><DT
+><A
+HREF="baselib-getloadavg-3.html"
+>getloadavg</A
+>&nbsp;--&nbsp;get system load averages</DT
+><DT
+><A
+HREF="libutil-getopt-3.html"
+>getopt</A
+>&nbsp;--&nbsp;parse command line options</DT
+><DT
+><A
+HREF="baselib-getopt-long-3.html"
+>getopt_long</A
+>&nbsp;--&nbsp;parse command line options</DT
+><DT
+><A
+HREF="baselib-getopt-long-only-3.html"
+>getopt_long_only</A
+>&nbsp;--&nbsp;parse command line options</DT
+><DT
+><A
+HREF="baselib-getpagesize.html"
+>getpagesize</A
+>&nbsp;--&nbsp;get memory page size (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-getprotobyname-r.html"
+>getprotobyname_r</A
+>&nbsp;--&nbsp;retrieve information from the network protocol database by protocol name, reentrantly</DT
+><DT
+><A
+HREF="baselib-getprotobynumber-r.html"
+>getprotobynumber_r</A
+>&nbsp;--&nbsp;retrieve information from the network protocol database by protocol number, reentrantly</DT
+><DT
+><A
+HREF="baselib-getprotoent-r.html"
+>getprotoent_r</A
+>&nbsp;--&nbsp;read the next entry of the protocol database, reentrantly</DT
+><DT
+><A
+HREF="baselib-getpwent-r-1.html"
+>getpwent_r</A
+>&nbsp;--&nbsp;reentrantly get entry in passwd file</DT
+><DT
+><A
+HREF="baselib-getrlimit-1.html"
+>getrlimit, setrlimit</A
+>&nbsp;--&nbsp;get resource consumption limits</DT
+><DT
+><A
+HREF="baselib-getservbyname-r.html"
+>getservbyname_r</A
+>&nbsp;--&nbsp;retrieve information from the network services database by service name, reentrantly</DT
+><DT
+><A
+HREF="baselib-getservbyport-r.html"
+>getservbyport_r</A
+>&nbsp;--&nbsp;retrieve information from the network services database by service port, reentrantly</DT
+><DT
+><A
+HREF="baselib-getservent-r.html"
+>getservent_r</A
+>&nbsp;--&nbsp;read the next entry of the network services database, reentrantly</DT
+><DT
+><A
+HREF="baselib-getsockopt-1.html"
+>getsockopt</A
+>&nbsp;--&nbsp;get socket options</DT
+><DT
+><A
+HREF="baselib-gettext.html"
+>gettext</A
+>&nbsp;--&nbsp;search message catalogs for a string</DT
+><DT
+><A
+HREF="baselib-getutent-3.html"
+>getutent</A
+>&nbsp;--&nbsp;access user accounting database entries	</DT
+><DT
+><A
+HREF="baselib-getutent-r-3.html"
+>getutent_r</A
+>&nbsp;--&nbsp;access user accounting database entries</DT
+><DT
+><A
+HREF="baselib-getwc-unlocked-1.html"
+>getwc_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe getwc</DT
+><DT
+><A
+HREF="baselib-getwchar-unlocked-1.html"
+>getwchar_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe getwchar</DT
+><DT
+><A
+HREF="baselib-glob64.html"
+>glob64</A
+>&nbsp;--&nbsp;find pathnames matching a pattern  (Large File Support)</DT
+><DT
+><A
+HREF="baselib-globfree64.html"
+>globfree64</A
+>&nbsp;--&nbsp;free memory from glob64() (Large File Support)</DT
+><DT
+><A
+HREF="baselib-gnu-get-libc-version-1.html"
+>gnu_get_libc_version, gnu_get_libc_release</A
+>&nbsp;--&nbsp;get glibc-specific version and release</DT
+><DT
+><A
+HREF="baselib-hcreate-r.html"
+>hcreate_r</A
+>&nbsp;--&nbsp;allocate space for a hash search table, reentrantly</DT
+><DT
+><A
+HREF="baselib-hdestroy-r.html"
+>hdestroy_r</A
+>&nbsp;--&nbsp;dispose of a hash search table, reentrantly</DT
+><DT
+><A
+HREF="baselib-hsearch-r.html"
+>hsearch_r</A
+>&nbsp;--&nbsp;search a hash table, reentrantly</DT
+><DT
+><A
+HREF="baselib-inet-aton-3.html"
+>inet_aton</A
+>&nbsp;--&nbsp;Internet address manipulation routine</DT
+><DT
+><A
+HREF="baselib-initgroups-3.html"
+>initgroups</A
+>&nbsp;--&nbsp;initialize the supplementary group access list</DT
+><DT
+><A
+HREF="baselib-initstate-r-1.html"
+>initstate_r</A
+>&nbsp;--&nbsp;reentrantly initialize a state array for random number generator functions</DT
+><DT
+><A
+HREF="baselib-inotify-add-watch.html"
+>inotify_add_watch</A
+>&nbsp;--&nbsp;add a watch to a watch list</DT
+><DT
+><A
+HREF="baselib-inotify-init.html"
+>inotify_init</A
+>&nbsp;--&nbsp;instantiate inotify</DT
+><DT
+><A
+HREF="baselib-inotify-rm-watch.html"
+>inotify_rm_watch</A
+>&nbsp;--&nbsp;remove a watch from an inotify watch list</DT
+><DT
+><A
+HREF="baselib-ioctl-2.html"
+>ioctl</A
+>&nbsp;--&nbsp;control device</DT
+><DT
+><A
+HREF="baselib-sockio-2.html"
+>sockio</A
+>&nbsp;--&nbsp;socket ioctl commands</DT
+><DT
+><A
+HREF="baselib-ttyio-2.html"
+>ttyio</A
+>&nbsp;--&nbsp;tty ioctl commands</DT
+><DT
+><A
+HREF="baselib-jrand48-r-1.html"
+>jrand48_r</A
+>&nbsp;--&nbsp;reentrantly generate pseudorandom numbers in a uniform distribution</DT
+><DT
+><A
+HREF="baselib-kill-3.html"
+>kill</A
+>&nbsp;--&nbsp;send a signal</DT
+><DT
+><A
+HREF="baselib-lcong48-r-1.html"
+>lcong48_r</A
+>&nbsp;--&nbsp;reentrantly generate pseudorandom numbers in a uniform distribution</DT
+><DT
+><A
+HREF="baselib-link-1.html"
+>link</A
+>&nbsp;--&nbsp;create a link to a file</DT
+><DT
+><A
+HREF="baselib-lrand48-r-1.html"
+>lrand48_r</A
+>&nbsp;--&nbsp;reentrantly generate pseudorandom numbers in a uniform distribution</DT
+><DT
+><A
+HREF="baselib-memmem-3.html"
+>memmem</A
+>&nbsp;--&nbsp;locate bytes</DT
+><DT
+><A
+HREF="baselib-memrchr.html"
+>memrchr</A
+>&nbsp;--&nbsp;scan memory for a character</DT
+><DT
+><A
+HREF="baselib-mkstemp64.html"
+>mkstemp64</A
+>&nbsp;--&nbsp;create a unique temporary file (Large File Support)</DT
+><DT
+><A
+HREF="baselib-mrand48-r-1.html"
+>mrand48_r</A
+>&nbsp;--&nbsp;reentrantly generate pseudorandom numbers in a uniform distribution</DT
+><DT
+><A
+HREF="baselib-mremap.html"
+>mremap</A
+>&nbsp;--&nbsp;remap a virtual memory address</DT
+><DT
+><A
+HREF="baselib-ngettext.html"
+>ngettext</A
+>&nbsp;--&nbsp;search message catalogs for plural string</DT
+><DT
+><A
+HREF="baselib-nrand48-r-1.html"
+>nrand48_r</A
+>&nbsp;--&nbsp;reentrantly generate pseudorandom numbers in a uniform distribution</DT
+><DT
+><A
+HREF="baselib-openat64.html"
+>openat64</A
+>&nbsp;--&nbsp;open a file relative to a directory file descriptor (Large File Support)</DT
+><DT
+><A
+HREF="baselib-pmap-getport-3.html"
+>pmap_getport</A
+>&nbsp;--&nbsp;find the port number assigned to a service registered with a
+portmapper.</DT
+><DT
+><A
+HREF="baselib-pmap-set-3.html"
+>pmap_set</A
+>&nbsp;--&nbsp;establishes mapping to machine's RPC Bind service.</DT
+><DT
+><A
+HREF="baselib-pmap-unset-3.html"
+>pmap_unset</A
+>&nbsp;--&nbsp;
+destroys RPC Binding&#13;</DT
+><DT
+><A
+HREF="baselib-posix-fadvise64.html"
+>posix_fadvise64</A
+>&nbsp;--&nbsp;File advisory information (Large File Support)</DT
+><DT
+><A
+HREF="baselib-posix-fallocate64.html"
+>posix_fallocate64</A
+>&nbsp;--&nbsp;file space control (Large File Support)</DT
+><DT
+><A
+HREF="baselib-pread64.html"
+>pread64</A
+>&nbsp;--&nbsp;read from a file (Large File Support)</DT
+><DT
+><A
+HREF="baselib-ptrace-1.html"
+>ptrace</A
+>&nbsp;--&nbsp;process trace</DT
+><DT
+><A
+HREF="baselib-putwc-unlocked-1.html"
+>putwc_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe putwc</DT
+><DT
+><A
+HREF="baselib-putwchar-unlocked-1.html"
+>putwchar_unlocked</A
+>&nbsp;--&nbsp;non-thread-safe putwchar</DT
+><DT
+><A
+HREF="baselib-pwrite64.html"
+>pwrite64</A
+>&nbsp;--&nbsp;write on a file (Large File Support)</DT
+><DT
+><A
+HREF="baselib-random-r-1.html"
+>random_r</A
+>&nbsp;--&nbsp;reentrantly generate pseudorandom numbers in a uniform distribution</DT
+><DT
+><A
+HREF="baselib-readdir64-r.html"
+>readdir64_r</A
+>&nbsp;--&nbsp;read a directory (Large File Support)</DT
+><DT
+><A
+HREF="baselib-regexec-2.html"
+>regexec</A
+>&nbsp;--&nbsp;regular expression matching</DT
+><DT
+><A
+HREF="baselib-scandir64-1.html"
+>scandir64</A
+>&nbsp;--&nbsp;scan a directory (Large File Support)</DT
+><DT
+><A
+HREF="baselib-scanf.html"
+>scanf</A
+>&nbsp;--&nbsp;convert formatted input</DT
+><DT
+><A
+HREF="baselib-sched-getaffinity.html"
+>sched_getaffinity</A
+>&nbsp;--&nbsp;retrieve the affinity mask of a process</DT
+><DT
+><A
+HREF="baselib-sched-setaffinity.html"
+>sched_setaffinity</A
+>&nbsp;--&nbsp;set the CPU affinity mask for a process</DT
+><DT
+><A
+HREF="baselib-sched-setscheduler.html"
+>sched_setscheduler</A
+>&nbsp;--&nbsp;set scheduling policy and parameters</DT
+><DT
+><A
+HREF="baselib-seed48-r-1.html"
+>seed48_r</A
+>&nbsp;--&nbsp;reentrantly generate pseudorandom numbers in a uniform distribution</DT
+><DT
+><A
+HREF="baselib-sendfile.html"
+>sendfile</A
+>&nbsp;--&nbsp;transfer data between two file descriptors</DT
+><DT
+><A
+HREF="baselib-sendfile64.html"
+>sendfile64</A
+>&nbsp;--&nbsp;transfer data between two file descriptors (Large File Support)</DT
+><DT
+><A
+HREF="baselib-setbuffer-3.html"
+>setbuffer</A
+>&nbsp;--&nbsp;stream buffering operation</DT
+><DT
+><A
+HREF="baselib-setgroups-2.html"
+>setgroups</A
+>&nbsp;--&nbsp;set list of supplementary group IDs</DT
+><DT
+><A
+HREF="baselib-sethostname-2.html"
+>sethostname</A
+>&nbsp;--&nbsp;set host name</DT
+><DT
+><A
+HREF="baselib-setsockopt-2.html"
+>setsockopt</A
+>&nbsp;--&nbsp;set socket options</DT
+><DT
+><A
+HREF="baselib-setstate-r-1.html"
+>setstate_r</A
+>&nbsp;--&nbsp;reentrantly change the state array used by random number generator functions</DT
+><DT
+><A
+HREF="baselib-setutent-3.html"
+>setutent</A
+>&nbsp;--&nbsp;access user accounting database entries</DT
+><DT
+><A
+HREF="baselib-sigandset.html"
+>sigandset</A
+>&nbsp;--&nbsp;build a new signal set by combining the two input sets using logical AND</DT
+><DT
+><A
+HREF="baselib-sigisemptyset.html"
+>sigisemptyset</A
+>&nbsp;--&nbsp;check for empty signal set</DT
+><DT
+><A
+HREF="baselib-sigorset.html"
+>sigorset</A
+>&nbsp;--&nbsp;build a new signal set by combining the two input sets using logical OR</DT
+><DT
+><A
+HREF="baselib-sigpause-3.html"
+>sigpause</A
+>&nbsp;--&nbsp;remove a signal from the signal mask and suspend the thread (deprecated)</DT
+><DT
+><A
+HREF="baselib-sigreturn-2.html"
+>sigreturn</A
+>&nbsp;--&nbsp;return from signal handler and cleanup stack frame</DT
+><DT
+><A
+HREF="baselib-srand48-r-1.html"
+>srand48_r</A
+>&nbsp;--&nbsp;reentrantly generate pseudorandom numbers in a uniform distribution</DT
+><DT
+><A
+HREF="baselib-srandom-r-1.html"
+>srandom_r</A
+>&nbsp;--&nbsp;reentrantly set the seed for a new sequence of pseudorandom numbers</DT
+><DT
+><A
+HREF="baselib-sscanf.html"
+>sscanf</A
+>&nbsp;--&nbsp;convert formatted input</DT
+><DT
+><A
+HREF="baselib-statfs-2.html"
+>statfs</A
+>&nbsp;--&nbsp;(deprecated)</DT
+><DT
+><A
+HREF="baselib-statfs64.html"
+>statfs64</A
+>&nbsp;--&nbsp;(deprecated)</DT
+><DT
+><A
+HREF="baselib-stime-2.html"
+>stime</A
+>&nbsp;--&nbsp;set time</DT
+><DT
+><A
+HREF="baselib-strcasestr.html"
+>strcasestr</A
+>&nbsp;--&nbsp;locate a substring ignoring case</DT
+><DT
+><A
+HREF="baselib-strerror-r.html"
+>strerror_r</A
+>&nbsp;--&nbsp;return string describing error number</DT
+><DT
+><A
+HREF="baselib-strptime-3.html"
+>strptime</A
+>&nbsp;--&nbsp;parse a time string</DT
+><DT
+><A
+HREF="baselib-strsep-3.html"
+>strsep</A
+>&nbsp;--&nbsp;extract token from string</DT
+><DT
+><A
+HREF="baselib-strtoq-3.html"
+>strtoq</A
+>&nbsp;--&nbsp;convert string value to a long or quad_t integer</DT
+><DT
+><A
+HREF="baselib-strtouq-3.html"
+>strtouq</A
+>&nbsp;--&nbsp;convert a string to an unsigned long long</DT
+><DT
+><A
+HREF="baselib-svc-register-3.html"
+>svc_register</A
+>&nbsp;--&nbsp;register Remote Procedure Call interface</DT
+><DT
+><A
+HREF="baselib-svc-run-3.html"
+>svc_run</A
+>&nbsp;--&nbsp;waits for RPC requests to arrive and calls service procedure</DT
+><DT
+><A
+HREF="baselib-svc-sendreply-3.html"
+>svc_sendreply</A
+>&nbsp;--&nbsp;called by RPC service's dispatch routine</DT
+><DT
+><A
+HREF="baselib-svctcp-create-3.html"
+>svctcp_create</A
+>&nbsp;--&nbsp;create a TCP/IP-based RPC service transport</DT
+><DT
+><A
+HREF="baselib-svcudp-create-3.html"
+>svcudp_create</A
+>&nbsp;--&nbsp;		create a UDP-based RPC service transport
+		</DT
+><DT
+><A
+HREF="baselib-swscanf.html"
+>swscanf</A
+>&nbsp;--&nbsp;convert formatted input</DT
+><DT
+><A
+HREF="baselib-sysconf.html"
+>sysconf</A
+>&nbsp;--&nbsp;Get configuration information at runtime</DT
+><DT
+><A
+HREF="baselib-sysinfo-1.html"
+>sysinfo</A
+>&nbsp;--&nbsp;return system information</DT
+><DT
+><A
+HREF="baselib-system-3.html"
+>system</A
+>&nbsp;--&nbsp;execute a shell command</DT
+><DT
+><A
+HREF="baselib-textdomain.html"
+>textdomain</A
+>&nbsp;--&nbsp;set the current default message domain</DT
+><DT
+><A
+HREF="baselib-unlink-3.html"
+>unlink</A
+>&nbsp;--&nbsp;remove a directory entry</DT
+><DT
+><A
+HREF="baselib-utmpname-3.html"
+>utmpname</A
+>&nbsp;--&nbsp;set user accounting database</DT
+><DT
+><A
+HREF="baselib-vasprintf.html"
+>vasprintf</A
+>&nbsp;--&nbsp;write formatted output to a dynamically allocated string</DT
+><DT
+><A
+HREF="baselib-verrx-3.html"
+>verrx</A
+>&nbsp;--&nbsp;display formatted error message and exit</DT
+><DT
+><A
+HREF="baselib-vfscanf.html"
+>vfscanf</A
+>&nbsp;--&nbsp;convert formatted input</DT
+><DT
+><A
+HREF="baselib-vfwscanf.html"
+>vfwscanf</A
+>&nbsp;--&nbsp;convert formatted input</DT
+><DT
+><A
+HREF="baselib-vscanf.html"
+>vscanf</A
+>&nbsp;--&nbsp;convert formatted input</DT
+><DT
+><A
+HREF="baselib-vsscanf.html"
+>vsscanf</A
+>&nbsp;--&nbsp;convert formatted input</DT
+><DT
+><A
+HREF="baselib-vswscanf.html"
+>vswscanf</A
+>&nbsp;--&nbsp;convert formatted input</DT
+><DT
+><A
+HREF="baselib-vsyslog-3.html"
+>vsyslog</A
+>&nbsp;--&nbsp;log to system log</DT
+><DT
+><A
+HREF="baselib-vwscanf.html"
+>vwscanf</A
+>&nbsp;--&nbsp;convert formatted input</DT
+><DT
+><A
+HREF="baselib-wait4-2.html"
+>wait4</A
+>&nbsp;--&nbsp;wait for process termination, BSD style</DT
+><DT
+><A
+HREF="baselib-warn-3.html"
+>warn</A
+>&nbsp;--&nbsp;formatted error messages</DT
+><DT
+><A
+HREF="baselib-warnx-3.html"
+>warnx</A
+>&nbsp;--&nbsp;formatted error messages</DT
+><DT
+><A
+HREF="baselib-wcstoq.html"
+>wcstoq</A
+>&nbsp;--&nbsp;convert wide string to long long int representation</DT
+><DT
+><A
+HREF="baselib-wcstouq.html"
+>wcstouq</A
+>&nbsp;--&nbsp;convert wide string to unsigned long long int representation</DT
+><DT
+><A
+HREF="baselib-wscanf.html"
+>wscanf</A
+>&nbsp;--&nbsp;convert formatted input</DT
+><DT
+><A
+HREF="baselib-xdr-u-int-3.html"
+>xdr_u_int</A
+>&nbsp;--&nbsp;library routines for external data representation</DT
+><DT
+><A
+HREF="baselib-xdrstdio-create-3.html"
+>xdrstdio_create</A
+>&nbsp;--&nbsp;library routines for external data representation</DT
+></DL
+></DD
+><DT
+>14.6. <A
+HREF="libm.html"
+>Interfaces for libm</A
+></DT
+><DD
+><DL
+><DT
+>14.6.1. <A
+HREF="libm.html#AEN21464"
+>Math</A
+></DT
+></DL
+></DD
+><DT
+>14.7. <A
+HREF="libm-ddefs.html"
+>Data Definitions for libm</A
+></DT
+><DD
+><DL
+><DT
+>14.7.1. <A
+HREF="libm-ddefs.html#AEN22851"
+>complex.h</A
+></DT
+><DT
+>14.7.2. <A
+HREF="libm-ddefs.html#AEN22855"
+>fenv.h</A
+></DT
+><DT
+>14.7.3. <A
+HREF="libm-ddefs.html#AEN22859"
+>math.h</A
+></DT
+></DL
+></DD
+><DT
+>14.8. <A
+HREF="libmman.html"
+>Interface Definitions for libm</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="baselib---finite.html"
+>__finite</A
+>&nbsp;--&nbsp;test for infinity</DT
+><DT
+><A
+HREF="baselib---finitef.html"
+>__finitef</A
+>&nbsp;--&nbsp;test for infinity</DT
+><DT
+><A
+HREF="baselib---finitel.html"
+>__finitel</A
+>&nbsp;--&nbsp;test for infinity</DT
+><DT
+><A
+HREF="baselib---fpclassify.html"
+>__fpclassify</A
+>&nbsp;--&nbsp;Classify real floating type</DT
+><DT
+><A
+HREF="baselib---fpclassifyf.html"
+>__fpclassifyf</A
+>&nbsp;--&nbsp;Classify real floating type</DT
+><DT
+><A
+HREF="baselib---signbit.html"
+>__signbit</A
+>&nbsp;--&nbsp;test sign of floating point value</DT
+><DT
+><A
+HREF="baselib---signbitf.html"
+>__signbitf</A
+>&nbsp;--&nbsp;test sign of floating point value</DT
+><DT
+><A
+HREF="baselib---clog10.html"
+>clog10</A
+>&nbsp;--&nbsp;Logarithm of a Complex Number</DT
+><DT
+><A
+HREF="baselib---clog10f.html"
+>clog10f</A
+>&nbsp;--&nbsp;Logarithm of a Complex Number</DT
+><DT
+><A
+HREF="baselib---clog10l.html"
+>clog10l</A
+>&nbsp;--&nbsp;Logarithm of a Complex Number</DT
+><DT
+><A
+HREF="baselib-drem.html"
+>drem</A
+>&nbsp;--&nbsp;Floating Point Remainder (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-dremf.html"
+>dremf</A
+>&nbsp;--&nbsp;Floating Point Remainder (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-dreml.html"
+>dreml</A
+>&nbsp;--&nbsp;Floating Point Remainder (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-exp10.html"
+>exp10</A
+>&nbsp;--&nbsp;Base-10 power function</DT
+><DT
+><A
+HREF="baselib-exp10f.html"
+>exp10f</A
+>&nbsp;--&nbsp;Base-10 power function</DT
+><DT
+><A
+HREF="baselib-exp10l.html"
+>exp10l</A
+>&nbsp;--&nbsp;Base-10 power function</DT
+><DT
+><A
+HREF="baselib-fedisableexcept.html"
+>fedisableexcept</A
+>&nbsp;--&nbsp;disable floating point exceptions</DT
+><DT
+><A
+HREF="baselib-feenableexcept.html"
+>feenableexcept</A
+>&nbsp;--&nbsp;enable floating point exceptions</DT
+><DT
+><A
+HREF="baselib-fegetexcept.html"
+>fegetexcept</A
+>&nbsp;--&nbsp;query floating point exception handling state</DT
+><DT
+><A
+HREF="baselib-finite.html"
+>finite</A
+>&nbsp;--&nbsp;test for infinity (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-finitef.html"
+>finitef</A
+>&nbsp;--&nbsp;test for infinity (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-finitel.html"
+>finitel</A
+>&nbsp;--&nbsp;test for infinity (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-gamma.html"
+>gamma</A
+>&nbsp;--&nbsp;log gamma function (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-gammaf.html"
+>gammaf</A
+>&nbsp;--&nbsp;log gamma function (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-gammal.html"
+>gammal</A
+>&nbsp;--&nbsp;log gamma function (DEPRECATED)</DT
+><DT
+><A
+HREF="baselib-j0f.html"
+>j0f</A
+>&nbsp;--&nbsp;Bessel functions</DT
+><DT
+><A
+HREF="baselib-j0l.html"
+>j0l</A
+>&nbsp;--&nbsp;Bessel functions</DT
+><DT
+><A
+HREF="baselib-j1f.html"
+>j1f</A
+>&nbsp;--&nbsp;Bessel functions</DT
+><DT
+><A
+HREF="baselib-j1l.html"
+>j1l</A
+>&nbsp;--&nbsp;Bessel functions</DT
+><DT
+><A
+HREF="baselib-jnf.html"
+>jnf</A
+>&nbsp;--&nbsp;Bessel functions</DT
+><DT
+><A
+HREF="baselib-jnl.html"
+>jnl</A
+>&nbsp;--&nbsp;Bessel functions</DT
+><DT
+><A
+HREF="baselib-lgamma-r.html"
+>lgamma_r</A
+>&nbsp;--&nbsp;log gamma functions</DT
+><DT
+><A
+HREF="baselib-lgammaf-r.html"
+>lgammaf_r</A
+>&nbsp;--&nbsp;log gamma functions</DT
+><DT
+><A
+HREF="baselib-lgammal-r.html"
+>lgammal_r</A
+>&nbsp;--&nbsp;log gamma functions</DT
+><DT
+><A
+HREF="baselib-matherr-1.html"
+>matherr</A
+>&nbsp;--&nbsp;math library exception handling</DT
+><DT
+><A
+HREF="baselib-pow10.html"
+>pow10</A
+>&nbsp;--&nbsp;Base-10 power function</DT
+><DT
+><A
+HREF="baselib-pow10f.html"
+>pow10f</A
+>&nbsp;--&nbsp;Base-10 power function</DT
+><DT
+><A
+HREF="baselib-pow10l.html"
+>pow10l</A
+>&nbsp;--&nbsp;Base-10 power function</DT
+><DT
+><A
+HREF="baselib-scalbf.html"
+>scalbf</A
+>&nbsp;--&nbsp;load exponent of radix-independent floating point number</DT
+><DT
+><A
+HREF="baselib-scalbl.html"
+>scalbl</A
+>&nbsp;--&nbsp;load exponent of radix-independent floating point number</DT
+><DT
+><A
+HREF="baselib-significand.html"
+>significand</A
+>&nbsp;--&nbsp;floating point mantissa</DT
+><DT
+><A
+HREF="baselib-significandf.html"
+>significandf</A
+>&nbsp;--&nbsp;floating point mantissa</DT
+><DT
+><A
+HREF="baselib-significandl.html"
+>significandl</A
+>&nbsp;--&nbsp;floating point mantissa</DT
+><DT
+><A
+HREF="baselib-sincos.html"
+>sincos</A
+>&nbsp;--&nbsp;trigonometric functions</DT
+><DT
+><A
+HREF="baselib-sincosf.html"
+>sincosf</A
+>&nbsp;--&nbsp;trigonometric functions</DT
+><DT
+><A
+HREF="baselib-sincosl.html"
+>sincosl</A
+>&nbsp;--&nbsp;trigonometric functions</DT
+><DT
+><A
+HREF="baselib-y0f.html"
+>y0f</A
+>&nbsp;--&nbsp;Bessel functions</DT
+><DT
+><A
+HREF="baselib-y0l.html"
+>y0l</A
+>&nbsp;--&nbsp;Bessel functions</DT
+><DT
+><A
+HREF="baselib-y1f.html"
+>y1f</A
+>&nbsp;--&nbsp;Bessel functions</DT
+><DT
+><A
+HREF="baselib-y1l.html"
+>y1l</A
+>&nbsp;--&nbsp;Bessel functions</DT
+><DT
+><A
+HREF="baselib-ynf.html"
+>ynf</A
+>&nbsp;--&nbsp;Bessel functions</DT
+><DT
+><A
+HREF="baselib-ynl.html"
+>ynl</A
+>&nbsp;--&nbsp;Bessel functions</DT
+></DL
+></DD
+><DT
+>14.9. <A
+HREF="libpthread.html"
+>Interfaces for libpthread</A
+></DT
+><DD
+><DL
+><DT
+>14.9.1. <A
+HREF="libpthread.html#AEN25089"
+>Realtime Threads</A
+></DT
+><DT
+>14.9.2. <A
+HREF="libpthread.html#AEN25165"
+>Advanced Realtime Threads</A
+></DT
+><DT
+>14.9.3. <A
+HREF="libpthread.html#AEN25235"
+>Posix Threads</A
+></DT
+><DT
+>14.9.4. <A
+HREF="libpthread.html#AEN25630"
+>Thread aware versions of libc interfaces</A
+></DT
+><DT
+>14.9.5. <A
+HREF="libpthread.html#AEN25669"
+>GNU Extensions for libpthread</A
+></DT
+><DT
+>14.9.6. <A
+HREF="libpthread.html#AEN25708"
+>System Calls</A
+></DT
+><DT
+>14.9.7. <A
+HREF="libpthread.html#AEN25781"
+>Standard I/O</A
+></DT
+><DT
+>14.9.8. <A
+HREF="libpthread.html#AEN25800"
+>Signal Handling</A
+></DT
+><DT
+>14.9.9. <A
+HREF="libpthread.html#AEN25839"
+>Standard Library</A
+></DT
+><DT
+>14.9.10. <A
+HREF="libpthread.html#AEN25875"
+>Socket Interface</A
+></DT
+><DT
+>14.9.11. <A
+HREF="libpthread.html#AEN25928"
+>Terminal Interface Functions</A
+></DT
+></DL
+></DD
+><DT
+>14.10. <A
+HREF="libpthread-ddefs.html"
+>Data Definitions for libpthread</A
+></DT
+><DD
+><DL
+><DT
+>14.10.1. <A
+HREF="libpthread-ddefs.html#AEN25953"
+>lsb/pthread.h</A
+></DT
+><DT
+>14.10.2. <A
+HREF="libpthread-ddefs.html#AEN25957"
+>pthread.h</A
+></DT
+><DT
+>14.10.3. <A
+HREF="libpthread-ddefs.html#AEN25961"
+>semaphore.h</A
+></DT
+></DL
+></DD
+><DT
+>14.11. <A
+HREF="libpthreadman.html"
+>Interface Definitions for libpthread</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="baselib--pthread-cleanup-pop.html"
+>_pthread_cleanup_pop</A
+>&nbsp;--&nbsp;establish cancellation handlers</DT
+><DT
+><A
+HREF="baselib--pthread-cleanup-push.html"
+>_pthread_cleanup_push</A
+>&nbsp;--&nbsp;establish cancellation handlers</DT
+><DT
+><A
+HREF="baselib-pthread-getattr-np-1.html"
+>pthread_getattr_np</A
+>&nbsp;--&nbsp;get thread attributes</DT
+><DT
+><A
+HREF="baselib-pthread-mutex-consistent-np-1.html"
+>pthread_mutex_consistent_np</A
+>&nbsp;--&nbsp;mark state protected by robust mutex as consistent</DT
+><DT
+><A
+HREF="baselib-pthread-mutexattr-getrobust-np-1.html"
+>pthread_mutexattr_getrobust_np, pthread_mutexattr_setrobust_np</A
+>&nbsp;--&nbsp;get and set the mutex robust attribute</DT
+><DT
+><A
+HREF="baselib-pthread-rwlockattr-getkind-np-1.html"
+>pthread_rwlockattr_getkind_np, pthread_rwlockattr_setkind_np</A
+>&nbsp;--&nbsp;get/set the read-write lock kind of the thread read-write lock attribute object</DT
+><DT
+><A
+HREF="baselib-waitpid-3.html"
+>waitpid</A
+>&nbsp;--&nbsp;wait for child process</DT
+></DL
+></DD
+><DT
+>14.12. <A
+HREF="libgcc-s.html"
+>Interfaces for libgcc_s</A
+></DT
+><DD
+><DL
+><DT
+>14.12.1. <A
+HREF="libgcc-s.html#AEN26258"
+>Unwind Library</A
+></DT
+></DL
+></DD
+><DT
+>14.13. <A
+HREF="libgcc-s-ddefs.html"
+>Data Definitions for libgcc_s</A
+></DT
+><DD
+><DL
+><DT
+>14.13.1. <A
+HREF="libgcc-s-ddefs.html#AEN26340"
+>unwind.h</A
+></DT
+></DL
+></DD
+><DT
+>14.14. <A
+HREF="libgcc-sman.html"
+>Interface Definitions for libgcc_s</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="baselib--unwind-backtrace.html"
+>_Unwind_Backtrace</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-deleteexception.html"
+>_Unwind_DeleteException</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-findenclosingfunction.html"
+>_Unwind_FindEnclosingFunction</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-forcedunwind-1.html"
+>_Unwind_ForcedUnwind</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-getcfa.html"
+>_Unwind_GetCFA</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-getgr.html"
+>_Unwind_GetGR</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-getip.html"
+>_Unwind_GetIP</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-getipinfo.html"
+>_Unwind_GetIPInfo</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-getlanguagespecificdata-1.html"
+>_Unwind_GetLanguageSpecificData</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-getregionstart.html"
+>_Unwind_GetRegionStart</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-raiseexception.html"
+>_Unwind_RaiseException</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-resume.html"
+>_Unwind_Resume</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-resume-or-rethrow.html"
+>_Unwind_Resume_or_Rethrow</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-setgr.html"
+>_Unwind_SetGR</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-setip-1.html"
+>_Unwind_SetIP</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+></DL
+></DD
+><DT
+>14.15. <A
+HREF="libdl.html"
+>Interfaces for libdl</A
+></DT
+><DD
+><DL
+><DT
+>14.15.1. <A
+HREF="libdl.html#AEN26806"
+>Dynamic Loader</A
+></DT
+></DL
+></DD
+><DT
+>14.16. <A
+HREF="libdl-ddefs.html"
+>Data Definitions for libdl</A
+></DT
+><DD
+><DL
+><DT
+>14.16.1. <A
+HREF="libdl-ddefs.html#AEN26851"
+>dlfcn.h</A
+></DT
+></DL
+></DD
+><DT
+>14.17. <A
+HREF="libdlman.html"
+>Interface Definitions for libdl</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="baselib-dladdr-3.html"
+>dladdr</A
+>&nbsp;--&nbsp;find the shared object containing a given address</DT
+><DT
+><A
+HREF="baselib-dlopen-1.html"
+>dlopen</A
+>&nbsp;--&nbsp;open dynamic object</DT
+><DT
+><A
+HREF="baselib-dlsym-1.html"
+>dlsym</A
+>&nbsp;--&nbsp;obtain the address of a symbol from a dlopen object</DT
+><DT
+><A
+HREF="baselib-dlvsym-1.html"
+>dlvsym</A
+>&nbsp;--&nbsp;obtain the address of a symbol from a dlopen object</DT
+></DL
+></DD
+><DT
+>14.18. <A
+HREF="librt.html"
+>Interfaces for librt</A
+></DT
+><DD
+><DL
+><DT
+>14.18.1. <A
+HREF="librt.html#AEN27085"
+>Shared Memory Objects</A
+></DT
+><DT
+>14.18.2. <A
+HREF="librt.html#AEN27107"
+>Asynchronous I/O</A
+></DT
+><DT
+>14.18.3. <A
+HREF="librt.html#AEN27186"
+>Clock</A
+></DT
+><DT
+>14.18.4. <A
+HREF="librt.html#AEN27222"
+>Timers</A
+></DT
+><DT
+>14.18.5. <A
+HREF="librt.html#AEN27258"
+>Message Queues</A
+></DT
+></DL
+></DD
+><DT
+>14.19. <A
+HREF="librt-ddefs.html"
+>Data Definitions for librt</A
+></DT
+><DD
+><DL
+><DT
+>14.19.1. <A
+HREF="librt-ddefs.html#AEN27320"
+>aio.h</A
+></DT
+><DT
+>14.19.2. <A
+HREF="librt-ddefs.html#AEN27324"
+>mqueue.h</A
+></DT
+></DL
+></DD
+><DT
+>14.20. <A
+HREF="libcrypt.html"
+>Interfaces for libcrypt</A
+></DT
+><DD
+><DL
+><DT
+>14.20.1. <A
+HREF="libcrypt.html#AEN27348"
+>Encryption</A
+></DT
+></DL
+></DD
+><DT
+>14.21. <A
+HREF="libcrypt-ddefs.html"
+>Data Definitions for libcrypt</A
+></DT
+><DD
+><DL
+><DT
+>14.21.1. <A
+HREF="libcrypt-ddefs.html#AEN27393"
+>crypt.h</A
+></DT
+></DL
+></DD
+><DT
+>14.22. <A
+HREF="libcryptman.html"
+>Interface Definitions for libcrypt</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="baselib-crypt-r-1.html"
+>crypt_r</A
+>&nbsp;--&nbsp;Cryptographic string encoding function</DT
+><DT
+><A
+HREF="baselib-encrypt-r-1.html"
+>encrypt_r</A
+>&nbsp;--&nbsp;Cryptographic encoding function</DT
+><DT
+><A
+HREF="baselib-setkey-r-1.html"
+>setkey_r</A
+>&nbsp;--&nbsp;Set cryptographic encoding key</DT
+></DL
+></DD
+><DT
+>14.23. <A
+HREF="libpam.html"
+>Interfaces for libpam</A
+></DT
+><DD
+><DL
+><DT
+>14.23.1. <A
+HREF="libpam.html#AEN27548"
+>Pluggable Authentication API</A
+></DT
+></DL
+></DD
+><DT
+>14.24. <A
+HREF="libpam-ddefs.html"
+>Data Definitions for libpam</A
+></DT
+><DD
+><DL
+><DT
+>14.24.1. <A
+HREF="libpam-ddefs.html#AEN27644"
+>security/_pam_types.h</A
+></DT
+><DT
+>14.24.2. <A
+HREF="libpam-ddefs.html#AEN27648"
+>security/pam_appl.h</A
+></DT
+><DT
+>14.24.3. <A
+HREF="libpam-ddefs.html#AEN27652"
+>security/pam_modules.h</A
+></DT
+></DL
+></DD
+><DT
+>14.25. <A
+HREF="libpamman.html"
+>Interface Definitions for libpam</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="baselib-pam-acct-mgmt.html"
+>pam_acct_mgmt</A
+>&nbsp;--&nbsp;establish the status of a user's account</DT
+><DT
+><A
+HREF="baselib-pam-authenticate.html"
+>pam_authenticate</A
+>&nbsp;--&nbsp;authenticate the user</DT
+><DT
+><A
+HREF="baselib-pam-chauthtok.html"
+>pam_chauthtok</A
+>&nbsp;--&nbsp;change the authentication token for a given user</DT
+><DT
+><A
+HREF="baselib-pam-close-session.html"
+>pam_close_session</A
+>&nbsp;--&nbsp;indicate that an authenticated session has ended</DT
+><DT
+><A
+HREF="baselib-pam-end.html"
+>pam_end</A
+>&nbsp;--&nbsp;terminate the use of the PAM library</DT
+><DT
+><A
+HREF="baselib-pam-fail-delay.html"
+>pam_fail_delay</A
+>&nbsp;--&nbsp;specify delay time to use on authentication error</DT
+><DT
+><A
+HREF="baselib-pam-get-item.html"
+>pam_get_item</A
+>&nbsp;--&nbsp;obtain the value of the indicated item.</DT
+><DT
+><A
+HREF="baselib-pam-getenv.html"
+>pam_getenv</A
+>&nbsp;--&nbsp;get a PAM environment variable</DT
+><DT
+><A
+HREF="baselib-pam-getenvlist.html"
+>pam_getenvlist</A
+>&nbsp;--&nbsp;returns a pointer to the complete PAM environment.</DT
+><DT
+><A
+HREF="baselib-pam-open-session.html"
+>pam_open_session</A
+>&nbsp;--&nbsp;indicate session has started</DT
+><DT
+><A
+HREF="baselib-pam-putenv.html"
+>pam_putenv</A
+>&nbsp;--&nbsp;Add, replace or delete a PAM environment variable</DT
+><DT
+><A
+HREF="baselib-pam-set-item.html"
+>pam_set_item</A
+>&nbsp;--&nbsp;(re)set the value of an item.</DT
+><DT
+><A
+HREF="baselib-pam-setcred.html"
+>pam_setcred</A
+>&nbsp;--&nbsp;set the module-specific credentials of the user</DT
+><DT
+><A
+HREF="baselib-pam-start.html"
+>pam_start</A
+>&nbsp;--&nbsp;initialize the PAM library</DT
+><DT
+><A
+HREF="baselib-pam-strerror.html"
+>pam_strerror</A
+>&nbsp;--&nbsp;returns a string describing the PAM error</DT
+></DL
+></DD
+></DL
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="symmap.cxx.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Symbol Mapping</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Base Libraries</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

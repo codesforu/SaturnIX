@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>readdir64_r</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="random_r"
+HREF="baselib-random-r-1.html"><LINK
+REL="NEXT"
+TITLE="regexec"
+HREF="baselib-regexec-2.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-random-r-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-regexec-2.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-READDIR64-R"
+></A
+>readdir64_r</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN18774"
+></A
+><H2
+>Name</H2
+>readdir64_r&nbsp;--&nbsp;read a directory (Large File Support)</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN18777"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN18778"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;dirent.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>readdir64_r</TT
+></CODE
+>(DIR *
+<TT
+CLASS="PARAMETER"
+><I
+>dirp</I
+></TT
+>, struct dirent64 *
+<TT
+CLASS="PARAMETER"
+><I
+>entry</I
+></TT
+>, struct dirent64 * *
+<TT
+CLASS="PARAMETER"
+><I
+>result</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN18789"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>readdir64_r()</TT
+> function is a large file version of
+<TT
+CLASS="FUNCTION"
+>readdir_r()</TT
+>. It shall behave as <TT
+CLASS="FUNCTION"
+>readdir_r()</TT
+>
+in <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>, except that the <TT
+CLASS="PARAMETER"
+><I
+>entry</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>result</I
+></TT
+>
+arguments are <CODE
+CLASS="VARNAME"
+>dirent64</CODE
+> structures rather than <CODE
+CLASS="VARNAME"
+>dirent</CODE
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN18800"
+></A
+><H2
+>Return Value</H2
+><P
+>See <TT
+CLASS="FUNCTION"
+>readdir_r()</TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN18804"
+></A
+><H2
+>Errors</H2
+><P
+>See <TT
+CLASS="FUNCTION"
+>readdir_r()</TT
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-random-r-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-regexec-2.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>random_r</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>regexec</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

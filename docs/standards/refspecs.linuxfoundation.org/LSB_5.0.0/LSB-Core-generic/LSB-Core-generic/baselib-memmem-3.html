@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>memmem</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="lrand48_r"
+HREF="baselib-lrand48-r-1.html"><LINK
+REL="NEXT"
+TITLE="memrchr"
+HREF="baselib-memrchr.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-lrand48-r-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-memrchr.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-MEMMEM-3"
+></A
+>memmem</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN17680"
+></A
+><H2
+>Name</H2
+>memmem&nbsp;--&nbsp;locate bytes</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN17683"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN17686"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#define _GNU_SOURCE
+#include &#60;string.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void *
+  <TT
+CLASS="FUNCTION"
+>memmem</TT
+></CODE
+>(const void *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>haystack</I
+></TT
+></I
+></TT
+>, size_t 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>haystacklen</I
+></TT
+></I
+></TT
+>, const void *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>needle</I
+></TT
+></I
+></TT
+>, size_t 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>needlelen</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN17703"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="FUNCTION"
+>memmem()</TT
+> finds the start of the first 
+occurrence of the byte array referenced by 
+<TT
+CLASS="PARAMETER"
+><I
+>needle</I
+></TT
+> 
+of length <TT
+CLASS="PARAMETER"
+><I
+>needlelen</I
+></TT
+> in the memory 
+area <TT
+CLASS="PARAMETER"
+><I
+>haystack</I
+></TT
+> of length 
+<TT
+CLASS="PARAMETER"
+><I
+>haystacklen</I
+></TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN17713"
+></A
+><H2
+>Return Value</H2
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>needle</I
+></TT
+> is found,
+<TT
+CLASS="FUNCTION"
+>memmem()</TT
+> returns a pointer to it.
+If <TT
+CLASS="PARAMETER"
+><I
+>needlelen</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>0</TT
+>, 
+<TT
+CLASS="PARAMETER"
+><I
+>memmem</I
+></TT
+> returns <TT
+CLASS="PARAMETER"
+><I
+>haystack</I
+></TT
+>.
+If <TT
+CLASS="PARAMETER"
+><I
+>needle</I
+></TT
+> is not found in 
+<TT
+CLASS="PARAMETER"
+><I
+>haystack</I
+></TT
+>, <TT
+CLASS="FUNCTION"
+>memmem()</TT
+>
+returns <TT
+CLASS="LITERAL"
+>NULL</TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN17726"
+></A
+><H2
+>Notes</H2
+><P
+>Earlier versions of the C library (prior to glibc 2.1) contained a
+<TT
+CLASS="FUNCTION"
+>memmem()</TT
+> with various problems, and application
+developers should treat this function with care.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-lrand48-r-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-memrchr.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>lrand48_r</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>memrchr</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

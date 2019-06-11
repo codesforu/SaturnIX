@@ -1,0 +1,880 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Graphic Libraries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="PREVIOUS"
+TITLE="Documentation Conventions"
+HREF="docconv.html"><LINK
+REL="NEXT"
+TITLE="Libraries"
+HREF="graphlib.html"></HEAD
+><BODY
+CLASS="PART"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="docconv.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="graphlib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="TOCGRAPHLIB"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>II. Graphic Libraries</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>6. <A
+HREF="graphlib.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>6.1. <A
+HREF="graphlib.html#LIBX11"
+>Interfaces for libX11</A
+></DT
+><DD
+><DL
+><DT
+>6.1.1. <A
+HREF="graphlib.html#AEN666"
+>X Window System Interface</A
+></DT
+></DL
+></DD
+><DT
+>6.2. <A
+HREF="libx11-ddefs.html"
+>Data Definitions for libX11</A
+></DT
+><DD
+><DL
+><DT
+>6.2.1. <A
+HREF="libx11-ddefs.html#AEN3737"
+>X11/X.h</A
+></DT
+><DT
+>6.2.2. <A
+HREF="libx11-ddefs.html#AEN3741"
+>X11/XKBlib.h</A
+></DT
+><DT
+>6.2.3. <A
+HREF="libx11-ddefs.html#AEN3745"
+>X11/Xarch.h</A
+></DT
+><DT
+>6.2.4. <A
+HREF="libx11-ddefs.html#AEN3749"
+>X11/Xatom.h</A
+></DT
+><DT
+>6.2.5. <A
+HREF="libx11-ddefs.html#AEN3753"
+>X11/Xauth.h</A
+></DT
+><DT
+>6.2.6. <A
+HREF="libx11-ddefs.html#AEN3757"
+>X11/Xcms.h</A
+></DT
+><DT
+>6.2.7. <A
+HREF="libx11-ddefs.html#AEN3761"
+>X11/Xfuncproto.h</A
+></DT
+><DT
+>6.2.8. <A
+HREF="libx11-ddefs.html#AEN3765"
+>X11/Xfuncs.h</A
+></DT
+><DT
+>6.2.9. <A
+HREF="libx11-ddefs.html#AEN3769"
+>X11/Xlib.h</A
+></DT
+><DT
+>6.2.10. <A
+HREF="libx11-ddefs.html#AEN3773"
+>X11/Xlibint.h</A
+></DT
+><DT
+>6.2.11. <A
+HREF="libx11-ddefs.html#AEN3777"
+>X11/Xmd.h</A
+></DT
+><DT
+>6.2.12. <A
+HREF="libx11-ddefs.html#AEN3781"
+>X11/Xos.h</A
+></DT
+><DT
+>6.2.13. <A
+HREF="libx11-ddefs.html#AEN3785"
+>X11/Xosdefs.h</A
+></DT
+><DT
+>6.2.14. <A
+HREF="libx11-ddefs.html#AEN3789"
+>X11/Xproto.h</A
+></DT
+><DT
+>6.2.15. <A
+HREF="libx11-ddefs.html#AEN3793"
+>X11/Xprotostr.h</A
+></DT
+><DT
+>6.2.16. <A
+HREF="libx11-ddefs.html#AEN3797"
+>X11/Xresource.h</A
+></DT
+><DT
+>6.2.17. <A
+HREF="libx11-ddefs.html#AEN3801"
+>X11/Xutil.h</A
+></DT
+><DT
+>6.2.18. <A
+HREF="libx11-ddefs.html#AEN3805"
+>X11/cursorfont.h</A
+></DT
+><DT
+>6.2.19. <A
+HREF="libx11-ddefs.html#AEN3809"
+>X11/extensions/XKB.h</A
+></DT
+><DT
+>6.2.20. <A
+HREF="libx11-ddefs.html#AEN3813"
+>X11/extensions/XKBgeom.h</A
+></DT
+><DT
+>6.2.21. <A
+HREF="libx11-ddefs.html#AEN3817"
+>X11/extensions/XKBproto.h</A
+></DT
+><DT
+>6.2.22. <A
+HREF="libx11-ddefs.html#AEN3821"
+>X11/extensions/XKBstr.h</A
+></DT
+><DT
+>6.2.23. <A
+HREF="libx11-ddefs.html#AEN3825"
+>X11/extensions/securstr.h</A
+></DT
+><DT
+>6.2.24. <A
+HREF="libx11-ddefs.html#AEN3829"
+>X11/keysym.h</A
+></DT
+><DT
+>6.2.25. <A
+HREF="libx11-ddefs.html#AEN3833"
+>X11/keysymdef.h</A
+></DT
+></DL
+></DD
+><DT
+>6.3. <A
+HREF="libx11man.html"
+>Interface Definitions for libX11</A
+></DT
+><DT
+>6.4. <A
+HREF="libsm.html"
+>Interfaces for libSM</A
+></DT
+><DD
+><DL
+><DT
+>6.4.1. <A
+HREF="libsm.html#AEN3860"
+>Session Management Functions</A
+></DT
+></DL
+></DD
+><DT
+>6.5. <A
+HREF="libsm-ddefs.html"
+>Data Definitions for libSM</A
+></DT
+><DD
+><DL
+><DT
+>6.5.1. <A
+HREF="libsm-ddefs.html#AEN4038"
+>X11/SM/SM.h</A
+></DT
+><DT
+>6.5.2. <A
+HREF="libsm-ddefs.html#AEN4042"
+>X11/SM/SMlib.h</A
+></DT
+><DT
+>6.5.3. <A
+HREF="libsm-ddefs.html#AEN4046"
+>X11/SM/SMproto.h</A
+></DT
+></DL
+></DD
+><DT
+>6.6. <A
+HREF="libice.html"
+>Interfaces for libICE</A
+></DT
+><DD
+><DL
+><DT
+>6.6.1. <A
+HREF="libice.html#AEN4070"
+>ICE Functions</A
+></DT
+></DL
+></DD
+><DT
+>6.7. <A
+HREF="libice-ddefs.html"
+>Data Definitions for libICE</A
+></DT
+><DD
+><DL
+><DT
+>6.7.1. <A
+HREF="libice-ddefs.html#AEN4330"
+>X11/ICE/ICE.h</A
+></DT
+><DT
+>6.7.2. <A
+HREF="libice-ddefs.html#AEN4334"
+>X11/ICE/ICEconn.h</A
+></DT
+><DT
+>6.7.3. <A
+HREF="libice-ddefs.html#AEN4338"
+>X11/ICE/ICElib.h</A
+></DT
+><DT
+>6.7.4. <A
+HREF="libice-ddefs.html#AEN4342"
+>X11/ICE/ICEmsg.h</A
+></DT
+><DT
+>6.7.5. <A
+HREF="libice-ddefs.html#AEN4346"
+>X11/ICE/ICEproto.h</A
+></DT
+><DT
+>6.7.6. <A
+HREF="libice-ddefs.html#AEN4350"
+>X11/ICE/ICEutil.h</A
+></DT
+></DL
+></DD
+><DT
+>6.8. <A
+HREF="libiceman.html"
+>Interface Definitions for libICE</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="libice--iceread-1.html"
+>_IceRead</A
+>&nbsp;--&nbsp;read the specified number of bytes from an ICE connection</DT
+><DT
+><A
+HREF="libice--icereadskip-1.html"
+>_IceReadSkip</A
+>&nbsp;--&nbsp;advance to the end of the message when a bad header is read</DT
+><DT
+><A
+HREF="libice--icewrite-1.html"
+>_IceWrite</A
+>&nbsp;--&nbsp;write the specified number of bytes of data to an ICE connection</DT
+></DL
+></DD
+><DT
+>6.9. <A
+HREF="libxt.html"
+>Interfaces for libXt</A
+></DT
+><DD
+><DL
+><DT
+>6.9.1. <A
+HREF="libxt.html#AEN4491"
+>X Toolkit</A
+></DT
+></DL
+></DD
+><DT
+>6.10. <A
+HREF="libxt-ddefs.html"
+>Data Definitions for libXt</A
+></DT
+><DD
+><DL
+><DT
+>6.10.1. <A
+HREF="libxt-ddefs.html#AEN5933"
+>X11/Composite.h</A
+></DT
+><DT
+>6.10.2. <A
+HREF="libxt-ddefs.html#AEN5937"
+>X11/CompositeP.h</A
+></DT
+><DT
+>6.10.3. <A
+HREF="libxt-ddefs.html#AEN5941"
+>X11/ConstrainP.h</A
+></DT
+><DT
+>6.10.4. <A
+HREF="libxt-ddefs.html#AEN5945"
+>X11/Constraint.h</A
+></DT
+><DT
+>6.10.5. <A
+HREF="libxt-ddefs.html#AEN5949"
+>X11/Core.h</A
+></DT
+><DT
+>6.10.6. <A
+HREF="libxt-ddefs.html#AEN5953"
+>X11/CoreP.h</A
+></DT
+><DT
+>6.10.7. <A
+HREF="libxt-ddefs.html#AEN5957"
+>X11/EventI.h</A
+></DT
+><DT
+>6.10.8. <A
+HREF="libxt-ddefs.html#AEN5961"
+>X11/Intrinsic.h</A
+></DT
+><DT
+>6.10.9. <A
+HREF="libxt-ddefs.html#AEN5965"
+>X11/IntrinsicI.h</A
+></DT
+><DT
+>6.10.10. <A
+HREF="libxt-ddefs.html#AEN5969"
+>X11/IntrinsicP.h</A
+></DT
+><DT
+>6.10.11. <A
+HREF="libxt-ddefs.html#AEN5973"
+>X11/Object.h</A
+></DT
+><DT
+>6.10.12. <A
+HREF="libxt-ddefs.html#AEN5977"
+>X11/ObjectP.h</A
+></DT
+><DT
+>6.10.13. <A
+HREF="libxt-ddefs.html#AEN5981"
+>X11/RectObj.h</A
+></DT
+><DT
+>6.10.14. <A
+HREF="libxt-ddefs.html#AEN5985"
+>X11/RectObjP.h</A
+></DT
+><DT
+>6.10.15. <A
+HREF="libxt-ddefs.html#AEN5989"
+>X11/ResourceI.h</A
+></DT
+><DT
+>6.10.16. <A
+HREF="libxt-ddefs.html#AEN5993"
+>X11/Shell.h</A
+></DT
+><DT
+>6.10.17. <A
+HREF="libxt-ddefs.html#AEN5997"
+>X11/ShellP.h</A
+></DT
+><DT
+>6.10.18. <A
+HREF="libxt-ddefs.html#AEN6001"
+>X11/StringDefs.h</A
+></DT
+><DT
+>6.10.19. <A
+HREF="libxt-ddefs.html#AEN6005"
+>X11/TranslateI.h</A
+></DT
+><DT
+>6.10.20. <A
+HREF="libxt-ddefs.html#AEN6009"
+>X11/VendorP.h</A
+></DT
+><DT
+>6.10.21. <A
+HREF="libxt-ddefs.html#AEN6013"
+>lsb/Composite.h</A
+></DT
+><DT
+>6.10.22. <A
+HREF="libxt-ddefs.html#AEN6017"
+>lsb/Intrinsic.h</A
+></DT
+></DL
+></DD
+><DT
+>6.11. <A
+HREF="libxtman.html"
+>Interface Definitions for libXt</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="graphiclib--xtcopyfromarg-.html"
+>_XtCopyFromArg</A
+>&nbsp;--&nbsp;Copy "size" bytes from src to dst.  </DT
+><DT
+><A
+HREF="graphiclib--xtinherit-.html"
+>_XtInherit</A
+>&nbsp;--&nbsp;inheritance operation.</DT
+><DT
+><A
+HREF="graphiclib--xtinherittranslations-.html"
+>_XtInheritTranslations</A
+>&nbsp;--&nbsp;an inheritance constant</DT
+><DT
+><A
+HREF="graphiclib--xtissubclassof-.html"
+>_XtIsSubclassOf</A
+>&nbsp;--&nbsp;determine if Widget is a subclass of WidgetClass.</DT
+></DL
+></DD
+><DT
+>6.12. <A
+HREF="libxext.html"
+>Interfaces for libXext</A
+></DT
+><DD
+><DL
+><DT
+>6.12.1. <A
+HREF="libxext.html#AEN6122"
+>libXext interfaces</A
+></DT
+><DT
+>6.12.2. <A
+HREF="libxext.html#AEN6164"
+>X Shape Extension</A
+></DT
+><DT
+>6.12.3. <A
+HREF="libxext.html#AEN6223"
+>X Display Power Management Signaling Extension</A
+></DT
+><DT
+>6.12.4. <A
+HREF="libxext.html#AEN6276"
+>X Shared Memory Extensions</A
+></DT
+><DT
+>6.12.5. <A
+HREF="libxext.html#AEN6332"
+>X Synchronization Extension</A
+></DT
+><DT
+>6.12.6. <A
+HREF="libxext.html#AEN6479"
+>X Security Extension</A
+></DT
+><DT
+>6.12.7. <A
+HREF="libxext.html#AEN6515"
+>X Double Buffer Extension</A
+></DT
+><DT
+>6.12.8. <A
+HREF="libxext.html#AEN6568"
+>X Extended Visual Interface Extension</A
+></DT
+></DL
+></DD
+><DT
+>6.13. <A
+HREF="libxext-ddefs.html"
+>Data Definitions for libXext</A
+></DT
+><DD
+><DL
+><DT
+>6.13.1. <A
+HREF="libxext-ddefs.html#AEN6599"
+>X11/extensions/EVIproto.h</A
+></DT
+><DT
+>6.13.2. <A
+HREF="libxext-ddefs.html#AEN6603"
+>X11/extensions/XEVI.h</A
+></DT
+><DT
+>6.13.3. <A
+HREF="libxext-ddefs.html#AEN6607"
+>X11/extensions/XEVIstr.h</A
+></DT
+><DT
+>6.13.4. <A
+HREF="libxext-ddefs.html#AEN6611"
+>X11/extensions/XKBbells.h</A
+></DT
+><DT
+>6.13.5. <A
+HREF="libxext-ddefs.html#AEN6615"
+>X11/extensions/XShm.h</A
+></DT
+><DT
+>6.13.6. <A
+HREF="libxext-ddefs.html#AEN6619"
+>X11/extensions/Xdbe.h</A
+></DT
+><DT
+>6.13.7. <A
+HREF="libxext-ddefs.html#AEN6623"
+>X11/extensions/Xdbeproto.h</A
+></DT
+><DT
+>6.13.8. <A
+HREF="libxext-ddefs.html#AEN6627"
+>X11/extensions/Xext.h</A
+></DT
+><DT
+>6.13.9. <A
+HREF="libxext-ddefs.html#AEN6631"
+>X11/extensions/dbeproto.h</A
+></DT
+><DT
+>6.13.10. <A
+HREF="libxext-ddefs.html#AEN6635"
+>X11/extensions/dpms.h</A
+></DT
+><DT
+>6.13.11. <A
+HREF="libxext-ddefs.html#AEN6639"
+>X11/extensions/dpmsproto.h</A
+></DT
+><DT
+>6.13.12. <A
+HREF="libxext-ddefs.html#AEN6643"
+>X11/extensions/dpmsstr.h</A
+></DT
+><DT
+>6.13.13. <A
+HREF="libxext-ddefs.html#AEN6647"
+>X11/extensions/extutil.h</A
+></DT
+><DT
+>6.13.14. <A
+HREF="libxext-ddefs.html#AEN6651"
+>X11/extensions/security.h</A
+></DT
+><DT
+>6.13.15. <A
+HREF="libxext-ddefs.html#AEN6655"
+>X11/extensions/securproto.h</A
+></DT
+><DT
+>6.13.16. <A
+HREF="libxext-ddefs.html#AEN6659"
+>X11/extensions/shape.h</A
+></DT
+><DT
+>6.13.17. <A
+HREF="libxext-ddefs.html#AEN6663"
+>X11/extensions/shapeproto.h</A
+></DT
+><DT
+>6.13.18. <A
+HREF="libxext-ddefs.html#AEN6667"
+>X11/extensions/shmproto.h</A
+></DT
+><DT
+>6.13.19. <A
+HREF="libxext-ddefs.html#AEN6671"
+>X11/extensions/sync.h</A
+></DT
+><DT
+>6.13.20. <A
+HREF="libxext-ddefs.html#AEN6675"
+>X11/extensions/syncproto.h</A
+></DT
+><DT
+>6.13.21. <A
+HREF="libxext-ddefs.html#AEN6679"
+>X11/extensions/syncstr.h</A
+></DT
+><DT
+>6.13.22. <A
+HREF="libxext-ddefs.html#AEN6683"
+>X11/extensions/xtestproto.h</A
+></DT
+></DL
+></DD
+><DT
+>6.14. <A
+HREF="libxextman.html"
+>Interface Definitions for libXext</A
+></DT
+><DT
+>6.15. <A
+HREF="libxi.html"
+>Interfaces for libXi</A
+></DT
+><DD
+><DL
+><DT
+>6.15.1. <A
+HREF="libxi.html#AEN6710"
+>XInput</A
+></DT
+></DL
+></DD
+><DT
+>6.16. <A
+HREF="libxi-ddefs.html"
+>Data Definitions for libXi</A
+></DT
+><DD
+><DL
+><DT
+>6.16.1. <A
+HREF="libxi-ddefs.html#AEN6897"
+>X11/extensions/XI.h</A
+></DT
+><DT
+>6.16.2. <A
+HREF="libxi-ddefs.html#AEN6901"
+>X11/extensions/XInput.h</A
+></DT
+><DT
+>6.16.3. <A
+HREF="libxi-ddefs.html#AEN6905"
+>X11/extensions/XIproto.h</A
+></DT
+></DL
+></DD
+><DT
+>6.17. <A
+HREF="libxtst.html"
+>Interfaces for libXtst</A
+></DT
+><DD
+><DL
+><DT
+>6.17.1. <A
+HREF="libxtst.html#AEN6927"
+>libXtst Interfaces</A
+></DT
+></DL
+></DD
+><DT
+>6.18. <A
+HREF="libxtst-ddefs.html"
+>Data Definitions for libXtst</A
+></DT
+><DD
+><DL
+><DT
+>6.18.1. <A
+HREF="libxtst-ddefs.html#AEN7009"
+>X11/extensions/XTest.h</A
+></DT
+></DL
+></DD
+><DT
+>6.19. <A
+HREF="libxcb.html"
+>Interfaces for libxcb</A
+></DT
+><DD
+><DL
+><DT
+>6.19.1. <A
+HREF="libxcb.html#AEN7033"
+>libxcb interfaces</A
+></DT
+></DL
+></DD
+><DT
+>6.20. <A
+HREF="libxcb-ddefs.html"
+>Data Definitions for libxcb</A
+></DT
+><DD
+><DL
+><DT
+>6.20.1. <A
+HREF="libxcb-ddefs.html#AEN9118"
+>xcb/bigreq.h</A
+></DT
+><DT
+>6.20.2. <A
+HREF="libxcb-ddefs.html#AEN9122"
+>xcb/xc_misc.h</A
+></DT
+><DT
+>6.20.3. <A
+HREF="libxcb-ddefs.html#AEN9126"
+>xcb/xcb.h</A
+></DT
+><DT
+>6.20.4. <A
+HREF="libxcb-ddefs.html#AEN9130"
+>xcb/xcbext.h</A
+></DT
+><DT
+>6.20.5. <A
+HREF="libxcb-ddefs.html#AEN9134"
+>xcb/xproto.h</A
+></DT
+></DL
+></DD
+><DT
+>6.21. <A
+HREF="libxcbman.html"
+>Interface Definitions for libxcb</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="docconv.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="graphlib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Documentation Conventions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Libraries</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

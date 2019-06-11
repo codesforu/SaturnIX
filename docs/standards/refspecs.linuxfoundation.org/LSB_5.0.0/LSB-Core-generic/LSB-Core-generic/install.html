@@ -1,0 +1,560 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>install</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="hostname"
+HREF="hostname.html"><LINK
+REL="NEXT"
+TITLE="install_initd"
+HREF="installinitd.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="hostname.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="installinitd.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="INSTALL"
+></A
+>install</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN58455"
+></A
+><H2
+>Name</H2
+>install&nbsp;--&nbsp;copy files and set attributes</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN58458"
+></A
+><H2
+>Synopsis</H2
+><TT
+CLASS="CMDSYNOPSIS"
+><B
+CLASS="COMMAND"
+>install</B
+> [option...]  SOURCE   DEST <BR><B
+CLASS="COMMAND"
+>install</B
+> [option...]  SOURCE...   DEST <BR><B
+CLASS="COMMAND"
+>install</B
+> [-d | --directory] [option...]  DIRECTORY... </TT
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58476"
+></A
+><H2
+>Description</H2
+><P
+>In the first two formats, copy <TT
+CLASS="PARAMETER"
+><I
+>SOURCE</I
+></TT
+>
+to <TT
+CLASS="PARAMETER"
+><I
+>DEST</I
+></TT
+> or multiple <TT
+CLASS="PARAMETER"
+><I
+>SOURCE(s)</I
+></TT
+> to
+the existing <TT
+CLASS="PARAMETER"
+><I
+>DEST</I
+></TT
+> directory, optionally setting permission modes and
+file ownership.  In the third format, each
+<TT
+CLASS="PARAMETER"
+><I
+>DIRECTORY</I
+></TT
+> and any missing parent
+directories shall be created.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58484"
+></A
+><H2
+>Standard Options</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>--backup[=METHOD]</DT
+><DD
+><P
+>makes a backup of each existing destination file.
+<TT
+CLASS="PARAMETER"
+><I
+>METHOD</I
+></TT
+> may be one of the following:
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58493"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>none</I
+></TT
+> or <TT
+CLASS="PARAMETER"
+><I
+>off</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>never make backups.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58499"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>numbered</I
+></TT
+> or <TT
+CLASS="PARAMETER"
+><I
+>t</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>make numbered backups. A numbered backup has the form
+<TT
+CLASS="LITERAL"
+>"%s.~%d~", target_name, version_number</TT
+>. Each backup
+shall increment the version number by 1.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58506"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>existing</I
+></TT
+> or <TT
+CLASS="PARAMETER"
+><I
+>nil</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>behave as numbered if numbered backups exist, or simple otherwise.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58512"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>simple</I
+></TT
+> or <TT
+CLASS="PARAMETER"
+><I
+>never</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>append a suffix to the name. The default suffix is '<TT
+CLASS="LITERAL"
+>~</TT
+>',
+but can be overriden by setting <CODE
+CLASS="ENVAR"
+>SIMPLE_BACKUP_SUFFIX</CODE
+> in
+the environment, or via the <TT
+CLASS="PARAMETER"
+><I
+>-S</I
+></TT
+> or <TT
+CLASS="PARAMETER"
+><I
+>--suffix</I
+></TT
+>
+option.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></P
+><P
+>If no <TT
+CLASS="PARAMETER"
+><I
+>METHOD</I
+></TT
+> is specified, the environment variable
+<CODE
+CLASS="ENVAR"
+>VERSION_CONTROL</CODE
+> shall be examined for one of the above.
+Unambiguous abbreviations of <TT
+CLASS="PARAMETER"
+><I
+>METHOD</I
+></TT
+> shall be accepted.
+If no <TT
+CLASS="PARAMETER"
+><I
+>METHOD</I
+></TT
+> is specified, or if <TT
+CLASS="PARAMETER"
+><I
+>METHOD</I
+></TT
+>
+is empty, the backup method shall default to <CODE
+CLASS="CONSTANT"
+>existing</CODE
+>.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>METHOD</I
+></TT
+> is invalid or ambiguous, <B
+CLASS="COMMAND"
+>install</B
+>
+shall fail and issue a diagnostic message.</P
+></DD
+><DT
+>-b</DT
+><DD
+><P
+>is equivalent to <TT
+CLASS="PARAMETER"
+><I
+>--backup=existing</I
+></TT
+>.</P
+></DD
+><DT
+>-d, --directory</DT
+><DD
+><P
+>treats all arguments as directory names; creates all components of the
+specified directories.</P
+></DD
+><DT
+>-D</DT
+><DD
+><P
+>creates all leading components of DEST except the last, then copies
+SOURCE to DEST; useful in the 1st format.</P
+></DD
+><DT
+>-g GROUP, --group=GROUP</DT
+><DD
+><P
+>if the user has appropriate privilege, sets group ownership, instead of process' current group.
+<TT
+CLASS="PARAMETER"
+><I
+>GROUP</I
+></TT
+> is either a name in the
+user group database, or a positive integer, which shall be used as a group-id.</P
+></DD
+><DT
+>-m MODE, --mode=MODE</DT
+><DD
+><P
+>sets permission mode (specified as in <B
+CLASS="COMMAND"
+>chmod</B
+>), instead of the default 
+<TT
+CLASS="LITERAL"
+>rwxr-xr-x</TT
+>.</P
+></DD
+><DT
+>-o OWNER, --owner=OWNER</DT
+><DD
+><P
+>if the user has appropriate privilege, sets ownership.
+<TT
+CLASS="PARAMETER"
+><I
+>OWNER</I
+></TT
+> is either a name in the
+user login database, or a positive integer, which shall be used as a user-id.</P
+></DD
+><DT
+>-p, --preserve-timestamps</DT
+><DD
+><P
+>copies the access and modification times of 
+<TT
+CLASS="PARAMETER"
+><I
+>SOURCE</I
+></TT
+> files to corresponding
+destination files.</P
+></DD
+><DT
+>-s, --strip</DT
+><DD
+><P
+>strips symbol tables, only for 1st and 2nd formats.</P
+></DD
+><DT
+>-S SUFFIX, --suffix=SUFFIX</DT
+><DD
+><P
+>equivalent to <TT
+CLASS="PARAMETER"
+><I
+>--backup=existing</I
+></TT
+>, except if
+a simple suffix is required, use <TT
+CLASS="PARAMETER"
+><I
+>SUFFIX</I
+></TT
+>.</P
+></DD
+><DT
+>--verbose</DT
+><DD
+><P
+>prints the name of each directory as it is created.</P
+></DD
+><DT
+>-v, --verbose</DT
+><DD
+><P
+>print the name of each file before copying it to <CODE
+CLASS="VARNAME"
+>stdout</CODE
+>.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="hostname.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="installinitd.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>hostname</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>install_initd</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

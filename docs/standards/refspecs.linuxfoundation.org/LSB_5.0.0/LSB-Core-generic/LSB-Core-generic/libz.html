@@ -1,0 +1,526 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libz</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Utility Libraries"
+HREF="utillib.html"><LINK
+REL="PREVIOUS"
+TITLE="Utility Libraries"
+HREF="utillib.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libz"
+HREF="libz-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="utillib.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 15. Utility Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libz-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBZ"
+>15.2. Interfaces for libz</A
+></H1
+><P
+><A
+HREF="libz.html#LIB-LIBZ-DEF"
+>Table 15-1</A
+> defines the library name and shared object name
+for the libz library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBZ-DEF"
+></A
+><P
+><B
+>Table 15-1. libz Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libz</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libz.so.1</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBZ.1"
+></A
+>[LSB] <A
+HREF="normativerefs.html#STD.LSB"
+>This Specification</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN28546"
+>15.2.1. Compression Library</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN28549"
+>15.2.1.1. Interfaces for Compression Library</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for Compression Library specified in <A
+HREF="libz.html#TBL-LIBZ-COMPR-INTS"
+>Table 15-2</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBZ-COMPR-INTS"
+></A
+><P
+><B
+>Table 15-2. libz - Compression Library Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>adler32 <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>compress <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>compress2 <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>compressBound(ZLIB_1.2.0) <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>crc32 <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>deflate <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>deflateBound(ZLIB_1.2.0) <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>deflateCopy <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>deflateEnd <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>deflateInit2_ <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>deflateInit_ <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>deflateParams <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>deflatePrime(ZLIB_1.2.0.8) <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>deflateReset <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>deflateSetDictionary <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>get_crc_table <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>gzclearerr(ZLIB_1.2.0.2) <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>gzclose <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>gzdopen <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>gzeof <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>gzerror <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>gzflush <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>gzgetc <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>gzgets <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>gzopen <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>gzprintf <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>gzputc <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>gzputs <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>gzread <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>gzrewind <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>gzseek <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>gzsetparams <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>gztell <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>gzwrite <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>inflate <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>inflateBack(ZLIB_1.2.0) <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>inflateBackEnd(ZLIB_1.2.0) <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>inflateBackInit_(ZLIB_1.2.0) <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>inflateCopy(ZLIB_1.2.0) <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>inflateEnd <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>inflateInit2_ <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>inflateInit_ <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>inflateReset <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>inflateSetDictionary <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>inflateSync <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>inflateSyncPoint <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>uncompress <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>zError <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>zlibVersion <A
+HREF="libz.html#REFSTD.LIBZ.1"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="utillib.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libz-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Utility Libraries</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="utillib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libz</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,28 @@
+<hr>
+
+<H1>LSB 2.1.0 Core Specification</H1>
+<TABLE>
+<TR>
+<TH>Specification</TH>
+<TH>Version</TH>
+<TH>HTML</TH>
+<TH>RTF</TH>
+<TH>PDF</TH>
+<TH>One Page HTML</TH>
+<TH>TXT</TH>
+<TH>TXT (numbered)</TH>
+<TH>Diff from 2.0 (pdf)</TH>
+</TR>
+<TR>
+<TD>LSB Core</TD>
+<TD ALIGN=center><B>2.1
+</B></TD>
+<TD><a href="LSB-Core-generic/set1.html">HTML</a></TD>
+<TD><a href="LSB-Core-generic.rtf">RTF</a></TD>
+<TD><!-- <a href="../ISO/LSB-Core-generic.pdf">PDF</a>--></TD>
+<TD ALIGN=center><a href="LSB-Core-generic.html">HTML</a></TD>
+<TD ALIGN=center><a href="LSB-Core-generic.txt">TXT</a></TD>
+<TD ALIGN=center><a href="LSB-Core-generic_lines.txt">TXT</a></TD>
+<TD><!-- <a href="LSB-Core-generic.diff.pdf">PDF</a>--></TD>
+</TR>
+</TABLE>

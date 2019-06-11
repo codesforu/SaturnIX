@@ -1,0 +1,2524 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libpango-1.0</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Interface Definitions for libatk-1.0"
+HREF="libatk-1.0man.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libpango-1.0"
+HREF="libpango-1.0-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libatk-1.0man.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 17. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpango-1.0-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBPANGO-1.0"
+>17.17. Interfaces for libpango-1.0</A
+></H1
+><P
+><A
+HREF="libpango-1.0.html#LIB-LIBPANGO-1.0-DEF"
+>Table 17-104</A
+> defines the library name and shared object name
+for the libpango-1.0 library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBPANGO-1.0-DEF"
+></A
+><P
+><B
+>Table 17-104. libpango-1.0 Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libpango-1.0</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libpango-1.0.so.0</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBPANGO.1.0.1"
+></A
+>[Gobject 2.32] <A
+HREF="normativerefs.html#STD.GOBJECT"
+>Gobject 2.32 Reference Manual</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBPANGO.1.0.2"
+></A
+>[Pango 1.30] <A
+HREF="normativerefs.html#STD.PANGO"
+>Pango 1.30.1 Reference Manual</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN42658"
+>17.17.1. GTK Internationalized Text Layout and Rendering library</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN42661"
+>17.17.1.1. Interfaces for GTK Internationalized Text Layout and Rendering library</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for GTK Internationalized Text Layout and Rendering library specified in <A
+HREF="libpango-1.0.html#TBL-LIBPANGO-1.0-GTK-I-INTS"
+>Table 17-105</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPANGO-1.0-GTK-I-INTS"
+></A
+><P
+><B
+>Table 17-105. libpango-1.0 - GTK Internationalized Text Layout and Rendering library Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>pango_alignment_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_attr_background_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_fallback_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_family_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_font_desc_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_foreground_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_gravity_hint_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_gravity_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_iterator_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_iterator_destroy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_iterator_get <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_iterator_get_attrs <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_iterator_get_font <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_iterator_next <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_iterator_range <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_language_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_letter_spacing_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_list_change <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_list_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_list_filter <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_list_get_iterator <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_list_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_list_insert <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_list_insert_before <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_list_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_list_ref <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_list_splice <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_list_unref <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_rise_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_scale_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_shape_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_shape_new_with_data <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_size_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_size_new_absolute <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_stretch_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_strikethrough_color_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_strikethrough_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_style_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_type_get_name <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_type_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_type_register <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_underline_color_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_underline_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attr_variant_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attr_weight_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attribute_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attribute_destroy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_attribute_equal <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_attribute_init <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_bidi_type_for_unichar <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_bidi_type_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_break <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_color_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_color_free <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_color_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_color_parse <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_color_to_string <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_context_get_base_dir <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_context_get_base_gravity <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_context_get_font_description <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_context_get_font_map <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_context_get_gravity <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_context_get_gravity_hint <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_context_get_language <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_context_get_matrix <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_context_get_metrics <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_context_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_context_list_families <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_context_load_font <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_context_load_fontset <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_context_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_context_set_base_dir <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_context_set_base_gravity <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_context_set_font_description <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_context_set_font_map <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_context_set_gravity_hint <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_context_set_language <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_context_set_matrix <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_coverage_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_coverage_from_bytes <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_coverage_get <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_coverage_level_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_coverage_max <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_coverage_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_coverage_ref <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_coverage_set <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_coverage_to_bytes <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_coverage_unref <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_direction_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_ellipsize_mode_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_extents_to_pixels <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_find_base_dir <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_find_paragraph_boundary <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_describe <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_describe_with_absolute_size <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_better_match <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_copy_static <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_equal <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_free <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_from_string <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_get_family <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_get_gravity <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_get_set_fields <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_get_size <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_get_size_is_absolute <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_get_stretch <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_get_style <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_font_description_get_variant <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_get_weight <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_hash <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_merge <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_merge_static <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_set_absolute_size <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_set_family <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_set_family_static <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_set_gravity <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_set_size <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_set_stretch <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_set_style <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_set_variant <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_set_weight <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_to_filename <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_description_to_string <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_description_unset_fields <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_descriptions_free <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_face_describe <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_face_get_face_name <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_face_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_font_face_is_synthesized <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_face_list_sizes <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_family_get_name <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_family_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_font_family_is_monospace <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_family_list_faces <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_find_shaper <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_get_coverage <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_get_font_map <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_get_glyph_extents <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_get_metrics <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_font_map_create_context <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_map_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_font_map_list_families <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_map_load_font <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_map_load_fontset <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_mask_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_font_metrics_get_approximate_char_width <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_metrics_get_approximate_digit_width <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_metrics_get_ascent <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_metrics_get_descent <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_metrics_get_strikethrough_position <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_metrics_get_strikethrough_thickness <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_metrics_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_metrics_get_underline_position <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_metrics_get_underline_thickness <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_font_metrics_ref <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_font_metrics_unref <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_fontset_foreach <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_fontset_get_font <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_fontset_get_metrics <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_fontset_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_get_log_attrs <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_glyph_item_apply_attrs <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_glyph_item_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_glyph_item_free <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_glyph_item_get_logical_widths <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_glyph_item_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_glyph_item_iter_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_glyph_item_iter_free <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_glyph_item_iter_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_glyph_item_iter_init_end <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_glyph_item_iter_init_start <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_glyph_item_iter_next_cluster <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_glyph_item_iter_prev_cluster <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_glyph_item_letter_space <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_glyph_item_split <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_glyph_string_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_glyph_string_extents <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_glyph_string_extents_range <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_glyph_string_free <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_glyph_string_get_logical_widths <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_glyph_string_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_glyph_string_get_width <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_glyph_string_index_to_x <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_glyph_string_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_glyph_string_set_size <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_glyph_string_x_to_index <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_gravity_get_for_matrix <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_gravity_get_for_script <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_gravity_get_for_script_and_width <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_gravity_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_gravity_hint_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_gravity_to_rotation <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_is_zero_width <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_item_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_item_free <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_item_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_item_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_item_split <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_itemize <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_itemize_with_base_dir <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_language_from_string <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_language_get_default <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_language_get_sample_string <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_language_get_scripts <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_language_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_language_includes_script <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_language_matches <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_language_to_string <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_context_changed <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_alignment <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_attributes <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_auto_dir <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_baseline <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_character_count <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_context <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_cursor_pos <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_ellipsize <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_extents <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_font_description <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_height <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_indent <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_iter <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_justify <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_line <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_line_count <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_line_readonly <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_lines <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_lines_readonly <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_log_attrs <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_log_attrs_readonly <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_pixel_extents <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_pixel_size <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_single_paragraph_mode <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_size <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_spacing <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_tabs <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_text <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_layout_get_unknown_glyphs_count <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_get_width <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_get_wrap <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_index_to_line_x <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_index_to_pos <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_is_ellipsized <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_is_wrapped <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_iter_at_last_line <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_iter_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_iter_free <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_iter_get_baseline <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_iter_get_char_extents <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_iter_get_cluster_extents <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_iter_get_index <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_iter_get_layout <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_iter_get_layout_extents <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_iter_get_line <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_iter_get_line_extents <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_iter_get_line_readonly <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_iter_get_line_yrange <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_iter_get_run <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_iter_get_run_extents <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_iter_get_run_readonly <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_iter_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_layout_iter_next_char <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_iter_next_cluster <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_iter_next_line <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_iter_next_run <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_line_get_extents <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_line_get_pixel_extents <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_line_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_line_get_x_ranges <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_line_index_to_x <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_line_ref <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_line_unref <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_line_x_to_index <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_move_cursor_visually <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_set_alignment <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_set_attributes <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_set_auto_dir <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_set_ellipsize <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_set_font_description <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_set_height <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_set_indent <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_set_justify <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_set_markup <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_set_markup_with_accel <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_set_single_paragraph_mode <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_set_spacing <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_set_tabs <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_set_text <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_set_width <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_layout_set_wrap <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_layout_xy_to_index <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_log2vis_get_embedding_levels <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_matrix_concat <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_matrix_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_matrix_free <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_matrix_get_font_scale_factor <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_matrix_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_matrix_rotate <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_matrix_scale <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_matrix_transform_distance <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_matrix_transform_pixel_rectangle <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_matrix_transform_point <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_matrix_transform_rectangle <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_matrix_translate <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_parse_enum <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_parse_markup <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_parse_stretch <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_parse_style <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_parse_variant <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_parse_weight <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_quantize_line_geometry <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_read_line <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_render_part_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_renderer_activate <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_renderer_deactivate <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_renderer_draw_error_underline <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_renderer_draw_glyph <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_renderer_draw_glyph_item <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_renderer_draw_glyphs <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_renderer_draw_layout <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_renderer_draw_layout_line <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_renderer_draw_rectangle <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_renderer_draw_trapezoid <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_renderer_get_color <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_renderer_get_layout <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_renderer_get_layout_line <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_renderer_get_matrix <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_renderer_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_renderer_part_changed <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_renderer_set_color <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_renderer_set_matrix <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_reorder_items <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_scan_int <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_scan_string <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_scan_word <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_script_for_unichar <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_script_get_sample_language <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_script_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_script_iter_free <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_script_iter_get_range <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_script_iter_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_script_iter_next <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_shape <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_skip_space <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_split_file_list <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_stretch_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_style_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_tab_align_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>pango_tab_array_copy <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_tab_array_free <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_tab_array_get_positions_in_pixels <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_tab_array_get_size <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_tab_array_get_tab <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_tab_array_get_tabs <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_tab_array_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_tab_array_new <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_tab_array_new_with_positions <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_tab_array_resize <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_tab_array_set_tab <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_trim_string <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_underline_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_unichar_direction <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_units_from_double <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_units_to_double <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_variant_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_version <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_version_check <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+></TR
+><TR
+><TD
+>pango_version_string <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.2"
+>[Pango 1.30]</A
+></TD
+><TD
+>pango_weight_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+></TR
+><TR
+><TD
+>pango_wrap_mode_get_type <A
+HREF="libpango-1.0.html#REFSTD.LIBPANGO.1.0.1"
+>[Gobject 2.32]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libatk-1.0man.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpango-1.0-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interface Definitions for libatk-1.0</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="gtk.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libpango-1.0</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

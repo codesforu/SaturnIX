@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>wcstoq</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="warnx"
+HREF="baselib-warnx-3.html"><LINK
+REL="NEXT"
+TITLE="wcstouq"
+HREF="baselib-wcstouq.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-warnx-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-wcstouq.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-WCSTOQ"
+></A
+>wcstoq</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN21266"
+></A
+><H2
+>Name</H2
+>wcstoq&nbsp;--&nbsp;convert wide string to long long int representation</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN21269"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN21272"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;wchar.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>long long int 
+  <TT
+CLASS="FUNCTION"
+>wcstoq</TT
+></CODE
+>(const wchar_t * restrict 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>nptr</I
+></TT
+></I
+></TT
+>, wchar_t ** restrict 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>endptr</I
+></TT
+></I
+></TT
+>, int 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>base</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN21286"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>wcstoq()</TT
+> function shall convert
+the initial portion of the wide 
+string <TT
+CLASS="PARAMETER"
+><I
+>nptr</I
+></TT
+> to <TT
+CLASS="LITERAL"
+>long long int</TT
+> 
+representation. It is identical to <TT
+CLASS="FUNCTION"
+>wcstoll()</TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN21295"
+></A
+><H2
+>Return Value</H2
+><P
+>Refer to <TT
+CLASS="FUNCTION"
+>wcstoll()</TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN21299"
+></A
+><H2
+>Errors</H2
+><P
+>Refer to <TT
+CLASS="FUNCTION"
+>wcstoll()</TT
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-warnx-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-wcstouq.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>warnx</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>wcstouq</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

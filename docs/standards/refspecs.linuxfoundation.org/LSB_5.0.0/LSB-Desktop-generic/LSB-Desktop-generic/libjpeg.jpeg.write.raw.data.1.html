@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>jpeg_write_raw_data</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libjpeg"
+HREF="libjpegman.html"><LINK
+REL="PREVIOUS"
+TITLE="jpeg_write_marker"
+HREF="libjpeg.jpeg.write.marker.1.html"><LINK
+REL="NEXT"
+TITLE="jpeg_write_scanlines"
+HREF="libjpeg.jpeg.write.scanlines.1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libjpeg.jpeg.write.marker.1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libjpeg.jpeg.write.scanlines.1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="LIBJPEG.JPEG.WRITE.RAW.DATA.1"
+></A
+>jpeg_write_raw_data</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN18254"
+></A
+><H2
+>Name</H2
+>jpeg_write_raw_data&nbsp;--&nbsp;write raw downsampled image data</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN18259"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN18260"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;jpeglib.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>JDIMENSION
+<TT
+CLASS="FUNCTION"
+>jpeg_write_raw_data</TT
+></CODE
+>(j_compress_ptr
+<TT
+CLASS="PARAMETER"
+><I
+>cinfo</I
+></TT
+>, JSAMPIMAGE
+<TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>, JDIMENSION
+<TT
+CLASS="PARAMETER"
+><I
+>num_lines</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN18271"
+></A
+><H2
+>Description</H2
+><P
+>jpeg_write_raw_data() shall write the compressed image data for raw downsampled
+data supplied in the JSAMPIMAGE array argument. The number of scanlines passed
+in num_lines to jpeg_write_raw_data() is measured in terms of the component with the
+largest v_samp_factor.</P
+><P
+>If the image dimensions are not a multiple of the MCU size, the data must be
+padded to a multiple of a DCT block in each component, such that each downsampled row 
+must contain a multiple of 8 valid samples, and there must be a multiple of 8 sample rows
+for each component. Data must be padded so that the passed num_lines value is atleast 
+(cinfo-&#62;max_v_samp_factor * DCTSIZE). jpeg_write_raw_data() shall process one MCU
+row per call which is (cinfo-&#62;comp_info[0].v_samp_factor*DCTSIZE) sample rows of
+each component.</P
+><P
+>Before starting the compression sequence, cinfo-&#62;raw_data_in must be set to
+TRUE. cinfo-&#62;jpeg_color_space must be set to colorspace to be used
+in the JPEG file. The sampling factors, cinfo-&#62;comp_info[i].h_samp_factor and
+cinfo-&#62;comp_info[i].v_samp_factor must be set to the dimensions of the supplied
+data.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN18276"
+></A
+><H2
+>Return Value</H2
+><P
+>jpeg_write_raw_data() shall return the number of scanlines processed.
+jpeg_write_raw_data() shall return 0 if the compressor is suspended.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN18279"
+></A
+><H2
+>Errors</H2
+><P
+>jpeg_write_raw_data() shall report error and exit if num_lines is less than
+(cinfo-&#62;max_v_samp_factor*DCTSIZE).</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libjpeg.jpeg.write.marker.1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libjpeg.jpeg.write.scanlines.1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>jpeg_write_marker</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libjpegman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>jpeg_write_scanlines</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

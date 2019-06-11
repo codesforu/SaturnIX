@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libpam</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Base Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libpam"
+HREF="libpam.html"><LINK
+REL="NEXT"
+TITLE="Interface Definitions for libpam"
+HREF="libpamman.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpam.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 14. Base Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpamman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBPAM-DDEFS"
+>14.24. Data Definitions for libpam</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libpam.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN27644"
+>14.24.1. security/_pam_types.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct pam_handle pam_handle_t;
+struct pam_message {
+    int msg_style;
+    const char *msg;
+};
+struct pam_response {
+    char *resp;
+    int resp_retcode;		/* currently un-used, zero expected */
+};
+
+struct pam_conv {
+    int (*conv) (int num_msg, const struct pam_message * *msg,
+		 struct pam_response * *resp, void *appdata_ptr);
+    void *appdata_ptr;
+};
+
+#define PAM_PROMPT_ECHO_OFF	1
+#define PAM_PROMPT_ECHO_ON	2
+#define PAM_ERROR_MSG	3
+#define PAM_TEXT_INFO	4
+
+#define PAM_SERVICE	1	/* The service name */
+#define PAM_USER	2	/* The user name */
+#define PAM_TTY	3		/* The tty name */
+#define PAM_RHOST	4	/* The remote host name */
+#define PAM_CONV	5	/* The pam_conv structure */
+#define PAM_RUSER	8	/* The remote user name */
+#define PAM_USER_PROMPT	9	/* the prompt for getting a username */
+
+#define PAM_SUCCESS	0	/* Successful function return */
+#define PAM_OPEN_ERR	1	/* dlopen() failure */
+#define PAM_USER_UNKNOWN	10	/* User not known to the underlying authenticaiton module */
+#define PAM_MAXTRIES	11	/* An authentication service has maintained a retry count which */
+#define PAM_NEW_AUTHTOK_REQD	12	/* New authentication token required */
+#define PAM_ACCT_EXPIRED	13	/* User account has expired */
+#define PAM_SESSION_ERR	14	/* Can not make/remove an entry for  the specified session */
+#define PAM_CRED_UNAVAIL	15	/* Underlying authentication service can not retrieve user cred */
+#define PAM_CRED_EXPIRED	16	/* User credentials expired */
+#define PAM_CRED_ERR	17	/* Failure setting user credentials */
+#define PAM_CONV_ERR	19	/* Conversation error */
+#define PAM_SYMBOL_ERR	2	/* Symbol not found */
+#define PAM_AUTHTOK_ERR	20	/* Authentication token manipulation error */
+#define PAM_AUTHTOK_RECOVER_ERR	21	/* Authentication information cannot be recovered */
+#define PAM_AUTHTOK_LOCK_BUSY	22	/* Authentication token lock busy */
+#define PAM_AUTHTOK_DISABLE_AGING	23	/* Authentication token aging disabled */
+#define PAM_TRY_AGAIN	24	/* Preliminary check by password service */
+#define PAM_ABORT	26	/* Critical error (?module fail now request) */
+#define PAM_AUTHTOK_EXPIRED	27	/* user's authentication token has expired */
+#define PAM_BAD_ITEM	29	/* Bad item passed to pam_*_item() */
+#define PAM_SERVICE_ERR	3	/* Error in service module */
+#define PAM_SYSTEM_ERR	4	/* System error */
+#define PAM_BUF_ERR	5	/* Memory buffer error */
+#define PAM_PERM_DENIED	6	/* Permission denied */
+#define PAM_AUTH_ERR	7	/* Authentication failure */
+#define PAM_CRED_INSUFFICIENT	8	/* Can not access authentication data due to insufficient crede */
+#define PAM_AUTHINFO_UNAVAIL	9	/* Underlying authentication service can not retrieve authentic */
+
+#define PAM_DISALLOW_NULL_AUTHTOK	0x0001U
+#define PAM_ESTABLISH_CRED	0x0002U	/* Set user credentials for an authentication service */
+#define PAM_DELETE_CRED	0x0004U	/* Delete user credentials associated with an authentication se */
+#define PAM_REINITIALIZE_CRED	0x0008U	/* Reinitialize user credentials */
+#define PAM_REFRESH_CRED	0x0010U	/* Extend lifetime of user credentials */
+#define PAM_CHANGE_EXPIRED_AUTHTOK	0x0020U	/* Extend lifetime of user credentials */
+#define PAM_SILENT	0x8000U	/* Authentication service should not generate any messages */
+
+extern int pam_fail_delay(pam_handle_t *, unsigned int);
+extern int pam_get_item(const pam_handle_t *, int, const void **);
+extern const char *pam_getenv(pam_handle_t *, const char *);
+extern char **pam_getenvlist(pam_handle_t *);
+extern int pam_putenv(pam_handle_t *, const char *);
+extern int pam_set_item(pam_handle_t *, int, const void *);
+extern const char *pam_strerror(pam_handle_t *, int);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN27648"
+>14.24.2. security/pam_appl.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;extern int pam_acct_mgmt(pam_handle_t *, int);
+extern int pam_authenticate(pam_handle_t *, int);
+extern int pam_chauthtok(pam_handle_t *, int);
+extern int pam_close_session(pam_handle_t *, int);
+extern int pam_end(pam_handle_t *, int);
+extern int pam_open_session(pam_handle_t *, int);
+extern int pam_setcred(pam_handle_t *, int);
+extern int pam_start(const char *, const char *, const struct pam_conv *,
+		     pam_handle_t * *);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN27652"
+>14.24.3. security/pam_modules.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;extern int pam_get_data(const pam_handle_t *, const char *, const void **);
+extern int pam_get_user(pam_handle_t *, const char **, const char *);
+extern int pam_set_data(pam_handle_t *, const char *, void *,
+			void (*)(pam_handle_t *, void *, int));</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpam.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpamman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libpam</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interface Definitions for libpam</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

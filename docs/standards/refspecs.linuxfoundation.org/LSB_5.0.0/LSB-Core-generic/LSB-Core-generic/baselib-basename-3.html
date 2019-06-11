@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>basename</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="backtrace, backtrace_symbols, backtrace_symbols_fd"
+HREF="baselib-backtrace-1.html"><LINK
+REL="NEXT"
+TITLE="bind_textdomain_codeset"
+HREF="baselib-bind-textdomain-codeset.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-backtrace-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-bind-textdomain-codeset.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-BASENAME-3"
+></A
+>basename</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN12727"
+></A
+><H2
+>Name</H2
+>basename&nbsp;--&nbsp;return the last component of a file name</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN12730"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN12731"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;libgen.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>char *
+<TT
+CLASS="FUNCTION"
+>basename</TT
+></CODE
+>(const char *
+<TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12738"
+></A
+><H2
+>Description</H2
+><P
+>In the source standard, <TT
+CLASS="FUNCTION"
+>basename()</TT
+> is implemented
+as a macro causing it to behave as described in <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>,
+and is equivalent to the function <TT
+CLASS="FUNCTION"
+>__xpg_basename()</TT
+>.
+If the macro is undefined, <TT
+CLASS="FUNCTION"
+>basename()</TT
+> from
+the binary standard is used, with differences as described here:</P
+><P
+>The string identified by <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+> shall not be modified.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>"/"</TT
+>, or ends with a 
+trailing <TT
+CLASS="LITERAL"
+>'/'</TT
+> character, the <TT
+CLASS="FUNCTION"
+>basename()</TT
+>
+function shall return a pointer to an empty string.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12752"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, the <TT
+CLASS="FUNCTION"
+>basename()</TT
+> function shall return a pointer to the final component of
+<TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>. Otherwise, it shall return a null pointer.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12757"
+></A
+><H2
+>See Also</H2
+><P
+><TT
+CLASS="FUNCTION"
+>__xpg_basename()</TT
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-backtrace-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-bind-textdomain-codeset.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>backtrace, backtrace_symbols, backtrace_symbols_fd</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>bind_textdomain_codeset</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,677 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Utility Libraries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="PREVIOUS"
+TITLE="pam_strerror"
+HREF="baselib-pam-strerror.html"><LINK
+REL="NEXT"
+TITLE="Utility Libraries"
+HREF="utillib.html"></HEAD
+><BODY
+CLASS="PART"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-pam-strerror.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="utillib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="TOCUTILLIB"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>IV. Utility Libraries</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>15. <A
+HREF="utillib.html"
+>Utility Libraries</A
+></DT
+><DD
+><DL
+><DT
+>15.1. <A
+HREF="utillib.html#AEN28514"
+>Introduction</A
+></DT
+><DT
+>15.2. <A
+HREF="libz.html"
+>Interfaces for libz</A
+></DT
+><DD
+><DL
+><DT
+>15.2.1. <A
+HREF="libz.html#AEN28546"
+>Compression Library</A
+></DT
+></DL
+></DD
+><DT
+>15.3. <A
+HREF="libz-ddefs.html"
+>Data Definitions for libz</A
+></DT
+><DD
+><DL
+><DT
+>15.3.1. <A
+HREF="libz-ddefs.html#AEN28775"
+>zconf.h</A
+></DT
+><DT
+>15.3.2. <A
+HREF="libz-ddefs.html#AEN28779"
+>zlib.h</A
+></DT
+></DL
+></DD
+><DT
+>15.4. <A
+HREF="libzman.html"
+>Interface Definitions for libz</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="zlib-adler32-1.html"
+>adler32</A
+>&nbsp;--&nbsp;compute Adler 32 Checksum</DT
+><DT
+><A
+HREF="zlib-compress-1.html"
+>compress</A
+>&nbsp;--&nbsp;compress data</DT
+><DT
+><A
+HREF="zlib-compress2-1.html"
+>compress2</A
+>&nbsp;--&nbsp;compress data at a specified level</DT
+><DT
+><A
+HREF="zlib-compressbound-1.html"
+>compressBound</A
+>&nbsp;--&nbsp;compute compressed data size</DT
+><DT
+><A
+HREF="zlib-crc32-1.html"
+>crc32</A
+>&nbsp;--&nbsp;compute CRC-32 Checksum</DT
+><DT
+><A
+HREF="zlib-deflate-1.html"
+>deflate</A
+>&nbsp;--&nbsp;compress data</DT
+><DT
+><A
+HREF="zlib-deflatebound-1.html"
+>deflateBound</A
+>&nbsp;--&nbsp;compute compressed data size</DT
+><DT
+><A
+HREF="zlib-deflatecopy-1.html"
+>deflateCopy</A
+>&nbsp;--&nbsp;copy compression stream</DT
+><DT
+><A
+HREF="zlib-deflateend-1.html"
+>deflateEnd</A
+>&nbsp;--&nbsp;free compression stream state</DT
+><DT
+><A
+HREF="zlib-deflateinit2.html"
+>deflateInit2_</A
+>&nbsp;--&nbsp;initialize compression system</DT
+><DT
+><A
+HREF="zlib-deflateinit.html"
+>deflateInit_</A
+>&nbsp;--&nbsp;initialize compression system</DT
+><DT
+><A
+HREF="zlib-deflateparams-1.html"
+>deflateParams</A
+>&nbsp;--&nbsp;set compression parameters</DT
+><DT
+><A
+HREF="zlib-deflatereset-1.html"
+>deflateReset</A
+>&nbsp;--&nbsp;reset compression stream state</DT
+><DT
+><A
+HREF="zlib-deflatesetdictionary-1.html"
+>deflateSetDictionary</A
+>&nbsp;--&nbsp;initialize compression dictionary</DT
+><DT
+><A
+HREF="zlib-get-crc-table-1.html"
+>get_crc_table</A
+>&nbsp;--&nbsp;generate a table for crc calculations</DT
+><DT
+><A
+HREF="zlib-gzclose-1.html"
+>gzclose</A
+>&nbsp;--&nbsp;close a compressed file stream</DT
+><DT
+><A
+HREF="zlib-gzdopen-1.html"
+>gzdopen</A
+>&nbsp;--&nbsp;open a compressed file</DT
+><DT
+><A
+HREF="zlib-gzeof-1.html"
+>gzeof</A
+>&nbsp;--&nbsp;check for end-of-file on a compressed file stream</DT
+><DT
+><A
+HREF="zlib-gzerror-1.html"
+>gzerror</A
+>&nbsp;--&nbsp;decode an error on a compressed file stream</DT
+><DT
+><A
+HREF="zlib-gzflush-1.html"
+>gzflush</A
+>&nbsp;--&nbsp;flush a compressed file stream</DT
+><DT
+><A
+HREF="zlib-gzgetc-1.html"
+>gzgetc</A
+>&nbsp;--&nbsp;read a character from a compressed file</DT
+><DT
+><A
+HREF="zlib-gzgets-1.html"
+>gzgets</A
+>&nbsp;--&nbsp;read a string from a compressed file</DT
+><DT
+><A
+HREF="zlib-gzopen-1.html"
+>gzopen</A
+>&nbsp;--&nbsp;open a compressed file</DT
+><DT
+><A
+HREF="zlib-gzprintf-1.html"
+>gzprintf</A
+>&nbsp;--&nbsp;format data and compress</DT
+><DT
+><A
+HREF="zlib-gzputc-1.html"
+>gzputc</A
+>&nbsp;--&nbsp;write character to a compressed file</DT
+><DT
+><A
+HREF="zlib-gzputs-1.html"
+>gzputs</A
+>&nbsp;--&nbsp;string write to a compressed file</DT
+><DT
+><A
+HREF="zlib-gzread-1.html"
+>gzread</A
+>&nbsp;--&nbsp;read from a compressed file</DT
+><DT
+><A
+HREF="zlib-gzrewind-1.html"
+>gzrewind</A
+>&nbsp;--&nbsp;reset the file-position indicator on a compressed file stream</DT
+><DT
+><A
+HREF="zlib-gzseek-1.html"
+>gzseek</A
+>&nbsp;--&nbsp;reposition a file-position indicator in a compressed file stream</DT
+><DT
+><A
+HREF="zlib-gzsetparams-1.html"
+>gzsetparams</A
+>&nbsp;--&nbsp;dynamically set compression parameters</DT
+><DT
+><A
+HREF="zlib-gztell-1.html"
+>gztell</A
+>&nbsp;--&nbsp;find position on a compressed file stream</DT
+><DT
+><A
+HREF="zlib-gzwrite-1.html"
+>gzwrite</A
+>&nbsp;--&nbsp;write to a compressed file</DT
+><DT
+><A
+HREF="zlib-inflate-1.html"
+>inflate</A
+>&nbsp;--&nbsp;decompress data</DT
+><DT
+><A
+HREF="zlib-inflateend-1.html"
+>inflateEnd</A
+>&nbsp;--&nbsp;free decompression stream state</DT
+><DT
+><A
+HREF="zlib-inflateinit2.html"
+>inflateInit2_</A
+>&nbsp;--&nbsp;initialize decompression system</DT
+><DT
+><A
+HREF="zlib-inflateinit.html"
+>inflateInit_</A
+>&nbsp;--&nbsp;initialize decompression system</DT
+><DT
+><A
+HREF="zlib-inflatereset-1.html"
+>inflateReset</A
+>&nbsp;--&nbsp;reset decompression stream state</DT
+><DT
+><A
+HREF="zlib-inflatesetdictionary-1.html"
+>inflateSetDictionary</A
+>&nbsp;--&nbsp;initialize decompression dictionary</DT
+><DT
+><A
+HREF="zlib-inflatesync-1.html"
+>inflateSync</A
+>&nbsp;--&nbsp;advance compression stream to next sync point</DT
+><DT
+><A
+HREF="zlib-inflatesyncpoint-1.html"
+>inflateSyncPoint</A
+>&nbsp;--&nbsp;test for synchronization point</DT
+><DT
+><A
+HREF="zlib-uncompress-1.html"
+>uncompress</A
+>&nbsp;--&nbsp;uncompress data</DT
+><DT
+><A
+HREF="zlib-zerror-1.html"
+>zError</A
+>&nbsp;--&nbsp;translate error number to string</DT
+><DT
+><A
+HREF="zlib-zlibversion-1.html"
+>zlibVersion</A
+>&nbsp;--&nbsp;discover library version at run time</DT
+></DL
+></DD
+><DT
+>15.5. <A
+HREF="libncurses.html"
+>Interfaces for libncurses</A
+></DT
+><DD
+><DL
+><DT
+>15.5.1. <A
+HREF="libncurses.html#AEN31699"
+>Curses</A
+></DT
+></DL
+></DD
+><DT
+>15.6. <A
+HREF="libncurses-ddefs.html"
+>Data Definitions for libncurses</A
+></DT
+><DD
+><DL
+><DT
+>15.6.1. <A
+HREF="libncurses-ddefs.html#AEN32970"
+>curses.h</A
+></DT
+><DT
+>15.6.2. <A
+HREF="libncurses-ddefs.html#AEN32974"
+>term.h</A
+></DT
+></DL
+></DD
+><DT
+>15.7. <A
+HREF="libncursesman.html"
+>Interface Definitions for libncurses</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="curses-inchnstr-1.html"
+>inchnstr</A
+>&nbsp;--&nbsp;obtain a string of characters and their attributes from a curses window</DT
+><DT
+><A
+HREF="curses-inchstr-1.html"
+>inchstr</A
+>&nbsp;--&nbsp;obtain a string of characters and their attributes from a curses window</DT
+><DT
+><A
+HREF="curses-instr-1.html"
+>instr</A
+>&nbsp;--&nbsp;obtain a string of characters from a curses window</DT
+><DT
+><A
+HREF="libncurses-mvcur-1.html"
+>mvcur</A
+>&nbsp;--&nbsp;send cursor movement commands to terminal</DT
+><DT
+><A
+HREF="curses-mvinchnstr-1.html"
+>mvinchnstr</A
+>&nbsp;--&nbsp;obtain a string of characters and their attributes from a curses window</DT
+><DT
+><A
+HREF="curses-mvinchstr-1.html"
+>mvinchstr</A
+>&nbsp;--&nbsp;obtain a string of characters and their attributes from a curses window</DT
+><DT
+><A
+HREF="curses-mvinstr-1.html"
+>mvinstr</A
+>&nbsp;--&nbsp;obtain a string of characters from a curses window</DT
+><DT
+><A
+HREF="curses-mvscanw-1.html"
+>mvscanw</A
+>&nbsp;--&nbsp;convert formatted input from a curses window</DT
+><DT
+><A
+HREF="curses-mvwinchnstr-1.html"
+>mvwinchnstr</A
+>&nbsp;--&nbsp;obtain a string of characters and their attributes from a curses window</DT
+><DT
+><A
+HREF="curses-mvwinchstr-1.html"
+>mvwinchstr</A
+>&nbsp;--&nbsp;obtain a string of characters and their attributes from a curses window</DT
+><DT
+><A
+HREF="curses-mvwinstr-1.html"
+>mvwinstr</A
+>&nbsp;--&nbsp;obtain a string of characters from a curses window</DT
+><DT
+><A
+HREF="curses-mvwscanw-1.html"
+>mvwscanw</A
+>&nbsp;--&nbsp;convert formatted input from a curses window</DT
+><DT
+><A
+HREF="curses-ripoffline-1.html"
+>ripoffline</A
+>&nbsp;--&nbsp;obtain a string of characters and their attributes from a curses window</DT
+><DT
+><A
+HREF="curses-scanw-1.html"
+>scanw</A
+>&nbsp;--&nbsp;convert formatted input from a curses window</DT
+><DT
+><A
+HREF="curses-vw-scanw-1.html"
+>vw_scanw</A
+>&nbsp;--&nbsp;convert formatted input from a curses window</DT
+><DT
+><A
+HREF="curses-vwscanw-1.html"
+>vwscanw</A
+>&nbsp;--&nbsp;convert formatted input from a curses window</DT
+><DT
+><A
+HREF="curses-winchnstr-1.html"
+>winchnstr</A
+>&nbsp;--&nbsp;obtain a string of characters and their attributes from a curses window</DT
+><DT
+><A
+HREF="curses-winchstr-1.html"
+>winchstr</A
+>&nbsp;--&nbsp;obtain a string of characters and their attributes from a curses window</DT
+><DT
+><A
+HREF="curses-winstr-1.html"
+>winstr</A
+>&nbsp;--&nbsp;obtain a string of characters from a curses window</DT
+><DT
+><A
+HREF="curses-wscanw-1.html"
+>wscanw</A
+>&nbsp;--&nbsp;convert formatted input from a curses window</DT
+></DL
+></DD
+><DT
+>15.8. <A
+HREF="libncursesw.html"
+>Interfaces for libncursesw</A
+></DT
+><DD
+><DL
+><DT
+>15.8.1. <A
+HREF="libncursesw.html#AEN33575"
+>Curses Wide</A
+></DT
+></DL
+></DD
+><DT
+>15.9. <A
+HREF="libncursesw-ddefs.html"
+>Data Definitions for libncursesw</A
+></DT
+><DD
+><DL
+><DT
+>15.9.1. <A
+HREF="libncursesw-ddefs.html#AEN35339"
+>ncursesw/curses.h</A
+></DT
+><DT
+>15.9.2. <A
+HREF="libncursesw-ddefs.html#AEN35343"
+>ncursesw/ncurses_dll.h</A
+></DT
+><DT
+>15.9.3. <A
+HREF="libncursesw-ddefs.html#AEN35347"
+>ncursesw/term.h</A
+></DT
+><DT
+>15.9.4. <A
+HREF="libncursesw-ddefs.html#AEN35351"
+>ncursesw/unctrl.h</A
+></DT
+></DL
+></DD
+><DT
+>15.10. <A
+HREF="libncurseswman.html"
+>Interface Definitions for libncursesw</A
+></DT
+><DT
+>15.11. <A
+HREF="libutil.html"
+>Interfaces for libutil</A
+></DT
+><DD
+><DL
+><DT
+>15.11.1. <A
+HREF="libutil.html#AEN35378"
+>Utility Functions</A
+></DT
+></DL
+></DD
+><DT
+>15.12. <A
+HREF="libutil-ddefs.html"
+>Data Definitions for libutil</A
+></DT
+><DD
+><DL
+><DT
+>15.12.1. <A
+HREF="libutil-ddefs.html#AEN35423"
+>pty.h</A
+></DT
+></DL
+></DD
+><DT
+>15.13. <A
+HREF="libutilman.html"
+>Interface Definitions for libutil</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="utillib-forkpty-3.html"
+>forkpty</A
+>&nbsp;--&nbsp;Create a new process attached to an available pseudo-terminal</DT
+><DT
+><A
+HREF="utillib-login-3.html"
+>login</A
+>&nbsp;--&nbsp;login utility function</DT
+><DT
+><A
+HREF="utillib-login-tty-3.html"
+>login_tty</A
+>&nbsp;--&nbsp;Prepare a terminal for login</DT
+><DT
+><A
+HREF="utillib-logout-3.html"
+>logout</A
+>&nbsp;--&nbsp;logout utility function</DT
+><DT
+><A
+HREF="utillib-logwtmp-3.html"
+>logwtmp</A
+>&nbsp;--&nbsp;append an entry to the wtmp file</DT
+><DT
+><A
+HREF="utillib-openpty-3.html"
+>openpty</A
+>&nbsp;--&nbsp;find and open an available pseudo-terminal</DT
+></DL
+></DD
+></DL
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-pam-strerror.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="utillib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>pam_strerror</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Utility Libraries</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

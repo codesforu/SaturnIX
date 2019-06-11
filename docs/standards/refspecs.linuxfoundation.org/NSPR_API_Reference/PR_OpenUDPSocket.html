@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PR_OpenUDPSocket</title>
+</head>
+
+<body>
+          <div class="pageTitle">
+            <h1 id="title">PR OpenUDPSocket</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+<p>Creates a new UDP socket of the specified address family.</p>
+<div id="section_1"><a id="Syntax"><h3 class="editable">Syntax</h3>
+<pre class="eval">#include &lt;prio.h&gt; 
+
+PRFileDesc* PR_OpenUDPSocket(PRIntn af);
+</pre>
+</div><div id="section_2"><h3 class="editable">Parameters</h3>
+<p>The function has the following parameters:</p>
+<dl><dt><code>af</code> </dt><dd>The address family of the new UDP socket. Can be <code>PR_AF_INET</code> (IPv4), <code>PR_AF_INET6</code> (IPv6), or <code>PR_AF_LOCAL</code> (Unix domain, supported on POSIX systems only). </dd></dl>
+</div><div id="section_3"><h3 class="editable">Returns</h3>
+<p>The function returns one of the following values:</p>
+<ul> <li>Upon successful completion, a pointer to the <code>PRFileDesc</code> object created for the newly opened UDP socket.</li> <li>If the creation of a new UDP socket failed, <code>NULL</code>.</li>
+</ul>
+</div><div id="section_4"><h3 class="editable">Description</h3>
+<p>UDP (User Datagram Protocol) is a connectionless, unreliable datagram protocol of the TCP/IP protocol suite. UDP datagrams may be lost or delivered in duplicates or out of sequence.</p>
+<p><code>PR_OpenUDPSocket</code> creates a new UDP socket of the address family <code>af</code>. The socket may be bound to a well-known port number with <code><a href="PR_Bind.html">PR_Bind</a></code>. Datagrams can be sent with <code><a href="PR_SendTo.html">PR_SendTo</a></code> and received with <code><a href="PR_RecvFrom.html">PR_RecvFrom</a></code>. When the socket is no longer needed, it should be closed with a call to <code><a href="PR_Close.html">PR_Close</a></code>.</p></div><hr />
+</body>
+</html>

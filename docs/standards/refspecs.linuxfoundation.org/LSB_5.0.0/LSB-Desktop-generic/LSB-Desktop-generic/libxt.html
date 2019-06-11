@@ -1,0 +1,2125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libXt</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="graphlib.html"><LINK
+REL="PREVIOUS"
+TITLE="_IceWrite"
+HREF="libice--icewrite-1.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libXt"
+HREF="libxt-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libice--icewrite-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libxt-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBXT"
+>6.9. Interfaces for libXt</A
+></H1
+><P
+><A
+HREF="libxt.html#LIB-LIBXT-DEF"
+>Table 6-8</A
+> defines the library name and shared object name
+for the libXt library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBXT-DEF"
+></A
+><P
+><B
+>Table 6-8. libXt Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libXt</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libXt.so.6</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBXT.1"
+></A
+>[LSB] <A
+HREF="normativerefs.html#STD.LSB"
+>This Specification</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBXT.2"
+></A
+>[Xt] <A
+HREF="normativerefs.html#STD.XT"
+>X11 Toolkit Intrinsics</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN4491"
+>6.9.1. X Toolkit</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN4494"
+>6.9.1.1. Interfaces for X Toolkit</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for X Toolkit specified in <A
+HREF="libxt.html#TBL-LIBXT-X-TOO-INTS"
+>Table 6-9</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBXT-X-TOO-INTS"
+></A
+><P
+><B
+>Table 6-9. libXt - X Toolkit Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>XtAddActions <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAddCallback <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAddCallbacks <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAddConverter <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtAddEventHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAddExposureToRegion <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAddGrab <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAddInput <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtAddRawEventHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAddSignal <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAddTimeOut <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAddWorkProc <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtAllocateGC <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppAddActionHook <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppAddActions <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppAddBlockHook <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtAppAddConverter <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppAddInput <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppAddSignal <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppAddTimeOut <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtAppAddWorkProc <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppCreateShell <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppError <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppErrorMsg <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtAppGetErrorDatabase <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppGetErrorDatabaseText <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppGetExitFlag <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppGetSelectionTimeout <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtAppInitialize <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppLock <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppMainLoop <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppNextEvent <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtAppPeekEvent <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppPending <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppProcessEvent <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppReleaseCacheRefs <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtAppSetErrorHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppSetErrorMsgHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppSetExitFlag <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppSetFallbackResources <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtAppSetSelectionTimeout <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppSetTypeConverter <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppSetWarningHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppSetWarningMsgHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtAppUnlock <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppWarning <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAppWarningMsg <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtAugmentTranslations <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtBuildEventMask <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCallAcceptFocus <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCallActionProc <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCallCallbackList <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCallCallbacks <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCallConverter <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCallbackExclusive <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCallbackNone <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCallbackNonexclusive <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCallbackPopdown <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCallbackReleaseCacheRef <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCallbackReleaseCacheRefList <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCalloc <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCancelSelectionRequest <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtChangeManagedSet <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCloseDisplay <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtConfigureWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtConvert <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtConvertAndStore <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtConvertCase <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCreateApplicationContext <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCreateApplicationShell <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCreateManagedWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCreatePopupShell <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCreateSelectionRequest <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCreateWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCreateWindow <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCvtColorToPixel <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtIntToBool <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtIntToBoolean <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtIntToColor <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCvtIntToFloat <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtIntToFont <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtIntToPixel <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtIntToPixmap <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCvtIntToShort <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtIntToUnsignedChar <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToAcceleratorTable <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToAtom <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCvtStringToBool <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToBoolean <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToCommandArgArray <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToCursor <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCvtStringToDimension <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToDirectoryString <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToDisplay <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToFile <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCvtStringToFloat <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToFont <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToFontSet <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToFontStruct <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCvtStringToGravity <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToInitialState <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToInt <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToPixel <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCvtStringToRestartStyle <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToShort <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToTranslationTable <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtCvtStringToUnsignedChar <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtCvtStringToVisual <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtDatabase <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtDestroyApplicationContext <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtDestroyGC <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtDestroyWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtDirectConvert <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtDisownSelection <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtDispatchEvent <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtDispatchEventToWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtDisplay <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtDisplayInitialize <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtDisplayOfObject <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtDisplayStringConversionWarning <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtDisplayToApplicationContext <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtError <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtErrorMsg <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtFindFile <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtFree <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetActionKeysym <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetActionList <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtGetApplicationNameAndClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetApplicationResources <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetClassExtension <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetConstraintResourceList <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtGetDisplays <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetErrorDatabase <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetErrorDatabaseText <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetGC <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtGetKeyboardFocusWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetKeysymTable <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetMultiClickTime <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetResourceList <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtGetSelectionParameters <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetSelectionRequest <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetSelectionTimeout <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetSelectionValue <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtGetSelectionValueIncremental <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetSelectionValues <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetSelectionValuesIncremental <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetSubresources <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtGetSubvalues <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGetValues <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGrabButton <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGrabKey <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtGrabKeyboard <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtGrabPointer <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtHasCallbacks <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtHooksOfDisplay <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtInitialize <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtInitializeWidgetClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtInsertEventHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtInsertEventTypeHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtInsertRawEventHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtInstallAccelerators <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtInstallAllAccelerators <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtIsApplicationShell <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtIsComposite <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtIsConstraint <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtIsManaged <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtIsObject <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtIsOverrideShell <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtIsRealized <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtIsRectObj <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtIsSensitive <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtIsSessionShell <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtIsShell <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtIsSubclass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtIsTopLevelShell <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtIsTransientShell <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtIsVendorShell <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtIsWMShell <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtIsWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtKeysymToKeycodeList <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtLastEventProcessed <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtLastTimestampProcessed <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtMainLoop <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtMakeGeometryRequest <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtMakeResizeRequest <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtMalloc <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtManageChild <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtManageChildren <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtMapWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtMenuPopupAction <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtMergeArgLists <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtMoveWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtName <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtNameToWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtNewString <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtNextEvent <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtNoticeSignal <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtOpenApplication <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtOpenDisplay <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtOverrideTranslations <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtOwnSelection <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtOwnSelectionIncremental <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtParent <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtParseAcceleratorTable <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtParseTranslationTable <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtPeekEvent <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtPending <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtPopdown <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtPopup <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtPopupSpringLoaded <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtProcessEvent <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtProcessLock <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtProcessUnlock <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtQueryGeometry <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRealizeWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtRealloc <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRegisterCaseConverter <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRegisterDrawable <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRegisterExtensionSelector <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtRegisterGrabAction <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtReleaseGC <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtReleasePropertyAtom <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRemoveActionHook <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtRemoveAllCallbacks <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRemoveBlockHook <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRemoveCallback <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRemoveCallbacks <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtRemoveEventHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRemoveEventTypeHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRemoveGrab <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRemoveInput <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtRemoveRawEventHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRemoveSignal <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRemoveTimeOut <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtRemoveWorkProc <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtReservePropertyAtom <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtResizeWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtResizeWindow <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtResolvePathname <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtScreen <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtScreenDatabase <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtScreenOfObject <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSendSelectionRequest <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtSessionGetToken <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSessionReturnToken <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSetErrorHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSetErrorMsgHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtSetEventDispatcher <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSetKeyTranslator <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSetKeyboardFocus <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSetLanguageProc <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtSetMappedWhenManaged <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSetMultiClickTime <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSetSelectionParameters <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSetSelectionTimeout <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtSetSensitive <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSetSubvalues <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSetTypeConverter <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSetValues <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtSetWMColormapWindows <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSetWarningHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtSetWarningMsgHandler <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtStringConversionWarning <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtSuperclass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtToolkitInitialize <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtToolkitThreadInitialize <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtTranslateCoords <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtTranslateKey <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtTranslateKeycode <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtUngrabButton <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtUngrabKey <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtUngrabKeyboard <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtUngrabPointer <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtUninstallTranslations <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtUnmanageChild <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtUnmanageChildren <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtUnmapWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtUnrealizeWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtUnregisterDrawable <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtVaAppCreateShell <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtVaAppInitialize <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtVaCreateArgsList <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtVaCreateManagedWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtVaCreatePopupShell <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtVaCreateWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtVaGetApplicationResources <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtVaGetSubresources <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtVaGetSubvalues <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtVaGetValues <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtVaOpenApplication <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtVaSetSubvalues <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtVaSetValues <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtWarning <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtWarningMsg <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtWidgetToApplicationContext <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>XtWindow <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtWindowOfObject <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtWindowToWidget <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>_XtCheckSubclassFlag <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>_XtCopyFromArg <A
+HREF="libxt.html#REFSTD.LIBXT.1"
+>[LSB]</A
+></TD
+><TD
+>_XtInherit <A
+HREF="libxt.html#REFSTD.LIBXT.1"
+>[LSB]</A
+></TD
+><TD
+>_XtIsSubclassOf <A
+HREF="libxt.html#REFSTD.LIBXT.1"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the generic data interfaces
+for X Toolkit specified in <A
+HREF="libxt.html#TBL-LIBXT-X-TOO-DATA"
+>Table 6-10</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBXT-X-TOO-DATA"
+></A
+><P
+><B
+>Table 6-10. libXt - X Toolkit Data Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>XtCXtToolkitError <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtShellStrings <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>XtStrings <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>_XtInheritTranslations <A
+HREF="libxt.html#REFSTD.LIBXT.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>applicationShellClassRec <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>applicationShellWidgetClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>colorConvertArgs <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>compositeClassRec <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>compositeWidgetClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>constraintClassRec <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>constraintWidgetClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>coreWidgetClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>objectClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>objectClassRec <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>overrideShellClassRec <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>overrideShellWidgetClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>rectObjClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>rectObjClassRec <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>sessionShellClassRec <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>sessionShellWidgetClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>shellClassRec <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>shellWidgetClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>topLevelShellClassRec <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>topLevelShellWidgetClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>transientShellClassRec <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>transientShellWidgetClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>widgetClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>widgetClassRec <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+></TR
+><TR
+><TD
+>wmShellClassRec <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>wmShellWidgetClass <A
+HREF="libxt.html#REFSTD.LIBXT.2"
+>[Xt]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libice--icewrite-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libxt-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>_IceWrite</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="graphlib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libXt</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

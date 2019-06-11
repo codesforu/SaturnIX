@@ -1,0 +1,2008 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+  <title>LSB 3.1 Specification Technical Corrigendum #1</title>
+<style type="text/css">
+/*<![CDATA[*/
+table  { border-collapse: collapse; margin-top: 12px; border-spacing: 0px; border: thin solid black; }
+td, th { padding: 3px; margin: 0px; border: thin solid black; }
+#nav { font-size: small; vertical-align: middle; border: thin solid black; padding: 5px; }
+/*]]>*/
+</style>
+</head>
+
+<body bgcolor="#FFFFFF">
+<h1>LSB 3.1 Specification Technical Corrigendum #1</h1>
+<pre>
+LSB 3.1 Specification Errata
+
+Last updated 15 Jan 2007 (last change ref: id=1334)
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1530
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1531
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1532
+
+Rationale: collected small typographical errors
+
+===
+Section: 14.4. Interface Definitions for libz
+
+Interface gzwrite, Description,  change
+
+On entry, buf shall point to a buffer containing lenbytes of
+uncompressed data. 
+
+to
+
+On entry, buf shall point to a buffer containing len bytes of
+uncompressed data. 
+===
+
+Section: 13.5. Interface Definitions for libc
+
+Interface svc_sendreply, Description,  change
+
+This routine returns one if it succeeds, zero other-wise. 
+
+to
+
+This routine returns one if it succeeds, zero otherwise. 
+===
+
+Section: 13.5. Interface Definitions for libc
+
+Interface svctcp_create, Description,  change
+
+svctcp_create() cretes a TCP/IP-based RPC service transport,
+to which it returns a pointer.
+
+to
+
+svctcp_create() creates a TCP/IP-based RPC service transport,
+to which it returns a pointer.
+
+==========================================================================
+Specfication: LSB Core Generic
+Specfication: LSB Core IA32, IA64, AMD64, PPC32, PPC64, S390, S390X
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1291
+
+Rationale: the referenced underlying specification for the
+matherr() function was incorrect. In one instance the
+referenced specification needed to be added to the list.
+
+
+In LSB Core Generic:
+
+
+Section : 13.6.1.1. Interfaces for Math, change
+
+   matherr [ISOC99]
+
+to
+
+   matherr [SVID.3]
+
+
+Section : A.4 (Appendix A)
+
+Add to the list of Standards:
+
+   SVID Issue 3 [SVID.3]
+
+In Table A-5, libm Function Interfaces, change
+
+   matherr(GLIBC_2.0)[ISOC99]
+
+to
+
+   matherr(GLIBC_2.0)[SVID.3]
+
+
+===
+In LSB Core IA32 change
+
+11.4.1.1. Interfaces for Math
+
+   matherr(GLIBC_2.0) [ISOC99]
+
+to
+
+   matherr(GLIBC_2.0) [SVID.3]
+
+===
+In LSB Core IA64 change
+
+11.4.1.1. Interfaces for Math
+
+   matherr(GLIBC_2.2) [ISOC99]
+
+to
+
+   matherr(GLIBC_2.2) [SVID.3]
+	
+===
+In LSB Core PPC32 change
+
+11.4.1.1. Interfaces for Math
+
+   matherr(GLIBC_2.0) [ISOC99]
+
+to
+
+   matherr(GLIBC_2.0) [SVID.3]
+	
+===
+In LSB Core PPC64 change
+
+11.4.1.1. Interfaces for Math
+
+   matherr(GLIBC_2.3) [ISOC99]
+
+to
+
+   matherr(GLIBC_2.3) [SVID.3]
+	
+===
+In LSB Core S390 change
+
+11.4.1.1. Interfaces for Math
+
+   matherr(GLIBC_2.0) [ISOC99]
+
+to
+
+   matherr(GLIBC_2.0) [SVID.3]
+	
+===
+In LSB Core S390X change
+
+11.4.1.1. Interfaces for Math
+
+   matherr(GLIBC_2.2) [ISOC99]
+
+to
+
+   matherr(GLIBC_2.2) [SVID.3]
+	
+===
+In LSB Core AMD64 change
+
+11.4.1.1. Interfaces for Math
+
+   matherr(GLIBC_2.2.5) [ISOC99]
+
+to
+
+   matherr(GLIBC_2.2.5) [SVID.3]
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Error
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1293
+
+Rationale: the RUSAGE_BOTH constant was defined in error
+in the <sys/resource.h> header.  This is not an application-
+usable constant, and in fact generates an error if passed
+to the getrlimit function.
+
+
+13.4.55. sys/resource.h
+
+Remove the following define:
+
+#define RUSAGE_BOTH     (-2)
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Error
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1294
+
+Rationale: the speed constants for the cfsetspeed function are
+defined twice, in inconsistent ways.  The defines in the data
+definitions section are correct; the ones in the interface
+definitions section were incorrect.
+
+
+13.5. Interface Definitions for libc
+
+Interface cfsetspeed, Section Getting and Setting the Baud Rate,
+delete entire section
+
+Interface cfsetspeed, Section Description, change:
+
+   cfsetspeed() sets the baud rate values in the termios
+   structure. The effects of the function on the terminal as
+   described below do not become effective, nor are all errors
+   detected, until the tcsetattr() function is called. Certain
+   values for baud rates set in termios and passed to tcsetattr()
+   have special meanings.
+
+to
+
+   The cfsetspeed() function shall set the input and output
+   speeds in t to the value specified by speed. The effects of
+   the function on the terminal as described below do not become
+   effective, nor are all errors detected, until the tcsetattr()
+   function is called. Certain values for baud rates set in
+   termios and passed to tcsetattr() have special meanings.
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1329
+
+
+Rationale: strnlen wording is not clear; references to string
+where the array of characters need not be null-terminated.
+
+
+Section:  13.5. Interface Definitions for libc
+
+Interface strnlen, section Description,
+
+Change:
+
+   strnlen() returns the number of characters in the string s,
+   not including the terminating \0 character, but at most
+   maxlen. In doing this, strnlen() looks only at the first
+   maxlen characters at s and never beyond s + maxlen.
+
+To:
+
+   The strnlen() function shall compute the number of bytes in the
+   array to which s points, stopping at maxlen bytes. A null byte
+   and any bytes following it are not counted.
+
+
+Interface strnlen, section Return Value,
+
+Change:
+
+   strnlen() returns strlen(s), if that is less than maxlen, or
+   maxlen if there is no \0 character among the first maxlen
+   characters pointed to by s.
+
+To:
+
+   The strnlen() function shall return the length of s if that is
+   less than maxlen, or maxlen if there is no null byte in the first
+   maxlen bytes.
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Error
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1334
+
+Rationale: several error conditions for flock() were not described
+
+Section:  13.4. Data Definitions for libc
+
+Interface flock, section Errors, add:
+
+   EBADF   fd is not a not an open file descriptor.
+   EINTR   While waiting to acquire a lock, the call was interrupted by
+           delivery of a signal caught by a handler.
+   EINVAL  The operation is invalid.
+   EWOULDBLOCK The implementation ran out of memory for allocating lock
+           records.
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Error
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1336
+
+Rationale: two structure members had a type different than
+required by ISO POSIX and in use by implementations.
+
+Section:  13.4. Data Definitions for libc
+
+13.4.80. wordexp.h
+
+Change:
+
+typedef struct {
+    int we_wordc;
+    char **we_wordv;
+    int we_offs;
+} wordexp_t;
+
+To:
+
+typedef struct {
+    size_t we_wordc;
+    char **we_wordv;
+    size_t we_offs;
+} wordexp_t;
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1337
+
+Rationale: certain Curses Data Interfaces were correctly
+identified as such in Tables 14-5 and A-8, but misidentified
+as function interfaces in the Data Definitions section.
+
+Section 14.6. Data Definitions for libncurses, 14.6.1. curses.h) change:
+
+   extern int COLORS(void);
+   extern int COLOR_PAIRS(void);
+   extern WINDOW *curscr(void);
+   extern WINDOW *stdscr(void);
+   extern int COLS(void);
+   extern int LINES(void);
+
+to
+
+   extern int COLORS;
+   extern int COLOR_PAIRS;
+   extern WINDOW *curscr;
+   extern WINDOW *stdscr;
+   extern int COLS;
+   extern int LINES;
+
+and change
+
+   extern chtype acs_map(void);
+
+to
+
+   extern chtype acs_map [128];
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1338
+
+Rationale: typographical error, duplicated word "and"
+
+Section: 14.4. Interface Definitions for libz
+
+
+Interface gzread, Return Value,  change
+
+   On other errors, gzread() shall return a value less than 0
+   and and applications may examine the cause using gzerror().
+
+to
+
+   On other errors, gzread() shall return a value less than 0
+   and applications may examine the cause using gzerror().
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Error
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1346
+
+Rationale: The __WRDE_FLAGS constant in wordexp.h is not defined;
+it is not intended for application usage and was included in error.
+
+Section:  13.4. Data Definitions for libc
+
+13.4.80. wordexp.h
+
+Change:
+
+    WRDE_UNDEF = 32,
+    __WRDE_FLAGS = 63
+
+
+To:
+
+    WRDE_UNDEF = 32
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1347
+
+Rationale: typgraphical error, "value" misspelled
+
+Section: 14.4. Interface Definitions for libz
+
+
+Interface inflateSyncPoint, Description,  change
+
+   The inflateSyncPoint() function shall return a non-zero calue
+   if the compressed data stream referenced by stream is at a
+   synchronization point.
+
+to
+
+   The inflateSyncPoint() function shall return a non-zero value
+   if the compressed data stream referenced by stream is at a
+   synchronization point.
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1350
+
+Rationale: typographical error, "machine" misspelled
+
+Section : 13.5. Interface Definitions for libc
+
+Interface sethostname, Description,  change
+
+   If the process has appropriate privileges, the sethostname()
+   function shall change the host name for the current macine.
+
+to
+
+   If the process has appropriate privileges, the sethostname()
+   function shall change the host name for the current machine.
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1352
+
+Rationale: there is no description of the purpose of the
+longindex parameter to getopt_long and getopt_long_only.
+
+
+Section: 13.5. Interface Definitions for libc
+
+Interface getopt_long, section Description, add
+
+13.5. Interface Definitions for libc
+
+   If longindex is not NULL, it points to a variable which is
+   set to the index of the long option relative to longopts.
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1353
+
+Rationale: typographical error, wrong name for constants
+MAX_WBITS and MAX_MEM_LEVEL used.
+
+
+Section: 14.4. Interface Definitions for libz
+
+
+Interface inflateInit_, Description,  change
+
+   The inflateInit_() shall be equivalent to
+   inflateInit2_(strm, DEF_WBITS, version, stream_size);
+
+to
+
+   The inflateInit_() function is equivalent to
+   inflateInit2_(strm, MAX_WBITS, version, stream_size);
+
+Interface deflateInit_, Description, change
+
+   The deflateInit_() function is equivalent to
+ deflateInit2_(stream, level, Z_DEFLATED, MAX_WBITS, DEF_MEM_LEVEL,
+                         Z_DEFAULT_STRATEGY, version, stream_size);
+
+to
+
+   The deflateInit_() function is equivalent to
+ deflateInit2_(stream, level, Z_DEFLATED, MAX_WBITS, MAX_MEM_LEVEL,
+                         Z_DEFAULT_STRATEGY, version, stream_size);
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1361
+
+Rationale: the referenced underlying specification for the
+endutent() function was incorrect and the definition of
+the interface was omitted.
+
+
+Section 13.3.14.1. Interfaces for System Database Interface, change
+
+   endutent [SUSv2]
+
+to
+
+   endutent [LSB]
+
+
+Section 13.5, Interface Definitions for libc, Contents, add
+
+   endutent -- access utmp file entries
+
+
+Section 13.5, Interface Definitions for libc, add
+
+endutent
+
+Name
+
+   endutent -- access utmp file entries
+
+Synopsis
+
+   #include <utmp.h>
+
+   void endutent(void);
+
+Description
+
+   endutent() closes the utmp file. It should be called when the
+   user code is done accessing the file with the other functions.
+
+
+Table A-1. libc Function Interfaces, change
+
+   endutent(GLIBC_2.0)[SUSv2]
+
+to
+
+   endutent(GLIBC_2.0)[LSB]
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1366
+
+Rationale: the definition of the newlocale function omitted
+a description of the error when the locale cannot be found.
+
+
+13.5. Interface Definitions for libc
+
+Interface newlocale, section Errors
+
+Add:
+
+   ENOENT
+
+   For any of the categories in category_mask, the locale data is
+   not available.
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1367
+
+Rationale: typographical error, extra commas after elements
+of comma-separated list
+
+Section: 14.4. Interface Definitions for libz
+
+
+Interface inflateSync, Return Value,  change
+
+   On success, inflateSync() shall return Z_OK, and update the
+   next_in,, avail_in, and, total_in fields of stream to reflect
+   the number of bytes of compressed data that have been skipped.
+   Otherwise, inflateSync() shall return a value as described
+   below to indicate the error.
+
+to
+
+   On success, inflateSync() shall return Z_OK, and update the
+   next_in, avail_in and total_in fields of stream to reflect
+   the number of bytes of compressed data that have been skipped.
+   Otherwise, inflateSync() shall return a value as described
+   below to indicate the error.
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1374
+
+Rationale: omitted prototype for __strdup() function
+
+
+13.4. Data Definitions for libc
+13.4.47. string.h  add:
+
+   extern char *__strdup(const char *);
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1375
+
+Rationale: typographical error, *(main) instead of (*main)
+in prototype
+
+Section : 13.5. Interface Definitions for libc
+
+Interface __libc_start_main, Synopsis,  change
+
+   int __libc_start_main(int *(main) (int, char * *, char * *),
+   int argc, char * * ubp_av, void (*init) (void), void (*fini)
+   (void), void (*rtld_fini) (void), void (* stack_end));
+
+to:
+
+   int __libc_start_main(int (*main) (int, char **, char **),
+   int argc, char ** ubp_av, void (*init) (void), void (*fini)
+   (void), void (*rtld_fini) (void), void (* stack_end));
+
+==========================================================================
+Specfication: LSB Core IA64, AMD64
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1377
+
+Rationale: the reference specification for __fpclassifyl was incorrect.
+Since the reference specification is this document, the specification
+text needed to be added. After the change, this now matches how
+LSB Core IA32 appears.
+
+
+In Specification LSB Core IA64:
+
+Section 11.4.1.1 Interfaces for Math, change
+
+   __fpclassifyl(GLIBC_2.2) [ISOC99]
+
+to
+
+   __fpclassifyl(GLIBC_2.2) [LSB]
+
+
+Add new section:
+
+Interface Definitions for libm
+
+   Table of Contents
+   __fpclassifyl -- Classify real floating type
+
+   The interfaces defined on the following pages are included in
+   libm and are defined by this specification. Unless otherwise
+   noted, these interfaces shall be included in the source
+   standard.
+
+   Other interfaces listed in Section [XX] shall behave as
+   described in the referenced base document.
+
+__fpclassify
+
+Name
+
+   __fpclassifyl -- Classify real floating type
+
+Synopsis
+
+   int __fpclassifyl(long double arg);
+
+Description
+
+   __fpclassifyl() has the same specification as fpclassify() in
+   ISO POSIX (2003), except that the argument type for
+   __fpclassifyl() is known to be long double.
+
+   __fpclassifyl() is not in the source standard; it is only in
+   the binary standard.
+
+
+Section A.2 libm, add to the list of Standards:
+
+   This Specification [LSB]
+
+In Table A-2, libm Function Interfaces, change
+
+   __fpclassifyl[ISOC99]
+
+to
+
+   __fpclassifyl[LSB]
+
+
+===
+In Specification LSB Core AMD64:
+
+Section 11.4.1.1 Interfaces for Math, change
+
+   __fpclassifyl(GLIBC_2.2) [ISOC99]
+
+to
+
+   __fpclassifyl(GLIBC_2.2) [LSB]
+
+
+Add new section:
+
+Interface Definitions for libm
+
+   Table of Contents
+   __fpclassifyl -- Classify real floating type
+
+   The interfaces defined on the following pages are included in
+   libm and are defined by this specification. Unless otherwise
+   noted, these interfaces shall be included in the source
+   standard.
+
+   Other interfaces listed in Section [XX] shall behave as
+   described in the referenced base document.
+
+__fpclassify
+
+Name
+
+   __fpclassifyl -- Classify real floating type
+
+Synopsis
+
+   int __fpclassifyl(long double arg);
+
+Description
+
+   __fpclassifyl() has the same specification as fpclassify() in
+   ISO POSIX (2003), except that the argument type for
+   __fpclassifyl() is known to be long double.
+
+   __fpclassifyl() is not in the source standard; it is only in
+   the binary standard.
+
+
+Section A.2 libm, add to the list of Standards:
+
+   This Specification [LSB]
+
+
+In Table A-2, libm Function Interfaces, change
+
+   __fpclassifyl[ISOC99]
+
+to
+
+   __fpclassifyl[LSB]
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1379
+
+Rationale: typographical error, wrong name for constant
+Z_DEFAULT_COMPRESSION was used
+
+
+Section: 14.4. Interface Definitions for libz
+
+Interface compress, Description, change:
+
+   The compress() function is equivalent to compress2() with a
+   level of Z_DEFAULT_LEVEL.
+
+to
+
+   The compress() function is equivalent to compress2() with a
+   level of Z_DEFAULT_COMPRESSION.
+
+Interface compress2, Description, change:
+
+   The compress() function is equivalent to compress2() with a
+   level of Z_DEFAULT_LEVEL.
+
+to
+
+   The compress() function is equivalent to compress2() with a
+   level of Z_DEFAULT_COMPRESSION.
+
+Interface compress2, Errors, change:
+
+   The level was not Z_DEFAULT_LEVEL, or was not between 0 and 9.
+
+to
+
+   The level was not Z_DEFAULT_COMPRESSION, or was not between 0 and 9.
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1380
+
+Rationale: typographical error, reference to wrong function
+in descriptions
+
+
+Section: 14.4. Interface Definitions for libz
+
+
+Interface gzdopen, Description for digit,  change
+
+   See defaultInit2_() for further details.
+
+to
+
+   See deflateInit2_() for further details.
+
+
+Interface gzdopen, Description for [fhr],  change
+
+   See defaultInit2_() for further details.
+
+to
+
+   See deflateInit2_() for further details.
+
+
+Interface gzopen, Description for digit,  change
+
+   See defaultInit2_() for further details.
+
+to
+
+   See deflateInit2_() for further details.
+
+
+Interface gzopen, Description for [fhr],  change
+
+   See defaultInit2_() for further details.
+
+to
+
+   See deflateInit2_() for further details.
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1398
+
+Rationale: the behavior on success is defined in the Return 
+Value section. The text to be deleted is not only superfluous,
+it is incorrect.
+
+
+Section: 14.4. Interface Definitions for libz
+
+Interface inflate, Description,  delete:
+
+   On success, the inflate() function shall set the adler field
+   of the stream to the Adler-32 checksum of all the input data
+   compressed so far (represented by total_in).
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1399
+
+Rationale: typographical error, wrong constant used 
+in place of SEEK_CUR
+
+
+Section: 14.4. Interface Definitions for libz
+
+Interface gztell, Description,  change
+
+   gztell() is equivalent to gzseek(file, 0L, SEEK_SET)
+
+to
+
+   gztell() is equivalent to gzseek(file, 0L, SEEK_CUR)
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1405
+
+Rationale: omitted prototype for function clog10()
+
+
+13.7. Data Definitions for libm
+13.7.1. complex.h  add:
+
+extern double complex clog10(double complex);
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1410
+
+Rationale: definitions of SIOCGIFNAME, SIOCGIFDSTADDR, SIOCGIFBRDADDR
+and SIOCGIFMTU macros omitted or partially present. All four
+macros missing in Data Definitions; SIOCGIFDSTADDR and SIOCGIFNAME
+missing in Interface Definitions.
+
+
+Section: 13.4. Data Definitions for libc
+13.4.58. sys/socket.h
+
+Add to the other SIOCG* macros:
+
+#define SIOCGIFNAME     0x8910
+#define SIOCGIFDSTADDR  0x8917
+#define SIOCGIFBRDADDR  0x8919
+#define SIOCGIFMTU      0x8921
+
+
+Section: 13.5. Interface Definitions for libc
+
+under: sockio -- socket ioctl commands
+add:
+
+   SIOCGIFDSTADDR
+          Get the point-to-point address for the given interface.
+          argp  shall point to a ifreq structure. Before calling,
+          the  caller  should fill in the ifr_name field with the
+          interface  name, and upon return, the ifr_dstaddr field
+          is set with the point-to-point address.
+
+   SIOCGIFNAME
+          Get  the  name  of  an interface. argp shall point to a
+          ifreq structure. Before calling, the caller should fill
+          in the ifr_ifindex field with the number (index) of the
+          interface,  and  upon return, the ifr_name field is set
+          with the interface name.
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Error
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1425
+
+Rationale: several sets of constants are presented in the
+Data Definitions as enums, but are not given their correct
+values in those enums.
+
+Section : 13.4. Data Definitions for libc
+
+In 13.4.3. ctype.h, change
+
+enum {
+    _ISupper, _ISlower, _ISalpha, _ISdigit, _ISxdigit, _ISspace, _ISprint,
+        _ISgraph, _ISblank, _IScntrl, _ISpunct, _ISalnum
+};
+
+to:
+
+   enum {
+       _ISupper = 256,
+       _ISlower = 512,
+       _ISalpha = 1024,
+       _ISdigit = 2048,
+       _ISxdigit = 4096,
+       _ISspace = 8192,
+       _ISprint = 16384,
+       _ISgraph = 32768,
+       _ISblank = 1,
+       _IScntrl = 2,
+       _ISpunct = 4,
+       _ISalnum = 8
+   };
+
+
+==
+In 13.4.10. ftw.h, Change
+
+enum {
+    FTW_PHYS, FTW_MOUNT, FTW_CHDIR, FTW_DEPTH
+};
+
+To:
+
+enum {
+    FTW_PHYS = 1,
+    FTW_MOUNT = 2,
+    FTW_CHDIR = 4,
+    FTW_DEPTH = 8
+};
+
+
+==
+In 13.4.32. regex.h, Change
+
+typedef enum {
+    REG_ENOSYS, REG_NOERROR, REG_NOMATCH, REG_BADPAT, REG_ECOLLATE,
+        REG_ECTYPE, REG_EESCAPE, REG_ESUBREG, REG_EBRACK, REG_EPAREN,
+        REG_EBRACE, REG_BADBR, REG_ERANGE, REG_ESPACE, REG_BADRPT,
+        REG_EEND, REG_ESIZE, REG_ERPAREN
+} reg_errcode_t;
+
+To:
+
+typedef enum {
+    REG_ENOSYS = -1,
+    REG_NOERROR = 0,
+    REG_NOMATCH = 1,
+    REG_BADPAT = 2,
+    REG_ECOLLATE = 3,
+    REG_ECTYPE = 4,
+    REG_EESCAPE = 5,
+    REG_ESUBREG = 6,
+    REG_EBRACK = 7,
+    REG_EPAREN = 8,
+    REG_EBRACE = 9,
+    REG_BADBR = 10,
+    REG_ERANGE = 11,
+    REG_ESPACE = 12,
+    REG_BADRPT = 13,
+    REG_EEND = 14,
+    REG_ESIZE = 15,
+    REG_ERPAREN = 16
+} reg_errcode_t;
+
+
+==
+In 13.4.81. wordexp.h, Change:
+
+enum {
+    WRDE_DOOFFS, WRDE_APPEND, WRDE_NOCMD, WRDE_REUSE, WRDE_SHOWERR,
+        WRDE_UNDEF, __WRDE_FLAGS
+};
+
+To:
+
+   enum {
+       WRDE_DOOFFS = 1,
+       WRDE_APPEND = 2,
+       WRDE_NOCMD = 4,
+       WRDE_REUSE = 8,
+       WRDE_SHOWERR = 16,
+       WRDE_UNDEF = 32,
+       __WRDE_FLAGS = 63
+   };
+
+NOTE: bug 1346 removes the __WRDE_FLAGS value entirely
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Error
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1432
+
+Rationale: wrong values for PTHREAD_MUTEX constants, did not
+match implementations
+
+
+13.10. Data Definitions for libpthread
+13.10.1. pthread.h  change these constants:
+
+#define PTHREAD_MUTEX_DEFAULT   1
+#define PTHREAD_MUTEX_NORMAL    1
+#define PTHREAD_MUTEX_RECURSIVE 2
+#define PTHREAD_MUTEX_ERRORCHECK        3
+
+to
+
+#define PTHREAD_MUTEX_DEFAULT   0
+#define PTHREAD_MUTEX_NORMAL    0
+#define PTHREAD_MUTEX_RECURSIVE 1
+#define PTHREAD_MUTEX_ERRORCHECK        2
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1436
+
+Rationale: typographical error, reference to wrong function
+in Errors description
+
+
+Section: 14.4. Interface Definitions for libz
+
+Interface gzflush, Errors,  change
+
+   On error, gzwrite() shall return an error value, and may set
+   the error number associated with the stream identified by file
+   to indicate the error. 
+
+to
+
+   On error, gzflush() shall return an error value, and may set
+   the error number associated with the stream identified by file
+   to indicate the error. 
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1438
+
+Rationale: the definition of the CIE pointer is incorrect
+
+
+In LSB Core Generic:
+
+
+Section : 11.6.1.2. The Frame Description Entry Format, change
+
+          A 4 byte unsigned value that when subtracted from the
+          offset of the current FDE yields the offset of the
+          start of the associated CIE. This value shall never be
+          0.
+
+to:
+
+          A 4 byte unsigned value that when subtracted from the
+          offset of the CIE pointer in the current FDE yields the
+          offset of the start of the associated CIE. This value
+          shall never be 0.
+
+==========================================================================
+Specfication: LSB Core Generic
+Specfication: LSB Core IA32
+Edition of Specification: 3.1
+Type: Editorial
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1443
+
+Rationale: incorrect reference to base function in ISO POSIX for
+__fpclassifyf, __fpclassifyl and incorrect summary for the latter.
+
+
+In Specification LSB Core Generic:
+
+13.8. Interface Definitions for libm
+
+Interface __fpclassifyl, Description, change
+
+   __fpclassifyf() has the same specification as fpclassifyf() in
+   ISO POSIX (2003), except that the argument type for
+   __fpclassifyf() is known to be float.
+
+to
+
+   __fpclassifyf() has the same specification as fpclassify() in
+   ISO POSIX (2003), except that the argument type for
+   __fpclassifyf() is known to be float.
+
+===
+In Specification LSB Core IA32:
+
+11.6. Interface Definitions for libm
+
+Table of Contents, change:
+
+   __fpclassifyl -- test for infinity
+
+to
+
+   __fpclassifyl -- Classify real floating type
+
+
+Interface __fpclassifyl, Name, change
+
+   __fpclassifyl -- test for infinity
+
+to
+
+   __fpclassifyl -- Classify real floating type
+
+
+Interface __fpclassifyl, Synopsis, change
+
+   __fpclassifyl() has the same specification as fpclassifyl() in
+   ISO POSIX (2003), except that the argument type for
+   __fpclassifyl() is known to be long double.
+
+to
+
+   __fpclassifyl() has the same specification as fpclassify() in
+   ISO POSIX (2003), except that the argument type for
+   __fpclassifyl() is known to be long double.
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Error
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1446
+
+Rationale: wrong reference specification for cpio command
+
+Section: 15.2. Command Behavior
+
+
+Command cpio, Description, change:
+
+   cpio is as specified in ISO POSIX (2003), but with differences
+   as listed below.
+
+to
+
+   cpio is as specified in SUSv2, but with differences as listed
+   below.
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1447
+
+Rationale: several references to two nonexistent sections.
+References are changed to the correct section names.
+
+
+13.5. Interface Definitions for libc
+
+Interface regexec, section Differences
+
+Change:
+
+   Certain aspects of regular expression matching are optional;
+   see Internationalization and Regular Expressions.
+
+To:
+
+   Certain aspects of regular expression matching are optional;
+   see Regular Expressions.
+
+==
+
+Section 15.2. Command Behavior
+
+Command awk, section Differences
+
+Change:
+
+   Certain aspects of internationalized regular expressions are
+   optional; see Internationalization and Regular Expressions.
+
+To:
+
+   Certain aspects of internationalized regular expressions are
+   optional; see Regular Expressions.
+
+
+Command cpio, section Differences
+
+Change:
+
+   Some elements of the Pattern Matching Notation are optional;
+   see Internationalization and Pattern Matching Notation.
+
+To:
+
+   Some elements of the Pattern Matching Notation are optional;
+   see Pattern Matching Notation.
+
+
+Command find, section Differences
+
+Change:
+
+   Some elements of the Pattern Matching Notation are optional;
+   see Internationalization and Pattern Matching Notation.
+
+Change:
+
+   Some elements of the Pattern Matching Notation are optional;
+   see Pattern Matching Notation.
+
+
+
+Command grep, section LSB Differences
+
+Change:
+
+   Certain aspects of regular expression matching are optional;
+   see Internationalization and Regular Expressions.
+
+To:
+
+   Certain aspects of regular expression matching are optional;
+   see Regular Expressions.
+
+
+Command sed, section LSB Differences
+
+Change:
+
+   Certain aspects of regular expression matching are optional;
+   see Internationalization and Regular Expressions.
+
+To:
+
+   Certain aspects of regular expression matching are optional;
+   see Regular Expressions.
+
+
+Command tar, section Differences
+
+Change:
+
+   Some elements of the Pattern Matching Notation are optional;
+   see Internationalization and Pattern Matching Notation.
+
+To:
+
+   Some elements of the Pattern Matching Notation are optional;
+   see Pattern Matching Notation.
+
+==========================================================================
+Specfication: LSB Core IA32
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1455
+
+Rationale: wrong type for st_uid member in struct stat
+
+Section : 13.5. Interface Definitions for libc
+Section 11.3. Data Definitions for libc,
+part 11.3.59. sys/stat.h, struct stat, Change
+
+    pid_t st_uid;
+
+to:
+
+    uid_t st_uid;
+
+==========================================================================
+Specfication: LSB Core generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1474
+
+Rationale: blksize_t and blkcnt_t typedefs must be signed according to
+ISO POSIX.  By extension, blkcnt64_t should also be signed.
+
+Section : 13.4. Interface Definitions for libc
+part 13.4.64. sys/types.h, change:
+
+    typedef unsigned long int blksize_t;
+
+to
+
+    typedef long int blksize_t;
+
+change
+
+    typedef unsigned long int blkcnt_t;
+
+to
+
+    typedef long int blkcnt_t;
+
+change:
+
+    typedef unsigned long long int blkcnt64_t;
+
+to
+
+    typedef long long int blkcnt64_t;
+
+==========================================================================
+Specfication: LSB Desktop generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1493
+
+Rationale: two internal macros that reflect the result of
+configuring the jpeg library, but do not form part of the
+API/ABI, were included in error. Since these may interfere
+with application usage, they are removed.
+
+Section  : 9.2. Data Definitions for libjpeg
+
+Section 9.2.1. jpeglib.h
+
+Remove:
+
+#define HAVE_STDDEF_H
+#define HAVE_STDLIB_H
+
+==========================================================================
+Specfication: LSB Core generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1497
+
+Rationale: __INT_MAX__ is an internal compiler-provided constant
+that should not have been included in the LSB specification.
+
+Section : 13.5. Interface Definitions for libc
+part 13.4.19. limits.h,  remove:
+
+    #define __INT_MAX__     2147483647
+
+==========================================================================
+Specfication: LSB Desktop generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1508
+
+Rationale: the function prototype for glXGetProcAddressARB is incorrect
+
+Section : 7.2. Data Definitions for libGL
+part 7.2.2. GL/glx.h,  change
+
+extern void (*GLXWindow) (GLubyte * procName) glXGetProcAddressARB(void);
+
+to
+
+extern void (*glXGetProcAddressARB(const GLubyte * procName)) (void);
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1518
+
+Rationale: definition of Z_BLOCK macro omitted
+
+
+Section: 14.3. Data Definitions for libz
+14.3.1. zlib.h, following
+
+#define Z_FINISH        4
+
+add:
+
+#define Z_BLOCK         5
+
+==========================================================================
+Specfication: LSB Core Generic
+Specfication: LSB Core IA32, IA64, AMD64, PPC32, PPC64, S390, S390X
+Edition of Specification: 3.1
+Type: Editorial
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1525
+
+Rationale: the statfs and fstatfs functions were marked as obsolete in
+LSB 1.3 and removed at 2.0. However, since these interfaces provide
+the only method for discovering the file system type, their removal
+was regarded as premature, and they have been reinstated (together with
+their obsolete status) until such time as there is a better alternative
+in widespread use.
+
+
+In LSB Core Generic:
+
+Section : 13.3.2.1. Interfaces for System Calls, insert
+
+   fstatfs [LSB]
+   statfs [LSB]
+
+
+Section : 13.3.16.1. Interfaces for Large File Support, insert
+
+   fstatfs64 [LSB]
+   statfs64 [LSB]
+
+
+Section : 13.4 Data Defintions for libc, add
+
+13.4.60. sys/statfs.h
+
+   #define NFS_SUPER_MAGIC 0x6969
+
+   struct statfs {
+       int f_type;
+       int f_bsize;
+       fsblkcnt_t f_blocks;
+       fsblkcnt_t f_bfree;
+       fsblkcnt_t f_bavail;
+       fsblkcnt_t f_files;
+       fsblkcnt_t f_ffree;
+       fsid_t f_fsid;
+       int f_namelen;
+       int f_spare[6];
+   };
+   struct statfs64 {
+       int f_type;
+       int f_bsize;
+       fsblkcnt64_t f_blocks;
+       fsblkcnt64_t f_bfree;
+       fsblkcnt64_t f_bavail;
+       fsblkcnt64_t f_files;
+       fsblkcnt64_t f_ffree;
+       fsid_t f_fsid;
+       int f_namelen;
+       int f_spare[6];
+   };
+   extern int fstatfs64(int, struct statfs64 *);
+   extern int statfs64(const char *, struct stat64 *);
+   extern int fstatfs(int, struct statfs *);
+   extern int statfs(const char *, struct statfs *);
+
+
+Section : 13.5. Interface Definitions for libc, add
+
+   fstatfs -- (deprecated)
+   fstatfs64 -- (deprecated)
+   statfs -- (deprecated)
+   statfs64 -- (deprecated)
+
+
+and add:
+
+
+fstatfs
+
+Name
+
+   fstatfs -- (deprecated)
+
+Synopsis
+
+   #include <sys/statfs.h>
+
+   int fstatfs(int fd, struct statfs * buf);
+
+Description
+
+   The  fstatfs()  function  returns  information about a mounted
+   file  system.  The  file  system  is  identified by fd, a file
+   descriptor  of an open file within the mounted filesystem. The
+   results are placed in the structure pointed to by buf.
+
+   Fields  that  are undefined for a particular file system shall
+   be set to 0.
+
+     Note:  Application  developers  should  use  the fstatvfs()
+     function   to   obtain  general  file  system  information.
+     Applications should only use the fstatfs() function if they
+     must  determine  the  file  system  type, which need not be
+     provided by fstatvfs().
+
+Return Value
+
+   On  success, the fstatfs() function shall return 0 and sed the
+   fields  of  the  structure  idenfitied  by buf accordingly. On
+   error,  the  fstatfs()  function shall return -1 and set errno
+   accordingly.
+
+Errors
+
+   EBADF    fd is not a valid open file descriptor.
+
+   EFAULT   buf points to an invalid address.
+
+   EIO      An I/O error occurred while reading from or writing to
+            the file system.
+
+   ENOSYS The filesystem fd is open on does not support statfs().
+
+
+fstatfs64
+
+Name
+
+   fstatfs64 -- (deprecated)
+
+Synopsis
+
+   #include <sys/statfs.h>
+
+   int fstatfs64(int fd, struct statfs64 * buf);
+
+Description
+
+   The  fstatfs64()  function returns information about a mounted
+   file  system.  The  file  system  is  identified by fd, a file
+   descriptor  of an open file within the mounted filesystem. The
+   results are placed in the structure pointed to by buf.
+
+   Fields  that  are undefined for a particular file system shall
+   be set to 0.
+
+   fstatfs64() is the 64-bit version of fstatfs().
+
+     Note:  Application  developers  should use the fstatvfs64()
+     function   to   obtain  general  file  system  information.
+     Applications  should  only  use the fstatfs64() function if
+     they must determine the file system type, which need not be
+     provided by fstatvfs64().
+
+Return Value
+
+   On  success,  the  fstatfs64() function shall return 0 and sed
+   the  fields of the structure idenfitied by buf accordingly. On
+   error,  the fstatfs64() function shall return -1 and set errno
+   accordingly.
+
+Errors
+
+   See fstatfs().
+
+
+statfs
+
+Name
+
+   statfs -- (deprecated)
+
+Synopsis
+
+   #include <sys/statfs.h>
+
+   int statfs(const char *path, (struct statfs * buf));
+
+Description
+
+   The statfs() function returns information about a mounted file
+   system.  The file system is identified by path, a path name of
+   a  file  within the mounted filesystem. The results are placed
+   in the structure pointed to by
+
+   Fields  that  are undefined for a particular file system shall
+   be set to 0.
+
+     Note:  Application  developers  should  use  the  statvfs()
+     function   to   obtain  general  file  system  information.
+     Applications  should only use the statfs() function if they
+     must  determine  the  file  system  type, which need not be
+     provided by statvfs().
+
+Return Value
+
+   On  success,  the statfs() function shall return 0 and sed the
+   fields  of  the  structure  idenfitied  by buf accordingly. On
+   error,  the  statfs()  function  shall return -1 and set errno
+   accordingly.
+
+Errors
+
+   ENOTDIR  A component of the path prefix of path is not a
+            directory.
+
+   ENAMETOOLONG  path is too long.
+
+   ENOENT   The file referred to by path does not exist.
+
+   EACCES   Search permission is denied for a component of the
+            path prefix of path.
+
+   ELOOP    Too many symbolic links were encountered in translating
+            path.
+
+   EFAULT   buf or path points to an invalid address.
+
+   EIO      An I/O error occurred while reading from or writing
+            to the file system.
+
+   ENOMEM   Insufficient kernel memory was available.
+
+   ENOSYS   The filesystem path is on does not support statfs().
+
+
+statfs64
+
+Name
+
+   statfs64 -- (deprecated)
+
+Synopsis
+
+   #include <sys/statfs.h>
+
+   int statfs64(const char * path, (struct statfs64 * buf));
+
+Description
+
+   The  statfs64()  function  returns information about a mounted
+   file  system.  The  file  system is identified by path, a path
+   name  of a file within the mounted filesystem. The results are
+   placed in the structure pointed to by buf.
+
+   statfs64() is the 64-bit version of statfs().
+
+   Fields  that  are undefined for a particular file system shall
+   be set to 0.
+
+     Note:  Application  developers  should  use the statvfs64()
+     function   to   obtain  general  file  system  information.
+     Applications  should  only  use  the statfs64() function if
+     they must determine the file system type, which need not be
+     provided by statvfs64().
+
+Return Value
+
+   On success, the statfs64() function shall return 0 and sed the
+   fields  of  the  structure  idenfitied  by buf accordingly. On
+   error,  the  statfs64() function shall return -1 and set errno
+   accordingly.
+
+Errors
+
+   See fstatfs().
+
+==
+
+In LSB Core IA32
+
+Section : 11.2.2.1. Interfaces for System Calls, insert
+
+fstatfs(GLIBC_2.0) [LSB]
+statfs(GLIBC_2.0) [LSB]
+
+
+Section : 11.2.16.1. Interfaces for Large File Support, insert
+
+fstatfs64(GLIBC_2.1) [LSB]
+statfs64(GLIBC_2.1) [LSB]
+
+==
+
+In LSB Core IA64
+
+Section : 11.2.2.1. Interfaces for System Calls, insert
+
+fstatfs(GLIBC_2.2) [LSB]
+statfs(GLIBC_2.2) [LSB]
+
+
+Section : 11.2.16.1. Interfaces for Large File Support, insert
+
+fstatfs64(GLIBC_2.2) [LSB]
+statfs64(GLIBC_2.2) [LSB]
+
+==
+
+In LSB Core AMD64
+
+Section : 11.2.2.1. Interfaces for System Calls, insert
+
+fstatfs(GLIBC_2.2.5) [LSB]
+statfs(GLIBC_2.2.5) [LSB]
+
+
+Section : 11.2.16.1. Interfaces for Large File Support, insert
+
+fstatfs64(GLIBC_2.2.5) [LSB]
+statfs64(GLIBC_2.2.5) [LSB]
+
+==
+
+In LSB Core PPC32
+
+Section : 11.2.2.1. Interfaces for System Calls, insert
+
+fstatfs(GLIBC_2.0) [LSB]
+statfs(GLIBC_2.0) [LSB]
+
+
+Section : 11.2.16.1. Interfaces for Large File Support, insert
+
+fstatfs64(GLIBC_2.1) [LSB]
+statfs64(GLIBC_2.1) [LSB]
+
+==
+
+In LSB Core PPC64
+
+Section : 11.2.2.1. Interfaces for System Calls, insert
+
+fstatfs(GLIBC_2.3) [LSB]
+statfs(GLIBC_2.3) [LSB]
+
+
+Section : 11.2.16.1. Interfaces for Large File Support, insert
+
+fstatfs64(GLIBC_2.3) [LSB]
+statfs64(GLIBC_2.3) [LSB]
+
+==
+
+In LSB Core S390
+
+Section : 11.2.2.1. Interfaces for System Calls, insert
+
+fstatfs(GLIBC_2.0) [LSB]
+statfs(GLIBC_2.0) [LSB]
+
+
+Section : 11.2.16.1. Interfaces for Large File Support, insert
+
+fstatfs64(GLIBC_2.1) [LSB]
+statfs64(GLIBC_2.1) [LSB]
+
+==
+
+In LSB Core S390X
+
+Section : 11.2.2.1. Interfaces for System Calls, insert
+
+fstatfs(GLIBC_2.2) [LSB]
+statfs(GLIBC_2.2) [LSB]
+
+
+Section : 11.2.16.1. Interfaces for Large File Support, insert
+
+fstatfs64(GLIBC_2.2) [LSB]
+statfs64(GLIBC_2.2) [LSB]
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1533
+
+Rationale: editorial, duplicated paragraph
+
+Section: 13.5. Interface Definitions for libc
+
+
+Interface bind_textdomain_codeset, Description,  remove
+
+The bind_textdomain_codeset() function returns a pointer to 
+string containing the name of the selected codeset. 
+The string is allocated internally in the function and 
+shall not be changed by the user.
+
+==========================================================================
+Specfication: LSB Core generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1541
+
+Rationale: The svcudp_create function was incompletely defined.
+
+Section : 13.5. Interface Definitions for libc
+
+Interface  svcudp_create, section Description, change
+
+   This call is equivalent to svcudp_bufcreate( sock, SZ, SZ) for
+   some default size SZ.
+
+To:
+
+   The svcudp_create() function shall create a UDP/IP-based RPC service
+   transport, and return a pointer to its descriptor. The transport is
+   associated with the socket sock, which may be RPC_ANYSOCK, in which
+   case a new socket shall be created. If the socket is not bound to a
+   local UDP port, then svcudp_create() shall bind it to an arbitrary
+   port.
+
+   If svcudp_create() returns successfully, then the xp_sock field in
+   the result shall be the transport's socket descriptor, and the xp_port
+   field shall be the transport's port number.
+
+Add section Return Value:
+
+   Upon successful completion, svcudp_create() shall return a pointer to
+   a RPC service transport; otherwise, a null pointer shall be returned.
+
+==========================================================================
+Specfication: LSB Desktop generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1544
+
+Rationale: Xt Intrinsics functions have incorrect prototypes
+
+Section : 6.9. Data Definitions for libXt
+part 6.9.6. X11/Intrinsic.h
+
+Change:
+
+extern Boolean XtIsApplicationShell(void);
+extern Boolean XtIsComposite(void);
+extern Boolean XtIsConstraint(void);
+
+To:
+
+extern Boolean XtIsApplicationShell(Widget);
+extern Boolean XtIsComposite(Widget);
+extern Boolean XtIsConstraint(Widget);
+
+Change:
+
+extern Boolean XtIsOverrideShell(void);
+
+To:
+
+extern Boolean XtIsOverrideShell(Widget);
+
+Change:
+
+extern Boolean XtIsRectObj(void);
+
+To:
+
+extern Boolean XtIsRectObj(Widget);
+
+Change:
+
+extern Boolean XtIsSessionShell(void);
+extern Boolean XtIsShell(void);
+
+To:
+
+extern Boolean XtIsSessionShell(Widget);
+extern Boolean XtIsShell(Widget);
+
+Change:
+
+extern Boolean XtIsTopLevelShell(void);
+extern Boolean XtIsTransientShell(void);
+extern Boolean XtIsVendorShell(void);
+extern Boolean XtIsWMShell(void);
+extern Boolean XtIsWidget(void);
+
+To:
+
+extern Boolean XtIsTopLevelShell(Widget);
+extern Boolean XtIsTransientShell(Widget);
+extern Boolean XtIsVendorShell(Widget);
+extern Boolean XtIsWMShell(Widget);
+extern Boolean XtIsWidget(Widget);
+
+==========================================================================
+Specfication: LSB Core Generic
+Edition of Specification: 3.1
+Type: Editorial
+Status: Unapproved
+Bug reference: http://bugs.linuxbase.org/show_bug.cgi?id=1545
+
+Rationale: description of "option" structure for getopt_long
+differs in the Data Definitions and in Interface Definitions.
+The latter is correct.
+
+
+Section: 13.4. Data Definitions for libc
+13.4.11. getopt.h, change
+
+struct option {
+    char *name;
+
+to:
+
+struct option {
+    const char *name;
+
+
+</pre>
+</body>
+</html>

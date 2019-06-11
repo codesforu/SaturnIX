@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Introduction</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for PPC32"
+HREF="book1.html"><LINK
+REL="PREVIOUS"
+TITLE="Status of this Document"
+HREF="status.html"><LINK
+REL="NEXT"
+TITLE="Introductory Elements"
+HREF="tocintro.html"></HEAD
+><BODY
+CLASS="PREFACE"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for PPC32</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="status.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="tocintro.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="PREFACE"
+><H1
+><A
+NAME="INTRO"
+></A
+>Introduction</H1
+><P
+>The LSB defines a binary interface for application programs that
+are compiled and packaged for LSB-conforming implementations on many
+different hardware architectures. A binary specification must include
+information specific to the computer processor architecture for which
+it is intended. To avoid the complexity of conditional descriptions,
+the specification has instead been divided into generic parts which are
+augmented by one of several architecture-specific parts, depending on
+the target processor architecture; the generic part will indicate when
+reference must be made to the architecture part, and vice versa.</P
+><P
+>This document should be used in conjunction with the documents it
+references. This document enumerates the system components it includes,
+but descriptions of those components may be included entirely or partly
+in this document, partly in other documents, or entirely in other
+reference documents. For example, the section that describes system
+service routines includes a list of the system routines supported in
+this interface, formal declarations of the data structures they use that
+are visible to applications, and a pointer to the underlying referenced
+specification for information about the syntax and semantics of each
+call. Only those routines not described in standards referenced by
+this document, or extensions to those standards, are described in the
+detail. Information referenced in this way is as much a part of this
+document as is the information explicitly included here.</P
+><P
+>The specification carries a version number of either the form
+<TT
+CLASS="REPLACEABLE"
+><I
+>x.y</I
+></TT
+> or <TT
+CLASS="REPLACEABLE"
+><I
+>x.y.z</I
+></TT
+>. This
+version number carries the following meaning:</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>The first number (<TT
+CLASS="REPLACEABLE"
+><I
+>x</I
+></TT
+>) is the major version
+number. Versions sharing the same major version number shall be compatible
+in a backwards direction; that is, a newer version shall be compatible
+with an older version. Any deletion of a library results in a new major
+version number. Interfaces marked as deprecated may be removed from the
+specification at a major version change.</P
+></LI
+><LI
+><P
+>The second number (<TT
+CLASS="REPLACEABLE"
+><I
+>y</I
+></TT
+>) is the minor
+version number. Libraries and individual interfaces may be added, but
+not removed. Interfaces may be marked as deprecated at a minor version
+change. Other minor changes may be permitted at the discretion of the
+LSB workgroup.</P
+></LI
+><LI
+><P
+>The third number (<TT
+CLASS="REPLACEABLE"
+><I
+>z</I
+></TT
+>), if present, is
+the editorial level. Only editorial changes should be included in such
+versions.</P
+></LI
+></OL
+><P
+>Since this specification is a descriptive Application Binary Interface,
+and not a source level API specification, it is not possible to make a
+guarantee of 100% backward compatibility between major releases. However,
+it is the intent that those parts of the binary interface that are
+visible in the source level API will remain backward compatible from
+version to version, except where a feature marked as "Deprecated" in one
+release may be removed from a future release. Implementors are strongly
+encouraged to make use of symbol versioning to permit simultaneous support
+of applications conforming to different releases of this specification.</P
+><P
+>LSB is a trademark of the Linux Foundation. Developers of applications
+or implementations interested in using the trademark should see the
+Linux Foundation Certification Policy for details.  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="status.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="tocintro.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Status of this Document</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introductory Elements</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,1650 @@
+<HTML
+><HEAD
+><TITLE
+>Linux Standard Base Specification 1.3</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.77+"><LINK
+REL="NEXT"
+TITLE="Introduction"
+HREF="tocintro.html"></HEAD
+><BODY
+CLASS="BOOK"
+><DIV
+CLASS="BOOK"
+><A
+NAME="AEN1"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+></A
+>Linux Standard Base Specification 1.3</H1
+><P
+CLASS="COPYRIGHT"
+>Copyright &copy; 2000, 2001, 2002 Free Standards Group</P
+><DIV
+CLASS="LEGALNOTICE"
+><A
+NAME="AEN9"
+></A
+><P
+></P
+><P
+>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1;
+with no Invariant Sections, with no Front-Cover Texts, and with no
+Back-Cover Texts.  A copy of the license is included in the section
+entitled "GNU Free Documentation License".</P
+><P
+></P
+></DIV
+><DIV
+CLASS="LEGALNOTICE"
+><A
+NAME="AEN11"
+></A
+><P
+></P
+><P
+>Portions of the text were taken from other copyrighted documents in accordance
+with the respective licenses of those documents.</P
+><P
+>Linux is a trademark of Linus Torvalds.</P
+><P
+>UNIX a registered trademark of the Open Group in the United States and
+other countries.</P
+><P
+>LSB is a trademark of the Free Standards Group in the USA and other countries.</P
+><P
+>Intel386 and Itanium are trademarks of Intel Corporation.</P
+><P
+>OpenGL is a registered trademark of Silicon Graphics, Inc.</P
+><P
+></P
+></DIV
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>I. <A
+HREF="tocintro.html"
+>Introduction</A
+></DT
+><DD
+><DL
+><DT
+>1. <A
+HREF="introduction.html"
+>Introduction</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="introduction.html#OVERVIEW"
+>Introduction</A
+></DT
+><DT
+><A
+HREF="overpurp.html"
+>Purpose</A
+></DT
+><DT
+><A
+HREF="rstandards.html"
+>Related Standards</A
+></DT
+><DT
+><A
+HREF="rlibraries.html"
+>Relevant Libraries</A
+></DT
+><DT
+><A
+HREF="howto.html"
+>How to Use this Standard</A
+></DT
+><DT
+><A
+HREF="defns.html"
+>Definitions</A
+></DT
+><DT
+><A
+HREF="terms.html"
+>Terminology</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>II. <A
+HREF="tocobjformat.html"
+>Object Format</A
+></DT
+><DD
+><DL
+><DT
+>2. <A
+HREF="objfmt.html"
+>Object Files</A
+></DT
+><DT
+>3. <A
+HREF="sections.html"
+>Sections</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="sections.html#ELFTYPES"
+>Sections Types</A
+></DT
+></DL
+></DD
+><DT
+>4. <A
+HREF="specialsections.html"
+>Special Sections</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="specialsections.html#ELFSPECIAL"
+>Special Sections</A
+></DT
+></DL
+></DD
+><DT
+>5. <A
+HREF="symmap.html"
+>Symbol Mapping</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="symmap.html#SYMMAPPING"
+>Symbol Mapping</A
+></DT
+></DL
+></DD
+><DT
+>6. <A
+HREF="ehframehdr.html"
+>EH Frame Header</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="ehframehdr.html#DWARFEHENCODING"
+>DWARF Exception Header Encoding</A
+></DT
+></DL
+></DD
+><DT
+>7. <A
+HREF="symversion.html"
+>Symbol Versioning</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="symversion.html#SYMVERTBL"
+>Symbol Version Table</A
+></DT
+><DT
+><A
+HREF="symverdefs.html"
+>Version Definitions</A
+></DT
+><DT
+><A
+HREF="symverrqmts.html"
+>Version Requirements</A
+></DT
+><DT
+><A
+HREF="symstartseq.html"
+>Startup Sequence</A
+></DT
+><DT
+><A
+HREF="symresolution.html"
+>Symbol Resolution</A
+></DT
+></DL
+></DD
+><DT
+>8. <A
+HREF="noteabitag.html"
+>ABI note tag</A
+></DT
+></DL
+></DD
+><DT
+>III. <A
+HREF="tocdynlnk.html"
+>Dynamic Linking</A
+></DT
+><DD
+><DL
+><DT
+>9. <A
+HREF="dynlnk.html"
+>Program Loading and Dynamic Linking</A
+></DT
+><DT
+>10. <A
+HREF="progheader.html"
+>Program Header</A
+></DT
+><DT
+>11. <A
+HREF="dynamicsection.html"
+>Dynamic Entries</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="dynamicsection.html#DYNSECTENT"
+>Dynamic Entries</A
+></DT
+></DL
+></DD
+><DT
+>12. <A
+HREF="programinterpreter.html"
+>Program Interpreter</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="programinterpreter.html#PROGINTERP"
+></A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>IV. <A
+HREF="tocbaselib.html"
+>Base Libraries</A
+></DT
+><DD
+><DL
+><DT
+>13. <A
+HREF="baselib.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="baselib.html#LIBC"
+>Interfaces for libc</A
+></DT
+><DT
+><A
+HREF="libc-ddefs.html"
+>Data Definitions for libc</A
+></DT
+><DT
+><A
+HREF="libcman.html"
+>Interfaces Definitions for libc</A
+></DT
+><DT
+><A
+HREF="libm.html"
+>Interfaces for libm</A
+></DT
+><DT
+><A
+HREF="libm-ddefs.html"
+>Data Definitions for libm</A
+></DT
+><DT
+><A
+HREF="libpthread.html"
+>Interfaces for libpthread</A
+></DT
+><DT
+><A
+HREF="libpthread-ddefs.html"
+>Data Definitions for libpthread</A
+></DT
+><DT
+><A
+HREF="libpthreadman.html"
+>Interfaces Definitions for libpthread</A
+></DT
+><DT
+><A
+HREF="libgcc-s.html"
+>Interfaces for libgcc_s</A
+></DT
+><DT
+><A
+HREF="libgcc-s-ddefs.html"
+>Data Definitions for libgcc_s</A
+></DT
+><DT
+><A
+HREF="libgcc-sman.html"
+>Interfaces Definitions for libgcc_s</A
+></DT
+><DT
+><A
+HREF="libdl.html"
+>Interfaces for libdl</A
+></DT
+><DT
+><A
+HREF="libdl-ddefs.html"
+>Data Definitions for libdl</A
+></DT
+><DT
+><A
+HREF="libdlman.html"
+>Interfaces Definitions for libdl</A
+></DT
+><DT
+><A
+HREF="libcrypt.html"
+>Interfaces for libcrypt</A
+></DT
+><DT
+><A
+HREF="libcrypt-ddefs.html"
+>Data Definitions for libcrypt</A
+></DT
+><DT
+><A
+HREF="libpam.html"
+>Interfaces for libpam</A
+></DT
+><DT
+><A
+HREF="libpam-ddefs.html"
+>Data Definitions for libpam</A
+></DT
+><DT
+><A
+HREF="libpamman.html"
+>Interfaces Definitions for libpam</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>V. <A
+HREF="tocutillib.html"
+>Utility Libraries</A
+></DT
+><DD
+><DL
+><DT
+>14. <A
+HREF="utillib.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="utillib.html#LIBZ"
+>Interfaces for libz</A
+></DT
+><DT
+><A
+HREF="libz-ddefs.html"
+>Data Definitions for libz</A
+></DT
+><DT
+><A
+HREF="libncurses.html"
+>Interfaces for libncurses</A
+></DT
+><DT
+><A
+HREF="libncurses-ddefs.html"
+>Data Definitions for libncurses</A
+></DT
+><DT
+><A
+HREF="libutil.html"
+>Interfaces for libutil</A
+></DT
+><DT
+><A
+HREF="libutilman.html"
+>Interfaces Definitions for libutil</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>VI. <A
+HREF="tocgraphlib.html"
+>Graphic Libraries</A
+></DT
+><DD
+><DL
+><DT
+>15. <A
+HREF="graphlib.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="graphlib.html#LIBX11"
+>Interfaces for libX11</A
+></DT
+><DT
+><A
+HREF="libx11-ddefs.html"
+>Data Definitions for libX11</A
+></DT
+><DT
+><A
+HREF="libxext.html"
+>Interfaces for libXext</A
+></DT
+><DT
+><A
+HREF="libxext-ddefs.html"
+>Data Definitions for libXext</A
+></DT
+><DT
+><A
+HREF="libsm.html"
+>Interfaces for libSM</A
+></DT
+><DT
+><A
+HREF="libsm-ddefs.html"
+>Data Definitions for libSM</A
+></DT
+><DT
+><A
+HREF="libice.html"
+>Interfaces for libICE</A
+></DT
+><DT
+><A
+HREF="libice-ddefs.html"
+>Data Definitions for libICE</A
+></DT
+><DT
+><A
+HREF="libxt.html"
+>Interfaces for libXt</A
+></DT
+><DT
+><A
+HREF="libxt-ddefs.html"
+>Data Definitions for libXt</A
+></DT
+><DT
+><A
+HREF="libxtman.html"
+>Interfaces Definitions for libXt</A
+></DT
+><DT
+><A
+HREF="libgl.html"
+>Interfaces for libGL</A
+></DT
+><DT
+><A
+HREF="libgl-ddefs.html"
+>Data Definitions for libGL</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>VII. <A
+HREF="packagefmt.html"
+>Package Format and Installation</A
+></DT
+><DD
+><DL
+><DT
+>16. <A
+HREF="swinstall.html"
+>Software Installation</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="swinstall.html#PKGFORMAT"
+>Package File Format</A
+></DT
+><DT
+><A
+HREF="pkgscripts.html"
+>Package Script Restrictions</A
+></DT
+><DT
+><A
+HREF="pkgtools.html"
+>Package Tools</A
+></DT
+><DT
+><A
+HREF="pkgnameconv.html"
+>Package Naming</A
+></DT
+><DT
+><A
+HREF="pkgdepend.html"
+>Package Dependencies</A
+></DT
+><DT
+><A
+HREF="pkgarchcon.html"
+>Package Architecture Considerations</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>VIII. <A
+HREF="toccommand.html"
+>Commands and Utilities</A
+></DT
+><DD
+><DL
+><DT
+>17. <A
+HREF="command.html"
+>Commands and Utilities</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="command.html#CMDUTIL"
+>Commands and Utilities</A
+></DT
+><DT
+><A
+HREF="cmdbehav.html"
+>Command Behavior</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>IX. <A
+HREF="tocstdshell.html"
+>Standard Shell</A
+></DT
+><DD
+><DL
+><DT
+>18. <A
+HREF="stdshell.html"
+>Standard Shell</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="stdshell.html#STDSHELLINTRO"
+>Introduction</A
+></DT
+><DT
+><A
+HREF="stdshellexceptions.html"
+>Standard Shell Exceptions</A
+></DT
+><DT
+><A
+HREF="stdshellrat.html"
+>Standard Shell Rationale</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>X. <A
+HREF="tocusersgroups.html"
+>Users &#38; Groups</A
+></DT
+><DD
+><DL
+><DT
+>19. <A
+HREF="usersgroups.html"
+>Users &#38; Groups</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="usersgroups.html#USERGRPDATABASE"
+>User and Group Database</A
+></DT
+><DT
+><A
+HREF="usernames.html"
+>User &#38; Group Names</A
+></DT
+><DT
+><A
+HREF="uidrange.html"
+>UID Ranges</A
+></DT
+><DT
+><A
+HREF="usergrprat.html"
+>Rationale</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>XI. <A
+HREF="tocexecenv.html"
+>Execution Environment</A
+></DT
+><DD
+><DL
+><DT
+>20. <A
+HREF="execenvfhs.html"
+>File System Hierarchy</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="execenvfhs.html#DEV"
+><TT
+CLASS="FILENAME"
+>/dev</TT
+></A
+></DT
+></DL
+></DD
+><DT
+>21. <A
+HREF="execstuff.html"
+>Additional Recommendations</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="execstuff.html#PERMISSIONS-MUST"
+>Minimal granted Directory and File permissions</A
+></DT
+><DT
+><A
+HREF="permissions-should.html"
+>Recommendations for applications on ownership and permissions</A
+></DT
+></DL
+></DD
+><DT
+>22. <A
+HREF="execenv-addntl-bhvr.html"
+>Additional Behaviors</A
+></DT
+><DT
+>23. <A
+HREF="localization.html"
+>Localization</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="localization.html#LOCALIZATION-REGEX"
+>Regular Expressions</A
+></DT
+><DT
+><A
+HREF="localization-glob.html"
+>Filename Globbing</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>XII. <A
+HREF="tocsysinit.html"
+>System Initialization</A
+></DT
+><DD
+><DL
+><DT
+>24. <A
+HREF="sysinit.html"
+>System Initialization</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="sysinit.html#CRONJOBS"
+>Cron Jobs</A
+></DT
+><DT
+><A
+HREF="iniscrptact.html"
+>Init Script Actions</A
+></DT
+><DT
+><A
+HREF="initscrcomconv.html"
+>Comment conventions for init scripts</A
+></DT
+><DT
+><A
+HREF="initsrcinstrm.html"
+>Installation and removal of init.d files</A
+></DT
+><DT
+><A
+HREF="runlevels.html"
+>Run Levels</A
+></DT
+><DT
+><A
+HREF="facilname.html"
+>Facility names</A
+></DT
+><DT
+><A
+HREF="scrptnames.html"
+>Script names</A
+></DT
+><DT
+><A
+HREF="iniscrptfunc.html"
+>Init script Functions</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>A. <A
+HREF="app-a.html"
+>Alphabetical Listing of Interfaces</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="app-a.html#APP-LIBX11"
+>libX11</A
+></DT
+><DT
+><A
+HREF="app-libxt.html"
+>libXt</A
+></DT
+><DT
+><A
+HREF="app-libm.html"
+>libm</A
+></DT
+><DT
+><A
+HREF="app-libgl.html"
+>libGL</A
+></DT
+><DT
+><A
+HREF="app-libxext.html"
+>libXext</A
+></DT
+><DT
+><A
+HREF="app-libice.html"
+>libICE</A
+></DT
+><DT
+><A
+HREF="app-libsm.html"
+>libSM</A
+></DT
+><DT
+><A
+HREF="app-libdl.html"
+>libdl</A
+></DT
+><DT
+><A
+HREF="app-libcrypt.html"
+>libcrypt</A
+></DT
+><DT
+><A
+HREF="app-libz.html"
+>libz</A
+></DT
+><DT
+><A
+HREF="app-libncurses.html"
+>libncurses</A
+></DT
+><DT
+><A
+HREF="app-libutil.html"
+>libutil</A
+></DT
+><DT
+><A
+HREF="app-libc.html"
+>libc</A
+></DT
+><DT
+><A
+HREF="app-libpthread.html"
+>libpthread</A
+></DT
+><DT
+><A
+HREF="app-libpam.html"
+>libpam</A
+></DT
+><DT
+><A
+HREF="app-libgcc-s.html"
+>libgcc_s</A
+></DT
+></DL
+></DD
+><DT
+>B. <A
+HREF="gfdl.html"
+>GNU Free Documentation License</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="gfdl.html#GFDL-0"
+>PREAMBLE</A
+></DT
+><DT
+><A
+HREF="gfdl-1.html"
+>APPLICABILITY AND DEFINITIONS</A
+></DT
+><DT
+><A
+HREF="gfdl-2.html"
+>VERBATIM COPYING</A
+></DT
+><DT
+><A
+HREF="gfdl-3.html"
+>COPYING IN QUANTITY</A
+></DT
+><DT
+><A
+HREF="gfdl-4.html"
+>MODIFICATIONS</A
+></DT
+><DT
+><A
+HREF="gfdl-5.html"
+>COMBINING DOCUMENTS</A
+></DT
+><DT
+><A
+HREF="gfdl-6.html"
+>COLLECTIONS OF DOCUMENTS</A
+></DT
+><DT
+><A
+HREF="gfdl-7.html"
+>AGGREGATION WITH INDEPENDENT WORKS</A
+></DT
+><DT
+><A
+HREF="gfdl-8.html"
+>TRANSLATION</A
+></DT
+><DT
+><A
+HREF="gfdl-9.html"
+>TERMINATION</A
+></DT
+><DT
+><A
+HREF="gfdl-10.html"
+>FUTURE REVISIONS OF THIS LICENSE</A
+></DT
+><DT
+><A
+HREF="gfdl-11.html"
+>How to use this License for your documents</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Tables</B
+></DT
+><DT
+>1-1. <A
+HREF="rstandards.html#AEN107"
+>Related Standards</A
+></DT
+><DT
+>1-2. <A
+HREF="rlibraries.html#AEN282"
+>Standard Libraries Names</A
+></DT
+><DT
+>1-3. <A
+HREF="rlibraries.html#AEN332"
+>Standard Library Names defined in the Architecture Specific Supplement</A
+></DT
+><DT
+>3-1. <A
+HREF="sections.html#AEN486"
+>ELF Section Types</A
+></DT
+><DT
+>3-2. <A
+HREF="sections.html#AEN574"
+>Additional Section Types</A
+></DT
+><DT
+>4-1. <A
+HREF="specialsections.html#AEN603"
+>ELF Special Sections</A
+></DT
+><DT
+>4-2. <A
+HREF="specialsections.html#AEN800"
+>Additional Special Sections</A
+></DT
+><DT
+>6-1. <A
+HREF="ehframehdr.html#AEN923"
+><TT
+CLASS="COMPUTEROUTPUT"
+>.eh_frame_hdr</TT
+> Section Format</A
+></DT
+><DT
+>6-2. <A
+HREF="ehframehdr.html#AEN988"
+>DWARF Exception Header value format</A
+></DT
+><DT
+>6-3. <A
+HREF="ehframehdr.html#AEN1035"
+>DWARF Exception Header application</A
+></DT
+><DT
+>10-1. <A
+HREF="progheader.html#AEN1255"
+>Linux Segment Types</A
+></DT
+><DT
+>13-1. <A
+HREF="baselib.html#AEN1501"
+>libc Definition</A
+></DT
+><DT
+>13-2. <A
+HREF="baselib.html#AEN1543"
+>libc - RPC Function Interfaces</A
+></DT
+><DT
+>13-3. <A
+HREF="baselib.html#AEN1667"
+>libc - System Calls Function Interfaces</A
+></DT
+><DT
+>13-4. <A
+HREF="baselib.html#AEN1978"
+>libc - System Calls Deprecated Function Interfaces</A
+></DT
+><DT
+>13-5. <A
+HREF="baselib.html#AEN1994"
+>libc - Standard I/O Function Interfaces</A
+></DT
+><DT
+>13-6. <A
+HREF="baselib.html#AEN2150"
+>libc - Standard I/O Deprecated Function Interfaces</A
+></DT
+><DT
+>13-7. <A
+HREF="baselib.html#AEN2161"
+>libc - Standard I/O Data Interfaces</A
+></DT
+><DT
+>13-8. <A
+HREF="baselib.html#AEN2177"
+>libc - Signal Handling Function Interfaces</A
+></DT
+><DT
+>13-9. <A
+HREF="baselib.html#AEN2265"
+>libc - Signal Handling Data Interfaces</A
+></DT
+><DT
+>13-10. <A
+HREF="baselib.html#AEN2279"
+>libc - Localization Functions Function Interfaces</A
+></DT
+><DT
+>13-11. <A
+HREF="baselib.html#AEN2326"
+>libc - Localization Functions Deprecated Function Interfaces</A
+></DT
+><DT
+>13-12. <A
+HREF="baselib.html#AEN2337"
+>libc - Localization Functions Data Interfaces</A
+></DT
+><DT
+>13-13. <A
+HREF="baselib.html#AEN2351"
+>libc - Socket Interface Function Interfaces</A
+></DT
+><DT
+>13-14. <A
+HREF="baselib.html#AEN2410"
+>libc - Wide Characters Function Interfaces</A
+></DT
+><DT
+>13-15. <A
+HREF="baselib.html#AEN2614"
+>libc - String Functions Function Interfaces</A
+></DT
+><DT
+>13-16. <A
+HREF="baselib.html#AEN2773"
+>libc - IPC Functions Function Interfaces</A
+></DT
+><DT
+>13-17. <A
+HREF="baselib.html#AEN2810"
+>libc - Regular Expressions Function Interfaces</A
+></DT
+><DT
+>13-18. <A
+HREF="baselib.html#AEN2834"
+>libc - Regular Expressions Data Interfaces</A
+></DT
+><DT
+>13-19. <A
+HREF="baselib.html#AEN2850"
+>libc - Character Type Functions Function Interfaces</A
+></DT
+><DT
+>13-20. <A
+HREF="baselib.html#AEN2927"
+>libc - Character Type Functions Data Interfaces</A
+></DT
+><DT
+>13-21. <A
+HREF="baselib.html#AEN2943"
+>libc - Time Manipulation Function Interfaces</A
+></DT
+><DT
+>13-22. <A
+HREF="baselib.html#AEN2979"
+>libc - Time Manipulation Data Interfaces</A
+></DT
+><DT
+>13-23. <A
+HREF="baselib.html#AEN3004"
+>libc - Terminal Interface Functions Function Interfaces</A
+></DT
+><DT
+>13-24. <A
+HREF="baselib.html#AEN3044"
+>libc - System Database Interface Function Interfaces</A
+></DT
+><DT
+>13-25. <A
+HREF="baselib.html#AEN3145"
+>libc - System Database Interface Deprecated Function Interfaces</A
+></DT
+><DT
+>13-26. <A
+HREF="baselib.html#AEN3161"
+>libc - Language Support Function Interfaces</A
+></DT
+><DT
+>13-27. <A
+HREF="baselib.html#AEN3178"
+>libc - Large File Support Function Interfaces</A
+></DT
+><DT
+>13-28. <A
+HREF="baselib.html#AEN3247"
+>libc - Large File Support Deprecated Function Interfaces</A
+></DT
+><DT
+>13-29. <A
+HREF="baselib.html#AEN3263"
+>libc - Standard Library Function Interfaces</A
+></DT
+><DT
+>13-30. <A
+HREF="baselib.html#AEN3615"
+>libc - Standard Library Data Interfaces</A
+></DT
+><DT
+>13-31. <A
+HREF="libm.html#AEN11052"
+>libm Definition</A
+></DT
+><DT
+>13-32. <A
+HREF="libm.html#AEN11073"
+>libm - Math Function Interfaces</A
+></DT
+><DT
+>13-33. <A
+HREF="libm.html#AEN11700"
+>libm - Math Data Interfaces</A
+></DT
+><DT
+>13-34. <A
+HREF="libpthread.html#AEN11722"
+>libpthread Definition</A
+></DT
+><DT
+>13-35. <A
+HREF="libpthread.html#AEN11767"
+>libpthread - Posix Threads Function Interfaces</A
+></DT
+><DT
+>13-36. <A
+HREF="libgcc-s.html#AEN11997"
+>libgcc_s Definition</A
+></DT
+><DT
+>13-37. <A
+HREF="libgcc-s.html#AEN12015"
+>libgcc_s - Unwind Library Function Interfaces</A
+></DT
+><DT
+>13-38. <A
+HREF="libdl.html#AEN12493"
+>libdl Definition</A
+></DT
+><DT
+>13-39. <A
+HREF="libdl.html#AEN12514"
+>libdl - Dynamic Loader Function Interfaces</A
+></DT
+><DT
+>13-40. <A
+HREF="libcrypt.html#AEN12614"
+>libcrypt Definition</A
+></DT
+><DT
+>13-41. <A
+HREF="libcrypt.html#AEN12632"
+>libcrypt - Encryption Function Interfaces</A
+></DT
+><DT
+>13-42. <A
+HREF="libpam.html#AEN12652"
+>libpam Definition</A
+></DT
+><DT
+>13-43. <A
+HREF="libpam.html#AEN12674"
+>libpam - Pluggable Authentication API Function Interfaces</A
+></DT
+><DT
+>14-1. <A
+HREF="utillib.html#AEN13492"
+>libz Definition</A
+></DT
+><DT
+>14-2. <A
+HREF="utillib.html#AEN13513"
+>libz - Compression Library Function Interfaces</A
+></DT
+><DT
+>14-3. <A
+HREF="libncurses.html#AEN13616"
+>libncurses Definition</A
+></DT
+><DT
+>14-4. <A
+HREF="libncurses.html#AEN13634"
+>libncurses - Curses Function Interfaces</A
+></DT
+><DT
+>14-5. <A
+HREF="libncurses.html#AEN14239"
+>libncurses - Curses Data Interfaces</A
+></DT
+><DT
+>14-6. <A
+HREF="libutil.html#AEN14264"
+>libutil Definition</A
+></DT
+><DT
+>14-7. <A
+HREF="libutil.html#AEN14282"
+>libutil - Utility Functions Function Interfaces</A
+></DT
+><DT
+>15-1. <A
+HREF="graphlib.html#AEN14458"
+>libX11 Definition</A
+></DT
+><DT
+>15-2. <A
+HREF="graphlib.html#AEN14476"
+>libX11 - X Windows System Interface Function Interfaces</A
+></DT
+><DT
+>15-3. <A
+HREF="libxext.html#AEN16116"
+>libXext Definition</A
+></DT
+><DT
+>15-4. <A
+HREF="libxext.html#AEN16149"
+>libXext - X Shape Extension Function Interfaces</A
+></DT
+><DT
+>15-5. <A
+HREF="libxext.html#AEN16182"
+>libXext - X Display Power Management Signaling Extension Function Interfaces</A
+></DT
+><DT
+>15-6. <A
+HREF="libxext.html#AEN16213"
+>libXext - X Shared Memory Extensions Function Interfaces</A
+></DT
+><DT
+>15-7. <A
+HREF="libxext.html#AEN16248"
+>libXext - X Synchronization Extension Function Interfaces</A
+></DT
+><DT
+>15-8. <A
+HREF="libxext.html#AEN16327"
+>libXext - X Security Extension Function Interfaces</A
+></DT
+><DT
+>15-9. <A
+HREF="libxext.html#AEN16349"
+>libXext - X Double Buffer Extension Function Interfaces</A
+></DT
+><DT
+>15-10. <A
+HREF="libsm.html#AEN16392"
+>libSM Definition</A
+></DT
+><DT
+>15-11. <A
+HREF="libsm.html#AEN16410"
+>libSM - Session Management Functions Function Interfaces</A
+></DT
+><DT
+>15-12. <A
+HREF="libice.html#AEN16512"
+>libICE Definition</A
+></DT
+><DT
+>15-13. <A
+HREF="libice.html#AEN16530"
+>libICE - ICE Functions Function Interfaces</A
+></DT
+><DT
+>15-14. <A
+HREF="libxt.html#AEN16663"
+>libXt Definition</A
+></DT
+><DT
+>15-15. <A
+HREF="libxt.html#AEN16684"
+>libXt - X Toolkit Function Interfaces</A
+></DT
+><DT
+>15-16. <A
+HREF="libxt.html#AEN17371"
+>libXt - X Toolkit Data Interfaces</A
+></DT
+><DT
+>15-17. <A
+HREF="libgl.html#AEN17536"
+>libGL Definition</A
+></DT
+><DT
+>15-18. <A
+HREF="libgl.html#AEN17554"
+>libGL - GL X interface Function Interfaces</A
+></DT
+><DT
+>15-19. <A
+HREF="libgl.html#AEN17656"
+>libGL - OpenGL Function Interfaces</A
+></DT
+><DT
+>16-1. <A
+HREF="swinstall.html#AEN18584"
+>RPM File Format</A
+></DT
+><DT
+>16-2. <A
+HREF="swinstall.html#AEN18654"
+>Signature Format</A
+></DT
+><DT
+>16-3. <A
+HREF="swinstall.html#AEN18721"
+>Index Type values</A
+></DT
+><DT
+>16-4. <A
+HREF="swinstall.html#AEN18792"
+>Header Private Tag Values</A
+></DT
+><DT
+>16-5. <A
+HREF="swinstall.html#AEN18863"
+>Signature Tag Values</A
+></DT
+><DT
+>16-6. <A
+HREF="swinstall.html#AEN18896"
+>Signature Digest Tag Values</A
+></DT
+><DT
+>16-7. <A
+HREF="swinstall.html#AEN18929"
+>Signature Signing Tag Values</A
+></DT
+><DT
+>16-8. <A
+HREF="swinstall.html#AEN18991"
+>Package Info Tag Values</A
+></DT
+><DT
+>16-9. <A
+HREF="swinstall.html#AEN19176"
+>Installation Tag Values</A
+></DT
+><DT
+>16-10. <A
+HREF="swinstall.html#AEN19231"
+>File Info Tag Values</A
+></DT
+><DT
+>16-11. <A
+HREF="swinstall.html#AEN19407"
+>Package Dependency Tag Values</A
+></DT
+><DT
+>16-12. <A
+HREF="swinstall.html#AEN19544"
+>Index Type values</A
+></DT
+><DT
+>16-13. <A
+HREF="swinstall.html#AEN19585"
+>Package Dependency Attributes</A
+></DT
+><DT
+>16-14. <A
+HREF="swinstall.html#AEN19637"
+>Other Tag Values</A
+></DT
+><DT
+>16-15. <A
+HREF="swinstall.html#AEN19744"
+>CPIO File Format</A
+></DT
+><DT
+>17-1. <A
+HREF="command.html#AEN19891"
+>Commands and Utilities</A
+></DT
+><DT
+>19-1. <A
+HREF="usernames.html#AEN25709"
+>Required User &#38; Group Names</A
+></DT
+><DT
+>19-2. <A
+HREF="usernames.html#AEN25735"
+>Optional User &#38; Group Names</A
+></DT
+><DT
+>A-1. <A
+HREF="app-a.html#AEN26154"
+>libX11 Function Interfaces</A
+></DT
+><DT
+>A-2. <A
+HREF="app-libxt.html#AEN27835"
+>libXt Function Interfaces</A
+></DT
+><DT
+>A-3. <A
+HREF="app-libxt.html#AEN28546"
+>libXt Data Interfaces</A
+></DT
+><DT
+>A-4. <A
+HREF="app-libm.html#AEN28625"
+>libm Function Interfaces</A
+></DT
+><DT
+>A-5. <A
+HREF="app-libm.html#AEN29286"
+>libm Data Interfaces</A
+></DT
+><DT
+>A-6. <A
+HREF="app-libgl.html#AEN29301"
+>libGL Function Interfaces</A
+></DT
+><DT
+>A-7. <A
+HREF="app-libxext.html#AEN30366"
+>libXext Function Interfaces</A
+></DT
+><DT
+>A-8. <A
+HREF="app-libice.html#AEN30556"
+>libICE Function Interfaces</A
+></DT
+><DT
+>A-9. <A
+HREF="app-libsm.html#AEN30683"
+>libSM Function Interfaces</A
+></DT
+><DT
+>A-10. <A
+HREF="app-libdl.html#AEN30783"
+>libdl Function Interfaces</A
+></DT
+><DT
+>A-11. <A
+HREF="app-libcrypt.html#AEN30806"
+>libcrypt Function Interfaces</A
+></DT
+><DT
+>A-12. <A
+HREF="app-libz.html#AEN30823"
+>libz Function Interfaces</A
+></DT
+><DT
+>A-13. <A
+HREF="app-libncurses.html#AEN30929"
+>libncurses Function Interfaces</A
+></DT
+><DT
+>A-14. <A
+HREF="app-libncurses.html#AEN31568"
+>libncurses Data Interfaces</A
+></DT
+><DT
+>A-15. <A
+HREF="app-libutil.html#AEN31590"
+>libutil Function Interfaces</A
+></DT
+><DT
+>A-16. <A
+HREF="app-libc.html#AEN31622"
+>libc Function Interfaces</A
+></DT
+><DT
+>A-17. <A
+HREF="app-libc.html#AEN33479"
+>libc Data Interfaces</A
+></DT
+><DT
+>A-18. <A
+HREF="app-libpthread.html#AEN33503"
+>libpthread Function Interfaces</A
+></DT
+><DT
+>A-19. <A
+HREF="app-libpam.html#AEN33702"
+>libpam Function Interfaces</A
+></DT
+><DT
+>A-20. <A
+HREF="app-libgcc-s.html#AEN33745"
+>libgcc_s Function Interfaces</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Figures</B
+></DT
+><DT
+>7-1. <A
+HREF="symverdefs.html#AEN1094"
+>Version Definition Entries</A
+></DT
+><DT
+>7-2. <A
+HREF="symverdefs.html#AEN1133"
+>Version Definition Auxiliary Entries</A
+></DT
+><DT
+>7-3. <A
+HREF="symverrqmts.html#AEN1154"
+>Version Needed Entries</A
+></DT
+><DT
+>7-4. <A
+HREF="symverrqmts.html#AEN1183"
+>Version Needed Auxiliary Entries</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="tocintro.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Introduction</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

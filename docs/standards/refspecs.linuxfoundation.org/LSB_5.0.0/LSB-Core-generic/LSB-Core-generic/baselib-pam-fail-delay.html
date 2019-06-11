@@ -1,0 +1,303 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>pam_fail_delay</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libpam"
+HREF="libpamman.html"><LINK
+REL="PREVIOUS"
+TITLE="pam_end"
+HREF="baselib-pam-end.html"><LINK
+REL="NEXT"
+TITLE="pam_get_item"
+HREF="baselib-pam-get-item.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-pam-end.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-pam-get-item.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-PAM-FAIL-DELAY"
+></A
+>pam_fail_delay</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN27963"
+></A
+><H2
+>Name</H2
+>pam_fail_delay&nbsp;--&nbsp;specify delay time to use on authentication error</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN27966"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN27969"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;security/pam_appl.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int 
+  <TT
+CLASS="FUNCTION"
+>pam_fail_delay</TT
+></CODE
+>(pam_handle_t *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>pamh</I
+></TT
+></I
+></TT
+>, unsigned int 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>micro_sec</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN27980"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="FUNCTION"
+>pam_fail_delay()</TT
+> specifies the minimum delay for the 
+PAM library to use when an authentication error occurs. The actual delay 
+can vary by as much at 25%. If this function is called multiple times, 
+the longest time specified by any of the call will be used.</P
+><P
+>The delay is invoked if an authentication error occurs during the
+<TT
+CLASS="FUNCTION"
+>pam_authenticate()</TT
+> or <TT
+CLASS="FUNCTION"
+>pam_chauthtok()</TT
+>
+function calls.</P
+><P
+>Independent of the success of
+<TT
+CLASS="FUNCTION"
+>pam_authenticate()</TT
+> or <TT
+CLASS="FUNCTION"
+>pam_chauthtok()</TT
+>,
+the delay time is reset to its default value of 0 when the PAM library returns 
+control to the application from these two functions.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN27992"
+></A
+><H2
+>Return Value</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN27995"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PAM_SUCCESS</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Success.</P
+></TD
+></TR
+></TBODY
+></TABLE
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>Errors may be translated to text with <TT
+CLASS="FUNCTION"
+>pam_strerror()</TT
+>.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-pam-end.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-pam-get-item.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>pam_end</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libpamman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>pam_get_item</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

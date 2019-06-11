@@ -1,0 +1,387 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>inflateSync</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libz"
+HREF="libzman.html"><LINK
+REL="PREVIOUS"
+TITLE="inflateSetDictionary"
+HREF="zlib-inflatesetdictionary-1.html"><LINK
+REL="NEXT"
+TITLE="inflateSyncPoint"
+HREF="zlib-inflatesyncpoint-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="zlib-inflatesetdictionary-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="zlib-inflatesyncpoint-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="ZLIB-INFLATESYNC-1"
+></A
+>inflateSync</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN31442"
+></A
+><H2
+>Name</H2
+>inflateSync&nbsp;--&nbsp;advance compression stream to next sync point</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN31447"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN31448"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;zlib.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>inflateSync</TT
+></CODE
+>(z_streamp
+<TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31455"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>inflateSync()</TT
+> function shall advance through the
+compressed data in <TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+>, skipping any invalid
+compressed data, until the next full flush point is reached, or all
+input is exhausted. See the
+description for <TT
+CLASS="FUNCTION"
+>deflate()</TT
+> with flush level
+<CODE
+CLASS="CONSTANT"
+>Z_FULL_FLUSH</CODE
+>.
+No output is placed in <CODE
+CLASS="STRUCTFIELD"
+>next_out</CODE
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31463"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <TT
+CLASS="FUNCTION"
+>inflateSync()</TT
+> shall return  
+<SPAN
+CLASS="RETURNVALUE"
+>Z_OK</SPAN
+>, and update the
+<CODE
+CLASS="STRUCTFIELD"
+>next_in</CODE
+>,
+<CODE
+CLASS="STRUCTFIELD"
+>avail_in</CODE
+>, and
+<CODE
+CLASS="STRUCTFIELD"
+>total_in</CODE
+>
+fields of <TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+> to reflect the number
+of bytes of compressed data that have been skipped.
+Otherwise, <TT
+CLASS="FUNCTION"
+>inflateSync()</TT
+>
+shall return a value as described below to indicate the
+error.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN31473"
+></A
+><H2
+>Errors</H2
+><P
+>On error, <TT
+CLASS="FUNCTION"
+>inflateSync()</TT
+> shall return a value
+as described below:
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN31478"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>Z_STREAM_ERROR</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The state (as represented in <TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+>) is inconsistent, or
+<TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+> was <CODE
+CLASS="CONSTANT"
+>NULL</CODE
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN31486"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>Z_BUF_ERROR</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>There is no data available to skip over.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN31491"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>Z_DATA_ERROR</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>No sync point was found.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="zlib-inflatesetdictionary-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="zlib-inflatesyncpoint-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>inflateSetDictionary</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libzman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>inflateSyncPoint</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

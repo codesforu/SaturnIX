@@ -1,0 +1,1334 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>inotify_add_watch</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="initstate_r"
+HREF="baselib-initstate-r-1.html"><LINK
+REL="NEXT"
+TITLE="inotify_init"
+HREF="baselib-inotify-init.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-initstate-r-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-inotify-init.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-INOTIFY-ADD-WATCH"
+></A
+>inotify_add_watch</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN16835"
+></A
+><H2
+>Name</H2
+>inotify_add_watch&nbsp;--&nbsp;add a watch to a watch list</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN16838"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN16839"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;sys/inotify.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int 
+  <TT
+CLASS="FUNCTION"
+>inotify_add_watch</TT
+></CODE
+>(int
+  <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>, const char *
+  <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>, uint32_t
+  <TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16850"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="FUNCTION"
+>inotify_add_watch()</TT
+> shall add a watch to,
+or modify an existing watch on,
+the watch list of the inotify instance 
+specified by the file descriptor <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>,
+for the file specified by <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>,
+to monitor the events specified by the bitmask <TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>.
+The caller must have read access to the file.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16857"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <TT
+CLASS="FUNCTION"
+>inotify_add_watch()</TT
+> 
+shall return the unique, non-negative watch descriptor
+associated with the file <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>
+and the inotify instance specified by the file descriptor <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+> was already on the watch list, 
+then <TT
+CLASS="FUNCTION"
+>inotify_add_watch()</TT
+> shall return
+the existing watch descriptor.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+> was not already on the watch list, 
+then <TT
+CLASS="FUNCTION"
+>inotify_add_watch()</TT
+>
+shall allocate a new watch descriptor.</P
+><P
+><TT
+CLASS="FUNCTION"
+>inotify_add_watch()</TT
+> shall not work recursively. 
+Monitoring subdirectories of <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>
+shall require adding watches to them.</P
+><P
+>On failure, <TT
+CLASS="FUNCTION"
+>inotify_add_watch()</TT
+> shall return <TT
+CLASS="LITERAL"
+>-1</TT
+>
+and set <CODE
+CLASS="VARNAME"
+>errno</CODE
+> to an appropriate value.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16876"
+></A
+><H2
+>Errors</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16879"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EACCESS</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The caller does not have read access to <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16884"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EBADF</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The file descriptor <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+> is invalid.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16889"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EFAULT</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+> is outside of 
+the address space accessible by the process.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16894"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EINVAL</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+> contains no legal events, or 
+<TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+> is not a valid inotify file descriptor.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16900"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ENOMEM</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>There is not enough kernel memory available.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16904"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ENOSPC</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The maximum number of watches has been created for this user, 
+or the kernel cannot allocate a resource.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16908"
+></A
+><H2
+>Application Usage</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16910"
+></A
+><H3
+>Reading</H3
+><P
+>The function <TT
+CLASS="FUNCTION"
+>read()</TT
+> can be used 
+to determine which inotify events have occurred. 
+A blocking file descriptor will make 
+<TT
+CLASS="FUNCTION"
+>read()</TT
+> block until at least one event has occurred.</P
+><P
+>If successful, <TT
+CLASS="FUNCTION"
+>read()</TT
+> will return at least one 
+of the following <CODE
+CLASS="VARNAME"
+>inotify_event</CODE
+> structures in a buffer:</P
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN16919"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct inotify_event {
+    int      wd;
+    uint32_t mask;
+    uint32_t cookie;
+    uint32_t len;
+    char     path[];
+};
+  </PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></P
+><P
+><CODE
+CLASS="VARNAME"
+>wd</CODE
+> is a watch descriptor that 
+specifies the watch associated with the event.
+It is obtained from a previous invocation of 
+<TT
+CLASS="FUNCTION"
+>inotify_add_watch()</TT
+>.</P
+><P
+><CODE
+CLASS="VARNAME"
+>mask</CODE
+> is a bit mask describing inotify events. 
+See the section on masks below.</P
+><P
+><CODE
+CLASS="VARNAME"
+>cookie</CODE
+> is an integer associating related inotify events.
+The integer value is unique, and currently
+only enables the application to associate 
+<CODE
+CLASS="CONSTANT"
+>IN_MOVE_FROM</CODE
+> and
+<CODE
+CLASS="CONSTANT"
+>IN_MOVE_TO</CODE
+> rename events.</P
+><P
+><CODE
+CLASS="VARNAME"
+>len</CODE
+> is a count of the bytes in <CODE
+CLASS="VARNAME"
+>path</CODE
+>, 
+including null bytes. 
+This means that the total length of an <CODE
+CLASS="VARNAME"
+>inotify_event</CODE
+> 
+structure is
+<DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN16934"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>sizeof(inotify_event)+len
+  </PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></P
+><P
+><CODE
+CLASS="VARNAME"
+>path</CODE
+> is only returned when an event occurs for a file within
+a watched directory. This string is null-terminated, and it may contain 
+more null bytes so that future reads will be aligned properly on an
+address boundary.</P
+><P
+>In kernels before 2.6.21, <TT
+CLASS="FUNCTION"
+>read()</TT
+> 
+returns <TT
+CLASS="LITERAL"
+>0</TT
+> when the buffer given to it is too small
+to return data about the next event. In subsequent kernels, it fails with the 
+error <CODE
+CLASS="CONSTANT"
+>EINVAL</CODE
+>.</P
+><P
+>For a given file descriptor, the inotify events are returned in an ordered queue.
+Events on a file descriptor will always be returned in the correct order of occurrence.
+If two or more inotify events for a given file descriptor have identical values for all
+fields, then only one <CODE
+CLASS="VARNAME"
+>inotify_event</CODE
+> 
+will be returned to represent all of them.</P
+><P
+>The number of bytes that can be read from an inotify file descriptor
+can be determined by making a 
+<CODE
+CLASS="CONSTANT"
+>FIONREAD</CODE
+> <TT
+CLASS="FUNCTION"
+>ioctl()</TT
+> call.</P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16947"
+></A
+><H3
+>Masks</H3
+><P
+>The <TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+> argument of 
+<TT
+CLASS="FUNCTION"
+>inotify_add_watch()</TT
+> and the <CODE
+CLASS="VARNAME"
+>mask</CODE
+> field of the 
+<CODE
+CLASS="VARNAME"
+>inotify_event</CODE
+> structure are bit masks that specify inotify events. 
+The bits in the list below can be set in the <TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+> argument of 
+<TT
+CLASS="FUNCTION"
+>inotify_add_watch()</TT
+> and returned in the 
+<CODE
+CLASS="VARNAME"
+>mask</CODE
+> field of <CODE
+CLASS="VARNAME"
+>inotify_event</CODE
+>.</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16959"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_ACCESS</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>File was read.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16963"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_ALL_EVENTS</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Bit mask of all events in this list.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16967"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_ATTRIB</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>File's metadata changed (including timestamps and permissions).</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16971"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_CLOSE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Same as
+<DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN16975"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>IN_CLOSE_WRITE | IN_CLOSE_NOWRITE
+  </PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16977"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_CLOSE_WRITE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>File that was opened for writing was closed.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16981"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_CLOSE_NOWRITE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>File that was not opened for writing was closed.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16985"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_CREATE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>File or directory was created in a watched directory.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16989"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_DELETE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>File or directory was deleted in a watched directory.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16993"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_DELETE_SELF</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Watched file or directory was deleted.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16997"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_MODIFY</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>File was changed.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17001"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_MOVE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Same as
+<DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN17005"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>IN_MOVED_FROM | IN_MOVED_TO
+  </PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17007"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_MOVE_SELF</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Watched file or directory was moved</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17011"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_MOVED_FROM</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>File was moved out of watched directory.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17015"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_MOVED_TO</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>File was moved into watched directory.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17019"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_OPEN</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>File was opened.</P
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+>All of the events above, except for 
+<CODE
+CLASS="CONSTANT"
+>IN_DELETE_SELF</CODE
+> and <CODE
+CLASS="CONSTANT"
+>IN_MOVE_SELF</CODE
+>, 
+cause the name field of the <CODE
+CLASS="VARNAME"
+>inotify_event</CODE
+> structure to contain 
+the name of the file or directory being monitored.</P
+><P
+>The following bit is valid for <TT
+CLASS="FUNCTION"
+>inotify_add_watch()</TT
+> only.</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17030"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_ONESHOT</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Monitor path for an event, and then remove it from the watch list.</P
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+>The following bits are valid for the <CODE
+CLASS="VARNAME"
+>inotify_event</CODE
+> structure only.</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17037"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_IGNORED</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Watch was removed, either explicitly (via <TT
+CLASS="FUNCTION"
+>inotify_rm_watch()</TT
+>) 
+or implicitly (file deletion or file system unmounting).</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17042"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_ISDIR</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Object being watched is a directory.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17046"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_Q_OVERFLOW</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The event queue overflowed (<TT
+CLASS="PARAMETER"
+><I
+>wd</I
+></TT
+> is set to <TT
+CLASS="LITERAL"
+>-1</TT
+>).</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN17052"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>IN_UNMOUNT</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>File system of object being watched was unmounted.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN17056"
+></A
+><H3
+>Notes</H3
+><P
+>It is possible to monitor file descriptors with the functions <TT
+CLASS="FUNCTION"
+>epoll()</TT
+>, 
+<TT
+CLASS="FUNCTION"
+>poll()</TT
+>, and <TT
+CLASS="FUNCTION"
+>select()</TT
+>.</P
+><P
+>When all of the file descriptors that point to an inotify instance
+have been closed, the instance and its associated resources and 
+watches are freed by the kernel.</P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN17063"
+></A
+><H2
+>See Also</H2
+><P
+><TT
+CLASS="FUNCTION"
+>inotify_init()</TT
+>, <TT
+CLASS="FUNCTION"
+>inotify_rm_watch()</TT
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-initstate-r-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-inotify-init.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>initstate_r</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>inotify_init</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

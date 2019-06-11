@@ -1,0 +1,408 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>User &#38; Group Names</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Users &#38; Groups"
+HREF="usersgroups.html"><LINK
+REL="PREVIOUS"
+TITLE="Users &#38; Groups"
+HREF="usersgroups.html"><LINK
+REL="NEXT"
+TITLE="User ID Ranges"
+HREF="uidrange.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="usersgroups.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 23. Users &#38; Groups</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="uidrange.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="USERNAMES"
+>23.2. User &#38; Group Names</A
+></H1
+><P
+><A
+HREF="usernames.html#TBL-REQUIREDUSERS"
+>Table 23-1</A
+> describes required mnemonic user 
+and group names.   This specification makes no attempt to numerically 
+assign user or group identity numbers, with the exception that both the 
+User ID and Group ID for the user <TT
+CLASS="LITERAL"
+>root</TT
+> shall be equal to 0.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-REQUIREDUSERS"
+></A
+><P
+><B
+>Table 23-1. Required User &#38; Group Names</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+>User</TH
+><TH
+>Group</TH
+><TH
+>Comments</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+>root</TD
+><TD
+>root</TD
+><TD
+>Administrative user
+with all appropriate privileges</TD
+></TR
+><TR
+><TD
+>bin</TD
+><TD
+>bin</TD
+><TD
+>Legacy User ID/Group ID<A
+NAME="AEN61990"
+HREF="#FTN.AEN61990"
+><SPAN
+CLASS="footnote"
+>[a]</SPAN
+></A
+></TD
+></TR
+><TR
+><TD
+>daemon</TD
+><TD
+>daemon</TD
+><TD
+>Legacy User ID/Group ID<A
+NAME="AEN61998"
+HREF="#FTN.AEN61998"
+><SPAN
+CLASS="footnote"
+>[b]</SPAN
+></A
+></TD
+></TR
+></TBODY
+><TR
+><TD
+COLSPAN="3"
+>Notes:<BR><A
+NAME="FTN.AEN61990"
+>a. </A
+>The <TT
+CLASS="LITERAL"
+>bin</TT
+> User ID/Group ID is included for compatibility with legacy applications.
+New applications should no longer use the <TT
+CLASS="LITERAL"
+>bin</TT
+> User ID/Group ID.<BR><A
+NAME="FTN.AEN61998"
+>b. </A
+>The <TT
+CLASS="LITERAL"
+>daemon</TT
+> User ID/Group ID was used as an unprivileged User ID/Group ID for daemons to
+execute under in order to limit their access to the system.  Generally
+daemons should now run under individual User ID/Group IDs in order to further
+partition daemons from one another.<BR></TD
+></TR
+></TABLE
+></DIV
+><P
+></P
+><P
+><A
+HREF="usernames.html#TBL-OPTUSERS"
+>Table 23-2</A
+> is a table of optional mnemonic user and group names.   This 
+specification makes no attempt to numerically assign uid or gid numbers.
+If the username exists on a system, then they should be in the suggested
+corresponding group.
+These user and group names are for use by distributions, not by applications.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-OPTUSERS"
+></A
+><P
+><B
+>Table 23-2. Optional User &#38; Group Names</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+>User</TH
+><TH
+>Group</TH
+><TH
+>Comments</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+>adm</TD
+><TD
+>adm</TD
+><TD
+>Administrative special privileges</TD
+></TR
+><TR
+><TD
+>lp</TD
+><TD
+>lp</TD
+><TD
+>Printer special privileges</TD
+></TR
+><TR
+><TD
+>sync</TD
+><TD
+>sync</TD
+><TD
+>Login to sync the system</TD
+></TR
+><TR
+><TD
+>shutdown</TD
+><TD
+>shutdown</TD
+><TD
+>Login to shutdown the system</TD
+></TR
+><TR
+><TD
+>halt</TD
+><TD
+>halt</TD
+><TD
+>Login to halt the system</TD
+></TR
+><TR
+><TD
+>mail</TD
+><TD
+>mail</TD
+><TD
+>Mail special privileges</TD
+></TR
+><TR
+><TD
+>news</TD
+><TD
+>news</TD
+><TD
+>News special privileges</TD
+></TR
+><TR
+><TD
+>uucp</TD
+><TD
+>uucp</TD
+><TD
+>UUCP special privileges</TD
+></TR
+><TR
+><TD
+>operator</TD
+><TD
+>root</TD
+><TD
+>Operator special privileges</TD
+></TR
+><TR
+><TD
+>man</TD
+><TD
+>man</TD
+><TD
+>Man special privileges</TD
+></TR
+><TR
+><TD
+>nobody</TD
+><TD
+>nobody</TD
+><TD
+>Used by NFS</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>Only a minimum working set of "user names" and their corresponding 
+"user groups" are required.
+Applications cannot assume non system user or group names will be defined.</P
+><P
+>Applications cannot assume any policy for the default file creation mask 
+(<B
+CLASS="COMMAND"
+>umask</B
+>) or the default
+directory permissions a user may have. Applications should enforce user
+only file permissions on private files such as mailboxes.  The location of
+the users home directory is also not defined by policy other than the
+recommendations of the <A
+HREF="normativerefs.html#STD.FHS"
+>Filesystem Hierarchy Standard</A
+> and should be obtained by 
+the <TT
+CLASS="FUNCTION"
+>getpwnam()</TT
+>, <TT
+CLASS="FUNCTION"
+>getpwnam_r()</TT
+>, <TT
+CLASS="FUNCTION"
+>getpwent()</TT
+>, <TT
+CLASS="FUNCTION"
+>getpwuid()</TT
+>, and <TT
+CLASS="FUNCTION"
+>getpwuid_r()</TT
+> functions.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="usersgroups.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="uidrange.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Users &#38; Groups</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="usersgroups.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>User ID Ranges</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

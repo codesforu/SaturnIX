@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>forkpty</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libutil"
+HREF="libutilman.html"><LINK
+REL="PREVIOUS"
+TITLE="Interface Definitions for libutil"
+HREF="libutilman.html"><LINK
+REL="NEXT"
+TITLE="login"
+HREF="utillib-login-3.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libutilman.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="utillib-login-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="UTILLIB-FORKPTY-3"
+></A
+>forkpty</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN35436"
+></A
+><H2
+>Name</H2
+>forkpty&nbsp;--&nbsp;Create a new process attached to an available pseudo-terminal</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN35441"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN35444"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;pty.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>forkpty</TT
+></CODE
+>(int *
+    <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>amaster</I
+></TT
+></I
+></TT
+>, char *
+    <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>name</I
+></TT
+></I
+></TT
+>, const struct termios *
+    <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>termp</I
+></TT
+></I
+></TT
+>, const struct winsize *
+    <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>winp</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35461"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>forkpty()</TT
+>
+function shall find and open a pseudo-terminal device pair in the
+same manner as the <TT
+CLASS="FUNCTION"
+>openpty()</TT
+> function. 
+If a pseudo-terminal is available,
+<TT
+CLASS="FUNCTION"
+>forkpty()</TT
+>
+shall create a new process in the same manner as the <TT
+CLASS="FUNCTION"
+>fork()</TT
+>
+function, and prepares the new process for login in the same manner as 
+<TT
+CLASS="FUNCTION"
+>login_tty()</TT
+>.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>termp</I
+></TT
+> is not null, 
+it shall refer to a <CODE
+CLASS="VARNAME"
+>termios</CODE
+> structure that shall be used
+to initialize the characteristics of the slave device. 
+If <TT
+CLASS="PARAMETER"
+><I
+>winp</I
+></TT
+> is not null, it
+shall refer to a <CODE
+CLASS="VARNAME"
+>winsize</CODE
+> structure used to 
+initialize the window size of the
+slave device.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35476"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, the parent process shall return the process id of the child, and the
+child shall return 0. On error, no new process shall be created, -1 shall be
+returned, and <CODE
+CLASS="VARNAME"
+>errno</CODE
+> shall be set appropriately.
+On success, the parent process shall receive the file descriptor of the master
+side of the pseudo-terminal in the location referenced by 
+<TT
+CLASS="PARAMETER"
+><I
+>amaster</I
+></TT
+>, and, if <TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+> is
+not NULL, the filename of the slave device in 
+<TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>. </P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35483"
+></A
+><H2
+>Errors</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN35486"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EAGAIN</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Unable to create a new process.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN35490"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ENOENT</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>There are no available pseudo-terminals.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN35494"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ENOMEM</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Insufficient memory was available.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libutilman.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="utillib-login-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interface Definitions for libutil</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libutilman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>login</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

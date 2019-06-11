@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>svc_sendreply</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="svc_run"
+HREF="baselib-svc-run-3.html"><LINK
+REL="NEXT"
+TITLE="svctcp_create"
+HREF="baselib-svctcp-create-3.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-svc-run-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-svctcp-create-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-SVC-SENDREPLY-3"
+></A
+>svc_sendreply</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN20406"
+></A
+><H2
+>Name</H2
+>svc_sendreply&nbsp;--&nbsp;called by RPC service's dispatch routine</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN20409"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN20412"
+></A
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>bool_t <TT
+CLASS="FUNCTION"
+>svc_sendreply</TT
+></CODE
+>(SVCXPRT *<TT
+CLASS="PARAMETER"
+><I
+>xprt</I
+></TT
+>, xdrproc_t <TT
+CLASS="PARAMETER"
+><I
+>outproc</I
+></TT
+>, caddr_t <TT
+CLASS="PARAMETER"
+><I
+>out</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20422"
+></A
+><H2
+>Description</H2
+><P
+>Called by an RPC service's dispatch routine to send the  results of a remote procedure call.  
+The parameter <TT
+CLASS="PARAMETER"
+><I
+>xprt</I
+></TT
+> is the request's associated transport handle; 
+<TT
+CLASS="PARAMETER"
+><I
+>outproc</I
+></TT
+> is the XDR routine which is used  to  encode  the  results;  
+and  <TT
+CLASS="PARAMETER"
+><I
+>out</I
+></TT
+>  is the address of the results.  
+This routine returns one if it succeeds,  zero  otherwise.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-svc-run-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-svctcp-create-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>svc_run</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>svctcp_create</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

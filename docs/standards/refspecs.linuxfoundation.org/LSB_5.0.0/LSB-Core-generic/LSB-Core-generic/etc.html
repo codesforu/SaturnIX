@@ -1,0 +1,577 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>/etc: Host-specific system configuration</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="File System Hierarchy"
+HREF="execenvfhs.html"><LINK
+REL="PREVIOUS"
+TITLE="File System Hierarchy"
+HREF="execenvfhs.html"><LINK
+REL="NEXT"
+TITLE="User Accounting Databases"
+HREF="fhs-user-accounting-dbs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="execenvfhs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 18. File System Hierarchy</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="fhs-user-accounting-dbs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="ETC"
+>18.2. <TT
+CLASS="FILENAME"
+>/etc</TT
+>: Host-specific system configuration</A
+></H1
+><P
+>In addition to the requirements for <TT
+CLASS="FILENAME"
+>/etc</TT
+> in the
+<A
+HREF="normativerefs.html#STD.FHS"
+>Filesystem Hierarchy Standard</A
+>, an LSB conforming system shall also provide the
+following directories or symbolic links to directories:
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN60995"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="FILENAME"
+>/etc/cron.d</TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A directory containing extended <B
+CLASS="COMMAND"
+>crontab</B
+> files;
+see <A
+HREF="sysinit.html#CRONJOBS"
+>Cron Jobs</A
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN61002"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="FILENAME"
+>/etc/cron.daily</TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A directory containing shell scripts to be executed once a day;
+see <A
+HREF="sysinit.html#CRONJOBS"
+>Cron Jobs</A
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN61008"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="FILENAME"
+>/etc/cron.hourly</TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A directory containing shell scripts to be executed once per hour;
+see <A
+HREF="sysinit.html#CRONJOBS"
+>Cron Jobs</A
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN61014"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="FILENAME"
+>/etc/cron.monthly</TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A directory containing shell scripts to be executed once per month;
+see <A
+HREF="sysinit.html#CRONJOBS"
+>Cron Jobs</A
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN61020"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="FILENAME"
+>/etc/cron.weekly</TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A directory containing shell scripts to be executed once a week;
+see <A
+HREF="sysinit.html#CRONJOBS"
+>Cron Jobs</A
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN61026"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="FILENAME"
+>/etc/init.d</TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A directory containing system initialization scripts;
+see <A
+HREF="initsrcinstrm.html"
+>Installation and Removal of Init Scripts</A
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN61032"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="FILENAME"
+>/etc/profile.d</TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A directory containing shell scripts. 
+Script names should follow the same conventions
+as specified for cron jobs (see <A
+HREF="sysinit.html#CRONJOBS"
+>Cron Jobs</A
+>, but should
+have the suffix <TT
+CLASS="FILENAME"
+>.sh</TT
+>.
+The behavior is unspecified if a script is installed in this directory that
+does not have the suffix <TT
+CLASS="FILENAME"
+>.sh</TT
+>.</P
+><P
+>The <B
+CLASS="COMMAND"
+>sh</B
+> utility
+shall read and execute commands in its current execution environment 
+from all the shell scripts in this directory that have the suffix <TT
+CLASS="FILENAME"
+>.sh</TT
+>
+when invoked as an interactive login shell,
+or if the <TT
+CLASS="PARAMETER"
+><I
+>-l</I
+></TT
+> (the letter <I
+CLASS="EMPHASIS"
+>ell</I
+>)
+is specified (see <A
+HREF="sh.html#CMD-SH-INVOKE"
+>Shell Invocation</A
+>).</P
+></TD
+></TR
+></TBODY
+></TABLE
+>
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Future Directions: </B
+>These directories are required at this version of the LSB since there is not
+yet an agreed method for abstracting the implementation so that applications
+need not be aware of these locations during installation. </P
+></BLOCKQUOTE
+></DIV
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="FHS-NAME-RULES"
+>18.2.1. File Naming Conventions</A
+></H2
+><P
+>Conforming implementations and applications installing files into any
+of the above locations under
+<TT
+CLASS="FILENAME"
+>/etc</TT
+> may only use filenames
+from the following managed namespaces:
+<P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>Assigned names.  Such names must be chosen from
+the character set <TT
+CLASS="LITERAL"
+>[a-z0-9]</TT
+>.
+In order to avoid conflicts these 
+names shall be registered. This specification establishes
+a registry of provider, package and script names which is maintained
+at the Linux Assigned Names and Numbers Authority (LANANA).
+See <A
+HREF="http://www.lanana.org"
+TARGET="_top"
+>www.lanana.org</A
+>
+to register names or look up already registered names.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>Commonly used names should be registered to avoid conflicts
+and promote name reuse across distributions.
+Project developers are encouraged to reserve names with the LANANA
+as early as possible as registration is on a first-come,
+first-served basis.</P
+></BLOCKQUOTE
+></DIV
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>Hierarchical names.  Script names in this category take the form: 
+<TT
+CLASS="FILENAME"
+>&#60;hier1&#62;-&#60;hier2&#62;-...-&#60;name&#62;</TT
+>,
+where name is taken from the character set 
+<TT
+CLASS="LITERAL"
+>[a-z0-9],</TT
+> 
+and where there may be one or more 
+<TT
+CLASS="FILENAME"
+>&#60;hier-<TT
+CLASS="REPLACEABLE"
+><I
+>n</I
+></TT
+>&#62;</TT
+> components.  
+<TT
+CLASS="FILENAME"
+>&#60;hier1&#62;</TT
+> may either be an LSB provider name 
+registered with the LANANA,
+or it may be a domain name registered to the provider in the DNS system,
+containing at least one <TT
+CLASS="LITERAL"
+>'.'</TT
+>
+(e.g. "<TT
+CLASS="LITERAL"
+>debian.org</TT
+>", "<TT
+CLASS="LITERAL"
+>staroffice.sun.com</TT
+>").
+The LSB provider name registered with the LANANA 
+shall only consist of the ASCII characters <TT
+CLASS="LITERAL"
+>[a-z0-9]</TT
+>.</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>Reserved names.  Names that
+begin with the character '<TT
+CLASS="LITERAL"
+>_</TT
+>' are reserved for
+distribution use only.  Names in this form should be used
+for essential system packages only.</P
+></LI
+></UL
+>
+
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>As this specification cannot enforce rules for applications which
+do not choose to conform to it, conforming applications need to be
+aware that the managed namespaces may have been polluted 
+with unregistered filenames and should check
+for namespace collisions and take appropriate steps if they occur.</P
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+>In general, if a package or system script is likely to be used
+on multiple systems, the package developers or the distribution should
+register the name through the LANANA, and distributions should strive to
+use the same name whenever possible.  For applications which may not
+be essential or may not be commonly installed, the hierarchical namespace
+may be more appropriate.  An advantage to the hierarchical namespace
+is that there is no need to consult with the LANANA before using a 
+specific name.</P
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+>Short names are highly desirable, since system
+administrators may wish to manually start and stop services.
+Given this, they should be standardized on a per-package basis.  This
+is the rationale behind having the LANANA organization assign these
+names.  The LANANA may be called upon to handle other namespace issues,
+such as package/prerequisites naming.</P
+></BLOCKQUOTE
+></DIV
+>&#13;</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="execenvfhs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="fhs-user-accounting-dbs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>File System Hierarchy</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="execenvfhs.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>User Accounting Databases</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

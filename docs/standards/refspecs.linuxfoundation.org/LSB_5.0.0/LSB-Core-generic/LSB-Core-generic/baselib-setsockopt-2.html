@@ -1,0 +1,721 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>setsockopt</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="sethostname"
+HREF="baselib-sethostname-2.html"><LINK
+REL="NEXT"
+TITLE="setstate_r"
+HREF="baselib-setstate-r-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-sethostname-2.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-setstate-r-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-SETSOCKOPT-2"
+></A
+>setsockopt</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN19377"
+></A
+><H2
+>Name</H2
+>setsockopt&nbsp;--&nbsp;set socket options</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN19382"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN19383"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;sys/socket.h&#62;
+#include &#60;netinet/ip.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>setsockopt</TT
+></CODE
+>(int
+<TT
+CLASS="PARAMETER"
+><I
+>socket</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>level</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>option_name</I
+></TT
+>, const void *
+<TT
+CLASS="PARAMETER"
+><I
+>option_value</I
+></TT
+>, socklen_t
+<TT
+CLASS="PARAMETER"
+><I
+>option_len</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19398"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>setsockopt()</TT
+> function shall behave as specified in
+<I
+CLASS="CITETITLE"
+><A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+></I
+>,
+with the following extensions.</P
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN19404"
+></A
+><H3
+>IP Protocol Level Options</H3
+><P
+>If the <TT
+CLASS="PARAMETER"
+><I
+>level</I
+></TT
+> parameter is
+<CODE
+CLASS="CONSTANT"
+>IPPROTO_IP</CODE
+>, the following values shall be supported for
+<TT
+CLASS="PARAMETER"
+><I
+>option_name</I
+></TT
+> (see <A
+HREF="informativerefs.html#STD.RFC791"
+>RFC 791:Internet Protocol</A
+> for
+further details):
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19412"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>IP_OPTIONS</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Set the Internet Protocol options sent with
+every packet from this socket.
+The <TT
+CLASS="PARAMETER"
+><I
+>option_value</I
+></TT
+> shall point to a
+memory buffer containing the options and
+<TT
+CLASS="PARAMETER"
+><I
+>option_len</I
+></TT
+> shall contain the size in bytes
+of that buffer.
+For IPv4, the maximum length of options is 40 bytes.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19419"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>IP_TOS</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Set the Type of Service flags
+to use when sending packets with this socket.
+The <TT
+CLASS="PARAMETER"
+><I
+>option_value</I
+></TT
+> shall point to a value
+containing the type of service value. The least significant two bits
+of the value shall contain the new Type of Service indicator. Use of other
+bits in the value is unspecified.
+The <TT
+CLASS="PARAMETER"
+><I
+>option_len</I
+></TT
+> parameter shall hold the size, in bytes,
+of the buffer referred to by <TT
+CLASS="PARAMETER"
+><I
+>option_value</I
+></TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19427"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>IP_TTL</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Set the current unicast Internet Protocol
+Time To Live value used when sending packets with this socket.
+The <TT
+CLASS="PARAMETER"
+><I
+>option_value</I
+></TT
+> shall point to a value
+containing the time to live value, which shall be between
+1 and 255.
+The <TT
+CLASS="PARAMETER"
+><I
+>option_len</I
+></TT
+> parameter shall hold the size, in bytes,
+of the buffer referred to by <TT
+CLASS="PARAMETER"
+><I
+>option_value</I
+></TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19435"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>IP_MULTICAST_TTL</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Sets the Time To Live value of outgoing multicast packets for this
+socket. <TT
+CLASS="PARAMETER"
+><I
+>optval</I
+></TT
+> shall point to an integer which contains
+the new TTL value. If the new TTL value is <CODE
+CLASS="CONSTANT"
+>-1</CODE
+>, the implementation
+should use an unspecified default TTL value. If the new TTL value is out of the range
+of acceptable values (0-255), <TT
+CLASS="FUNCTION"
+>setsockopt()</TT
+> shall return
+<CODE
+CLASS="CONSTANT"
+>-1</CODE
+> and set <CODE
+CLASS="VARNAME"
+>errno</CODE
+> to indicate the error.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19445"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>IP_MULTICAST_LOOP</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Sets a boolean flag indicating whether multicast packets originating locally
+should be looped back to the local sockets.
+<TT
+CLASS="PARAMETER"
+><I
+>optval</I
+></TT
+> shall point to an integer which contains
+the new flag value.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19451"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>IP_ADD_MEMBERSHIP</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Join a multicast group.
+<TT
+CLASS="PARAMETER"
+><I
+>optval</I
+></TT
+> shall point to a
+<TT
+CLASS="STRUCTNAME"
+>ip_mreq</TT
+> structure. Before calling, the
+caller should fill in the <CODE
+CLASS="STRUCTFIELD"
+>imr_multiaddr</CODE
+>
+field with the multicast group address and the
+<CODE
+CLASS="STRUCTFIELD"
+>imr_address</CODE
+> field with the address of the local
+interface. If <CODE
+CLASS="STRUCTFIELD"
+>imr_address</CODE
+> is set to INADDR_ANY,
+then an appropriate interface is chosen by the system.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19461"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>IP_DROP_MEMBERSHIP</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Leave a multicast group.
+<TT
+CLASS="PARAMETER"
+><I
+>optval</I
+></TT
+> shall point to a
+<TT
+CLASS="STRUCTNAME"
+>ip_mreq</TT
+> structure containing the same values as were
+used with <CODE
+CLASS="CONSTANT"
+>IP_ADD_MEMBERSHIP</CODE
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19469"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>IP_MULTICAST_IF</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Set the local device for a multicast socket.
+<TT
+CLASS="PARAMETER"
+><I
+>optval</I
+></TT
+> shall point to either an
+<TT
+CLASS="STRUCTNAME"
+>ip_mreqn</TT
+> structure or an 
+<TT
+CLASS="STRUCTNAME"
+>in_addr</TT
+> structure.  
+If using the <TT
+CLASS="STRUCTNAME"
+>ip_mreqn</TT
+> structure,
+the <CODE
+CLASS="STRUCTFIELD"
+>imr_multiaddr</CODE
+> field should be set to 
+multicast group address, the <CODE
+CLASS="STRUCTFIELD"
+>imr_address</CODE
+> 
+field to the address of the local interface,
+and the <CODE
+CLASS="STRUCTFIELD"
+>imr_index</CODE
+> field to the interface index.
+If using the <TT
+CLASS="STRUCTNAME"
+>in_addr</TT
+> structure, 
+the address of the local interface shall be specified.
+If <CODE
+CLASS="STRUCTFIELD"
+>in_addr</CODE
+> or 
+<CODE
+CLASS="STRUCTFIELD"
+>imr_address</CODE
+> is set to 
+<CODE
+CLASS="CONSTANT"
+>INADDR_ANY</CODE
+>, then an appropriate interface 
+is chosen by the system.  
+If <CODE
+CLASS="STRUCTFIELD"
+>imr_index</CODE
+> is zero, 
+then an appropriate interface index is chosen by the implementation.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></P
+><P
+>The <TT
+CLASS="STRUCTNAME"
+>ip_mreq</TT
+> structure contains two
+<TT
+CLASS="STRUCTNAME"
+>struct in_addr</TT
+> fields:
+<CODE
+CLASS="STRUCTFIELD"
+>imr_multiaddr</CODE
+> and
+<CODE
+CLASS="STRUCTFIELD"
+>imr_address</CODE
+>.</P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19491"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <SPAN
+CLASS="RETURNVALUE"
+>0</SPAN
+> is returned. 
+On error, <SPAN
+CLASS="RETURNVALUE"
+>-1</SPAN
+> is returned and
+the global variable <CODE
+CLASS="VARNAME"
+>errno</CODE
+> is set appropriately.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19497"
+></A
+><H2
+>Errors</H2
+><P
+>As defined in <A
+HREF="normativerefs.html#STD.SUSV3"
+>POSIX 1003.1-2001 (ISO/IEC 9945-2003)</A
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-sethostname-2.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-setstate-r-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>sethostname</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>setstate_r</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

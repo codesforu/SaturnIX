@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>dcgettext</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="daemon"
+HREF="baselib-daemon-3.html"><LINK
+REL="NEXT"
+TITLE="dcngettext"
+HREF="baselib-dcngettext.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-daemon-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-dcngettext.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-DCGETTEXT"
+></A
+>dcgettext</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN13105"
+></A
+><H2
+>Name</H2
+>dcgettext&nbsp;--&nbsp;perform domain and category specific lookup in message catalog</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN13108"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN13111"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;libintl.h&#62;
+#include &#60;locale.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>char *
+  <TT
+CLASS="FUNCTION"
+>dcgettext</TT
+></CODE
+>(const char *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>domainname</I
+></TT
+></I
+></TT
+>, const char *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>msgid</I
+></TT
+></I
+></TT
+>, int 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>category</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13125"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>dcgettext()</TT
+> function
+is a domain specified version 
+of <TT
+CLASS="FUNCTION"
+>gettext()</TT
+>.</P
+><P
+>The <TT
+CLASS="FUNCTION"
+>dcgettext()</TT
+>
+function shall lookup the translation in the current locale of the message
+identified by <TT
+CLASS="PARAMETER"
+><I
+>msgid</I
+></TT
+> in the domain specified by 
+<TT
+CLASS="PARAMETER"
+><I
+>domainname</I
+></TT
+> and in the locale
+category specified by <TT
+CLASS="PARAMETER"
+><I
+>category</I
+></TT
+>. 
+If <TT
+CLASS="PARAMETER"
+><I
+>domainname</I
+></TT
+> is NULL, the current default
+domain shall be used. 
+The <TT
+CLASS="PARAMETER"
+><I
+>msgid</I
+></TT
+> argument shall be a NULL-terminated 
+string to be
+matched in the catalogue. 
+<TT
+CLASS="PARAMETER"
+><I
+>category</I
+></TT
+> shall specify the locale category to be used
+for retrieving message strings. 
+The category parameter shall be one of <TT
+CLASS="PARAMETER"
+><I
+>LC_CTYPE</I
+></TT
+>,
+<TT
+CLASS="PARAMETER"
+><I
+>LC_COLLATE</I
+></TT
+>, 
+<TT
+CLASS="PARAMETER"
+><I
+>LC_MESSAGES</I
+></TT
+>, 
+<TT
+CLASS="PARAMETER"
+><I
+>LC_MONETARY</I
+></TT
+>,
+<TT
+CLASS="PARAMETER"
+><I
+>LC_NUMERIC</I
+></TT
+>, 
+or <TT
+CLASS="PARAMETER"
+><I
+>LC_TIME</I
+></TT
+>. 
+The default domain
+shall not be changed by a call to <TT
+CLASS="FUNCTION"
+>dcgettext()</TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13147"
+></A
+><H2
+>Return Value</H2
+><P
+>If a translation was found in one of the specified catalogs, it shall be
+converted to the current locale's codeset and returned. The resulting
+NULL-terminated string shall be allocated by the dcgettext function, and must
+not be modified or freed. If no translation was found, or category was invalid,
+<TT
+CLASS="PARAMETER"
+><I
+>msgid</I
+></TT
+> shall be returned.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13151"
+></A
+><H2
+>Errors</H2
+><P
+><TT
+CLASS="FUNCTION"
+>dcgettext()</TT
+> shall not modify the 
+<CODE
+CLASS="VARNAME"
+>errno</CODE
+> global variable.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13156"
+></A
+><H2
+>See Also</H2
+><P
+>gettext, dgettext, ngettext, 
+dngettext, dcngettext, textdomain,
+bindtextdomain, bind_textdomain_codeset</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-daemon-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-dcngettext.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>daemon</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>dcngettext</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

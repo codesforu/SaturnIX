@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>gethostbyname2</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="gethostbyaddr_r"
+HREF="baselib-gethostbyaddr-r-3.html"><LINK
+REL="NEXT"
+TITLE="gethostbyname2_r"
+HREF="baselib-gethostbyname2-r-3.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-gethostbyaddr-r-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-gethostbyname2-r-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-GETHOSTBYNAME2-3"
+></A
+>gethostbyname2</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN15063"
+></A
+><H2
+>Name</H2
+>gethostbyname2&nbsp;--&nbsp;find network host database entry matching host name (DEPRECATED)</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN15066"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN15067"
+></A
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int 
+<TT
+CLASS="FUNCTION"
+>gethostbyname2</TT
+></CODE
+>(const char * restrict 
+<TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>name</I
+></TT
+></I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>af</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15077"
+></A
+><H2
+>Description</H2
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>The <TT
+CLASS="FUNCTION"
+>gethostbyname2()</TT
+> function is deprecated;
+applications should use <TT
+CLASS="FUNCTION"
+>getaddrinfo()</TT
+> instead.</P
+></BLOCKQUOTE
+></DIV
+><P
+>The <TT
+CLASS="FUNCTION"
+>gethostbyname2()</TT
+> function shall search the
+network host database for an entry with name <TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>.
+This function is similar to the <TT
+CLASS="FUNCTION"
+>gethostbyname()</TT
+>
+function but additionally allows the search to be restricted to
+a particular address family specified by <TT
+CLASS="PARAMETER"
+><I
+>af</I
+></TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15088"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, the <TT
+CLASS="FUNCTION"
+>gethostbyname2()</TT
+> function shall return a
+pointer to a <TT
+CLASS="STRUCTNAME"
+>hostent</TT
+> structure if the requested entry was
+found, and a null pointer otherwise.</P
+><P
+>On unsuccessful completion, <TT
+CLASS="FUNCTION"
+>gethostbyname2()</TT
+> shall
+set <CODE
+CLASS="VARNAME"
+>h_errno</CODE
+> as
+for <TT
+CLASS="FUNCTION"
+>gethostbyname()</TT
+> in <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15098"
+></A
+><H2
+>Errors</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>gethostbyname2()</TT
+> shall set <CODE
+CLASS="VARNAME"
+>h_errno</CODE
+>
+as for <TT
+CLASS="FUNCTION"
+>gethostbyname()</TT
+> in <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-gethostbyaddr-r-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-gethostbyname2-r-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>gethostbyaddr_r</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>gethostbyname2_r</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

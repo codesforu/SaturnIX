@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>LSB Implementation Conformance </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for X86"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Requirements"
+HREF="requirements.html"><LINK
+REL="PREVIOUS"
+TITLE="Requirements"
+HREF="requirements.html"><LINK
+REL="NEXT"
+TITLE="LSB Application Conformance "
+HREF="application.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for X86</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="requirements.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 3. Requirements</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="application.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="IMPLEMENTATION"
+>3.2. LSB Implementation Conformance</A
+></H1
+><P
+>A conforming implementation is necessarily architecture specific,
+and must provide the interfaces specified by both the generic LSB Core
+specification (LSB Core - Generic) and the relevant architecture specific part
+of the LSB Core Specification.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Rationale: </B
+>An implementation must provide <I
+CLASS="EMPHASIS"
+>at least</I
+>
+the interfaces specified in these specifications.
+It may also provide additional interfaces.</P
+></BLOCKQUOTE
+></DIV
+></P
+><P
+>A conforming implementation shall satisfy the following requirements:</P
+><P
+><P
+></P
+><UL
+><LI
+><P
+>A processor architecture represents a family of related processors
+which may not have identical feature sets. The architecture
+specific parts of the LSB Core Specification that supplement this specification for a given target
+processor architecture describe a minimum acceptable processor.
+The implementation shall provide all features of this processor,
+whether in hardware or through emulation transparent
+to the application.</P
+></LI
+><LI
+><P
+>The implementation shall be capable of executing compiled applications
+having the format and using the system interfaces described in this
+specification.</P
+></LI
+><LI
+><P
+>The implementation shall provide libraries containing the interfaces
+specified by this specification, and shall provide a dynamic linking
+mechanism that allows these interfaces to be attached to applications
+at runtime. All the interfaces shall behave as specified in
+this specification.</P
+></LI
+><LI
+><P
+>The map of virtual memory provided by the implementation shall conform 
+to the requirements of this specification. </P
+></LI
+><LI
+><P
+>The implementation's low-level behavior with respect to function call
+linkage, system traps, signals, and other such activities shall conform
+to the formats described in this specification.</P
+></LI
+><LI
+><P
+>The implementation shall provide all of the mandatory interfaces
+in their entirety. </P
+></LI
+><LI
+><P
+>The implementation may provide one or more of the optional
+interfaces. Each optional interface that is provided shall be provided
+in its entirety. The product documentation shall state which optional
+interfaces are provided.</P
+></LI
+><LI
+><P
+>The implementation shall provide all files and utilities specified as
+part of this specification in the format defined here and in other documents
+normatively included by reference.  
+All commands and utilities shall behave as required by this specification. 
+The implementation shall also provide all mandatory components of an 
+application's runtime environment that are included or referenced in 
+this specification.</P
+></LI
+><LI
+><P
+>The implementation, when provided with standard data formats and
+values at a named interface, shall provide the behavior defined for
+those values and data formats at that interface. However, a conforming
+implementation may consist of components which are separately packaged
+and/or sold. For example, a vendor of a conforming implementation
+might sell the hardware, operating system, and windowing system as
+separately packaged items.</P
+></LI
+><LI
+><P
+>The implementation may provide additional interfaces with different
+names. It may also provide additional behavior corresponding to data
+values outside the standard ranges, for standard named interfaces.</P
+></LI
+></UL
+>&#13;</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="requirements.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="application.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Requirements</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="requirements.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>LSB Application Conformance</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,5954 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libQtGui</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="qt.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libQtGui"
+HREF="libqtgui.html"><LINK
+REL="NEXT"
+TITLE="Interface Definitions for libQtGui"
+HREF="libqtguiman.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libqtgui.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 18. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libqtguiman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBQTGUI-DDEFS"
+>18.6. Data Definitions for libQtGui</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libQtGui.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152057"
+>18.6.1. QtGui/qabstractbutton.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAbstractButton;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152061"
+>18.6.2. QtGui/qabstractitemdelegate.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAbstractItemDelegate;
+enum QAbstractItemDelegate::EndEditHint {
+    NoHint = 0,
+    EditNextItem = 1,
+    EditPreviousItem = 2,
+    SubmitModelCache = 3,
+    RevertModelCache = 4
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152065"
+>18.6.3. QtGui/qabstractitemview.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAbstractItemView;
+enum QAbstractItemView::SelectionMode {
+    NoSelection = 0,
+    SingleSelection = 1,
+    MultiSelection = 2,
+    ExtendedSelection = 3,
+    ContiguousSelection = 4
+};
+enum QAbstractItemView::SelectionBehavior {
+    SelectItems = 0,
+    SelectRows = 1,
+    SelectColumns = 2
+};
+enum QAbstractItemView::ScrollHint {
+    EnsureVisible = 0,
+    PositionAtTop = 1,
+    PositionAtBottom = 2
+};
+enum QAbstractItemView::EditTrigger {
+    NoEditTriggers = 0,
+    CurrentChanged = 1,
+    DoubleClicked = 2,
+    SelectedClicked = 4,
+    EditKeyPressed = 8,
+    AnyKeyPressed = 16,
+    AllEditTriggers = 31
+};
+class QFlags &#60; QAbstractItemView::EditTrigger &#62;;
+typedef class QFlags &#60; QAbstractItemView::EditTrigger &#62;
+    QAbstractItemView::EditTriggers;
+enum QAbstractItemView::CursorAction {
+    MoveUp = 0,
+    MoveDown = 1,
+    MoveLeft = 2,
+    MoveRight = 3,
+    MoveHome = 4,
+    MoveEnd = 5,
+    MovePageUp = 6,
+    MovePageDown = 7,
+    MoveNext = 8,
+    MovePrevious = 9
+};
+enum QAbstractItemView::State {
+    NoState = 0,
+    DraggingState = 1,
+    DragSelectingState = 2,
+    EditingState = 3,
+    ExpandingState = 4,
+    CollapsingState = 5
+};
+enum QAbstractItemView::DropIndicatorPosition {
+    OnItem = 0,
+    AboveItem = 1,
+    BelowItem = 2,
+    OnViewport = 3
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152069"
+>18.6.4. QtGui/qabstractpagesetupdialog.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAbstractPageSetupDialog;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152073"
+>18.6.5. QtGui/qabstractprintdialog.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAbstractPrintDialog;
+enum QAbstractPrintDialog::PrintRange {
+    AllPages = 0,
+    Selection = 1,
+    PageRange = 2
+};
+enum QAbstractPrintDialog::PrintDialogOption {
+    None = 0,
+    PrintToFile = 1,
+    PrintSelection = 2,
+    PrintPageRange = 4,
+    PrintCollateCopies = 16
+};
+class QFlags &#60; QAbstractPrintDialog::PrintDialogOption &#62;;
+typedef class QFlags &#60; QAbstractPrintDialog::PrintDialogOption &#62;
+    QAbstractPrintDialog::PrintDialogOptions;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152077"
+>18.6.6. QtGui/qabstractproxymodel.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAbstractProxyModel;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152081"
+>18.6.7. QtGui/qabstractscrollarea.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAbstractScrollArea;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152085"
+>18.6.8. QtGui/qabstractslider.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAbstractSlider;
+enum QAbstractSlider::SliderAction {
+    SliderNoAction = 0,
+    SliderSingleStepAdd = 1,
+    SliderSingleStepSub = 2,
+    SliderPageStepAdd = 3,
+    SliderPageStepSub = 4,
+    SliderToMinimum = 5,
+    SliderToMaximum = 6,
+    SliderMove = 7
+};
+enum QAbstractSlider::SliderChange {
+    SliderRangeChange = 0,
+    SliderOrientationChange = 1,
+    SliderStepsChange = 2,
+    SliderValueChange = 3
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152089"
+>18.6.9. QtGui/qabstractspinbox.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAbstractSpinBox;
+enum QAbstractSpinBox::StepEnabledFlag {
+    StepNone = 0,
+    StepUpEnabled = 1,
+    StepDownEnabled = 2
+};
+class QFlags &#60; QAbstractSpinBox::StepEnabledFlag &#62;;
+typedef class QFlags &#60; QAbstractSpinBox::StepEnabledFlag &#62;
+    QAbstractSpinBox::StepEnabled;
+enum QAbstractSpinBox::ButtonSymbols {
+    UpDownArrows = 0,
+    PlusMinus = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152093"
+>18.6.10. QtGui/qabstracttextdocumentlayout.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAbstractTextDocumentLayout;
+struct QAbstractTextDocumentLayout::Selection;
+struct QAbstractTextDocumentLayout::PaintContext;
+class QTextObjectInterface;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152097"
+>18.6.11. QtGui/qaccessible.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAccessible;
+enum QAccessible::Event {
+    SoundPlayed = 1,
+    Alert = 2,
+    ForegroundChanged = 3,
+    MenuStart = 4,
+    MenuEnd = 5,
+    PopupMenuStart = 6,
+    PopupMenuEnd = 7,
+    ContextHelpStart = 12,
+    ContextHelpEnd = 13,
+    DragDropStart = 14,
+    DragDropEnd = 15,
+    DialogStart = 16,
+    DialogEnd = 17,
+    ScrollingStart = 18,
+    ScrollingEnd = 19,
+    MenuCommand = 24,
+    ObjectCreated = 32768,
+    ObjectDestroyed = 32769,
+    ObjectShow = 32770,
+    ObjectHide = 32771,
+    ObjectReorder = 32772,
+    Focus = 32773,
+    Selection = 32774,
+    SelectionAdd = 32775,
+    SelectionRemove = 32776,
+    SelectionWithin = 32777,
+    StateChanged = 32778,
+    LocationChanged = 32779,
+    NameChanged = 32780,
+    DescriptionChanged = 32781,
+    ValueChanged = 32782,
+    ParentChanged = 32783,
+    HelpChanged = 32928,
+    DefaultActionChanged = 32944,
+    AcceleratorChanged = 32960
+};
+enum QAccessible::StateFlag {
+    Modal = -2147483648,
+    Normal = 0,
+    Unavailable = 1,
+    Selected = 2,
+    Focused = 4,
+    Pressed = 8,
+    Checked = 16,
+    Mixed = 32,
+    ReadOnly = 64,
+    HotTracked = 128,
+    DefaultButton = 256,
+    Expanded = 512,
+    Collapsed = 1024,
+    Busy = 2048,
+    Marqueed = 8192,
+    Animated = 16384,
+    Invisible = 32768,
+    Offscreen = 65536,
+    Sizeable = 131072,
+    Moveable = 262144,
+    Movable = 262144,
+    SelfVoicing = 524288,
+    Focusable = 1048576,
+    Selectable = 2097152,
+    Linked = 4194304,
+    Traversed = 8388608,
+    MultiSelectable = 16777216,
+    ExtSelectable = 33554432,
+    Protected = 536870912,
+    HasPopup = 1073741824
+};
+class QFlags &#60; QAccessible::StateFlag &#62;;
+typedef class QFlags &#60; QAccessible::StateFlag &#62; QAccessible::State;
+enum QAccessible::Role {
+    NoRole = 0,
+    TitleBar = 1,
+    MenuBar = 2,
+    ScrollBar = 3,
+    Grip = 4,
+    Sound = 5,
+    Cursor = 6,
+    Caret = 7,
+    AlertMessage = 8,
+    Window = 9,
+    Client = 10,
+    PopupMenu = 11,
+    MenuItem = 12,
+    ToolTip = 13,
+    Application = 14,
+    Document = 15,
+    Pane = 16,
+    Chart = 17,
+    Dialog = 18,
+    Border = 19,
+    Grouping = 20,
+    Separator = 21,
+    ToolBar = 22,
+    StatusBar = 23,
+    Table = 24,
+    ColumnHeader = 25,
+    RowHeader = 26,
+    Column = 27,
+    Row = 28,
+    Cell = 29,
+    Link = 30,
+    HelpBalloon = 31,
+    Assistant = 32,
+    List = 33,
+    ListItem = 34,
+    Tree = 35,
+    TreeItem = 36,
+    PageTab = 37,
+    PropertyPage = 38,
+    Indicator = 39,
+    Graphic = 40,
+    StaticText = 41,
+    EditableText = 42,
+    PushButton = 43,
+    CheckBox = 44,
+    RadioButton = 45,
+    ComboBox = 46,
+    ProgressBar = 48,
+    Dial = 49,
+    HotkeyField = 50,
+    Slider = 51,
+    SpinBox = 52,
+    Canvas = 53,
+    Animation = 54,
+    Equation = 55,
+    ButtonDropDown = 56,
+    ButtonMenu = 57,
+    ButtonDropGrid = 58,
+    Whitespace = 59,
+    PageTabList = 60,
+    Clock = 61,
+    Splitter = 62,
+    LayeredPane = 63,
+    UserRole = 65535
+};
+enum QAccessible::Text {
+    Name = 0,
+    Description = 1,
+    Value = 2,
+    Help = 3,
+    Accelerator = 4,
+    UserText = 65535
+};
+enum QAccessible::RelationFlag {
+    Unrelated = 0,
+    Self = 1,
+    Ancestor = 2,
+    Child = 4,
+    Descendent = 8,
+    Sibling = 16,
+    HierarchyMask = 255,
+    Up = 256,
+    Down = 512,
+    Left = 1024,
+    Right = 2048,
+    Covers = 4096,
+    Covered = 8192,
+    GeometryMask = 65280,
+    FocusChild = 65536,
+    Label = 131072,
+    Labelled = 262144,
+    Controller = 524288,
+    Controlled = 1048576,
+    LogicalMask = 16711680
+};
+class QFlags &#60; QAccessible::RelationFlag &#62;;
+typedef class QFlags &#60; QAccessible::RelationFlag &#62; QAccessible::Relation;
+enum QAccessible::Action {
+    LastStandardAction = -11,
+    AddToSelection = -11,
+    ExtendSelection = -10,
+    RemoveSelection = -9,
+    ClearSelection = -8,
+    Select = -7,
+    Cancel = -6,
+    Accept = -5,
+    Decrease = -4,
+    Increase = -3,
+    SetFocus = -2,
+    FirstStandardAction = -1,
+    Press = -1,
+    DefaultAction = 0
+};
+typedef void QAccessible::UpdateHandler;
+typedef void QAccessible::RootObjectHandler;
+class QAccessibleInterface;
+class QAccessibleEvent;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152101"
+>18.6.12. QtGui/qaccessiblebridge.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAccessibleBridge;
+struct QAccessibleBridgeFactoryInterface;
+class QAccessibleBridgePlugin;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152105"
+>18.6.13. QtGui/qaccessibleobject.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAccessibleObject;
+class QAccessibleApplication;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152109"
+>18.6.14. QtGui/qaccessibleplugin.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct QAccessibleFactoryInterface;
+class QAccessiblePlugin;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152113"
+>18.6.15. QtGui/qaccessiblewidget.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAccessibleWidget;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152117"
+>18.6.16. QtGui/qaction.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAction;
+enum QAction::ActionEvent {
+    Trigger = 0,
+    Hover = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152121"
+>18.6.17. QtGui/qactiongroup.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QActionGroup;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152125"
+>18.6.18. QtGui/qapplication.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QApplication;
+enum QApplication::Type {
+    Tty = 0,
+    GuiClient = 1,
+    GuiServer = 2
+};
+enum QApplication::ColorSpec {
+    NormalColor = 0,
+    CustomColor = 1,
+    ManyColor = 2
+};
+typedef int QApplication::ColorMode;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152129"
+>18.6.19. QtGui/qbitmap.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QBitmap;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152133"
+>18.6.20. QtGui/qboxlayout.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QBoxLayout;
+enum QBoxLayout::Direction {
+    LeftToRight = 0,
+    RightToLeft = 1,
+    TopToBottom = 2,
+    Down = 2,
+    BottomToTop = 3,
+    Up = 3
+};
+class QHBoxLayout;
+class QVBoxLayout;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152137"
+>18.6.21. QtGui/qbrush.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QBrush;
+struct QBrushData;
+class QGradient;
+enum QGradient::Type {
+    LinearGradient = 0,
+    RadialGradient = 1,
+    ConicalGradient = 2,
+    NoGradient = 3
+};
+enum QGradient::Spread {
+    PadSpread = 0,
+    ReflectSpread = 1,
+    RepeatSpread = 2
+};
+class QLinearGradient;
+class QRadialGradient;
+class QConicalGradient;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152141"
+>18.6.22. QtGui/qbuttongroup.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QButtonGroup;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152145"
+>18.6.23. QtGui/qcdestyle.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QCDEStyle;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152149"
+>18.6.24. QtGui/qcheckbox.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QCheckBox;
+enum QCheckBox::ToggleState {
+    Off = 0,
+    NoChange = 1,
+    On = 2
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152153"
+>18.6.25. QtGui/qclipboard.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QClipboard;
+enum QClipboard::Mode {
+    Clipboard = 0,
+    Selection = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152157"
+>18.6.26. QtGui/qcolor.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QColor;
+enum QColor::Spec {
+    Invalid = 0,
+    Rgb = 1,
+    Hsv = 2,
+    Cmyk = 3
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152161"
+>18.6.27. QtGui/qcolordialog.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QColorDialog;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152165"
+>18.6.28. QtGui/qcolormap.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QColormap;
+enum QColormap::Mode {
+    Direct = 0,
+    Indexed = 1,
+    Gray = 2
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152169"
+>18.6.29. QtGui/qcombobox.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QComboBox;
+enum QComboBox::InsertPolicy {
+    NoInsert = 0,
+    NoInsertion = 0,
+    AtTop = 1,
+    InsertAtTop = 1,
+    AtCurrent = 2,
+    InsertAtCurrent = 2,
+    InsertAtBottom = 3,
+    AtBottom = 3,
+    InsertAfterCurrent = 4,
+    AfterCurrent = 4,
+    InsertBeforeCurrent = 5,
+    BeforeCurrent = 5
+};
+typedef enum QComboBox::InsertPolicy {
+    NoInsert = 0,
+    NoInsertion = 0,
+    AtTop = 1,
+    InsertAtTop = 1,
+    AtCurrent = 2,
+    InsertAtCurrent = 2,
+    InsertAtBottom = 3,
+    AtBottom = 3,
+    InsertAfterCurrent = 4,
+    AfterCurrent = 4,
+    InsertBeforeCurrent = 5,
+    BeforeCurrent = 5
+} QComboBox::Policy;
+enum QComboBox::SizeAdjustPolicy {
+    AdjustToContents = 0,
+    AdjustToContentsOnFirstShow = 1,
+    AdjustToMinimumContentsLength = 2
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152173"
+>18.6.30. QtGui/qcommonstyle.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QCommonStyle;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152177"
+>18.6.31. QtGui/qcursor.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QCursor;
+typedef enum Qt::CursorShape QCursorShape;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152181"
+>18.6.32. QtGui/qdatetimeedit.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QDateTimeEdit;
+enum QDateTimeEdit::Section {
+    NoSection = 0,
+    AmPmSection = 1,
+    MSecSection = 2,
+    SecondSection = 4,
+    MinuteSection = 8,
+    HourSection = 16,
+    TimeSections_Mask = 31,
+    DaySection = 256,
+    MonthSection = 512,
+    YearSection = 1024,
+    DateSections_Mask = 1792
+};
+class QFlags &#60; QDateTimeEdit::Section &#62;;
+typedef class QFlags &#60; QDateTimeEdit::Section &#62; QDateTimeEdit::Sections;
+class QTimeEdit;
+class QDateEdit;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152185"
+>18.6.33. QtGui/qdesktopwidget.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QDesktopWidget;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152189"
+>18.6.34. QtGui/qdial.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef enum QtValidLicenseForGuiModule QtGuiModule;
+class QDial;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152193"
+>18.6.35. QtGui/qdialog.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QDialog;
+enum QDialog::DialogCode {
+    Rejected = 0,
+    Accepted = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152197"
+>18.6.36. QtGui/qdirmodel.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QFileIconProvider;
+enum QFileIconProvider::IconType {
+    Computer = 0,
+    Desktop = 1,
+    Trashcan = 2,
+    Network = 3,
+    Drive = 4,
+    Folder = 5,
+    File = 6
+};
+class QDirModel;
+enum QDirModel::Roles {
+    FileIconRole = 1,
+    FilePathRole = 33,
+    FileNameRole = 34
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152201"
+>18.6.37. QtGui/qdockwidget.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QDockWidget;
+enum QDockWidget::DockWidgetFeature {
+    NoDockWidgetFeatures = 0,
+    DockWidgetClosable = 1,
+    DockWidgetMovable = 2,
+    DockWidgetFloatable = 4,
+    DockWidgetFeatureMask = 7,
+    AllDockWidgetFeatures = 7,
+    Reserved = 255
+};
+class QFlags &#60; QDockWidget::DockWidgetFeature &#62;;
+typedef class QFlags &#60; QDockWidget::DockWidgetFeature &#62;
+    QDockWidget::DockWidgetFeatures;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152205"
+>18.6.38. QtGui/qdrag.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QDrag;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152209"
+>18.6.39. QtGui/qerrormessage.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QErrorMessage;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152213"
+>18.6.40. QtGui/qevent.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QInputEvent;
+class QMouseEvent;
+class QHoverEvent;
+class QWheelEvent;
+class QTabletEvent;
+enum QTabletEvent::TabletDevice {
+    NoDevice = 0,
+    Puck = 1,
+    Stylus = 2,
+    Airbrush = 3,
+    FourDMouse = 4,
+    XFreeEraser = 5,
+    RotationStylus = 6
+};
+enum QTabletEvent::PointerType {
+    UnknownPointer = 0,
+    Pen = 1,
+    Cursor = 2,
+    Eraser = 3
+};
+class QKeyEvent;
+class QFocusEvent;
+enum QFocusEvent::Reason {
+    Mouse = 0,
+    Tab = 1,
+    Backtab = 2,
+    ActiveWindow = 3,
+    Popup = 4,
+    Shortcut = 5,
+    MenuBar = 6,
+    Other = 7
+};
+class QPaintEvent;
+class QMoveEvent;
+class QResizeEvent;
+class QCloseEvent;
+class QIconDragEvent;
+class QShowEvent;
+class QHideEvent;
+class QContextMenuEvent;
+enum QContextMenuEvent::Reason {
+    Mouse = 0,
+    Keyboard = 1,
+    Other = 2
+};
+class QInputMethodEvent;
+enum QInputMethodEvent::AttributeType {
+    TextFormat = 0,
+    Cursor = 1,
+    Language = 2,
+    Ruby = 3
+};
+class QInputMethodEvent::Attribute;
+class QDropEvent;
+enum QDropEvent::Action {
+    Copy = 0,
+    Link = 1,
+    Move = 2,
+    Private = 3,
+    UserAction = 3
+};
+class QDragMoveEvent;
+class QDragEnterEvent;
+class QDragResponseEvent;
+class QDragLeaveEvent;
+class QHelpEvent;
+class QStatusTipEvent;
+class QWhatsThisClickedEvent;
+class QActionEvent;
+class QFileOpenEvent;
+class QToolBarChangeEvent;
+class QShortcutEvent;
+class QClipboardEvent;
+class QWindowStateChangeEvent;
+class QMenubarUpdatedEvent;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152217"
+>18.6.41. QtGui/qfiledialog.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QFileDialog;
+enum QFileDialog::ViewMode {
+    Detail = 0,
+    List = 1
+};
+enum QFileDialog::FileMode {
+    AnyFile = 0,
+    ExistingFile = 1,
+    Directory = 2,
+    ExistingFiles = 3,
+    DirectoryOnly = 4
+};
+enum QFileDialog::AcceptMode {
+    AcceptOpen = 0,
+    AcceptSave = 1
+};
+enum QFileDialog::DialogLabel {
+    LookIn = 0,
+    FileName = 1,
+    FileType = 2,
+    Accept = 3,
+    Reject = 4
+};
+enum QFileDialog::Option {
+    ShowDirsOnly = 1,
+    DontResolveSymlinks = 2,
+    DontConfirmOverwrite = 4,
+    DontUseSheet = 8,
+    DontUseNativeDialog = 16
+};
+class QFlags &#60; QFileDialog::Option &#62;;
+typedef class QFlags &#60; QFileDialog::Option &#62; QFileDialog::Options;
+typedef enum QFileDialog::FileMode {
+    AnyFile = 0,
+    ExistingFile = 1,
+    Directory = 2,
+    ExistingFiles = 3,
+    DirectoryOnly = 4
+} QFileDialog::Mode;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152221"
+>18.6.42. QtGui/qfocusframe.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QFocusFrame;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152225"
+>18.6.43. QtGui/qfont.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QFont;
+enum QFont::StyleHint {
+    Helvetica = 0,
+    SansSerif = 0,
+    Times = 1,
+    Serif = 1,
+    TypeWriter = 2,
+    Courier = 2,
+    OldEnglish = 3,
+    Decorative = 3,
+    System = 4,
+    AnyStyle = 5
+};
+enum QFont::StyleStrategy {
+    PreferDefault = 1,
+    PreferBitmap = 2,
+    PreferDevice = 4,
+    PreferOutline = 8,
+    ForceOutline = 16,
+    PreferMatch = 32,
+    PreferQuality = 64,
+    PreferAntialias = 128,
+    NoAntialias = 256,
+    OpenGLCompatible = 512
+};
+enum QFont::Weight {
+    Light = 25,
+    Normal = 50,
+    DemiBold = 63,
+    Bold = 75,
+    Black = 87
+};
+enum QFont::Style {
+    StyleNormal = 0,
+    StyleItalic = 1,
+    StyleOblique = 2
+};
+enum QFont::Stretch {
+    UltraCondensed = 50,
+    ExtraCondensed = 62,
+    Condensed = 75,
+    SemiCondensed = 87,
+    Unstretched = 100,
+    SemiExpanded = 112,
+    Expanded = 125,
+    ExtraExpanded = 150,
+    UltraExpanded = 200
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152229"
+>18.6.44. QtGui/qfontdatabase.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QFontDatabase;
+enum QFontDatabase::WritingSystem {
+    Any = 0,
+    Latin = 1,
+    Greek = 2,
+    Cyrillic = 3,
+    Armenian = 4,
+    Hebrew = 5,
+    Arabic = 6,
+    Syriac = 7,
+    Thaana = 8,
+    Devanagari = 9,
+    Bengali = 10,
+    Gurmukhi = 11,
+    Gujarati = 12,
+    Oriya = 13,
+    Tamil = 14,
+    Telugu = 15,
+    Kannada = 16,
+    Malayalam = 17,
+    Sinhala = 18,
+    Thai = 19,
+    Lao = 20,
+    Tibetan = 21,
+    Myanmar = 22,
+    Georgian = 23,
+    Khmer = 24,
+    SimplifiedChinese = 25,
+    TraditionalChinese = 26,
+    Japanese = 27,
+    Korean = 28,
+    Vietnamese = 29,
+    Other = 30,
+    WritingSystemsCount = 31
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152233"
+>18.6.45. QtGui/qfontdialog.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QFontDialog;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152237"
+>18.6.46. QtGui/qfontinfo.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QFontInfo;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152241"
+>18.6.47. QtGui/qfontmetrics.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QFontMetrics;
+class QFontMetricsF;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152245"
+>18.6.48. QtGui/qframe.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QFrame;
+enum QFrame::Shape {
+    NoFrame = 0,
+    Box = 1,
+    Panel = 2,
+    WinPanel = 3,
+    HLine = 4,
+    VLine = 5,
+    TabWidgetPanel = 6,
+    LineEditPanel = 6,
+    ToolBarPanel = 6,
+    MenuBarPanel = 6,
+    PopupPanel = 6,
+    StyledPanel = 6,
+    GroupBoxPanel = 6
+};
+enum QFrame::Shadow {
+    Plain = 16,
+    Raised = 32,
+    Sunken = 48
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152249"
+>18.6.49. QtGui/qgridlayout.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QGridLayout;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152253"
+>18.6.50. QtGui/qgroupbox.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QGroupBox;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152257"
+>18.6.51. QtGui/qheaderview.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QHeaderView;
+enum QHeaderView::ResizeMode {
+    Interactive = 0,
+    Stretch = 1,
+    Custom = 2
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152261"
+>18.6.52. QtGui/qicon.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QIcon;
+enum QIcon::Mode {
+    Normal = 0,
+    Disabled = 1,
+    Active = 2
+};
+enum QIcon::State {
+    On = 0,
+    Off = 1
+};
+enum QIcon::Size {
+    Small = 0,
+    Automatic = 0,
+    Large = 1
+};
+typedef class QIconQIconSet;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152265"
+>18.6.53. QtGui/qiconengine.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QIconEngine;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152269"
+>18.6.54. QtGui/qiconengineplugin.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct QIconEngineFactoryInterface;
+class QIconEnginePlugin;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152273"
+>18.6.55. QtGui/qimage.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QImageTextKeyLang;
+class QImage;
+enum QImage::InvertMode {
+    InvertRgb = 0,
+    InvertRgba = 1
+};
+enum QImage::Format {
+    Format_Invalid = 0,
+    Format_Mono = 1,
+    Format_MonoLSB = 2,
+    Format_Indexed8 = 3,
+    Format_RGB32 = 4,
+    Format_ARGB32 = 5,
+    Format_ARGB32_Premultiplied = 6
+};
+enum QImage::Endian {
+    BigEndian = 0,
+    LittleEndian = 1,
+    IgnoreEndian = 2
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152277"
+>18.6.56. QtGui/qimageiohandler.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QImageIOHandler;
+enum QImageIOHandler::ImageOption {
+    Size = 0,
+    ClipRect = 1,
+    Description = 2,
+    ScaledClipRect = 3,
+    ScaledSize = 4,
+    CompressionRatio = 5,
+    Gamma = 6,
+    Quality = 7,
+    Name = 8,
+    SubType = 9,
+    IncrementalReading = 10,
+    Endianness = 11,
+    Animation = 12,
+    BackgroundColor = 13
+};
+struct QImageIOHandlerFactoryInterface;
+class QImageIOPlugin;
+enum QImageIOPlugin::Capability {
+    CanRead = 1,
+    CanWrite = 2,
+    CanReadIncremental = 4
+};
+class QFlags &#60; QImageIOPlugin::Capability &#62;;
+typedef class QFlags &#60; QImageIOPlugin::Capability &#62;
+    QImageIOPlugin::Capabilities;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152281"
+>18.6.57. QtGui/qimagereader.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QImageReader;
+enum QImageReader::ImageReaderError {
+    UnknownError = 0,
+    FileNotFoundError = 1,
+    DeviceError = 2,
+    UnsupportedFormatError = 3,
+    InvalidDataError = 4
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152285"
+>18.6.58. QtGui/qimagewriter.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QImageWriter;
+enum QImageWriter::ImageWriterError {
+    UnknownError = 0,
+    DeviceError = 1,
+    UnsupportedFormatError = 2
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152289"
+>18.6.59. QtGui/qinputcontext.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QInputContext;
+enum QInputContext::StandardFormat {
+    PreeditFormat = 0,
+    SelectionFormat = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152293"
+>18.6.60. QtGui/qinputcontextfactory.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QInputContextFactory;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152297"
+>18.6.61. QtGui/qinputcontextplugin.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct QInputContextFactoryInterface;
+class QInputContextPlugin;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152301"
+>18.6.62. QtGui/qinputdialog.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QInputDialog;
+enum QInputDialog::Type {
+    LineEdit = 0,
+    SpinBox = 1,
+    DoubleSpinBox = 2,
+    ComboBox = 3,
+    EditableComboBox = 4
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152305"
+>18.6.63. QtGui/qitemdelegate.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QItemDelegate;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152309"
+>18.6.64. QtGui/qitemeditorfactory.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QItemEditorCreatorBase;
+class QItemEditorFactory;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152313"
+>18.6.65. QtGui/qitemselectionmodel.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QItemSelectionRange;
+class QItemSelectionModel;
+enum QItemSelectionModel::SelectionFlag {
+    NoUpdate = 0,
+    Clear = 1,
+    Select = 2,
+    ClearAndSelect = 3,
+    Deselect = 4,
+    Toggle = 8,
+    Current = 16,
+    SelectCurrent = 18,
+    ToggleCurrent = 24,
+    Rows = 32,
+    Columns = 64
+};
+class QFlags &#60; QItemSelectionModel::SelectionFlag &#62;;
+typedef class QFlags &#60; QItemSelectionModel::SelectionFlag &#62;
+    QItemSelectionModel::SelectionFlags;
+class QItemSelection;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152317"
+>18.6.66. QtGui/qkeysequence.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QKeySequence;
+enum QKeySequence::SequenceMatch {
+    NoMatch = 0,
+    PartialMatch = 1,
+    ExactMatch = 2,
+    Identical = 2
+};
+enum QKeySequence::SequenceFormat {
+    NativeText = 0,
+    PortableText = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152321"
+>18.6.67. QtGui/qlabel.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QLabel;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152325"
+>18.6.68. QtGui/qlayout.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QLayoutIterator;
+class QLayout;
+enum QLayout::SizeConstraint {
+    SetDefaultConstraint = 0,
+    Auto = 0,
+    SetNoConstraint = 1,
+    FreeResize = 1,
+    SetMinimumSize = 2,
+    Minimum = 2,
+    Fixed = 3,
+    SetFixedSize = 3,
+    SetMaximumSize = 4,
+    SetMinAndMaxSize = 5
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152329"
+>18.6.69. QtGui/qlayoutitem.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QLayoutItem;
+class QSpacerItem;
+class QWidgetItem;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152333"
+>18.6.70. QtGui/qlcdnumber.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QLCDNumber;
+enum QLCDNumber::Mode {
+    Hex = 0,
+    HEX = 0,
+    Dec = 1,
+    DEC = 1,
+    Oct = 2,
+    OCT = 2,
+    Bin = 3,
+    BIN = 3
+};
+enum QLCDNumber::SegmentStyle {
+    Outline = 0,
+    Filled = 1,
+    Flat = 2
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152337"
+>18.6.71. QtGui/qlineedit.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QLineEdit;
+enum QLineEdit::EchoMode {
+    Normal = 0,
+    NoEcho = 1,
+    Password = 2
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152341"
+>18.6.72. QtGui/qlistview.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QListView;
+enum QListView::Movement {
+    Static = 0,
+    Free = 1,
+    Snap = 2
+};
+enum QListView::Flow {
+    LeftToRight = 0,
+    TopToBottom = 1
+};
+enum QListView::ResizeMode {
+    Fixed = 0,
+    Adjust = 1
+};
+enum QListView::LayoutMode {
+    SinglePass = 0,
+    Batched = 1
+};
+enum QListView::ViewMode {
+    ListMode = 0,
+    IconMode = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152345"
+>18.6.73. QtGui/qlistwidget.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QListWidgetItem;
+class QListWidget;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152349"
+>18.6.74. QtGui/qmainwindow.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QMainWindow;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152353"
+>18.6.75. QtGui/qmatrix.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QMatrix;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152357"
+>18.6.76. QtGui/qmenu.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QMenu;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152361"
+>18.6.77. QtGui/qmenubar.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QMenuBar;
+enum QMenuBar::Separator {
+    Never = 0,
+    InWindowsStyle = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152365"
+>18.6.78. QtGui/qmenudata.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QMenuItem;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152369"
+>18.6.79. QtGui/qmessagebox.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QMessageBox;
+enum QMessageBox::Icon {
+    NoIcon = 0,
+    Information = 1,
+    Warning = 2,
+    Critical = 3,
+    Question = 4
+};
+enum QMessageBox::Button {
+    NoButton = 0,
+    Ok = 1,
+    Cancel = 2,
+    Yes = 3,
+    No = 4,
+    Abort = 5,
+    Retry = 6,
+    Ignore = 7,
+    YesAll = 8,
+    NoAll = 9,
+    ButtonMask = 255,
+    Default = 256,
+    Escape = 512,
+    FlagMask = 768
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152373"
+>18.6.80. QtGui/qmime.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QMimeSource;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152377"
+>18.6.81. QtGui/qmotifstyle.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QMotifStyle;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152381"
+>18.6.82. QtGui/qmovie.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QMovie;
+enum QMovie::MovieState {
+    NotRunning = 0,
+    Paused = 1,
+    Running = 2
+};
+enum QMovie::CacheMode {
+    CacheNone = 0,
+    CacheAll = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152385"
+>18.6.83. QtGui/qpagesetupdialog.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPageSetupDialog;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152389"
+>18.6.84. QtGui/qpaintdevice.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPaintDevice;
+enum QPaintDevice::PaintDeviceMetric {
+    PdmWidth = 1,
+    PdmHeight = 2,
+    PdmWidthMM = 3,
+    PdmHeightMM = 4,
+    PdmNumColors = 5,
+    PdmDepth = 6,
+    PdmDpiX = 7,
+    PdmDpiY = 8,
+    PdmPhysicalDpiX = 9,
+    PdmPhysicalDpiY = 10
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152393"
+>18.6.85. QtGui/qpaintengine.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTextItem;
+enum QTextItem::RenderFlag {
+    Dummy = -1,
+    RightToLeft = 1,
+    Overline = 16,
+    Underline = 32,
+    StrikeOut = 64
+};
+class QFlags &#60; QTextItem::RenderFlag &#62;;
+typedef class QFlags &#60; QTextItem::RenderFlag &#62; QTextItem::RenderFlags;
+class QPaintEngine;
+enum QPaintEngine::PaintEngineFeature {
+    AllFeatures = -1,
+    PrimitiveTransform = 1,
+    PatternTransform = 2,
+    PixmapTransform = 4,
+    PatternBrush = 8,
+    LinearGradientFill = 16,
+    RadialGradientFill = 32,
+    ConicalGradientFill = 64,
+    AlphaBlend = 128,
+    PorterDuff = 256,
+    PainterPaths = 512,
+    Antialiasing = 1024,
+    BrushStroke = 2048,
+    PaintOutsidePaintEvent = 536870912
+};
+class QFlags &#60; QPaintEngine::PaintEngineFeature &#62;;
+typedef class QFlags &#60; QPaintEngine::PaintEngineFeature &#62;
+    QPaintEngine::PaintEngineFeatures;
+enum QPaintEngine::DirtyFlag {
+    DirtyPen = 1,
+    DirtyBrush = 2,
+    DirtyBrushOrigin = 4,
+    DirtyFont = 8,
+    DirtyBackground = 16,
+    DirtyBackgroundMode = 32,
+    DirtyTransform = 64,
+    DirtyClipRegion = 128,
+    DirtyClipPath = 256,
+    DirtyHints = 512,
+    DirtyCompositionMode = 1024,
+    DirtyClipEnabled = 2048,
+    AllDirty = 65535
+};
+class QFlags &#60; QPaintEngine::DirtyFlag &#62;;
+typedef class QFlags &#60; QPaintEngine::DirtyFlag &#62; QPaintEngine::DirtyFlags;
+enum QPaintEngine::PolygonDrawMode {
+    OddEvenMode = 0,
+    WindingMode = 1,
+    ConvexMode = 2,
+    PolylineMode = 3
+};
+enum QPaintEngine::Type {
+    X11 = 0,
+    Windows = 1,
+    QuickDraw = 2,
+    CoreGraphics = 3,
+    MacPrinter = 4,
+    QWindowSystem = 5,
+    PostScript = 6,
+    OpenGL = 7,
+    Picture = 8,
+    SVG = 9,
+    Raster = 10,
+    User = 50,
+    MaxUser = 100
+};
+class QPaintEngineState;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152397"
+>18.6.86. QtGui/qpainter.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPainter;
+enum QPainter::RenderHint {
+    Antialiasing = 1,
+    TextAntialiasing = 2,
+    SmoothPixmapTransform = 4
+};
+class QFlags &#60; QPainter::RenderHint &#62;;
+typedef class QFlags &#60; QPainter::RenderHint &#62; QPainter::RenderHints;
+enum QPainter::CompositionMode {
+    CompositionMode_SourceOver = 0,
+    CompositionMode_DestinationOver = 1,
+    CompositionMode_Clear = 2,
+    CompositionMode_Source = 3,
+    CompositionMode_Destination = 4,
+    CompositionMode_SourceIn = 5,
+    CompositionMode_DestinationIn = 6,
+    CompositionMode_SourceOut = 7,
+    CompositionMode_DestinationOut = 8,
+    CompositionMode_SourceAtop = 9,
+    CompositionMode_DestinationAtop = 10,
+    CompositionMode_Xor = 11
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152401"
+>18.6.87. QtGui/qpainterpath.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPainterPath;
+enum QPainterPath::ElementType {
+    MoveToElement = 0,
+    LineToElement = 1,
+    CurveToElement = 2,
+    CurveToDataElement = 3
+};
+class QPainterPath::Element;
+class QPainterPathPrivate;
+class QPainterPathStroker;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152405"
+>18.6.88. QtGui/qpalette.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPalette;
+enum QPalette::ColorGroup {
+    Active = 0,
+    Normal = 0,
+    Disabled = 1,
+    Inactive = 2,
+    NColorGroups = 3,
+    Current = 4,
+    All = 5
+};
+enum QPalette::ColorRole {
+    WindowText = 0,
+    Foreground = 0,
+    Button = 1,
+    Light = 2,
+    Midlight = 3,
+    Dark = 4,
+    Mid = 5,
+    Text = 6,
+    BrightText = 7,
+    ButtonText = 8,
+    Base = 9,
+    Background = 10,
+    Window = 10,
+    Shadow = 11,
+    Highlight = 12,
+    HighlightedText = 13,
+    Link = 14,
+    LinkVisited = 15,
+    AlternateBase = 16,
+    NColorRoles = 17,
+    NoRole = 17
+};
+class QColorGroup;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152409"
+>18.6.89. QtGui/qpen.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPen;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152413"
+>18.6.90. QtGui/qpicture.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPicture;
+typedef void picture_io_handler;
+class QPictureIO;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152417"
+>18.6.91. QtGui/qpictureformatplugin.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct QPictureFormatInterface;
+class QPictureFormatPlugin;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152421"
+>18.6.92. QtGui/qpixmap.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPixmap;
+enum QPixmap::ColorMode {
+    Auto = 0,
+    Color = 1,
+    Mono = 2
+};
+enum QPixmap::Type {
+    PixmapType = 0,
+    BitmapType = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152425"
+>18.6.93. QtGui/qpixmapcache.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPixmapCache;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152429"
+>18.6.94. QtGui/qplastiquestyle.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPlastiqueStyle;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152433"
+>18.6.95. QtGui/qpolygon.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPolygon;
+class QPolygonF;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152437"
+>18.6.96. QtGui/qprintdialog.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPrintDialog;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152441"
+>18.6.97. QtGui/qprintengine.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPrintEngine;
+enum QPrintEngine::PrintEnginePropertyKey {
+    PPK_CollateCopies = 0,
+    PPK_ColorMode = 1,
+    PPK_Creator = 2,
+    PPK_DocumentName = 3,
+    PPK_FullPage = 4,
+    PPK_NumberOfCopies = 5,
+    PPK_Orientation = 6,
+    PPK_OutputFileName = 7,
+    PPK_PageOrder = 8,
+    PPK_PageRect = 9,
+    PPK_PageSize = 10,
+    PPK_PaperRect = 11,
+    PPK_PaperSource = 12,
+    PPK_PrinterName = 13,
+    PPK_PrinterProgram = 14,
+    PPK_Resolution = 15,
+    PPK_SelectionOption = 16,
+    PPK_SupportedResolutions = 17,
+    PPK_WindowsPageSize = 18,
+    PPK_FontEmbedding = 19,
+    PPK_SuppressSystemPrintStatus = 20,
+    PPK_CustomBase = 65280
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152445"
+>18.6.98. QtGui/qprinter.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPrinter;
+enum QPrinter::PrinterMode {
+    ScreenResolution = 0,
+    PrinterResolution = 1,
+    HighResolution = 2
+};
+enum QPrinter::Orientation {
+    Portrait = 0,
+    Landscape = 1
+};
+enum QPrinter::PageSize {
+    A4 = 0,
+    B5 = 1,
+    Letter = 2,
+    Legal = 3,
+    Executive = 4,
+    A0 = 5,
+    A1 = 6,
+    A2 = 7,
+    A3 = 8,
+    A5 = 9,
+    A6 = 10,
+    A7 = 11,
+    A8 = 12,
+    A9 = 13,
+    B0 = 14,
+    B1 = 15,
+    B10 = 16,
+    B2 = 17,
+    B3 = 18,
+    B4 = 19,
+    B6 = 20,
+    B7 = 21,
+    B8 = 22,
+    B9 = 23,
+    C5E = 24,
+    Comm10E = 25,
+    DLE = 26,
+    Folio = 27,
+    Ledger = 28,
+    Tabloid = 29,
+    Custom = 30,
+    NPageSize = 30
+};
+enum QPrinter::PageOrder {
+    FirstPageFirst = 0,
+    LastPageFirst = 1
+};
+enum QPrinter::ColorMode {
+    GrayScale = 0,
+    Color = 1
+};
+enum QPrinter::PaperSource {
+    OnlyOne = 0,
+    Lower = 1,
+    Middle = 2,
+    Manual = 3,
+    Envelope = 4,
+    EnvelopeManual = 5,
+    Auto = 6,
+    Tractor = 7,
+    SmallFormat = 8,
+    LargeFormat = 9,
+    LargeCapacity = 10,
+    Cassette = 11,
+    FormSource = 12
+};
+enum QPrinter::PrinterState {
+    Idle = 0,
+    Active = 1,
+    Aborted = 2,
+    Error = 3
+};
+enum QPrinter::OutputFormat {
+    NativeFormat = 0,
+    PdfFormat = 1
+};
+enum QPrinter::PrintRange {
+    AllPages = 0,
+    Selection = 1,
+    PageRange = 2
+};
+enum QPrinter::PrinterOption {
+    PrintToFile = 0,
+    PrintSelection = 1,
+    PrintPageRange = 2
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152449"
+>18.6.99. QtGui/qprogressbar.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QProgressBar;
+enum QProgressBar::Direction {
+    TopToBottom = 0,
+    BottomToTop = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152453"
+>18.6.100. QtGui/qprogressdialog.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QProgressDialog;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152457"
+>18.6.101. QtGui/qproxymodel.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QProxyModel;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152461"
+>18.6.102. QtGui/qpushbutton.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QPushButton;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152465"
+>18.6.103. QtGui/qradiobutton.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QRadioButton;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152469"
+>18.6.104. QtGui/qregion.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QRegion;
+enum QRegion::RegionType {
+    Rectangle = 0,
+    Ellipse = 1
+};
+struct QRegion::QRegionData;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152473"
+>18.6.105. QtGui/qrgb.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef unsigned int QRgb;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152477"
+>18.6.106. QtGui/qrubberband.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QRubberBand;
+enum QRubberBand::Shape {
+    Line = 0,
+    Rectangle = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152481"
+>18.6.107. QtGui/qscrollarea.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QScrollArea;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152485"
+>18.6.108. QtGui/qscrollbar.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QScrollBar;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152489"
+>18.6.109. QtGui/qsessionmanager.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QSessionManager;
+enum QSessionManager::RestartHint {
+    RestartIfRunning = 0,
+    RestartAnyway = 1,
+    RestartImmediately = 2,
+    RestartNever = 3
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152493"
+>18.6.110. QtGui/qshortcut.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QShortcut;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152497"
+>18.6.111. QtGui/qsizegrip.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QSizeGrip;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152501"
+>18.6.112. QtGui/qsizepolicy.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QSizePolicy;
+enum QSizePolicy::SizePolicyMasks {
+    HSize = 4,
+    HMask = 15,
+    VMask = 240
+};
+enum QSizePolicy::PolicyFlag {
+    GrowFlag = 1,
+    ExpandFlag = 2,
+    ShrinkFlag = 4,
+    IgnoreFlag = 8
+};
+enum QSizePolicy::Policy {
+    Fixed = 0,
+    Minimum = 1,
+    MinimumExpanding = 3,
+    Maximum = 4,
+    Preferred = 5,
+    Expanding = 7,
+    Ignored = 13
+};
+typedef enum QSizePolicy::Policy {
+    Fixed = 0,
+    Minimum = 1,
+    MinimumExpanding = 3,
+    Maximum = 4,
+    Preferred = 5,
+    Expanding = 7,
+    Ignored = 13
+} QSizePolicy::SizeType;
+typedef Qt::Orientations QSizePolicy::ExpandData;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152505"
+>18.6.113. QtGui/qslider.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QSlider;
+enum QSlider::TickPosition {
+    NoTicks = 0,
+    NoMarks = 0,
+    TicksLeft = 1,
+    Left = 1,
+    Above = 1,
+    TicksAbove = 1,
+    TicksRight = 2,
+    TicksBelow = 2,
+    Below = 2,
+    Right = 2,
+    TicksBothSides = 3,
+    Both = 3
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152509"
+>18.6.114. QtGui/qsortfilterproxymodel.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QSortFilterProxyModel;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152513"
+>18.6.115. QtGui/qsound.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QSound;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152517"
+>18.6.116. QtGui/qspinbox.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QSpinBox;
+class QDoubleSpinBox;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152521"
+>18.6.117. QtGui/qsplashscreen.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QSplashScreen;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152525"
+>18.6.118. QtGui/qsplitter.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QSplitter;
+enum QSplitter::ResizeMode {
+    Stretch = 0,
+    KeepSize = 1,
+    FollowSizeHint = 2,
+    Auto = 3
+};
+class QSplitterHandle;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152529"
+>18.6.119. QtGui/qstackedlayout.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QStackedLayout;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152533"
+>18.6.120. QtGui/qstackedwidget.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QStackedWidget;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152537"
+>18.6.121. QtGui/qstandarditemmodel.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QStandardItemModel;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152541"
+>18.6.122. QtGui/qstatusbar.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QStatusBar;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152545"
+>18.6.123. QtGui/qstringlistmodel.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QStringListModel;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152549"
+>18.6.124. QtGui/qstyle.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QStyle;
+enum QStyle::StateFlag {
+    State_None = 0,
+    State_Default = 0,
+    State_Enabled = 1,
+    State_Raised = 2,
+    State_Sunken = 4,
+    State_Off = 8,
+    State_NoChange = 16,
+    State_On = 32,
+    State_DownArrow = 64,
+    State_Horizontal = 128,
+    State_HasFocus = 256,
+    State_Top = 512,
+    State_Bottom = 1024,
+    State_FocusAtBorder = 2048,
+    State_AutoRaise = 4096,
+    State_MouseOver = 8192,
+    State_UpArrow = 16384,
+    State_Selected = 32768,
+    State_Active = 65536,
+    State_Open = 262144,
+    State_Children = 524288,
+    State_Item = 1048576,
+    State_Sibling = 2097152,
+    State_Editing = 4194304,
+    State_KeyboardFocusChange = 8388608,
+    State_ReadOnly = 33554432
+};
+class QFlags &#60; QStyle::StateFlag &#62;;
+typedef class QFlags &#60; QStyle::StateFlag &#62; QStyle::State;
+typedef QStyle::State QStyle::SFlags;
+enum QStyle::PrimitiveElement {
+    PE_Q3CheckListController = 0,
+    PE_Q3CheckListExclusiveIndicator = 1,
+    PE_Q3CheckListIndicator = 2,
+    PE_Q3DockWindowSeparator = 3,
+    PE_Q3Separator = 4,
+    PE_Frame = 5,
+    PE_FrameDefaultButton = 6,
+    PE_FrameDockWidget = 7,
+    PE_FrameFocusRect = 8,
+    PE_FrameGroupBox = 9,
+    PE_FrameLineEdit = 10,
+    PE_FrameMenu = 11,
+    PE_FrameStatusBar = 12,
+    PE_FrameTabWidget = 13,
+    PE_FrameWindow = 14,
+    PE_FrameButtonBevel = 15,
+    PE_FrameButtonTool = 16,
+    PE_FrameTabBarBase = 17,
+    PE_PanelButtonCommand = 18,
+    PE_PanelButtonBevel = 19,
+    PE_PanelButtonTool = 20,
+    PE_PanelMenuBar = 21,
+    PE_PanelToolBar = 22,
+    PE_PanelLineEdit = 23,
+    PE_IndicatorArrowDown = 24,
+    PE_IndicatorArrowLeft = 25,
+    PE_IndicatorArrowRight = 26,
+    PE_IndicatorArrowUp = 27,
+    PE_IndicatorBranch = 28,
+    PE_IndicatorButtonDropDown = 29,
+    PE_IndicatorViewItemCheck = 30,
+    PE_IndicatorCheckBox = 31,
+    PE_IndicatorDockWidgetResizeHandle = 32,
+    PE_IndicatorHeaderArrow = 33,
+    PE_IndicatorMenuCheckMark = 34,
+    PE_IndicatorProgressChunk = 35,
+    PE_IndicatorRadioButton = 36,
+    PE_IndicatorSpinDown = 37,
+    PE_IndicatorSpinMinus = 38,
+    PE_IndicatorSpinPlus = 39,
+    PE_IndicatorSpinUp = 40,
+    PE_IndicatorToolBarHandle = 41,
+    PE_IndicatorToolBarSeparator = 42,
+    PE_PanelTipLabel = 43,
+    PE_IndicatorTabTear = 44,
+    PE_CustomBase = 251658240
+};
+enum QStyle::ControlElement {
+    CE_CustomBase = -268435456,
+    CE_PushButton = 0,
+    CE_PushButtonBevel = 1,
+    CE_PushButtonLabel = 2,
+    CE_CheckBox = 3,
+    CE_CheckBoxLabel = 4,
+    CE_RadioButton = 5,
+    CE_RadioButtonLabel = 6,
+    CE_TabBarTab = 7,
+    CE_TabBarTabShape = 8,
+    CE_TabBarTabLabel = 9,
+    CE_ProgressBar = 10,
+    CE_ProgressBarGroove = 11,
+    CE_ProgressBarContents = 12,
+    CE_ProgressBarLabel = 13,
+    CE_MenuItem = 14,
+    CE_MenuScroller = 15,
+    CE_MenuVMargin = 16,
+    CE_MenuHMargin = 17,
+    CE_MenuTearoff = 18,
+    CE_MenuEmptyArea = 19,
+    CE_MenuBarItem = 20,
+    CE_MenuBarEmptyArea = 21,
+    CE_ToolButtonLabel = 22,
+    CE_Header = 23,
+    CE_HeaderSection = 24,
+    CE_HeaderLabel = 25,
+    CE_Q3DockWindowEmptyArea = 26,
+    CE_ToolBoxTab = 27,
+    CE_SizeGrip = 28,
+    CE_Splitter = 29,
+    CE_RubberBand = 30,
+    CE_DockWidgetTitle = 31,
+    CE_ScrollBarAddLine = 32,
+    CE_ScrollBarSubLine = 33,
+    CE_ScrollBarAddPage = 34,
+    CE_ScrollBarSubPage = 35,
+    CE_ScrollBarSlider = 36,
+    CE_ScrollBarFirst = 37,
+    CE_ScrollBarLast = 38,
+    CE_FocusFrame = 39,
+    CE_ComboBoxLabel = 40,
+    CE_ToolBar = 41
+};
+enum QStyle::SubElement {
+    SE_CustomBase = -268435456,
+    SE_PushButtonContents = 0,
+    SE_PushButtonFocusRect = 1,
+    SE_CheckBoxIndicator = 2,
+    SE_CheckBoxContents = 3,
+    SE_CheckBoxFocusRect = 4,
+    SE_CheckBoxClickRect = 5,
+    SE_RadioButtonIndicator = 6,
+    SE_RadioButtonContents = 7,
+    SE_RadioButtonFocusRect = 8,
+    SE_RadioButtonClickRect = 9,
+    SE_ComboBoxFocusRect = 10,
+    SE_SliderFocusRect = 11,
+    SE_Q3DockWindowHandleRect = 12,
+    SE_ProgressBarGroove = 13,
+    SE_ProgressBarContents = 14,
+    SE_ProgressBarLabel = 15,
+    SE_DialogButtonAccept = 16,
+    SE_DialogButtonReject = 17,
+    SE_DialogButtonApply = 18,
+    SE_DialogButtonHelp = 19,
+    SE_DialogButtonAll = 20,
+    SE_DialogButtonAbort = 21,
+    SE_DialogButtonIgnore = 22,
+    SE_DialogButtonRetry = 23,
+    SE_DialogButtonCustom = 24,
+    SE_ToolBoxTabContents = 25,
+    SE_HeaderLabel = 26,
+    SE_HeaderArrow = 27,
+    SE_TabWidgetTabBar = 28,
+    SE_TabWidgetTabPane = 29,
+    SE_TabWidgetTabContents = 30,
+    SE_TabWidgetLeftCorner = 31,
+    SE_TabWidgetRightCorner = 32,
+    SE_ViewItemCheckIndicator = 33,
+    SE_TabBarTearIndicator = 34,
+    SE_TreeViewDisclosureItem = 35
+};
+enum QStyle::ComplexControl {
+    CC_CustomBase = -268435456,
+    CC_SpinBox = 0,
+    CC_ComboBox = 1,
+    CC_ScrollBar = 2,
+    CC_Slider = 3,
+    CC_ToolButton = 4,
+    CC_TitleBar = 5,
+    CC_Q3ListView = 6,
+    CC_Dial = 7,
+    CC_GroupBox = 8
+};
+enum QStyle::SubControl {
+    SC_All = -1,
+    SC_None = 0,
+    SC_SliderGroove = 1,
+    SC_ToolButton = 1,
+    SC_ComboBoxFrame = 1,
+    SC_TitleBarSysMenu = 1,
+    SC_SpinBoxUp = 1,
+    SC_ScrollBarAddLine = 1,
+    SC_DialGroove = 1,
+    SC_Q3ListView = 1,
+    SC_GroupBoxCheckBox = 1,
+    SC_Q3ListViewBranch = 2,
+    SC_TitleBarMinButton = 2,
+    SC_SpinBoxDown = 2,
+    SC_DialHandle = 2,
+    SC_SliderHandle = 2,
+    SC_GroupBoxLabel = 2,
+    SC_ToolButtonMenu = 2,
+    SC_ScrollBarSubLine = 2,
+    SC_ComboBoxEditField = 2,
+    SC_GroupBoxContents = 4,
+    SC_ScrollBarAddPage = 4,
+    SC_Q3ListViewExpand = 4,
+    SC_DialTickmarks = 4,
+    SC_TitleBarMaxButton = 4,
+    SC_SpinBoxFrame = 4,
+    SC_ComboBoxArrow = 4,
+    SC_SliderTickmarks = 4,
+    SC_GroupBoxFrame = 8,
+    SC_SpinBoxEditField = 8,
+    SC_ComboBoxListBoxPopup = 8,
+    SC_ScrollBarSubPage = 8,
+    SC_TitleBarCloseButton = 8,
+    SC_ScrollBarFirst = 16,
+    SC_TitleBarNormalButton = 16,
+    SC_ScrollBarLast = 32,
+    SC_TitleBarShadeButton = 32,
+    SC_ScrollBarSlider = 64,
+    SC_TitleBarUnshadeButton = 64,
+    SC_ScrollBarGroove = 128,
+    SC_TitleBarContextHelpButton = 128,
+    SC_TitleBarLabel = 256
+};
+class QFlags &#60; QStyle::SubControl &#62;;
+typedef class QFlags &#60; QStyle::SubControl &#62; QStyle::SubControls;
+typedef QStyle::SubControls QStyle::SCFlags;
+enum QStyle::PixelMetric {
+    PM_CustomBase = -268435456,
+    PM_ButtonMargin = 0,
+    PM_ButtonDefaultIndicator = 1,
+    PM_MenuButtonIndicator = 2,
+    PM_ButtonShiftHorizontal = 3,
+    PM_ButtonShiftVertical = 4,
+    PM_DefaultFrameWidth = 5,
+    PM_SpinBoxFrameWidth = 6,
+    PM_ComboBoxFrameWidth = 7,
+    PM_MaximumDragDistance = 8,
+    PM_ScrollBarExtent = 9,
+    PM_ScrollBarSliderMin = 10,
+    PM_SliderThickness = 11,
+    PM_SliderControlThickness = 12,
+    PM_SliderLength = 13,
+    PM_SliderTickmarkOffset = 14,
+    PM_SliderSpaceAvailable = 15,
+    PM_DockWidgetSeparatorExtent = 16,
+    PM_DockWidgetHandleExtent = 17,
+    PM_DockWidgetFrameWidth = 18,
+    PM_TabBarTabOverlap = 19,
+    PM_TabBarTabHSpace = 20,
+    PM_TabBarTabVSpace = 21,
+    PM_TabBarBaseHeight = 22,
+    PM_TabBarBaseOverlap = 23,
+    PM_ProgressBarChunkWidth = 24,
+    PM_SplitterWidth = 25,
+    PM_TitleBarHeight = 26,
+    PM_MenuScrollerHeight = 27,
+    PM_MenuHMargin = 28,
+    PM_MenuVMargin = 29,
+    PM_MenuPanelWidth = 30,
+    PM_MenuTearoffHeight = 31,
+    PM_MenuDesktopFrameWidth = 32,
+    PM_MenuBarPanelWidth = 33,
+    PM_MenuBarItemSpacing = 34,
+    PM_MenuBarVMargin = 35,
+    PM_MenuBarHMargin = 36,
+    PM_IndicatorWidth = 37,
+    PM_IndicatorHeight = 38,
+    PM_ExclusiveIndicatorWidth = 39,
+    PM_ExclusiveIndicatorHeight = 40,
+    PM_CheckListButtonSize = 41,
+    PM_CheckListControllerSize = 42,
+    PM_DialogButtonsSeparator = 43,
+    PM_DialogButtonsButtonWidth = 44,
+    PM_DialogButtonsButtonHeight = 45,
+    PM_MDIFrameWidth = 46,
+    PM_MDIMinimizedWidth = 47,
+    PM_HeaderMargin = 48,
+    PM_HeaderMarkSize = 49,
+    PM_HeaderGripMargin = 50,
+    PM_TabBarTabShiftHorizontal = 51,
+    PM_TabBarTabShiftVertical = 52,
+    PM_TabBarScrollButtonWidth = 53,
+    PM_ToolBarFrameWidth = 54,
+    PM_ToolBarHandleExtent = 55,
+    PM_ToolBarItemSpacing = 56,
+    PM_ToolBarItemMargin = 57,
+    PM_ToolBarSeparatorExtent = 58,
+    PM_ToolBarExtensionExtent = 59,
+    PM_SpinBoxSliderHeight = 60,
+    PM_DefaultTopLevelMargin = 61,
+    PM_DefaultChildMargin = 62,
+    PM_DefaultLayoutSpacing = 63,
+    PM_ToolBarIconSize = 64,
+    PM_ListViewIconSize = 65,
+    PM_IconViewIconSize = 66,
+    PM_SmallIconSize = 67,
+    PM_LargeIconSize = 68,
+    PM_FocusFrameVMargin = 69,
+    PM_FocusFrameHMargin = 70,
+    PM_ToolTipLabelFrameWidth = 71,
+    PM_CheckBoxLabelSpacing = 72,
+    PM_TabBarIconSize = 73,
+    PM_SizeGripSize = 74,
+    PM_DockWidgetTitleMargin = 75
+};
+enum QStyle::ContentsType {
+    CT_CustomBase = -268435456,
+    CT_PushButton = 0,
+    CT_CheckBox = 1,
+    CT_RadioButton = 2,
+    CT_ToolButton = 3,
+    CT_ComboBox = 4,
+    CT_Splitter = 5,
+    CT_Q3DockWindow = 6,
+    CT_ProgressBar = 7,
+    CT_MenuItem = 8,
+    CT_MenuBarItem = 9,
+    CT_MenuBar = 10,
+    CT_Menu = 11,
+    CT_TabBarTab = 12,
+    CT_Slider = 13,
+    CT_ScrollBar = 14,
+    CT_Q3Header = 15,
+    CT_LineEdit = 16,
+    CT_SpinBox = 17,
+    CT_SizeGrip = 18,
+    CT_TabWidget = 19,
+    CT_DialogButtons = 20,
+    CT_HeaderSection = 21,
+    CT_GroupBox = 22
+};
+enum QStyle::StyleHint {
+    SH_CustomBase = -268435456,
+    SH_EtchDisabledText = 0,
+    SH_DitherDisabledText = 1,
+    SH_ScrollBar_MiddleClickAbsolutePosition = 2,
+    SH_ScrollBar_ScrollWhenPointerLeavesControl = 3,
+    SH_TabBar_SelectMouseType = 4,
+    SH_TabBar_Alignment = 5,
+    SH_Header_ArrowAlignment = 6,
+    SH_Slider_SnapToValue = 7,
+    SH_Slider_SloppyKeyEvents = 8,
+    SH_ProgressDialog_CenterCancelButton = 9,
+    SH_ProgressDialog_TextLabelAlignment = 10,
+    SH_PrintDialog_RightAlignButtons = 11,
+    SH_MainWindow_SpaceBelowMenuBar = 12,
+    SH_FontDialog_SelectAssociatedText = 13,
+    SH_Menu_AllowActiveAndDisabled = 14,
+    SH_Menu_SpaceActivatesItem = 15,
+    SH_Menu_SubMenuPopupDelay = 16,
+    SH_ScrollView_FrameOnlyAroundContents = 17,
+    SH_MenuBar_AltKeyNavigation = 18,
+    SH_ComboBox_ListMouseTracking = 19,
+    SH_Menu_MouseTracking = 20,
+    SH_MenuBar_MouseTracking = 21,
+    SH_ItemView_ChangeHighlightOnFocus = 22,
+    SH_Widget_ShareActivation = 23,
+    SH_Workspace_FillSpaceOnMaximize = 24,
+    SH_ComboBox_Popup = 25,
+    SH_TitleBar_NoBorder = 26,
+    SH_ScrollBar_StopMouseOverSlider = 27,
+    SH_BlinkCursorWhenTextSelected = 28,
+    SH_RichText_FullWidthSelection = 29,
+    SH_Menu_Scrollable = 30,
+    SH_GroupBox_TextLabelVerticalAlignment = 31,
+    SH_GroupBox_TextLabelColor = 32,
+    SH_Menu_SloppySubMenus = 33,
+    SH_Table_GridLineColor = 34,
+    SH_LineEdit_PasswordCharacter = 35,
+    SH_DialogButtons_DefaultButton = 36,
+    SH_ToolBox_SelectedPageTitleBold = 37,
+    SH_TabBar_PreferNoArrows = 38,
+    SH_ScrollBar_LeftClickAbsolutePosition = 39,
+    SH_Q3ListViewExpand_SelectMouseType = 40,
+    SH_UnderlineShortcut = 41,
+    SH_UnderlineAccelerator = 41,
+    SH_SpinBox_AnimateButton = 42,
+    SH_SpinBox_KeyPressAutoRepeatRate = 43,
+    SH_SpinBox_ClickAutoRepeatRate = 44,
+    SH_Menu_FillScreenWithScroll = 45,
+    SH_ToolTipLabel_Opacity = 46,
+    SH_DrawMenuBarSeparator = 47,
+    SH_TitleBar_ModifyNotification = 48,
+    SH_Button_FocusPolicy = 49,
+    SH_MenuBar_DismissOnSecondClick = 50,
+    SH_MessageBox_UseBorderForButtonSpacing = 51,
+    SH_TitleBar_AutoRaise = 52,
+    SH_ToolButton_PopupDelay = 53,
+    SH_FocusFrame_Mask = 54,
+    SH_RubberBand_Mask = 55,
+    SH_WindowFrame_Mask = 56,
+    SH_SpinControls_DisableOnBounds = 57,
+    SH_Dial_BackgroundRole = 58,
+    SH_ComboBox_LayoutDirection = 59,
+    SH_ItemView_EllipsisLocation = 60,
+    SH_ItemView_ShowDecorationSelected = 61,
+    SH_ItemView_ActivateItemOnSingleClick = 62,
+    SH_ScrollBar_ContextMenu = 63,
+    SH_ScrollBar_RollBetweenButtons = 64,
+    SH_GUIStyle = 256,
+    SH_ScrollBar_BackgroundMode = 257
+};
+enum QStyle::StandardPixmap {
+    SP_CustomBase = -268435456,
+    SP_TitleBarMenuButton = 0,
+    SP_TitleBarMinButton = 1,
+    SP_TitleBarMaxButton = 2,
+    SP_TitleBarCloseButton = 3,
+    SP_TitleBarNormalButton = 4,
+    SP_TitleBarShadeButton = 5,
+    SP_TitleBarUnshadeButton = 6,
+    SP_TitleBarContextHelpButton = 7,
+    SP_DockWidgetCloseButton = 8,
+    SP_MessageBoxInformation = 9,
+    SP_MessageBoxWarning = 10,
+    SP_MessageBoxCritical = 11,
+    SP_MessageBoxQuestion = 12,
+    SP_DesktopIcon = 13,
+    SP_TrashIcon = 14,
+    SP_ComputerIcon = 15,
+    SP_DriveFDIcon = 16,
+    SP_DriveHDIcon = 17,
+    SP_DriveCDIcon = 18,
+    SP_DriveDVDIcon = 19,
+    SP_DriveNetIcon = 20,
+    SP_DirOpenIcon = 21,
+    SP_DirClosedIcon = 22,
+    SP_DirLinkIcon = 23,
+    SP_FileIcon = 24,
+    SP_FileLinkIcon = 25,
+    SP_ToolBarHorizontalExtensionButton = 26,
+    SP_ToolBarVerticalExtensionButton = 27,
+    SP_FileDialogStart = 28,
+    SP_FileDialogEnd = 29,
+    SP_FileDialogToParent = 30,
+    SP_FileDialogNewFolder = 31,
+    SP_FileDialogDetailedView = 32,
+    SP_FileDialogInfoView = 33,
+    SP_FileDialogContentsView = 34,
+    SP_FileDialogListView = 35,
+    SP_FileDialogBack = 36
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152553"
+>18.6.125. QtGui/qstylefactory.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QStyleFactory;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152557"
+>18.6.126. QtGui/qstyleoption.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QStyleOption;
+enum QStyleOption::OptionType {
+    SO_Default = 0,
+    SO_FocusRect = 1,
+    SO_Button = 2,
+    SO_Tab = 3,
+    SO_MenuItem = 4,
+    SO_Frame = 5,
+    SO_ProgressBar = 6,
+    SO_ToolBox = 7,
+    SO_Header = 8,
+    SO_Q3DockWindow = 9,
+    SO_DockWidget = 10,
+    SO_Q3ListViewItem = 11,
+    SO_ViewItem = 12,
+    SO_TabWidgetFrame = 13,
+    SO_TabBarBase = 14,
+    SO_RubberBand = 15,
+    SO_ToolBar = 16,
+    SO_CustomBase = 3840,
+    SO_Complex = 983040,
+    SO_Slider = 983041,
+    SO_SpinBox = 983042,
+    SO_ToolButton = 983043,
+    SO_ComboBox = 983044,
+    SO_Q3ListView = 983045,
+    SO_TitleBar = 983046,
+    SO_GroupBox = 983047,
+    SO_ComplexCustomBase = 251658240
+};
+class QStyleOptionFocusRect;
+class QStyleOptionFrame;
+class QStyleOptionFrameV2;
+enum QStyleOptionFrameV2::FrameFeature {
+    None = 0,
+    Flat = 1
+};
+class QFlags &#60; QStyleOptionFrameV2::FrameFeature &#62;;
+typedef class QFlags &#60; QStyleOptionFrameV2::FrameFeature &#62;
+    QStyleOptionFrameV2::FrameFeatures;
+class QStyleOptionTabWidgetFrame;
+class QStyleOptionTabBarBase;
+class QStyleOptionHeader;
+enum QStyleOptionHeader::SectionPosition {
+    Beginning = 0,
+    Middle = 1,
+    End = 2,
+    OnlyOneSection = 3
+};
+enum QStyleOptionHeader::SelectedPosition {
+    NotAdjacent = 0,
+    NextIsSelected = 1,
+    PreviousIsSelected = 2,
+    NextAndPreviousAreSelected = 3
+};
+enum QStyleOptionHeader::SortIndicator {
+    None = 0,
+    SortUp = 1,
+    SortDown = 2
+};
+class QStyleOptionButton;
+enum QStyleOptionButton::ButtonFeature {
+    None = 0,
+    Flat = 1,
+    HasMenu = 2,
+    DefaultButton = 4,
+    AutoDefaultButton = 8
+};
+class QFlags &#60; QStyleOptionButton::ButtonFeature &#62;;
+typedef class QFlags &#60; QStyleOptionButton::ButtonFeature &#62;
+    QStyleOptionButton::ButtonFeatures;
+class QStyleOptionTab;
+enum QStyleOptionTab::TabPosition {
+    Beginning = 0,
+    Middle = 1,
+    End = 2,
+    OnlyOneTab = 3
+};
+enum QStyleOptionTab::SelectedPosition {
+    NotAdjacent = 0,
+    NextIsSelected = 1,
+    PreviousIsSelected = 2
+};
+enum QStyleOptionTab::CornerWidget {
+    NoCornerWidgets = 0,
+    LeftCornerWidget = 1,
+    RightCornerWidget = 2
+};
+class QFlags &#60; QStyleOptionTab::CornerWidget &#62;;
+typedef class QFlags &#60; QStyleOptionTab::CornerWidget &#62;
+    QStyleOptionTab::CornerWidgets;
+class QStyleOptionTabV2;
+class QStyleOptionToolBar;
+enum QStyleOptionToolBar::ToolBarPosition {
+    Beginning = 0,
+    Middle = 1,
+    End = 2,
+    OnlyOne = 3
+};
+enum QStyleOptionToolBar::ToolBarFeature {
+    None = 0,
+    Movable = 1
+};
+class QFlags &#60; QStyleOptionToolBar::ToolBarFeature &#62;;
+typedef class QFlags &#60; QStyleOptionToolBar::ToolBarFeature &#62;
+    QStyleOptionToolBar::ToolBarFeatures;
+class QStyleOptionProgressBar;
+class QStyleOptionProgressBarV2;
+class QStyleOptionMenuItem;
+enum QStyleOptionMenuItem::MenuItemType {
+    Normal = 0,
+    DefaultItem = 1,
+    Separator = 2,
+    SubMenu = 3,
+    Scroller = 4,
+    TearOff = 5,
+    Margin = 6,
+    EmptyArea = 7
+};
+enum QStyleOptionMenuItem::CheckType {
+    NotCheckable = 0,
+    Exclusive = 1,
+    NonExclusive = 2
+};
+class QStyleOptionQ3ListViewItem;
+enum QStyleOptionQ3ListViewItem::Q3ListViewItemFeature {
+    None = 0,
+    Expandable = 1,
+    MultiLine = 2,
+    Visible = 4,
+    ParentControl = 8
+};
+class QFlags &#60; QStyleOptionQ3ListViewItem::Q3ListViewItemFeature &#62;;
+typedef class QFlags &#60; QStyleOptionQ3ListViewItem::Q3ListViewItemFeature &#62;
+    QStyleOptionQ3ListViewItem::Q3ListViewItemFeatures;
+class QStyleOptionQ3DockWindow;
+class QStyleOptionDockWidget;
+class QStyleOptionViewItem;
+enum QStyleOptionViewItem::Position {
+    Left = 0,
+    Right = 1,
+    Top = 2,
+    Bottom = 3
+};
+class QStyleOptionToolBox;
+class QStyleOptionRubberBand;
+class QStyleOptionComplex;
+class QStyleOptionSlider;
+class QStyleOptionSpinBox;
+class QStyleOptionQ3ListView;
+class QStyleOptionToolButton;
+enum QStyleOptionToolButton::ToolButtonFeature {
+    None = 0,
+    Arrow = 1,
+    Menu = 4,
+    PopupDelay = 8
+};
+class QFlags &#60; QStyleOptionToolButton::ToolButtonFeature &#62;;
+typedef class QFlags &#60; QStyleOptionToolButton::ToolButtonFeature &#62;
+    QStyleOptionToolButton::ToolButtonFeatures;
+class QStyleOptionComboBox;
+class QStyleOptionTitleBar;
+class QStyleOptionGroupBox;
+class QStyleHintReturn;
+enum QStyleHintReturn::HintReturnType {
+    SH_Default = 61440,
+    SH_Mask = 61441
+};
+class QStyleHintReturnMask;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152561"
+>18.6.127. QtGui/qstylepainter.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QStylePainter;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152565"
+>18.6.128. QtGui/qstyleplugin.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct QStyleFactoryInterface;
+class QStylePlugin;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152569"
+>18.6.129. QtGui/qsyntaxhighlighter.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QSyntaxHighlighter;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152573"
+>18.6.130. QtGui/qtabbar.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTabBar;
+enum QTabBar::Shape {
+    RoundedNorth = 0,
+    RoundedAbove = 0,
+    RoundedSouth = 1,
+    RoundedBelow = 1,
+    RoundedWest = 2,
+    RoundedEast = 3,
+    TriangularNorth = 4,
+    TriangularAbove = 4,
+    TriangularBelow = 5,
+    TriangularSouth = 5,
+    TriangularWest = 6,
+    TriangularEast = 7
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152577"
+>18.6.131. QtGui/qtableview.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTableView;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152581"
+>18.6.132. QtGui/qtablewidget.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTableWidgetSelectionRange;
+class QTableWidgetItem;
+class QTableWidget;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152585"
+>18.6.133. QtGui/qtabwidget.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTabWidget;
+enum QTabWidget::TabPosition {
+    North = 0,
+    Top = 0,
+    South = 1,
+    Bottom = 1,
+    West = 2,
+    East = 3
+};
+enum QTabWidget::TabShape {
+    Rounded = 0,
+    Triangular = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152589"
+>18.6.134. QtGui/qtextbrowser.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTextBrowser;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152593"
+>18.6.135. QtGui/qtextcursor.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTextCursor;
+enum QTextCursor::MoveMode {
+    MoveAnchor = 0,
+    KeepAnchor = 1
+};
+enum QTextCursor::MoveOperation {
+    NoMove = 0,
+    Start = 1,
+    Up = 2,
+    StartOfLine = 3,
+    StartOfBlock = 4,
+    StartOfWord = 5,
+    PreviousBlock = 6,
+    PreviousCharacter = 7,
+    PreviousWord = 8,
+    Left = 9,
+    WordLeft = 10,
+    End = 11,
+    Down = 12,
+    EndOfLine = 13,
+    EndOfWord = 14,
+    EndOfBlock = 15,
+    NextBlock = 16,
+    NextCharacter = 17,
+    NextWord = 18,
+    Right = 19,
+    WordRight = 20
+};
+enum QTextCursor::SelectionType {
+    WordUnderCursor = 0,
+    LineUnderCursor = 1,
+    BlockUnderCursor = 2
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152597"
+>18.6.136. QtGui/qtextdocument.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;enum Qt::HitTestAccuracy {
+    ExactHit = 0,
+    FuzzyHit = 1
+};
+enum Qt::WhiteSpaceMode {
+    WhiteSpaceModeUndefined = -1,
+    WhiteSpaceNormal = 0,
+    WhiteSpacePre = 1,
+    WhiteSpaceNoWrap = 2
+};
+class QAbstractUndoItem;
+class QTextDocument;
+enum QTextDocument::MetaInformation {
+    DocumentTitle = 0
+};
+enum QTextDocument::FindFlag {
+    FindBackward = 1,
+    FindCaseSensitively = 2,
+    FindWholeWords = 4
+};
+class QFlags &#60; QTextDocument::FindFlag &#62;;
+typedef class QFlags &#60; QTextDocument::FindFlag &#62; QTextDocument::FindFlags;
+enum QTextDocument::ResourceType {
+    HtmlResource = 1,
+    ImageResource = 2,
+    UserResource = 100
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152601"
+>18.6.137. QtGui/qtextdocumentfragment.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTextDocumentFragment;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152605"
+>18.6.138. QtGui/qtextedit.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTextEdit;
+enum QTextEdit::LineWrapMode {
+    NoWrap = 0,
+    WidgetWidth = 1,
+    FixedPixelWidth = 2,
+    FixedColumnWidth = 3
+};
+enum QTextEdit::AutoFormattingFlag {
+    AutoAll = -1,
+    AutoNone = 0,
+    AutoBulletList = 1
+};
+class QFlags &#60; QTextEdit::AutoFormattingFlag &#62;;
+typedef class QFlags &#60; QTextEdit::AutoFormattingFlag &#62;
+    QTextEdit::AutoFormatting;
+enum QTextEdit::CursorAction {
+    MoveBackward = 0,
+    MoveForward = 1,
+    MoveWordBackward = 2,
+    MoveWordForward = 3,
+    MoveUp = 4,
+    MoveDown = 5,
+    MoveLineStart = 6,
+    MoveLineEnd = 7,
+    MoveHome = 8,
+    MoveEnd = 9,
+    MovePageUp = 10,
+    MovePgUp = 10,
+    MovePageDown = 11,
+    MovePgDown = 11
+};
+enum QTextEdit::KeyboardAction {
+    ActionBackspace = 0,
+    ActionDelete = 1,
+    ActionReturn = 2,
+    ActionKill = 3,
+    ActionWordBackspace = 4,
+    ActionWordDelete = 5
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152609"
+>18.6.139. QtGui/qtextformat.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTextLength;
+enum QTextLength::Type {
+    VariableLength = 0,
+    FixedLength = 1,
+    PercentageLength = 2
+};
+class QTextFormat;
+enum QTextFormat::FormatType {
+    InvalidFormat = -1,
+    BlockFormat = 1,
+    CharFormat = 2,
+    ListFormat = 3,
+    TableFormat = 4,
+    FrameFormat = 5,
+    UserFormat = 100
+};
+enum QTextFormat::Property {
+    ObjectIndex = 0,
+    CssFloat = 2048,
+    LayoutDirection = 2049,
+    OutlinePen = 2064,
+    BackgroundBrush = 2080,
+    ForegroundBrush = 2081,
+    BlockAlignment = 4112,
+    BlockTopMargin = 4144,
+    BlockBottomMargin = 4145,
+    BlockLeftMargin = 4146,
+    BlockRightMargin = 4147,
+    TextIndent = 4148,
+    BlockIndent = 4160,
+    BlockNonBreakableLines = 4176,
+    BlockTrailingHorizontalRulerWidth = 4192,
+    FontFamily = 8192,
+    FontPointSize = 8193,
+    FontSizeAdjustment = 8194,
+    FontSizeIncrement = 8194,
+    FontWeight = 8195,
+    FontItalic = 8196,
+    FontUnderline = 8197,
+    FontOverline = 8198,
+    FontStrikeOut = 8199,
+    FontFixedPitch = 8200,
+    FontPixelSize = 8201,
+    TextUnderlineColor = 8208,
+    TextVerticalAlignment = 8225,
+    TextOutline = 8226,
+    IsAnchor = 8240,
+    AnchorHref = 8241,
+    AnchorName = 8242,
+    ObjectType = 12032,
+    ListStyle = 12288,
+    ListIndent = 12289,
+    FrameBorder = 16384,
+    FrameMargin = 16385,
+    FramePadding = 16386,
+    FrameWidth = 16387,
+    FrameHeight = 16388,
+    TableColumns = 16640,
+    TableColumnWidthConstraints = 16641,
+    TableCellSpacing = 16642,
+    TableCellPadding = 16643,
+    TableCellRowSpan = 18448,
+    TableCellColumnSpan = 18449,
+    ImageName = 20480,
+    ImageWidth = 20496,
+    ImageHeight = 20497,
+    UserProperty = 1048576
+};
+enum QTextFormat::ObjectTypes {
+    NoObject = 0,
+    ImageObject = 1,
+    TableObject = 2,
+    UserObject = 4096
+};
+class QTextCharFormat;
+enum QTextCharFormat::VerticalAlignment {
+    AlignNormal = 0,
+    AlignSuperScript = 1,
+    AlignSubScript = 2
+};
+class QTextBlockFormat;
+class QTextListFormat;
+enum QTextListFormat::Style {
+    ListUpperAlpha = -6,
+    ListLowerAlpha = -5,
+    ListDecimal = -4,
+    ListSquare = -3,
+    ListCircle = -2,
+    ListDisc = -1,
+    ListStyleUndefined = 0
+};
+class QTextImageFormat;
+class QTextFrameFormat;
+enum QTextFrameFormat::Position {
+    InFlow = 0,
+    FloatLeft = 1,
+    FloatRight = 2
+};
+class QTextTableFormat;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152613"
+>18.6.140. QtGui/qtextlayout.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTextInlineObject;
+class QTextLayout;
+struct QTextLayout::FormatRange;
+enum QTextLayout::CursorMode {
+    SkipCharacters = 0,
+    SkipWords = 1
+};
+class QTextLine;
+enum QTextLine::Edge {
+    Leading = 0,
+    Trailing = 1
+};
+enum QTextLine::CursorPosition {
+    CursorBetweenCharacters = 0,
+    CursorOnCharacter = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152617"
+>18.6.141. QtGui/qtextlist.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTextList;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152621"
+>18.6.142. QtGui/qtextobject.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTextObject;
+class QTextBlockGroup;
+class QTextFrameLayoutData;
+class QTextFrame;
+class QTextFrame::iterator;
+typedef class QTextFrame::iteratorQTextFrame::Iterator;
+class QTextBlockUserData;
+class QTextBlock;
+class QTextBlock::iterator;
+typedef class QTextBlock::iteratorQTextBlock::Iterator;
+class QTextFragment;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152625"
+>18.6.143. QtGui/qtextoption.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTextOption;
+enum QTextOption::WrapMode {
+    NoWrap = 0,
+    WordWrap = 1,
+    ManualWrap = 2,
+    WrapAnywhere = 3,
+    WrapAtWordBoundaryOrAnywhere = 4
+};
+enum QTextOption::Flag {
+    IncludeTrailingSpaces = -2147483648
+};
+class QFlags &#60; QTextOption::Flag &#62;;
+typedef class QFlags &#60; QTextOption::Flag &#62; QTextOption::Flags;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152629"
+>18.6.144. QtGui/qtexttable.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTextTableCell;
+class QTextTable;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152633"
+>18.6.145. QtGui/qtoolbar.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QToolBar;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152637"
+>18.6.146. QtGui/qtoolbox.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QToolBox;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152641"
+>18.6.147. QtGui/qtoolbutton.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QToolButton;
+enum QToolButton::ToolButtonPopupMode {
+    DelayedPopup = 0,
+    MenuButtonPopup = 1,
+    InstantPopup = 2
+};
+enum QToolButton::TextPosition {
+    BesideIcon = 0,
+    Right = 0,
+    BelowIcon = 1,
+    Under = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152645"
+>18.6.148. QtGui/qtooltip.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QToolTip;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152649"
+>18.6.149. QtGui/qtreeview.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTreeView;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152653"
+>18.6.150. QtGui/qtreewidget.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTreeWidgetItem;
+class QTreeWidget;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152657"
+>18.6.151. QtGui/qtreewidgetitemiterator.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTreeWidgetItemIterator;
+enum QTreeWidgetItemIterator::IteratorFlag {
+    All = 0,
+    Hidden = 1,
+    NotHidden = 2,
+    Selected = 4,
+    Unselected = 8,
+    Selectable = 16,
+    NotSelectable = 32,
+    DragEnabled = 64,
+    DragDisabled = 128,
+    DropEnabled = 256,
+    DropDisabled = 512,
+    HasChildren = 1024,
+    NoChildren = 2048,
+    Checked = 4096,
+    NotChecked = 8192,
+    Enabled = 16384,
+    Disabled = 32768,
+    Editable = 65536,
+    NotEditable = 131072,
+    UserFlag = 16777216
+};
+class QFlags &#60; QTreeWidgetItemIterator::IteratorFlag &#62;;
+typedef class QFlags &#60; QTreeWidgetItemIterator::IteratorFlag &#62;
+    QTreeWidgetItemIterator::IteratorFlags;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152661"
+>18.6.152. QtGui/qvalidator.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QValidator;
+enum QValidator::State {
+    Invalid = 0,
+    Intermediate = 1,
+    Valid = 1,
+    Acceptable = 2
+};
+class QIntValidator;
+class QDoubleValidator;
+class QRegExpValidator;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152665"
+>18.6.153. QtGui/qvfbhdr.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct QVFbHeader;
+struct QVFbKeyData;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152669"
+>18.6.154. QtGui/qwhatsthis.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QWhatsThis;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152673"
+>18.6.155. QtGui/qwidget.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QWidgetData;
+class QWidget;
+enum QWidget::BackgroundOrigin {
+    WidgetOrigin = 0,
+    ParentOrigin = 1,
+    WindowOrigin = 2,
+    AncestorOrigin = 3
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152677"
+>18.6.156. QtGui/qwindowdefs.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef class QList &#60; QWidget * &#62;QWidgetList;
+typedef unsigned long int WId;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152681"
+>18.6.157. QtGui/qwindowsstyle.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QWindowsStyle;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152685"
+>18.6.158. QtGui/qwmatrix.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef class QMatrixQWMatrix;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN152689"
+>18.6.159. QtGui/qworkspace.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QWorkspace;
+enum QWorkspace::WindowOrder {
+    CreationOrder = 0,
+    StackingOrder = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libqtgui.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libqtguiman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libQtGui</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="qt.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interface Definitions for libQtGui</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

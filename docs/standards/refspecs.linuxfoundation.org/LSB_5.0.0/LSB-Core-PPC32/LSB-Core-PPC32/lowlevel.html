@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Low Level System Information</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for PPC32"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Executable And Linking Format (ELF)"
+HREF="elf-ppc32.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="elfintro.html"><LINK
+REL="NEXT"
+TITLE="Function Calling Sequence"
+HREF="callingsequence.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for PPC32</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="elfintro.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="callingsequence.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="LOWLEVEL"
+></A
+>Chapter 7. Low Level System Information</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="MACHINEINTERFACE"
+>7.1. Machine Interface</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="PROCESSORARCH"
+>7.1.1. Processor Architecture</A
+></H2
+><P
+>&#13;The PowerPC Architecture is specified by the following documents:
+
+<P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+><A
+HREF="normativerefs.html#STD.PPC32.ABI"
+>System V Application Binary Interface PowerPC&#8482; Processor Supplement</A
+></P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+><A
+HREF="normativerefs.html#STD.PPC32.ARCH"
+>The PowerPC&#8482; Microprocessor Family</A
+></P
+></LI
+></UL
+></P
+><P
+>&#13;Only the features of the PowerPC 603 processor instruction set may be assumed
+to be present. An application should determine
+if any additional instruction set features are available before
+using those additional features. If a feature is not present, then the
+application may not use it.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>The presence of a hardware floating point unit is optional.
+However, applications requiring floating point arithmetic may experience
+substantial performance penalties on system without such a unit.</P
+></BLOCKQUOTE
+></DIV
+>&#13;</P
+><P
+>Conforming applications may use only instructions which do not require elevated privileges.</P
+><P
+>Conforming applications shall not invoke the implementations underlying system call interface directly. 
+The interfaces in the
+implementation base libraries shall be used instead.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Rationale: </B
+>Implementation-supplied base libraries may use the system call interface
+but applications must not assume any particular operating system or
+kernel version is present.</P
+></BLOCKQUOTE
+></DIV
+></P
+><P
+>An implementation must support the 32-bit computation mode as
+described in <A
+HREF="normativerefs.html#STD.PPC32.ARCH"
+>The PowerPC&#8482; Microprocessor Family</A
+>. Conforming applications
+shall not use instructions provided only for the 64-bit mode.</P
+><P
+>Applications conforming to this specification must provide feedback to the
+user if a feature that is required for correct execution of the application
+is not present. Applications conforming to this specification should attempt
+to execute in a diminished capacity if a required feature is not present.</P
+><P
+>This specification does not provide any performance guarantees of a conforming
+system. A system conforming to this specification may be implemented in either
+hardware or software.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="DATAREPRESENTATION"
+>7.1.2. Data Representation</A
+></H2
+><P
+>&#13;LSB-conforming applications shall use the data representation as
+defined in Chapter 3 "Data Representation" section of the <A
+HREF="normativerefs.html#STD.PPC32.ABI"
+>System V Application Binary Interface PowerPC&#8482; Processor Supplement</A
+>.&#13;</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="BYTEORDERING"
+>7.1.2.1. Byte Ordering</A
+></H3
+><P
+>LSB-conforming applications shall use big-endian byte ordering.
+LSB-conforming implementations may support little-endian applications.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="FUNDAMENTALTYES"
+>7.1.2.2. Fundamental Types</A
+></H3
+><P
+>&#13;In addition to the fundamental types specified in Chapter 3 "Fundamental Types" 
+section of the <A
+HREF="normativerefs.html#STD.PPC32.ABI"
+>System V Application Binary Interface PowerPC&#8482; Processor Supplement</A
+>, a 64 bit data type is defined here.
+
+<DIV
+CLASS="TABLE"
+><A
+NAME="AEN585"
+></A
+><P
+><B
+>Table 7-1. Scalar Types</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+>Type</TH
+><TH
+>C</TH
+><TH
+><SAMP
+CLASS="COMPUTEROUTPUT"
+>sizeof</SAMP
+></TH
+><TH
+>Alignment (bytes)</TH
+><TH
+>IntelI386 Architecture</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ROWSPAN="3"
+VALIGN="MIDDLE"
+>Integral</TD
+><TD
+>long long</TD
+><TD
+ROWSPAN="2"
+VALIGN="MIDDLE"
+><SAMP
+CLASS="COMPUTEROUTPUT"
+>8</SAMP
+></TD
+><TD
+ROWSPAN="2"
+VALIGN="MIDDLE"
+>8</TD
+><TD
+ROWSPAN="2"
+VALIGN="MIDDLE"
+>signed double word</TD
+></TR
+><TR
+><TD
+>signed long long</TD
+></TR
+><TR
+><TD
+>unsigned long long</TD
+><TD
+><SAMP
+CLASS="COMPUTEROUTPUT"
+>8</SAMP
+></TD
+><TD
+>8</TD
+><TD
+>unsigned double word</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></P
+><P
+>LSB-conforming applications shall not use the long double fundamental
+type.</P
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="elfintro.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="callingsequence.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="elf-ppc32.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Function Calling Sequence</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

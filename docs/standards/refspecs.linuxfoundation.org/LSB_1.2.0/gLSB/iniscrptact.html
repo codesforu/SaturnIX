@@ -1,0 +1,426 @@
+<HTML
+><HEAD
+><TITLE
+>Init Script Actions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="System Initialization"
+HREF="sysinit.html"><LINK
+REL="PREVIOUS"
+TITLE="System Initialization"
+HREF="sysinit.html"><LINK
+REL="NEXT"
+TITLE="Comment conventions for init scripts"
+HREF="initscrcomconv.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="sysinit.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 22. System Initialization</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="initscrcomconv.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="INISCRPTACT">Init Script Actions</H1
+><P
+>Init files provided by LSB applications shall accept one argument,
+saying what to do:</P
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>start</TD
+><TD
+>start the service</TD
+></TR
+><TR
+><TD
+>stop</TD
+><TD
+>stop the service</TD
+></TR
+><TR
+><TD
+>restart</TD
+><TD
+>stop and restart the service if the service
+is already running, otherwise start the service</TD
+></TR
+><TR
+><TD
+>reload</TD
+><TD
+>cause the configuration of the service to be
+reloaded without actually stopping and restarting the service</TD
+></TR
+><TR
+><TD
+>force-reload</TD
+><TD
+>cause the configuration to be reloaded
+if the service supports this, otherwise restart the service</TD
+></TR
+><TR
+><TD
+>status</TD
+><TD
+>print the current status of the service</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+><P
+>The start, stop, restart, force-reload, and status commands must be
+supported by all init files; the reload option is optional.  Other init 
+script actions may be defined by the init script.</P
+><P
+>Init files must ensure that they will behave sensibly if invoked
+with start when the service is already running, or with stop when it
+isn't, and that they don't kill unfortunately-named user processes. 
+The best way to achieve this is to use the init-script functions provided by
+<TT
+CLASS="FILENAME"
+>/lib/lsb/init-functions</TT
+>.</P
+><P
+>If a service reloads its configuration automatically (as in the case
+of cron, for example), the reload option of the init file must
+behave as if the configuration has been reloaded successfully.</P
+><P
+>These executable files must not fail obscurely when the configuration
+files remain but the package has been removed, as the default in [the
+packaging system] is to leave configuration files on the system after
+the package has been removed.  Only when it is executed with the
+[purge] option will [the packaging system] remove configuration files.
+Therefore, you should include a test statement at the top of the file,
+like this:
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+><TT
+CLASS="USERINPUT"
+><B
+>test -f program-executed-later-in-file || exit 5</B
+></TT
+></PRE
+></TD
+></TR
+></TABLE
+>
+or take the equivalent action if the init file is not a shell script.</P
+><P
+>If the status command is given, the init script will return the following 
+exit status codes.  
+
+<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>0</TD
+><TD
+>program is running or service is OK</TD
+></TR
+><TR
+><TD
+>1</TD
+><TD
+>program is dead and /var/run pid file exists</TD
+></TR
+><TR
+><TD
+>2</TD
+><TD
+>program is dead and /var/lock lock file exists</TD
+></TR
+><TR
+><TD
+>3</TD
+><TD
+>program is stopped</TD
+></TR
+><TR
+><TD
+>4</TD
+><TD
+>program or service status is unknown</TD
+></TR
+><TR
+><TD
+>5-99</TD
+><TD
+>reserved for future LSB use</TD
+></TR
+><TR
+><TD
+>100-149</TD
+><TD
+>reserved for distribution use</TD
+></TR
+><TR
+><TD
+>150-199</TD
+><TD
+>reserved for application use</TD
+></TR
+><TR
+><TD
+>200-254</TD
+><TD
+>reserved</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><P
+>In the case of init script commands other than "status" (i.e.,
+"start", "stop", "restart", "reload", and "force-reload"), the init
+script must return an exit status of zero if the action described by
+the argument has been successful.  Otherwise, the exit status shall
+be non-zero, as defined below.  In addition to straightforward
+success, the following situations are also to be considered
+successful:
+
+<P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>restarting a service (instead of reloading it) with the "force-reload" argument</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>running "start" on a service already running</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>running "stop" on a service already stopped or not running</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>running "restart" on a service already stopped or not running</P
+></LI
+></UL
+>&#13;</P
+><P
+>In case of an error, while processing any init script action except
+for "status", the init script must print an error message and return
+one of the following non-zero exit status codes.
+
+<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>1</TD
+><TD
+>generic or unspecified error (current practice)</TD
+></TR
+><TR
+><TD
+>2</TD
+><TD
+>invalid or excess argument(s)</TD
+></TR
+><TR
+><TD
+>3</TD
+><TD
+>unimplemented feature (for example, "reload")</TD
+></TR
+><TR
+><TD
+>4</TD
+><TD
+>user had insufficient privilege</TD
+></TR
+><TR
+><TD
+>5</TD
+><TD
+>program is not installed</TD
+></TR
+><TR
+><TD
+>6</TD
+><TD
+>program is not configured</TD
+></TR
+><TR
+><TD
+>7</TD
+><TD
+>program is not running</TD
+></TR
+><TR
+><TD
+>8-99</TD
+><TD
+>reserved for future LSB use</TD
+></TR
+><TR
+><TD
+>100-149</TD
+><TD
+>reserved for distribution use</TD
+></TR
+><TR
+><TD
+>150-199</TD
+><TD
+>reserved for application use</TD
+></TR
+><TR
+><TD
+>200-254</TD
+><TD
+>reserved</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><P
+>All error messages must be printed on standard error.  All status
+messages must be printed on standard output.
+(This does not prevent scripts from calling the logging functions such
+as log_failure_msg).</P
+><P
+>Since init files may be run manually by a system administrator with
+non-standard environment variable values for PATH, USER, LOGNAME,
+etc. init files must not depend on the values of these environment
+variables.  They should set them to some known/default values if they
+are needed.&#13;</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="sysinit.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="initscrcomconv.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>System Initialization</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="sysinit.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Comment conventions for init scripts</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

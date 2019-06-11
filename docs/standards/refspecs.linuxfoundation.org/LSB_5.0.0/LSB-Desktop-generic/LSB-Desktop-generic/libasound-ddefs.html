@@ -1,0 +1,2826 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libasound</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="asoundlibasound.html"><LINK
+REL="PREVIOUS"
+TITLE="Libraries"
+HREF="asoundlibasound.html"><LINK
+REL="NEXT"
+TITLE="Desktop Environment"
+HREF="tocdeskenv.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="asoundlibasound.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 19. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="tocdeskenv.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBASOUND-DDEFS"
+>19.2. Data Definitions for libasound</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libasound.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171312"
+>19.2.1. alsa/conf.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct _snd_config_iterator *snd_config_iterator_t;
+typedef struct _snd_config snd_config_t;
+typedef enum _snd_config_type {
+    SND_CONFIG_TYPE_INTEGER,
+    SND_CONFIG_TYPE_INTEGER64 = 1,
+    SND_CONFIG_TYPE_REAL = 2,
+    SND_CONFIG_TYPE_STRING = 3,
+    SND_CONFIG_TYPE_POINTER = 4,
+    SND_CONFIG_TYPE_COMPOUND = 1024
+} snd_config_type_t;
+typedef struct _snd_config_update snd_config_update_t;
+typedef struct snd_devname {
+    char *name;
+    char *comment;
+    snd_devname_t *next;
+} snd_devname_t;
+extern snd_config_t *snd_config;
+extern int snd_config_add(snd_config_t * config, snd_config_t * leaf);
+extern int snd_config_copy(snd_config_t * *dst, snd_config_t * src);
+extern int snd_config_delete(snd_config_t * config);
+extern int snd_config_get_ascii(const snd_config_t * config, char **value);
+extern int snd_config_get_id(const snd_config_t * config,
+			     const char **value);
+extern int snd_config_get_integer(const snd_config_t * config,
+				  long int *value);
+extern int snd_config_get_integer64(const snd_config_t * config,
+				    long long int *value);
+extern int snd_config_get_string(const snd_config_t * config,
+				 const char **value);
+extern snd_config_type_t snd_config_get_type(const snd_config_t * config);
+extern int snd_config_imake_integer(snd_config_t * *config,
+				    const char *key, const long int value);
+extern int snd_config_imake_integer64(snd_config_t * *config,
+				      const char *key,
+				      const long long int value);
+extern int snd_config_imake_string(snd_config_t * *config, const char *key,
+				   const char *ascii);
+extern snd_config_iterator_t snd_config_iterator_end(const snd_config_t *
+						     node);
+extern snd_config_t *snd_config_iterator_entry(const snd_config_iterator_t
+					       iterator);
+extern snd_config_iterator_t snd_config_iterator_first(const snd_config_t *
+						       node);
+extern snd_config_iterator_t snd_config_iterator_next(const
+						      snd_config_iterator_t
+						      iterator);
+extern int snd_config_load(snd_config_t * config, snd_input_t * in);
+extern int snd_config_make_compound(snd_config_t * *config,
+				    const char *key, int join);
+extern int snd_config_make_integer(snd_config_t * *config,
+				   const char *key);
+extern int snd_config_make_integer64(snd_config_t * *config,
+				     const char *key);
+extern int snd_config_make_string(snd_config_t * *config, const char *key);
+extern int snd_config_save(snd_config_t * config, snd_output_t * out);
+extern int snd_config_search(snd_config_t * config, const char *key,
+			     snd_config_t * *result);
+extern int snd_config_searchv(snd_config_t * config,
+			      snd_config_t * *result, ...);
+extern int snd_config_set_ascii(snd_config_t * config, const char *ascii);
+extern int snd_config_set_integer(snd_config_t * config, long int value);
+extern int snd_config_set_integer64(snd_config_t * config,
+				    long long int value);
+extern int snd_config_set_string(snd_config_t * config, const char *value);
+extern int snd_config_top(snd_config_t * *config);
+extern int snd_config_update(void);
+extern int snd_config_update_free_global(void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171316"
+>19.2.2. alsa/control.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SND_CTL_EVENT_MASK_VALUE	(1&#60;&#60;0)
+#define SND_CTL_EVENT_MASK_INFO	(1&#60;&#60;1)
+#define SND_CTL_EVENT_MASK_ADD	(1&#60;&#60;2)
+#define SND_CTL_EVENT_MASK_TLV	(1&#60;&#60;3)
+#define SND_CTL_POWER_D3hot	(SND_CTL_POWER_D3|0x0000)
+#define SND_CTL_POWER_D3cold	(SND_CTL_POWER_D3|0x0001)
+#define SND_CTL_EVENT_MASK_REMOVE	(~0U)
+#define SND_CTL_TLV_DB_GAIN_MUTE	-9999999
+#define SND_CTL_POWER_D0	0x0000
+#define SND_CTL_TLVT_CONTAINER	0x0000
+#define SND_CTL_NONBLOCK	0x0001
+#define SND_CTL_TLVT_DB_SCALE	0x0001
+#define SND_SCTL_NOFREE	0x0001
+#define SND_CTL_ASYNC	0x0002
+#define SND_CTL_TLVT_DB_LINEAR	0x0002
+#define SND_CTL_TLVT_DB_RANGE	0x0003
+#define SND_CTL_READONLY	0x0004
+#define SND_CTL_POWER_D1	0x0100
+#define SND_CTL_POWER_D2	0x0200
+#define SND_CTL_POWER_D3	0x0300
+#define SND_CTL_POWER_MASK	0xff00
+
+typedef struct snd_aes_iec958 {
+    unsigned char status[24];
+    unsigned char subcode[147];
+    unsigned char pad;
+    unsigned char dig_subframe[4];
+} snd_aes_iec958_t;
+typedef struct _snd_ctl_card_info snd_ctl_card_info_t;
+typedef struct sndrv_ctl_elem_id snd_ctl_elem_id_t;
+typedef enum _snd_ctl_elem_iface {
+    SND_CTL_ELEM_IFACE_CARD,
+    SND_CTL_ELEM_IFACE_HWDEP = 1,
+    SND_CTL_ELEM_IFACE_MIXER = 2,
+    SND_CTL_ELEM_IFACE_PCM = 3,
+    SND_CTL_ELEM_IFACE_RAWMIDI = 4,
+    SND_CTL_ELEM_IFACE_TIMER = 5,
+    SND_CTL_ELEM_IFACE_SEQUENCER = 6,
+    SND_CTL_ELEM_IFACE_LAST = 6
+} snd_ctl_elem_iface_t;
+typedef struct _snd_ctl_elem_info snd_ctl_elem_info_t;
+typedef struct sndrv_ctl_elem_list snd_ctl_elem_list_t;
+typedef enum _snd_ctl_elem_type {
+    SND_CTL_ELEM_TYPE_NONE,
+    SND_CTL_ELEM_TYPE_BOOLEAN = 1,
+    SND_CTL_ELEM_TYPE_INTEGER = 2,
+    SND_CTL_ELEM_TYPE_ENUMERATED = 3,
+    SND_CTL_ELEM_TYPE_BYTES = 4,
+    SND_CTL_ELEM_TYPE_IEC958 = 5,
+    SND_CTL_ELEM_TYPE_INTEGER64 = 6,
+    SND_CTL_ELEM_TYPE_LAST = 6
+} snd_ctl_elem_type_t;
+typedef struct _snd_ctl_elem_value snd_ctl_elem_value_t;
+typedef struct sndrv_ctl_event snd_ctl_event_t;
+typedef enum _snd_ctl_event_type {
+    SND_CTL_EVENT_ELEM,
+    SND_CTL_EVENT_LAST
+} snd_ctl_event_type_t;
+typedef struct _snd_ctl snd_ctl_t;
+typedef enum _snd_ctl_type {
+    SND_CTL_TYPE_HW,
+    SND_CTL_TYPE_SHM = 1,
+    SND_CTL_TYPE_INET = 2,
+    SND_CTL_TYPE_EXT = 3
+} snd_ctl_type_t;
+typedef struct _snd_hctl snd_hctl_t;
+typedef struct _snd_sctl snd_sctl_t;
+typedef struct _snd_hctl_elem snd_hctl_elem_t;
+typedef int (*snd_hctl_compare_t) (const snd_hctl_elem_t *,
+				   const snd_hctl_elem_t *);
+typedef int (*snd_hctl_callback_t) (snd_hctl_t *, unsigned int,
+				    snd_hctl_elem_t *);
+typedef int (*snd_hctl_elem_callback_t) (snd_hctl_elem_t *, unsigned int);
+extern int snd_async_add_ctl_handler(snd_async_handler_t * *handler,
+				     snd_ctl_t * ctl,
+				     snd_async_callback_t callback,
+				     void *private_data);
+extern snd_ctl_t *snd_async_handler_get_ctl(snd_async_handler_t * handler);
+extern int snd_card_get_index(const char *name);
+extern int snd_card_get_longname(int card, char **name);
+extern int snd_card_get_name(int card, char **name);
+extern int snd_card_load(int card);
+extern int snd_card_next(int *card);
+extern int snd_ctl_card_info(snd_ctl_t * ctl, snd_ctl_card_info_t * info);
+extern void snd_ctl_card_info_clear(snd_ctl_card_info_t * obj);
+extern void snd_ctl_card_info_copy(snd_ctl_card_info_t * dst,
+				   const snd_ctl_card_info_t * src);
+extern void snd_ctl_card_info_free(snd_ctl_card_info_t * obj);
+extern const char *snd_ctl_card_info_get_components(const
+						    snd_ctl_card_info_t *
+						    obj);
+extern const char *snd_ctl_card_info_get_driver(const snd_ctl_card_info_t *
+						obj);
+extern const char *snd_ctl_card_info_get_id(const snd_ctl_card_info_t *
+					    obj);
+extern const char *snd_ctl_card_info_get_longname(const snd_ctl_card_info_t
+						  * obj);
+extern const char *snd_ctl_card_info_get_mixername(const
+						   snd_ctl_card_info_t *
+						   obj);
+extern const char *snd_ctl_card_info_get_name(const snd_ctl_card_info_t *
+					      obj);
+extern int snd_ctl_card_info_malloc(snd_ctl_card_info_t * *ptr);
+extern size_t snd_ctl_card_info_sizeof(void);
+extern int snd_ctl_close(snd_ctl_t * ctl);
+extern int snd_ctl_elem_add_boolean(snd_ctl_t * ctl,
+				    const snd_ctl_elem_id_t * id,
+				    unsigned int count);
+extern int snd_ctl_elem_add_iec958(snd_ctl_t * ctl,
+				   const snd_ctl_elem_id_t * id);
+extern int snd_ctl_elem_add_integer(snd_ctl_t * ctl,
+				    const snd_ctl_elem_id_t * id,
+				    unsigned int count, long int imin,
+				    long int imax, long int istep);
+extern void snd_ctl_elem_id_clear(snd_ctl_elem_id_t * obj);
+extern void snd_ctl_elem_id_copy(snd_ctl_elem_id_t * dst,
+				 const snd_ctl_elem_id_t * src);
+extern void snd_ctl_elem_id_free(snd_ctl_elem_id_t * obj);
+extern unsigned int snd_ctl_elem_id_get_device(const snd_ctl_elem_id_t *
+					       obj);
+extern unsigned int snd_ctl_elem_id_get_index(const snd_ctl_elem_id_t *
+					      obj);
+extern snd_ctl_elem_iface_t snd_ctl_elem_id_get_interface(const
+							  snd_ctl_elem_id_t
+							  * obj);
+extern const char *snd_ctl_elem_id_get_name(const snd_ctl_elem_id_t * obj);
+extern unsigned int snd_ctl_elem_id_get_numid(const snd_ctl_elem_id_t *
+					      obj);
+extern unsigned int snd_ctl_elem_id_get_subdevice(const snd_ctl_elem_id_t *
+						  obj);
+extern int snd_ctl_elem_id_malloc(snd_ctl_elem_id_t * *ptr);
+extern void snd_ctl_elem_id_set_device(snd_ctl_elem_id_t * obj,
+				       unsigned int val);
+extern void snd_ctl_elem_id_set_index(snd_ctl_elem_id_t * obj,
+				      unsigned int val);
+extern void snd_ctl_elem_id_set_interface(snd_ctl_elem_id_t * obj,
+					  snd_ctl_elem_iface_t val);
+extern void snd_ctl_elem_id_set_name(snd_ctl_elem_id_t * obj,
+				     const char *val);
+extern void snd_ctl_elem_id_set_numid(snd_ctl_elem_id_t * obj,
+				      unsigned int val);
+extern void snd_ctl_elem_id_set_subdevice(snd_ctl_elem_id_t * obj,
+					  unsigned int val);
+extern size_t snd_ctl_elem_id_sizeof(void);
+extern const char *snd_ctl_elem_iface_name(snd_ctl_elem_iface_t iface);
+extern int snd_ctl_elem_info(snd_ctl_t * ctl, snd_ctl_elem_info_t * info);
+extern void snd_ctl_elem_info_clear(snd_ctl_elem_info_t * obj);
+extern void snd_ctl_elem_info_copy(snd_ctl_elem_info_t * dst,
+				   const snd_ctl_elem_info_t * src);
+extern void snd_ctl_elem_info_free(snd_ctl_elem_info_t * obj);
+extern unsigned int snd_ctl_elem_info_get_count(const snd_ctl_elem_info_t *
+						obj);
+extern void snd_ctl_elem_info_get_id(const snd_ctl_elem_info_t * obj,
+				     snd_ctl_elem_id_t * ptr);
+extern const char *snd_ctl_elem_info_get_item_name(const
+						   snd_ctl_elem_info_t *
+						   obj);
+extern unsigned int snd_ctl_elem_info_get_items(const snd_ctl_elem_info_t *
+						obj);
+extern long int snd_ctl_elem_info_get_max(const snd_ctl_elem_info_t * obj);
+extern long long int snd_ctl_elem_info_get_max64(const snd_ctl_elem_info_t
+						 * obj);
+extern long int snd_ctl_elem_info_get_min(const snd_ctl_elem_info_t * obj);
+extern long long int snd_ctl_elem_info_get_min64(const snd_ctl_elem_info_t
+						 * obj);
+extern const char *snd_ctl_elem_info_get_name(const snd_ctl_elem_info_t *
+					      obj);
+extern unsigned int snd_ctl_elem_info_get_numid(const snd_ctl_elem_info_t *
+						obj);
+extern long int snd_ctl_elem_info_get_step(const snd_ctl_elem_info_t *
+					   obj);
+extern long long int snd_ctl_elem_info_get_step64(const snd_ctl_elem_info_t
+						  * obj);
+extern snd_ctl_elem_type_t snd_ctl_elem_info_get_type(const
+						      snd_ctl_elem_info_t *
+						      obj);
+extern int snd_ctl_elem_info_is_inactive(const snd_ctl_elem_info_t * obj);
+extern int snd_ctl_elem_info_is_locked(const snd_ctl_elem_info_t * obj);
+extern int snd_ctl_elem_info_is_readable(const snd_ctl_elem_info_t * obj);
+extern int snd_ctl_elem_info_is_user(const snd_ctl_elem_info_t * obj);
+extern int snd_ctl_elem_info_is_volatile(const snd_ctl_elem_info_t * obj);
+extern int snd_ctl_elem_info_is_writable(const snd_ctl_elem_info_t * obj);
+extern int snd_ctl_elem_info_malloc(snd_ctl_elem_info_t * *ptr);
+extern void snd_ctl_elem_info_set_id(snd_ctl_elem_info_t * obj,
+				     const snd_ctl_elem_id_t * ptr);
+extern void snd_ctl_elem_info_set_item(snd_ctl_elem_info_t * obj,
+				       unsigned int val);
+extern size_t snd_ctl_elem_info_sizeof(void);
+extern int snd_ctl_elem_list(snd_ctl_t * ctl, snd_ctl_elem_list_t * list);
+extern int snd_ctl_elem_list_alloc_space(snd_ctl_elem_list_t * obj,
+					 unsigned int entries);
+extern void snd_ctl_elem_list_clear(snd_ctl_elem_list_t * obj);
+extern void snd_ctl_elem_list_copy(snd_ctl_elem_list_t * dst,
+				   const snd_ctl_elem_list_t * src);
+extern void snd_ctl_elem_list_free(snd_ctl_elem_list_t * obj);
+extern void snd_ctl_elem_list_free_space(snd_ctl_elem_list_t * obj);
+extern unsigned int snd_ctl_elem_list_get_count(const snd_ctl_elem_list_t *
+						obj);
+extern void snd_ctl_elem_list_get_id(const snd_ctl_elem_list_t * obj,
+				     unsigned int idx,
+				     snd_ctl_elem_id_t * ptr);
+extern const char *snd_ctl_elem_list_get_name(const snd_ctl_elem_list_t *
+					      obj, unsigned int idx);
+extern unsigned int snd_ctl_elem_list_get_used(const snd_ctl_elem_list_t *
+					       obj);
+extern int snd_ctl_elem_list_malloc(snd_ctl_elem_list_t * *ptr);
+extern void snd_ctl_elem_list_set_offset(snd_ctl_elem_list_t * obj,
+					 unsigned int val);
+extern size_t snd_ctl_elem_list_sizeof(void);
+extern int snd_ctl_elem_read(snd_ctl_t * ctl,
+			     snd_ctl_elem_value_t * value);
+extern int snd_ctl_elem_remove(snd_ctl_t * ctl, snd_ctl_elem_id_t * id);
+extern const char *snd_ctl_elem_type_name(snd_ctl_elem_type_t type);
+extern void snd_ctl_elem_value_clear(snd_ctl_elem_value_t * obj);
+extern void snd_ctl_elem_value_copy(snd_ctl_elem_value_t * dst,
+				    const snd_ctl_elem_value_t * src);
+extern void snd_ctl_elem_value_free(snd_ctl_elem_value_t * obj);
+extern int snd_ctl_elem_value_get_boolean(const snd_ctl_elem_value_t * obj,
+					  unsigned int idx);
+extern unsigned char snd_ctl_elem_value_get_byte(const snd_ctl_elem_value_t
+						 * obj, unsigned int idx);
+extern const void *snd_ctl_elem_value_get_bytes(const snd_ctl_elem_value_t
+						* obj);
+extern unsigned int snd_ctl_elem_value_get_enumerated(const
+						      snd_ctl_elem_value_t
+						      * obj,
+						      unsigned int idx);
+extern void snd_ctl_elem_value_get_id(const snd_ctl_elem_value_t * obj,
+				      snd_ctl_elem_id_t * ptr);
+extern void snd_ctl_elem_value_get_iec958(const snd_ctl_elem_value_t * obj,
+					  snd_aes_iec958_t * ptr);
+extern long int snd_ctl_elem_value_get_integer(const snd_ctl_elem_value_t *
+					       obj, unsigned int idx);
+extern long long int snd_ctl_elem_value_get_integer64(const
+						      snd_ctl_elem_value_t
+						      * obj,
+						      unsigned int idx);
+extern int snd_ctl_elem_value_malloc(snd_ctl_elem_value_t * *ptr);
+extern void snd_ctl_elem_value_set_boolean(snd_ctl_elem_value_t * obj,
+					   unsigned int idx, long int val);
+extern void snd_ctl_elem_value_set_byte(snd_ctl_elem_value_t * obj,
+					unsigned int idx,
+					unsigned char val);
+extern void snd_ctl_elem_value_set_enumerated(snd_ctl_elem_value_t * obj,
+					      unsigned int idx,
+					      unsigned int val);
+extern void snd_ctl_elem_value_set_id(snd_ctl_elem_value_t * obj,
+				      const snd_ctl_elem_id_t * ptr);
+extern void snd_ctl_elem_value_set_iec958(snd_ctl_elem_value_t * obj,
+					  const snd_aes_iec958_t * ptr);
+extern void snd_ctl_elem_value_set_integer(snd_ctl_elem_value_t * obj,
+					   unsigned int idx, long int val);
+extern void snd_ctl_elem_value_set_integer64(snd_ctl_elem_value_t * obj,
+					     unsigned int idx,
+					     long long int val);
+extern size_t snd_ctl_elem_value_sizeof(void);
+extern int snd_ctl_elem_write(snd_ctl_t * ctl,
+			      snd_ctl_elem_value_t * value);
+extern void snd_ctl_event_clear(snd_ctl_event_t * obj);
+extern void snd_ctl_event_copy(snd_ctl_event_t * dst,
+			       const snd_ctl_event_t * src);
+extern void snd_ctl_event_elem_get_id(const snd_ctl_event_t * obj,
+				      snd_ctl_elem_id_t * ptr);
+extern unsigned int snd_ctl_event_elem_get_mask(const snd_ctl_event_t *
+						obj);
+extern void snd_ctl_event_free(snd_ctl_event_t * obj);
+extern int snd_ctl_event_malloc(snd_ctl_event_t * *ptr);
+extern size_t snd_ctl_event_sizeof(void);
+extern int snd_ctl_hwdep_info(snd_ctl_t * ctl, snd_hwdep_info_t * info);
+extern int snd_ctl_hwdep_next_device(snd_ctl_t * ctl, int *device);
+extern const char *snd_ctl_name(snd_ctl_t * ctl);
+extern int snd_ctl_nonblock(snd_ctl_t * ctl, int nonblock);
+extern int snd_ctl_open(snd_ctl_t * *ctl, const char *name, int mode);
+extern int snd_ctl_pcm_info(snd_ctl_t * ctl, snd_pcm_info_t * info);
+extern int snd_ctl_pcm_next_device(snd_ctl_t * ctl, int *device);
+extern int snd_ctl_poll_descriptors(snd_ctl_t * ctl, struct pollfd *pfds,
+				    unsigned int space);
+extern int snd_ctl_poll_descriptors_count(snd_ctl_t * ctl);
+extern int snd_ctl_rawmidi_info(snd_ctl_t * ctl,
+				snd_rawmidi_info_t * info);
+extern int snd_ctl_rawmidi_next_device(snd_ctl_t * ctl, int *device);
+extern int snd_ctl_read(snd_ctl_t * ctl, snd_ctl_event_t * event);
+extern int snd_ctl_subscribe_events(snd_ctl_t * ctl, int subscribe);
+extern int snd_hctl_close(snd_hctl_t * hctl);
+extern void *snd_hctl_elem_get_callback_private(const snd_hctl_elem_t *
+						obj);
+extern void snd_hctl_elem_get_id(const snd_hctl_elem_t * obj,
+				 snd_ctl_elem_id_t * ptr);
+extern int snd_hctl_elem_info(snd_hctl_elem_t * elem,
+			      snd_ctl_elem_info_t * info);
+extern snd_hctl_elem_t *snd_hctl_elem_next(snd_hctl_elem_t * elem);
+extern snd_hctl_elem_t *snd_hctl_elem_prev(snd_hctl_elem_t * elem);
+extern int snd_hctl_elem_read(snd_hctl_elem_t * elem,
+			      snd_ctl_elem_value_t * value);
+extern void snd_hctl_elem_set_callback(snd_hctl_elem_t * obj,
+				       snd_hctl_elem_callback_t val);
+extern void snd_hctl_elem_set_callback_private(snd_hctl_elem_t * obj,
+					       void *val);
+extern int snd_hctl_elem_write(snd_hctl_elem_t * elem,
+			       snd_ctl_elem_value_t * value);
+extern snd_hctl_elem_t *snd_hctl_find_elem(snd_hctl_t * hctl,
+					   const snd_ctl_elem_id_t * id);
+extern snd_hctl_elem_t *snd_hctl_first_elem(snd_hctl_t * hctl);
+extern int snd_hctl_free(snd_hctl_t * hctl);
+extern void *snd_hctl_get_callback_private(snd_hctl_t * hctl);
+extern unsigned int snd_hctl_get_count(snd_hctl_t * hctl);
+extern int snd_hctl_handle_events(snd_hctl_t * hctl);
+extern snd_hctl_elem_t *snd_hctl_last_elem(snd_hctl_t * hctl);
+extern int snd_hctl_load(snd_hctl_t * hctl);
+extern int snd_hctl_nonblock(snd_hctl_t * hctl, int nonblock);
+extern int snd_hctl_open(snd_hctl_t * *hctl, const char *name, int mode);
+extern void snd_hctl_set_callback(snd_hctl_t * hctl,
+				  snd_hctl_callback_t callback);
+extern void snd_hctl_set_callback_private(snd_hctl_t * hctl, void *data);
+extern int snd_hctl_wait(snd_hctl_t * hctl, int timeout);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171320"
+>19.2.3. alsa/control_external.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SND_CTL_EXT_VERSION	((SND_CTL_EXT_VERSION_MAJOR&#60;&#60;16) | (SND_CTL_EXT_VERSION_MINOR&#60;&#60;8) | (SND_CTL_EXT_VERSION_TINY))
+#define SND_CTL_EXT_KEY_NOT_FOUND	(snd_ctl_ext_key_t)(-1)
+#define SND_CTL_EXT_VERSION_MINOR	0
+#define SND_CTL_EXT_VERSION_TINY	0
+#define SND_CTL_EXT_VERSION_MAJOR	1
+
+typedef struct snd_ctl_ext_callback {
+    void (*close) (void);
+    int (*elem_count) (void);
+    int (*elem_list) (void);
+     snd_ctl_ext_key_t(*find_elem) (void);
+    void (*free_key) (void);
+    int (*get_attribute) (void);
+    int (*get_integer_info) (void);
+    int (*get_integer64_info) (void);
+    int (*get_enumerated_info) (void);
+    int (*get_enumerated_name) (void);
+    int (*read_integer) (void);
+    int (*read_integer64) (void);
+    int (*read_enumerated) (void);
+    int (*read_bytes) (void);
+    int (*read_iec958) (void);
+    int (*write_integer) (void);
+    int (*write_integer64) (void);
+    int (*write_enumerated) (void);
+    int (*write_bytes) (void);
+    int (*write_iec958) (void);
+    void (*subscribe_events) (void);
+    int (*read_event) (void);
+    int (*poll_descriptors_count) (void);
+    int (*poll_descriptors) (void);
+    int (*poll_revents) (void);
+} snd_ctl_ext_callback_t;
+typedef long unsigned int snd_ctl_ext_key_t;
+typedef struct snd_ctl_ext {
+    unsigned int version;
+    int card_idx;
+    char id[16];
+    char driver[16];
+    char name[32];
+    char longname[80];
+    char mixername[80];
+    int poll_fd;
+    const snd_ctl_ext_callback_t *callback;
+    void *private_data;
+    snd_ctl_t *handle;
+    int nonblock;
+    int subscribed;
+} snd_ctl_ext_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171324"
+>19.2.4. alsa/error.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SND_ERROR_INCOMPATIBLE_VERSION	(SND_ERROR_BEGIN+0)
+#define SND_ERROR_ALISP_NIL	(SND_ERROR_BEGIN+1)
+#define SND_ERROR_BEGIN	500000
+
+typedef void (*snd_lib_error_handler_t) (const char *, int, const char *,
+					 int, const char *, ...);
+extern int snd_lib_error_set_handler(snd_lib_error_handler_t handler);
+extern const char *snd_strerror(int errnum);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171328"
+>19.2.5. alsa/global.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct _snd_async_handler snd_async_handler_t;
+typedef void (*snd_async_callback_t) (snd_async_handler_t *);
+typedef struct timespec snd_htimestamp_t;
+typedef struct timeval snd_timestamp_t;
+extern const char *snd_asoundlib_version(void);
+extern int snd_async_add_handler(snd_async_handler_t * *handler, int fd,
+				 snd_async_callback_t callback,
+				 void *private_data);
+extern int snd_async_del_handler(snd_async_handler_t * handler);
+extern void *snd_async_handler_get_callback_private(snd_async_handler_t *
+						    handler);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171332"
+>19.2.6. alsa/hwdep.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SND_HWDEP_OPEN_NONBLOCK	(O_NONBLOCK)
+#define SND_HWDEP_OPEN_READ	(O_RDONLY)
+#define SND_HWDEP_OPEN_DUPLEX	(O_RDWR)
+#define SND_HWDEP_OPEN_WRITE	(O_WRONLY)
+
+typedef struct sndrv_hwdep_dsp_image snd_hwdep_dsp_image_t;
+typedef struct sndrv_hwdep_dsp_status snd_hwdep_dsp_status_t;
+typedef enum _snd_hwdep_iface {
+    SND_HWDEP_IFACE_OPL2,
+    SND_HWDEP_IFACE_OPL3 = 1,
+    SND_HWDEP_IFACE_OPL4 = 2,
+    SND_HWDEP_IFACE_SB16CSP = 3,
+    SND_HWDEP_IFACE_EMU10K1 = 4,
+    SND_HWDEP_IFACE_YSS225 = 5,
+    SND_HWDEP_IFACE_ICS2115 = 6,
+    SND_HWDEP_IFACE_SSCAPE = 7,
+    SND_HWDEP_IFACE_VX = 8,
+    SND_HWDEP_IFACE_MIXART = 9,
+    SND_HWDEP_IFACE_USX2Y = 10,
+    SND_HWDEP_IFACE_EMUX_WAVETABLE = 11,
+    SND_HWDEP_IFACE_BLUETOOTH = 12,
+    SND_HWDEP_IFACE_USX2Y_PCM = 13,
+    SND_HWDEP_IFACE_PCXHR = 14,
+    SND_HWDEP_IFACE_SB_RC = 15,
+    SND_HWDEP_IFACE_LAST = 15
+} snd_hwdep_iface_t;
+typedef struct sndrv_hwdep_info snd_hwdep_info_t;
+typedef struct _snd_hwdep snd_hwdep_t;
+typedef enum _snd_hwdep_type {
+    SND_HWDEP_TYPE_HW,
+    SND_HWDEP_TYPE_SHM = 1,
+    SND_HWDEP_TYPE_INET = 2
+} snd_hwdep_type_t;
+extern int snd_hwdep_close(snd_hwdep_t * hwdep);
+extern void snd_hwdep_dsp_image_copy(snd_hwdep_dsp_image_t * dst,
+				     const snd_hwdep_dsp_image_t * src);
+extern void snd_hwdep_dsp_image_free(snd_hwdep_dsp_image_t * obj);
+extern const void *snd_hwdep_dsp_image_get_image(const
+						 snd_hwdep_dsp_image_t *
+						 obj);
+extern unsigned int snd_hwdep_dsp_image_get_index(const
+						  snd_hwdep_dsp_image_t *
+						  obj);
+extern size_t snd_hwdep_dsp_image_get_length(const snd_hwdep_dsp_image_t *
+					     obj);
+extern const char *snd_hwdep_dsp_image_get_name(const snd_hwdep_dsp_image_t
+						* obj);
+extern int snd_hwdep_dsp_image_malloc(snd_hwdep_dsp_image_t * *ptr);
+extern void snd_hwdep_dsp_image_set_image(snd_hwdep_dsp_image_t * obj,
+					  void *buffer);
+extern void snd_hwdep_dsp_image_set_index(snd_hwdep_dsp_image_t * obj,
+					  unsigned int _index);
+extern void snd_hwdep_dsp_image_set_length(snd_hwdep_dsp_image_t * obj,
+					   size_t length);
+extern void snd_hwdep_dsp_image_set_name(snd_hwdep_dsp_image_t * obj,
+					 const char *name);
+extern size_t snd_hwdep_dsp_image_sizeof(void);
+extern int snd_hwdep_dsp_load(snd_hwdep_t * hwdep,
+			      snd_hwdep_dsp_image_t * block);
+extern int snd_hwdep_dsp_status(snd_hwdep_t * hwdep,
+				snd_hwdep_dsp_status_t * status);
+extern void snd_hwdep_dsp_status_copy(snd_hwdep_dsp_status_t * dst,
+				      const snd_hwdep_dsp_status_t * src);
+extern void snd_hwdep_dsp_status_free(snd_hwdep_dsp_status_t * obj);
+extern unsigned int snd_hwdep_dsp_status_get_chip_ready(const
+							snd_hwdep_dsp_status_t
+							* obj);
+extern unsigned int snd_hwdep_dsp_status_get_dsp_loaded(const
+							snd_hwdep_dsp_status_t
+							* obj);
+extern const char *snd_hwdep_dsp_status_get_id(const snd_hwdep_dsp_status_t
+					       * obj);
+extern unsigned int snd_hwdep_dsp_status_get_num_dsps(const
+						      snd_hwdep_dsp_status_t
+						      * obj);
+extern unsigned int snd_hwdep_dsp_status_get_version(const
+						     snd_hwdep_dsp_status_t
+						     * obj);
+extern int snd_hwdep_dsp_status_malloc(snd_hwdep_dsp_status_t * *ptr);
+extern size_t snd_hwdep_dsp_status_sizeof(void);
+extern int snd_hwdep_info(snd_hwdep_t * hwdep, snd_hwdep_info_t * info);
+extern void snd_hwdep_info_copy(snd_hwdep_info_t * dst,
+				const snd_hwdep_info_t * src);
+extern void snd_hwdep_info_free(snd_hwdep_info_t * obj);
+extern int snd_hwdep_info_get_card(const snd_hwdep_info_t * obj);
+extern unsigned int snd_hwdep_info_get_device(const snd_hwdep_info_t *
+					      obj);
+extern const char *snd_hwdep_info_get_id(const snd_hwdep_info_t * obj);
+extern snd_hwdep_iface_t snd_hwdep_info_get_iface(const snd_hwdep_info_t *
+						  obj);
+extern const char *snd_hwdep_info_get_name(const snd_hwdep_info_t * obj);
+extern int snd_hwdep_info_malloc(snd_hwdep_info_t * *ptr);
+extern void snd_hwdep_info_set_device(snd_hwdep_info_t * obj,
+				      unsigned int val);
+extern size_t snd_hwdep_info_sizeof(void);
+extern int snd_hwdep_ioctl(snd_hwdep_t * hwdep, unsigned int request,
+			   void *arg);
+extern int snd_hwdep_open(snd_hwdep_t * *hwdep, const char *name,
+			  int mode);
+extern int snd_hwdep_poll_descriptors(snd_hwdep_t * hwdep,
+				      struct pollfd *pfds,
+				      unsigned int space);
+extern ssize_t snd_hwdep_read(snd_hwdep_t * hwdep, void *buffer,
+			      size_t size);
+extern ssize_t snd_hwdep_write(snd_hwdep_t * hwdep, const void *buffer,
+			       size_t size);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171336"
+>19.2.7. alsa/iatomic.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define atomic_set(v,i)	(((v)-&#62;counter) = (i))
+#define atomic_read(v)	((v)-&#62;counter)
+#define ATOMIC_INIT(i)	{ (i) }
+
+typedef struct {
+    unsigned int begin;
+    unsigned int end;
+} snd_atomic_write_t;
+typedef struct {
+    const volatile snd_atomic_write_t *write;
+    unsigned int end;
+} snd_atomic_read_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171340"
+>19.2.8. alsa/input.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct _snd_input snd_input_t;
+extern int snd_input_buffer_open(snd_input_t * *inputp, const char *buffer,
+				 ssize_t size);
+extern int snd_input_close(snd_input_t * input);
+extern int snd_input_stdio_attach(snd_input_t * *inputp, FILE * fp,
+				  int _close);
+extern int snd_input_stdio_open(snd_input_t * *inputp, const char *file,
+				const char *mode);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171344"
+>19.2.9. alsa/mixer.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct _snd_mixer snd_mixer_t;
+typedef struct _snd_mixer_elem snd_mixer_elem_t;
+typedef enum _snd_mixer_elem_type {
+    SND_MIXER_ELEM_SIMPLE,
+    SND_MIXER_ELEM_LAST
+} snd_mixer_elem_type_t;
+typedef struct _snd_mixer_class snd_mixer_class_t;
+typedef int (*snd_mixer_compare_t) (const snd_mixer_elem_t *,
+				    const snd_mixer_elem_t *);
+typedef int (*snd_mixer_elem_callback_t) (snd_mixer_elem_t *,
+					  unsigned int);
+typedef int (*snd_mixer_callback_t) (snd_mixer_t *, unsigned int,
+				     snd_mixer_elem_t *);
+typedef int (*snd_mixer_event_t) (snd_mixer_class_t *, unsigned int,
+				  snd_hctl_elem_t *, snd_mixer_elem_t *);
+typedef enum _snd_mixer_selem_channel_id {
+    SND_MIXER_SCHN_UNKNOWN = -1,
+    SND_MIXER_SCHN_FRONT_LEFT,
+    SND_MIXER_SCHN_FRONT_RIGHT = 1,
+    SND_MIXER_SCHN_REAR_LEFT = 2,
+    SND_MIXER_SCHN_REAR_RIGHT = 3,
+    SND_MIXER_SCHN_FRONT_CENTER = 4,
+    SND_MIXER_SCHN_WOOFER = 5,
+    SND_MIXER_SCHN_SIDE_LEFT = 6,
+    SND_MIXER_SCHN_SIDE_RIGHT = 7,
+    SND_MIXER_SCHN_REAR_CENTER = 8,
+    SND_MIXER_SCHN_LAST = 31,
+    SND_MIXER_SCHN_MONO
+} snd_mixer_selem_channel_id_t;
+typedef struct _snd_mixer_selem_id snd_mixer_selem_id_t;
+enum snd_mixer_selem_regopt_abstract {
+    SND_MIXER_SABSTRACT_NONE,
+    SND_MIXER_SABSTRACT_BASIC = 1
+};
+struct snd_mixer_selem_regopt {
+    int ver;
+    enum snd_mixer_selem_regopt_abstract abstract;
+    const char *device;
+    snd_pcm_t *playback_pcm;
+    snd_pcm_t *capture_pcm;
+};
+extern int snd_mixer_attach(snd_mixer_t * mixer, const char *name);
+extern int snd_mixer_close(snd_mixer_t * mixer);
+extern int snd_mixer_detach(snd_mixer_t * mixer, const char *name);
+extern void *snd_mixer_elem_get_callback_private(const snd_mixer_elem_t *
+						 obj);
+extern snd_mixer_elem_type_t snd_mixer_elem_get_type(const snd_mixer_elem_t
+						     * obj);
+extern snd_mixer_elem_t *snd_mixer_elem_next(snd_mixer_elem_t * elem);
+extern snd_mixer_elem_t *snd_mixer_elem_prev(snd_mixer_elem_t * elem);
+extern void snd_mixer_elem_set_callback(snd_mixer_elem_t * obj,
+					snd_mixer_elem_callback_t val);
+extern void snd_mixer_elem_set_callback_private(snd_mixer_elem_t * obj,
+						void *val);
+extern snd_mixer_elem_t *snd_mixer_find_selem(snd_mixer_t * mixer,
+					      const snd_mixer_selem_id_t *
+					      id);
+extern snd_mixer_elem_t *snd_mixer_first_elem(snd_mixer_t * mixer);
+extern void snd_mixer_free(snd_mixer_t * mixer);
+extern void *snd_mixer_get_callback_private(const snd_mixer_t * obj);
+extern unsigned int snd_mixer_get_count(const snd_mixer_t * obj);
+extern int snd_mixer_handle_events(snd_mixer_t * mixer);
+extern snd_mixer_elem_t *snd_mixer_last_elem(snd_mixer_t * mixer);
+extern int snd_mixer_load(snd_mixer_t * mixer);
+extern int snd_mixer_open(snd_mixer_t * *mixer, int mode);
+extern int snd_mixer_poll_descriptors(snd_mixer_t * mixer,
+				      struct pollfd *pfds,
+				      unsigned int space);
+extern int snd_mixer_poll_descriptors_count(snd_mixer_t * mixer);
+extern int snd_mixer_poll_descriptors_revents(snd_mixer_t * mixer,
+					      struct pollfd *pfds,
+					      unsigned int nfds,
+					      short unsigned int *revents);
+extern const char
+    *snd_mixer_selem_channel_name(snd_mixer_selem_channel_id_t channel);
+extern int snd_mixer_selem_get_capture_group(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_get_capture_switch(snd_mixer_elem_t * elem,
+					      snd_mixer_selem_channel_id_t
+					      channel, int *value);
+extern int snd_mixer_selem_get_capture_volume(snd_mixer_elem_t * elem,
+					      snd_mixer_selem_channel_id_t
+					      channel, long int *value);
+extern int snd_mixer_selem_get_capture_volume_range(snd_mixer_elem_t *
+						    elem, long int *min,
+						    long int *max);
+extern int snd_mixer_selem_get_enum_item(snd_mixer_elem_t * elem,
+					 snd_mixer_selem_channel_id_t
+					 channel, unsigned int *idxp);
+extern int snd_mixer_selem_get_enum_item_name(snd_mixer_elem_t * elem,
+					      unsigned int idx,
+					      size_t maxlen, char *str);
+extern int snd_mixer_selem_get_enum_items(snd_mixer_elem_t * elem);
+extern void snd_mixer_selem_get_id(snd_mixer_elem_t * element,
+				   snd_mixer_selem_id_t * id);
+extern unsigned int snd_mixer_selem_get_index(snd_mixer_elem_t * elem);
+extern const char *snd_mixer_selem_get_name(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_get_playback_switch(snd_mixer_elem_t * elem,
+					       snd_mixer_selem_channel_id_t
+					       channel, int *value);
+extern int snd_mixer_selem_get_playback_volume(snd_mixer_elem_t * elem,
+					       snd_mixer_selem_channel_id_t
+					       channel, long int *value);
+extern int snd_mixer_selem_get_playback_volume_range(snd_mixer_elem_t *
+						     elem, long int *min,
+						     long int *max);
+extern int snd_mixer_selem_has_capture_channel(snd_mixer_elem_t * obj,
+					       snd_mixer_selem_channel_id_t
+					       channel);
+extern int snd_mixer_selem_has_capture_switch(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_has_capture_switch_exclusive(snd_mixer_elem_t *
+							elem);
+extern int snd_mixer_selem_has_capture_switch_joined(snd_mixer_elem_t *
+						     elem);
+extern int snd_mixer_selem_has_capture_volume(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_has_capture_volume_joined(snd_mixer_elem_t *
+						     elem);
+extern int snd_mixer_selem_has_common_switch(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_has_common_volume(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_has_playback_channel(snd_mixer_elem_t * obj,
+						snd_mixer_selem_channel_id_t
+						channel);
+extern int snd_mixer_selem_has_playback_switch(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_has_playback_switch_joined(snd_mixer_elem_t *
+						      elem);
+extern int snd_mixer_selem_has_playback_volume(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_has_playback_volume_joined(snd_mixer_elem_t *
+						      elem);
+extern void snd_mixer_selem_id_copy(snd_mixer_selem_id_t * dst,
+				    const snd_mixer_selem_id_t * src);
+extern void snd_mixer_selem_id_free(snd_mixer_selem_id_t * obj);
+extern unsigned int snd_mixer_selem_id_get_index(const snd_mixer_selem_id_t
+						 * obj);
+extern const char *snd_mixer_selem_id_get_name(const snd_mixer_selem_id_t *
+					       obj);
+extern int snd_mixer_selem_id_malloc(snd_mixer_selem_id_t * *ptr);
+extern void snd_mixer_selem_id_set_index(snd_mixer_selem_id_t * obj,
+					 unsigned int val);
+extern void snd_mixer_selem_id_set_name(snd_mixer_selem_id_t * obj,
+					const char *val);
+extern size_t snd_mixer_selem_id_sizeof(void);
+extern int snd_mixer_selem_is_active(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_is_capture_mono(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_is_enum_capture(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_is_enum_playback(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_is_enumerated(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_is_playback_mono(snd_mixer_elem_t * elem);
+extern int snd_mixer_selem_register(snd_mixer_t * mixer,
+				    struct snd_mixer_selem_regopt *options,
+				    snd_mixer_class_t * *classp);
+extern int snd_mixer_selem_set_capture_switch(snd_mixer_elem_t * elem,
+					      snd_mixer_selem_channel_id_t
+					      channel, int value);
+extern int snd_mixer_selem_set_capture_switch_all(snd_mixer_elem_t * elem,
+						  int value);
+extern int snd_mixer_selem_set_capture_volume(snd_mixer_elem_t * elem,
+					      snd_mixer_selem_channel_id_t
+					      channel, long int value);
+extern int snd_mixer_selem_set_capture_volume_all(snd_mixer_elem_t * elem,
+						  long int value);
+extern int snd_mixer_selem_set_capture_volume_range(snd_mixer_elem_t *
+						    elem, long int min,
+						    long int max);
+extern int snd_mixer_selem_set_enum_item(snd_mixer_elem_t * elem,
+					 snd_mixer_selem_channel_id_t
+					 channel, unsigned int idx);
+extern int snd_mixer_selem_set_playback_switch(snd_mixer_elem_t * elem,
+					       snd_mixer_selem_channel_id_t
+					       channel, int value);
+extern int snd_mixer_selem_set_playback_switch_all(snd_mixer_elem_t * elem,
+						   int value);
+extern int snd_mixer_selem_set_playback_volume(snd_mixer_elem_t * elem,
+					       snd_mixer_selem_channel_id_t
+					       channel, long int value);
+extern int snd_mixer_selem_set_playback_volume_all(snd_mixer_elem_t * elem,
+						   long int value);
+extern int snd_mixer_selem_set_playback_volume_range(snd_mixer_elem_t *
+						     elem, long int min,
+						     long int max);
+extern void snd_mixer_set_callback(snd_mixer_t * obj,
+				   snd_mixer_callback_t val);
+extern void snd_mixer_set_callback_private(snd_mixer_t * obj, void *val);
+extern int snd_mixer_wait(snd_mixer_t * mixer, int timeout);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171348"
+>19.2.10. alsa/mixer_abst.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define sm_selem(x)	((sm_selem_t *)((x)-&#62;private_data))
+#define sm_selem_ops(x)	((sm_selem_t *)((x)-&#62;private_data))-&#62;ops
+#define SM_CAP_GVOLUME	(1&#60;&#60;1)
+#define SM_CAP_CSWITCH_JOIN	(1&#60;&#60;10)
+#define SM_CAP_CSWITCH_EXCL	(1&#60;&#60;11)
+#define SM_CAP_PENUM	(1&#60;&#60;12)
+#define SM_CAP_CENUM	(1&#60;&#60;13)
+#define SM_CAP_GSWITCH	(1&#60;&#60;2)
+#define SM_CAP_PVOLUME	(1&#60;&#60;3)
+#define SM_CAP_PVOLUME_JOIN	(1&#60;&#60;4)
+#define SM_CAP_PSWITCH	(1&#60;&#60;5)
+#define SM_CAP_PSWITCH_JOIN	(1&#60;&#60;6)
+#define SM_CAP_CVOLUME	(1&#60;&#60;7)
+#define SM_CAP_CVOLUME_JOIN	(1&#60;&#60;8)
+#define SM_CAP_CSWITCH	(1&#60;&#60;9)
+#define SM_OPS_IS_ACTIVE	0
+#define SM_OPS_IS_MONO	1
+#define SM_OPS_IS_CHANNEL	2
+#define SM_OPS_IS_ENUMERATED	3
+#define SM_OPS_IS_ENUMCNT	4
+
+typedef struct _sm_class_basic {
+    char *device;
+    snd_ctl_t *ctl;
+    snd_hctl_t *hctl;
+    snd_ctl_card_info_t *info;
+} sm_class_basic_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171352"
+>19.2.11. alsa/output.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct _snd_output snd_output_t;
+extern int snd_output_buffer_open(snd_output_t * *outputp);
+extern size_t snd_output_buffer_string(snd_output_t * output, char **buf);
+extern int snd_output_close(snd_output_t * output);
+extern int snd_output_putc(snd_output_t * output, int c);
+extern int snd_output_puts(snd_output_t * output, const char *str);
+extern int snd_output_stdio_attach(snd_output_t * *outputp, FILE * fp,
+				   int _close);
+extern int snd_output_stdio_open(snd_output_t * *outputp, const char *file,
+				 const char *mode);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171356"
+>19.2.12. alsa/pcm.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SND_PCM_NONBLOCK	0x0001
+#define SND_PCM_ASYNC	0x0002
+
+typedef struct sndrv_mask snd_pcm_access_mask_t;
+typedef enum _snd_pcm_access {
+    SND_PCM_ACCESS_MMAP_INTERLEAVED,
+    SND_PCM_ACCESS_MMAP_NONINTERLEAVED = 1,
+    SND_PCM_ACCESS_MMAP_COMPLEX = 2,
+    SND_PCM_ACCESS_RW_INTERLEAVED = 3,
+    SND_PCM_ACCESS_RW_NONINTERLEAVED = 4,
+    SND_PCM_ACCESS_LAST = 4
+} snd_pcm_access_t;
+typedef struct _snd_pcm_channel_area {
+    void *addr;
+    unsigned int first;
+    unsigned int step;
+} snd_pcm_channel_area_t;
+typedef enum _snd_pcm_class {
+    SND_PCM_CLASS_GENERIC,
+    SND_PCM_CLASS_MULTI = 1,
+    SND_PCM_CLASS_MODEM = 2,
+    SND_PCM_CLASS_DIGITIZER = 3,
+    SND_PCM_CLASS_LAST = 3
+} snd_pcm_class_t;
+typedef struct sndrv_mask snd_pcm_format_mask_t;
+typedef enum _snd_pcm_format {
+    SND_PCM_FORMAT_UNKNOWN = -1,
+    SND_PCM_FORMAT_S8,
+    SND_PCM_FORMAT_U8 = 1,
+    SND_PCM_FORMAT_S16_LE = 2,
+    SND_PCM_FORMAT_S16_BE = 3,
+    SND_PCM_FORMAT_U16_LE = 4,
+    SND_PCM_FORMAT_U16_BE = 5,
+    SND_PCM_FORMAT_S24_LE = 6,
+    SND_PCM_FORMAT_S24_BE = 7,
+    SND_PCM_FORMAT_U24_LE = 8,
+    SND_PCM_FORMAT_U24_BE = 9,
+    SND_PCM_FORMAT_S32_LE = 10,
+    SND_PCM_FORMAT_S32_BE = 11,
+    SND_PCM_FORMAT_U32_LE = 12,
+    SND_PCM_FORMAT_U32_BE = 13,
+    SND_PCM_FORMAT_FLOAT_LE = 14,
+    SND_PCM_FORMAT_FLOAT_BE = 15,
+    SND_PCM_FORMAT_FLOAT64_LE = 16,
+    SND_PCM_FORMAT_FLOAT64_BE = 17,
+    SND_PCM_FORMAT_IEC958_SUBFRAME_LE = 18,
+    SND_PCM_FORMAT_IEC958_SUBFRAME_BE = 19,
+    SND_PCM_FORMAT_MU_LAW = 20,
+    SND_PCM_FORMAT_A_LAW = 21,
+    SND_PCM_FORMAT_IMA_ADPCM = 22,
+    SND_PCM_FORMAT_MPEG = 23,
+    SND_PCM_FORMAT_GSM = 24,
+    SND_PCM_FORMAT_SPECIAL = 31,
+    SND_PCM_FORMAT_S24_3LE = 32,
+    SND_PCM_FORMAT_S24_3BE = 33,
+    SND_PCM_FORMAT_U24_3LE = 34,
+    SND_PCM_FORMAT_U24_3BE = 35,
+    SND_PCM_FORMAT_S20_3LE = 36,
+    SND_PCM_FORMAT_S20_3BE = 37,
+    SND_PCM_FORMAT_U20_3LE = 38,
+    SND_PCM_FORMAT_U20_3BE = 39,
+    SND_PCM_FORMAT_S18_3LE = 40,
+    SND_PCM_FORMAT_S18_3BE = 41,
+    SND_PCM_FORMAT_U18_3LE = 42,
+    SND_PCM_FORMAT_U18_3BE = 43,
+    SND_PCM_FORMAT_LAST = 43,
+    SND_PCM_FORMAT_S16 = 2,
+    SND_PCM_FORMAT_U16 = 4,
+    SND_PCM_FORMAT_S24 = 6,
+    SND_PCM_FORMAT_U24 = 8,
+    SND_PCM_FORMAT_S32 = 10,
+    SND_PCM_FORMAT_U32 = 12,
+    SND_PCM_FORMAT_FLOAT = 14,
+    SND_PCM_FORMAT_FLOAT64 = 16,
+    SND_PCM_FORMAT_IEC958_SUBFRAME = 18
+} snd_pcm_format_t;
+typedef struct _snd_pcm_hook snd_pcm_hook_t;
+typedef int (*snd_pcm_hook_func_t) (snd_pcm_hook_t *);
+typedef enum _snd_pcm_hook_type {
+    SND_PCM_HOOK_TYPE_HW_PARAMS,
+    SND_PCM_HOOK_TYPE_HW_FREE = 1,
+    SND_PCM_HOOK_TYPE_CLOSE = 2,
+    SND_PCM_HOOK_TYPE_LAST = 2
+} snd_pcm_hook_type_t;
+typedef struct sndrv_pcm_hw_params snd_pcm_hw_params_t;
+typedef struct sndrv_pcm_info snd_pcm_info_t;
+typedef struct _snd_pcm_scope_ops {
+    int (*enable) (void);
+    void (*disable) (void);
+    void (*start) (void);
+    void (*stop) (void);
+    void (*update) (void);
+    void (*reset) (void);
+    void (*close) (void);
+} snd_pcm_scope_ops_t;
+typedef struct _snd_pcm_scope snd_pcm_scope_t;
+typedef long int snd_pcm_sframes_t;
+typedef enum _snd_pcm_start {
+    SND_PCM_START_DATA,
+    SND_PCM_START_EXPLICIT = 1,
+    SND_PCM_START_LAST = 1
+} snd_pcm_start_t;
+typedef enum _snd_pcm_state {
+    SND_PCM_STATE_OPEN,
+    SND_PCM_STATE_SETUP = 1,
+    SND_PCM_STATE_PREPARED = 2,
+    SND_PCM_STATE_RUNNING = 3,
+    SND_PCM_STATE_XRUN = 4,
+    SND_PCM_STATE_DRAINING = 5,
+    SND_PCM_STATE_PAUSED = 6,
+    SND_PCM_STATE_SUSPENDED = 7,
+    SND_PCM_STATE_DISCONNECTED = 8,
+    SND_PCM_STATE_LAST = 8
+} snd_pcm_state_t;
+typedef struct sndrv_pcm_status snd_pcm_status_t;
+typedef enum _snd_pcm_stream {
+    SND_PCM_STREAM_PLAYBACK,
+    SND_PCM_STREAM_CAPTURE = 1,
+    SND_PCM_STREAM_LAST = 1
+} snd_pcm_stream_t;
+typedef enum _snd_pcm_subclass {
+    SND_PCM_SUBCLASS_GENERIC_MIX,
+    SND_PCM_SUBCLASS_MULTI_MIX = 1,
+    SND_PCM_SUBCLASS_LAST = 1
+} snd_pcm_subclass_t;
+typedef struct sndrv_mask snd_pcm_subformat_mask_t;
+typedef enum _snd_pcm_subformat {
+    SND_PCM_SUBFORMAT_STD,
+    SND_PCM_SUBFORMAT_LAST
+} snd_pcm_subformat_t;
+typedef struct sndrv_pcm_sw_params snd_pcm_sw_params_t;
+typedef union _snd_pcm_sync_id {
+    unsigned char id[16];
+    short unsigned int id16[8];
+    unsigned int id32[4];
+} snd_pcm_sync_id_t;
+typedef struct _snd_pcm snd_pcm_t;
+typedef enum _snd_pcm_tstamp {
+    SND_PCM_TSTAMP_NONE,
+    SND_PCM_TSTAMP_MMAP = 1,
+    SND_PCM_TSTAMP_LAST = 1
+} snd_pcm_tstamp_t;
+typedef enum _snd_pcm_type {
+    SND_PCM_TYPE_HW,
+    SND_PCM_TYPE_HOOKS = 1,
+    SND_PCM_TYPE_MULTI = 2,
+    SND_PCM_TYPE_FILE = 3,
+    SND_PCM_TYPE_NULL = 4,
+    SND_PCM_TYPE_SHM = 5,
+    SND_PCM_TYPE_INET = 6,
+    SND_PCM_TYPE_COPY = 7,
+    SND_PCM_TYPE_LINEAR = 8,
+    SND_PCM_TYPE_ALAW = 9,
+    SND_PCM_TYPE_MULAW = 10,
+    SND_PCM_TYPE_ADPCM = 11,
+    SND_PCM_TYPE_RATE = 12,
+    SND_PCM_TYPE_ROUTE = 13,
+    SND_PCM_TYPE_PLUG = 14,
+    SND_PCM_TYPE_SHARE = 15,
+    SND_PCM_TYPE_METER = 16,
+    SND_PCM_TYPE_MIX = 17,
+    SND_PCM_TYPE_DROUTE = 18,
+    SND_PCM_TYPE_LBSERVER = 19,
+    SND_PCM_TYPE_LINEAR_FLOAT = 20,
+    SND_PCM_TYPE_LADSPA = 21,
+    SND_PCM_TYPE_DMIX = 22,
+    SND_PCM_TYPE_JACK = 23,
+    SND_PCM_TYPE_DSNOOP = 24,
+    SND_PCM_TYPE_DSHARE = 25,
+    SND_PCM_TYPE_IEC958 = 26,
+    SND_PCM_TYPE_SOFTVOL = 27,
+    SND_PCM_TYPE_IOPLUG = 28,
+    SND_PCM_TYPE_EXTPLUG = 29,
+    SND_PCM_TYPE_LAST = 29
+} snd_pcm_type_t;
+typedef long unsigned int snd_pcm_uframes_t;
+typedef enum _snd_pcm_xrun {
+    SND_PCM_XRUN_NONE,
+    SND_PCM_XRUN_STOP = 1,
+    SND_PCM_XRUN_LAST = 1
+} snd_pcm_xrun_t;
+typedef enum _snd_spcm_duplex_type {
+    SND_SPCM_DUPLEX_LIBERAL,
+    SND_SPCM_DUPLEX_PEDANTIC = 1
+} snd_spcm_duplex_type_t;
+typedef enum _snd_spcm_latency {
+    SND_SPCM_LATENCY_STANDARD,
+    SND_SPCM_LATENCY_MEDIUM = 1,
+    SND_SPCM_LATENCY_REALTIME = 2
+} snd_spcm_latency_t;
+typedef enum _snd_spcm_xrun_type {
+    SND_SPCM_XRUN_IGNORE,
+    SND_SPCM_XRUN_STOP = 1
+} snd_spcm_xrun_type_t;
+extern int snd_async_add_pcm_handler(snd_async_handler_t * *handler,
+				     snd_pcm_t * pcm,
+				     snd_async_callback_t callback,
+				     void *private_data);
+extern snd_pcm_t *snd_async_handler_get_pcm(snd_async_handler_t * handler);
+extern void snd_pcm_access_mask_any(snd_pcm_access_mask_t * mask);
+extern void snd_pcm_access_mask_copy(snd_pcm_access_mask_t * dst,
+				     const snd_pcm_access_mask_t * src);
+extern void snd_pcm_access_mask_free(snd_pcm_access_mask_t * obj);
+extern int snd_pcm_access_mask_malloc(snd_pcm_access_mask_t * *ptr);
+extern void snd_pcm_access_mask_none(snd_pcm_access_mask_t * mask);
+extern void snd_pcm_access_mask_set(snd_pcm_access_mask_t * mask,
+				    snd_pcm_access_t val);
+extern size_t snd_pcm_access_mask_sizeof(void);
+extern int snd_pcm_access_mask_test(const snd_pcm_access_mask_t * mask,
+				    snd_pcm_access_t val);
+extern const char *snd_pcm_access_name(snd_pcm_access_t _access);
+extern int snd_pcm_area_copy(const snd_pcm_channel_area_t * dst_channel,
+			     snd_pcm_uframes_t dst_offset,
+			     const snd_pcm_channel_area_t * src_channel,
+			     snd_pcm_uframes_t src_offset,
+			     unsigned int samples,
+			     snd_pcm_format_t format);
+extern int snd_pcm_area_silence(const snd_pcm_channel_area_t * dst_channel,
+				snd_pcm_uframes_t dst_offset,
+				unsigned int samples,
+				snd_pcm_format_t format);
+extern int snd_pcm_areas_copy(const snd_pcm_channel_area_t * dst_channels,
+			      snd_pcm_uframes_t dst_offset,
+			      const snd_pcm_channel_area_t * src_channels,
+			      snd_pcm_uframes_t src_offset,
+			      unsigned int channels,
+			      snd_pcm_uframes_t frames,
+			      snd_pcm_format_t format);
+extern int snd_pcm_areas_silence(const snd_pcm_channel_area_t *
+				 dst_channels,
+				 snd_pcm_uframes_t dst_offset,
+				 unsigned int channels,
+				 snd_pcm_uframes_t frames,
+				 snd_pcm_format_t format);
+extern snd_pcm_sframes_t snd_pcm_avail_update(snd_pcm_t * pcm);
+extern snd_pcm_format_t snd_pcm_build_linear_format(int width, int pwidth,
+						    int unsignd,
+						    int big_endian);
+extern snd_pcm_sframes_t snd_pcm_bytes_to_frames(snd_pcm_t * pcm,
+						 ssize_t bytes);
+extern long int snd_pcm_bytes_to_samples(snd_pcm_t * pcm, ssize_t bytes);
+extern int snd_pcm_close(snd_pcm_t * pcm);
+extern int snd_pcm_delay(snd_pcm_t * pcm, snd_pcm_sframes_t * delayp);
+extern int snd_pcm_drain(snd_pcm_t * pcm);
+extern int snd_pcm_drop(snd_pcm_t * pcm);
+extern int snd_pcm_dump(snd_pcm_t * pcm, snd_output_t * out);
+extern int snd_pcm_format_big_endian(snd_pcm_format_t format);
+extern int snd_pcm_format_cpu_endian(snd_pcm_format_t format);
+extern const char *snd_pcm_format_description(snd_pcm_format_t format);
+extern int snd_pcm_format_float(snd_pcm_format_t format);
+extern int snd_pcm_format_linear(snd_pcm_format_t format);
+extern int snd_pcm_format_little_endian(snd_pcm_format_t format);
+extern void snd_pcm_format_mask_any(snd_pcm_format_mask_t * mask);
+extern void snd_pcm_format_mask_copy(snd_pcm_format_mask_t * dst,
+				     const snd_pcm_format_mask_t * src);
+extern void snd_pcm_format_mask_free(snd_pcm_format_mask_t * obj);
+extern int snd_pcm_format_mask_malloc(snd_pcm_format_mask_t * *ptr);
+extern void snd_pcm_format_mask_none(snd_pcm_format_mask_t * mask);
+extern void snd_pcm_format_mask_set(snd_pcm_format_mask_t * mask,
+				    snd_pcm_format_t val);
+extern size_t snd_pcm_format_mask_sizeof(void);
+extern int snd_pcm_format_mask_test(const snd_pcm_format_mask_t * mask,
+				    snd_pcm_format_t val);
+extern const char *snd_pcm_format_name(snd_pcm_format_t format);
+extern int snd_pcm_format_physical_width(snd_pcm_format_t format);
+extern int snd_pcm_format_set_silence(snd_pcm_format_t format, void *buf,
+				      unsigned int samples);
+extern int snd_pcm_format_signed(snd_pcm_format_t format);
+extern ssize_t snd_pcm_format_size(snd_pcm_format_t format,
+				   size_t samples);
+extern int snd_pcm_format_unsigned(snd_pcm_format_t format);
+extern snd_pcm_format_t snd_pcm_format_value(const char *name);
+extern int snd_pcm_format_width(snd_pcm_format_t format);
+extern snd_pcm_sframes_t snd_pcm_forward(snd_pcm_t * pcm,
+					 snd_pcm_uframes_t frames);
+extern ssize_t snd_pcm_frames_to_bytes(snd_pcm_t * pcm,
+				       snd_pcm_sframes_t frames);
+extern int snd_pcm_hw_free(snd_pcm_t * pcm);
+extern int snd_pcm_hw_params(snd_pcm_t * pcm,
+			     snd_pcm_hw_params_t * params);
+extern int snd_pcm_hw_params_any(snd_pcm_t * pcm,
+				 snd_pcm_hw_params_t * params);
+extern int snd_pcm_hw_params_can_mmap_sample_resolution(const
+							snd_pcm_hw_params_t
+							* params);
+extern int snd_pcm_hw_params_can_pause(const snd_pcm_hw_params_t * params);
+extern int snd_pcm_hw_params_can_resume(const snd_pcm_hw_params_t *
+					params);
+extern int snd_pcm_hw_params_can_sync_start(const snd_pcm_hw_params_t *
+					    params);
+extern void snd_pcm_hw_params_copy(snd_pcm_hw_params_t * dst,
+				   const snd_pcm_hw_params_t * src);
+extern int snd_pcm_hw_params_current(snd_pcm_t * pcm,
+				     snd_pcm_hw_params_t * params);
+extern int snd_pcm_hw_params_dump(snd_pcm_hw_params_t * params,
+				  snd_output_t * out);
+extern void snd_pcm_hw_params_free(snd_pcm_hw_params_t * obj);
+extern int snd_pcm_hw_params_get_access(const snd_pcm_hw_params_t * params,
+					snd_pcm_access_t * _access);
+extern int snd_pcm_hw_params_get_access_mask(snd_pcm_hw_params_t * params,
+					     snd_pcm_access_mask_t * mask);
+extern int snd_pcm_hw_params_get_buffer_size(const snd_pcm_hw_params_t *
+					     params,
+					     snd_pcm_uframes_t * val);
+extern int snd_pcm_hw_params_get_buffer_size_max(const snd_pcm_hw_params_t
+						 * params,
+						 snd_pcm_uframes_t * val);
+extern int snd_pcm_hw_params_get_buffer_size_min(const snd_pcm_hw_params_t
+						 * params,
+						 snd_pcm_uframes_t * val);
+extern int snd_pcm_hw_params_get_buffer_time(const snd_pcm_hw_params_t *
+					     params, unsigned int *val,
+					     int *dir);
+extern int snd_pcm_hw_params_get_buffer_time_max(const snd_pcm_hw_params_t
+						 * params,
+						 unsigned int *val,
+						 int *dir);
+extern int snd_pcm_hw_params_get_buffer_time_min(const snd_pcm_hw_params_t
+						 * params,
+						 unsigned int *val,
+						 int *dir);
+extern int snd_pcm_hw_params_get_channels(const snd_pcm_hw_params_t *
+					  params, unsigned int *val);
+extern int snd_pcm_hw_params_get_channels_max(const snd_pcm_hw_params_t *
+					      params, unsigned int *val);
+extern int snd_pcm_hw_params_get_channels_min(const snd_pcm_hw_params_t *
+					      params, unsigned int *val);
+extern int snd_pcm_hw_params_get_format(const snd_pcm_hw_params_t * params,
+					snd_pcm_format_t * val);
+extern void snd_pcm_hw_params_get_format_mask(snd_pcm_hw_params_t * params,
+					      snd_pcm_format_mask_t *
+					      mask);
+extern int snd_pcm_hw_params_get_period_size(const snd_pcm_hw_params_t *
+					     params,
+					     snd_pcm_uframes_t * frames,
+					     int *dir);
+extern int snd_pcm_hw_params_get_period_size_max(const snd_pcm_hw_params_t
+						 * params,
+						 snd_pcm_uframes_t *
+						 frames, int *dir);
+extern int snd_pcm_hw_params_get_period_size_min(const snd_pcm_hw_params_t
+						 * params,
+						 snd_pcm_uframes_t *
+						 frames, int *dir);
+extern int snd_pcm_hw_params_get_period_time(const snd_pcm_hw_params_t *
+					     params, unsigned int *val,
+					     int *dir);
+extern int snd_pcm_hw_params_get_period_time_max(const snd_pcm_hw_params_t
+						 * params,
+						 unsigned int *val,
+						 int *dir);
+extern int snd_pcm_hw_params_get_period_time_min(const snd_pcm_hw_params_t
+						 * params,
+						 unsigned int *val,
+						 int *dir);
+extern int snd_pcm_hw_params_get_periods(const snd_pcm_hw_params_t *
+					 params, unsigned int *val,
+					 int *dir);
+extern int snd_pcm_hw_params_get_periods_max(const snd_pcm_hw_params_t *
+					     params, unsigned int *val,
+					     int *dir);
+extern int snd_pcm_hw_params_get_periods_min(const snd_pcm_hw_params_t *
+					     params, unsigned int *val,
+					     int *dir);
+extern int snd_pcm_hw_params_get_rate(const snd_pcm_hw_params_t * params,
+				      unsigned int *val, int *dir);
+extern int snd_pcm_hw_params_get_rate_max(const snd_pcm_hw_params_t *
+					  params, unsigned int *val,
+					  int *dir);
+extern int snd_pcm_hw_params_get_rate_min(const snd_pcm_hw_params_t *
+					  params, unsigned int *val,
+					  int *dir);
+extern int snd_pcm_hw_params_get_rate_numden(const snd_pcm_hw_params_t *
+					     params,
+					     unsigned int *rate_num,
+					     unsigned int *rate_den);
+extern int snd_pcm_hw_params_get_rate_resample(snd_pcm_t * pcm,
+					       snd_pcm_hw_params_t *
+					       params, unsigned int *val);
+extern int snd_pcm_hw_params_get_sbits(const snd_pcm_hw_params_t * params);
+extern int snd_pcm_hw_params_is_double(const snd_pcm_hw_params_t * params);
+extern int snd_pcm_hw_params_is_half_duplex(const snd_pcm_hw_params_t *
+					    params);
+extern int snd_pcm_hw_params_is_joint_duplex(const snd_pcm_hw_params_t *
+					     params);
+extern int snd_pcm_hw_params_malloc(snd_pcm_hw_params_t * *ptr);
+extern int snd_pcm_hw_params_set_access(snd_pcm_t * pcm,
+					snd_pcm_hw_params_t * params,
+					snd_pcm_access_t _access);
+extern int snd_pcm_hw_params_set_access_mask(snd_pcm_t * pcm,
+					     snd_pcm_hw_params_t * params,
+					     snd_pcm_access_mask_t * mask);
+extern int snd_pcm_hw_params_set_buffer_size(snd_pcm_t * pcm,
+					     snd_pcm_hw_params_t * params,
+					     snd_pcm_uframes_t val);
+extern int snd_pcm_hw_params_set_buffer_size_near(snd_pcm_t * pcm,
+						  snd_pcm_hw_params_t *
+						  params,
+						  snd_pcm_uframes_t * val);
+extern int snd_pcm_hw_params_set_buffer_time(snd_pcm_t * pcm,
+					     snd_pcm_hw_params_t * params,
+					     unsigned int val, int dir);
+extern int snd_pcm_hw_params_set_buffer_time_near(snd_pcm_t * pcm,
+						  snd_pcm_hw_params_t *
+						  params,
+						  unsigned int *val,
+						  int *dir);
+extern int snd_pcm_hw_params_set_channels(snd_pcm_t * pcm,
+					  snd_pcm_hw_params_t * params,
+					  unsigned int val);
+extern int snd_pcm_hw_params_set_channels_near(snd_pcm_t * pcm,
+					       snd_pcm_hw_params_t *
+					       params, unsigned int *val);
+extern int snd_pcm_hw_params_set_format(snd_pcm_t * pcm,
+					snd_pcm_hw_params_t * params,
+					snd_pcm_format_t val);
+extern int snd_pcm_hw_params_set_format_mask(snd_pcm_t * pcm,
+					     snd_pcm_hw_params_t * params,
+					     snd_pcm_format_mask_t * mask);
+extern int snd_pcm_hw_params_set_period_size(snd_pcm_t * pcm,
+					     snd_pcm_hw_params_t * params,
+					     snd_pcm_uframes_t val,
+					     int dir);
+extern int snd_pcm_hw_params_set_period_size_near(snd_pcm_t * pcm,
+						  snd_pcm_hw_params_t *
+						  params,
+						  snd_pcm_uframes_t * val,
+						  int *dir);
+extern int snd_pcm_hw_params_set_period_time(snd_pcm_t * pcm,
+					     snd_pcm_hw_params_t * params,
+					     unsigned int val, int dir);
+extern int snd_pcm_hw_params_set_period_time_near(snd_pcm_t * pcm,
+						  snd_pcm_hw_params_t *
+						  params,
+						  unsigned int *val,
+						  int *dir);
+extern int snd_pcm_hw_params_set_periods(snd_pcm_t * pcm,
+					 snd_pcm_hw_params_t * params,
+					 unsigned int val, int dir);
+extern int snd_pcm_hw_params_set_periods_integer(snd_pcm_t * pcm,
+						 snd_pcm_hw_params_t *
+						 params);
+extern int snd_pcm_hw_params_set_periods_near(snd_pcm_t * pcm,
+					      snd_pcm_hw_params_t * params,
+					      unsigned int *val, int *dir);
+extern int snd_pcm_hw_params_set_rate(snd_pcm_t * pcm,
+				      snd_pcm_hw_params_t * params,
+				      unsigned int val, int dir);
+extern int snd_pcm_hw_params_set_rate_near(snd_pcm_t * pcm,
+					   snd_pcm_hw_params_t * params,
+					   unsigned int *val, int *dir);
+extern int snd_pcm_hw_params_set_rate_resample(snd_pcm_t * pcm,
+					       snd_pcm_hw_params_t *
+					       params, unsigned int val);
+extern size_t snd_pcm_hw_params_sizeof(void);
+extern int snd_pcm_hw_params_test_access(snd_pcm_t * pcm,
+					 snd_pcm_hw_params_t * params,
+					 snd_pcm_access_t _access);
+extern int snd_pcm_hw_params_test_buffer_size(snd_pcm_t * pcm,
+					      snd_pcm_hw_params_t * params,
+					      snd_pcm_uframes_t val);
+extern int snd_pcm_hw_params_test_buffer_time(snd_pcm_t * pcm,
+					      snd_pcm_hw_params_t * params,
+					      unsigned int val, int dir);
+extern int snd_pcm_hw_params_test_channels(snd_pcm_t * pcm,
+					   snd_pcm_hw_params_t * params,
+					   unsigned int val);
+extern int snd_pcm_hw_params_test_format(snd_pcm_t * pcm,
+					 snd_pcm_hw_params_t * params,
+					 snd_pcm_format_t val);
+extern int snd_pcm_hw_params_test_period_size(snd_pcm_t * pcm,
+					      snd_pcm_hw_params_t * params,
+					      snd_pcm_uframes_t val,
+					      int dir);
+extern int snd_pcm_hw_params_test_period_time(snd_pcm_t * pcm,
+					      snd_pcm_hw_params_t * params,
+					      unsigned int val, int dir);
+extern int snd_pcm_hw_params_test_periods(snd_pcm_t * pcm,
+					  snd_pcm_hw_params_t * params,
+					  unsigned int val, int dir);
+extern int snd_pcm_hw_params_test_rate(snd_pcm_t * pcm,
+				       snd_pcm_hw_params_t * params,
+				       unsigned int val, int dir);
+extern int snd_pcm_hwsync(snd_pcm_t * pcm);
+extern int snd_pcm_info(snd_pcm_t * pcm, snd_pcm_info_t * info);
+extern void snd_pcm_info_copy(snd_pcm_info_t * dst,
+			      const snd_pcm_info_t * src);
+extern void snd_pcm_info_free(snd_pcm_info_t * obj);
+extern int snd_pcm_info_get_card(const snd_pcm_info_t * obj);
+extern snd_pcm_class_t snd_pcm_info_get_class(const snd_pcm_info_t * obj);
+extern unsigned int snd_pcm_info_get_device(const snd_pcm_info_t * obj);
+extern const char *snd_pcm_info_get_id(const snd_pcm_info_t * obj);
+extern const char *snd_pcm_info_get_name(const snd_pcm_info_t * obj);
+extern snd_pcm_stream_t snd_pcm_info_get_stream(const snd_pcm_info_t *
+						obj);
+extern unsigned int snd_pcm_info_get_subdevice(const snd_pcm_info_t * obj);
+extern const char *snd_pcm_info_get_subdevice_name(const snd_pcm_info_t *
+						   obj);
+extern unsigned int snd_pcm_info_get_subdevices_avail(const snd_pcm_info_t
+						      * obj);
+extern unsigned int snd_pcm_info_get_subdevices_count(const snd_pcm_info_t
+						      * obj);
+extern int snd_pcm_info_malloc(snd_pcm_info_t * *ptr);
+extern void snd_pcm_info_set_device(snd_pcm_info_t * obj,
+				    unsigned int val);
+extern void snd_pcm_info_set_stream(snd_pcm_info_t * obj,
+				    snd_pcm_stream_t val);
+extern void snd_pcm_info_set_subdevice(snd_pcm_info_t * obj,
+				       unsigned int val);
+extern size_t snd_pcm_info_sizeof(void);
+extern int snd_pcm_link(snd_pcm_t * pcm1, snd_pcm_t * pcm2);
+extern int snd_pcm_mmap_begin(snd_pcm_t * pcm,
+			      const snd_pcm_channel_area_t * *areas,
+			      snd_pcm_uframes_t * offset,
+			      snd_pcm_uframes_t * frames);
+extern snd_pcm_sframes_t snd_pcm_mmap_commit(snd_pcm_t * pcm,
+					     snd_pcm_uframes_t offset,
+					     snd_pcm_uframes_t frames);
+extern snd_pcm_sframes_t snd_pcm_mmap_readi(snd_pcm_t * pcm, void *buffer,
+					    snd_pcm_uframes_t size);
+extern snd_pcm_sframes_t snd_pcm_mmap_readn(snd_pcm_t * pcm, void **bufs,
+					    snd_pcm_uframes_t size);
+extern snd_pcm_sframes_t snd_pcm_mmap_writei(snd_pcm_t * pcm,
+					     const void *buffer,
+					     snd_pcm_uframes_t size);
+extern snd_pcm_sframes_t snd_pcm_mmap_writen(snd_pcm_t * pcm, void **bufs,
+					     snd_pcm_uframes_t size);
+extern const char *snd_pcm_name(snd_pcm_t * pcm);
+extern int snd_pcm_nonblock(snd_pcm_t * pcm, int nonblock);
+extern int snd_pcm_open(snd_pcm_t * *pcm, const char *name,
+			snd_pcm_stream_t stream, int mode);
+extern int snd_pcm_open_lconf(snd_pcm_t * *pcm, const char *name,
+			      snd_pcm_stream_t stream, int mode,
+			      snd_config_t * lconf);
+extern int snd_pcm_pause(snd_pcm_t * pcm, int enable);
+extern int snd_pcm_poll_descriptors(snd_pcm_t * pcm, struct pollfd *pfds,
+				    unsigned int space);
+extern int snd_pcm_poll_descriptors_count(snd_pcm_t * pcm);
+extern int snd_pcm_poll_descriptors_revents(snd_pcm_t * pcm,
+					    struct pollfd *pfds,
+					    unsigned int nfds,
+					    short unsigned int *revents);
+extern int snd_pcm_prepare(snd_pcm_t * pcm);
+extern snd_pcm_sframes_t snd_pcm_readi(snd_pcm_t * pcm, void *buffer,
+				       snd_pcm_uframes_t size);
+extern snd_pcm_sframes_t snd_pcm_readn(snd_pcm_t * pcm, void **bufs,
+				       snd_pcm_uframes_t size);
+extern int snd_pcm_recover(snd_pcm_t * pcm, int err, int silent);
+extern int snd_pcm_reset(snd_pcm_t * pcm);
+extern int snd_pcm_resume(snd_pcm_t * pcm);
+extern snd_pcm_sframes_t snd_pcm_rewind(snd_pcm_t * pcm,
+					snd_pcm_uframes_t frames);
+extern ssize_t snd_pcm_samples_to_bytes(snd_pcm_t * pcm, long int samples);
+extern int snd_pcm_start(snd_pcm_t * pcm);
+extern snd_pcm_state_t snd_pcm_state(snd_pcm_t * pcm);
+extern const char *snd_pcm_state_name(snd_pcm_state_t state);
+extern int snd_pcm_status(snd_pcm_t * pcm, snd_pcm_status_t * status);
+extern void snd_pcm_status_copy(snd_pcm_status_t * dst,
+				const snd_pcm_status_t * src);
+extern int snd_pcm_status_dump(snd_pcm_status_t * status,
+			       snd_output_t * out);
+extern void snd_pcm_status_free(snd_pcm_status_t * obj);
+extern snd_pcm_uframes_t snd_pcm_status_get_avail(const snd_pcm_status_t *
+						  obj);
+extern snd_pcm_uframes_t snd_pcm_status_get_avail_max(const
+						      snd_pcm_status_t *
+						      obj);
+extern snd_pcm_sframes_t snd_pcm_status_get_delay(const snd_pcm_status_t *
+						  obj);
+extern snd_pcm_state_t snd_pcm_status_get_state(const snd_pcm_status_t *
+						obj);
+extern void snd_pcm_status_get_trigger_tstamp(const snd_pcm_status_t * obj,
+					      snd_timestamp_t * ptr);
+extern void snd_pcm_status_get_tstamp(const snd_pcm_status_t * obj,
+				      snd_timestamp_t * ptr);
+extern int snd_pcm_status_malloc(snd_pcm_status_t * *ptr);
+extern size_t snd_pcm_status_sizeof(void);
+extern snd_pcm_stream_t snd_pcm_stream(snd_pcm_t * pcm);
+extern const char *snd_pcm_stream_name(snd_pcm_stream_t stream);
+extern int snd_pcm_sw_params(snd_pcm_t * pcm,
+			     snd_pcm_sw_params_t * params);
+extern void snd_pcm_sw_params_copy(snd_pcm_sw_params_t * dst,
+				   const snd_pcm_sw_params_t * src);
+extern int snd_pcm_sw_params_current(snd_pcm_t * pcm,
+				     snd_pcm_sw_params_t * params);
+extern int snd_pcm_sw_params_dump(snd_pcm_sw_params_t * params,
+				  snd_output_t * out);
+extern void snd_pcm_sw_params_free(snd_pcm_sw_params_t * obj);
+extern int snd_pcm_sw_params_get_avail_min(const snd_pcm_sw_params_t *
+					   params,
+					   snd_pcm_uframes_t * val);
+extern int snd_pcm_sw_params_get_boundary(const snd_pcm_sw_params_t *
+					  params, snd_pcm_uframes_t * val);
+extern int snd_pcm_sw_params_get_silence_size(const snd_pcm_sw_params_t *
+					      params,
+					      snd_pcm_uframes_t * val);
+extern int snd_pcm_sw_params_get_silence_threshold(const
+						   snd_pcm_sw_params_t *
+						   params,
+						   snd_pcm_uframes_t *
+						   val);
+extern int snd_pcm_sw_params_get_start_threshold(const snd_pcm_sw_params_t
+						 * paramsm,
+						 snd_pcm_uframes_t * val);
+extern int snd_pcm_sw_params_get_stop_threshold(const snd_pcm_sw_params_t *
+						params,
+						snd_pcm_uframes_t * val);
+extern int snd_pcm_sw_params_get_tstamp_mode(const snd_pcm_sw_params_t *
+					     params,
+					     snd_pcm_tstamp_t * val);
+extern int snd_pcm_sw_params_malloc(snd_pcm_sw_params_t * *ptr);
+extern int snd_pcm_sw_params_set_avail_min(snd_pcm_t * pcm,
+					   snd_pcm_sw_params_t * params,
+					   snd_pcm_uframes_t val);
+extern int snd_pcm_sw_params_set_silence_size(snd_pcm_t * pcm,
+					      snd_pcm_sw_params_t * params,
+					      snd_pcm_uframes_t val);
+extern int snd_pcm_sw_params_set_silence_threshold(snd_pcm_t * pcm,
+						   snd_pcm_sw_params_t *
+						   params,
+						   snd_pcm_uframes_t val);
+extern int snd_pcm_sw_params_set_start_threshold(snd_pcm_t * pcm,
+						 snd_pcm_sw_params_t *
+						 params,
+						 snd_pcm_uframes_t val);
+extern int snd_pcm_sw_params_set_stop_threshold(snd_pcm_t * pcm,
+						snd_pcm_sw_params_t *
+						params,
+						snd_pcm_uframes_t val);
+extern int snd_pcm_sw_params_set_tstamp_mode(snd_pcm_t * pcm,
+					     snd_pcm_sw_params_t * params,
+					     snd_pcm_tstamp_t val);
+extern int snd_pcm_sw_params_set_xfer_align(snd_pcm_t * pcm,
+					    snd_pcm_sw_params_t * params,
+					    snd_pcm_uframes_t val);
+extern size_t snd_pcm_sw_params_sizeof(void);
+extern snd_pcm_type_t snd_pcm_type(snd_pcm_t * pcm);
+extern const char *snd_pcm_type_name(snd_pcm_type_t type);
+extern int snd_pcm_unlink(snd_pcm_t * pcm);
+extern int snd_pcm_wait(snd_pcm_t * pcm, int timeout);
+extern snd_pcm_sframes_t snd_pcm_writei(snd_pcm_t * pcm,
+					const void *buffer,
+					snd_pcm_uframes_t size);
+extern snd_pcm_sframes_t snd_pcm_writen(snd_pcm_t * pcm, void **bufs,
+					snd_pcm_uframes_t size);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171360"
+>19.2.13. alsa/pcm_extplug.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SND_PCM_EXTPLUG_VERSION	((SND_PCM_EXTPLUG_VERSION_MAJOR&#60;&#60;16) | (SND_PCM_EXTPLUG_VERSION_MINOR&#60;&#60;8) | (SND_PCM_EXTPLUG_VERSION_TINY))
+#define SND_PCM_EXTPLUG_VERSION_MINOR	0
+#define SND_PCM_EXTPLUG_VERSION_MAJOR	1
+#define SND_PCM_EXTPLUG_VERSION_TINY	1
+
+typedef struct snd_pcm_extplug_callback {
+    snd_pcm_sframes_t(*transfer) (void);
+    int (*close) (void);
+    int (*hw_params) (void);
+    int (*hw_free) (void);
+    void (*dump) (void);
+    int (*init) (void);
+} snd_pcm_extplug_callback_t;
+typedef struct snd_pcm_extplug {
+    unsigned int version;
+    const char *name;
+    const snd_pcm_extplug_callback_t *callback;
+    void *private_data;
+    snd_pcm_t *pcm;
+    snd_pcm_stream_t stream;
+    snd_pcm_format_t format;
+    snd_pcm_subformat_t subformat;
+    unsigned int channels;
+    unsigned int rate;
+    snd_pcm_format_t slave_format;
+    snd_pcm_subformat_t slave_subformat;
+    unsigned int slave_channels;
+} snd_pcm_extplug_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171364"
+>19.2.14. alsa/pcm_plugin.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SND_PCM_PLUGIN_ROUTE_HALF	0.5
+#define SND_PCM_PLUGIN_ROUTE_FLOAT	1
+#define SND_PCM_PLUGIN_ROUTE_FULL	1.0
+#define SND_PCM_PLUGIN_ROUTE_RESOLUTION	16
+#define SND_PCM_PLUGIN_RATE_MAX	192000
+#define SND_PCM_PLUGIN_RATE_MIN	4000
+
+typedef float snd_pcm_route_ttable_entry_t;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171368"
+>19.2.15. alsa/rawmidi.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SND_RAWMIDI_APPEND	0x0001
+#define SND_RAWMIDI_NONBLOCK	0x0002
+#define SND_RAWMIDI_SYNC	0x0004
+
+typedef struct sndrv_rawmidi_info snd_rawmidi_info_t;
+typedef struct sndrv_rawmidi_params snd_rawmidi_params_t;
+typedef struct sndrv_rawmidi_status snd_rawmidi_status_t;
+typedef enum _snd_rawmidi_stream {
+    SND_RAWMIDI_STREAM_OUTPUT,
+    SND_RAWMIDI_STREAM_INPUT = 1,
+    SND_RAWMIDI_STREAM_LAST = 1
+} snd_rawmidi_stream_t;
+typedef struct _snd_rawmidi snd_rawmidi_t;
+typedef enum _snd_rawmidi_type {
+    SND_RAWMIDI_TYPE_HW,
+    SND_RAWMIDI_TYPE_SHM = 1,
+    SND_RAWMIDI_TYPE_INET = 2,
+    SND_RAWMIDI_TYPE_VIRTUAL = 3
+} snd_rawmidi_type_t;
+extern int snd_rawmidi_close(snd_rawmidi_t * rmidi);
+extern int snd_rawmidi_drain(snd_rawmidi_t * rmidi);
+extern int snd_rawmidi_drop(snd_rawmidi_t * rmidi);
+extern int snd_rawmidi_info(snd_rawmidi_t * rmidi,
+			    snd_rawmidi_info_t * info);
+extern void snd_rawmidi_info_copy(snd_rawmidi_info_t * dst,
+				  const snd_rawmidi_info_t * src);
+extern void snd_rawmidi_info_free(snd_rawmidi_info_t * obj);
+extern int snd_rawmidi_info_get_card(const snd_rawmidi_info_t * obj);
+extern unsigned int snd_rawmidi_info_get_device(const snd_rawmidi_info_t *
+						obj);
+extern unsigned int snd_rawmidi_info_get_flags(const snd_rawmidi_info_t *
+					       obj);
+extern const char *snd_rawmidi_info_get_id(const snd_rawmidi_info_t * obj);
+extern const char *snd_rawmidi_info_get_name(const snd_rawmidi_info_t *
+					     obj);
+extern snd_rawmidi_stream_t snd_rawmidi_info_get_stream(const
+							snd_rawmidi_info_t
+							* obj);
+extern unsigned int snd_rawmidi_info_get_subdevice(const snd_rawmidi_info_t
+						   * obj);
+extern const char *snd_rawmidi_info_get_subdevice_name(const
+						       snd_rawmidi_info_t *
+						       obj);
+extern unsigned int snd_rawmidi_info_get_subdevices_avail(const
+							  snd_rawmidi_info_t
+							  * obj);
+extern unsigned int snd_rawmidi_info_get_subdevices_count(const
+							  snd_rawmidi_info_t
+							  * obj);
+extern int snd_rawmidi_info_malloc(snd_rawmidi_info_t * *ptr);
+extern void snd_rawmidi_info_set_device(snd_rawmidi_info_t * obj,
+					unsigned int val);
+extern void snd_rawmidi_info_set_stream(snd_rawmidi_info_t * obj,
+					snd_rawmidi_stream_t val);
+extern void snd_rawmidi_info_set_subdevice(snd_rawmidi_info_t * obj,
+					   unsigned int val);
+extern size_t snd_rawmidi_info_sizeof(void);
+extern int snd_rawmidi_nonblock(snd_rawmidi_t * rmidi, int nonblock);
+extern int snd_rawmidi_open(snd_rawmidi_t * *in_rmidi,
+			    snd_rawmidi_t * *out_rmidi, const char *name,
+			    int mode);
+extern int snd_rawmidi_poll_descriptors(snd_rawmidi_t * rmidi,
+					struct pollfd *pfds,
+					unsigned int space);
+extern int snd_rawmidi_poll_descriptors_count(snd_rawmidi_t * rmidi);
+extern int snd_rawmidi_poll_descriptors_revents(snd_rawmidi_t * rawmidi,
+						struct pollfd *pfds,
+						unsigned int nfds,
+						short unsigned int
+						*revent);
+extern ssize_t snd_rawmidi_read(snd_rawmidi_t * rmidi, void *buffer,
+				size_t size);
+extern ssize_t snd_rawmidi_write(snd_rawmidi_t * rmidi, const void *buffer,
+				 size_t size);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171372"
+>19.2.16. alsa/seq.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define snd_seq_ev_is_prior(ev)	 \
+	(((ev)-&#62;flags &#38; SND_SEQ_PRIORITY_MASK) == SND_SEQ_PRIORITY_HIGH)
+#define snd_seq_ev_length_type(ev)	 \
+	((ev)-&#62;flags &#38; SND_SEQ_EVENT_LENGTH_MASK)
+#define snd_seq_ev_timemode_type(ev)	 \
+	((ev)-&#62;flags &#38; SND_SEQ_TIME_MODE_MASK)
+#define snd_seq_ev_timestamp_type(ev)	 \
+	((ev)-&#62;flags &#38; SND_SEQ_TIME_STAMP_MASK)
+#define snd_seq_ev_is_channel_type(ev)	 \
+	(snd_seq_event_types[(ev)-&#62;type] &#38; (_SND_SEQ_TYPE(SND_SEQ_EVFLG_NOTE) \
+	| _SND_SEQ_TYPE(SND_SEQ_EVFLG_CONTROL)))
+#define snd_seq_type_check(ev,x)	 \
+	(snd_seq_event_types[(ev)-&#62;type] &#38; _SND_SEQ_TYPE(x))
+#define snd_seq_ev_is_fixed(ev)	 \
+	(snd_seq_ev_length_type(ev) == SND_SEQ_EVENT_LENGTH_FIXED)
+#define snd_seq_ev_is_variable(ev)	 \
+	(snd_seq_ev_length_type(ev) == SND_SEQ_EVENT_LENGTH_VARIABLE)
+#define snd_seq_ev_is_varusr(ev)	 \
+	(snd_seq_ev_length_type(ev) == SND_SEQ_EVENT_LENGTH_VARUSR)
+#define snd_seq_ev_is_abstime(ev)	 \
+	(snd_seq_ev_timemode_type(ev) == SND_SEQ_TIME_MODE_ABS)
+#define snd_seq_ev_is_reltime(ev)	 \
+	(snd_seq_ev_timemode_type(ev) == SND_SEQ_TIME_MODE_REL)
+#define snd_seq_ev_is_real(ev)	 \
+	(snd_seq_ev_timestamp_type(ev) == SND_SEQ_TIME_STAMP_REAL)
+#define snd_seq_ev_is_tick(ev)	 \
+	(snd_seq_ev_timestamp_type(ev) == SND_SEQ_TIME_STAMP_TICK)
+#define snd_seq_ev_is_subscribe_type(ev)	 \
+	snd_seq_type_check(ev, SND_SEQ_EVFLG_CONNECTION)
+#define snd_seq_ev_is_control_type(ev)	 \
+	snd_seq_type_check(ev, SND_SEQ_EVFLG_CONTROL)
+#define snd_seq_ev_is_fixed_type(ev)	 \
+	snd_seq_type_check(ev, SND_SEQ_EVFLG_FIXED)
+#define snd_seq_ev_is_instr_type(ev)	 \
+	snd_seq_type_check(ev, SND_SEQ_EVFLG_INSTR)
+#define snd_seq_ev_is_message_type(ev)	 \
+	snd_seq_type_check(ev, SND_SEQ_EVFLG_MESSAGE)
+#define snd_seq_ev_is_note_type(ev)	 \
+	snd_seq_type_check(ev, SND_SEQ_EVFLG_NOTE)
+#define snd_seq_ev_is_queue_type(ev)	 \
+	snd_seq_type_check(ev, SND_SEQ_EVFLG_QUEUE)
+#define snd_seq_ev_is_result_type(ev)	 \
+	snd_seq_type_check(ev, SND_SEQ_EVFLG_RESULT)
+#define snd_seq_ev_is_sample_type(ev)	 \
+	snd_seq_type_check(ev, SND_SEQ_EVFLG_SAMPLE)
+#define snd_seq_ev_is_user_type(ev)	 \
+	snd_seq_type_check(ev, SND_SEQ_EVFLG_USERS)
+#define snd_seq_ev_is_variable_type(ev)	 \
+	snd_seq_type_check(ev, SND_SEQ_EVFLG_VARIABLE)
+#define snd_seq_ev_is_varusr_type(ev)	 \
+	snd_seq_type_check(ev, SND_SEQ_EVFLG_VARUSR)
+#define snd_seq_ev_is_reserved(ev)	(! snd_seq_event_types[(ev)-&#62;type])
+#define snd_seq_ev_is_direct(ev)	((ev)-&#62;queue == SND_SEQ_QUEUE_DIRECT)
+#define _SND_SEQ_TYPE_OPT(x)	((x)&#60;&#60;24)
+#define _SND_SEQ_TYPE(x)	(1&#60;&#60;(x))
+#define SND_SEQ_PORT_CAP_READ	(1&#60;&#60;0)
+#define SND_SEQ_PORT_TYPE_SPECIFIC	(1&#60;&#60;0)
+#define SND_SEQ_REMOVE_INPUT	(1&#60;&#60;0)
+#define SND_SEQ_PORT_CAP_WRITE	(1&#60;&#60;1)
+#define SND_SEQ_PORT_TYPE_MIDI_GENERIC	(1&#60;&#60;1)
+#define SND_SEQ_REMOVE_OUTPUT	(1&#60;&#60;1)
+#define SND_SEQ_PORT_TYPE_SYNTH	(1&#60;&#60;10)
+#define SND_SEQ_PORT_TYPE_DIRECT_SAMPLE	(1&#60;&#60;11)
+#define SND_SEQ_PORT_TYPE_SAMPLE	(1&#60;&#60;12)
+#define SND_SEQ_PORT_TYPE_HARDWARE	(1&#60;&#60;16)
+#define SND_SEQ_PORT_TYPE_SOFTWARE	(1&#60;&#60;17)
+#define SND_SEQ_PORT_TYPE_SYNTHESIZER	(1&#60;&#60;18)
+#define SND_SEQ_PORT_TYPE_PORT	(1&#60;&#60;19)
+#define SND_SEQ_PORT_CAP_SYNC_READ	(1&#60;&#60;2)
+#define SND_SEQ_PORT_TYPE_MIDI_GM	(1&#60;&#60;2)
+#define SND_SEQ_REMOVE_DEST	(1&#60;&#60;2)
+#define SND_SEQ_PORT_TYPE_APPLICATION	(1&#60;&#60;20)
+#define SND_SEQ_PORT_CAP_SYNC_WRITE	(1&#60;&#60;3)
+#define SND_SEQ_PORT_TYPE_MIDI_GS	(1&#60;&#60;3)
+#define SND_SEQ_REMOVE_DEST_CHANNEL	(1&#60;&#60;3)
+#define SND_SEQ_PORT_CAP_DUPLEX	(1&#60;&#60;4)
+#define SND_SEQ_PORT_TYPE_MIDI_XG	(1&#60;&#60;4)
+#define SND_SEQ_REMOVE_TIME_BEFORE	(1&#60;&#60;4)
+#define SND_SEQ_PORT_CAP_SUBS_READ	(1&#60;&#60;5)
+#define SND_SEQ_PORT_TYPE_MIDI_MT32	(1&#60;&#60;5)
+#define SND_SEQ_REMOVE_TIME_AFTER	(1&#60;&#60;5)
+#define SND_SEQ_PORT_CAP_SUBS_WRITE	(1&#60;&#60;6)
+#define SND_SEQ_PORT_TYPE_MIDI_GM2	(1&#60;&#60;6)
+#define SND_SEQ_REMOVE_TIME_TICK	(1&#60;&#60;6)
+#define SND_SEQ_PORT_CAP_NO_EXPORT	(1&#60;&#60;7)
+#define SND_SEQ_REMOVE_EVENT_TYPE	(1&#60;&#60;7)
+#define SND_SEQ_REMOVE_IGNORE_OFF	(1&#60;&#60;8)
+#define SND_SEQ_REMOVE_TAG_MATCH	(1&#60;&#60;9)
+#define SND_SEQ_OPEN_DUPLEX	(SND_SEQ_OPEN_OUTPUT|SND_SEQ_OPEN_INPUT)
+#define SND_SEQ_CLIENT_SYSTEM	0
+#define SND_SEQ_PORT_SYSTEM_TIMER	0
+#define SND_SEQ_NONBLOCK	0x0001
+#define SND_SEQ_OPEN_OUTPUT	1
+#define SND_SEQ_PORT_SYSTEM_ANNOUNCE	1
+#define SND_SEQ_OPEN_INPUT	2
+#define SND_SEQ_ADDRESS_UNKNOWN	253
+#define SND_SEQ_QUEUE_DIRECT	253
+#define SND_SEQ_ADDRESS_SUBSCRIBERS	254
+#define SND_SEQ_ADDRESS_BROADCAST	255
+
+typedef struct sndrv_seq_client_info snd_seq_client_info_t;
+typedef struct sndrv_seq_client_pool snd_seq_client_pool_t;
+typedef enum snd_seq_client_type {
+    SND_SEQ_USER_CLIENT = 1,
+    SND_SEQ_KERNEL_CLIENT = 2
+} snd_seq_client_type_t;
+typedef struct sndrv_seq_port_info snd_seq_port_info_t;
+typedef struct sndrv_seq_port_subscribe snd_seq_port_subscribe_t;
+typedef enum {
+    SND_SEQ_QUERY_SUBS_READ,
+    SND_SEQ_QUERY_SUBS_WRITE = 1
+} snd_seq_query_subs_type_t;
+typedef struct sndrv_seq_query_subs snd_seq_query_subscribe_t;
+typedef struct sndrv_seq_queue_info snd_seq_queue_info_t;
+typedef struct sndrv_seq_queue_status snd_seq_queue_status_t;
+typedef struct sndrv_seq_queue_tempo snd_seq_queue_tempo_t;
+typedef struct sndrv_seq_queue_timer snd_seq_queue_timer_t;
+typedef enum {
+    SND_SEQ_TIMER_ALSA,
+    SND_SEQ_TIMER_MIDI_CLOCK = 1,
+    SND_SEQ_TIMER_MIDI_TICK = 2
+} snd_seq_queue_timer_type_t;
+typedef struct sndrv_seq_remove_events snd_seq_remove_events_t;
+typedef struct sndrv_seq_system_info snd_seq_system_info_t;
+typedef struct _snd_seq snd_seq_t;
+typedef enum _snd_seq_type {
+    SND_SEQ_TYPE_HW,
+    SND_SEQ_TYPE_SHM = 1,
+    SND_SEQ_TYPE_INET = 2
+} snd_seq_type_t;
+extern int snd_seq_alloc_named_queue(snd_seq_t * seq, const char *name);
+extern int snd_seq_alloc_queue(snd_seq_t * handle);
+extern int snd_seq_client_id(snd_seq_t * handle);
+extern void snd_seq_client_info_copy(snd_seq_client_info_t * dst,
+				     const snd_seq_client_info_t * src);
+extern void snd_seq_client_info_free(snd_seq_client_info_t * ptr);
+extern int snd_seq_client_info_get_client(const snd_seq_client_info_t *
+					  info);
+extern const char *snd_seq_client_info_get_name(snd_seq_client_info_t *
+						info);
+extern int snd_seq_client_info_get_num_ports(const snd_seq_client_info_t *
+					     info);
+extern snd_seq_client_type_t snd_seq_client_info_get_type(const
+							  snd_seq_client_info_t
+							  * info);
+extern int snd_seq_client_info_malloc(snd_seq_client_info_t * *ptr);
+extern void snd_seq_client_info_set_client(snd_seq_client_info_t * info,
+					   int client);
+extern void snd_seq_client_info_set_name(snd_seq_client_info_t * info,
+					 const char *name);
+extern size_t snd_seq_client_info_sizeof(void);
+extern int snd_seq_close(snd_seq_t * handle);
+extern int snd_seq_create_port(snd_seq_t * handle,
+			       snd_seq_port_info_t * info);
+extern int snd_seq_delete_port(snd_seq_t * handle, int port);
+extern int snd_seq_drain_output(snd_seq_t * handle);
+extern int snd_seq_drop_output(snd_seq_t * handle);
+extern int snd_seq_drop_output_buffer(snd_seq_t * handle);
+extern int snd_seq_event_input(snd_seq_t * handle, snd_seq_event_t * *ev);
+extern int snd_seq_event_input_pending(snd_seq_t * seq,
+				       int fetch_sequencer);
+extern ssize_t snd_seq_event_length(snd_seq_event_t * ev);
+extern int snd_seq_event_output(snd_seq_t * handle, snd_seq_event_t * ev);
+extern int snd_seq_event_output_direct(snd_seq_t * handle,
+				       snd_seq_event_t * ev);
+extern const unsigned int snd_seq_event_types[];
+extern int snd_seq_free_event(snd_seq_event_t * ev);
+extern int snd_seq_free_queue(snd_seq_t * handle, int q);
+extern int snd_seq_get_any_client_info(snd_seq_t * handle, int client,
+				       snd_seq_client_info_t * info);
+extern int snd_seq_get_any_port_info(snd_seq_t * handle, int client,
+				     int port, snd_seq_port_info_t * info);
+extern int snd_seq_get_client_info(snd_seq_t * handle,
+				   snd_seq_client_info_t * info);
+extern size_t snd_seq_get_input_buffer_size(snd_seq_t * handle);
+extern size_t snd_seq_get_output_buffer_size(snd_seq_t * handle);
+extern int snd_seq_get_port_info(snd_seq_t * handle, int port,
+				 snd_seq_port_info_t * info);
+extern int snd_seq_get_port_subscription(snd_seq_t * handle,
+					 snd_seq_port_subscribe_t * sub);
+extern int snd_seq_get_queue_status(snd_seq_t * handle, int q,
+				    snd_seq_queue_status_t * status);
+extern int snd_seq_get_queue_tempo(snd_seq_t * handle, int q,
+				   snd_seq_queue_tempo_t * tempo);
+extern int snd_seq_nonblock(snd_seq_t * handle, int nonblock);
+extern int snd_seq_open(snd_seq_t * *handle, const char *name, int streams,
+			int mode);
+extern int snd_seq_poll_descriptors(snd_seq_t * handle,
+				    struct pollfd *pfds,
+				    unsigned int space, short int events);
+extern int snd_seq_poll_descriptors_count(snd_seq_t * handle,
+					  short int events);
+extern int snd_seq_poll_descriptors_revents(snd_seq_t * seq,
+					    struct pollfd *pfds,
+					    unsigned int nfds,
+					    short unsigned int *revents);
+extern void snd_seq_port_info_copy(snd_seq_port_info_t * dst,
+				   const snd_seq_port_info_t * src);
+extern void snd_seq_port_info_free(snd_seq_port_info_t * ptr);
+extern const snd_seq_addr_t *snd_seq_port_info_get_addr(const
+							snd_seq_port_info_t
+							* info);
+extern unsigned int snd_seq_port_info_get_capability(const
+						     snd_seq_port_info_t *
+						     info);
+extern int snd_seq_port_info_get_client(const snd_seq_port_info_t * info);
+extern const char *snd_seq_port_info_get_name(const snd_seq_port_info_t *
+					      info);
+extern int snd_seq_port_info_get_port(const snd_seq_port_info_t * info);
+extern unsigned int snd_seq_port_info_get_type(const snd_seq_port_info_t *
+					       info);
+extern int snd_seq_port_info_malloc(snd_seq_port_info_t * *ptr);
+extern void snd_seq_port_info_set_capability(snd_seq_port_info_t * info,
+					     unsigned int capability);
+extern void snd_seq_port_info_set_client(snd_seq_port_info_t * info,
+					 int client);
+extern void snd_seq_port_info_set_midi_channels(snd_seq_port_info_t * info,
+						int channels);
+extern void snd_seq_port_info_set_name(snd_seq_port_info_t * info,
+				       const char *name);
+extern void snd_seq_port_info_set_port(snd_seq_port_info_t * info,
+				       int port);
+extern void snd_seq_port_info_set_port_specified(snd_seq_port_info_t *
+						 info, int val);
+extern void snd_seq_port_info_set_timestamp_queue(snd_seq_port_info_t *
+						  info, int queue);
+extern void snd_seq_port_info_set_timestamp_real(snd_seq_port_info_t *
+						 info, int realtime);
+extern void snd_seq_port_info_set_timestamping(snd_seq_port_info_t * info,
+					       int enable);
+extern void snd_seq_port_info_set_type(snd_seq_port_info_t * info,
+				       unsigned int type);
+extern size_t snd_seq_port_info_sizeof(void);
+extern void snd_seq_port_subscribe_copy(snd_seq_port_subscribe_t * dst,
+					const snd_seq_port_subscribe_t *
+					src);
+extern void snd_seq_port_subscribe_free(snd_seq_port_subscribe_t * ptr);
+extern const snd_seq_addr_t *snd_seq_port_subscribe_get_dest(const
+							     snd_seq_port_subscribe_t
+							     * info);
+extern int snd_seq_port_subscribe_get_exclusive(const
+						snd_seq_port_subscribe_t *
+						info);
+extern int snd_seq_port_subscribe_get_queue(const snd_seq_port_subscribe_t
+					    * info);
+extern const snd_seq_addr_t *snd_seq_port_subscribe_get_sender(const
+							       snd_seq_port_subscribe_t
+							       * info);
+extern int snd_seq_port_subscribe_get_time_real(const
+						snd_seq_port_subscribe_t *
+						info);
+extern int snd_seq_port_subscribe_get_time_update(const
+						  snd_seq_port_subscribe_t
+						  * info);
+extern int snd_seq_port_subscribe_malloc(snd_seq_port_subscribe_t * *ptr);
+extern void snd_seq_port_subscribe_set_dest(snd_seq_port_subscribe_t *
+					    info,
+					    const snd_seq_addr_t * addr);
+extern void snd_seq_port_subscribe_set_exclusive(snd_seq_port_subscribe_t *
+						 info, int val);
+extern void snd_seq_port_subscribe_set_queue(snd_seq_port_subscribe_t *
+					     info, int q);
+extern void snd_seq_port_subscribe_set_sender(snd_seq_port_subscribe_t *
+					      info,
+					      const snd_seq_addr_t * addr);
+extern void snd_seq_port_subscribe_set_time_real(snd_seq_port_subscribe_t *
+						 info, int val);
+extern void snd_seq_port_subscribe_set_time_update(snd_seq_port_subscribe_t
+						   * info, int val);
+extern size_t snd_seq_port_subscribe_sizeof(void);
+extern int snd_seq_query_next_client(snd_seq_t * handle,
+				     snd_seq_client_info_t * info);
+extern int snd_seq_query_next_port(snd_seq_t * handle,
+				   snd_seq_port_info_t * info);
+extern int snd_seq_query_port_subscribers(snd_seq_t * seq,
+					  snd_seq_query_subscribe_t *
+					  subs);
+extern void snd_seq_query_subscribe_copy(snd_seq_query_subscribe_t * dst,
+					 const snd_seq_query_subscribe_t *
+					 src);
+extern void snd_seq_query_subscribe_free(snd_seq_query_subscribe_t * ptr);
+extern const snd_seq_addr_t *snd_seq_query_subscribe_get_addr(const
+							      snd_seq_query_subscribe_t
+							      * info);
+extern int snd_seq_query_subscribe_get_exclusive(const
+						 snd_seq_query_subscribe_t
+						 * info);
+extern int snd_seq_query_subscribe_get_index(const
+					     snd_seq_query_subscribe_t *
+					     info);
+extern int snd_seq_query_subscribe_get_queue(const
+					     snd_seq_query_subscribe_t *
+					     info);
+extern const snd_seq_addr_t *snd_seq_query_subscribe_get_root(const
+							      snd_seq_query_subscribe_t
+							      * info);
+extern int snd_seq_query_subscribe_get_time_real(const
+						 snd_seq_query_subscribe_t
+						 * info);
+extern int snd_seq_query_subscribe_get_time_update(const
+						   snd_seq_query_subscribe_t
+						   * info);
+extern int snd_seq_query_subscribe_malloc(snd_seq_query_subscribe_t *
+					  *ptr);
+extern void snd_seq_query_subscribe_set_index(snd_seq_query_subscribe_t *
+					      info, int _index);
+extern void snd_seq_query_subscribe_set_root(snd_seq_query_subscribe_t *
+					     info,
+					     const snd_seq_addr_t * addr);
+extern void snd_seq_query_subscribe_set_type(snd_seq_query_subscribe_t *
+					     info,
+					     snd_seq_query_subs_type_t
+					     type);
+extern size_t snd_seq_query_subscribe_sizeof(void);
+extern void snd_seq_queue_status_copy(snd_seq_queue_status_t * dst,
+				      const snd_seq_queue_status_t * src);
+extern void snd_seq_queue_status_free(snd_seq_queue_status_t * ptr);
+extern const snd_seq_real_time_t *snd_seq_queue_status_get_real_time(const
+								     snd_seq_queue_status_t
+								     *
+								     info);
+extern snd_seq_tick_time_t snd_seq_queue_status_get_tick_time(const
+							      snd_seq_queue_status_t
+							      * info);
+extern int snd_seq_queue_status_malloc(snd_seq_queue_status_t * *ptr);
+extern size_t snd_seq_queue_status_sizeof(void);
+extern void snd_seq_queue_tempo_copy(snd_seq_queue_tempo_t * dst,
+				     const snd_seq_queue_tempo_t * src);
+extern void snd_seq_queue_tempo_free(snd_seq_queue_tempo_t * ptr);
+extern int snd_seq_queue_tempo_get_ppq(const snd_seq_queue_tempo_t * info);
+extern unsigned int snd_seq_queue_tempo_get_tempo(const
+						  snd_seq_queue_tempo_t *
+						  info);
+extern int snd_seq_queue_tempo_malloc(snd_seq_queue_tempo_t * *ptr);
+extern void snd_seq_queue_tempo_set_ppq(snd_seq_queue_tempo_t * info,
+					int ppq);
+extern void snd_seq_queue_tempo_set_tempo(snd_seq_queue_tempo_t * info,
+					  unsigned int tempo);
+extern size_t snd_seq_queue_tempo_sizeof(void);
+extern int snd_seq_set_client_info(snd_seq_t * handle,
+				   snd_seq_client_info_t * info);
+extern int snd_seq_set_input_buffer_size(snd_seq_t * handle, size_t size);
+extern int snd_seq_set_output_buffer_size(snd_seq_t * handle, size_t size);
+extern int snd_seq_set_port_info(snd_seq_t * handle, int port,
+				 snd_seq_port_info_t * info);
+extern int snd_seq_set_queue_tempo(snd_seq_t * handle, int q,
+				   snd_seq_queue_tempo_t * tempo);
+extern int snd_seq_subscribe_port(snd_seq_t * handle,
+				  snd_seq_port_subscribe_t * sub);
+extern int snd_seq_system_info(snd_seq_t * handle,
+			       snd_seq_system_info_t * info);
+extern void snd_seq_system_info_copy(snd_seq_system_info_t * dst,
+				     const snd_seq_system_info_t * src);
+extern void snd_seq_system_info_free(snd_seq_system_info_t * ptr);
+extern int snd_seq_system_info_get_clients(const snd_seq_system_info_t *
+					   info);
+extern int snd_seq_system_info_get_ports(const snd_seq_system_info_t *
+					 info);
+extern int snd_seq_system_info_get_queues(const snd_seq_system_info_t *
+					  info);
+extern int snd_seq_system_info_malloc(snd_seq_system_info_t * *ptr);
+extern size_t snd_seq_system_info_sizeof(void);
+extern int snd_seq_unsubscribe_port(snd_seq_t * handle,
+				    snd_seq_port_subscribe_t * sub);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171376"
+>19.2.17. alsa/seq_event.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SND_SEQ_TIME_STAMP_TICK	(0&#60;&#60;0)
+#define SND_SEQ_TIME_MODE_ABS	(0&#60;&#60;1)
+#define SND_SEQ_EVENT_LENGTH_FIXED	(0&#60;&#60;2)
+#define SND_SEQ_PRIORITY_NORMAL	(0&#60;&#60;4)
+#define SND_SEQ_TIME_STAMP_MASK	(1&#60;&#60;0)
+#define SND_SEQ_TIME_STAMP_REAL	(1&#60;&#60;0)
+#define SND_SEQ_TIME_MODE_MASK	(1&#60;&#60;1)
+#define SND_SEQ_TIME_MODE_REL	(1&#60;&#60;1)
+#define SND_SEQ_EVENT_LENGTH_VARIABLE	(1&#60;&#60;2)
+#define SND_SEQ_PRIORITY_HIGH	(1&#60;&#60;4)
+#define SND_SEQ_PRIORITY_MASK	(1&#60;&#60;4)
+#define SND_SEQ_EVENT_LENGTH_VARUSR	(2&#60;&#60;2)
+#define SND_SEQ_EVENT_LENGTH_MASK	(3&#60;&#60;2)
+
+typedef struct snd_seq_addr {
+    unsigned char client;
+    unsigned char port;
+} snd_seq_addr_t;
+typedef struct snd_seq_connect {
+    snd_seq_addr_t sender;
+    snd_seq_addr_t dest;
+} snd_seq_connect_t;
+typedef struct snd_seq_ev_ctrl {
+    unsigned char channel;
+    unsigned char unused[3];
+    unsigned int param;
+    int value;
+} snd_seq_ev_ctrl_t;
+typedef struct snd_seq_ev_ext {
+    unsigned int len;
+    void *ptr;
+} __attribute__ ((packed)) snd_seq_ev_ext_t;
+typedef struct snd_seq_ev_note {
+    unsigned char channel;
+    unsigned char note;
+    unsigned char velocity;
+    unsigned char off_velocity;
+    unsigned int duration;
+} snd_seq_ev_note_t;
+typedef struct snd_seq_ev_queue_control {
+    unsigned char queue;
+    unsigned char unused[3];
+    union {
+	int value;		/* affected value (e.g. tempo) */
+	snd_seq_timestamp_t time;	/* time */
+	unsigned int position;	/* sync position */
+	snd_seq_queue_skew_t skew;	/* queue skew */
+	unsigned int d32[2];	/* any data */
+	unsigned char d8[8];	/* any data */
+    } param;
+} snd_seq_ev_queue_control_t;
+typedef struct snd_seq_ev_raw32 {
+    unsigned int d[3];
+} snd_seq_ev_raw32_t;
+typedef struct snd_seq_ev_raw8 {
+    unsigned char d[12];
+} snd_seq_ev_raw8_t;
+typedef struct snd_seq_event {
+    snd_seq_event_type_t type;
+    unsigned char flags;
+    unsigned char tag;
+    unsigned char queue;
+    snd_seq_timestamp_t time;
+    snd_seq_addr_t source;
+    snd_seq_addr_t dest;
+    union {
+	snd_seq_ev_note_t note;	/* note information */
+	snd_seq_ev_ctrl_t control;	/* MIDI control information */
+	snd_seq_ev_raw8_t raw8;	/* raw8 data */
+	snd_seq_ev_raw32_t raw32;	/* raw32 data */
+	snd_seq_ev_ext_t ext;	/* external data */
+	snd_seq_ev_queue_control_t queue;	/* queue control */
+	snd_seq_timestamp_t time;	/* timestamp */
+	snd_seq_addr_t addr;	/* address */
+	snd_seq_connect_t connect;	/* connect information */
+	snd_seq_result_t result;	/* operation result code */
+    } data;
+} snd_seq_event_t;
+typedef unsigned char snd_seq_event_type_t;
+typedef struct snd_seq_queue_skew {
+    unsigned int value;
+    unsigned int base;
+} snd_seq_queue_skew_t;
+union snd_seq_timestamp {
+    snd_seq_tick_time_t tick;
+    struct snd_seq_real_time time;
+};
+typedef struct snd_seq_real_time {
+    unsigned int tv_sec;
+    unsigned int tv_nsec;
+} snd_seq_real_time_t;
+typedef struct snd_seq_result {
+    int event;
+    int result;
+} snd_seq_result_t;
+typedef unsigned int snd_seq_tick_time_t;
+typedef union snd_seq_timestamp {
+    snd_seq_tick_time_t tick;
+    struct snd_seq_real_time time;
+} snd_seq_timestamp_t;
+enum snd_seq_event_type {
+    SND_SEQ_EVENT_SYSTEM = 0,	/* system status; event data type = #snd_seq_result_t */
+    SND_SEQ_EVENT_RESULT,	/* returned result status; event data type = #snd_seq_result_t */
+    SND_SEQ_EVENT_NOTE = 5,	/* note on and off with duration; event data type = #snd_seq_ev_note_t */
+    SND_SEQ_EVENT_NOTEON,	/* note on; event data type = #snd_seq_ev_note_t */
+    SND_SEQ_EVENT_NOTEOFF,	/* note off; event data type = #snd_seq_ev_note_t */
+    SND_SEQ_EVENT_KEYPRESS,	/* key pressure change (aftertouch); event data type = #snd_seq_ev_note_t */
+    SND_SEQ_EVENT_CONTROLLER = 10,	/* controller; event data type = #snd_seq_ev_ctrl_t */
+    SND_SEQ_EVENT_PGMCHANGE,	/* program change; event data type = #snd_seq_ev_ctrl_t */
+    SND_SEQ_EVENT_CHANPRESS,	/* channel pressure; event data type = #snd_seq_ev_ctrl_t */
+    SND_SEQ_EVENT_PITCHBEND,	/* pitchwheel; event data type = #snd_seq_ev_ctrl_t; data is from -8192 to 8191) */
+    SND_SEQ_EVENT_CONTROL14,	/* 14 bit controller value; event data type = #snd_seq_ev_ctrl_t */
+    SND_SEQ_EVENT_NONREGPARAM,	/* 14 bit NRPN;  event data type = #snd_seq_ev_ctrl_t */
+    SND_SEQ_EVENT_REGPARAM,	/* 14 bit RPN; event data type = #snd_seq_ev_ctrl_t */
+    SND_SEQ_EVENT_SONGPOS = 20,	/* SPP with LSB and MSB values; event data type = #snd_seq_ev_ctrl_t */
+    SND_SEQ_EVENT_SONGSEL,	/* Song Select with song ID number; event data type = #snd_seq_ev_ctrl_ */
+    SND_SEQ_EVENT_QFRAME,	/* midi time code quarter frame; event data type = #snd_seq_ev_ctrl_t */
+    SND_SEQ_EVENT_TIMESIGN,	/* SMF Time Signature event; event data type = #snd_seq_ev_ctrl_t */
+    SND_SEQ_EVENT_KEYSIGN,	/* SMF Key Signature event; event data type = #snd_seq_ev_ctrl_t */
+    SND_SEQ_EVENT_START = 30,	/* MIDI Real Time Start message; event data type = #snd_seq_ev_queue_control_t */
+    SND_SEQ_EVENT_CONTINUE,	/* MIDI Real Time Continue message; event data type = #snd_seq_ev_queue_control_t */
+    SND_SEQ_EVENT_STOP,		/* MIDI Real Time Stop message; event data type = #snd_seq_ev_queue_control_t */
+    SND_SEQ_EVENT_SETPOS_TICK,	/* Set tick queue position; event data type = #snd_seq_ev_queue_control_t */
+    SND_SEQ_EVENT_SETPOS_TIME,	/* Set real-time queue position; event data type = #snd_seq_ev_queue_control_t */
+    SND_SEQ_EVENT_TEMPO,	/* (SMF) Tempo event; event data type = #snd_seq_ev_queue_control_t */
+    SND_SEQ_EVENT_CLOCK,	/* MIDI Real Time Clock message; event data type = #snd_seq_ev_queue_control_t */
+    SND_SEQ_EVENT_TICK,		/* MIDI Real Time Tick message; event data type = #snd_seq_ev_queue_control_t */
+    SND_SEQ_EVENT_QUEUE_SKEW,	/* Queue timer skew; event data type = #snd_seq_ev_queue_control_t */
+    SND_SEQ_EVENT_SYNC_POS,	/* Sync position changed; event data type = #snd_seq_ev_queue_control_t */
+    SND_SEQ_EVENT_TUNE_REQUEST = 40,	/* Tune request; event data type = none */
+    SND_SEQ_EVENT_RESET,	/* Reset to power-on state; event data type = none */
+    SND_SEQ_EVENT_SENSING,	/* Active sensing event; event data type = none */
+    SND_SEQ_EVENT_ECHO = 50,	/* Echo-back event; event data type = any type */
+    SND_SEQ_EVENT_OSS,		/* OSS emulation raw event; event data type = any type */
+    SND_SEQ_EVENT_CLIENT_START = 60,	/* New client has connected; event data type = #snd_seq_addr_t */
+    SND_SEQ_EVENT_CLIENT_EXIT,	/* Client has left the system; event data type = #snd_seq_addr_t */
+    SND_SEQ_EVENT_CLIENT_CHANGE,	/* Client status/info has changed; event data type = #snd_seq_addr_t */
+    SND_SEQ_EVENT_PORT_START,	/* New port was created; event data type = #snd_seq_addr_t */
+    SND_SEQ_EVENT_PORT_EXIT,	/* Port was deleted from system; event data type = #snd_seq_addr_t */
+    SND_SEQ_EVENT_PORT_CHANGE,	/* Port status/info has changed; event data type = #snd_seq_addr_t */
+    SND_SEQ_EVENT_PORT_SUBSCRIBED,	/* Ports connected; event data type = #snd_seq_connect_t */
+    SND_SEQ_EVENT_PORT_UNSUBSCRIBED,	/* Ports disconnected; event data type = #snd_seq_connect_t */
+    SND_SEQ_EVENT_USR0 = 90,	/* user-defined event; event data type = any (fixed size) */
+    SND_SEQ_EVENT_USR1,		/* user-defined event; event data type = any (fixed size) */
+    SND_SEQ_EVENT_USR2,		/* user-defined event; event data type = any (fixed size) */
+    SND_SEQ_EVENT_USR3,		/* user-defined event; event data type = any (fixed size) */
+    SND_SEQ_EVENT_USR4,		/* user-defined event; event data type = any (fixed size) */
+    SND_SEQ_EVENT_USR5,		/* user-defined event; event data type = any (fixed size) */
+    SND_SEQ_EVENT_USR6,		/* user-defined event; event data type = any (fixed size) */
+    SND_SEQ_EVENT_USR7,		/* user-defined event; event data type = any (fixed size) */
+    SND_SEQ_EVENT_USR8,		/* user-defined event; event data type = any (fixed size) */
+    SND_SEQ_EVENT_USR9,		/* user-defined event; event data type = any (fixed size) */
+    SND_SEQ_EVENT_SYSEX = 130,	/* system exclusive data (variable length);  event data type = #snd_seq_ev_ext_t */
+    SND_SEQ_EVENT_BOUNCE,	/* error event;  event data type = #snd_seq_ev_ext_t */
+    SND_SEQ_EVENT_USR_VAR0 = 135,	/* reserved for user apps; event data type = #snd_seq_ev_ext_t */
+    SND_SEQ_EVENT_USR_VAR1,	/* reserved for user apps; event data type = #snd_seq_ev_ext_t */
+    SND_SEQ_EVENT_USR_VAR2,	/* reserved for user apps; event data type = #snd_seq_ev_ext_t */
+    SND_SEQ_EVENT_USR_VAR3,	/* reserved for user apps; event data type = #snd_seq_ev_ext_t */
+    SND_SEQ_EVENT_USR_VAR4,	/* reserved for user apps; event data type = #snd_seq_ev_ext_t */
+    SND_SEQ_EVENT_NONE = 255	/* NOP; ignored in any case */
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171380"
+>19.2.18. alsa/seq_midi_event.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct snd_midi_event snd_midi_event_t;
+extern long int snd_midi_event_decode(snd_midi_event_t * dev,
+				      unsigned char *buf, long int count,
+				      const snd_seq_event_t * ev);
+extern long int snd_midi_event_encode(snd_midi_event_t * dev,
+				      const unsigned char *buf,
+				      long int count,
+				      snd_seq_event_t * ev);
+extern int snd_midi_event_encode_byte(snd_midi_event_t * dev, int c,
+				      snd_seq_event_t * ev);
+extern void snd_midi_event_free(snd_midi_event_t * dev);
+extern void snd_midi_event_init(snd_midi_event_t * dev);
+extern int snd_midi_event_new(size_t bufsize, snd_midi_event_t * *rdev);
+extern void snd_midi_event_reset_decode(snd_midi_event_t * dev);
+extern void snd_midi_event_reset_encode(snd_midi_event_t * dev);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171384"
+>19.2.19. alsa/seqmid.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define snd_seq_ev_set_dest(ev,c,p)	 \
+	((ev)-&#62;dest.client = (c), (ev)-&#62;dest.port = (p))
+#define snd_seq_ev_set_broadcast(ev)	 \
+	((ev)-&#62;dest.client = SND_SEQ_ADDRESS_BROADCAST, (ev)-&#62;dest.port = \
+	SND_SEQ_ADDRESS_BROADCAST)
+#define snd_seq_ev_set_subs(ev)	 \
+	((ev)-&#62;dest.client = SND_SEQ_ADDRESS_SUBSCRIBERS, (ev)-&#62;dest.port = \
+	SND_SEQ_ADDRESS_UNKNOWN)
+#define snd_seq_ev_set_fixed(ev)	 \
+	((ev)-&#62;flags &#38;= ~SND_SEQ_EVENT_LENGTH_MASK, (ev)-&#62;flags |= \
+	SND_SEQ_EVENT_LENGTH_FIXED)
+#define snd_seq_ev_set_chanpress(ev,ch,val)	 \
+	((ev)-&#62;type = SND_SEQ_EVENT_CHANPRESS, snd_seq_ev_set_fixed(ev), \
+	(ev)-&#62;data.control.channel = (ch), (ev)-&#62;data.control.value = (val))
+#define snd_seq_ev_set_controller(ev,ch,cc,val)	 \
+	((ev)-&#62;type = SND_SEQ_EVENT_CONTROLLER, snd_seq_ev_set_fixed(ev), \
+	(ev)-&#62;data.control.channel = (ch), (ev)-&#62;data.control.param = (cc), \
+	(ev)-&#62;data.control.value = (val))
+#define snd_seq_ev_set_keypress(ev,ch,key,vel)	 \
+	((ev)-&#62;type = SND_SEQ_EVENT_KEYPRESS, snd_seq_ev_set_fixed(ev), \
+	(ev)-&#62;data.note.channel = (ch), (ev)-&#62;data.note.note = (key), \
+	(ev)-&#62;data.note.velocity = (vel))
+#define snd_seq_ev_set_pgmchange(ev,ch,val)	 \
+	((ev)-&#62;type = SND_SEQ_EVENT_PGMCHANGE, snd_seq_ev_set_fixed(ev), \
+	(ev)-&#62;data.control.channel = (ch), (ev)-&#62;data.control.value = (val))
+#define snd_seq_ev_set_pitchbend(ev,ch,val)	 \
+	((ev)-&#62;type = SND_SEQ_EVENT_PITCHBEND, snd_seq_ev_set_fixed(ev), \
+	(ev)-&#62;data.control.channel = (ch), (ev)-&#62;data.control.value = (val))
+#define snd_seq_ev_set_direct(ev)	((ev)-&#62;queue = SND_SEQ_QUEUE_DIRECT)
+#define snd_seq_ev_set_source(ev,p)	((ev)-&#62;source.port = (p))
+#define snd_seq_ev_set_tag(ev,t)	((ev)-&#62;tag = (t))
+#define snd_seq_ev_clear(ev)	memset(ev, 0, sizeof(snd_seq_event_t))
+
+extern int snd_seq_connect_from(snd_seq_t * seq, int my_port,
+				int src_client, int src_port);
+extern int snd_seq_connect_to(snd_seq_t * seq, int my_port,
+			      int dest_client, int dest_port);
+extern int snd_seq_control_queue(snd_seq_t * seq, int q, int type,
+				 int value, snd_seq_event_t * ev);
+extern int snd_seq_create_simple_port(snd_seq_t * seq, const char *name,
+				      unsigned int caps,
+				      unsigned int type);
+extern int snd_seq_delete_simple_port(snd_seq_t * seq, int port);
+extern int snd_seq_disconnect_from(snd_seq_t * seq, int my_port,
+				   int src_client, int src_port);
+extern int snd_seq_disconnect_to(snd_seq_t * seq, int my_port,
+				 int dest_client, int dest_port);
+extern int snd_seq_parse_address(snd_seq_t * seq, snd_seq_addr_t * addr,
+				 const char *str);
+extern int snd_seq_set_client_name(snd_seq_t * seq, const char *name);
+extern int snd_seq_sync_output_queue(snd_seq_t * seq);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171388"
+>19.2.20. alsa/timer.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SND_TIMER_OPEN_NONBLOCK	(1&#60;&#60;0)
+#define SND_TIMER_OPEN_TREAD	(1&#60;&#60;1)
+#define SND_TIMER_GLOBAL_SYSTEM	0
+#define SND_TIMER_GLOBAL_RTC	1
+#define SND_TIMER_GLOBAL_HPET	2
+
+typedef struct sndrv_timer_ginfo snd_timer_ginfo_t;
+typedef struct sndrv_timer_gparams snd_timer_gparams_t;
+typedef struct sndrv_timer_gstatus snd_timer_gstatus_t;
+typedef struct sndrv_timer_id snd_timer_id_t;
+typedef struct sndrv_timer_info snd_timer_info_t;
+typedef struct sndrv_timer_params snd_timer_params_t;
+typedef struct _snd_timer_query snd_timer_query_t;
+typedef struct sndrv_timer_status snd_timer_status_t;
+typedef struct _snd_timer snd_timer_t;
+typedef enum _snd_timer_type {
+    SND_TIMER_TYPE_HW,
+    SND_TIMER_TYPE_SHM = 1,
+    SND_TIMER_TYPE_INET = 2
+} snd_timer_type_t;
+typedef enum _snd_timer_class {
+    SND_TIMER_CLASS_NONE = -1,	/* invalid */
+    SND_TIMER_CLASS_SLAVE = 0,	/* slave timer */
+    SND_TIMER_CLASS_GLOBAL,	/* global timer */
+    SND_TIMER_CLASS_CARD,	/* card timer */
+    SND_TIMER_CLASS_PCM,	/* PCM timer */
+    SND_TIMER_CLASS_LAST	/* last timer */
+} snd_timer_class_t;
+extern int snd_timer_close(snd_timer_t * handle);
+extern int snd_timer_continue(snd_timer_t * handle);
+extern void snd_timer_id_copy(snd_timer_id_t * dst,
+			      const snd_timer_id_t * src);
+extern void snd_timer_id_free(snd_timer_id_t * obj);
+extern int snd_timer_id_get_card(snd_timer_id_t * id);
+extern int snd_timer_id_get_class(snd_timer_id_t * id);
+extern int snd_timer_id_get_device(snd_timer_id_t * id);
+extern int snd_timer_id_get_sclass(snd_timer_id_t * id);
+extern int snd_timer_id_get_subdevice(snd_timer_id_t * id);
+extern int snd_timer_id_malloc(snd_timer_id_t * *ptr);
+extern void snd_timer_id_set_card(snd_timer_id_t * id, int card);
+extern void snd_timer_id_set_class(snd_timer_id_t * id, int dev_class);
+extern void snd_timer_id_set_device(snd_timer_id_t * id, int device);
+extern void snd_timer_id_set_sclass(snd_timer_id_t * id, int dev_sclass);
+extern void snd_timer_id_set_subdevice(snd_timer_id_t * id, int subdevice);
+extern size_t snd_timer_id_sizeof(void);
+extern int snd_timer_info(snd_timer_t * handle, snd_timer_info_t * timer);
+extern void snd_timer_info_copy(snd_timer_info_t * dst,
+				const snd_timer_info_t * src);
+extern void snd_timer_info_free(snd_timer_info_t * obj);
+extern int snd_timer_info_get_card(snd_timer_info_t * info);
+extern const char *snd_timer_info_get_id(snd_timer_info_t * info);
+extern const char *snd_timer_info_get_name(snd_timer_info_t * info);
+extern long int snd_timer_info_get_resolution(snd_timer_info_t * info);
+extern int snd_timer_info_malloc(snd_timer_info_t * *ptr);
+extern size_t snd_timer_info_sizeof(void);
+extern int snd_timer_open(snd_timer_t * *handle, const char *name,
+			  int mode);
+extern int snd_timer_params(snd_timer_t * handle,
+			    snd_timer_params_t * params);
+extern long int snd_timer_params_get_ticks(snd_timer_params_t * params);
+extern int snd_timer_params_malloc(snd_timer_params_t * *ptr);
+extern int snd_timer_params_set_auto_start(snd_timer_params_t * params,
+					   int auto_start);
+extern void snd_timer_params_set_ticks(snd_timer_params_t * params,
+				       long int ticks);
+extern int snd_timer_poll_descriptors(snd_timer_t * handle,
+				      struct pollfd *pfds,
+				      unsigned int space);
+extern int snd_timer_poll_descriptors_count(snd_timer_t * handle);
+extern ssize_t snd_timer_read(snd_timer_t * handle, void *buffer,
+			      size_t size);
+extern int snd_timer_start(snd_timer_t * handle);
+extern int snd_timer_status(snd_timer_t * handle,
+			    snd_timer_status_t * status);
+extern void snd_timer_status_free(snd_timer_status_t * obj);
+extern long int snd_timer_status_get_lost(snd_timer_status_t * status);
+extern long int snd_timer_status_get_overrun(snd_timer_status_t * status);
+extern long int snd_timer_status_get_queue(snd_timer_status_t * status);
+extern long int snd_timer_status_get_resolution(snd_timer_status_t *
+						status);
+extern int snd_timer_status_malloc(snd_timer_status_t * *ptr);
+extern int snd_timer_stop(snd_timer_t * handle);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="asoundlibasound.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="tocdeskenv.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Libraries</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="asoundlibasound.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Desktop Environment</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

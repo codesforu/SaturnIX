@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>mvcur</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libncurses"
+HREF="libncursesman.html"><LINK
+REL="PREVIOUS"
+TITLE="instr"
+HREF="curses-instr-1.html"><LINK
+REL="NEXT"
+TITLE="mvinchnstr"
+HREF="curses-mvinchnstr-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="curses-instr-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="curses-mvinchnstr-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="LIBNCURSES-MVCUR-1"
+></A
+>mvcur</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN33058"
+></A
+><H2
+>Name</H2
+>mvcur&nbsp;--&nbsp;send cursor movement commands to terminal</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN33063"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN33064"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;curses.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>mvcur</TT
+></CODE
+>(int
+<TT
+CLASS="PARAMETER"
+><I
+>oldrow</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>oldcol</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>newrow</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>newcol</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN33077"
+></A
+><H2
+>Description</H2
+><P
+>The interface <TT
+CLASS="FUNCTION"
+>mvcur()</TT
+> shall behave
+as described in <A
+HREF="normativerefs.html#STD.X.CURSES"
+>X/Open Curses, Issue 7</A
+>,
+except that if (<TT
+CLASS="PARAMETER"
+><I
+>newrow</I
+></TT
+>, 
+<TT
+CLASS="PARAMETER"
+><I
+>newcol</I
+></TT
+>) is not a valid
+address for the terminal in use, the results of the 
+<TT
+CLASS="FUNCTION"
+>mvcur()</TT
+> function are
+unspecified.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="curses-instr-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="curses-mvinchnstr-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>instr</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libncursesman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>mvinchnstr</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

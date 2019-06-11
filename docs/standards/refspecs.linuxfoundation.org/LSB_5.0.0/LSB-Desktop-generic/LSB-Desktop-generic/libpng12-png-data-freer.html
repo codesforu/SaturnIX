@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>png_data_freer</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libpng12"
+HREF="libpng12man.html"><LINK
+REL="PREVIOUS"
+TITLE="png_create_write_struct_2"
+HREF="libpng12-png-create-write-struct-2.html"><LINK
+REL="NEXT"
+TITLE="png_destroy_info_struct"
+HREF="libpng12-png-destroy-info-struct.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpng12-png-create-write-struct-2.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpng12-png-destroy-info-struct.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="LIBPNG12-PNG-DATA-FREER"
+></A
+>png_data_freer</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN13292"
+></A
+><H2
+>Name</H2
+>png_data_freer&nbsp;--&nbsp;change the default behavior for freeing data</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN13297"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN13298"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;png.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void
+<TT
+CLASS="FUNCTION"
+>png_data_freer</TT
+></CODE
+>(png_structp
+<TT
+CLASS="PARAMETER"
+><I
+>png_ptr</I
+></TT
+>, png_infop
+<TT
+CLASS="PARAMETER"
+><I
+>info_ptr</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>freer</I
+></TT
+>, png_uint_32
+<TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13311"
+></A
+><H2
+>Description</H2
+><P
+>This interface shall change the default behavior for freeing allocated data,
+from only freeing data allocated internally by libpng,
+to either freeing user-allocated data or to not freeing any data at all.</P
+><P
+>This interface can enable deallocation of user data allocated with 
+<TT
+CLASS="FUNCTION"
+>png_malloc()</TT
+> or <TT
+CLASS="FUNCTION"
+>png_zalloc()</TT
+>
+and passed to libpng with one of the png_set_*() interfaces.
+Users can call it both before and after passing the data.
+Calling it after reading PNG data but before passing the data 
+controls whether the user or the interface
+is responsible for the existing data.
+Calling it after passing the data controls whether 
+the user or the interface should deallocate the data.</P
+><P
+>If the user becomes responsible for data allocated by libpng,
+<TT
+CLASS="FUNCTION"
+>png_free()</TT
+> must be called
+to free it. If libpng becomes responsible for user-allocated data,
+the data must only have been allocated with 
+<TT
+CLASS="FUNCTION"
+>png_malloc()</TT
+> or <TT
+CLASS="FUNCTION"
+>png_zalloc()</TT
+>.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>png_ptr</I
+></TT
+> shall specify the PNG file.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>info_ptr</I
+></TT
+> shall specify the PNG info structure.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>freer</I
+></TT
+> shall specify one of these constants:
+<CODE
+CLASS="CONSTANT"
+>PNG_DESTROY_WILL_FREE_DATA</CODE
+>,
+<CODE
+CLASS="CONSTANT"
+>PNG_SET_WILL_FREE_DATA</CODE
+>,
+<CODE
+CLASS="CONSTANT"
+>PNG_USER_WILL_FREE_DATA</CODE
+>.         </P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>mask</I
+></TT
+> shall specify the data to free,
+as described under <TT
+CLASS="FUNCTION"
+>png_free_data()</TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13333"
+></A
+><H2
+>Application Usage (informative)</H2
+><P
+>A <CODE
+CLASS="VARNAME"
+>row_pointers</CODE
+> array allocated in a single block
+must not be freed with
+<TT
+CLASS="FUNCTION"
+>png_set_rows()</TT
+> or <TT
+CLASS="FUNCTION"
+>png_read_destroy()</TT
+>,
+because they would attempt to free the elements of the array as well.</P
+><P
+>Do not free <CODE
+CLASS="VARNAME"
+>text_ptr</CODE
+> with libpng
+if some of its members were allocated separately,
+because this will actually only free <CODE
+CLASS="VARNAME"
+>text_ptr.key</CODE
+>.
+If responsibility for freeing <CODE
+CLASS="VARNAME"
+>text_ptr</CODE
+> moves 
+from libpng to the user, the user
+must not free the members separately.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpng12-png-create-write-struct-2.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpng12-png-destroy-info-struct.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>png_create_write_struct_2</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libpng12man.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>png_destroy_info_struct</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

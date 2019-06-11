@@ -1,0 +1,459 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>mknod</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="md5sum"
+HREF="md5sum.html"><LINK
+REL="NEXT"
+TITLE="mktemp"
+HREF="mktemp.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="md5sum.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="mktemp.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="MKNOD"
+></A
+>mknod</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN59028"
+></A
+><H2
+>Name</H2
+>mknod&nbsp;--&nbsp;make special files</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN59031"
+></A
+><H2
+>Synopsis</H2
+><TT
+CLASS="CMDSYNOPSIS"
+><B
+CLASS="COMMAND"
+>mknod</B
+> [-m <TT
+CLASS="REPLACEABLE"
+><I
+>mode</I
+></TT
+> | --mode=<TT
+CLASS="REPLACEABLE"
+><I
+>mode</I
+></TT
+>]  name   type  [major minor]<BR><B
+CLASS="COMMAND"
+>mknod</B
+> [--version]</TT
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN59045"
+></A
+><H2
+>Description</H2
+><P
+>The <B
+CLASS="COMMAND"
+>mknod</B
+> command shall create a special file named
+<TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+> of the given <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>.</P
+><P
+>The <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+> shall be one of the following:</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59054"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>b</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>creates a block (buffered) special file with the specified
+<TT
+CLASS="PARAMETER"
+><I
+>major</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>minor</I
+></TT
+> device numbers.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59060"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>c, u</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>creates a character (unbuffered) special file with the specified
+<TT
+CLASS="PARAMETER"
+><I
+>major</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>minor</I
+></TT
+> device numbers.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59066"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>p</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>creates a FIFO.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN59070"
+></A
+><H2
+>Options</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59073"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-m <TT
+CLASS="REPLACEABLE"
+><I
+>mode</I
+></TT
+>, --mode=<TT
+CLASS="REPLACEABLE"
+><I
+>mode</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>create the special file with file access permissions set as described in
+<TT
+CLASS="PARAMETER"
+><I
+>mode</I
+></TT
+>. The permissions may be any absolute value (i.e.
+one not containing <TT
+CLASS="LITERAL"
+>'+'</TT
+> or <TT
+CLASS="LITERAL"
+>'-'</TT
+>) acceptable to the
+<B
+CLASS="COMMAND"
+>chmod</B
+> command.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59083"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>--version</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>output version information and exit.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>This option may be deprecated in a future release of this specification.</P
+></BLOCKQUOTE
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>p</TT
+>,
+<TT
+CLASS="PARAMETER"
+><I
+>major</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>minor</I
+></TT
+>
+shall not be specified. Otherwise, these parameters are mandatory.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN59094"
+></A
+><H2
+>Future Directions</H2
+><P
+>This command may be deprecated in a future version of this specification.
+The <TT
+CLASS="PARAMETER"
+><I
+>major</I
+></TT
+> and <TT
+CLASS="PARAMETER"
+><I
+>minor</I
+></TT
+> operands
+are insufficently portable to be specified usefully here.
+Only a FIFO can be portably created by this command, and the <B
+CLASS="COMMAND"
+>mkfifo</B
+>
+command is a simpler interface for that purpose.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="md5sum.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="mktemp.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>md5sum</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>mktemp</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

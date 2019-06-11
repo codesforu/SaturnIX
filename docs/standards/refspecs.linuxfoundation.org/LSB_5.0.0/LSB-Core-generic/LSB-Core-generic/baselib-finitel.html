@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>finitel</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libm"
+HREF="libmman.html"><LINK
+REL="PREVIOUS"
+TITLE="finitef"
+HREF="baselib-finitef.html"><LINK
+REL="NEXT"
+TITLE="gamma"
+HREF="baselib-gamma.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-finitef.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-gamma.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-FINITEL"
+></A
+>finitel</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN23528"
+></A
+><H2
+>Name</H2
+>finitel&nbsp;--&nbsp;test for infinity (DEPRECATED)</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN23531"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN23532"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#define _SVID_SOURCE
+#include &#60;math.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>finitel</TT
+></CODE
+>(long double
+<TT
+CLASS="PARAMETER"
+><I
+>arg</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN23539"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>finitel()</TT
+> function shall test whether
+its argument is neither <CODE
+CLASS="CONSTANT"
+>INFINITY</CODE
+> nor
+not a number (NaN).</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN23544"
+></A
+><H2
+>Returns</H2
+><P
+>On success, <TT
+CLASS="FUNCTION"
+>finitel()</TT
+> shall return <SPAN
+CLASS="RETURNVALUE"
+>1</SPAN
+>. Otherwise
+the function shall return <SPAN
+CLASS="RETURNVALUE"
+>0</SPAN
+>.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>The <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> standard defines the function <TT
+CLASS="FUNCTION"
+>isfinite()</TT
+>,
+which is more general purpose. The <TT
+CLASS="FUNCTION"
+>finitel()</TT
+> function is deprecated, and applications
+should use <TT
+CLASS="FUNCTION"
+>isfinite()</TT
+> instead. A future revision of this standard may remove this function.</P
+></BLOCKQUOTE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN23556"
+></A
+><H2
+>See Also</H2
+><P
+><TT
+CLASS="FUNCTION"
+>isfinite()</TT
+>, <TT
+CLASS="FUNCTION"
+>finite()</TT
+>, <TT
+CLASS="FUNCTION"
+>finitef()</TT
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-finitef.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-gamma.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>finitef</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libmman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>gamma</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

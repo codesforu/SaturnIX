@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>__recv_chk</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="__realpath_chk"
+HREF="baselib---realpath-chk-1.html"><LINK
+REL="NEXT"
+TITLE="__recvfrom_chk"
+HREF="baselib---recvfrom-chk-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib---realpath-chk-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib---recvfrom-chk-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB---RECV-CHK-1"
+></A
+>__recv_chk</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN9640"
+></A
+><H2
+>Name</H2
+>__recv_chk&nbsp;--&nbsp;receive a message from a socket, with buffer overflow checking</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN9645"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN9646"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;sys/socket.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>ssize_t
+<TT
+CLASS="FUNCTION"
+>__recv_chk</TT
+></CODE
+>(int
+<TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>, void *
+<TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>, size_t
+<TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+>, size_t
+<TT
+CLASS="PARAMETER"
+><I
+>buflen</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>flag</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN9661"
+></A
+><H2
+>Description</H2
+><P
+>The interface <TT
+CLASS="FUNCTION"
+>__recv_chk()</TT
+> shall function in the same
+way as the interface <TT
+CLASS="FUNCTION"
+>recv()</TT
+>, except that
+<TT
+CLASS="FUNCTION"
+>__recv_chk()</TT
+> shall check for buffer overflow before
+computing a result, depending on the value of the
+<TT
+CLASS="PARAMETER"
+><I
+>flag</I
+></TT
+> parameter.  If an overflow is anticipated,
+the function shall abort
+and the program calling it shall exit.</P
+><P
+>In general, the higher the value of <TT
+CLASS="PARAMETER"
+><I
+>flag</I
+></TT
+>,
+the more security measures this interface shall take
+in the form of checking the buffer, parameter values, and so on.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>buflen</I
+></TT
+> specifies the size of the buffer
+<TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>. If <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> exceeds
+<TT
+CLASS="PARAMETER"
+><I
+>buflen</I
+></TT
+>, the function shall abort, and the program calling it shall exit.</P
+><P
+>The <TT
+CLASS="FUNCTION"
+>__recv_chk()</TT
+> function is not in the source standard; 
+it is only in the binary standard.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib---realpath-chk-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib---recvfrom-chk-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>__realpath_chk</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>__recvfrom_chk</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

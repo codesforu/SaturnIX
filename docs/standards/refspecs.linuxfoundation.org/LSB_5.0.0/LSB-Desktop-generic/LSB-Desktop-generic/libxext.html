@@ -1,0 +1,1156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libXext</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="graphlib.html"><LINK
+REL="PREVIOUS"
+TITLE="_XtIsSubclassOf"
+HREF="graphiclib--xtissubclassof-.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libXext"
+HREF="libxext-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="graphiclib--xtissubclassof-.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libxext-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBXEXT"
+>6.12. Interfaces for libXext</A
+></H1
+><P
+><A
+HREF="libxext.html#LIB-LIBXEXT-DEF"
+>Table 6-11</A
+> defines the library name and shared object name
+for the libXext library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBXEXT-DEF"
+></A
+><P
+><B
+>Table 6-11. libXext Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libXext</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libXext.so.6</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBXEXT.1"
+></A
+>[LSB] <A
+HREF="normativerefs.html#STD.LSB"
+>This Specification</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBXEXT.2"
+></A
+>[X-dbe] <A
+HREF="normativerefs.html#STD.X.DBE"
+>Double Buffer Extension Library</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBXEXT.3"
+></A
+>[X-DPMS] <A
+HREF="normativerefs.html#STD.X.DPMS"
+>X Display Power Management Signaling</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBXEXT.4"
+></A
+>[X-evi] <A
+HREF="normativerefs.html#STD.X.EVI"
+>X Extended Visual Interface Extension</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBXEXT.5"
+></A
+>[X-security] <A
+HREF="normativerefs.html#STD.X.SECURITY"
+>X Security Extension Specification</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBXEXT.6"
+></A
+>[X-shape] <A
+HREF="normativerefs.html#STD.X.SHAPE"
+>X Nonrectangular Window Shape Extension Library</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBXEXT.7"
+></A
+>[X-shm] <A
+HREF="normativerefs.html#STD.X.SHM"
+>The MIT Shared Memory Extension</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBXEXT.8"
+></A
+>[X-sync] <A
+HREF="normativerefs.html#STD.X.SYNC"
+>X Synchronization Extension Library</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6122"
+>6.12.1. libXext interfaces</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN6125"
+>6.12.1.1. Interfaces for libXext interfaces</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for libXext interfaces specified in <A
+HREF="libxext.html#TBL-LIBXEXT-LIBXE-INTS"
+>Table 6-12</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBXEXT-LIBXE-INTS"
+></A
+><P
+><B
+>Table 6-12. libXext - libXext interfaces Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>XMissingExtension <A
+HREF="libxext.html#REFSTD.LIBXEXT.1"
+>[LSB]</A
+></TD
+><TD
+>XSetExtensionErrorHandler <A
+HREF="libxext.html#REFSTD.LIBXEXT.1"
+>[LSB]</A
+></TD
+><TD
+>XextAddDisplay <A
+HREF="libxext.html#REFSTD.LIBXEXT.1"
+>[LSB]</A
+></TD
+><TD
+>XextCreateExtension <A
+HREF="libxext.html#REFSTD.LIBXEXT.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>XextDestroyExtension <A
+HREF="libxext.html#REFSTD.LIBXEXT.1"
+>[LSB]</A
+></TD
+><TD
+>XextFindDisplay <A
+HREF="libxext.html#REFSTD.LIBXEXT.1"
+>[LSB]</A
+></TD
+><TD
+>XextRemoveDisplay <A
+HREF="libxext.html#REFSTD.LIBXEXT.1"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6164"
+>6.12.2. X Shape Extension</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN6167"
+>6.12.2.1. Interfaces for X Shape Extension</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for X Shape Extension specified in <A
+HREF="libxext.html#TBL-LIBXEXT-X-SHA-INTS"
+>Table 6-13</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBXEXT-X-SHA-INTS"
+></A
+><P
+><B
+>Table 6-13. libXext - X Shape Extension Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>XShapeCombineMask <A
+HREF="libxext.html#REFSTD.LIBXEXT.6"
+>[X-shape]</A
+></TD
+><TD
+>XShapeCombineRectangles <A
+HREF="libxext.html#REFSTD.LIBXEXT.6"
+>[X-shape]</A
+></TD
+><TD
+>XShapeCombineRegion <A
+HREF="libxext.html#REFSTD.LIBXEXT.6"
+>[X-shape]</A
+></TD
+><TD
+>XShapeCombineShape <A
+HREF="libxext.html#REFSTD.LIBXEXT.6"
+>[X-shape]</A
+></TD
+></TR
+><TR
+><TD
+>XShapeGetRectangles <A
+HREF="libxext.html#REFSTD.LIBXEXT.6"
+>[X-shape]</A
+></TD
+><TD
+>XShapeInputSelected <A
+HREF="libxext.html#REFSTD.LIBXEXT.6"
+>[X-shape]</A
+></TD
+><TD
+>XShapeOffsetShape <A
+HREF="libxext.html#REFSTD.LIBXEXT.6"
+>[X-shape]</A
+></TD
+><TD
+>XShapeQueryExtension <A
+HREF="libxext.html#REFSTD.LIBXEXT.6"
+>[X-shape]</A
+></TD
+></TR
+><TR
+><TD
+>XShapeQueryExtents <A
+HREF="libxext.html#REFSTD.LIBXEXT.6"
+>[X-shape]</A
+></TD
+><TD
+>XShapeQueryVersion <A
+HREF="libxext.html#REFSTD.LIBXEXT.6"
+>[X-shape]</A
+></TD
+><TD
+>XShapeSelectInput <A
+HREF="libxext.html#REFSTD.LIBXEXT.6"
+>[X-shape]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6223"
+>6.12.3. X Display Power Management Signaling Extension</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN6226"
+>6.12.3.1. Interfaces for X Display Power Management Signaling Extension</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for X Display Power Management Signaling Extension specified in <A
+HREF="libxext.html#TBL-LIBXEXT-X-DIS-INTS"
+>Table 6-14</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBXEXT-X-DIS-INTS"
+></A
+><P
+><B
+>Table 6-14. libXext - X Display Power Management Signaling Extension Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>DPMSCapable <A
+HREF="libxext.html#REFSTD.LIBXEXT.3"
+>[X-DPMS]</A
+></TD
+><TD
+>DPMSDisable <A
+HREF="libxext.html#REFSTD.LIBXEXT.3"
+>[X-DPMS]</A
+></TD
+><TD
+>DPMSEnable <A
+HREF="libxext.html#REFSTD.LIBXEXT.3"
+>[X-DPMS]</A
+></TD
+><TD
+>DPMSForceLevel <A
+HREF="libxext.html#REFSTD.LIBXEXT.3"
+>[X-DPMS]</A
+></TD
+></TR
+><TR
+><TD
+>DPMSGetTimeouts <A
+HREF="libxext.html#REFSTD.LIBXEXT.3"
+>[X-DPMS]</A
+></TD
+><TD
+>DPMSGetVersion <A
+HREF="libxext.html#REFSTD.LIBXEXT.3"
+>[X-DPMS]</A
+></TD
+><TD
+>DPMSInfo <A
+HREF="libxext.html#REFSTD.LIBXEXT.3"
+>[X-DPMS]</A
+></TD
+><TD
+>DPMSQueryExtension <A
+HREF="libxext.html#REFSTD.LIBXEXT.3"
+>[X-DPMS]</A
+></TD
+></TR
+><TR
+><TD
+>DPMSSetTimeouts <A
+HREF="libxext.html#REFSTD.LIBXEXT.3"
+>[X-DPMS]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6276"
+>6.12.4. X Shared Memory Extensions</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN6279"
+>6.12.4.1. Interfaces for X Shared Memory Extensions</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for X Shared Memory Extensions specified in <A
+HREF="libxext.html#TBL-LIBXEXT-1-INTS"
+>Table 6-15</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBXEXT-1-INTS"
+></A
+><P
+><B
+>Table 6-15. libXext - X Shared Memory Extensions Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>XShmAttach <A
+HREF="libxext.html#REFSTD.LIBXEXT.7"
+>[X-shm]</A
+></TD
+><TD
+>XShmCreateImage <A
+HREF="libxext.html#REFSTD.LIBXEXT.7"
+>[X-shm]</A
+></TD
+><TD
+>XShmCreatePixmap <A
+HREF="libxext.html#REFSTD.LIBXEXT.7"
+>[X-shm]</A
+></TD
+><TD
+>XShmDetach <A
+HREF="libxext.html#REFSTD.LIBXEXT.7"
+>[X-shm]</A
+></TD
+></TR
+><TR
+><TD
+>XShmGetEventBase <A
+HREF="libxext.html#REFSTD.LIBXEXT.7"
+>[X-shm]</A
+></TD
+><TD
+>XShmGetImage <A
+HREF="libxext.html#REFSTD.LIBXEXT.7"
+>[X-shm]</A
+></TD
+><TD
+>XShmPixmapFormat <A
+HREF="libxext.html#REFSTD.LIBXEXT.7"
+>[X-shm]</A
+></TD
+><TD
+>XShmPutImage <A
+HREF="libxext.html#REFSTD.LIBXEXT.7"
+>[X-shm]</A
+></TD
+></TR
+><TR
+><TD
+>XShmQueryExtension <A
+HREF="libxext.html#REFSTD.LIBXEXT.7"
+>[X-shm]</A
+></TD
+><TD
+>XShmQueryVersion <A
+HREF="libxext.html#REFSTD.LIBXEXT.7"
+>[X-shm]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6332"
+>6.12.5. X Synchronization Extension</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN6335"
+>6.12.5.1. Interfaces for X Synchronization Extension</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for X Synchronization Extension specified in <A
+HREF="libxext.html#TBL-LIBXEXT-X-SYN-INTS"
+>Table 6-16</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBXEXT-X-SYN-INTS"
+></A
+><P
+><B
+>Table 6-16. libXext - X Synchronization Extension Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>XSyncAwait <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncChangeAlarm <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncChangeCounter <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncCreateAlarm <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+></TR
+><TR
+><TD
+>XSyncCreateCounter <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncDestroyAlarm <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncDestroyCounter <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncFreeSystemCounterList <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+></TR
+><TR
+><TD
+>XSyncGetPriority <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncInitialize <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncIntToValue <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncIntsToValue <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+></TR
+><TR
+><TD
+>XSyncListSystemCounters <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncMaxValue <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncMinValue <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncQueryAlarm <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+></TR
+><TR
+><TD
+>XSyncQueryCounter <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncQueryExtension <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncSetCounter <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncSetPriority <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+></TR
+><TR
+><TD
+>XSyncValueAdd <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncValueEqual <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncValueGreaterOrEqual <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncValueGreaterThan <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+></TR
+><TR
+><TD
+>XSyncValueHigh32 <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncValueIsNegative <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncValueIsPositive <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncValueIsZero <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+></TR
+><TR
+><TD
+>XSyncValueLessOrEqual <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncValueLessThan <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncValueLow32 <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+><TD
+>XSyncValueSubtract <A
+HREF="libxext.html#REFSTD.LIBXEXT.8"
+>[X-sync]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6479"
+>6.12.6. X Security Extension</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN6482"
+>6.12.6.1. Interfaces for X Security Extension</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for X Security Extension specified in <A
+HREF="libxext.html#TBL-LIBXEXT-X-SEC-INTS"
+>Table 6-17</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBXEXT-X-SEC-INTS"
+></A
+><P
+><B
+>Table 6-17. libXext - X Security Extension Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>XSecurityAllocXauth <A
+HREF="libxext.html#REFSTD.LIBXEXT.5"
+>[X-security]</A
+></TD
+><TD
+>XSecurityFreeXauth <A
+HREF="libxext.html#REFSTD.LIBXEXT.5"
+>[X-security]</A
+></TD
+><TD
+>XSecurityGenerateAuthorization <A
+HREF="libxext.html#REFSTD.LIBXEXT.5"
+>[X-security]</A
+></TD
+><TD
+>XSecurityQueryExtension <A
+HREF="libxext.html#REFSTD.LIBXEXT.5"
+>[X-security]</A
+></TD
+></TR
+><TR
+><TD
+>XSecurityRevokeAuthorization <A
+HREF="libxext.html#REFSTD.LIBXEXT.5"
+>[X-security]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6515"
+>6.12.7. X Double Buffer Extension</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN6518"
+>6.12.7.1. Interfaces for X Double Buffer Extension</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for X Double Buffer Extension specified in <A
+HREF="libxext.html#TBL-LIBXEXT-X-DOU-INTS"
+>Table 6-18</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBXEXT-X-DOU-INTS"
+></A
+><P
+><B
+>Table 6-18. libXext - X Double Buffer Extension Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>XdbeAllocateBackBufferName <A
+HREF="libxext.html#REFSTD.LIBXEXT.2"
+>[X-dbe]</A
+></TD
+><TD
+>XdbeBeginIdiom <A
+HREF="libxext.html#REFSTD.LIBXEXT.2"
+>[X-dbe]</A
+></TD
+><TD
+>XdbeDeallocateBackBufferName <A
+HREF="libxext.html#REFSTD.LIBXEXT.2"
+>[X-dbe]</A
+></TD
+><TD
+>XdbeEndIdiom <A
+HREF="libxext.html#REFSTD.LIBXEXT.2"
+>[X-dbe]</A
+></TD
+></TR
+><TR
+><TD
+>XdbeFreeVisualInfo <A
+HREF="libxext.html#REFSTD.LIBXEXT.2"
+>[X-dbe]</A
+></TD
+><TD
+>XdbeGetBackBufferAttributes <A
+HREF="libxext.html#REFSTD.LIBXEXT.2"
+>[X-dbe]</A
+></TD
+><TD
+>XdbeGetVisualInfo <A
+HREF="libxext.html#REFSTD.LIBXEXT.2"
+>[X-dbe]</A
+></TD
+><TD
+>XdbeQueryExtension <A
+HREF="libxext.html#REFSTD.LIBXEXT.2"
+>[X-dbe]</A
+></TD
+></TR
+><TR
+><TD
+>XdbeSwapBuffers <A
+HREF="libxext.html#REFSTD.LIBXEXT.2"
+>[X-dbe]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6568"
+>6.12.8. X Extended Visual Interface Extension</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN6571"
+>6.12.8.1. Interfaces for X Extended Visual Interface Extension</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for X Extended Visual Interface Extension specified in <A
+HREF="libxext.html#TBL-LIBXEXT-X-EXT-INTS"
+>Table 6-19</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBXEXT-X-EXT-INTS"
+></A
+><P
+><B
+>Table 6-19. libXext - X Extended Visual Interface Extension Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>XeviGetVisualInfo <A
+HREF="libxext.html#REFSTD.LIBXEXT.4"
+>[X-evi]</A
+></TD
+><TD
+>XeviQueryExtension <A
+HREF="libxext.html#REFSTD.LIBXEXT.4"
+>[X-evi]</A
+></TD
+><TD
+>XeviQueryVersion <A
+HREF="libxext.html#REFSTD.LIBXEXT.4"
+>[X-evi]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="graphiclib--xtissubclassof-.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libxext-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>_XtIsSubclassOf</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="graphlib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libXext</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

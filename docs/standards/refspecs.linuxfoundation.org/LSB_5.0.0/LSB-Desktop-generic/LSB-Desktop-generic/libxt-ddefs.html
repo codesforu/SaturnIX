@@ -1,0 +1,2639 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libXt</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="graphlib.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libXt"
+HREF="libxt.html"><LINK
+REL="NEXT"
+TITLE="Interface Definitions for libXt"
+HREF="libxtman.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libxt.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libxtman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBXT-DDEFS"
+>6.10. Data Definitions for libXt</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libXt.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5933"
+>6.10.1. X11/Composite.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define _XtComposite_h	1
+
+typedef void (*XtDoChangeProc) (Widget, WidgetList, Cardinal *, WidgetList,
+				Cardinal *, XtPointer);
+typedef struct _CompositeClassRec *CompositeWidgetClass;
+extern void XtChangeManagedSet(WidgetList, Cardinal, XtDoChangeProc,
+			       XtPointer, WidgetList, Cardinal);
+extern void XtManageChild(Widget);
+extern void XtManageChildren(WidgetList, Cardinal);
+extern void XtUnmanageChild(Widget);
+extern void XtUnmanageChildren(WidgetList, Cardinal);
+extern WidgetClass compositeWidgetClass;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5937"
+>6.10.2. X11/CompositeP.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XtInheritGeometryManager	((XtGeometryHandler) _XtInherit)
+#define XtInheritChangeManaged	((XtWidgetProc) _XtInherit)
+#define XtInheritDeleteChild	((XtWidgetProc) _XtInherit)
+#define XtInheritInsertChild	((XtWidgetProc) _XtInherit)
+#define _XtCompositeP_h	1
+#define XtCompositeExtensionVersion	2L
+
+typedef struct _CompositePart {
+    WidgetList children;
+    Cardinal num_children;
+    Cardinal num_slots;
+    XtOrderProc insert_position;
+} CompositePart;
+typedef struct _CompositeClassPart {
+    XtGeometryHandler geometry_manager;
+    XtWidgetProc change_managed;
+    XtWidgetProc insert_child;
+    XtWidgetProc delete_child;
+    XtPointer extension;
+} CompositeClassPart;
+typedef struct _CompositePart *CompositePtr;
+typedef struct _CompositeRec {
+    CorePart core;
+    CompositePart composite;
+} CompositeRec;
+typedef struct _CompositeClassPart *CompositePartPtr;
+typedef struct {
+    XtPointer next_extension;
+    XrmQuark record_type;
+    long int version;
+    Cardinal record_size;
+    Boolean accepts_objects;
+    Boolean allows_change_managed_set;
+} CompositeClassExtensionRec;
+typedef CompositeClassExtensionRec *CompositeClassExtension;
+
+typedef struct _CompositeClassRec CompositeClassRec;
+extern CompositeClassRec compositeClassRec;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5941"
+>6.10.3. X11/ConstrainP.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XtConstraintExtensionVersion	1L
+
+typedef struct _ConstraintPart {
+    XtPointer mumble;		/* No new fields, keep C compiler happy */
+} ConstraintPart;
+typedef struct _ConstraintClassRec *ConstraintClassRec;
+typedef struct _ConstraintClassPart {
+    XtResourceList resources;
+    Cardinal num_resources;
+    Cardinal constraint_size;
+    XtInitProc initialize;
+    XtWidgetProc destroy;
+    XtSetValuesFunc set_values;
+    XtPointer extension;
+} ConstraintClassPart;
+struct _ConstraintClassRec {
+    CoreClassPart core_class;
+    CompositeClassPart composite_class;
+    ConstraintClassPart constraint_class;
+};
+typedef struct _ConstraintRec {
+    CorePart core;
+    CompositePart composite;
+    ConstraintPart constraint;
+} ConstraintRec;
+typedef struct _ConstraintRec *ConstraintWidget;
+typedef struct {
+    XtPointer next_extension;
+    XrmQuark record_type;
+    long int version;
+    Cardinal record_size;
+    XtArgsProc get_values_hook;
+} ConstraintClassExtensionRec;
+typedef ConstraintClassExtensionRec *ConstraintClassExtension;
+extern ConstraintClassRec constraintClassRec;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5945"
+>6.10.4. X11/Constraint.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define _XtConstraint_h	1
+
+typedef struct _ConstraintClassRec *ConstraintWidgetClass;
+extern WidgetClass constraintWidgetClass;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5949"
+>6.10.5. X11/Core.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define _XtCore_h	1
+
+typedef struct _WidgetClassRec *CoreWidgetClass;
+typedef struct _WidgetClassRec *CoreWidget;
+extern WidgetClass coreWidgetClass;
+extern WidgetClass widgetClass;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5953"
+>6.10.6. X11/CoreP.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XtInheritTranslations	((String) &#38;_XtInheritTranslations)
+#define XtInheritAcceptFocus	((XtAcceptFocusProc) _XtInherit)
+#define XtInheritSetValuesAlmost	((XtAlmostProc) _XtInherit)
+#define XtInheritExpose	((XtExposeProc) _XtInherit)
+#define XtInheritQueryGeometry	((XtGeometryHandler) _XtInherit)
+#define XtInheritRealize	((XtRealizeProc) _XtInherit)
+#define XtInheritDisplayAccelerator	((XtStringProc) _XtInherit)
+#define XtInheritResize	((XtWidgetProc) _XtInherit)
+#define XtCoreP_h_	1
+
+typedef struct _CorePart {
+    Widget self;
+    WidgetClass widget_class;
+    Widget parent;
+    XrmName xrm_name;
+    Boolean being_destroyed;
+    XtCallbackList destroy_callbacks;
+    XtPointer constraints;
+    Position x;
+    Position y;
+    Dimension width;
+    Dimension height;
+    Dimension border_width;
+    Boolean managed;
+    Boolean sensitive;
+    Boolean ancestor_sensitive;
+    XtEventTable event_table;
+    XtTMRec tm;
+    XtTranslations accelerators;
+    Pixel border_pixel;
+    Pixmap border_pixmap;
+    WidgetList popup_list;
+    Cardinal num_popups;
+    String name;
+    Screen *screen;
+    Colormap colormap;
+    Window window;
+    Cardinal depth;
+    Pixel background_pixel;
+    Pixmap background_pixmap;
+    Boolean visible;
+    Boolean mapped_when_managed;
+} CorePart;
+typedef struct _CoreClassPart {
+    WidgetClass superclass;
+    String class_name;
+    Cardinal widget_size;
+    XtProc class_initialize;
+    XtWidgetClassProc class_part_initialize;
+    XtEnum class_inited;
+    XtInitProc initialize;
+    XtArgsProc initialize_hook;
+    XtRealizeProc realize;
+    XtActionList actions;
+    Cardinal num_actions;
+    XtResourceList resources;
+    Cardinal num_resources;
+    XrmClass xrm_class;
+    Boolean compress_motion;
+    XtEnum compress_exposure;
+    Boolean compress_enterleave;
+    Boolean visible_interest;
+    XtWidgetProc destroy;
+    XtWidgetProc resize;
+    XtExposeProc expose;
+    XtSetValuesFunc set_values;
+    XtArgsFunc set_values_hook;
+    XtAlmostProc set_values_almost;
+    XtArgsProc get_values_hook;
+    XtAcceptFocusProc accept_focus;
+    XtVersionType version;
+    XtPointer callback_private;
+    String tm_table;
+    XtGeometryHandler query_geometry;
+    XtStringProc display_accelerator;
+    XtPointer extension;
+} CoreClassPart;
+typedef struct _WidgetRec {
+    CorePart core;
+} WidgetRec;
+typedef struct _WidgetRec {
+    CorePart core;
+} CoreRec;
+typedef struct _WidgetClassRec {
+    CoreClassPart core_class;
+} WidgetClassRec;
+typedef struct _WidgetClassRec {
+    CoreClassPart core_class;
+} CoreClassRec;
+extern int _XtInheritTranslations;
+extern WidgetClassRec widgetClassRec;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5957"
+>6.10.7. X11/EventI.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct _XtGrabRec *XtGrabList;
+typedef struct _XtGrabRec {
+    XtGrabList next;
+    Widget widget;
+    unsigned int exclusive:1;
+    unsigned int spring_loaded:1;
+} XtGrabRec;
+typedef struct _XtEventRec {
+    XtEventTable next;
+    EventMask mask;
+    XtEventHandler proc;
+    XtPointer closure;
+    unsigned int select:1;
+    unsigned int has_type_specifier:1;
+    unsigned int async:1;
+} XtEventRec;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5961"
+>6.10.8. X11/Intrinsic.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XtOffset(p_type,field)	((Cardinal) (((char *) (&#38;(((p_type)NULL)-&#62;field))) - ((char *) NULL)))
+#define XtNumber(arr)	((Cardinal) (sizeof(arr) / sizeof(arr[0])))
+#define XtAllEvents	((EventMask) -1L)
+#define XtUnspecifiedPixmap	((Pixmap)2)
+#define XtNew(type)	((type *) XtMalloc((unsigned) sizeof(type)))
+#define XtSetArg(arg,n,d)	((void)( (arg).name = (n), (arg).value = (XtArgVal)(d) ))
+#define XtUnspecifiedWindow	((Window)2)
+#define XtUnspecifiedWindowGroup	((Window)3)
+#define XtUnspecifiedShellInt	(-1)
+#define XtCWQueryOnly	(1 &#60;&#60; 7)
+#define XtInputReadMask	(1L&#60;&#60;0)
+#define XtInputWriteMask	(1L&#60;&#60;1)
+#define XtInputExceptMask	(1L&#60;&#60;2)
+#define XT_CONVERT_FAIL	(Atom)0x80000001
+#define XtIMAll	(XtIMXEvent | XtIMTimer | XtIMAlternateInput | XtIMSignal)
+#define XtIsRectObj(object)	(_XtCheckSubclassFlag(object, (XtEnum)0x02))
+#define XtIsWidget(object)	(_XtCheckSubclassFlag(object, (XtEnum)0x04))
+#define XtIsComposite(widget)	(_XtCheckSubclassFlag(widget, (XtEnum)0x08))
+#define XtIsConstraint(widget)	(_XtCheckSubclassFlag(widget, (XtEnum)0x10))
+#define XtIsShell(widget)	(_XtCheckSubclassFlag(widget, (XtEnum)0x20))
+#define XtIsWMShell(widget)	(_XtCheckSubclassFlag(widget, (XtEnum)0x40))
+#ifndef FALSE
+#define FALSE	0
+#endif
+#define XtInputNoneMask	0L
+#define XtCacheNone	0x001
+#define XtCacheAll	0x002
+#define XtCacheByDisplay	0x003
+#define XtCacheRefCount	0x100
+#ifndef TRUE
+#define TRUE	1
+#endif
+#define XtIMXEvent	1
+#define _XtIntrinsic_h	1
+#define XtIMTimer	2
+#define XtIMAlternateInput	4
+#define XtSMDontChange	5
+#define XtSpecificationRelease	6
+#define XtIMSignal	8
+#define _XtString	char*
+#define externalref	extern
+#define _XtBoolean	int
+#define _XtPosition	int
+#define XtOffsetOf(s_type,field)	offsetof(s_type,field)
+#define _XtDimension	unsigned int
+#define _XtKeyCode	unsigned int
+#define _XtXtEnum	unsigned int
+#define XtCurrentDirectory	"XtCurrentDirectory"
+#define XtCvtPixelToColor	XtCvtIntToColor
+#define XtCvtIntToDimension	XtCvtIntToShort
+#define XtCvtIntToPosition	XtCvtIntToShort
+#define XtCvtStringToPosition	XtCvtStringToShort
+#define XtDefaultBackground	"XtDefaultBackground"
+#define XtDefaultFont	"XtDefaultFont"
+#define XtDefaultFontSet	"XtDefaultFontSet"
+#define XtDefaultForeground	"XtDefaultForeground"
+#define XtVaNestedList	"XtVaNestedList"
+#define XtVaTypedArg	"XtVaTypedArg"
+
+typedef unsigned int Modifiers;
+typedef void *XtCacheRef;
+struct _XtAppStruct;
+typedef struct _XtAppStruct *XtAppContext;
+typedef int XtCacheType;
+typedef long unsigned int XtGCMask;
+typedef long unsigned int XtSignalId;
+typedef long unsigned int XtWorkProcId;
+typedef long unsigned int XtIntervalId;
+typedef struct _TranslationData *XtAccelerators;
+typedef enum {
+    XtAddress = 0,
+    XtBaseOffset = 1,
+    XtImmediate = 2,
+    XtResourceString = 3,
+    XtResourceQuark = 4,
+    XtWidgetBaseOffset = 5,
+    XtProcedureArg = 6
+} XtAddressMode;
+typedef struct {
+    XtAddressMode address_mode;
+    XtPointer address_id;
+    Cardinal size;
+} XtConvertArgRec;
+typedef XtConvertArgRec *XtConvertArgList;
+typedef void (*XtSignalCallbackProc) (XtPointer, XtSignalId *);
+typedef enum {
+    XtCallbackNoList = 0,
+    XtCallbackHasNone = 1,
+    XtCallbackHasSome = 2
+} XtCallbackStatus;
+typedef void (*XtInputCallbackProc) (XtPointer, int *, XtInputId *);
+typedef void (*XtTimerCallbackProc) (XtPointer, XtIntervalId *);
+typedef long unsigned int XtInputMask;
+typedef enum {
+    XtListHead = 0,
+    XtListTail = 1
+} XtListPosition;
+typedef void *XtVarArgsList;
+typedef void (*XtEventHandler) (Widget, XtPointer, XEvent *, Boolean *);
+typedef void (*XtCaseProc) (Display *, KeySym, KeySym *, KeySym *);
+typedef void (*XtKeyProc) (Display *, unsigned int, Modifiers, Modifiers *,
+			   KeySym *);
+typedef void (*XtBlockHookProc) (XtPointer);
+typedef long unsigned int XtBlockHookId;
+typedef void (*XtActionHookProc) (Widget, XtPointer, String, XEvent *,
+				  String *, Cardinal *);
+typedef void *XtActionHookId;
+typedef void (*XtDestructor) (XtAppContext, XrmValue *, XtPointer,
+			      XrmValue *, Cardinal *);
+typedef Boolean(*XtTypeConverter) (Display *, XrmValue *, Cardinal *,
+				   XrmValue *, XrmValue *, XtPointer *);
+typedef void (*XtConverter) (XrmValue *, Cardinal *, XrmValue *,
+			     XrmValue *);
+typedef void *XtRequestId;
+typedef Boolean(*XtFilePredicate) (String);
+typedef struct {
+    char match;
+    String substitution;
+} SubstitutionRec;
+typedef SubstitutionRec *Substitution;
+typedef void (*XtSelectionCallbackProc) (Widget, XtPointer, Atom *, Atom *,
+					 XtPointer, long unsigned int *,
+					 int *);
+typedef Boolean(*XtWorkProc) (XtPointer);
+typedef void (*XtSelectionDoneProc) (Widget, Atom *, Atom *);
+typedef void (*XtLoseSelectionProc) (Widget, Atom *);
+typedef void (*XtErrorHandler) (String);
+typedef Boolean(*XtConvertSelectionProc) (Widget, Atom *, Atom *, Atom *,
+					  XtPointer *, long unsigned int *,
+					  int *);
+typedef void (*XtErrorMsgHandler) (String, String, String, String,
+				   String *, Cardinal *);
+typedef String(*XtLanguageProc) (Display *, String, XtPointer);
+typedef struct _XtCheckpointTokenRec *XtCheckpointToken;
+typedef void (*XtExtensionSelectProc) (Widget, int *, XtPointer *, int,
+				       XtPointer);
+typedef Boolean(*XtEventDispatchProc) (XEvent *);
+typedef void (*XtCancelConvertSelectionProc) (Widget, Atom *, Atom *,
+					      XtRequestId *, XtPointer);
+typedef Boolean(*XtConvertSelectionIncrProc) (Widget, Atom *, Atom *,
+					      Atom *, XtPointer *,
+					      long unsigned int *, int *,
+					      long unsigned int *,
+					      XtPointer, XtRequestId *);
+typedef void (*XtSelectionDoneIncrProc) (Widget, Atom *, Atom *,
+					 XtRequestId *, XtPointer);
+typedef void (*XtLoseSelectionIncrProc) (Widget, Atom *, XtPointer);
+typedef struct _XtResource XtResource;
+typedef struct _XtCallbackRec XtCallbackRec;
+typedef struct _XtCheckpointTokenRec {
+    int save_type;
+    int interact_style;
+    Boolean shutdown;
+    Boolean fast;
+    Boolean cancel_shutdown;
+    int phase;
+    int interact_dialog_type;
+    Boolean request_cancel;
+    Boolean request_next_phase;
+    Boolean save_success;
+    int type;
+    Widget widget;
+} XtCheckpointTokenRec;
+typedef struct _XtActionsRec XtActionsRec;
+typedef struct {
+    Widget shell_widget;
+    Widget enable_widget;
+} XtPopdownIDRec;
+typedef XtPopdownIDRec *XtPopdownID;
+typedef struct {
+    String type;
+    Widget widget;
+    ArgList args;
+    Cardinal num_args;
+} XtCreateHookDataRec;
+typedef XtCreateHookDataRec *XtCreateHookData;
+typedef struct {
+    String type;
+    Widget widget;
+    XtPointer event_data;
+    Cardinal num_event_data;
+} XtChangeHookDataRec;
+typedef XtChangeHookDataRec *XtChangeHookData;
+typedef struct {
+    Widget old;
+    Widget req;
+    ArgList args;
+    Cardinal num_args;
+} XtChangeHookSetValuesDataRec;
+typedef XtChangeHookSetValuesDataRec *XtChangeHookSetValuesData;
+typedef struct {
+    String type;
+    Widget widget;
+    XtGeometryMask changeMask;
+    XWindowChanges changes;
+} XtConfigureHookDataRec;
+typedef XtConfigureHookDataRec *XtConfigureHookData;
+typedef struct {
+    String type;
+    Widget widget;
+    XtWidgetGeometry *request;
+    XtWidgetGeometry *reply;
+    XtGeometryResult result;
+} XtGeometryHookDataRec;
+typedef XtGeometryHookDataRec *XtGeometryHookData;
+typedef struct {
+    String type;
+    Widget widget;
+} XtDestroyHookDataRec;
+typedef XtDestroyHookDataRec *XtDestroyHookData;
+extern void XtAddActions(XtActionList, Cardinal);
+extern void XtAddCallback(Widget, const char *, XtCallbackProc, XtPointer);
+extern void XtAddCallbacks(Widget, const char *, XtCallbackList);
+extern void XtAddConverter(const char *, const char *, XtConverter,
+			   XtConvertArgList, Cardinal);
+extern void XtAddEventHandler(Widget, EventMask, int, XtEventHandler,
+			      XtPointer);
+extern void XtAddExposureToRegion(XEvent *, Region);
+extern void XtAddGrab(Widget, int, int);
+extern XtInputId XtAddInput(int, XtPointer, XtInputCallbackProc,
+			    XtPointer);
+extern void XtAddRawEventHandler(Widget, EventMask, int, XtEventHandler,
+				 XtPointer);
+extern XtSignalId XtAddSignal(XtSignalCallbackProc, XtPointer);
+extern XtIntervalId XtAddTimeOut(long unsigned int, XtTimerCallbackProc,
+				 XtPointer);
+extern XtWorkProcId XtAddWorkProc(XtWorkProc, XtPointer);
+extern GC XtAllocateGC(Widget, Cardinal, XtGCMask, XGCValues *, XtGCMask,
+		       XtGCMask);
+extern XtActionHookId XtAppAddActionHook(XtAppContext, XtActionHookProc,
+					 XtPointer);
+extern void XtAppAddActions(XtAppContext, XtActionList, Cardinal);
+extern XtBlockHookId XtAppAddBlockHook(XtAppContext, XtBlockHookProc,
+				       XtPointer);
+extern void XtAppAddConverter(XtAppContext, const char *, const char *,
+			      XtConverter, XtConvertArgList, Cardinal);
+extern XtInputId XtAppAddInput(XtAppContext, int, XtPointer,
+			       XtInputCallbackProc, XtPointer);
+extern XtSignalId XtAppAddSignal(XtAppContext, XtSignalCallbackProc,
+				 XtPointer);
+extern XtIntervalId XtAppAddTimeOut(XtAppContext, long unsigned int,
+				    XtTimerCallbackProc, XtPointer);
+extern XtWorkProcId XtAppAddWorkProc(XtAppContext, XtWorkProc, XtPointer);
+extern Widget XtAppCreateShell(const char *, const char *, WidgetClass,
+			       Display *, ArgList, Cardinal);
+extern void XtAppError(XtAppContext, const char *);
+extern void XtAppErrorMsg(XtAppContext, const char *, const char *,
+			  const char *, const char *, String *,
+			  Cardinal *);
+extern XrmDatabase *XtAppGetErrorDatabase(XtAppContext);
+extern void XtAppGetErrorDatabaseText(XtAppContext, const char *,
+				      const char *, const char *,
+				      const char *, String, int,
+				      XrmDatabase);
+extern Boolean XtAppGetExitFlag(XtAppContext);
+extern long unsigned int XtAppGetSelectionTimeout(XtAppContext);
+extern Widget XtAppInitialize(XtAppContext *, const char *,
+			      XrmOptionDescList, Cardinal, int *, String *,
+			      String *, ArgList, Cardinal);
+extern void XtAppLock(XtAppContext);
+extern void XtAppMainLoop(XtAppContext);
+extern void XtAppNextEvent(XtAppContext, XEvent *);
+extern Boolean XtAppPeekEvent(XtAppContext, XEvent *);
+extern XtInputMask XtAppPending(XtAppContext);
+extern void XtAppProcessEvent(XtAppContext, XtInputMask);
+extern void XtAppReleaseCacheRefs(XtAppContext, XtCacheRef *);
+extern XtErrorHandler XtAppSetErrorHandler(XtAppContext, XtErrorHandler);
+extern XtErrorMsgHandler XtAppSetErrorMsgHandler(XtAppContext,
+						 XtErrorMsgHandler);
+extern void XtAppSetExitFlag(XtAppContext);
+extern void XtAppSetFallbackResources(XtAppContext, String *);
+extern void XtAppSetSelectionTimeout(XtAppContext, long unsigned int);
+extern void XtAppSetTypeConverter(XtAppContext, const char *, const char *,
+				  XtTypeConverter, XtConvertArgList,
+				  Cardinal, XtCacheType, XtDestructor);
+extern XtErrorHandler XtAppSetWarningHandler(XtAppContext, XtErrorHandler);
+extern XtErrorMsgHandler XtAppSetWarningMsgHandler(XtAppContext,
+						   XtErrorMsgHandler);
+extern void XtAppUnlock(XtAppContext);
+extern void XtAppWarning(XtAppContext, const char *);
+extern void XtAppWarningMsg(XtAppContext, const char *, const char *,
+			    const char *, const char *, String *,
+			    Cardinal *);
+extern void XtAugmentTranslations(Widget, XtTranslations);
+extern EventMask XtBuildEventMask(Widget);
+extern Boolean XtCallAcceptFocus(Widget, Time *);
+extern void XtCallActionProc(Widget, const char *, XEvent *, String *,
+			     Cardinal);
+extern void XtCallCallbackList(Widget, XtCallbackList, XtPointer);
+extern void XtCallCallbacks(Widget, const char *, XtPointer);
+extern Boolean XtCallConverter(Display *, XtTypeConverter, XrmValuePtr,
+			       Cardinal, XrmValuePtr, XrmValue *,
+			       XtCacheRef *);
+extern void XtCallbackExclusive(Widget, XtPointer, XtPointer);
+extern void XtCallbackNone(Widget, XtPointer, XtPointer);
+extern void XtCallbackNonexclusive(Widget, XtPointer, XtPointer);
+extern void XtCallbackPopdown(Widget, XtPointer, XtPointer);
+extern void XtCallbackReleaseCacheRef(Widget, XtPointer, XtPointer);
+extern void XtCallbackReleaseCacheRefList(Widget, XtPointer, XtPointer);
+extern char *XtCalloc(Cardinal, Cardinal);
+extern void XtCancelSelectionRequest(Widget, Atom);
+extern WidgetClass XtClass(Widget);
+extern void XtCloseDisplay(Display *);
+extern void XtConvert(Widget, const char *, XrmValue *, const char *,
+		      XrmValue *);
+extern Boolean XtConvertAndStore(Widget, const char *, XrmValue *,
+				 const char *, XrmValue *);
+extern void XtConvertCase(Display *, KeySym, KeySym *, KeySym *);
+extern XtAppContext XtCreateApplicationContext(void);
+extern Widget XtCreateApplicationShell(const char *, WidgetClass, ArgList,
+				       Cardinal);
+extern Widget XtCreateManagedWidget(const char *, WidgetClass, Widget,
+				    ArgList, Cardinal);
+extern Widget XtCreatePopupShell(const char *, WidgetClass, Widget,
+				 ArgList, Cardinal);
+extern void XtCreateSelectionRequest(Widget, Atom);
+extern Widget XtCreateWidget(const char *, WidgetClass, Widget, ArgList,
+			     Cardinal);
+extern Boolean XtCvtColorToPixel(Display *, XrmValuePtr, Cardinal *,
+				 XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtIntToBool(Display *, XrmValuePtr, Cardinal *,
+			      XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtIntToBoolean(Display *, XrmValuePtr, Cardinal *,
+				 XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtIntToColor(Display *, XrmValuePtr, Cardinal *,
+			       XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtIntToFloat(Display *, XrmValuePtr, Cardinal *,
+			       XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtIntToFont(Display *, XrmValuePtr, Cardinal *,
+			      XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtIntToPixel(Display *, XrmValuePtr, Cardinal *,
+			       XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtIntToPixmap(Display *, XrmValuePtr, Cardinal *,
+				XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtIntToShort(Display *, XrmValuePtr, Cardinal *,
+			       XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtIntToUnsignedChar(Display *, XrmValuePtr, Cardinal *,
+				      XrmValuePtr, XrmValuePtr,
+				      XtPointer *);
+extern Boolean XtCvtStringToAcceleratorTable(Display *, XrmValuePtr,
+					     Cardinal *, XrmValuePtr,
+					     XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToAtom(Display *, XrmValuePtr, Cardinal *,
+				 XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToBool(Display *, XrmValuePtr, Cardinal *,
+				 XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToBoolean(Display *, XrmValuePtr, Cardinal *,
+				    XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToCommandArgArray(Display *, XrmValuePtr,
+					    Cardinal *, XrmValuePtr,
+					    XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToCursor(Display *, XrmValuePtr, Cardinal *,
+				   XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToDimension(Display *, XrmValuePtr, Cardinal *,
+				      XrmValuePtr, XrmValuePtr,
+				      XtPointer *);
+extern Boolean XtCvtStringToDirectoryString(Display *, XrmValuePtr,
+					    Cardinal *, XrmValuePtr,
+					    XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToDisplay(Display *, XrmValuePtr, Cardinal *,
+				    XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToFile(Display *, XrmValuePtr, Cardinal *,
+				 XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToFloat(Display *, XrmValuePtr, Cardinal *,
+				  XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToFont(Display *, XrmValuePtr, Cardinal *,
+				 XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToFontSet(Display *, XrmValuePtr, Cardinal *,
+				    XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToFontStruct(Display *, XrmValuePtr, Cardinal *,
+				       XrmValuePtr, XrmValuePtr,
+				       XtPointer *);
+extern Boolean XtCvtStringToGravity(Display *, XrmValuePtr, Cardinal *,
+				    XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToInitialState(Display *, XrmValuePtr,
+					 Cardinal *, XrmValuePtr,
+					 XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToInt(Display *, XrmValuePtr, Cardinal *,
+				XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToPixel(Display *, XrmValuePtr, Cardinal *,
+				  XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToRestartStyle(Display *, XrmValuePtr,
+					 Cardinal *, XrmValuePtr,
+					 XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToShort(Display *, XrmValuePtr, Cardinal *,
+				  XrmValuePtr, XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToTranslationTable(Display *, XrmValuePtr,
+					     Cardinal *, XrmValuePtr,
+					     XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToUnsignedChar(Display *, XrmValuePtr,
+					 Cardinal *, XrmValuePtr,
+					 XrmValuePtr, XtPointer *);
+extern Boolean XtCvtStringToVisual(Display *, XrmValuePtr, Cardinal *,
+				   XrmValuePtr, XrmValuePtr, XtPointer *);
+extern XrmDatabase XtDatabase(Display *);
+extern void XtDestroyApplicationContext(XtAppContext);
+extern void XtDestroyGC(GC);
+extern void XtDestroyWidget(Widget);
+extern void XtDirectConvert(XtConverter, XrmValuePtr, Cardinal,
+			    XrmValuePtr, XrmValue *);
+extern void XtDisownSelection(Widget, Atom, Time);
+extern Boolean XtDispatchEvent(XEvent *);
+extern Boolean XtDispatchEventToWidget(Widget, XEvent *);
+extern Display *XtDisplay(Widget);
+extern void XtDisplayInitialize(XtAppContext, Display *, const char *,
+				const char *, XrmOptionDescRec *, Cardinal,
+				int *, char **);
+extern Display *XtDisplayOfObject(Widget);
+extern void XtDisplayStringConversionWarning(Display *, const char *,
+					     const char *);
+extern XtAppContext XtDisplayToApplicationContext(Display *);
+extern void XtError(const char *);
+extern void XtErrorMsg(const char *, const char *, const char *,
+		       const char *, String *, Cardinal *);
+extern String XtFindFile(const char *, Substitution, Cardinal,
+			 XtFilePredicate);
+extern void XtFree(char *);
+extern KeySym XtGetActionKeysym(XEvent *, Modifiers *);
+extern void XtGetActionList(WidgetClass, XtActionList *, Cardinal *);
+extern void XtGetApplicationNameAndClass(Display *, String *, String *);
+extern void XtGetApplicationResources(Widget, XtPointer, XtResourceList,
+				      Cardinal, ArgList, Cardinal);
+extern XtPointer XtGetClassExtension(WidgetClass, Cardinal, XrmQuark,
+				     long int, Cardinal);
+extern void XtGetConstraintResourceList(WidgetClass, XtResourceList *,
+					Cardinal *);
+extern void XtGetDisplays(XtAppContext, Display * **, Cardinal *);
+extern XrmDatabase *XtGetErrorDatabase(void);
+extern void XtGetErrorDatabaseText(const char *, const char *,
+				   const char *, const char *, String,
+				   int);
+extern GC XtGetGC(Widget, XtGCMask, XGCValues *);
+extern Widget XtGetKeyboardFocusWidget(Widget);
+extern KeySym *XtGetKeysymTable(Display *, KeyCode *, int *);
+extern int XtGetMultiClickTime(Display *);
+extern void XtGetResourceList(WidgetClass, XtResourceList *, Cardinal *);
+extern void XtGetSelectionParameters(Widget, Atom, XtRequestId, Atom *,
+				     XtPointer *, long unsigned int *,
+				     int *);
+extern XSelectionRequestEvent *XtGetSelectionRequest(Widget, Atom,
+						     XtRequestId);
+extern long unsigned int XtGetSelectionTimeout(void);
+extern void XtGetSelectionValue(Widget, Atom, Atom,
+				XtSelectionCallbackProc, XtPointer, Time);
+extern void XtGetSelectionValueIncremental(Widget, Atom, Atom,
+					   XtSelectionCallbackProc,
+					   XtPointer, Time);
+extern void XtGetSelectionValues(Widget, Atom, Atom *, int,
+				 XtSelectionCallbackProc, XtPointer *,
+				 Time);
+extern void XtGetSelectionValuesIncremental(Widget, Atom, Atom *, int,
+					    XtSelectionCallbackProc,
+					    XtPointer *, Time);
+extern void XtGetSubresources(Widget, XtPointer, const char *,
+			      const char *, XtResourceList, Cardinal,
+			      ArgList, Cardinal);
+extern void XtGetSubvalues(XtPointer, XtResourceList, Cardinal, ArgList,
+			   Cardinal);
+extern void XtGetValues(Widget, ArgList, Cardinal);
+extern void XtGrabButton(Widget, int, Modifiers, int, unsigned int, int,
+			 int, Window, Cursor);
+extern void XtGrabKey(Widget, unsigned int, Modifiers, int, int, int);
+extern int XtGrabKeyboard(Widget, int, int, int, Time);
+extern int XtGrabPointer(Widget, int, unsigned int, int, int, Window,
+			 Cursor, Time);
+extern XtCallbackStatus XtHasCallbacks(Widget, const char *);
+extern Widget XtHooksOfDisplay(Display *);
+extern Widget XtInitialize(const char *, const char *, XrmOptionDescRec *,
+			   Cardinal, int *, char **);
+extern void XtInitializeWidgetClass(WidgetClass);
+extern void XtInsertEventHandler(Widget, EventMask, int, XtEventHandler,
+				 XtPointer, XtListPosition);
+extern void XtInsertEventTypeHandler(Widget, int, XtPointer,
+				     XtEventHandler, XtPointer,
+				     XtListPosition);
+extern void XtInsertRawEventHandler(Widget, EventMask, int, XtEventHandler,
+				    XtPointer, XtListPosition);
+extern void XtInstallAccelerators(Widget, Widget);
+extern void XtInstallAllAccelerators(Widget, Widget);
+extern Boolean XtIsApplicationShell(Widget);
+extern Boolean XtIsManaged(Widget);
+extern Boolean XtIsObject(Widget);
+extern Boolean XtIsOverrideShell(Widget);
+extern Boolean XtIsRealized(Widget);
+extern Boolean XtIsSensitive(Widget);
+extern Boolean XtIsSessionShell(Widget);
+extern Boolean XtIsSubclass(Widget, WidgetClass);
+extern Boolean XtIsTransientShell(Widget);
+extern Boolean XtIsVendorShell(Widget);
+extern void XtKeysymToKeycodeList(Display *, KeySym, KeyCode * *,
+				  Cardinal *);
+extern XEvent *XtLastEventProcessed(Display *);
+extern Time XtLastTimestampProcessed(Display *);
+extern void XtMainLoop(void);
+extern XtGeometryResult XtMakeGeometryRequest(Widget, XtWidgetGeometry *,
+					      XtWidgetGeometry *);
+extern XtGeometryResult XtMakeResizeRequest(Widget, unsigned int,
+					    unsigned int, Dimension *,
+					    Dimension *);
+extern char *XtMalloc(Cardinal);
+extern void XtMapWidget(Widget);
+extern void XtMenuPopupAction(Widget, XEvent *, String *, Cardinal *);
+extern ArgList XtMergeArgLists(ArgList, Cardinal, ArgList, Cardinal);
+extern String XtName(Widget);
+extern Widget XtNameToWidget(Widget, const char *);
+extern String XtNewString(String);
+extern void XtNextEvent(XEvent *);
+extern void XtNoticeSignal(XtSignalId);
+extern Widget XtOpenApplication(XtAppContext *, const char *,
+				XrmOptionDescList, Cardinal, int *,
+				String *, String *, WidgetClass, ArgList,
+				Cardinal);
+extern Display *XtOpenDisplay(XtAppContext, const char *, const char *,
+			      const char *, XrmOptionDescRec *, Cardinal,
+			      int *, char **);
+extern void XtOverrideTranslations(Widget, XtTranslations);
+extern Boolean XtOwnSelection(Widget, Atom, Time, XtConvertSelectionProc,
+			      XtLoseSelectionProc, XtSelectionDoneProc);
+extern Boolean XtOwnSelectionIncremental(Widget, Atom, Time,
+					 XtConvertSelectionIncrProc,
+					 XtLoseSelectionIncrProc,
+					 XtSelectionDoneIncrProc,
+					 XtCancelConvertSelectionProc,
+					 XtPointer);
+extern Widget XtParent(Widget);
+extern XtAccelerators XtParseAcceleratorTable(const char *);
+extern XtTranslations XtParseTranslationTable(const char *);
+extern Boolean XtPeekEvent(XEvent *);
+extern Boolean XtPending(void);
+extern void XtPopdown(Widget);
+extern void XtPopup(Widget, XtGrabKind);
+extern void XtPopupSpringLoaded(Widget);
+extern void XtProcessEvent(XtInputMask);
+extern XtGeometryResult XtQueryGeometry(Widget, XtWidgetGeometry *,
+					XtWidgetGeometry *);
+extern void XtRealizeWidget(Widget);
+extern char *XtRealloc(char *, Cardinal);
+extern void XtRegisterCaseConverter(Display *, XtCaseProc, KeySym, KeySym);
+extern void XtRegisterDrawable(Display *, Drawable, Widget);
+extern void XtRegisterExtensionSelector(Display *, int, int,
+					XtExtensionSelectProc, XtPointer);
+extern void XtRegisterGrabAction(XtActionProc, int, unsigned int, int,
+				 int);
+extern void XtReleaseGC(Widget, GC);
+extern void XtReleasePropertyAtom(Widget, Atom);
+extern void XtRemoveActionHook(XtActionHookId);
+extern void XtRemoveAllCallbacks(Widget, const char *);
+extern void XtRemoveBlockHook(XtBlockHookId);
+extern void XtRemoveCallback(Widget, const char *, XtCallbackProc,
+			     XtPointer);
+extern void XtRemoveCallbacks(Widget, const char *, XtCallbackList);
+extern void XtRemoveEventHandler(Widget, EventMask, int, XtEventHandler,
+				 XtPointer);
+extern void XtRemoveEventTypeHandler(Widget, int, XtPointer,
+				     XtEventHandler, XtPointer);
+extern void XtRemoveGrab(Widget);
+extern void XtRemoveInput(XtInputId);
+extern void XtRemoveRawEventHandler(Widget, EventMask, int, XtEventHandler,
+				    XtPointer);
+extern void XtRemoveSignal(XtSignalId);
+extern void XtRemoveTimeOut(XtIntervalId);
+extern void XtRemoveWorkProc(XtWorkProcId);
+extern Atom XtReservePropertyAtom(Widget);
+extern String XtResolvePathname(Display *, const char *, const char *,
+				const char *, const char *, Substitution,
+				Cardinal, XtFilePredicate);
+extern Screen *XtScreen(Widget);
+extern XrmDatabase XtScreenDatabase(Screen *);
+extern Screen *XtScreenOfObject(Widget);
+extern void XtSendSelectionRequest(Widget, Atom, Time);
+extern XtCheckpointToken XtSessionGetToken(Widget);
+extern void XtSessionReturnToken(XtCheckpointToken);
+extern void XtSetErrorHandler(XtErrorHandler);
+extern void XtSetErrorMsgHandler(XtErrorMsgHandler);
+extern XtEventDispatchProc XtSetEventDispatcher(Display *, int,
+						XtEventDispatchProc);
+extern void XtSetKeyTranslator(Display *, XtKeyProc);
+extern void XtSetKeyboardFocus(Widget, Widget);
+extern XtLanguageProc XtSetLanguageProc(XtAppContext, XtLanguageProc,
+					XtPointer);
+extern void XtSetMappedWhenManaged(Widget, int);
+extern void XtSetMultiClickTime(Display *, int);
+extern void XtSetSelectionParameters(Widget, Atom, Atom, XtPointer,
+				     long unsigned int, int);
+extern void XtSetSelectionTimeout(long unsigned int);
+extern void XtSetSensitive(Widget, int);
+extern void XtSetSubvalues(XtPointer, XtResourceList, Cardinal, ArgList,
+			   Cardinal);
+extern void XtSetTypeConverter(const char *, const char *, XtTypeConverter,
+			       XtConvertArgList, Cardinal, XtCacheType,
+			       XtDestructor);
+extern void XtSetValues(Widget, ArgList, Cardinal);
+extern void XtSetWMColormapWindows(Widget, Widget *, Cardinal);
+extern void XtSetWarningHandler(XtErrorHandler);
+extern void XtSetWarningMsgHandler(XtErrorMsgHandler);
+extern void XtStringConversionWarning(const char *, const char *);
+extern WidgetClass XtSuperclass(Widget);
+extern void XtToolkitInitialize(void);
+extern Boolean XtToolkitThreadInitialize(void);
+extern void XtTranslateCoords(Widget, int, int, Position *, Position *);
+extern void XtTranslateKey(Display *, unsigned int, Modifiers, Modifiers *,
+			   KeySym *);
+extern void XtTranslateKeycode(Display *, unsigned int, Modifiers,
+			       Modifiers *, KeySym *);
+extern void XtUngrabButton(Widget, unsigned int, Modifiers);
+extern void XtUngrabKey(Widget, unsigned int, Modifiers);
+extern void XtUngrabKeyboard(Widget, Time);
+extern void XtUngrabPointer(Widget, Time);
+extern void XtUninstallTranslations(Widget);
+extern void XtUnmapWidget(Widget);
+extern void XtUnrealizeWidget(Widget);
+extern void XtUnregisterDrawable(Display *, Drawable);
+extern Widget XtVaAppCreateShell(const char *, const char *, WidgetClass,
+				 Display *, ...);
+extern Widget XtVaAppInitialize(XtAppContext *, const char *,
+				XrmOptionDescList, Cardinal, int *,
+				String *, String *, ...);
+extern XtVarArgsList XtVaCreateArgsList(XtPointer, ...);
+extern Widget XtVaCreateManagedWidget(const char *, WidgetClass, Widget,
+				      ...);
+extern Widget XtVaCreatePopupShell(const char *, WidgetClass, Widget, ...);
+extern Widget XtVaCreateWidget(const char *, WidgetClass, Widget, ...);
+extern void XtVaGetApplicationResources(Widget, XtPointer, XtResourceList,
+					Cardinal, ...);
+extern void XtVaGetSubresources(Widget, XtPointer, const char *,
+				const char *, XtResourceList, Cardinal,
+				...);
+extern void XtVaGetSubvalues(XtPointer, XtResourceList, Cardinal, ...);
+extern void XtVaGetValues(Widget, ...);
+extern Widget XtVaOpenApplication(XtAppContext *, const char *,
+				  XrmOptionDescList, Cardinal, int *,
+				  String *, String *, WidgetClass, ...);
+extern void XtVaSetSubvalues(XtPointer, XtResourceList, Cardinal, ...);
+extern void XtVaSetValues(Widget, ...);
+extern void XtWarning(const char *);
+extern void XtWarningMsg(const char *, const char *, const char *,
+			 const char *, String *, Cardinal *);
+extern XtAppContext XtWidgetToApplicationContext(Widget);
+extern Window XtWindow(Widget);
+extern Window XtWindowOfObject(Widget);
+extern Widget XtWindowToWidget(Display *, Window);
+extern Boolean _XtCheckSubclassFlag(Widget, unsigned int);
+extern Boolean _XtIsSubclassOf(Widget, WidgetClass, WidgetClass,
+			       unsigned int);
+extern const XtConvertArgRec colorConvertArgs[];</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5965"
+>6.10.9. X11/IntrinsicI.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define CALLGEOTAT(f)
+#define XTERROR_PREFIX	""
+#define XTWARNING_PREFIX	""
+#define XtStackAlloc(size,stack_cache_array)	((size) &#60;= sizeof(stack_cache_array) ? (XtPointer)(stack_cache_array) : XtMalloc((unsigned)(size)))
+#define XtWindowOfObject(object)	((XtIsWidget(object) ? (object) : _XtWindowedAncestor(object)) -&#62;core.window)
+#define XtIsSensitive(object)	(XtIsRectObj(object) ? ((object)-&#62;core.sensitive &#38;&#38; (object)-&#62;core.ancestor_sensitive) : False)
+#define XtIsManaged(object)	(XtIsRectObj(object) ? (object)-&#62;core.managed : False)
+#define XtScreenOfObject(object)	(XtIsWidget(object) ? (object)-&#62;core.screen : _XtIsHookObject(object) ? ((HookObject)(object))-&#62;hooks.screen : _XtWindowedAncestor(object)-&#62;core.screen)
+#define XtDisplayOfObject(object)	(XtIsWidget(object) ? (object)-&#62;core.screen-&#62;display : _XtIsHookObject(object) ? ((HookObject)(object))-&#62;hooks.screen-&#62;display : _XtWindowedAncestor(object)-&#62;core.screen-&#62;display)
+#define XFILESEARCHPATHDEFAULT	"/usr/lib/X11/%L/%T/%N%S:/usr/lib/X11/%l/%T/%N%S:/usr/lib/X11/%T/%N%S"
+#define ERRORDB	"/usr/lib/X11/XtErrorDB"
+#define RectObjClassFlag	0x02
+#define WidgetClassFlag	0x04
+#define CompositeClassFlag	0x08
+#define ConstraintClassFlag	0x10
+#define ShellClassFlag	0x20
+#define WMShellClassFlag	0x40
+#define TopLevelClassFlag	0x80
+#define _XtintrinsicI_h	1
+#define XtBZero(dst,size)	bzero((char *) (dst), (int) (size))
+#define XtMemmove(dst,src,size)	if ((char *)(dst) != (char *)(src)) { (void) memcpy((char *) (dst), (char *) (src), (int) (size)); }
+#define XtMemcmp(b1,b2,size)	memcmp((char *) (b1), (char *) (b2), (int) (size))
+#define _XBCOPYFUNC	_XtBcopy
+#define XtStackFree(pointer,stack_cache_array)	{ if ((pointer) != ((XtPointer)(stack_cache_array))) XtFree(pointer); }
+
+extern String XtCXtToolkitError;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5969"
+>6.10.10. X11/IntrinsicP.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XtCheckSubclass(w,widget_class,message)
+#define XtExposeNoCompress	((XtEnum)False)
+#define XtExposeCompressSeries	((XtEnum)True)
+#define XtVersion	(XT_VERSION * 1000 + XT_REVISION)
+#define XtVersionDontCheck	0
+#define XtExposeGraphicsExpose	0x10
+#define XtExposeGraphicsExposeMerged	0x20
+#define XtExposeNoExpose	0x40
+#define XtExposeNoRegion	0x80
+#define _XtintrinsicP_h	1
+#define XT_VERSION	11
+#define XtExposeCompressMultiple	2
+#define XtExposeCompressMaximal	3
+#define XT_REVISION	6
+
+typedef struct {
+    long int xrm_name;
+    long int xrm_class;
+    long int xrm_type;
+    Cardinal xrm_size;
+    int xrm_offset;
+    long int xrm_default_type;
+    XtPointer xrm_default_addr;
+} XrmResource;
+typedef XrmResource *XrmResourceList;
+typedef struct _XtTMRec *XtTM;
+typedef struct {
+    String name;
+    String type;
+    XtArgVal value;
+    int size;
+} XtTypedArg;
+typedef XtTypedArg *XtTypedArgList;
+typedef void (*XtProc) (void);
+typedef void (*XtWidgetClassProc) (WidgetClass);
+typedef void (*XtInitProc) (Widget, Widget, ArgList, Cardinal *);
+typedef void (*XtArgsProc) (Widget, ArgList, Cardinal *);
+typedef void (*XtRealizeProc) (Widget, XtValueMask *,
+			       XSetWindowAttributes *);
+typedef void (*XtWidgetProc) (Widget);
+typedef void (*XtExposeProc) (Widget, XEvent *, Region);
+typedef Boolean(*XtArgsFunc) (Widget, ArgList, Cardinal *);
+typedef void (*XtAlmostProc) (Widget, Widget, XtWidgetGeometry *,
+			      XtWidgetGeometry *);
+typedef Boolean(*XtAcceptFocusProc) (Widget, Time *);
+typedef long unsigned int XtVersionType;
+typedef XtGeometryResult(*XtGeometryHandler) (Widget, XtWidgetGeometry *,
+					      XtWidgetGeometry *);
+typedef void (*XtAllocateProc) (WidgetClass, Cardinal *, Cardinal *,
+				ArgList, Cardinal *, XtTypedArgList,
+				Cardinal *, struct _WidgetRec * *,
+				void **);
+typedef void (*XtDeallocateProc) (struct _WidgetRec *, void *);
+typedef struct _XtTMRec {
+    XtTranslations translations;
+    XtBoundActions proc_table;
+    struct _XtStateRec *current_state;
+    long unsigned int lastEventTime;
+} XtTMRec;
+
+typedef void (*XtStringProc) (Widget, String);
+typedef Boolean(*XtSetValuesFunc) (Widget, Widget, Widget, ArgList,
+				   Cardinal *);
+extern void XtConfigureWidget(Widget, int, int, unsigned int, unsigned int,
+			      unsigned int);
+extern void XtCreateWindow(Widget, unsigned int, Visual *, XtValueMask,
+			   XSetWindowAttributes *);
+extern Boolean XtIsComposite(Widget);
+extern Boolean XtIsConstraint(Widget);
+extern Boolean XtIsRectObj(Widget);
+extern Boolean XtIsShell(Widget);
+extern Boolean XtIsTopLevelShell(Widget);
+extern Boolean XtIsWMShell(Widget);
+extern Boolean XtIsWidget(Widget);
+extern void XtMoveWidget(Widget, int, int);
+extern void XtProcessLock(void);
+extern void XtProcessUnlock(void);
+extern void XtResizeWidget(Widget, unsigned int, unsigned int,
+			   unsigned int);
+extern void XtResizeWindow(Widget);
+extern void _XtInherit(void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5973"
+>6.10.11. X11/Object.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define _XtObject_h	1
+
+typedef struct _ObjectClassRec *ObjectClass;
+typedef struct _ObjectClassRec *Object;
+extern WidgetClass objectClass;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5977"
+>6.10.12. X11/ObjectP.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XtInheritAllocate	((XtAllocateProc) _XtInherit)
+#define XtInheritDeallocate	((XtDeallocateProc) _XtInherit)
+#define _Xt_ObjectP_h_	1
+#define XtObjectExtensionVersion	1L
+
+typedef struct _ObjectPart {
+    Widget self;
+    WidgetClass widget_class;
+    Widget parent;
+    XrmName xrm_name;
+    Boolean being_destroyed;
+    XtCallbackList destroy_callbacks;
+    XtPointer constraints;
+} ObjectPart;
+typedef struct _ObjectRec {
+    ObjectPart object;
+} ObjectRec;
+typedef struct _ObjectClassPart {
+    WidgetClass superclass;
+    String class_name;
+    Cardinal widget_size;
+    XtProc class_initialize;
+    XtWidgetClassProc class_part_initialize;
+    XtEnum class_inited;
+    XtInitProc initialize;
+    XtArgsProc initialize_hook;
+    XtProc obj1;
+    XtPointer obj2;
+    Cardinal obj3;
+    XtResourceList resources;
+    Cardinal num_resources;
+    XrmClass xrm_class;
+    Boolean obj4;
+    XtEnum obj5;
+    Boolean obj6;
+    Boolean obj7;
+    XtWidgetProc destroy;
+    XtProc obj8;
+    XtProc obj9;
+    XtSetValuesFunc set_values;
+    XtArgsFunc set_values_hook;
+    XtProc obj10;
+    XtArgsProc get_values_hook;
+    XtProc obj11;
+    XtVersionType version;
+    XtPointer callback_private;
+    String obj12;
+    XtProc obj13;
+    XtProc obj14;
+    XtPointer extension;
+} ObjectClassPart;
+typedef struct {
+    XtPointer next_extension;
+    XrmQuark record_type;
+    long int version;
+    Cardinal record_size;
+    XtAllocateProc allocate;
+    XtDeallocateProc deallocate;
+} ObjectClassExtensionRec;
+typedef ObjectClassExtensionRec *ObjectClassExtension;
+
+typedef struct _ObjectClassRec {
+    ObjectClassPart object_class;
+} ObjectClassRec;
+extern ObjectClassRec objectClassRec;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5981"
+>6.10.13. X11/RectObj.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct _RectObjRec *RectObj;
+typedef struct _RectObjClassRec *RectObjClass;
+extern WidgetClass rectObjClass;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5985"
+>6.10.14. X11/RectObjP.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct _RectObjPart {
+    Position x;
+    Position y;
+    Dimension width;
+    Dimension height;
+    Dimension border_width;
+    Boolean managed;
+    Boolean sensitive;
+    Boolean ancestor_sensitive;
+} RectObjPart;
+
+typedef struct _RectObjRec {
+    ObjectPart object;
+    RectObjPart rectangle;
+} RectObjRec;
+
+typedef struct _RectObjClassPart {
+    WidgetClass superclass;
+    String class_name;
+    Cardinal widget_size;
+    XtProc class_initialize;
+    XtWidgetClassProc class_part_initialize;
+    XtEnum class_inited;
+    XtInitProc initialize;
+    XtArgsProc initialize_hook;
+    XtProc rect1;
+    XtPointer rect2;
+    Cardinal rect3;
+    XtResourceList resources;
+    Cardinal num_resources;
+    XrmClass xrm_class;
+    Boolean rect4;
+    XtEnum rect5;
+    Boolean rect6;
+    Boolean rect7;
+    XtWidgetProc destroy;
+    XtWidgetProc resize;
+    XtExposeProc expose;
+    XtSetValuesFunc set_values;
+    XtArgsFunc set_values_hook;
+    XtAlmostProc set_values_almost;
+    XtArgsProc get_values_hook;
+    XtProc rect9;
+    XtVersionType version;
+    XtPointer callback_private;
+    String rect10;
+    XtGeometryHandler query_geometry;
+    XtProc rect11;
+    XtPointer extension;
+} RectObjClassPart;
+
+typedef struct _RectObjClassRec {
+    RectObjClassPart rect_class;
+} RectObjClassRec;
+extern RectObjClassRec rectObjClassRec;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5989"
+>6.10.15. X11/ResourceI.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define _XtresourceI_h
+#define StringToClass(string)	XrmStringToQuark(string)
+#define StringToName(string)	XrmStringToQuark(string)
+#define StringToQuark(string)	XrmStringToQuark(string)
+
+extern void _XtCopyFromArg(XtArgVal, char *, unsigned int);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5993"
+>6.10.16. X11/Shell.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XtNiconName	((char*)&#38;XtShellStrings[0])
+#define XtCDiscardCommand	((char*)&#38;XtShellStrings[1001])
+#define XtNenvironment	((char*)&#38;XtShellStrings[1016])
+#define XtCEnvironment	((char*)&#38;XtShellStrings[1028])
+#define XtNinteractCallback	((char*)&#38;XtShellStrings[1040])
+#define XtNvisual	((char*)&#38;XtShellStrings[104])
+#define XtNjoinSession	((char*)&#38;XtShellStrings[1057])
+#define XtCJoinSession	((char*)&#38;XtShellStrings[1069])
+#define XtNprogramPath	((char*)&#38;XtShellStrings[1081])
+#define XtCProgramPath	((char*)&#38;XtShellStrings[1093])
+#define XtNresignCommand	((char*)&#38;XtShellStrings[1105])
+#define XtCResignCommand	((char*)&#38;XtShellStrings[1119])
+#define XtCVisual	((char*)&#38;XtShellStrings[111])
+#define XtNrestartCommand	((char*)&#38;XtShellStrings[1133])
+#define XtCRestartCommand	((char*)&#38;XtShellStrings[1148])
+#define XtNrestartStyle	((char*)&#38;XtShellStrings[1163])
+#define XtCRestartStyle	((char*)&#38;XtShellStrings[1176])
+#define XtNsaveCallback	((char*)&#38;XtShellStrings[1189])
+#define XtNtitleEncoding	((char*)&#38;XtShellStrings[118])
+#define XtNsaveCompleteCallback	((char*)&#38;XtShellStrings[1202])
+#define XtNsessionID	((char*)&#38;XtShellStrings[1223])
+#define XtCSessionID	((char*)&#38;XtShellStrings[1233])
+#define XtNshutdownCommand	((char*)&#38;XtShellStrings[1243])
+#define XtCShutdownCommand	((char*)&#38;XtShellStrings[1259])
+#define XtNerrorCallback	((char*)&#38;XtShellStrings[1275])
+#define XtCTitleEncoding	((char*)&#38;XtShellStrings[132])
+#define XtNsaveUnder	((char*)&#38;XtShellStrings[146])
+#define XtCSaveUnder	((char*)&#38;XtShellStrings[156])
+#define XtNtransient	((char*)&#38;XtShellStrings[166])
+#define XtCTransient	((char*)&#38;XtShellStrings[176])
+#define XtNoverrideRedirect	((char*)&#38;XtShellStrings[186])
+#define XtNiconPixmap	((char*)&#38;XtShellStrings[18])
+#define XtCOverrideRedirect	((char*)&#38;XtShellStrings[203])
+#define XtNtransientFor	((char*)&#38;XtShellStrings[220])
+#define XtCTransientFor	((char*)&#38;XtShellStrings[233])
+#define XtNiconNameEncoding	((char*)&#38;XtShellStrings[246])
+#define XtCIconNameEncoding	((char*)&#38;XtShellStrings[263])
+#define XtNallowShellResize	((char*)&#38;XtShellStrings[280])
+#define XtCAllowShellResize	((char*)&#38;XtShellStrings[297])
+#define XtCIconPixmap	((char*)&#38;XtShellStrings[29])
+#define XtNcreatePopupChildProc	((char*)&#38;XtShellStrings[314])
+#define XtCCreatePopupChildProc	((char*)&#38;XtShellStrings[335])
+#define XtNtitle	((char*)&#38;XtShellStrings[356])
+#define XtCTitle	((char*)&#38;XtShellStrings[362])
+#define XtNargc	((char*)&#38;XtShellStrings[373])
+#define XtCArgc	((char*)&#38;XtShellStrings[378])
+#define XtNargv	((char*)&#38;XtShellStrings[383])
+#define XtCArgv	((char*)&#38;XtShellStrings[388])
+#define XtNiconX	((char*)&#38;XtShellStrings[393])
+#define XtCIconX	((char*)&#38;XtShellStrings[399])
+#define XtNiconY	((char*)&#38;XtShellStrings[405])
+#define XtNiconWindow	((char*)&#38;XtShellStrings[40])
+#define XtCIconY	((char*)&#38;XtShellStrings[411])
+#define XtNinput	((char*)&#38;XtShellStrings[417])
+#define XtCInput	((char*)&#38;XtShellStrings[423])
+#define XtNiconic	((char*)&#38;XtShellStrings[429])
+#define XtCIconic	((char*)&#38;XtShellStrings[436])
+#define XtNinitialState	((char*)&#38;XtShellStrings[443])
+#define XtCInitialState	((char*)&#38;XtShellStrings[456])
+#define XtNgeometry	((char*)&#38;XtShellStrings[469])
+#define XtCGeometry	((char*)&#38;XtShellStrings[478])
+#define XtNbaseWidth	((char*)&#38;XtShellStrings[487])
+#define XtCBaseWidth	((char*)&#38;XtShellStrings[497])
+#define XtNbaseHeight	((char*)&#38;XtShellStrings[507])
+#define XtCBaseHeight	((char*)&#38;XtShellStrings[518])
+#define XtCIconWindow	((char*)&#38;XtShellStrings[51])
+#define XtNwinGravity	((char*)&#38;XtShellStrings[529])
+#define XtCWinGravity	((char*)&#38;XtShellStrings[540])
+#define XtNminWidth	((char*)&#38;XtShellStrings[551])
+#define XtCMinWidth	((char*)&#38;XtShellStrings[560])
+#define XtNminHeight	((char*)&#38;XtShellStrings[569])
+#define XtCMinHeight	((char*)&#38;XtShellStrings[579])
+#define XtNmaxWidth	((char*)&#38;XtShellStrings[589])
+#define XtCMaxWidth	((char*)&#38;XtShellStrings[598])
+#define XtNmaxHeight	((char*)&#38;XtShellStrings[607])
+#define XtCMaxHeight	((char*)&#38;XtShellStrings[617])
+#define XtNwidthInc	((char*)&#38;XtShellStrings[627])
+#define XtNiconMask	((char*)&#38;XtShellStrings[62])
+#define XtCWidthInc	((char*)&#38;XtShellStrings[636])
+#define XtNheightInc	((char*)&#38;XtShellStrings[645])
+#define XtCHeightInc	((char*)&#38;XtShellStrings[655])
+#define XtNminAspectY	((char*)&#38;XtShellStrings[665])
+#define XtCMinAspectY	((char*)&#38;XtShellStrings[676])
+#define XtNmaxAspectY	((char*)&#38;XtShellStrings[687])
+#define XtCMaxAspectY	((char*)&#38;XtShellStrings[698])
+#define XtNminAspectX	((char*)&#38;XtShellStrings[709])
+#define XtCIconMask	((char*)&#38;XtShellStrings[71])
+#define XtCMinAspectX	((char*)&#38;XtShellStrings[720])
+#define XtNmaxAspectX	((char*)&#38;XtShellStrings[731])
+#define XtCMaxAspectX	((char*)&#38;XtShellStrings[742])
+#define XtNwmTimeout	((char*)&#38;XtShellStrings[753])
+#define XtCWmTimeout	((char*)&#38;XtShellStrings[763])
+#define XtNwaitForWm	((char*)&#38;XtShellStrings[773])
+#define XtCWaitForWm	((char*)&#38;XtShellStrings[783])
+#define XtNwaitforwm	((char*)&#38;XtShellStrings[793])
+#define XtCWaitforwm	((char*)&#38;XtShellStrings[803])
+#define XtNwindowGroup	((char*)&#38;XtShellStrings[80])
+#define XtNclientLeader	((char*)&#38;XtShellStrings[813])
+#define XtCClientLeader	((char*)&#38;XtShellStrings[826])
+#define XtNwindowRole	((char*)&#38;XtShellStrings[839])
+#define XtCWindowRole	((char*)&#38;XtShellStrings[850])
+#define XtNurgency	((char*)&#38;XtShellStrings[861])
+#define XtCUrgency	((char*)&#38;XtShellStrings[869])
+#define XtNcancelCallback	((char*)&#38;XtShellStrings[877])
+#define XtNcloneCommand	((char*)&#38;XtShellStrings[892])
+#define XtCCloneCommand	((char*)&#38;XtShellStrings[905])
+#define XtNconnection	((char*)&#38;XtShellStrings[918])
+#define XtCConnection	((char*)&#38;XtShellStrings[929])
+#define XtCWindowGroup	((char*)&#38;XtShellStrings[92])
+#define XtNcurrentDirectory	((char*)&#38;XtShellStrings[940])
+#define XtCCurrentDirectory	((char*)&#38;XtShellStrings[957])
+#define XtNdieCallback	((char*)&#38;XtShellStrings[974])
+#define XtNdiscardCommand	((char*)&#38;XtShellStrings[986])
+#define XtCIconName	((char*)&#38;XtShellStrings[9])
+#define _XtShell_h	1
+
+extern char XtShellStrings[];
+extern WidgetClass applicationShellWidgetClass;
+extern WidgetClass overrideShellWidgetClass;
+extern WidgetClass sessionShellWidgetClass;
+extern WidgetClass shellWidgetClass;
+extern WidgetClass topLevelShellWidgetClass;
+extern WidgetClass transientShellWidgetClass;
+extern WidgetClass wmShellWidgetClass;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN5997"
+>6.10.17. X11/ShellP.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct _OldXSizeHints {
+    long int flags;
+    int x;
+    int y;
+    int width;
+    int height;
+    int min_width;
+    int min_height;
+    int max_width;
+    int max_height;
+    int width_inc;
+    int height_inc;
+    struct {
+	int x;
+	int y;
+    } min_aspect;
+    struct {
+	int x;
+	int y;
+    } max_aspect;
+};
+
+#define _XtShellPositionValid	((Boolean)(1&#60;&#60;0))
+#define _XtShellNotReparented	((Boolean)(1&#60;&#60;1))
+#define _XtShellPPositionOK	((Boolean)(1&#60;&#60;2))
+#define _XtShellGeometryParsed	((Boolean)(1&#60;&#60;3))
+#define XtInheritRootGeometryManager	((XtGeometryHandler)_XtInherit)
+#define XtShellExtensionVersion	1L
+
+typedef struct {
+    XtPointer extension;
+} ShellClassPart;
+typedef struct {
+    XtPointer next_extension;
+    XrmQuark record_type;
+    long int version;
+    Cardinal record_size;
+    XtGeometryHandler root_geometry_manager;
+} ShellClassExtensionRec;
+typedef ShellClassExtensionRec *ShellClassExtension;
+typedef struct _ShellClassRec {
+    CoreClassPart core_class;
+    CompositeClassPart composite_class;
+    ShellClassPart shell_class;
+} ShellClassRec;
+typedef struct {
+    char *geometry;
+    XtCreatePopupChildProc create_popup_child_proc;
+    XtGrabKind grab_kind;
+    Boolean spring_loaded;
+    Boolean popped_up;
+    Boolean allow_shell_resize;
+    Boolean client_specified;
+    Boolean save_under;
+    Boolean override_redirect;
+    XtCallbackList popup_callback;
+    XtCallbackList popdown_callback;
+    Visual *visual;
+} ShellPart;
+typedef struct {
+    CorePart core;
+    CompositePart composite;
+    ShellPart shell;
+} ShellRec;
+typedef ShellRec *ShellWidget;
+typedef struct {
+    XtPointer extension;
+} OverrideShellClassPart;
+typedef struct _OverrideShellClassRec {
+    CoreClassPart core_class;
+    CompositeClassPart composite_class;
+    ShellClassPart shell_class;
+    OverrideShellClassPart override_shell_class;
+} OverrideShellClassRec;
+typedef struct {
+    int frabjous;
+} OverrideShellPart;
+typedef struct {
+    CorePart core;
+    CompositePart composite;
+    ShellPart shell;
+    OverrideShellPart override;
+} OverrideShellRec;
+typedef OverrideShellRec *OverrideShellWidget;
+typedef struct {
+    XtPointer extension;
+} WMShellClassPart;
+typedef struct _WMShellClassRec {
+    CoreClassPart core_class;
+    CompositeClassPart composite_class;
+    ShellClassPart shell_class;
+    WMShellClassPart wm_shell_class;
+} WMShellClassRec;
+typedef struct {
+    char *title;
+    int wm_timeout;
+    Boolean wait_for_wm;
+    Boolean transient;
+    Boolean urgency;
+    Widget client_leader;
+    String window_role;
+    struct _OldXSizeHints size_hints;
+    XWMHints wm_hints;
+    int base_width;
+    int base_height;
+    int win_gravity;
+    Atom title_encoding;
+} WMShellPart;
+typedef struct {
+    CorePart core;
+    CompositePart composite;
+    ShellPart shell;
+    WMShellPart wm;
+} WMShellRec;
+typedef WMShellRec *WMShellWidget;
+typedef struct {
+    XtPointer extension;
+} TransientShellClassPart;
+typedef struct _TransientShellClassRec {
+    CoreClassPart core_class;
+    CompositeClassPart composite_class;
+    ShellClassPart shell_class;
+    WMShellClassPart wm_shell_class;
+    VendorShellClassPart vendor_shell_class;
+    TransientShellClassPart transient_shell_class;
+} TransientShellClassRec;
+typedef struct {
+    Widget transient_for;
+} TransientShellPart;
+typedef struct {
+    CorePart core;
+    CompositePart composite;
+    ShellPart shell;
+    WMShellPart wm;
+    VendorShellPart vendor;
+    TransientShellPart transient;
+} TransientShellRec;
+typedef TransientShellRec *TransientShellWidget;
+typedef struct {
+    XtPointer extension;
+} TopLevelShellClassPart;
+typedef struct _TopLevelShellClassRec {
+    CoreClassPart core_class;
+    CompositeClassPart composite_class;
+    ShellClassPart shell_class;
+    WMShellClassPart wm_shell_class;
+    VendorShellClassPart vendor_shell_class;
+    TopLevelShellClassPart top_level_shell_class;
+} TopLevelShellClassRec;
+typedef struct {
+    char *icon_name;
+    Boolean iconic;
+    Atom icon_name_encoding;
+} TopLevelShellPart;
+typedef struct {
+    CorePart core;
+    CompositePart composite;
+    ShellPart shell;
+    WMShellPart wm;
+    VendorShellPart vendor;
+    TopLevelShellPart topLevel;
+} TopLevelShellRec;
+typedef TopLevelShellRec *TopLevelShellWidget;
+typedef struct {
+    XtPointer extension;
+} ApplicationShellClassPart;
+typedef struct _ApplicationShellClassRec {
+    CoreClassPart core_class;
+    CompositeClassPart composite_class;
+    ShellClassPart shell_class;
+    WMShellClassPart wm_shell_class;
+    VendorShellClassPart vendor_shell_class;
+    TopLevelShellClassPart top_level_shell_class;
+    ApplicationShellClassPart application_shell_class;
+} ApplicationShellClassRec;
+typedef struct {
+#if defined(__cplusplus) || defined(c_plusplus)
+    char *c_class;
+#else
+    char *class;
+#endif
+    XrmClass xrm_class;
+    int argc;
+    char **argv;
+} ApplicationShellPart;
+typedef struct {
+    CorePart core;
+    CompositePart composite;
+    ShellPart shell;
+    WMShellPart wm;
+    VendorShellPart vendor;
+    TopLevelShellPart topLevel;
+    ApplicationShellPart application;
+} ApplicationShellRec;
+typedef ApplicationShellRec *ApplicationShellWidget;
+typedef struct {
+    XtPointer extension;
+} SessionShellClassPart;
+typedef struct _SessionShellClassRec {
+    CoreClassPart core_class;
+    CompositeClassPart composite_class;
+    ShellClassPart shell_class;
+    WMShellClassPart wm_shell_class;
+    VendorShellClassPart vendor_shell_class;
+    TopLevelShellClassPart top_level_shell_class;
+    ApplicationShellClassPart application_shell_class;
+    SessionShellClassPart session_shell_class;
+} SessionShellClassRec;
+typedef struct _XtSaveYourselfRec *XtSaveYourself;
+typedef struct {
+    SmcConn connection;
+    String session_id;
+    char **restart_command;
+    char **clone_command;
+    char **discard_command;
+    char **resign_command;
+    char **shutdown_command;
+    char **environment;
+    String current_dir;
+    String program_path;
+    unsigned char restart_style;
+    unsigned char checkpoint_state;
+    Boolean join_session;
+    XtCallbackList save_callbacks;
+    XtCallbackList interact_callbacks;
+    XtCallbackList cancel_callbacks;
+    XtCallbackList save_complete_callbacks;
+    XtCallbackList die_callbacks;
+    XtCallbackList error_callbacks;
+    XtSaveYourself save;
+    XtInputId input_id;
+    XtPointer ses20;
+    XtPointer ses19;
+    XtPointer ses18;
+    XtPointer ses17;
+    XtPointer ses16;
+    XtPointer ses15;
+    XtPointer ses14;
+    XtPointer ses13;
+    XtPointer ses12;
+    XtPointer ses11;
+    XtPointer ses10;
+    XtPointer ses9;
+    XtPointer ses8;
+    XtPointer ses7;
+    XtPointer ses6;
+    XtPointer ses5;
+    XtPointer ses4;
+    XtPointer ses3;
+    XtPointer ses2;
+    XtPointer ses1;
+} SessionShellPart;
+typedef struct {
+    CorePart core;
+    CompositePart composite;
+    ShellPart shell;
+    WMShellPart wm;
+    VendorShellPart vendor;
+    TopLevelShellPart topLevel;
+    ApplicationShellPart application;
+    SessionShellPart session;
+} SessionShellRec;
+typedef SessionShellRec *SessionShellWidget;
+extern ApplicationShellClassRec applicationShellClassRec;
+extern OverrideShellClassRec overrideShellClassRec;
+extern SessionShellClassRec sessionShellClassRec;
+extern ShellClassRec shellClassRec;
+extern TopLevelShellClassRec topLevelShellClassRec;
+extern TransientShellClassRec transientShellClassRec;
+extern WMShellClassRec wmShellClassRec;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6001"
+>6.10.18. X11/StringDefs.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XtNaccelerators	((char*)&#38;XtStrings[0])
+#define XtCFile	((char*)&#38;XtStrings[1012])
+#define XtCFont	((char*)&#38;XtStrings[1017])
+#define XtCForeground	((char*)&#38;XtStrings[1022])
+#define XtCFraction	((char*)&#38;XtStrings[1033])
+#define XtCFunction	((char*)&#38;XtStrings[1042])
+#define XtCHeight	((char*)&#38;XtStrings[1051])
+#define XtCHSpace	((char*)&#38;XtStrings[1058])
+#define XtCIndex	((char*)&#38;XtStrings[1065])
+#define XtCInitialResourcesPersistent	((char*)&#38;XtStrings[1071])
+#define XtCInsertPosition	((char*)&#38;XtStrings[1098])
+#define XtCInterval	((char*)&#38;XtStrings[1113])
+#define XtNborderPixmap	((char*)&#38;XtStrings[111])
+#define XtCJustify	((char*)&#38;XtStrings[1122])
+#define XtCKnobIndent	((char*)&#38;XtStrings[1130])
+#define XtCKnobPixel	((char*)&#38;XtStrings[1141])
+#define XtCLabel	((char*)&#38;XtStrings[1151])
+#define XtCLength	((char*)&#38;XtStrings[1157])
+#define XtCMappedWhenManaged	((char*)&#38;XtStrings[1164])
+#define XtCMargin	((char*)&#38;XtStrings[1182])
+#define XtCMenuEntry	((char*)&#38;XtStrings[1189])
+#define XtCNotify	((char*)&#38;XtStrings[1199])
+#define XtCOrientation	((char*)&#38;XtStrings[1206])
+#define XtCParameter	((char*)&#38;XtStrings[1218])
+#define XtCPixmap	((char*)&#38;XtStrings[1228])
+#define XtCPosition	((char*)&#38;XtStrings[1235])
+#define XtCReadOnly	((char*)&#38;XtStrings[1244])
+#define XtNborderWidth	((char*)&#38;XtStrings[124])
+#define XtCResize	((char*)&#38;XtStrings[1253])
+#define XtCReverseVideo	((char*)&#38;XtStrings[1260])
+#define XtCScreen	((char*)&#38;XtStrings[1273])
+#define XtCScrollProc	((char*)&#38;XtStrings[1280])
+#define XtCScrollDCursor	((char*)&#38;XtStrings[1291])
+#define XtCScrollHCursor	((char*)&#38;XtStrings[1305])
+#define XtCScrollLCursor	((char*)&#38;XtStrings[1319])
+#define XtCScrollRCursor	((char*)&#38;XtStrings[1333])
+#define XtCScrollUCursor	((char*)&#38;XtStrings[1347])
+#define XtCScrollVCursor	((char*)&#38;XtStrings[1361])
+#define XtNcallback	((char*)&#38;XtStrings[136])
+#define XtCSelection	((char*)&#38;XtStrings[1375])
+#define XtCSensitive	((char*)&#38;XtStrings[1385])
+#define XtCSelectionArray	((char*)&#38;XtStrings[1395])
+#define XtNallowHoriz	((char*)&#38;XtStrings[13])
+#define XtCSpace	((char*)&#38;XtStrings[1410])
+#define XtCString	((char*)&#38;XtStrings[1416])
+#define XtCTextOptions	((char*)&#38;XtStrings[1423])
+#define XtCTextPosition	((char*)&#38;XtStrings[1435])
+#define XtCTextSink	((char*)&#38;XtStrings[1448])
+#define XtCTextSource	((char*)&#38;XtStrings[1457])
+#define XtNchildren	((char*)&#38;XtStrings[145])
+#define XtCThickness	((char*)&#38;XtStrings[1468])
+#define XtCThumb	((char*)&#38;XtStrings[1478])
+#define XtCTranslations	((char*)&#38;XtStrings[1484])
+#define XtCValue	((char*)&#38;XtStrings[1497])
+#define XtCVSpace	((char*)&#38;XtStrings[1503])
+#define XtCWidth	((char*)&#38;XtStrings[1510])
+#define XtCWindow	((char*)&#38;XtStrings[1516])
+#define XtCX	((char*)&#38;XtStrings[1523])
+#define XtCY	((char*)&#38;XtStrings[1525])
+#define XtRAcceleratorTable	((char*)&#38;XtStrings[1527])
+#define XtRAtom	((char*)&#38;XtStrings[1544])
+#define XtRBitmap	((char*)&#38;XtStrings[1549])
+#define XtNcolormap	((char*)&#38;XtStrings[154])
+#define XtRBool	((char*)&#38;XtStrings[1556])
+#define XtRBoolean	((char*)&#38;XtStrings[1561])
+#define XtRCallback	((char*)&#38;XtStrings[1569])
+#define XtRCallProc	((char*)&#38;XtStrings[1578])
+#define XtRCardinal	((char*)&#38;XtStrings[1587])
+#define XtRColor	((char*)&#38;XtStrings[1596])
+#define XtRColormap	((char*)&#38;XtStrings[1602])
+#define XtRCursor	((char*)&#38;XtStrings[1611])
+#define XtRDimension	((char*)&#38;XtStrings[1618])
+#define XtRDisplay	((char*)&#38;XtStrings[1628])
+#define XtREditMode	((char*)&#38;XtStrings[1636])
+#define XtNdepth	((char*)&#38;XtStrings[163])
+#define XtREnum	((char*)&#38;XtStrings[1645])
+#define XtRFile	((char*)&#38;XtStrings[1650])
+#define XtRFloat	((char*)&#38;XtStrings[1655])
+#define XtRFont	((char*)&#38;XtStrings[1661])
+#define XtRFontStruct	((char*)&#38;XtStrings[1666])
+#define XtRFunction	((char*)&#38;XtStrings[1677])
+#define XtRGeometry	((char*)&#38;XtStrings[1686])
+#define XtRImmediate	((char*)&#38;XtStrings[1695])
+#define XtNdestroyCallback	((char*)&#38;XtStrings[169])
+#define XtRInitialState	((char*)&#38;XtStrings[1705])
+#define XtRInt	((char*)&#38;XtStrings[1718])
+#define XtRJustify	((char*)&#38;XtStrings[1722])
+#define XtRLongBoolean	((char*)&#38;XtStrings[1730])
+#define XtRObject	((char*)&#38;XtStrings[1735])
+#define XtROrientation	((char*)&#38;XtStrings[1742])
+#define XtRPixel	((char*)&#38;XtStrings[1754])
+#define XtRPixmap	((char*)&#38;XtStrings[1760])
+#define XtRPointer	((char*)&#38;XtStrings[1767])
+#define XtRPosition	((char*)&#38;XtStrings[1775])
+#define XtRScreen	((char*)&#38;XtStrings[1784])
+#define XtRShort	((char*)&#38;XtStrings[1791])
+#define XtRString	((char*)&#38;XtStrings[1797])
+#define XtRStringArray	((char*)&#38;XtStrings[1804])
+#define XtRStringTable	((char*)&#38;XtStrings[1816])
+#define XtRUnsignedChar	((char*)&#38;XtStrings[1828])
+#define XtRTranslationTable	((char*)&#38;XtStrings[1841])
+#define XtRVisual	((char*)&#38;XtStrings[1858])
+#define XtNeditType	((char*)&#38;XtStrings[185])
+#define XtRWidget	((char*)&#38;XtStrings[1865])
+#define XtRWidgetClass	((char*)&#38;XtStrings[1872])
+#define XtRWidgetList	((char*)&#38;XtStrings[1884])
+#define XtRWindow	((char*)&#38;XtStrings[1895])
+#define XtEoff	((char*)&#38;XtStrings[1902])
+#define XtEfalse	((char*)&#38;XtStrings[1906])
+#define XtEno	((char*)&#38;XtStrings[1912])
+#define XtEon	((char*)&#38;XtStrings[1915])
+#define XtEtrue	((char*)&#38;XtStrings[1918])
+#define XtEyes	((char*)&#38;XtStrings[1923])
+#define XtEvertical	((char*)&#38;XtStrings[1927])
+#define XtEhorizontal	((char*)&#38;XtStrings[1936])
+#define XtEtextRead	((char*)&#38;XtStrings[1947])
+#define XtNfile	((char*)&#38;XtStrings[194])
+#define XtEtextAppend	((char*)&#38;XtStrings[1952])
+#define XtEtextEdit	((char*)&#38;XtStrings[1959])
+#define XtExtdefaultbackground	((char*)&#38;XtStrings[1964])
+#define XtExtdefaultforeground	((char*)&#38;XtStrings[1984])
+#define XtNfont	((char*)&#38;XtStrings[199])
+#define XtExtdefaultfont	((char*)&#38;XtStrings[2004])
+#define XtNfontSet	((char*)&#38;XtStrings[2018])
+#define XtRFontSet	((char*)&#38;XtStrings[2026])
+#define XtCFontSet	((char*)&#38;XtStrings[2034])
+#define XtRGravity	((char*)&#38;XtStrings[2042])
+#define XtNforceBars	((char*)&#38;XtStrings[204])
+#define XtNcreateHook	((char*)&#38;XtStrings[2050])
+#define XtNchangeHook	((char*)&#38;XtStrings[2061])
+#define XtNconfigureHook	((char*)&#38;XtStrings[2072])
+#define XtNgeometryHook	((char*)&#38;XtStrings[2086])
+#define XtNdestroyHook	((char*)&#38;XtStrings[2099])
+#define XtNshells	((char*)&#38;XtStrings[2111])
+#define XtNnumShells	((char*)&#38;XtStrings[2118])
+#define XtRCommandArgArray	((char*)&#38;XtStrings[2128])
+#define XtRDirectoryString	((char*)&#38;XtStrings[2144])
+#define XtNforeground	((char*)&#38;XtStrings[214])
+#define XtREnvironmentArray	((char*)&#38;XtStrings[2160])
+#define XtRRestartStyle	((char*)&#38;XtStrings[2177])
+#define XtRSmcConn	((char*)&#38;XtStrings[2190])
+#define XtHcreate	((char*)&#38;XtStrings[2198])
+#define XtHsetValues	((char*)&#38;XtStrings[2207])
+#define XtHmanageChildren	((char*)&#38;XtStrings[2219])
+#define XtHunmanageChildren	((char*)&#38;XtStrings[2236])
+#define XtHmanageSet	((char*)&#38;XtStrings[2255])
+#define XtNfunction	((char*)&#38;XtStrings[225])
+#define XtHunmanageSet	((char*)&#38;XtStrings[2267])
+#define XtHrealizeWidget	((char*)&#38;XtStrings[2281])
+#define XtHunrealizeWidget	((char*)&#38;XtStrings[2297])
+#define XtHaddCallback	((char*)&#38;XtStrings[2315])
+#define XtHaddCallbacks	((char*)&#38;XtStrings[2329])
+#define XtHremoveCallback	((char*)&#38;XtStrings[2344])
+#define XtNheight	((char*)&#38;XtStrings[234])
+#define XtHremoveCallbacks	((char*)&#38;XtStrings[2361])
+#define XtHremoveAllCallbacks	((char*)&#38;XtStrings[2379])
+#define XtHaugmentTranslations	((char*)&#38;XtStrings[2400])
+#define XtNhighlight	((char*)&#38;XtStrings[241])
+#define XtHoverrideTranslations	((char*)&#38;XtStrings[2422])
+#define XtHuninstallTranslations	((char*)&#38;XtStrings[2445])
+#define XtHsetKeyboardFocus	((char*)&#38;XtStrings[2469])
+#define XtHsetWMColormapWindows	((char*)&#38;XtStrings[2488])
+#define XtNallowVert	((char*)&#38;XtStrings[24])
+#define XtHsetMappedWhenManaged	((char*)&#38;XtStrings[2511])
+#define XtNhSpace	((char*)&#38;XtStrings[251])
+#define XtHmapWidget	((char*)&#38;XtStrings[2534])
+#define XtHunmapWidget	((char*)&#38;XtStrings[2546])
+#define XtHpopup	((char*)&#38;XtStrings[2560])
+#define XtHpopupSpringLoaded	((char*)&#38;XtStrings[2568])
+#define XtHpopdown	((char*)&#38;XtStrings[2588])
+#define XtNindex	((char*)&#38;XtStrings[258])
+#define XtHconfigure	((char*)&#38;XtStrings[2598])
+#define XtHpreGeometry	((char*)&#38;XtStrings[2610])
+#define XtHpostGeometry	((char*)&#38;XtStrings[2624])
+#define XtHdestroy	((char*)&#38;XtStrings[2639])
+#define XtNinitialResourcesPersistent	((char*)&#38;XtStrings[264])
+#define XtNinnerHeight	((char*)&#38;XtStrings[291])
+#define XtNinnerWidth	((char*)&#38;XtStrings[303])
+#define XtNinnerWindow	((char*)&#38;XtStrings[314])
+#define XtNinsertPosition	((char*)&#38;XtStrings[326])
+#define XtNinternalHeight	((char*)&#38;XtStrings[341])
+#define XtNancestorSensitive	((char*)&#38;XtStrings[34])
+#define XtNinternalWidth	((char*)&#38;XtStrings[356])
+#define XtNjumpProc	((char*)&#38;XtStrings[370])
+#define XtNjustify	((char*)&#38;XtStrings[379])
+#define XtNknobHeight	((char*)&#38;XtStrings[387])
+#define XtNknobIndent	((char*)&#38;XtStrings[398])
+#define XtNknobPixel	((char*)&#38;XtStrings[409])
+#define XtNknobWidth	((char*)&#38;XtStrings[419])
+#define XtNlabel	((char*)&#38;XtStrings[429])
+#define XtNlength	((char*)&#38;XtStrings[435])
+#define XtNlowerRight	((char*)&#38;XtStrings[442])
+#define XtNmappedWhenManaged	((char*)&#38;XtStrings[453])
+#define XtNmenuEntry	((char*)&#38;XtStrings[471])
+#define XtNname	((char*)&#38;XtStrings[481])
+#define XtNnotify	((char*)&#38;XtStrings[486])
+#define XtNnumChildren	((char*)&#38;XtStrings[493])
+#define XtNorientation	((char*)&#38;XtStrings[505])
+#define XtNparameter	((char*)&#38;XtStrings[517])
+#define XtNpixmap	((char*)&#38;XtStrings[527])
+#define XtNbackground	((char*)&#38;XtStrings[52])
+#define XtNpopupCallback	((char*)&#38;XtStrings[534])
+#define XtNpopdownCallback	((char*)&#38;XtStrings[548])
+#define XtNresize	((char*)&#38;XtStrings[564])
+#define XtNreverseVideo	((char*)&#38;XtStrings[571])
+#define XtNscreen	((char*)&#38;XtStrings[584])
+#define XtNscrollProc	((char*)&#38;XtStrings[591])
+#define XtNscrollDCursor	((char*)&#38;XtStrings[602])
+#define XtNscrollHCursor	((char*)&#38;XtStrings[616])
+#define XtNscrollLCursor	((char*)&#38;XtStrings[630])
+#define XtNbackgroundPixmap	((char*)&#38;XtStrings[63])
+#define XtNscrollRCursor	((char*)&#38;XtStrings[644])
+#define XtNscrollUCursor	((char*)&#38;XtStrings[658])
+#define XtNscrollVCursor	((char*)&#38;XtStrings[672])
+#define XtNselection	((char*)&#38;XtStrings[686])
+#define XtNselectionArray	((char*)&#38;XtStrings[696])
+#define XtNsensitive	((char*)&#38;XtStrings[711])
+#define XtNshown	((char*)&#38;XtStrings[721])
+#define XtNspace	((char*)&#38;XtStrings[727])
+#define XtNstring	((char*)&#38;XtStrings[733])
+#define XtNtextOptions	((char*)&#38;XtStrings[740])
+#define XtNtextSink	((char*)&#38;XtStrings[752])
+#define XtNtextSource	((char*)&#38;XtStrings[761])
+#define XtNthickness	((char*)&#38;XtStrings[772])
+#define XtNthumb	((char*)&#38;XtStrings[782])
+#define XtNthumbProc	((char*)&#38;XtStrings[788])
+#define XtNtop	((char*)&#38;XtStrings[798])
+#define XtNtranslations	((char*)&#38;XtStrings[802])
+#define XtNbitmap	((char*)&#38;XtStrings[80])
+#define XtNunrealizeCallback	((char*)&#38;XtStrings[815])
+#define XtNupdate	((char*)&#38;XtStrings[833])
+#define XtNuseBottom	((char*)&#38;XtStrings[840])
+#define XtNuseRight	((char*)&#38;XtStrings[850])
+#define XtNvalue	((char*)&#38;XtStrings[859])
+#define XtNvSpace	((char*)&#38;XtStrings[865])
+#define XtNwidth	((char*)&#38;XtStrings[872])
+#define XtNwindow	((char*)&#38;XtStrings[878])
+#define XtNborderColor	((char*)&#38;XtStrings[87])
+#define XtNx	((char*)&#38;XtStrings[885])
+#define XtNy	((char*)&#38;XtStrings[887])
+#define XtCAccelerators	((char*)&#38;XtStrings[889])
+#define XtCBackground	((char*)&#38;XtStrings[902])
+#define XtCBitmap	((char*)&#38;XtStrings[913])
+#define XtCBoolean	((char*)&#38;XtStrings[920])
+#define XtCBorderColor	((char*)&#38;XtStrings[928])
+#define XtCBorderWidth	((char*)&#38;XtStrings[940])
+#define XtCCallback	((char*)&#38;XtStrings[952])
+#define XtCColormap	((char*)&#38;XtStrings[961])
+#define XtCColor	((char*)&#38;XtStrings[970])
+#define XtCCursor	((char*)&#38;XtStrings[976])
+#define XtCDepth	((char*)&#38;XtStrings[983])
+#define XtCEditType	((char*)&#38;XtStrings[989])
+#define XtCEventBindings	((char*)&#38;XtStrings[998])
+#define XtNborder	((char*)&#38;XtStrings[99])
+#define _XtStringDefs_h_	1
+
+extern char XtStrings[];</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6005"
+>6.10.19. X11/TranslateI.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct _TranslationData {
+    unsigned char hasBindings;
+    unsigned char operation;
+    TMShortCard numStateTrees;
+    struct _TranslationData *composers[2];
+    EventMask eventMask;
+    TMStateTree stateTreeTbl[1];
+};
+typedef struct _ActionsRec *ActionPtr;
+typedef struct _ActionsRec {
+    int idx;
+    String *params;
+    Cardinal num_params;
+    ActionPtr next;
+} ActionRec;
+typedef long unsigned int TMLongCard;
+struct _LateBindings {
+    unsigned int knot:1;
+    unsigned int pair:1;
+    short unsigned int ref_count;
+    KeySym keysym;
+};
+typedef struct _LateBindings *LateBindingsPtr;
+struct _TMTypeMatchRec {
+    TMLongCard eventType;
+    TMLongCard eventCode;
+    TMLongCard eventCodeMask;
+    MatchProc matchEvent;
+};
+typedef struct _TMTypeMatchRec *TMTypeMatch;
+struct _TMModifierMatchRec {
+    TMLongCard modifiers;
+    TMLongCard modifierMask;
+    LateBindingsPtr lateModifiers;
+    Boolean standard;
+};
+typedef struct _TMModifierMatchRec *TMModifierMatch;
+typedef struct _TMEventRec *TMEventPtr;
+typedef Boolean(*MatchProc) (TMTypeMatch, TMModifierMatch, TMEventPtr);
+struct _TMEventRec {
+    XEvent *xev;
+    Event event;
+};
+typedef struct _EventRec {
+    TMLongCard modifiers;
+    TMLongCard modifierMask;
+    LateBindingsPtr lateModifiers;
+    TMLongCard eventType;
+    TMLongCard eventCode;
+    TMLongCard eventCodeMask;
+    MatchProc matchEvent;
+    Boolean standard;
+} Event;
+typedef short unsigned int TMShortCard;
+typedef struct _TMBranchHeadRec {
+    unsigned int isSimple:1;
+    unsigned int hasActions:1;
+    unsigned int hasCycles:1;
+    unsigned int more:13;
+    TMShortCard typeIndex;
+    TMShortCard modIndex;
+} TMBranchHeadRec;
+typedef struct _TMSimpleStateTreeRec {
+    unsigned int isSimple:1;
+    unsigned int isAccelerator:1;
+    unsigned int mappingNotifyInterest:1;
+    unsigned int refCount:13;
+    TMShortCard numBranchHeads;
+    TMShortCard numQuarks;
+    TMShortCard unused;
+    TMBranchHeadRec *branchHeadTbl;
+    XrmQuark *quarkTbl;
+} TMSimpleStateTreeRec;
+struct _XtStateRec {
+    unsigned int isCycleStart:1;
+    unsigned int isCycleEnd:1;
+    TMShortCard typeIndex;
+    TMShortCard modIndex;
+    ActionPtr actions;
+    StatePtr nextLevel;
+};
+typedef struct _XtStateRec *StatePtr;
+typedef struct _TMParseStateTreeRec {
+    unsigned int isSimple:1;
+    unsigned int isAccelerator:1;
+    unsigned int mappingNotifyInterest:1;
+    unsigned int isStackQuarks:1;
+    unsigned int isStackBranchHeads:1;
+    unsigned int isStackComplexBranchHeads:1;
+    unsigned int unused:10;
+    TMShortCard numBranchHeads;
+    TMShortCard numQuarks;
+    TMShortCard numComplexBranchHeads;
+    TMBranchHeadRec *branchHeadTbl;
+    XrmQuark *quarkTbl;
+    StatePtr *complexBranchHeadTbl;
+    TMShortCard branchHeadTblSize;
+    TMShortCard quarkTblSize;
+    TMShortCard complexBranchHeadTblSize;
+    StatePtr head;
+} TMParseStateTreeRec;
+typedef struct _TMComplexStateTreeRec {
+    unsigned int isSimple:1;
+    unsigned int isAccelerator:1;
+    unsigned int mappingNotifyInterest:1;
+    unsigned int refCount:13;
+    TMShortCard numBranchHeads;
+    TMShortCard numQuarks;
+    TMShortCard numComplexBranchHeads;
+    TMBranchHeadRec *branchHeadTbl;
+    XrmQuark *quarkTbl;
+    StatePtr *complexBranchHeadTbl;
+} TMComplexStateTreeRec;
+union _TMStateTreeRec {
+    TMSimpleStateTreeRec simple;
+    TMParseStateTreeRec parse;
+    TMComplexStateTreeRec complex;
+};
+typedef union _TMStateTreeRec *TMStateTree;
+typedef Boolean(*_XtTraversalProc) (StatePtr, XtPointer);
+typedef struct _TMSimpleBindProcsRec {
+    XtActionProc *procs;
+} TMSimpleBindProcsRec;
+typedef struct _TMSimpleBindDataRec {
+    unsigned int isComplex:1;
+    TMSimpleBindProcsRec bindTbl[8];
+} TMSimpleBindDataRec;
+typedef struct _TMComplexBindProcsRec {
+    Widget widget;
+    XtTranslations aXlations;
+    XtActionProc *procs;
+} TMComplexBindProcsRec;
+struct _ATranslationData {
+    unsigned char hasBindings;
+    unsigned char operation;
+    struct _TranslationData *xlations;
+    struct _ATranslationData *next;
+    TMComplexBindProcsRec bindTbl[24];
+};
+typedef struct _TMComplexBindDataRec {
+    unsigned int isComplex:1;
+    struct _ATranslationData *accel_context;
+    TMComplexBindProcsRec bindTbl[24];
+} TMComplexBindDataRec;
+union _TMBindDataRec {
+    TMSimpleBindDataRec simple;
+    TMComplexBindDataRec complex;
+};
+typedef union _TMBindDataRec *TMBindData;
+typedef struct _TMParseStateTreeRec *TMParseStateTree;
+struct _EventSeqRec {
+    Event event;
+    StatePtr state;
+    EventSeqPtr next;
+    ActionPtr actions;
+};
+typedef struct _EventSeqRec *EventSeqPtr;
+typedef struct _TMBranchHeadRec *TMBranchHead;
+typedef unsigned int _XtTranslateOp;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6009"
+>6.10.20. X11/VendorP.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct {
+    XtPointer extension;
+} VendorShellClassPart;
+typedef struct _VendorShellClassRec {
+    CoreClassPart core_class;
+    CompositeClassPart composite_class;
+    ShellClassPart shell_class;
+    WMShellClassPart wm_shell_class;
+    VendorShellClassPart vendor_shell_class;
+} VendorShellClassRec;
+typedef struct {
+    int vendor_specific;
+} VendorShellPart;
+typedef struct {
+    CorePart core;
+    CompositePart composite;
+    ShellPart shell;
+    WMShellPart wm;
+    VendorShellPart vendor;
+} VendorShellRec;
+typedef VendorShellRec *VendorShellWidget;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6013"
+>6.10.21. lsb/Composite.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef Cardinal(*XtOrderProc) (Widget);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6017"
+>6.10.22. lsb/Intrinsic.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef unsigned int Cardinal;
+typedef void *XtPointer;
+struct _WidgetRec;
+typedef struct _WidgetRec *Widget;
+typedef char *String;
+typedef unsigned int XtGeometryMask;
+typedef short int Position;
+typedef short unsigned int Dimension;
+typedef struct {
+    XtGeometryMask request_mode;
+    Position x;
+    Position y;
+    Dimension width;
+    Dimension height;
+    Dimension border_width;
+    Widget sibling;
+    int stack_mode;
+} XtWidgetGeometry;
+struct _XtResource {
+    String resource_name;
+    String resource_class;
+    String resource_type;
+    Cardinal resource_size;
+    Cardinal resource_offset;
+    String default_type;
+    XtPointer default_addr;
+};
+typedef struct _XtResource *XtResourceList;
+typedef void (*XtActionProc) (Widget, XEvent *, String *, Cardinal *);
+struct _XtActionsRec {
+    String string;
+    XtActionProc proc;
+};
+typedef struct _XtActionsRec *XtActionList;
+typedef char Boolean;
+typedef unsigned char XtEnum;
+typedef long unsigned int XtInputId;
+struct _WidgetClassRec;
+typedef Widget *WidgetList;
+typedef enum {
+    XtGeometryYes = 0,
+    XtGeometryNo = 1,
+    XtGeometryAlmost = 2,
+    XtGeometryDone = 3
+} XtGeometryResult;
+typedef long int XtArgVal;
+typedef struct {
+    String name;
+    XtArgVal value;
+} Arg;
+typedef Arg *ArgList;
+typedef void (*XtCallbackProc) (Widget, XtPointer, XtPointer);
+struct _XtCallbackRec {
+    XtCallbackProc callback;
+    XtPointer closure;
+};
+typedef struct _XtCallbackRec *XtCallbackList;
+typedef long unsigned int EventMask;
+typedef enum {
+    XtGrabNone = 0,
+    XtGrabNonexclusive = 1,
+    XtGrabExclusive = 2
+} XtGrabKind;
+typedef long unsigned int XtValueMask;
+typedef struct _XtEventRec *XtEventTable;
+typedef void (*XtCreatePopupChildProc) (Widget);
+typedef long unsigned int Pixel;
+typedef XtActionProc *XtBoundActions;
+
+typedef struct _WidgetClassRec *WidgetClass;
+
+typedef struct _TranslationData *XtTranslations;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libxt.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libxtman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libXt</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="graphlib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interface Definitions for libXt</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

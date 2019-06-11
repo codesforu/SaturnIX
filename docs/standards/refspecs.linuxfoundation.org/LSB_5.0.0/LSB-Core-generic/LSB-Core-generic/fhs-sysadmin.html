@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Path For System Administration Utilities</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="File System Hierarchy"
+HREF="execenvfhs.html"><LINK
+REL="PREVIOUS"
+TITLE="User Accounting Databases"
+HREF="fhs-user-accounting-dbs.html"><LINK
+REL="NEXT"
+TITLE="Additional Recommendations"
+HREF="execstuff.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="fhs-user-accounting-dbs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 18. File System Hierarchy</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="execstuff.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="FHS-SYSADMIN"
+>18.4. Path For System Administration Utilities</A
+></H1
+><P
+>Certain utilities used for system administration 
+(and other privileged commands)
+may be stored in 
+<TT
+CLASS="FILENAME"
+>/sbin</TT
+>, 
+<TT
+CLASS="FILENAME"
+>/usr/sbin</TT
+>, and 
+<TT
+CLASS="FILENAME"
+>/usr/local/sbin</TT
+>. Applications
+requiring to use commands identified as system administration utilities
+should add these directories to their 
+<CODE
+CLASS="ENVAR"
+>PATH</CODE
+>. By default, as described in
+<A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>, standard utilities shall be found on the 
+<CODE
+CLASS="ENVAR"
+>PATH</CODE
+> returned
+by <B
+CLASS="COMMAND"
+>getconf PATH</B
+> (or <B
+CLASS="COMMAND"
+>command -p getconf PATH</B
+>
+to be guaranteed to invoke the correct version of <B
+CLASS="COMMAND"
+>getconf</B
+>).</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="fhs-user-accounting-dbs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="execstuff.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>User Accounting Databases</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="execenvfhs.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Additional Recommendations</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

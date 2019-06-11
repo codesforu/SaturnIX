@@ -1,0 +1,1564 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libxslt</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Languages Specification"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="xmllibxslt.html"><LINK
+REL="PREVIOUS"
+TITLE="Libraries"
+HREF="xmllibxslt.html"><LINK
+REL="NEXT"
+TITLE="Package Format and Installation"
+HREF="packagefmt.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Languages Specification</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="xmllibxslt.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 9. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="packagefmt.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBXSLT-DDEFS"
+>9.2. Data Definitions for libxslt</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libxslt.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8223"
+>9.2.1. libxslt/attributes.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;extern void xsltApplyAttributeSet(xsltTransformContextPtr ctxt,
+				  xmlNodePtr node, xmlNodePtr inst,
+				  const unsigned char *attributes);
+extern void xsltFreeAttributeSetsHashes(xsltStylesheetPtr style);
+extern void xsltParseStylesheetAttributeSet(xsltStylesheetPtr style,
+					    xmlNodePtr cur);
+extern void xsltResolveStylesheetAttributeSet(xsltStylesheetPtr style);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8227"
+>9.2.2. libxslt/documents.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef enum {
+    XSLT_LOAD_START,
+    XSLT_LOAD_STYLESHEET,
+    XSLT_LOAD_DOCUMENT
+} xsltLoadType;
+typedef xmlDocPtr(*xsltDocLoaderFunc) (void);
+extern xsltDocLoaderFunc xsltDocDefaultLoader;
+extern xsltDocumentPtr xsltFindDocument(xsltTransformContextPtr ctxt,
+					xmlDocPtr doc);
+extern void xsltFreeDocuments(xsltTransformContextPtr ctxt);
+extern void xsltFreeStyleDocuments(xsltStylesheetPtr style);
+extern xsltDocumentPtr xsltLoadDocument(xsltTransformContextPtr ctxt,
+					const unsigned char *URI);
+extern xsltDocumentPtr xsltLoadStyleDocument(xsltStylesheetPtr style,
+					     const unsigned char *URI);
+extern xsltDocumentPtr xsltNewDocument(xsltTransformContextPtr ctxt,
+				       xmlDocPtr doc);
+extern xsltDocumentPtr xsltNewStyleDocument(xsltStylesheetPtr style,
+					    xmlDocPtr doc);
+extern void xsltSetLoaderFunc(xsltDocLoaderFunc f);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8231"
+>9.2.3. libxslt/extensions.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef void *(*xsltStyleExtInitFunction) (void);
+typedef void (*xsltStyleExtShutdownFunction) (void);
+typedef void *(*xsltExtInitFunction) (void);
+typedef void (*xsltExtShutdownFunction) (void);
+typedef xsltElemPreCompPtr(*xsltPreComputeFunction) (void);
+typedef void (*xsltTopLevelFunction) (void);
+extern int xsltCheckExtPrefix(xsltStylesheetPtr style,
+			      const unsigned char *URI);
+extern int xsltCheckExtURI(xsltStylesheetPtr style,
+			   const unsigned char *URI);
+extern void xsltDebugDumpExtensions(FILE * output);
+extern xsltTransformFunction xsltExtElementLookup(xsltTransformContextPtr
+						  ctxt,
+						  const unsigned char
+						  *name,
+						  const unsigned char
+						  *URI);
+extern xsltTransformFunction xsltExtModuleElementLookup(const unsigned char
+							*name,
+							const unsigned char
+							*URI);
+extern xsltPreComputeFunction xsltExtModuleElementPreComputeLookup(const
+								   unsigned
+								   char
+								   *name,
+								   const
+								   unsigned
+								   char
+								   *URI);
+extern xmlXPathFunction xsltExtModuleFunctionLookup(const unsigned char
+						    *name,
+						    const unsigned char
+						    *URI);
+extern xsltTopLevelFunction xsltExtModuleTopLevelLookup(const unsigned char
+							*name,
+							const unsigned char
+							*URI);
+extern void xsltFreeCtxtExts(xsltTransformContextPtr ctxt);
+extern void xsltFreeExts(xsltStylesheetPtr style);
+extern void *xsltGetExtData(xsltTransformContextPtr ctxt,
+			    const unsigned char *URI);
+extern xmlHashTablePtr xsltGetExtInfo(xsltStylesheetPtr style,
+				      const unsigned char *URI);
+extern int xsltInitCtxtExts(xsltTransformContextPtr ctxt);
+extern void xsltInitElemPreComp(xsltElemPreCompPtr comp,
+				xsltStylesheetPtr style, xmlNodePtr inst,
+				xsltTransformFunction function,
+				xsltElemPreCompDeallocator freeFunc);
+extern void xsltInitGlobals(void);
+extern xsltElemPreCompPtr xsltNewElemPreComp(xsltStylesheetPtr style,
+					     xmlNodePtr inst,
+					     xsltTransformFunction
+					     function);
+extern xsltElemPreCompPtr xsltPreComputeExtModuleElement(xsltStylesheetPtr
+							 style,
+							 xmlNodePtr inst);
+extern int xsltRegisterExtElement(xsltTransformContextPtr ctxt,
+				  const unsigned char *name,
+				  const unsigned char *URI,
+				  xsltTransformFunction function);
+extern int xsltRegisterExtFunction(xsltTransformContextPtr ctxt,
+				   const unsigned char *name,
+				   const unsigned char *URI,
+				   xmlXPathFunction function);
+extern int xsltRegisterExtModule(const unsigned char *URI,
+				 xsltExtInitFunction initFunc,
+				 xsltExtShutdownFunction shutdownFunc);
+extern int xsltRegisterExtModuleElement(const unsigned char *name,
+					const unsigned char *URI,
+					xsltPreComputeFunction precomp,
+					xsltTransformFunction transform);
+extern int xsltRegisterExtModuleFull(const unsigned char *URI,
+				     xsltExtInitFunction initFunc,
+				     xsltExtShutdownFunction shutdownFunc,
+				     xsltStyleExtInitFunction
+				     styleInitFunc,
+				     xsltStyleExtShutdownFunction
+				     styleShutdownFunc);
+extern int xsltRegisterExtModuleFunction(const unsigned char *name,
+					 const unsigned char *URI,
+					 xmlXPathFunction function);
+extern int xsltRegisterExtModuleTopLevel(const unsigned char *name,
+					 const unsigned char *URI,
+					 xsltTopLevelFunction function);
+extern int xsltRegisterExtPrefix(xsltStylesheetPtr style,
+				 const unsigned char *prefix,
+				 const unsigned char *URI);
+extern void xsltRegisterTestModule(void);
+extern void xsltShutdownCtxtExts(xsltTransformContextPtr ctxt);
+extern void xsltShutdownExts(xsltStylesheetPtr style);
+extern void *xsltStyleGetExtData(xsltStylesheetPtr style,
+				 const unsigned char *URI);
+extern int xsltUnregisterExtModule(const unsigned char *URI);
+extern int xsltUnregisterExtModuleElement(const unsigned char *name,
+					  const unsigned char *URI);
+extern int xsltUnregisterExtModuleFunction(const unsigned char *name,
+					   const unsigned char *URI);
+extern int xsltUnregisterExtModuleTopLevel(const unsigned char *name,
+					   const unsigned char *URI);
+extern xsltTransformContextPtr
+xsltXPathGetTransformContext(xmlXPathParserContextPtr ctxt);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8235"
+>9.2.4. libxslt/extra.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XSLT_SAXON_NAMESPACE	((xmlChar *) "http://icl.com/saxon")
+#define XSLT_NORM_SAXON_NAMESPACE	((xmlChar *) "http://nwalsh.com/xslt/ext/com.nwalsh.saxon.CVS")
+#define XSLT_XT_NAMESPACE	((xmlChar *) "http://www.jclark.com/xt")
+#define XSLT_LIBXSLT_NAMESPACE	((xmlChar *) "http://xmlsoft.org/XSLT/namespace")
+#define XSLT_XALAN_NAMESPACE	((xmlChar *) "org.apache.xalan.xslt.extensions.Redirect")
+
+extern void xsltDebug(xsltTransformContextPtr ctxt, xmlNodePtr node,
+		      xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltFunctionNodeSet(xmlXPathParserContextPtr ctxt, int nargs);
+extern void xsltRegisterAllExtras(void);
+extern void xsltRegisterExtras(xsltTransformContextPtr ctxt);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8239"
+>9.2.5. libxslt/functions.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XSLT_REGISTER_FUNCTION_LOOKUP(ctxt)	xmlXPathRegisterFuncLookup((ctxt)-&#62;xpathCtxt, (xmlXPathFuncLookupFunc) xsltXPathFunctionLookup, (void *)(ctxt-&#62;xpathCtxt));
+
+extern void xsltDocumentFunction(xmlXPathParserContextPtr ctxt, int nargs);
+extern void xsltElementAvailableFunction(xmlXPathParserContextPtr ctxt,
+					 int nargs);
+extern void xsltFormatNumberFunction(xmlXPathParserContextPtr ctxt,
+				     int nargs);
+extern void xsltFunctionAvailableFunction(xmlXPathParserContextPtr ctxt,
+					  int nargs);
+extern void xsltGenerateIdFunction(xmlXPathParserContextPtr ctxt,
+				   int nargs);
+extern void xsltKeyFunction(xmlXPathParserContextPtr ctxt, int nargs);
+extern void xsltRegisterAllFunctions(xmlXPathContextPtr ctxt);
+extern void xsltSystemPropertyFunction(xmlXPathParserContextPtr ctxt,
+				       int nargs);
+extern void xsltUnparsedEntityURIFunction(xmlXPathParserContextPtr ctxt,
+					  int nargs);
+extern xmlXPathFunction xsltXPathFunctionLookup(xmlXPathContextPtr ctxt,
+						const unsigned char *name,
+						const unsigned char
+						*ns_uri);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8243"
+>9.2.6. libxslt/imports.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XSLT_GET_IMPORT_INT(res,style,name)	{ xsltStylesheetPtr st = style; res = -1; while (st != NULL) { if (st-&#62;name != -1) { res = st-&#62;name; break; } st = xsltNextImport(st); }}
+#define XSLT_GET_IMPORT_PTR(res,style,name)	{ xsltStylesheetPtr st = style; res = NULL; while (st != NULL) { if (st-&#62;name != NULL) { res = st-&#62;name; break; } st = xsltNextImport(st); }}
+
+extern int xsltFindElemSpaceHandling(xsltTransformContextPtr ctxt,
+				     xmlNodePtr node);
+extern xsltTemplatePtr xsltFindTemplate(xsltTransformContextPtr ctxt,
+					const unsigned char *name,
+					const unsigned char *nameURI);
+extern int xsltNeedElemSpaceHandling(xsltTransformContextPtr ctxt);
+extern xsltStylesheetPtr xsltNextImport(xsltStylesheetPtr style);
+extern int xsltParseStylesheetImport(xsltStylesheetPtr style,
+				     xmlNodePtr cur);
+extern int xsltParseStylesheetInclude(xsltStylesheetPtr style,
+				      xmlNodePtr cur);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8247"
+>9.2.7. libxslt/keys.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define NODE_IS_KEYED	(1 &#62;&#62; 15)
+
+extern int xsltAddKey(xsltStylesheetPtr style, const unsigned char *name,
+		      const unsigned char *nameURI,
+		      const unsigned char *match, const unsigned char *use,
+		      xmlNodePtr inst);
+extern void xsltFreeDocumentKeys(xsltDocumentPtr doc);
+extern void xsltFreeKeys(xsltStylesheetPtr style);
+extern xmlNodeSetPtr xsltGetKey(xsltTransformContextPtr ctxt,
+				const unsigned char *name,
+				const unsigned char *nameURI,
+				const unsigned char *value);
+extern void xsltInitCtxtKeys(xsltTransformContextPtr ctxt,
+			     xsltDocumentPtr doc);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8251"
+>9.2.8. libxslt/namespaces.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define UNDEFINED_DEFAULT_NS	(const xmlChar *) -1L
+
+extern xmlNsPtr xsltCopyNamespace(xsltTransformContextPtr ctxt,
+				  xmlNodePtr elem, xmlNsPtr ns);
+extern xmlNsPtr xsltCopyNamespaceList(xsltTransformContextPtr ctxt,
+				      xmlNodePtr node, xmlNsPtr cur);
+extern void xsltFreeNamespaceAliasHashes(xsltStylesheetPtr style);
+extern xmlNsPtr xsltGetNamespace(xsltTransformContextPtr ctxt,
+				 xmlNodePtr cur, xmlNsPtr ns,
+				 xmlNodePtr out);
+extern xmlNsPtr xsltGetPlainNamespace(xsltTransformContextPtr ctxt,
+				      xmlNodePtr cur, xmlNsPtr ns,
+				      xmlNodePtr out);
+extern xmlNsPtr xsltGetSpecialNamespace(xsltTransformContextPtr ctxt,
+					xmlNodePtr cur,
+					const unsigned char *URI,
+					const unsigned char *prefix,
+					xmlNodePtr out);
+extern void xsltNamespaceAlias(xsltStylesheetPtr style, xmlNodePtr node);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8255"
+>9.2.9. libxslt/numbersInternals.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct _xsltNumberData {
+    const unsigned char *level;
+    const unsigned char *count;
+    const unsigned char *from;
+    const unsigned char *value;
+    const unsigned char *format;
+    int has_format;
+    int digitsPerGroup;
+    int groupingCharacter;
+    int groupingCharacterLen;
+    xmlDocPtr doc;
+    xmlNodePtr node;
+} xsltNumberData;
+typedef xsltNumberData *xsltNumberDataPtr;
+typedef struct _xsltFormatNumberInfo {
+    int integer_hash;
+    int integer_digits;
+    int frac_digits;
+    int frac_hash;
+    int group;
+    int multiplier;
+    char add_decimal;
+    char is_multiplier_set;
+    char is_negative_pattern;
+} xsltFormatNumberInfo;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8259"
+>9.2.10. libxslt/pattern.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct _xsltCompMatch xsltCompMatch;
+typedef xsltCompMatch *xsltCompMatchPtr;
+extern int xsltAddTemplate(xsltStylesheetPtr style, xsltTemplatePtr cur,
+			   const unsigned char *mode,
+			   const unsigned char *modeURI);
+extern void xsltCleanupTemplates(xsltStylesheetPtr style);
+extern xsltCompMatchPtr xsltCompilePattern(const unsigned char *pattern,
+					   xmlDocPtr doc, xmlNodePtr node,
+					   xsltStylesheetPtr style,
+					   xsltTransformContextPtr
+					   runtime);
+extern void xsltFreeCompMatchList(xsltCompMatchPtr comp);
+extern void xsltFreeTemplateHashes(xsltStylesheetPtr style);
+extern xsltTemplatePtr xsltGetTemplate(xsltTransformContextPtr ctxt,
+				       xmlNodePtr node,
+				       xsltStylesheetPtr style);
+extern void xsltNormalizeCompSteps(void *payload, void *data,
+				   const unsigned char *name);
+extern int xsltTestCompMatchList(xsltTransformContextPtr ctxt,
+				 xmlNodePtr node, xsltCompMatchPtr comp);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8263"
+>9.2.11. libxslt/preproc.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;extern xsltElemPreCompPtr xsltDocumentComp(xsltStylesheetPtr style,
+					   xmlNodePtr inst,
+					   xsltTransformFunction function);
+extern const xmlChar *xsltExtMarker;
+extern void xsltFreeStylePreComps(xsltStylesheetPtr style);
+extern void xsltStylePreCompute(xsltStylesheetPtr style, xmlNodePtr inst);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8267"
+>9.2.12. libxslt/security.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct _xsltSecurityPrefs xsltSecurityPrefs;
+typedef xsltSecurityPrefs *xsltSecurityPrefsPtr;
+typedef enum {
+    XSLT_SECPREF_READ_FILE,
+    XSLT_SECPREF_WRITE_FILE,
+    XSLT_SECPREF_CREATE_DIRECTORY,
+    XSLT_SECPREF_READ_NETWORK,
+    XSLT_SECPREF_WRITE_NETWORK
+} xsltSecurityOption;
+typedef int (*xsltSecurityCheck) (void);
+extern int xsltCheckRead(xsltSecurityPrefsPtr sec,
+			 xsltTransformContextPtr ctxt,
+			 const unsigned char *URL);
+extern int xsltCheckWrite(xsltSecurityPrefsPtr sec,
+			  xsltTransformContextPtr ctxt,
+			  const unsigned char *URL);
+extern void xsltFreeSecurityPrefs(xsltSecurityPrefsPtr sec);
+extern xsltSecurityPrefsPtr xsltGetDefaultSecurityPrefs(void);
+extern xsltSecurityCheck xsltGetSecurityPrefs(xsltSecurityPrefsPtr sec,
+					      xsltSecurityOption option);
+extern xsltSecurityPrefsPtr xsltNewSecurityPrefs(void);
+extern int xsltSecurityAllow(xsltSecurityPrefsPtr sec,
+			     xsltTransformContextPtr ctxt,
+			     const char *value);
+extern int xsltSecurityForbid(xsltSecurityPrefsPtr sec,
+			      xsltTransformContextPtr ctxt,
+			      const char *value);
+extern int xsltSetCtxtSecurityPrefs(xsltSecurityPrefsPtr sec,
+				    xsltTransformContextPtr ctxt);
+extern void xsltSetDefaultSecurityPrefs(xsltSecurityPrefsPtr sec);
+extern int xsltSetSecurityPrefs(xsltSecurityPrefsPtr sec,
+				xsltSecurityOption option,
+				xsltSecurityCheck func);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8271"
+>9.2.13. libxslt/templates.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;extern xmlAttrPtr xsltAttrListTemplateProcess(xsltTransformContextPtr ctxt,
+					      xmlNode * target,
+					      xmlAttrPtr cur);
+extern xmlAttrPtr xsltAttrTemplateProcess(xsltTransformContextPtr ctxt,
+					  xmlNode * target,
+					  xmlAttrPtr attr);
+extern xmlChar *xsltAttrTemplateValueProcess(xsltTransformContextPtr ctxt,
+					     const unsigned char *attr);
+extern xmlChar *xsltAttrTemplateValueProcessNode(xsltTransformContextPtr
+						 ctxt,
+						 const unsigned char *str,
+						 xmlNode * node);
+extern xmlChar *xsltEvalAttrValueTemplate(xsltTransformContextPtr ctxt,
+					  xmlNodePtr node,
+					  const unsigned char *name,
+					  const unsigned char *ns);
+extern const unsigned char
+    *xsltEvalStaticAttrValueTemplate(xsltStylesheetPtr style,
+				     xmlNodePtr node,
+				     const unsigned char *name,
+				     const unsigned char *ns, int *found);
+extern xmlChar *xsltEvalTemplateString(xsltTransformContextPtr ctxt,
+				       xmlNodePtr contextNode,
+				       xmlNodePtr inst);
+extern int xsltEvalXPathPredicate(xsltTransformContextPtr ctxt,
+				  xmlXPathCompExprPtr comp,
+				  xmlNs * *nsList, int nsNr);
+extern xmlChar *xsltEvalXPathString(xsltTransformContextPtr ctxt,
+				    xmlXPathCompExprPtr comp);
+extern xmlChar *xsltEvalXPathStringNs(xsltTransformContextPtr ctxt,
+				      xmlXPathCompExprPtr comp, int nsNr,
+				      xmlNs * *nsList);
+extern xmlNode **xsltTemplateProcess(xsltTransformContextPtr ctxt,
+				     xmlNode * node);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8275"
+>9.2.14. libxslt/transform.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;extern void xslHandleDebugger(xmlNodePtr cur, xmlNodePtr node,
+			      xsltTemplatePtr templ,
+			      xsltTransformContextPtr ctxt);
+extern void xsltApplyImports(xsltTransformContextPtr ctxt, xmlNodePtr node,
+			     xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltApplyOneTemplate(xsltTransformContextPtr ctxt,
+				 xmlNodePtr node, xmlNodePtr list,
+				 xsltTemplatePtr templ,
+				 xsltStackElemPtr params);
+extern void xsltApplyStripSpaces(xsltTransformContextPtr ctxt,
+				 xmlNodePtr node);
+extern xmlDocPtr xsltApplyStylesheet(xsltStylesheetPtr style,
+				     xmlDocPtr doc, const char **params);
+extern xmlDocPtr xsltApplyStylesheetUser(xsltStylesheetPtr style,
+					 xmlDocPtr doc,
+					 const char **params,
+					 const char *output,
+					 FILE * profile,
+					 xsltTransformContextPtr userCtxt);
+extern void xsltApplyTemplates(xsltTransformContextPtr ctxt,
+			       xmlNodePtr node, xmlNodePtr inst,
+			       xsltStylePreCompPtr comp);
+extern void xsltAttribute(xsltTransformContextPtr ctxt, xmlNodePtr node,
+			  xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltCallTemplate(xsltTransformContextPtr ctxt, xmlNodePtr node,
+			     xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltChoose(xsltTransformContextPtr ctxt, xmlNodePtr node,
+		       xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltComment(xsltTransformContextPtr ctxt, xmlNodePtr node,
+			xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltCopy(xsltTransformContextPtr ctxt, xmlNodePtr node,
+		     xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltCopyOf(xsltTransformContextPtr ctxt, xmlNodePtr node,
+		       xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern xmlNodePtr xsltCopyTextString(xsltTransformContextPtr ctxt,
+				     xmlNodePtr target,
+				     const unsigned char *string,
+				     int noescape);
+extern void xsltDocumentElem(xsltTransformContextPtr ctxt, xmlNodePtr node,
+			     xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltElement(xsltTransformContextPtr ctxt, xmlNodePtr node,
+			xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltForEach(xsltTransformContextPtr ctxt, xmlNodePtr node,
+			xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltFreeTransformContext(xsltTransformContextPtr ctxt);
+extern int xsltGetXIncludeDefault(void);
+extern void xsltIf(xsltTransformContextPtr ctxt, xmlNodePtr node,
+		   xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltLocalVariablePop(xsltTransformContextPtr ctxt, int limitNr,
+				 int level);
+extern int xsltLocalVariablePush(xsltTransformContextPtr ctxt,
+				 xsltStackElemPtr variable, int level);
+extern xsltTransformContextPtr xsltNewTransformContext(xsltStylesheetPtr
+						       style,
+						       xmlDocPtr doc);
+extern void xsltNumber(xsltTransformContextPtr ctxt, xmlNodePtr node,
+		       xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltProcessOneNode(xsltTransformContextPtr ctxt,
+			       xmlNodePtr node, xsltStackElemPtr params);
+extern void xsltProcessingInstruction(xsltTransformContextPtr ctxt,
+				      xmlNodePtr node, xmlNodePtr inst,
+				      xsltStylePreCompPtr comp);
+extern xmlDocPtr xsltProfileStylesheet(xsltStylesheetPtr style,
+				       xmlDocPtr doc, const char **params,
+				       FILE * output);
+extern void xsltRegisterAllElement(xsltTransformContextPtr ctxt);
+extern int xsltRunStylesheet(xsltStylesheetPtr style, xmlDocPtr doc,
+			     const char **params, const char *output,
+			     xmlSAXHandlerPtr SAX,
+			     xmlOutputBufferPtr IObuf);
+extern int xsltRunStylesheetUser(xsltStylesheetPtr style, xmlDocPtr doc,
+				 const char **params, const char *output,
+				 xmlSAXHandlerPtr SAX,
+				 xmlOutputBufferPtr IObuf, FILE * profile,
+				 xsltTransformContextPtr userCtxt);
+extern void xsltSetXIncludeDefault(int xinclude);
+extern void xsltSort(xsltTransformContextPtr ctxt, xmlNodePtr node,
+		     xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltText(xsltTransformContextPtr ctxt, xmlNodePtr node,
+		     xmlNodePtr inst, xsltStylePreCompPtr comp);
+extern void xsltValueOf(xsltTransformContextPtr ctxt, xmlNodePtr node,
+			xmlNodePtr inst, xsltStylePreCompPtr comp);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8279"
+>9.2.15. libxslt/variables.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XSLT_REGISTER_VARIABLE_LOOKUP(ctxt)	xmlXPathRegisterVariableLookup((ctxt)-&#62;xpathCtxt, xsltXPathVariableLookup, (void *)(ctxt)); xsltRegisterAllFunctions((ctxt)-&#62;xpathCtxt); xsltRegisterAllElement(ctxt); (ctxt)-&#62;xpathCtxt-&#62;extra = ctxt
+
+extern int xsltAddStackElemList(xsltTransformContextPtr ctxt,
+				xsltStackElemPtr elems);
+extern int xsltEvalGlobalVariables(xsltTransformContextPtr ctxt);
+extern int xsltEvalOneUserParam(xsltTransformContextPtr ctxt,
+				const unsigned char *name,
+				const unsigned char *value);
+extern int xsltEvalUserParams(xsltTransformContextPtr ctxt,
+			      const char **params);
+extern void xsltFreeGlobalVariables(xsltTransformContextPtr ctxt);
+extern void xsltParseGlobalParam(xsltStylesheetPtr style, xmlNodePtr cur);
+extern void xsltParseGlobalVariable(xsltStylesheetPtr style,
+				    xmlNodePtr cur);
+extern xsltStackElemPtr
+xsltParseStylesheetCallerParam(xsltTransformContextPtr ctxt,
+			       xmlNodePtr cur);
+extern void xsltParseStylesheetParam(xsltTransformContextPtr ctxt,
+				     xmlNodePtr cur);
+extern void xsltParseStylesheetVariable(xsltTransformContextPtr ctxt,
+					xmlNodePtr cur);
+extern int xsltQuoteOneUserParam(xsltTransformContextPtr ctxt,
+				 const unsigned char *name,
+				 const unsigned char *value);
+extern int xsltQuoteUserParams(xsltTransformContextPtr ctxt,
+			       const char **params);
+extern xmlXPathObjectPtr xsltVariableLookup(xsltTransformContextPtr ctxt,
+					    const unsigned char *name,
+					    const unsigned char *ns_uri);
+extern xmlXPathObjectPtr xsltXPathVariableLookup(void *ctxt,
+						 const unsigned char *name,
+						 const unsigned char
+						 *ns_uri);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8283"
+>9.2.16. libxslt/xslt.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XSLT_NAMESPACE	((xmlChar *) "http://www.w3.org/1999/XSL/Transform")
+#define XSLT_DEFAULT_VERSION	"1.0"
+#define XSLT_DEFAULT_URL	"http://xmlsoft.org/XSLT/"
+#define XSLT_DEFAULT_VENDOR	"libxslt"
+#define XSLT_PARSE_OPTIONS	XML_PARSE_NOENT | XML_PARSE_DTDLOAD | XML_PARSE_DTDATTR | XML_PARSE_NOCDATA
+
+extern void xsltCleanupGlobals(void);
+extern const char *xsltEngineVersion;
+extern void xsltInit(void);
+extern const int xsltLibxmlVersion;
+extern const int xsltLibxsltVersion;
+extern int xsltMaxDepth;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8287"
+>9.2.17. libxslt/xsltInternals.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XSLT_FAST_IF
+#define XSLT_REFACTORED_KEYCOMP
+#define XSLT_REFACTORED_VARS
+#define XSLT_IS_TEXT_NODE(n)	((n != NULL) &#38;&#38; (((n)-&#62;type == XML_TEXT_NODE) || ((n)-&#62;type == XML_CDATA_SECTION_NODE)))
+#define XSLT_IS_RES_TREE_FRAG(n)	((n != NULL) &#38;&#38; ((n)-&#62;type == XML_DOCUMENT_NODE) &#38;&#38; ((n)-&#62;name != NULL) &#38;&#38; ((n)-&#62;name[0] == ' '))
+#define XSLT_RUNTIME_EXTRA_FREE(ctxt,nr)	(ctxt)-&#62;extras[(nr)].deallocate
+#define XSLT_RUNTIME_EXTRA_LST(ctxt,nr)	(ctxt)-&#62;extras[(nr)].info
+#define XSLT_RUNTIME_EXTRA(ctxt,nr,typ)	(ctxt)-&#62;extras[(nr)].val.typ
+#define XSLT_MARK_RES_TREE_FRAG(n)	(n)-&#62;name = (char *) xmlStrdup(BAD_CAST " fake node libxslt");
+#define XSLT_PAT_NO_PRIORITY	-12345789
+#define XSLT_MAX_SORT	15
+#define CHECK_STOPPEDE	if (ctxt-&#62;state == XSLT_STATE_STOPPED) goto error;
+#define CHECK_STOPPED0	if (ctxt-&#62;state == XSLT_STATE_STOPPED) return(0);
+#define CHECK_STOPPED	if (ctxt-&#62;state == XSLT_STATE_STOPPED) return;
+
+typedef struct _xsltRuntimeExtra {
+    void *info;
+    xmlFreeFunc deallocate;
+    union {
+	void *ptr;
+	int ival;
+    } val;
+} xsltRuntimeExtra;
+typedef xsltRuntimeExtra *xsltRuntimeExtraPtr;
+typedef struct _xsltTemplate {
+    struct _xsltTemplate *next;
+    struct _xsltStylesheet *style;
+    xmlChar *match;
+    float priority;
+    const unsigned char *name;
+    const unsigned char *nameURI;
+    const unsigned char *mode;
+    const unsigned char *modeURI;
+    xmlNodePtr content;
+    xmlNodePtr elem;
+    int inheritedNsNr;
+    xmlNs **inheritedNs;
+    int nbCalls;
+    unsigned long int time;
+    void *params;
+} xsltTemplate;
+typedef xsltTemplate *xsltTemplatePtr;
+typedef struct _xsltDecimalFormat {
+    struct _xsltDecimalFormat *next;
+    xmlChar *name;
+    xmlChar *digit;
+    xmlChar *patternSeparator;
+    xmlChar *minusSign;
+    xmlChar *infinity;
+    xmlChar *noNumber;
+    xmlChar *decimalPoint;
+    xmlChar *grouping;
+    xmlChar *percent;
+    xmlChar *permille;
+    xmlChar *zeroDigit;
+} xsltDecimalFormat;
+typedef xsltDecimalFormat *xsltDecimalFormatPtr;
+typedef struct _xsltDocument {
+    struct _xsltDocument *next;
+    int main;
+    xmlDocPtr doc;
+    void *keys;
+    struct _xsltDocument *includes;
+    int preproc;
+    int nbKeysComputed;
+} xsltDocument;
+typedef xsltDocument *xsltDocumentPtr;
+typedef struct _xsltKeyDef {
+    struct _xsltKeyDef *next;
+    xmlNodePtr inst;
+    xmlChar *name;
+    xmlChar *nameURI;
+    xmlChar *match;
+    xmlChar *use;
+    xmlXPathCompExprPtr comp;
+    xmlXPathCompExprPtr usecomp;
+    xmlNs **nsList;
+    int nsNr;
+} xsltKeyDef;
+typedef xsltKeyDef *xsltKeyDefPtr;
+typedef struct _xsltKeyTable {
+    struct _xsltKeyTable *next;
+    xmlChar *name;
+    xmlChar *nameURI;
+    xmlHashTablePtr keys;
+} xsltKeyTable;
+typedef struct _xsltStylesheet {
+    struct _xsltStylesheet *parent;
+    struct _xsltStylesheet *next;
+    struct _xsltStylesheet *imports;
+    xsltDocumentPtr docList;
+    xmlDocPtr doc;
+    xmlHashTablePtr stripSpaces;
+    int stripAll;
+    xmlHashTablePtr cdataSection;
+    xsltStackElemPtr variables;
+    xsltTemplatePtr templates;
+    void *templatesHash;
+    void *rootMatch;
+    void *keyMatch;
+    void *elemMatch;
+    void *attrMatch;
+    void *parentMatch;
+    void *textMatch;
+    void *piMatch;
+    void *commentMatch;
+    xmlHashTablePtr nsAliases;
+    xmlHashTablePtr attributeSets;
+    xmlHashTablePtr nsHash;
+    void *nsDefs;
+    void *keys;
+    xmlChar *method;
+    xmlChar *methodURI;
+    xmlChar *version;
+    xmlChar *encoding;
+    int omitXmlDeclaration;
+    xsltDecimalFormatPtr decimalFormat;
+    int standalone;
+    xmlChar *doctypePublic;
+    xmlChar *doctypeSystem;
+    int indent;
+    xmlChar *mediaType;
+    xsltElemPreCompPtr preComps;
+    int warnings;
+    int errors;
+    xmlChar *exclPrefix;
+    xmlChar **exclPrefixTab;
+    int exclPrefixNr;
+    int exclPrefixMax;
+    void *_private;
+    xmlHashTablePtr extInfos;
+    int extrasNr;
+    xsltDocumentPtr includes;
+    xmlDictPtr dict;
+    void *attVTs;
+    const unsigned char *defaultAlias;
+    int nopreproc;
+    int internalized;
+    int literal_result;
+    xsltStylesheetPtr principal;
+} xsltStylesheet;
+typedef xsltStylesheet *xsltStylesheetPtr;
+typedef struct _xsltTransformContext {
+    xsltStylesheetPtr style;
+    xsltOutputType type;
+    xsltTemplatePtr templ;
+    int templNr;
+    int templMax;
+    xsltTemplatePtr *templTab;
+    xsltStackElemPtr vars;
+    int varsNr;
+    int varsMax;
+    xsltStackElemPtr *varsTab;
+    int varsBase;
+    xmlHashTablePtr extFunctions;
+    xmlHashTablePtr extElements;
+    xmlHashTablePtr extInfos;
+    const unsigned char *mode;
+    const unsigned char *modeURI;
+    xsltDocumentPtr docList;
+    xsltDocumentPtr document;
+    xmlNode *node;
+    xmlNodeSetPtr nodeList;
+    xmlDocPtr output;
+    xmlNode *insert;
+    xmlXPathContextPtr xpathCtxt;
+    xsltTransformState state;
+    xmlHashTablePtr globalVars;
+    xmlNode *inst;
+    int xinclude;
+    const char *outputFile;
+    int profile;
+    long int prof;
+    int profNr;
+    int profMax;
+    long int *profTab;
+    void *_private;
+    int extrasNr;
+    int extrasMax;
+    xsltRuntimeExtraPtr extras;
+    xsltDocumentPtr styleList;
+    void *sec;
+    xmlGenericErrorFunc error;
+    void *errctx;
+    xsltSortFunc sortfunc;
+    xmlDocPtr tmpRVT;
+    xmlDocPtr persistRVT;
+    int ctxtflags;
+    const unsigned char *lasttext;
+    unsigned int lasttsize;
+    unsigned int lasttuse;
+    int debugStatus;
+    unsigned long int *traceCode;
+    int parserOptions;
+    xmlDictPtr dict;
+    xmlDocPtr tmpDoc;
+    int internalized;
+    int nbKeys;
+    int hasTemplKeyPatterns;
+    xsltTemplatePtr currentTemplateRule;
+    xmlNode *initialContextNode;
+    xmlDocPtr initialContextDoc;
+    xsltTransformCachePtr cache;
+    void *contextVariable;
+    xmlDocPtr localRVT;
+    xmlDocPtr localRVTBase;
+    int keyInitLevel;
+    int funcLevel;
+} xsltTransformContext;
+typedef xsltTransformContext *xsltTransformContextPtr;
+typedef struct _xsltElemPreComp {
+    xsltElemPreCompPtr next;
+    xsltStyleType type;
+    xsltTransformFunction func;
+    xmlNode *inst;
+    xsltElemPreCompDeallocator free;
+} xsltElemPreComp;
+typedef xsltElemPreComp *xsltElemPreCompPtr;
+typedef void (*xsltTransformFunction) (void);
+typedef void (*xsltSortFunc) (void);
+typedef enum {
+    XSLT_FUNC_COPY,
+    XSLT_FUNC_SORT,
+    XSLT_FUNC_TEXT,
+    XSLT_FUNC_ELEMENT,
+    XSLT_FUNC_ATTRIBUTE,
+    XSLT_FUNC_COMMENT,
+    XSLT_FUNC_PI,
+    XSLT_FUNC_COPYOF,
+    XSLT_FUNC_VALUEOF,
+    XSLT_FUNC_NUMBER,
+    XSLT_FUNC_APPLYIMPORTS,
+    XSLT_FUNC_CALLTEMPLATE,
+    XSLT_FUNC_APPLYTEMPLATES,
+    XSLT_FUNC_CHOOSE,
+    XSLT_FUNC_IF,
+    XSLT_FUNC_FOREACH,
+    XSLT_FUNC_DOCUMENT,
+    XSLT_FUNC_WITHPARAM,
+    XSLT_FUNC_PARAM,
+    XSLT_FUNC_VARIABLE,
+    XSLT_FUNC_WHEN,
+    XSLT_FUNC_EXTENSION
+} xsltStyleType;
+typedef void (*xsltElemPreCompDeallocator) (void);
+typedef struct _xsltStylePreComp {
+    xsltElemPreCompPtr next;
+    xsltStyleType type;
+    xsltTransformFunction func;
+    xmlNode *inst;
+    const unsigned char *stype;
+    int has_stype;
+    int number;
+    const unsigned char *order;
+    int has_order;
+    int descending;
+    const unsigned char *lang;
+    int has_lang;
+    xsltLocale locale;
+    const unsigned char *case_order;
+    int lower_first;
+    const unsigned char *use;
+    int has_use;
+    int noescape;
+    const unsigned char *name;
+    int has_name;
+    const unsigned char *ns;
+    int has_ns;
+    const unsigned char *mode;
+    const unsigned char *modeURI;
+    const unsigned char *test;
+    xsltTemplatePtr templ;
+    const unsigned char *select;
+    int ver11;
+    const unsigned char *filename;
+    int has_filename;
+    xsltNumberData numdata;
+    xmlXPathCompExprPtr comp;
+    xmlNs **nsList;
+    int nsNr;
+} xsltStylePreComp;
+typedef xsltStylePreComp *xsltStylePreCompPtr;
+typedef struct _xsltStackElem {
+    struct _xsltStackElem *next;
+    xsltStylePreCompPtr comp;
+    int computed;
+    const unsigned char *name;
+    const unsigned char *nameURI;
+    const unsigned char *select;
+    xmlNode *tree;
+    xmlXPathObjectPtr value;
+    xmlDocPtr fragment;
+    int level;
+    xsltTransformContextPtr context;
+    int flags;
+} xsltStackElem;
+typedef xsltStackElem *xsltStackElemPtr;
+typedef struct _xsltTransformCache {
+    xmlDocPtr RVT;
+    int nbRVT;
+    xsltStackElemPtr stackItems;
+    int nbStackItems;
+} xsltTransformCache;
+typedef xsltTransformCache *xsltTransformCachePtr;
+typedef enum {
+    XSLT_OUTPUT_XML,
+    XSLT_OUTPUT_HTML,
+    XSLT_OUTPUT_TEXT
+} xsltOutputType;
+typedef enum {
+    XSLT_STATE_OK,
+    XSLT_STATE_ERROR,
+    XSLT_STATE_STOPPED
+} xsltTransformState;
+extern int xsltAllocateExtra(xsltStylesheetPtr style);
+extern int xsltAllocateExtraCtxt(xsltTransformContextPtr ctxt);
+extern void xsltCompileAttr(xsltStylesheetPtr style, xmlAttrPtr attr);
+extern xmlDocPtr xsltCreateRVT(xsltTransformContextPtr ctxt);
+extern xsltDecimalFormatPtr xsltDecimalFormatGetByName(xsltStylesheetPtr
+						       style,
+						       xmlChar * name);
+extern xmlChar *xsltEvalAVT(xsltTransformContextPtr ctxt, void *avt,
+			    xmlNode * node);
+extern int xsltExtensionInstructionResultFinalize(xsltTransformContextPtr
+						  ctxt);
+extern int xsltExtensionInstructionResultRegister(xsltTransformContextPtr
+						  ctxt,
+						  xmlXPathObjectPtr obj);
+extern xmlXPathError xsltFormatNumberConversion(xsltDecimalFormatPtr self,
+						xmlChar * format,
+						double number,
+						xmlChar * *result);
+extern void xsltFreeAVTList(void *avt);
+extern void xsltFreeRVTs(xsltTransformContextPtr ctxt);
+extern void xsltFreeStackElemList(xsltStackElemPtr elem);
+extern void xsltFreeStylesheet(xsltStylesheetPtr style);
+extern int xsltInitAllDocKeys(xsltTransformContextPtr ctxt);
+extern int xsltInitCtxtKey(xsltTransformContextPtr ctxt,
+			   xsltDocumentPtr doc, xsltKeyDefPtr keyd);
+extern int xsltIsBlank(xmlChar * str);
+extern xsltStylesheetPtr xsltLoadStylesheetPI(xmlDocPtr doc);
+extern xsltStylesheetPtr xsltNewStylesheet(void);
+extern void xsltNumberFormat(xsltTransformContextPtr ctxt,
+			     xsltNumberDataPtr data, xmlNode * node);
+extern xsltStylesheetPtr xsltParseStylesheetDoc(xmlDocPtr doc);
+extern xsltStylesheetPtr xsltParseStylesheetFile(const unsigned char
+						 *filename);
+extern xsltStylesheetPtr xsltParseStylesheetImportedDoc(xmlDocPtr doc,
+							xsltStylesheetPtr
+							style);
+extern void xsltParseStylesheetOutput(xsltStylesheetPtr style,
+				      xmlNode * cur);
+extern xsltStylesheetPtr xsltParseStylesheetProcess(xsltStylesheetPtr ret,
+						    xmlDocPtr doc);
+extern void xsltParseTemplateContent(xsltStylesheetPtr style,
+				     xmlNode * templ);
+extern int xsltRegisterLocalRVT(xsltTransformContextPtr ctxt,
+				xmlDocPtr RVT);
+extern int xsltRegisterPersistRVT(xsltTransformContextPtr ctxt,
+				  xmlDocPtr RVT);
+extern int xsltRegisterTmpRVT(xsltTransformContextPtr ctxt, xmlDocPtr RVT);
+extern void xsltReleaseRVT(xsltTransformContextPtr ctxt, xmlDocPtr RVT);
+extern void xsltUninit(void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8291"
+>9.2.18. libxslt/xsltconfig.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define LIBXSLT_VERSION_EXTRA	""
+#define WITH_DEBUGGER
+#define WITH_MODULES
+#define WITH_XSLT_DEBUG
+#define XSLT_LOCALE_XLOCALE
+#define LIBXSLT_DEFAULT_PLUGINS_PATH()	"/usr/lib/libxslt-plugins"
+#define LIBXSLT_DOTTED_VERSION	"1.1.26"
+#define LIBXSLT_VERSION	10126
+#define LIBXSLT_VERSION_STRING	"10126"</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8295"
+>9.2.19. libxslt/xsltexports.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XSLTCALL
+#define XSLTPUBFUN
+#define XSLTPUBVAR	extern
+#define LIBXSLT_PUBLIC	XSLTPUBVAR</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8299"
+>9.2.20. libxslt/xsltlocale.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define XSLT_LOCALE_NONE
+
+typedef void *xsltLocale;
+typedef unsigned char xsltLocaleChar;
+extern void xsltFreeLocale(xsltLocale locale);
+extern int xsltLocaleStrcmp(xsltLocale locale, const xsltLocaleChar * str1,
+			    const xsltLocaleChar * str2);
+extern xsltLocale xsltNewLocale(const unsigned char *langName);
+extern xsltLocaleChar *xsltStrxfrm(xsltLocale locale,
+				   const unsigned char *string);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8303"
+>9.2.21. libxslt/xsltutils.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define IS_XSLT_REAL_NODE(n)	(((n) != NULL) &#38;&#38; (((n)-&#62;type == XML_ELEMENT_NODE) || ((n)-&#62;type == XML_TEXT_NODE) || ((n)-&#62;type == XML_CDATA_SECTION_NODE) || ((n)-&#62;type == XML_ATTRIBUTE_NODE) || ((n)-&#62;type == XML_DOCUMENT_NODE) || ((n)-&#62;type == XML_HTML_DOCUMENT_NODE) || ((n)-&#62;type == XML_COMMENT_NODE) || ((n)-&#62;type == XML_PI_NODE)))
+#define IS_XSLT_ELEM(n)	(((n) != NULL) &#38;&#38; ((n)-&#62;ns != NULL) &#38;&#38; (xmlStrEqual((n)-&#62;ns-&#62;href, XSLT_NAMESPACE)))
+#define IS_XSLT_NAME(n,val)	(xmlStrEqual((n)-&#62;name, (const xmlChar *) (val)))
+#define XSLT_TIMESTAMP_TICS_PER_SEC	100000l
+#define XSLT_TRACE(ctxt,code,call)	if (ctxt-&#62;traceCode &#38;&#38; (*(ctxt-&#62;traceCode) &#38; code)) call
+#define XSLT_STRANGE	xsltGenericError(xsltGenericErrorContext, "Internal error at %s:%d\n", __FILE__, __LINE__);
+#define XSLT_TODO	xsltGenericError(xsltGenericErrorContext, "Unimplemented block at %s:%d\n", __FILE__, __LINE__);
+
+typedef enum {
+    XSLT_TRACE_ALL,
+    XSLT_TRACE_NONE,
+    XSLT_TRACE_COPY_TEXT,
+    XSLT_TRACE_PROCESS_NODE,
+    XSLT_TRACE_APPLY_TEMPLATE,
+    XSLT_TRACE_COPY,
+    XSLT_TRACE_COMMENT,
+    XSLT_TRACE_PI,
+    XSLT_TRACE_COPY_OF,
+    XSLT_TRACE_VALUE_OF,
+    XSLT_TRACE_CALL_TEMPLATE,
+    XSLT_TRACE_APPLY_TEMPLATES,
+    XSLT_TRACE_CHOOSE,
+    XSLT_TRACE_IF,
+    XSLT_TRACE_FOR_EACH,
+    XSLT_TRACE_STRIP_SPACES,
+    XSLT_TRACE_TEMPLATES,
+    XSLT_TRACE_KEYS,
+    XSLT_TRACE_VARIABLES
+} xsltDebugTraceCodes;
+extern int xslAddCall(xsltTemplatePtr templ, xmlNode * source);
+extern int xslDebugStatus;
+extern void xslDropCall(void);
+extern void xsltCalibrateAdjust(long int delta);
+extern xmlXPathObject **xsltComputeSortResult(xsltTransformContextPtr ctxt,
+					      xmlNode * sort);
+extern xsltDebugTraceCodes xsltDebugGetDefaultTrace(void);
+extern void xsltDebugSetDefaultTrace(xsltDebugTraceCodes val);
+extern void xsltDefaultSortFunction(xsltTransformContextPtr ctxt,
+				    xmlNode * *sorts, int nbsorts);
+extern void xsltDoSortFunction(xsltTransformContextPtr ctxt,
+			       xmlNode * *sorts, int nbsorts);
+extern void xsltDocumentSortFunction(xmlNodeSetPtr list);
+extern xmlGenericErrorFunc xsltGenericDebug;
+extern void *xsltGenericDebugContext;
+extern xmlGenericErrorFunc xsltGenericError;
+extern void *xsltGenericErrorContext;
+extern const unsigned char *xsltGetCNsProp(xsltStylesheetPtr style,
+					   xmlNodePtr node,
+					   const unsigned char *name,
+					   const unsigned char *nameSpace);
+extern int xsltGetDebuggerStatus(void);
+extern xmlChar *xsltGetNsProp(xmlNodePtr node, const unsigned char *name,
+			      const unsigned char *nameSpace);
+extern xmlDocPtr xsltGetProfileInformation(xsltTransformContextPtr ctxt);
+extern const unsigned char *xsltGetQNameURI(xmlNode * node,
+					    xmlChar * *name);
+extern const unsigned char *xsltGetQNameURI2(xsltStylesheetPtr style,
+					     xmlNode * node,
+					     const unsigned char **name);
+extern int xsltGetUTF8Char(const unsigned char *utf, int *len);
+extern void xsltMessage(xsltTransformContextPtr ctxt, xmlNodePtr node,
+			xmlNodePtr inst);
+extern void xsltPrintErrorContext(xsltTransformContextPtr ctxt,
+				  xsltStylesheetPtr style,
+				  xmlNodePtr node);
+extern void xsltSaveProfiling(xsltTransformContextPtr ctxt, FILE * output);
+extern int xsltSaveResultTo(xmlOutputBufferPtr buf, xmlDocPtr result,
+			    xsltStylesheetPtr style);
+extern int xsltSaveResultToFd(int fd, xmlDocPtr result,
+			      xsltStylesheetPtr style);
+extern int xsltSaveResultToFile(FILE * file, xmlDocPtr result,
+				xsltStylesheetPtr style);
+extern int xsltSaveResultToFilename(const char *URI, xmlDocPtr result,
+				    xsltStylesheetPtr style,
+				    int compression);
+extern int xsltSaveResultToString(xmlChar * *doc_txt_ptr, int *doc_txt_len,
+				  xmlDocPtr result,
+				  xsltStylesheetPtr style);
+extern int xsltSetCtxtParseOptions(xsltTransformContextPtr ctxt,
+				   int options);
+extern void xsltSetCtxtSortFunc(xsltTransformContextPtr ctxt,
+				xsltSortFunc handler);
+extern int xsltSetDebuggerCallbacks(int no, void *block);
+extern void xsltSetDebuggerStatus(int value);
+extern void xsltSetGenericDebugFunc(void *ctx,
+				    xmlGenericErrorFunc handler);
+extern void xsltSetGenericErrorFunc(void *ctx,
+				    xmlGenericErrorFunc handler);
+extern void xsltSetSortFunc(xsltSortFunc handler);
+extern void xsltSetTransformErrorFunc(xsltTransformContextPtr ctxt,
+				      void *ctx,
+				      xmlGenericErrorFunc handler);
+extern const unsigned char *xsltSplitQName(xmlDictPtr dict,
+					   const unsigned char *name,
+					   const unsigned char **prefix);
+extern long int xsltTimestamp(void);
+extern void xsltTransformError(xsltTransformContextPtr ctxt,
+			       xsltStylesheetPtr style, xmlNodePtr node,
+			       const char *msg, ...);
+extern xmlXPathCompExprPtr xsltXPathCompile(xsltStylesheetPtr style,
+					    const unsigned char *str);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="xmllibxslt.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="packagefmt.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Libraries</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="xmllibxslt.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Package Format and Installation</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

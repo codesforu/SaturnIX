@@ -1,0 +1,4730 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libQtSql</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="qt.html"><LINK
+REL="PREVIOUS"
+TITLE="_ZN10QGLContext8setValidEb"
+HREF="libqtcore--zn10qglc8setvalid.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libQtSql"
+HREF="libqtsql-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libqtcore--zn10qglc8setvalid.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 18. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libqtsql-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBQTSQL"
+>18.13. Interfaces for libQtSql</A
+></H1
+><P
+><A
+HREF="libqtsql.html#LIB-LIBQTSQL-DEF"
+>Table 18-559</A
+> defines the library name and shared object name
+for the libQtSql library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBQTSQL-DEF"
+></A
+><P
+><B
+>Table 18-559. libQtSql Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libQtSql</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libQtSql.so.4</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBQTSQL.1"
+></A
+>[CXXABI-1.86] <A
+HREF="normativerefs.html#STD.CXXABI"
+>Itanium&#8482; C++ ABI</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBQTSQL.2"
+></A
+>[LSB] <A
+HREF="normativerefs.html#STD.LSB"
+>This Specification</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBQTSQL.3"
+></A
+>[QtSql] <A
+HREF="normativerefs.html#STD.QTSQL"
+>QtSql 4.2.0</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBQTSQL.4"
+></A
+>[QtXml] <A
+HREF="normativerefs.html#STD.QTXML"
+>QtXml 4.2.0</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN160198"
+>18.13.1. Qt4 SQL</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN160201"
+>18.13.1.1. Class data for QSqlResult</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlResult class
+is described by <A
+HREF="libqtsql.html#CLS-48015-0"
+>Table 18-560</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="CLS-48015-0"
+></A
+><P
+><B
+>Table 18-560. Primary vtable for QSqlResult</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>Virtual Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>RTTI</TD
+><TD
+>typeinfo for QSqlResult</TD
+></TR
+><TR
+><TD
+>vfunc[0]:</TD
+><TD
+>QSqlResult::~QSqlResult()</TD
+></TR
+><TR
+><TD
+>vfunc[1]:</TD
+><TD
+>QSqlResult::~QSqlResult()</TD
+></TR
+><TR
+><TD
+>vfunc[2]:</TD
+><TD
+>QSqlResult::handle() const</TD
+></TR
+><TR
+><TD
+>vfunc[3]:</TD
+><TD
+>QSqlResult::setAt(int)</TD
+></TR
+><TR
+><TD
+>vfunc[4]:</TD
+><TD
+>QSqlResult::setActive(bool)</TD
+></TR
+><TR
+><TD
+>vfunc[5]:</TD
+><TD
+>QSqlResult::setLastError(QSqlError const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[6]:</TD
+><TD
+>QSqlResult::setQuery(QString const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[7]:</TD
+><TD
+>QSqlResult::setSelect(bool)</TD
+></TR
+><TR
+><TD
+>vfunc[8]:</TD
+><TD
+>QSqlResult::setForwardOnly(bool)</TD
+></TR
+><TR
+><TD
+>vfunc[9]:</TD
+><TD
+>QSqlResult::exec()</TD
+></TR
+><TR
+><TD
+>vfunc[10]:</TD
+><TD
+>QSqlResult::prepare(QString const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[11]:</TD
+><TD
+>QSqlResult::savePrepare(QString const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[12]:</TD
+><TD
+>QSqlResult::bindValue(int, QVariant const&#38;, QFlags&#60;QSql::ParamTypeFlag&#62;)</TD
+></TR
+><TR
+><TD
+>vfunc[13]:</TD
+><TD
+>QSqlResult::bindValue(QString const&#38;, QVariant const&#38;, QFlags&#60;QSql::ParamTypeFlag&#62;)</TD
+></TR
+><TR
+><TD
+>vfunc[14]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[15]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[16]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[17]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[18]:</TD
+><TD
+>QSqlResult::fetchNext()</TD
+></TR
+><TR
+><TD
+>vfunc[19]:</TD
+><TD
+>QSqlResult::fetchPrevious()</TD
+></TR
+><TR
+><TD
+>vfunc[20]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[21]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[22]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[23]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[24]:</TD
+><TD
+>QSqlResult::record() const</TD
+></TR
+><TR
+><TD
+>vfunc[25]:</TD
+><TD
+>QSqlResult::lastInsertId() const</TD
+></TR
+><TR
+><TD
+>vfunc[26]:</TD
+><TD
+>QSqlResult::virtual_hook(int, void*)</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The Run Time Type Information for the QSqlResult  class
+is described by <A
+HREF="libqtsql.html#RTTI-48005"
+>Table 18-561</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48005"
+></A
+><P
+><B
+>Table 18-561. typeinfo for QSqlResult</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlResult</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN160372"
+>18.13.1.2. Class data for QSqlDriverFactoryInterface</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlDriverFactoryInterface class
+is described by <A
+HREF="libqtsql.html#CLS-48023-0"
+>Table 18-562</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="CLS-48023-0"
+></A
+><P
+><B
+>Table 18-562. Primary vtable for QSqlDriverFactoryInterface</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>Virtual Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>RTTI</TD
+><TD
+>typeinfo for QSqlDriverFactoryInterface</TD
+></TR
+><TR
+><TD
+>vfunc[0]:</TD
+><TD
+>NULL or QSqlDriverFactoryInterface::~QSqlDriverFactoryInterface()</TD
+></TR
+><TR
+><TD
+>vfunc[1]:</TD
+><TD
+>NULL or QSqlDriverFactoryInterface::~QSqlDriverFactoryInterface()</TD
+></TR
+><TR
+><TD
+>vfunc[2]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[3]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The Run Time Type Information for the QSqlDriverFactoryInterface  class
+is described by <A
+HREF="libqtsql.html#RTTI-48013"
+>Table 18-563</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48013"
+></A
+><P
+><B
+>Table 18-563. typeinfo for QSqlDriverFactoryInterface</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__si_class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlDriverFactoryInterface</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QFactoryInterface</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN160433"
+>18.13.1.3. Class data for QSqlDriverPlugin</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlDriverPlugin class
+is described by <A
+HREF="libqtsql.html#CLS-48019-0"
+>Table 18-564</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="CLS-48019-0"
+></A
+><P
+><B
+>Table 18-564. Primary vtable for QSqlDriverPlugin</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>Virtual Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>RTTI</TD
+><TD
+>typeinfo for QSqlDriverPlugin</TD
+></TR
+><TR
+><TD
+>vfunc[0]:</TD
+><TD
+>QSqlDriverPlugin::metaObject() const</TD
+></TR
+><TR
+><TD
+>vfunc[1]:</TD
+><TD
+>QSqlDriverPlugin::qt_metacast(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[2]:</TD
+><TD
+>QSqlDriverPlugin::qt_metacall(QMetaObject::Call, int, void**)</TD
+></TR
+><TR
+><TD
+>vfunc[3]:</TD
+><TD
+>QSqlDriverPlugin::~QSqlDriverPlugin()</TD
+></TR
+><TR
+><TD
+>vfunc[4]:</TD
+><TD
+>QSqlDriverPlugin::~QSqlDriverPlugin()</TD
+></TR
+><TR
+><TD
+>vfunc[5]:</TD
+><TD
+>QObject::event(QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[6]:</TD
+><TD
+>QObject::eventFilter(QObject*, QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[7]:</TD
+><TD
+>QObject::timerEvent(QTimerEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[8]:</TD
+><TD
+>QObject::childEvent(QChildEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[9]:</TD
+><TD
+>QObject::customEvent(QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[10]:</TD
+><TD
+>QObject::connectNotify(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[11]:</TD
+><TD
+>QObject::disconnectNotify(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[12]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[13]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The Run Time Type Information for the QSqlDriverPlugin  class
+is described by <A
+HREF="libqtsql.html#RTTI-48009"
+>Table 18-565</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48009"
+></A
+><P
+><B
+>Table 18-565. typeinfo for QSqlDriverPlugin</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__vmi_class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlDriverPlugin</TD
+></TR
+><TR
+><TD
+>flags:</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QObject</TD
+><TD
+>2</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QSqlDriverFactoryInterface</TD
+><TD
+>2050</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN160554"
+>18.13.1.4. Class data for QSqlDriver</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlDriver class
+is described by <A
+HREF="libqtsql.html#CLS-48014-0"
+>Table 18-566</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="CLS-48014-0"
+></A
+><P
+><B
+>Table 18-566. Primary vtable for QSqlDriver</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>Virtual Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>RTTI</TD
+><TD
+>typeinfo for QSqlDriver</TD
+></TR
+><TR
+><TD
+>vfunc[0]:</TD
+><TD
+>QSqlDriver::metaObject() const</TD
+></TR
+><TR
+><TD
+>vfunc[1]:</TD
+><TD
+>QSqlDriver::qt_metacast(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[2]:</TD
+><TD
+>QSqlDriver::qt_metacall(QMetaObject::Call, int, void**)</TD
+></TR
+><TR
+><TD
+>vfunc[3]:</TD
+><TD
+>QSqlDriver::~QSqlDriver()</TD
+></TR
+><TR
+><TD
+>vfunc[4]:</TD
+><TD
+>QSqlDriver::~QSqlDriver()</TD
+></TR
+><TR
+><TD
+>vfunc[5]:</TD
+><TD
+>QObject::event(QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[6]:</TD
+><TD
+>QObject::eventFilter(QObject*, QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[7]:</TD
+><TD
+>QObject::timerEvent(QTimerEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[8]:</TD
+><TD
+>QObject::childEvent(QChildEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[9]:</TD
+><TD
+>QObject::customEvent(QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[10]:</TD
+><TD
+>QObject::connectNotify(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[11]:</TD
+><TD
+>QObject::disconnectNotify(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[12]:</TD
+><TD
+>QSqlDriver::isOpen() const</TD
+></TR
+><TR
+><TD
+>vfunc[13]:</TD
+><TD
+>QSqlDriver::beginTransaction()</TD
+></TR
+><TR
+><TD
+>vfunc[14]:</TD
+><TD
+>QSqlDriver::commitTransaction()</TD
+></TR
+><TR
+><TD
+>vfunc[15]:</TD
+><TD
+>QSqlDriver::rollbackTransaction()</TD
+></TR
+><TR
+><TD
+>vfunc[16]:</TD
+><TD
+>QSqlDriver::tables(QSql::TableType) const</TD
+></TR
+><TR
+><TD
+>vfunc[17]:</TD
+><TD
+>QSqlDriver::primaryIndex(QString const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[18]:</TD
+><TD
+>QSqlDriver::record(QString const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[19]:</TD
+><TD
+>QSqlDriver::formatValue(QSqlField const&#38;, bool) const</TD
+></TR
+><TR
+><TD
+>vfunc[20]:</TD
+><TD
+>QSqlDriver::escapeIdentifier(QString const&#38;, QSqlDriver::IdentifierType) const</TD
+></TR
+><TR
+><TD
+>vfunc[21]:</TD
+><TD
+>QSqlDriver::sqlStatement(QSqlDriver::StatementType, QString const&#38;, QSqlRecord const&#38;, bool) const</TD
+></TR
+><TR
+><TD
+>vfunc[22]:</TD
+><TD
+>QSqlDriver::handle() const</TD
+></TR
+><TR
+><TD
+>vfunc[23]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[24]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[25]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[26]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[27]:</TD
+><TD
+>QSqlDriver::setOpen(bool)</TD
+></TR
+><TR
+><TD
+>vfunc[28]:</TD
+><TD
+>QSqlDriver::setOpenError(bool)</TD
+></TR
+><TR
+><TD
+>vfunc[29]:</TD
+><TD
+>QSqlDriver::setLastError(QSqlError const&#38;)</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The Run Time Type Information for the QSqlDriver  class
+is described by <A
+HREF="libqtsql.html#RTTI-48004"
+>Table 18-567</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48004"
+></A
+><P
+><B
+>Table 18-567. typeinfo for QSqlDriver</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__si_class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlDriver</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QObject</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN160745"
+>18.13.1.5. Class data for QSqlQueryModel</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlQueryModel class
+is described by <A
+HREF="libqtsql.html#CLS-48016-0"
+>Table 18-568</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="CLS-48016-0"
+></A
+><P
+><B
+>Table 18-568. Primary vtable for QSqlQueryModel</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>Virtual Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>RTTI</TD
+><TD
+>typeinfo for QSqlQueryModel</TD
+></TR
+><TR
+><TD
+>vfunc[0]:</TD
+><TD
+>QSqlQueryModel::metaObject() const</TD
+></TR
+><TR
+><TD
+>vfunc[1]:</TD
+><TD
+>QSqlQueryModel::qt_metacast(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[2]:</TD
+><TD
+>QSqlQueryModel::qt_metacall(QMetaObject::Call, int, void**)</TD
+></TR
+><TR
+><TD
+>vfunc[3]:</TD
+><TD
+>QSqlQueryModel::~QSqlQueryModel()</TD
+></TR
+><TR
+><TD
+>vfunc[4]:</TD
+><TD
+>QSqlQueryModel::~QSqlQueryModel()</TD
+></TR
+><TR
+><TD
+>vfunc[5]:</TD
+><TD
+>QObject::event(QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[6]:</TD
+><TD
+>QObject::eventFilter(QObject*, QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[7]:</TD
+><TD
+>QObject::timerEvent(QTimerEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[8]:</TD
+><TD
+>QObject::childEvent(QChildEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[9]:</TD
+><TD
+>QObject::customEvent(QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[10]:</TD
+><TD
+>QObject::connectNotify(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[11]:</TD
+><TD
+>QObject::disconnectNotify(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[12]:</TD
+><TD
+>QAbstractTableModel::index(int, int, QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[13]:</TD
+><TD
+>QAbstractTableModel::parent(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[14]:</TD
+><TD
+>QSqlQueryModel::rowCount(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[15]:</TD
+><TD
+>QSqlQueryModel::columnCount(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[16]:</TD
+><TD
+>QAbstractTableModel::hasChildren(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[17]:</TD
+><TD
+>QSqlQueryModel::data(QModelIndex const&#38;, int) const</TD
+></TR
+><TR
+><TD
+>vfunc[18]:</TD
+><TD
+>QAbstractItemModel::setData(QModelIndex const&#38;, QVariant const&#38;, int)</TD
+></TR
+><TR
+><TD
+>vfunc[19]:</TD
+><TD
+>QSqlQueryModel::headerData(int, Qt::Orientation, int) const</TD
+></TR
+><TR
+><TD
+>vfunc[20]:</TD
+><TD
+>QSqlQueryModel::setHeaderData(int, Qt::Orientation, QVariant const&#38;, int)</TD
+></TR
+><TR
+><TD
+>vfunc[21]:</TD
+><TD
+>QAbstractItemModel::itemData(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[22]:</TD
+><TD
+>QAbstractItemModel::setItemData(QModelIndex const&#38;, QMap&#60;int, QVariant&#62; const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[23]:</TD
+><TD
+>QAbstractItemModel::mimeTypes() const</TD
+></TR
+><TR
+><TD
+>vfunc[24]:</TD
+><TD
+>QAbstractItemModel::mimeData(QList&#60;QModelIndex&#62; const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[25]:</TD
+><TD
+>QAbstractTableModel::dropMimeData(QMimeData const*, Qt::DropAction, int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[26]:</TD
+><TD
+>QAbstractItemModel::supportedDropActions() const</TD
+></TR
+><TR
+><TD
+>vfunc[27]:</TD
+><TD
+>QAbstractItemModel::insertRows(int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[28]:</TD
+><TD
+>QSqlQueryModel::insertColumns(int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[29]:</TD
+><TD
+>QAbstractItemModel::removeRows(int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[30]:</TD
+><TD
+>QSqlQueryModel::removeColumns(int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[31]:</TD
+><TD
+>QSqlQueryModel::fetchMore(QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[32]:</TD
+><TD
+>QSqlQueryModel::canFetchMore(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[33]:</TD
+><TD
+>QAbstractItemModel::flags(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[34]:</TD
+><TD
+>QAbstractItemModel::sort(int, Qt::SortOrder)</TD
+></TR
+><TR
+><TD
+>vfunc[35]:</TD
+><TD
+>QAbstractItemModel::buddy(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[36]:</TD
+><TD
+>QAbstractItemModel::match(QModelIndex const&#38;, int, QVariant const&#38;, int, QFlags&#60;Qt::MatchFlag&#62;) const</TD
+></TR
+><TR
+><TD
+>vfunc[37]:</TD
+><TD
+>QAbstractItemModel::span(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[38]:</TD
+><TD
+>QAbstractItemModel::submit()</TD
+></TR
+><TR
+><TD
+>vfunc[39]:</TD
+><TD
+>QAbstractItemModel::revert()</TD
+></TR
+><TR
+><TD
+>vfunc[40]:</TD
+><TD
+>QSqlQueryModel::clear()</TD
+></TR
+><TR
+><TD
+>vfunc[41]:</TD
+><TD
+>QSqlQueryModel::queryChange()</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The Run Time Type Information for the QSqlQueryModel  class
+is described by <A
+HREF="libqtsql.html#RTTI-48006"
+>Table 18-569</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48006"
+></A
+><P
+><B
+>Table 18-569. typeinfo for QSqlQueryModel</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__si_class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlQueryModel</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QAbstractTableModel</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN160996"
+>18.13.1.6. Class data for QSqlTableModel</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlTableModel class
+is described by <A
+HREF="libqtsql.html#CLS-48017-0"
+>Table 18-570</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="CLS-48017-0"
+></A
+><P
+><B
+>Table 18-570. Primary vtable for QSqlTableModel</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>Virtual Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>RTTI</TD
+><TD
+>typeinfo for QSqlTableModel</TD
+></TR
+><TR
+><TD
+>vfunc[0]:</TD
+><TD
+>QSqlTableModel::metaObject() const</TD
+></TR
+><TR
+><TD
+>vfunc[1]:</TD
+><TD
+>QSqlTableModel::qt_metacast(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[2]:</TD
+><TD
+>QSqlTableModel::qt_metacall(QMetaObject::Call, int, void**)</TD
+></TR
+><TR
+><TD
+>vfunc[3]:</TD
+><TD
+>QSqlTableModel::~QSqlTableModel()</TD
+></TR
+><TR
+><TD
+>vfunc[4]:</TD
+><TD
+>QSqlTableModel::~QSqlTableModel()</TD
+></TR
+><TR
+><TD
+>vfunc[5]:</TD
+><TD
+>QObject::event(QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[6]:</TD
+><TD
+>QObject::eventFilter(QObject*, QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[7]:</TD
+><TD
+>QObject::timerEvent(QTimerEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[8]:</TD
+><TD
+>QObject::childEvent(QChildEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[9]:</TD
+><TD
+>QObject::customEvent(QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[10]:</TD
+><TD
+>QObject::connectNotify(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[11]:</TD
+><TD
+>QObject::disconnectNotify(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[12]:</TD
+><TD
+>QAbstractTableModel::index(int, int, QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[13]:</TD
+><TD
+>QAbstractTableModel::parent(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[14]:</TD
+><TD
+>QSqlTableModel::rowCount(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[15]:</TD
+><TD
+>QSqlQueryModel::columnCount(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[16]:</TD
+><TD
+>QAbstractTableModel::hasChildren(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[17]:</TD
+><TD
+>QSqlTableModel::data(QModelIndex const&#38;, int) const</TD
+></TR
+><TR
+><TD
+>vfunc[18]:</TD
+><TD
+>QSqlTableModel::setData(QModelIndex const&#38;, QVariant const&#38;, int)</TD
+></TR
+><TR
+><TD
+>vfunc[19]:</TD
+><TD
+>QSqlTableModel::headerData(int, Qt::Orientation, int) const</TD
+></TR
+><TR
+><TD
+>vfunc[20]:</TD
+><TD
+>QSqlQueryModel::setHeaderData(int, Qt::Orientation, QVariant const&#38;, int)</TD
+></TR
+><TR
+><TD
+>vfunc[21]:</TD
+><TD
+>QAbstractItemModel::itemData(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[22]:</TD
+><TD
+>QAbstractItemModel::setItemData(QModelIndex const&#38;, QMap&#60;int, QVariant&#62; const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[23]:</TD
+><TD
+>QAbstractItemModel::mimeTypes() const</TD
+></TR
+><TR
+><TD
+>vfunc[24]:</TD
+><TD
+>QAbstractItemModel::mimeData(QList&#60;QModelIndex&#62; const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[25]:</TD
+><TD
+>QAbstractTableModel::dropMimeData(QMimeData const*, Qt::DropAction, int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[26]:</TD
+><TD
+>QAbstractItemModel::supportedDropActions() const</TD
+></TR
+><TR
+><TD
+>vfunc[27]:</TD
+><TD
+>QSqlTableModel::insertRows(int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[28]:</TD
+><TD
+>QSqlQueryModel::insertColumns(int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[29]:</TD
+><TD
+>QSqlTableModel::removeRows(int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[30]:</TD
+><TD
+>QSqlTableModel::removeColumns(int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[31]:</TD
+><TD
+>QSqlQueryModel::fetchMore(QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[32]:</TD
+><TD
+>QSqlQueryModel::canFetchMore(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[33]:</TD
+><TD
+>QSqlTableModel::flags(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[34]:</TD
+><TD
+>QSqlTableModel::sort(int, Qt::SortOrder)</TD
+></TR
+><TR
+><TD
+>vfunc[35]:</TD
+><TD
+>QAbstractItemModel::buddy(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[36]:</TD
+><TD
+>QAbstractItemModel::match(QModelIndex const&#38;, int, QVariant const&#38;, int, QFlags&#60;Qt::MatchFlag&#62;) const</TD
+></TR
+><TR
+><TD
+>vfunc[37]:</TD
+><TD
+>QAbstractItemModel::span(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[38]:</TD
+><TD
+>QSqlTableModel::submit()</TD
+></TR
+><TR
+><TD
+>vfunc[39]:</TD
+><TD
+>QSqlTableModel::revert()</TD
+></TR
+><TR
+><TD
+>vfunc[40]:</TD
+><TD
+>QSqlTableModel::clear()</TD
+></TR
+><TR
+><TD
+>vfunc[41]:</TD
+><TD
+>QSqlQueryModel::queryChange()</TD
+></TR
+><TR
+><TD
+>vfunc[42]:</TD
+><TD
+>QSqlTableModel::select()</TD
+></TR
+><TR
+><TD
+>vfunc[43]:</TD
+><TD
+>QSqlTableModel::setTable(QString const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[44]:</TD
+><TD
+>QSqlTableModel::setEditStrategy(QSqlTableModel::EditStrategy)</TD
+></TR
+><TR
+><TD
+>vfunc[45]:</TD
+><TD
+>QSqlTableModel::setSort(int, Qt::SortOrder)</TD
+></TR
+><TR
+><TD
+>vfunc[46]:</TD
+><TD
+>QSqlTableModel::setFilter(QString const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[47]:</TD
+><TD
+>QSqlTableModel::revertRow(int)</TD
+></TR
+><TR
+><TD
+>vfunc[48]:</TD
+><TD
+>QSqlTableModel::updateRowInTable(int, QSqlRecord const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[49]:</TD
+><TD
+>QSqlTableModel::insertRowIntoTable(QSqlRecord const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[50]:</TD
+><TD
+>QSqlTableModel::deleteRowFromTable(int)</TD
+></TR
+><TR
+><TD
+>vfunc[51]:</TD
+><TD
+>QSqlTableModel::orderByClause() const</TD
+></TR
+><TR
+><TD
+>vfunc[52]:</TD
+><TD
+>QSqlTableModel::selectStatement() const</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The Run Time Type Information for the QSqlTableModel  class
+is described by <A
+HREF="libqtsql.html#RTTI-48007"
+>Table 18-571</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48007"
+></A
+><P
+><B
+>Table 18-571. typeinfo for QSqlTableModel</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__si_class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlTableModel</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QSqlQueryModel</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN161302"
+>18.13.1.7. Class data for QSqlRelationalTableModel</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlRelationalTableModel class
+is described by <A
+HREF="libqtsql.html#CLS-48021-0"
+>Table 18-572</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="CLS-48021-0"
+></A
+><P
+><B
+>Table 18-572. Primary vtable for QSqlRelationalTableModel</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>Virtual Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>RTTI</TD
+><TD
+>typeinfo for QSqlRelationalTableModel</TD
+></TR
+><TR
+><TD
+>vfunc[0]:</TD
+><TD
+>QSqlRelationalTableModel::metaObject() const</TD
+></TR
+><TR
+><TD
+>vfunc[1]:</TD
+><TD
+>QSqlRelationalTableModel::qt_metacast(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[2]:</TD
+><TD
+>QSqlRelationalTableModel::qt_metacall(QMetaObject::Call, int, void**)</TD
+></TR
+><TR
+><TD
+>vfunc[3]:</TD
+><TD
+>QSqlRelationalTableModel::~QSqlRelationalTableModel()</TD
+></TR
+><TR
+><TD
+>vfunc[4]:</TD
+><TD
+>QSqlRelationalTableModel::~QSqlRelationalTableModel()</TD
+></TR
+><TR
+><TD
+>vfunc[5]:</TD
+><TD
+>QObject::event(QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[6]:</TD
+><TD
+>QObject::eventFilter(QObject*, QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[7]:</TD
+><TD
+>QObject::timerEvent(QTimerEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[8]:</TD
+><TD
+>QObject::childEvent(QChildEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[9]:</TD
+><TD
+>QObject::customEvent(QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[10]:</TD
+><TD
+>QObject::connectNotify(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[11]:</TD
+><TD
+>QObject::disconnectNotify(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[12]:</TD
+><TD
+>QAbstractTableModel::index(int, int, QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[13]:</TD
+><TD
+>QAbstractTableModel::parent(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[14]:</TD
+><TD
+>QSqlTableModel::rowCount(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[15]:</TD
+><TD
+>QSqlQueryModel::columnCount(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[16]:</TD
+><TD
+>QAbstractTableModel::hasChildren(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[17]:</TD
+><TD
+>QSqlRelationalTableModel::data(QModelIndex const&#38;, int) const</TD
+></TR
+><TR
+><TD
+>vfunc[18]:</TD
+><TD
+>QSqlRelationalTableModel::setData(QModelIndex const&#38;, QVariant const&#38;, int)</TD
+></TR
+><TR
+><TD
+>vfunc[19]:</TD
+><TD
+>QSqlTableModel::headerData(int, Qt::Orientation, int) const</TD
+></TR
+><TR
+><TD
+>vfunc[20]:</TD
+><TD
+>QSqlQueryModel::setHeaderData(int, Qt::Orientation, QVariant const&#38;, int)</TD
+></TR
+><TR
+><TD
+>vfunc[21]:</TD
+><TD
+>QAbstractItemModel::itemData(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[22]:</TD
+><TD
+>QAbstractItemModel::setItemData(QModelIndex const&#38;, QMap&#60;int, QVariant&#62; const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[23]:</TD
+><TD
+>QAbstractItemModel::mimeTypes() const</TD
+></TR
+><TR
+><TD
+>vfunc[24]:</TD
+><TD
+>QAbstractItemModel::mimeData(QList&#60;QModelIndex&#62; const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[25]:</TD
+><TD
+>QAbstractTableModel::dropMimeData(QMimeData const*, Qt::DropAction, int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[26]:</TD
+><TD
+>QAbstractItemModel::supportedDropActions() const</TD
+></TR
+><TR
+><TD
+>vfunc[27]:</TD
+><TD
+>QSqlTableModel::insertRows(int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[28]:</TD
+><TD
+>QSqlQueryModel::insertColumns(int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[29]:</TD
+><TD
+>QSqlTableModel::removeRows(int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[30]:</TD
+><TD
+>QSqlTableModel::removeColumns(int, int, QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[31]:</TD
+><TD
+>QSqlQueryModel::fetchMore(QModelIndex const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[32]:</TD
+><TD
+>QSqlQueryModel::canFetchMore(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[33]:</TD
+><TD
+>QSqlTableModel::flags(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[34]:</TD
+><TD
+>QSqlTableModel::sort(int, Qt::SortOrder)</TD
+></TR
+><TR
+><TD
+>vfunc[35]:</TD
+><TD
+>QAbstractItemModel::buddy(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[36]:</TD
+><TD
+>QAbstractItemModel::match(QModelIndex const&#38;, int, QVariant const&#38;, int, QFlags&#60;Qt::MatchFlag&#62;) const</TD
+></TR
+><TR
+><TD
+>vfunc[37]:</TD
+><TD
+>QAbstractItemModel::span(QModelIndex const&#38;) const</TD
+></TR
+><TR
+><TD
+>vfunc[38]:</TD
+><TD
+>QSqlTableModel::submit()</TD
+></TR
+><TR
+><TD
+>vfunc[39]:</TD
+><TD
+>QSqlTableModel::revert()</TD
+></TR
+><TR
+><TD
+>vfunc[40]:</TD
+><TD
+>QSqlRelationalTableModel::clear()</TD
+></TR
+><TR
+><TD
+>vfunc[41]:</TD
+><TD
+>QSqlQueryModel::queryChange()</TD
+></TR
+><TR
+><TD
+>vfunc[42]:</TD
+><TD
+>QSqlRelationalTableModel::select()</TD
+></TR
+><TR
+><TD
+>vfunc[43]:</TD
+><TD
+>QSqlRelationalTableModel::setTable(QString const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[44]:</TD
+><TD
+>QSqlTableModel::setEditStrategy(QSqlTableModel::EditStrategy)</TD
+></TR
+><TR
+><TD
+>vfunc[45]:</TD
+><TD
+>QSqlTableModel::setSort(int, Qt::SortOrder)</TD
+></TR
+><TR
+><TD
+>vfunc[46]:</TD
+><TD
+>QSqlTableModel::setFilter(QString const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[47]:</TD
+><TD
+>QSqlRelationalTableModel::revertRow(int)</TD
+></TR
+><TR
+><TD
+>vfunc[48]:</TD
+><TD
+>QSqlRelationalTableModel::updateRowInTable(int, QSqlRecord const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[49]:</TD
+><TD
+>QSqlTableModel::insertRowIntoTable(QSqlRecord const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[50]:</TD
+><TD
+>QSqlTableModel::deleteRowFromTable(int)</TD
+></TR
+><TR
+><TD
+>vfunc[51]:</TD
+><TD
+>QSqlRelationalTableModel::orderByClause() const</TD
+></TR
+><TR
+><TD
+>vfunc[52]:</TD
+><TD
+>QSqlRelationalTableModel::selectStatement() const</TD
+></TR
+><TR
+><TD
+>vfunc[53]:</TD
+><TD
+>QSqlRelationalTableModel::setRelation(int, QSqlRelation const&#38;)</TD
+></TR
+><TR
+><TD
+>vfunc[54]:</TD
+><TD
+>QSqlRelationalTableModel::relationModel(int) const</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The Run Time Type Information for the QSqlRelationalTableModel  class
+is described by <A
+HREF="libqtsql.html#RTTI-48011"
+>Table 18-573</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48011"
+></A
+><P
+><B
+>Table 18-573. typeinfo for QSqlRelationalTableModel</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__si_class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlRelationalTableModel</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QSqlTableModel</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN161618"
+>18.13.1.8. Interfaces for Qt4 SQL</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for Qt4 SQL specified in <A
+HREF="libqtsql.html#TBL-LIBQTSQL-QT4-S-INTS"
+>Table 18-574</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBQTSQL-QT4-S-INTS"
+></A
+><P
+><B
+>Table 18-574. libQtSql - Qt4 SQL Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>_ZN10QSqlDriver11qt_metacallEN11QMetaObject4CallEiPPv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlDriver11qt_metacastEPKc <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlDriver12setLastErrorERK9QSqlError <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlDriver12setOpenErrorEb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlDriver16beginTransactionEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlDriver17commitTransactionEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlDriver19rollbackTransactionEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlDriver7setOpenEb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlDriverC1EP7QObject <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlDriverC2EP7QObject <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlDriverD0Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlDriverD1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlDriverD2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlRecord11clearValuesEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlRecord12setGeneratedERK7QStringb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlRecord12setGeneratedEib <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlRecord5clearEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlRecord6appendERK9QSqlField <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlRecord6insertEiRK9QSqlField <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlRecord6removeEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlRecord7replaceEiRK9QSqlField <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlRecord7setNullERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlRecord7setNullEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlRecord8setValueERK7QStringRK8QVariant <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlRecord8setValueEiRK8QVariant <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlRecordC1ERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlRecordC1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlRecordC2ERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlRecordC2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlRecordD1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlRecordD2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlRecordaSERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlResult11savePrepareERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlResult12addBindValueERK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlResult12setLastErrorERK9QSqlError <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlResult12virtual_hookEiPv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlResult13fetchPreviousEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlResult14setForwardOnlyEb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlResult4execEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlResult5clearEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlResult5setAtEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlResult7prepareERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlResult8setQueryERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlResult9bindValueERK7QStringRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlResult9bindValueEiRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlResult9execBatchEb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlResult9fetchNextEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlResult9setActiveEb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlResult9setSelectEb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlResultC1EPK10QSqlDriver <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlResultC2EPK10QSqlDriver <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlResultD0Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN10QSqlResultD1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN10QSqlResultD2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabase11addDatabaseEP10QSqlDriverRK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabase11addDatabaseERK7QStringS2_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabase11setHostNameERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabase11setPasswordERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabase11setUserNameERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabase11transactionEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabase13cloneDatabaseERKS_RK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabase14removeDatabaseERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabase15connectionNamesEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabase15setDatabaseNameERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabase17isDriverAvailableERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabase17registerSqlDriverERK7QStringP21QSqlDriverCreatorBase <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabase17setConnectOptionsERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabase4openERK7QStringS2_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabase4openEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabase5closeEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabase6commitEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabase7driversEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabase7setPortEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabase8containsERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabase8databaseERK7QStringb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabase8rollbackEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabaseC1EP10QSqlDriver <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabaseC1ERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabaseC1ERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabaseC1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabaseC2EP10QSqlDriver <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabaseC2ERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabaseC2ERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabaseC2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabaseD1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabaseD2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN12QSqlDatabaseaSERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlQueryModel11qt_metacallEN11QMetaObject4CallEiPPv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlQueryModel11qt_metacastEPKc <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlQueryModel11queryChangeEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlQueryModel12setLastErrorERK9QSqlError <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlQueryModel13insertColumnsEiiRK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlQueryModel13removeColumnsEiiRK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlQueryModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlQueryModel5clearEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlQueryModel8setQueryERK7QStringRK12QSqlDatabase <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlQueryModel8setQueryERK9QSqlQuery <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlQueryModel9fetchMoreERK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlQueryModelC1EP7QObject <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlQueryModelC2EP7QObject <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlQueryModelD0Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlQueryModelD1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlQueryModelD2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel10insertRowsEiiRK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel10removeRowsEiiRK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel11primeInsertEiR10QSqlRecord <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel11qt_metacallEN11QMetaObject4CallEiPPv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel11qt_metacastEPKc <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel12beforeDeleteEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel12beforeInsertER10QSqlRecord <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel12beforeUpdateEiR10QSqlRecord <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel12insertRecordEiRK10QSqlRecord <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel13removeColumnsEiiRK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel13setPrimaryKeyERK9QSqlIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel15setEditStrategyENS_12EditStrategyE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel16updateRowInTableEiRK10QSqlRecord <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel18deleteRowFromTableEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel18insertRowIntoTableERK10QSqlRecord <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel4sortEiN2Qt9SortOrderE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel5clearEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel6revertEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel6selectEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel6submitEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel7setDataERK11QModelIndexRK8QVarianti <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel7setSortEiN2Qt9SortOrderE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel8setQueryERK9QSqlQuery <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel8setTableERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel9revertAllEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel9revertRowEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel9setFilterERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModel9setRecordEiRK10QSqlRecord <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel9submitAllEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModelC1EP7QObject12QSqlDatabase <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModelC2EP7QObject12QSqlDatabase <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModelD0Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModelD1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlTableModelD2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN16QSqlDriverPlugin11qt_metacallEN11QMetaObject4CallEiPPv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN16QSqlDriverPlugin11qt_metacastEPKc <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN16QSqlDriverPluginC1EP7QObject <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN16QSqlDriverPluginC2EP7QObject <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN16QSqlDriverPluginD0Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN16QSqlDriverPluginD1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN16QSqlDriverPluginD2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN24QSqlRelationalTableModel11qt_metacallEN11QMetaObject4CallEiPPv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN24QSqlRelationalTableModel11qt_metacastEPKc <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN24QSqlRelationalTableModel11setRelationEiRK12QSqlRelation <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN24QSqlRelationalTableModel13removeColumnsEiiRK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.4"
+>[QtXml]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN24QSqlRelationalTableModel16updateRowInTableEiRK10QSqlRecord <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN24QSqlRelationalTableModel18insertRowIntoTableERK10QSqlRecord <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.4"
+>[QtXml]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN24QSqlRelationalTableModel5clearEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN24QSqlRelationalTableModel6selectEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN24QSqlRelationalTableModel7setDataERK11QModelIndexRK8QVarianti <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN24QSqlRelationalTableModel8setTableERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN24QSqlRelationalTableModel9revertRowEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN24QSqlRelationalTableModelC1EP7QObject12QSqlDatabase <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN24QSqlRelationalTableModelC2EP7QObject12QSqlDatabase <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN24QSqlRelationalTableModelD0Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN24QSqlRelationalTableModelD1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN24QSqlRelationalTableModelD2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlError13setDriverTextERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlError15setDatabaseTextERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlError7setTypeENS_9ErrorTypeE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlError9setNumberEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlErrorC1ERK7QStringS2_NS_9ErrorTypeEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlErrorC1ERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlErrorC2ERK7QStringS2_NS_9ErrorTypeEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlErrorC2ERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlErrorD1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlErrorD2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlErroraSERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlField10setSqlTypeEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlField11setReadOnlyEb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlField12setAutoValueEb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlField12setGeneratedEb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlField12setPrecisionEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlField15setDefaultValueERK8QVariant <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlField17setRequiredStatusENS_14RequiredStatusE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlField5clearEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlField7setNameERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlField7setTypeEN8QVariant4TypeE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlField8setValueERK8QVariant <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlField9setLengthEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlFieldC1ERK7QStringN8QVariant4TypeE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlFieldC1ERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlFieldC2ERK7QStringN8QVariant4TypeE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlFieldC2ERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlFieldD1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlFieldD2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlFieldaSERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlIndex13setCursorNameERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlIndex13setDescendingEib <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlIndex6appendERK9QSqlField <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlIndex6appendERK9QSqlFieldb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlIndex7setNameERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlIndexC1ERK7QStringS2_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlIndexC1ERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlIndexC2ERK7QStringS2_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlIndexC2ERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlIndexD1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlIndexD2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlIndexaSERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlQuery12addBindValueERK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlQuery14setForwardOnlyEb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlQuery4execERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlQuery4execEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlQuery4lastEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlQuery4nextEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlQuery4seekEib <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlQuery5clearEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlQuery5firstEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlQuery7prepareERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlQuery8previousEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlQuery9bindValueERK7QStringRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlQuery9bindValueEiRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlQuery9execBatchENS_18BatchExecutionModeE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.4"
+>[QtXml]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlQueryC1E12QSqlDatabase <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlQueryC1EP10QSqlResult <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlQueryC1ERK7QString12QSqlDatabase <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlQueryC1ERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlQueryC2E12QSqlDatabase <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlQueryC2EP10QSqlResult <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlQueryC2ERK7QString12QSqlDatabase <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlQueryC2ERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlQueryD1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN9QSqlQueryD2Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN9QSqlQueryaSERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlDriver10metaObjectEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlDriver11formatValueERK9QSqlFieldb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlDriver11isOpenErrorEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlDriver12primaryIndexERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlDriver12sqlStatementENS_13StatementTypeERK7QStringRK10QSqlRecordb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlDriver16escapeIdentifierERK7QStringNS_14IdentifierTypeE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlDriver6handleEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlDriver6isOpenEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlDriver6recordERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlDriver6tablesEN4QSql9TableTypeE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlDriver9lastErrorEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlRecord11isGeneratedERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlRecord11isGeneratedEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlRecord12toStringListERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlRecord5countEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlRecord5fieldERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlRecord5fieldEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlRecord5valueERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlRecord5valueEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlRecord6isNullERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlRecord6isNullEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlRecord7indexOfERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlRecord7isEmptyEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlRecord8containsERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlRecord8fieldPtrERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlRecord8fieldPtrEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlRecord8toStringERK7QStringS2_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlRecord9fieldNameEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlRecordeqERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlResult10boundValueERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlResult10boundValueEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlResult11boundValuesEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlResult12hasOutValuesEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlResult12lastInsertIdEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlResult13bindValueTypeERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlResult13bindValueTypeEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlResult13bindingSyntaxEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlResult13executedQueryEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlResult13isForwardOnlyEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlResult14boundValueNameEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlResult15boundValueCountEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlResult2atEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlResult6driverEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlResult6handleEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlResult6recordEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlResult7isValidEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlResult8isActiveEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlResult8isSelectEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK10QSqlResult9lastErrorEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK10QSqlResult9lastQueryEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK12QSqlDatabase10driverNameEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK12QSqlDatabase10recordInfoERK9QSqlQuery <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK12QSqlDatabase11isOpenErrorEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK12QSqlDatabase12databaseNameEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK12QSqlDatabase12primaryIndexERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK12QSqlDatabase14connectOptionsEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK12QSqlDatabase4execERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK12QSqlDatabase4portEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK12QSqlDatabase6driverEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK12QSqlDatabase6isOpenEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK12QSqlDatabase6recordERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK12QSqlDatabase6recordERK9QSqlQuery <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK12QSqlDatabase6tablesEN4QSql9TableTypeE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK12QSqlDatabase7isValidEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK12QSqlDatabase8hostNameEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK12QSqlDatabase8passwordEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK12QSqlDatabase8userNameEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK12QSqlDatabase9lastErrorEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK14QSqlQueryModel10headerDataEiN2Qt11OrientationEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK14QSqlQueryModel10metaObjectEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK14QSqlQueryModel11columnCountERK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK14QSqlQueryModel12canFetchMoreERK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK14QSqlQueryModel12indexInQueryERK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK14QSqlQueryModel4dataERK11QModelIndexi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK14QSqlQueryModel5queryEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK14QSqlQueryModel6recordEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK14QSqlQueryModel6recordEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK14QSqlQueryModel8rowCountERK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK14QSqlQueryModel9lastErrorEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK14QSqlTableModel10fieldIndexERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK14QSqlTableModel10headerDataEiN2Qt11OrientationEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK14QSqlTableModel10metaObjectEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK14QSqlTableModel10primaryKeyEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK14QSqlTableModel12editStrategyEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK14QSqlTableModel12indexInQueryERK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK14QSqlTableModel13orderByClauseEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK14QSqlTableModel15selectStatementEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK14QSqlTableModel4dataERK11QModelIndexi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK14QSqlTableModel5flagsERK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK14QSqlTableModel6filterEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK14QSqlTableModel7isDirtyERK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK14QSqlTableModel8databaseEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK14QSqlTableModel8rowCountERK11QModelIndex <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK14QSqlTableModel9tableNameEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK16QSqlDriverPlugin10metaObjectEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK24QSqlRelationalTableModel10metaObjectEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK24QSqlRelationalTableModel13orderByClauseEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK24QSqlRelationalTableModel13relationModelEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK24QSqlRelationalTableModel15selectStatementEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK24QSqlRelationalTableModel4dataERK11QModelIndexi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK24QSqlRelationalTableModel8relationEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlError10driverTextEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlError12databaseTextEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlError4textEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlError4typeEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlError6numberEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlError7isValidEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlField10isReadOnlyEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlField11isAutoValueEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlField11isGeneratedEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlField12defaultValueEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlField14requiredStatusEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlField4nameEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlField4typeEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlField6isNullEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlField6lengthEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlField6typeIDEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlField7isValidEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlField9precisionEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlFieldeqERKS_ <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlIndex12isDescendingEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlIndex12toStringListERK7QStringb <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlIndex8toStringERK7QStringS2_b <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlQuery10boundValueERK7QString <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlQuery10boundValueEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlQuery11boundValuesEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlQuery12lastInsertIdEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlQuery13executedQueryEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlQuery13isForwardOnlyEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlQuery15numRowsAffectedEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlQuery2atEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlQuery4sizeEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlQuery5valueEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlQuery6driverEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlQuery6isNullEi <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlQuery6recordEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlQuery6resultEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlQuery7isValidEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlQuery8isActiveEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlQuery8isSelectEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZNK9QSqlQuery9lastErrorEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZNK9QSqlQuery9lastQueryEv <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_Zls6QDebugRK10QSqlRecord <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_Zls6QDebugRK12QSqlDatabase <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_Zls6QDebugRK9QSqlError <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_Zls6QDebugRK9QSqlField <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the generic data interfaces
+for Qt4 SQL specified in <A
+HREF="libqtsql.html#TBL-LIBQTSQL-QT4-S-DATA"
+>Table 18-575</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBQTSQL-QT4-S-DATA"
+></A
+><P
+><B
+>Table 18-575. libQtSql - Qt4 SQL Data Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>_ZN10QSqlDriver16staticMetaObjectE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN12QSqlDatabase17defaultConnectionE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN14QSqlQueryModel16staticMetaObjectE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN14QSqlTableModel16staticMetaObjectE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZN16QSqlDriverPlugin16staticMetaObjectE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+><TD
+>_ZN24QSqlRelationalTableModel16staticMetaObjectE <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.3"
+>[QtSql]</A
+></TD
+></TR
+><TR
+><TD
+>_ZTI10QSqlDriver <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+><TD
+>_ZTI10QSqlResult <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+></TR
+><TR
+><TD
+>_ZTI14QSqlQueryModel <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+><TD
+>_ZTI14QSqlTableModel <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+></TR
+><TR
+><TD
+>_ZTI16QSqlCachedResult <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+><TD
+>_ZTI16QSqlDriverPlugin <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+></TR
+><TR
+><TD
+>_ZTI17QFactoryInterface <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+><TD
+>_ZTI24QSqlRelationalTableModel <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+></TR
+><TR
+><TD
+>_ZTI26QSqlDriverFactoryInterface <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+><TD
+>_ZTV10QSqlDriver <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+></TR
+><TR
+><TD
+>_ZTV10QSqlResult <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+><TD
+>_ZTV14QSqlQueryModel <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+></TR
+><TR
+><TD
+>_ZTV14QSqlTableModel <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+><TD
+>_ZTV16QSqlCachedResult <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+></TR
+><TR
+><TD
+>_ZTV16QSqlDriverPlugin <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+><TD
+>_ZTV17QFactoryInterface <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+></TR
+><TR
+><TD
+>_ZTV24QSqlRelationalTableModel <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+><TD
+>_ZTV26QSqlDriverFactoryInterface <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libqtcore--zn10qglc8setvalid.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libqtsql-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>_ZN10QGLContext8setValidEb</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="qt.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libQtSql</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

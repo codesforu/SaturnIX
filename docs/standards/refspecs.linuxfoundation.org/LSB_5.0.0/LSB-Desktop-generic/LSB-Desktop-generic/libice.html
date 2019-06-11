@@ -1,0 +1,605 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libICE</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="graphlib.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libSM"
+HREF="libsm-ddefs.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libICE"
+HREF="libice-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libsm-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libice-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBICE"
+>6.6. Interfaces for libICE</A
+></H1
+><P
+><A
+HREF="libice.html#LIB-LIBICE-DEF"
+>Table 6-5</A
+> defines the library name and shared object name
+for the libICE library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBICE-DEF"
+></A
+><P
+><B
+>Table 6-5. libICE Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libICE</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libICE.so.6</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBICE.1"
+></A
+>[LSB] <A
+HREF="normativerefs.html#STD.LSB"
+>This Specification</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBICE.2"
+></A
+>[XICE] <A
+HREF="normativerefs.html#STD.XICE"
+>X11 Inter-Client Exchange</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN4070"
+>6.6.1. ICE Functions</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN4073"
+>6.6.1.1. Interfaces for ICE Functions</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for ICE Functions specified in <A
+HREF="libice.html#TBL-LIBICE-ICE-F-INTS"
+>Table 6-6</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBICE-ICE-F-INTS"
+></A
+><P
+><B
+>Table 6-6. libICE - ICE Functions Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>IceAcceptConnection <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceAddConnectionWatch <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceAllocScratch <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceAppLockConn <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+></TR
+><TR
+><TD
+>IceAppUnlockConn <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceAuthFileName <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceCheckShutdownNegotiation <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceCloseConnection <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+></TR
+><TR
+><TD
+>IceComposeNetworkIdList <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceConnectionNumber <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceConnectionStatus <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceConnectionString <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+></TR
+><TR
+><TD
+>IceFlush <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceFreeAuthFileEntry <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceFreeListenObjs <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceGenerateMagicCookie <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+></TR
+><TR
+><TD
+>IceGetAuthFileEntry <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceGetConnectionContext <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceGetInBufSize <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceGetListenConnectionNumber <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+></TR
+><TR
+><TD
+>IceGetListenConnectionString <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceGetOutBufSize <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceInitThreads <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceLastReceivedSequenceNumber <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+></TR
+><TR
+><TD
+>IceLastSentSequenceNumber <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceListenForConnections <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceListenForWellKnownConnections <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceLockAuthFile <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+></TR
+><TR
+><TD
+>IceOpenConnection <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IcePing <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceProcessMessages <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceProtocolRevision <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+></TR
+><TR
+><TD
+>IceProtocolSetup <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceProtocolShutdown <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceProtocolVersion <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceReadAuthFileEntry <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+></TR
+><TR
+><TD
+>IceRegisterForProtocolReply <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceRegisterForProtocolSetup <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceRelease <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceRemoveConnectionWatch <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+></TR
+><TR
+><TD
+>IceSetErrorHandler <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceSetHostBasedAuthProc <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceSetIOErrorHandler <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceSetPaAuthData <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+></TR
+><TR
+><TD
+>IceSetShutdownNegotiation <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceSwapping <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceUnlockAuthFile <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceVendor <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+></TR
+><TR
+><TD
+>IceWriteAuthFileEntry <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>_IceRead <A
+HREF="libice.html#REFSTD.LIBICE.1"
+>[LSB]</A
+></TD
+><TD
+>_IceReadSkip <A
+HREF="libice.html#REFSTD.LIBICE.1"
+>[LSB]</A
+></TD
+><TD
+>_IceWrite <A
+HREF="libice.html#REFSTD.LIBICE.1"
+>[LSB]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the generic deprecated functions
+for ICE Functions specified in <A
+HREF="libice.html#TBL-LIBICE-ICE-F-DEPINTS"
+>Table 6-7</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>These interfaces are deprecated, and applications
+should avoid using them.
+These interfaces may be withdrawn
+in future releases of this specification.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBICE-ICE-F-DEPINTS"
+></A
+><P
+><B
+>Table 6-7. libICE - ICE Functions Deprecated Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>IceAppLockConn <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceAppUnlockConn <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>IceInitThreads <A
+HREF="libice.html#REFSTD.LIBICE.2"
+>[XICE]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libsm-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libice-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libSM</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="graphlib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libICE</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

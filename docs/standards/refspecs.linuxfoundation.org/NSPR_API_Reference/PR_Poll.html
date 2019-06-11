@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PR_Poll</title>
+</head>
+
+<body>
+          <div class="pageTitle">
+            <h1 id="title">PR_Poll</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+<p>Detects when I/O is ready for a set of socket file descriptors.
+</p>
+<div id="section_1"><a id="Syntax"><h3 class="editable"> Syntax </h3>
+<pre class="eval">#include &lt;prio.h&gt; 
+
+PRInt32 PR_Poll(
+  PRPollDesc *pds, 
+  PRIntn npds, 
+  PRIntervalTime timeout);
+</pre>
+</div><div id="section_2"><a id="Parameters"><h3 class="editable"> Parameters </h3>
+<p>The function has the following parameters:
+</p>
+<dl><dt><code>pds</code>
+</dt><dd>A pointer to an array of <code>PRPollDesc</code> structures.
+</dd><dt><code>npds</code>
+</dt><dd>The number of elements in the <code>pds</code> array. If this parameter is zero, <code>PR_Poll</code> is equivalent to <code>PR_Sleep</code> with a timeout.
+</dd><dt><code>timeout</code>
+</dt><dd>Amount of time the call will block waiting for I/O to become ready. If this time expires without any I/O becoming ready, <code>PR_Poll</code> returns zero.
+</dd></dl>
+</div><div id="section_3"><a id="Returns"><h3 class="editable"> Returns </h3>
+<p>The function returns one of these values:
+</p>
+<ul><li> If successful, the function returns a positive number indicating the number of <code>PRPollDesc</code> structures in <code>pds</code> that have events.
+</li><li> The value 0 indicates the function timed out.
+</li><li> The value -1 indicates the function failed. The reason for the failure can be obtained by calling <code><a href="PR_GetError.html">PR_GetError</a></code>.
+</li></ul>
+</div><div id="section_4"><a id="Description"><h3 class="editable"> Description </h3>
+<p>This function returns as soon as I/O is ready on one or more of the underlying socket objects. A count of the number of ready descriptors is returned unless a timeout occurs, in which case zero is returned.
+<p>The <code>in_flags</code> field of the <code>PRPollDesc</code> data structure should be set to the I/O events (readable, writable, exception, or some combination) that the caller is interested in. On successful return, the <code>out_flags</code> field of the <code>PRPollDesc</code> data structure is set to indicate what kind of I/O is ready on the respective descriptor. <code>PR_Poll</code> uses the <code>out_flags</code> fields as scratch variables during the call. If <code>PR_Poll</code> returns 0 or -1, the <code>out_flags</code> fields do not contain meaningful values and must not be used.
+<p>The <code>PRPollDesc</code> structure is defined as follows:
+</p>
+<pre class="eval">struct PRPollDesc {
+  PRFileDesc* fd;
+  PRInt16 in_flags;
+  PRInt16 out_flags;
+};
+
+typedef struct PRPollDesc PRPollDesc;
+</pre>
+<p>The structure has the following fields:
+</p>
+<dl><dt><code>fd</code>
+</dt><dd>A pointer to a <code>PRFileDesc</code> object representing a socket or a pollable event. This field can be set to <code>NULL</code> to indicate to <code>PR_Poll</code> that this <code>PRFileDesc object</code> should be ignored.<div class="note">On Unix, the <code>fd</code> field can be set to a pointer to any <code>PRFileDesc</code> object, including one representing a file or a pipe. Cross-platform applications should only set the <code>fd</code> field to a pointer to a <code>PRFileDesc</code> object representing a socket or a pollable event because on Windows the <code>select</code> function can only be used with sockets.</div>
+</dd><dt><code>in_flags</code>
+</dt><dd>A bitwise <code>OR</code> of the following bit flags:
+</dd></dl>
+<ul><li> <code>PR_POLL_READ</code>: <code>fd</code> is readable.
+</li><li> <code>PR_POLL_WRITE</code>: <code>fd</code> is writable.
+</li><li> <code>PR_POLL_EXCEPT</code>: <code>fd</code> has an exception condition.
+</li></ul>
+<dl><dt><code>out_flags</code>
+</dt><dd>A bitwise <code>OR</code> of the following bit flags:
+</dd></dl>
+<ul><li> <code>PR_POLL_READ</code>
+</li><li> <code>PR_POLL_WRITE</code>
+</li><li> <code>PR_POLL_EXCEPT</code>
+</li><li> <code>PR_POLL_ERR</code>: <code>fd</code> has an error.
+</li><li> <code>PR_POLL_NVAL</code>: <code>fd</code> is bad.
+</li></ul>
+<dl><dd>Note that the <code>PR_POLL_ERR</code> and <code>PR_POLL_NVAL</code> flags are used only in <code>out_flags</code>. The <code>PR_POLL_ERR</code> and <code>PR_POLL_NVAL</code> events are always reported by <code>PR_Poll</code>.
+</dd></dl>
+</div><hr />
+</body>
+</html>

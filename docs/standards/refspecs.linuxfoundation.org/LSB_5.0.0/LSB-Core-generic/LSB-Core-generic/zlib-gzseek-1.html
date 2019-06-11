@@ -1,0 +1,449 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>gzseek</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libz"
+HREF="libzman.html"><LINK
+REL="PREVIOUS"
+TITLE="gzrewind"
+HREF="zlib-gzrewind-1.html"><LINK
+REL="NEXT"
+TITLE="gzsetparams"
+HREF="zlib-gzsetparams-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="zlib-gzrewind-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="zlib-gzsetparams-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="ZLIB-GZSEEK-1"
+></A
+>gzseek</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN30695"
+></A
+><H2
+>Name</H2
+>gzseek&nbsp;--&nbsp;reposition a file-position indicator in a compressed file stream</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN30700"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN30701"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;zlib.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>z_off_t
+<TT
+CLASS="FUNCTION"
+>gzseek</TT
+></CODE
+>(gzFile
+<TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+>, z_off_t
+<TT
+CLASS="PARAMETER"
+><I
+>offset</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>whence</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN30712"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>gzseek()</TT
+> function shall set the file-position
+indicator for the compressed file stream <TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+>.
+The file-position indicator controls where the next
+read or write operation on the compressed file stream shall take place.
+The <TT
+CLASS="PARAMETER"
+><I
+>offset</I
+></TT
+> indicates a byte offset in the
+uncompressed data. The <TT
+CLASS="PARAMETER"
+><I
+>whence</I
+></TT
+> parameter
+may be one of:
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN30720"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>SEEK_SET</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>the offset is relative to the start of the uncompressed data.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN30725"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>SEEK_CUR</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>the offset is relative to the current positition in the uncompressed data.</P
+></TD
+></TR
+></TBODY
+></TABLE
+>
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>The value <CODE
+CLASS="CONSTANT"
+>SEEK_END</CODE
+> need not be supported.</P
+></BLOCKQUOTE
+></DIV
+></P
+><P
+>If the <TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+> is open for writing, the new offset
+must be greater than or equal to the current offset. In this case, 
+<TT
+CLASS="FUNCTION"
+>gzseek()</TT
+> shall compress a sequence of null bytes
+to fill the gap from the previous offset to the new offset.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN30736"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <TT
+CLASS="FUNCTION"
+>gzseek()</TT
+> shall return the resulting
+offset in the file expressed
+as a byte position in the <I
+CLASS="EMPHASIS"
+>uncompressed</I
+> data stream.
+On error, <TT
+CLASS="FUNCTION"
+>gzseek()</TT
+> shall return -1, and
+may set the error value for <TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+> accordingly.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN30743"
+></A
+><H2
+>Errors</H2
+><P
+>On error, <TT
+CLASS="FUNCTION"
+>gzseek()</TT
+> shall return 
+<SPAN
+CLASS="RETURNVALUE"
+>-1</SPAN
+>.
+The following conditions shall always result in an error:
+<P
+></P
+><UL
+><LI
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+> is <CODE
+CLASS="CONSTANT"
+>NULL</CODE
+></P
+></LI
+><LI
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+> does not represent
+an open compressed file stream.</P
+></LI
+><LI
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+> refers to a compressed file stream that is open
+for writing, and the newly computed offset is less than the current offset.</P
+></LI
+><LI
+><P
+>The newly computed offset is less than zero.</P
+></LI
+><LI
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>whence</I
+></TT
+> is not one of the supported values.</P
+></LI
+></UL
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN30764"
+></A
+><H2
+>Application Usage (informative)</H2
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+> is open for reading, the implementation
+may still need to uncompress all of the data up to the new offset.
+As a result, <TT
+CLASS="FUNCTION"
+>gzseek()</TT
+> may be extremely slow
+in some circumstances.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="zlib-gzrewind-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="zlib-gzsetparams-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>gzrewind</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libzman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>gzsetparams</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

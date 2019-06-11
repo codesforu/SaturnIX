@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>initgroups</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="inet_aton"
+HREF="baselib-inet-aton-3.html"><LINK
+REL="NEXT"
+TITLE="initstate_r"
+HREF="baselib-initstate-r-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-inet-aton-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-initstate-r-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-INITGROUPS-3"
+></A
+>initgroups</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN16759"
+></A
+><H2
+>Name</H2
+>initgroups&nbsp;--&nbsp;initialize the supplementary group access list</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN16762"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN16763"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;grp.h&#62;
+#include &#60;sys/types.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int 
+  <TT
+CLASS="FUNCTION"
+>initgroups</TT
+></CODE
+>(const char *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>user</I
+></TT
+></I
+></TT
+>, gid_t 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>group</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16774"
+></A
+><H2
+>Description</H2
+><P
+>If the process has appropriate privilege,
+the <TT
+CLASS="FUNCTION"
+>initgroups()</TT
+> function shall initialize the 
+Supplementary Group IDs for the current process
+by reading the group database and using all groups of which 
+<TT
+CLASS="PARAMETER"
+><I
+>user</I
+></TT
+> is a member. The additional group 
+<TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+> is also added to the list.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16780"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <SPAN
+CLASS="RETURNVALUE"
+>0</SPAN
+> is returned. 
+On error, <SPAN
+CLASS="RETURNVALUE"
+>-1</SPAN
+> is returned and
+the global variable <CODE
+CLASS="VARNAME"
+>errno</CODE
+> is set appropriately.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16786"
+></A
+><H2
+>Errors</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16789"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EPERM</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The calling process does not have sufficient privileges.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16793"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ENOMEM</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Insufficient memory to allocate group information structure.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16797"
+></A
+><H2
+>See Also</H2
+><P
+><TT
+CLASS="FUNCTION"
+>setgroups()</TT
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-inet-aton-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-initstate-r-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>inet_aton</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>initstate_r</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,806 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Process Initialization</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for Itanium&#8482;"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Low Level System Information"
+HREF="lowlevel.html"><LINK
+REL="PREVIOUS"
+TITLE="Operating System Interface"
+HREF="osinterface.html"><LINK
+REL="NEXT"
+TITLE="Coding Examples"
+HREF="codingexamples.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for Itanium&#8482;</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="osinterface.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 7. Low Level System Information</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="codingexamples.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="PROCESSINITIALIZATION"
+>7.4. Process Initialization</A
+></H1
+><P
+>LSB-conforming applications shall use the Process Startup as
+defined in Section 3.3.5 of the 
+<A
+HREF="normativerefs.html#STD.IA64.ABI"
+>Intel® Itanium&#8482; Processor-specific Application Binary Interface</A
+>.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SPECIALREGISTERS"
+>7.4.1. Special Registers</A
+></H2
+><P
+><A
+HREF="normativerefs.html#STD.IA64.ABI"
+>Intel® Itanium&#8482; Processor-specific Application Binary Interface</A
+>, section 3.3.5, defines required register initializations
+for process startup.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="PROCESSSTACK"
+>7.4.2. Process Stack (on entry)</A
+></H2
+><P
+>As defined in
+<A
+HREF="normativerefs.html#STD.IA64.ABI"
+>Intel® Itanium&#8482; Processor-specific Application Binary Interface</A
+>, section 3.3.5, the return pointer register (rp) shall
+contain a valid return address, such that if the application
+program returns from the main entry routine, the implementation
+shall cause the application to exit normally, using the returned 
+value as the exit status. Further, the unwind information for this
+"bottom of stack" routine in the implementation shall
+provide a mechanism for recognizing the bottom of the stack during
+a stack unwind.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AUXILIARYVECTOR"
+>7.4.3. Auxiliary Vector</A
+></H2
+><P
+>The auxiliary vector conveys information from the operating system
+to the application. Only the terminating null
+auxiliary vector entry is required, but if any other entries are
+present, they shall be interpreted as follows.
+This vector is an array of the following structures.</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef struct
+{
+  long int a_type;              /* Entry type */
+  union
+    {
+      long int a_val;           /* Integer value */
+      void *a_ptr;              /* Pointer value */
+      void (*a_fcn) (void);     /* Function pointer value */
+    } a_un;
+} auxv_t;</PRE
+></TD
+></TR
+></TABLE
+><P
+>The application shall interpret the <TT
+CLASS="LITERAL"
+>a_un</TT
+> value according
+to the <TT
+CLASS="LITERAL"
+>a_type</TT
+>. Other auxiliary vector types are reserved.</P
+><P
+>The <TT
+CLASS="LITERAL"
+>a_type</TT
+> field shall contain one of the following values:
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1072"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_NULL</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The last entry in the array has type <TT
+CLASS="LITERAL"
+>AT_NULL</TT
+>. 
+The value in <TT
+CLASS="LITERAL"
+>a_un</TT
+> is undefined.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1078"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_IGNORE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The value in <TT
+CLASS="LITERAL"
+>a_un</TT
+> is undefined, and should be ignored.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1083"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_EXECFD</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>File descriptor of program</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1087"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_PHDR</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Program headers for program</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1091"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_PHENT</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Size of program header entry</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1095"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_PHNUM</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Number of program headers</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1099"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_PAGESZ</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>System page size</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1103"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_BASE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Base address of interpreter</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1107"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_FLAGS</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Flags</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1111"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_ENTRY</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Entry point of program</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1115"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_NOTELF</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Program is not ELF</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1119"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_UID</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Real uid</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1123"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_EUID</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Effective uid</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1127"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_GID</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Real gid</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1131"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_EGID</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Effective gid</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1135"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_CLKTCK</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Frequency of times()</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1139"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_PLATFORM</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>String identifying platform. </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1143"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_HWCAP</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Machine dependent hints about
+processor capabilities. </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1147"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_FPUCW</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Used FPU control word</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1151"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_DCACHEBSIZE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Data cache block size</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1155"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_ICACHEBSIZE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Instruction cache block size</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1159"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>AT_UCACHEBSIZE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Unified cache block size</P
+></TD
+></TR
+></TBODY
+></TABLE
+></P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>The auxiliary vector is intended for passing information
+from the operating system to the program interpreter.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="ENVIRONMENT"
+>7.4.4. Environment</A
+></H2
+><P
+>Although a pointer to the environment vector should be available as a
+third argument to the <TT
+CLASS="FUNCTION"
+>main()</TT
+> entry point, conforming
+applications
+should use <TT
+CLASS="FUNCTION"
+>getenv()</TT
+> to access the environment.
+(See
+<A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>, Section <TT
+CLASS="FUNCTION"
+>exec()</TT
+>).</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="osinterface.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="codingexamples.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Operating System Interface</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="lowlevel.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Coding Examples</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

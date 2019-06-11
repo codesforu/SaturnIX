@@ -1,0 +1,1670 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libpthread</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for S390"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="__signbitl"
+HREF="baselib---signbitl.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libpthread"
+HREF="libpthread-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for S390</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib---signbitl.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 10. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpthread-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBPTHREAD"
+>10.7. Interfaces for libpthread</A
+></H1
+><P
+><A
+HREF="libpthread.html#LIB-LIBPTHREAD-DEF"
+>Table 10-41</A
+> defines the library name and shared object name
+for the libpthread library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBPTHREAD-DEF"
+></A
+><P
+><B
+>Table 10-41. libpthread Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libpthread</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libpthread.so.0</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBPTHREAD.1"
+></A
+>[LFS] <A
+HREF="normativerefs.html#STD.LFS"
+>Large File Support</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBPTHREAD.2"
+></A
+>[LSB] <A
+HREF="normativerefs.html#STD.LSB"
+>LSB Core - Generic</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBPTHREAD.3"
+></A
+>[SUSv3] <A
+HREF="normativerefs.html#STD.SUSV3"
+>POSIX 1003.1-2001 (ISO/IEC 9945-2003)</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBPTHREAD.4"
+></A
+>[SUSv4] <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8432"
+>10.7.1. Realtime Threads</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN8435"
+>10.7.1.1. Interfaces for Realtime Threads</A
+></H3
+><P
+>An LSB conforming implementation shall provide the architecture specific functions
+for Realtime Threads specified in <A
+HREF="libpthread.html#TBL-LIBPTHREAD-REALT-INTS"
+>Table 10-42</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPTHREAD-REALT-INTS"
+></A
+><P
+><B
+>Table 10-42. libpthread - Realtime Threads Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>pthread_attr_getinheritsched(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_attr_getschedpolicy(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_attr_getscope(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_attr_setinheritsched(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_attr_setschedpolicy(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_attr_setscope(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_getschedparam(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_setschedparam(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8477"
+>10.7.2. Advanced Realtime Threads</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN8480"
+>10.7.2.1. Interfaces for Advanced Realtime Threads</A
+></H3
+><P
+>An LSB conforming implementation shall provide the architecture specific functions
+for Advanced Realtime Threads specified in <A
+HREF="libpthread.html#TBL-LIBPTHREAD-ADVAN-INTS"
+>Table 10-43</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPTHREAD-ADVAN-INTS"
+></A
+><P
+><B
+>Table 10-43. libpthread - Advanced Realtime Threads Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>pthread_barrier_destroy(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_barrier_init(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_barrier_wait(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_barrierattr_destroy(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_barrierattr_init(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_barrierattr_setpshared(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_getcpuclockid(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_spin_destroy(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_spin_init(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_spin_lock(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_spin_trylock(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_spin_unlock(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8539"
+>10.7.3. Posix Threads</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN8542"
+>10.7.3.1. Interfaces for Posix Threads</A
+></H3
+><P
+>An LSB conforming implementation shall provide the architecture specific functions
+for Posix Threads specified in <A
+HREF="libpthread.html#TBL-LIBPTHREAD-POSIX-INTS"
+>Table 10-44</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPTHREAD-POSIX-INTS"
+></A
+><P
+><B
+>Table 10-44. libpthread - Posix Threads Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>_pthread_cleanup_pop(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>_pthread_cleanup_push(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>pthread_attr_destroy(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_attr_getdetachstate(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_attr_getguardsize(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_attr_getschedparam(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_attr_getstack(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_attr_getstackaddr(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.3"
+>[SUSv3]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_attr_getstacksize(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_attr_init(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_attr_setdetachstate(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_attr_setguardsize(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_attr_setschedparam(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_attr_setstack(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_attr_setstackaddr(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.3"
+>[SUSv3]</A
+></TD
+><TD
+>pthread_attr_setstacksize(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_cancel(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_cond_broadcast(GLIBC_2.3.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_cond_destroy(GLIBC_2.3.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_cond_init(GLIBC_2.3.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_cond_signal(GLIBC_2.3.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_cond_timedwait(GLIBC_2.3.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_cond_wait(GLIBC_2.3.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_condattr_destroy(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_condattr_getpshared(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_condattr_init(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_condattr_setpshared(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_create(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_detach(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_equal(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_exit(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_getconcurrency(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_getspecific(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_join(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_key_create(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_key_delete(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_kill(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_mutex_destroy(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_mutex_init(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_mutex_lock(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_mutex_timedlock(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_mutex_trylock(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_mutex_unlock(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_mutexattr_destroy(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_mutexattr_getpshared(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_mutexattr_gettype(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_mutexattr_init(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_mutexattr_setpshared(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_mutexattr_settype(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_once(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_rwlock_destroy(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_rwlock_init(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_rwlock_rdlock(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_rwlock_timedrdlock(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_rwlock_timedwrlock(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_rwlock_tryrdlock(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_rwlock_trywrlock(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_rwlock_unlock(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_rwlock_wrlock(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_rwlockattr_destroy(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_rwlockattr_getpshared(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_rwlockattr_init(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_rwlockattr_setpshared(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_self(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_setcancelstate(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_setcanceltype(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_setconcurrency(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_setspecific(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_sigmask(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pthread_testcancel(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>sem_close(GLIBC_2.1.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>sem_destroy(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>sem_getvalue(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>sem_init(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>sem_open(GLIBC_2.1.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>sem_post(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>sem_timedwait(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>sem_trywait(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>sem_unlink(GLIBC_2.1.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>sem_wait(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the architecture specific deprecated functions
+for Posix Threads specified in <A
+HREF="libpthread.html#TBL-LIBPTHREAD-POSIX-DEPINTS"
+>Table 10-45</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>These interfaces are deprecated, and applications
+should avoid using them.
+These interfaces may be withdrawn
+in future releases of this specification.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPTHREAD-POSIX-DEPINTS"
+></A
+><P
+><B
+>Table 10-45. libpthread - Posix Threads Deprecated Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>pthread_attr_getstackaddr(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.3"
+>[SUSv3]</A
+></TD
+><TD
+>pthread_attr_setstackaddr(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.3"
+>[SUSv3]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8909"
+>10.7.4. Thread aware versions of libc interfaces</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN8912"
+>10.7.4.1. Interfaces for Thread aware versions of libc interfaces</A
+></H3
+><P
+>An LSB conforming implementation shall provide the architecture specific functions
+for Thread aware versions of libc interfaces specified in <A
+HREF="libpthread.html#TBL-LIBPTHREAD-THREA-INTS"
+>Table 10-46</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPTHREAD-THREA-INTS"
+></A
+><P
+><B
+>Table 10-46. libpthread - Thread aware versions of libc interfaces Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>lseek64(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.1"
+>[LFS]</A
+></TD
+><TD
+>open64(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.1"
+>[LFS]</A
+></TD
+><TD
+>pread(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pread64(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>pwrite(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>pwrite64(GLIBC_2.2) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8948"
+>10.7.5. GNU Extensions for libpthread</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN8951"
+>10.7.5.1. Interfaces for GNU Extensions for libpthread</A
+></H3
+><P
+>An LSB conforming implementation shall provide the architecture specific functions
+for GNU Extensions for libpthread specified in <A
+HREF="libpthread.html#TBL-LIBPTHREAD-GNU-E-INTS"
+>Table 10-47</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPTHREAD-GNU-E-INTS"
+></A
+><P
+><B
+>Table 10-47. libpthread - GNU Extensions for libpthread Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>pthread_getattr_np(GLIBC_2.2.3) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>pthread_mutex_consistent_np(GLIBC_2.4) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>pthread_mutexattr_getrobust_np(GLIBC_2.4) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>pthread_mutexattr_setrobust_np(GLIBC_2.4) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>pthread_rwlockattr_getkind_np(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>pthread_rwlockattr_setkind_np(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN8987"
+>10.7.6. System Calls</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN8990"
+>10.7.6.1. Interfaces for System Calls</A
+></H3
+><P
+>An LSB conforming implementation shall provide the architecture specific functions
+for System Calls specified in <A
+HREF="libpthread.html#TBL-LIBPTHREAD-SYSTE-INTS"
+>Table 10-48</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPTHREAD-SYSTE-INTS"
+></A
+><P
+><B
+>Table 10-48. libpthread - System Calls Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>close(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>fcntl(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>fork(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>fsync(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>lseek(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>msync(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>nanosleep(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>open(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pause(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>read(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>vfork(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.3"
+>[SUSv3]</A
+></TD
+><TD
+>wait(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>waitpid(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>write(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN9060"
+>10.7.7. Standard I/O</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN9063"
+>10.7.7.1. Interfaces for Standard I/O</A
+></H3
+><P
+>An LSB conforming implementation shall provide the architecture specific functions
+for Standard I/O specified in <A
+HREF="libpthread.html#TBL-LIBPTHREAD-STAND-INTS"
+>Table 10-49</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPTHREAD-STAND-INTS"
+></A
+><P
+><B
+>Table 10-49. libpthread - Standard I/O Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>flockfile(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN9079"
+>10.7.8. Signal Handling</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN9082"
+>10.7.8.1. Interfaces for Signal Handling</A
+></H3
+><P
+>An LSB conforming implementation shall provide the architecture specific functions
+for Signal Handling specified in <A
+HREF="libpthread.html#TBL-LIBPTHREAD-SIGNA-INTS"
+>Table 10-50</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPTHREAD-SIGNA-INTS"
+></A
+><P
+><B
+>Table 10-50. libpthread - Signal Handling Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>__libc_current_sigrtmax(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>__libc_current_sigrtmin(GLIBC_2.1) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>raise(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>sigaction(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>siglongjmp(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>sigwait(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN9118"
+>10.7.9. Standard Library</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN9121"
+>10.7.9.1. Interfaces for Standard Library</A
+></H3
+><P
+>An LSB conforming implementation shall provide the architecture specific functions
+for Standard Library specified in <A
+HREF="libpthread.html#TBL-LIBPTHREAD-STANE-INTS"
+>Table 10-51</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPTHREAD-STANE-INTS"
+></A
+><P
+><B
+>Table 10-51. libpthread - Standard Library Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>__errno_location(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>ftrylockfile(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>funlockfile(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>longjmp(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>system(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN9154"
+>10.7.10. Socket Interface</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN9157"
+>10.7.10.1. Interfaces for Socket Interface</A
+></H3
+><P
+>An LSB conforming implementation shall provide the architecture specific functions
+for Socket Interface specified in <A
+HREF="libpthread.html#TBL-LIBPTHREAD-SOCKE-INTS"
+>Table 10-52</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPTHREAD-SOCKE-INTS"
+></A
+><P
+><B
+>Table 10-52. libpthread - Socket Interface Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>__h_errno_location(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.2"
+>[LSB]</A
+></TD
+><TD
+>accept(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>connect(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>recv(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>recvfrom(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>recvmsg(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>send(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>sendmsg(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>sendto(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN9207"
+>10.7.11. Terminal Interface Functions</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN9210"
+>10.7.11.1. Interfaces for Terminal Interface Functions</A
+></H3
+><P
+>An LSB conforming implementation shall provide the architecture specific functions
+for Terminal Interface Functions specified in <A
+HREF="libpthread.html#TBL-LIBPTHREAD-TERMI-INTS"
+>Table 10-53</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPTHREAD-TERMI-INTS"
+></A
+><P
+><B
+>Table 10-53. libpthread - Terminal Interface Functions Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>tcdrain(GLIBC_2.0) <A
+HREF="libpthread.html#REFSTD.LIBPTHREAD.4"
+>[SUSv4]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib---signbitl.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpthread-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>__signbitl</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libpthread</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

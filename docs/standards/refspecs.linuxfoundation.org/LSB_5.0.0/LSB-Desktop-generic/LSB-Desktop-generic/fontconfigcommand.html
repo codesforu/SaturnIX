@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Commands and Utilities</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Fontconfig library"
+HREF="toclibfontconfig.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libfontconfig"
+HREF="libfontconfig-ddefs.html"><LINK
+REL="NEXT"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libfontconfig-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="FONTCONFIGCOMMAND"
+></A
+>Chapter 11. Commands and Utilities</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="CMDUTIL"
+>11.1. Commands and Utilities</A
+></H1
+><P
+>An LSB conforming implementation shall provide the
+commands and utilities as described in <A
+HREF="fontconfigcommand.html#TBL-CMDS"
+>Table 11-1</A
+>, with at least the behavior
+described as mandatory in the referenced underlying
+specification, with the following exceptions:
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>If any operand (except one which follows <CODE
+CLASS="OPTION"
+>--</CODE
+>) starts with a
+hyphen, the behavior is unspecified.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Rationale (Informative): </B
+>Applications should place options before operands, or use
+<CODE
+CLASS="OPTION"
+>--</CODE
+>, as needed.  This text is needed because,
+by default, GNU option parsing
+differs from POSIX, unless the environment variable 
+<CODE
+CLASS="ENVAR"
+>POSIXLY_CORRECT</CODE
+>
+is set.  For example, <B
+CLASS="COMMAND"
+>ls . -a</B
+> in GNU
+<B
+CLASS="COMMAND"
+>ls</B
+> means to list the current directory, showing all
+files (that is, <CODE
+CLASS="OPTION"
+>"."</CODE
+> is an operand and <CODE
+CLASS="OPTION"
+>-a</CODE
+> is an
+option).  In POSIX, <CODE
+CLASS="OPTION"
+>"."</CODE
+> and <CODE
+CLASS="OPTION"
+>-a</CODE
+> are both operands,
+and the command means to list the current directory, and also the file
+named <TT
+CLASS="FILENAME"
+>-a</TT
+>.  Suggesting that applications rely on the
+setting of the <CODE
+CLASS="ENVAR"
+>POSIXLY_CORRECT</CODE
+> environment variable,
+or try to set it, seems worse than just asking the applications to invoke
+commands in ways which work with either the POSIX or GNU behaviors.</P
+></BLOCKQUOTE
+></DIV
+></P
+></LI
+></OL
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-CMDS"
+></A
+><P
+><B
+>Table 11-1. Commands And Utilities</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>fc-cache
+<A
+HREF="fontconfigcommand.html#AEN19164"
+> [1]</A
+></TD
+><TD
+>fc-list
+<A
+HREF="fontconfigcommand.html#AEN19164"
+> [1]</A
+></TD
+><TD
+>fc-match
+<A
+HREF="fontconfigcommand.html#AEN19164"
+> [1]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+><I
+CLASS="EMPHASIS"
+>Referenced Specification(s)</I
+></P
+><DIV
+CLASS="FORMALPARA"
+><P
+><B
+><B
+>[1]. </B
+></B
+><A
+HREF="normativerefs.html#STD.LSB"
+>This Specification</A
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libfontconfig-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libfontconfig</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="toclibfontconfig.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Command Behavior</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

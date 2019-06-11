@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Dynamic Linking</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for X86"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Program Loading and Dynamic Linking"
+HREF="tocdynlnk.html"><LINK
+REL="PREVIOUS"
+TITLE="Program Loading"
+HREF="programloading.html"><LINK
+REL="NEXT"
+TITLE="Base Libraries"
+HREF="tocbaselib.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for X86</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="programloading.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 9. Program Loading and Dynamic Linking</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="tocbaselib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="DYNAMICLINKING"
+>9.4. Dynamic Linking</A
+></H1
+><P
+>LSB-conforming systems shall support dynamic linking as defined in 
+Chapter 5 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="DYNSECTION"
+>9.4.1. Dynamic Section</A
+></H2
+><P
+>The following dynamic entries are defined in the
+<A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN953"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>DT_PLTGOT</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>On the Intel386 architecture, this entrys d_ptr member gives the address of the first entry in the global offset table.</P
+></TD
+></TR
+></TBODY
+></TABLE
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="GLOBALOFFETTABLE"
+>9.4.2. Global Offset Table</A
+></H2
+><P
+>LSB-conforming implementations shall support use of the
+global offset table as described in
+Chapter 5 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SHAREDOBJECTDEPENDENCIES"
+>9.4.3. Shared Object Dependencies</A
+></H2
+><P
+>There are no architecture specific requirements for shared object dependencies;
+see the generic LSB-Core specification.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="FUNCTIONADDRESSES"
+>9.4.4. Function Addresses</A
+></H2
+><P
+>Function addresses shall behave as specified in 
+Chapter 5 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="PROCEDURELINKAGETABLE"
+>9.4.5. Procedure Linkage Table</A
+></H2
+><P
+>LSB-conforming implementations shall support a Procedure Linkage Table as described in
+Chapter 5 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="INITANDFINIFUNCTONS"
+>9.4.6. Initialization and Termination Functions</A
+></H2
+><P
+>There are no architecture specific requirements for
+initialization and termination functions; see the generic
+LSB-Core specification.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="programloading.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="tocbaselib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Program Loading</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tocdynlnk.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Base Libraries</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

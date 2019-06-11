@@ -1,0 +1,1066 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Libraries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Imaging Specification"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Printing Libraries"
+HREF="toccupslib.html"><LINK
+REL="PREVIOUS"
+TITLE="Printing Libraries"
+HREF="toccupslib.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libcups"
+HREF="libcups-ddefs.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Imaging Specification</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="toccupslib.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libcups-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="LIBCUPSLIB"
+></A
+>Chapter 7. Libraries</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBCUPS"
+>7.1. Interfaces for libcups</A
+></H1
+><P
+><A
+HREF="libcupslib.html#LIB-LIBCUPS-DEF"
+>Table 7-1</A
+> defines the library name and shared object name
+for the libcups library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBCUPS-DEF"
+></A
+><P
+><B
+>Table 7-1. libcups Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libcups</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libcups.so.2</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBCUPS.1"
+></A
+>[CUPS 1.2] <A
+HREF="normativerefs.html#STD.CUPS"
+>CUPS API Reference</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBCUPS.2"
+></A
+>[LSB] <A
+HREF="normativerefs.html#STD.LSB"
+>This Specification</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN408"
+>7.1.1. CUPS Convenience ABI</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN411"
+>7.1.1.1. Interfaces for CUPS Convenience ABI</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for CUPS Convenience ABI specified in <A
+HREF="libcupslib.html#TBL-LIBCUPS-CUPS-INTS"
+>Table 7-2</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBCUPS-CUPS-INTS"
+></A
+><P
+><B
+>Table 7-2. libcups - CUPS Convenience ABI Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>cupsAddDest <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsAddOption <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsCancelJob <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsDoAuthentication <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>cupsDoFileRequest <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>cupsEncodeOptions <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>cupsEncryption <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsFreeDests <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>cupsFreeJobs <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsFreeOptions <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsGetDefault <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsGetDefault2 <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>cupsGetDest <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsGetDests <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsGetDests2 <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>cupsGetFd <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>cupsGetFile <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>cupsGetJobs <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsGetJobs2 <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>cupsGetOption <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>cupsGetPPD <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsGetPPD2 <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>cupsGetPassword <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsLangEncoding <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>cupsLangFlush <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsLangFree <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsLangGet <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsLastError <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>cupsMarkOptions <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsParseOptions <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsPrintFile <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsPrintFile2 <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>cupsPrintFiles <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsPrintFiles2 <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>cupsPutFd <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>cupsPutFile <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>cupsServer <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsSetDests <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsSetDests2 <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>cupsSetEncryption <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>cupsSetPasswordCB <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsSetServer <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsSetUser <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>cupsTempFd <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>cupsUser <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>httpBlocking <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpCheck <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpClearCookie <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>httpClearFields <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpClose <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpConnect <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpConnectEncrypt <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>httpDecode64_2 <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpDelete <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpEncode64_2 <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpEncryption <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>httpError <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpFlush <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpGet <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpGetCookie <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>httpGetDateString <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpGetDateTime <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpGetField <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpGetHostByName <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>httpGetSubField <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpGets <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpHead <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpInitialize <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>httpMD5 <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpMD5Final <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpMD5String <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpOptions <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>httpPost <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpPut <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpReconnect <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpSetCookie <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>httpSetField <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpStatus <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpTrace <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>httpUpdate <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>httpWait <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippAddBoolean <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippAddBooleans <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippAddCollection <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>ippAddCollections <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippAddDate <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippAddInteger <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippAddIntegers <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>ippAddRange <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippAddRanges <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippAddResolution <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippAddResolutions <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>ippAddSeparator <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippAddString <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippAddStrings <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippDateToTime <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>ippDelete <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippDeleteAttribute <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippErrorString <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippFindAttribute <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>ippFindNextAttribute <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippLength <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippNew <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippPort <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>ippRead <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippReadFile <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippReadIO <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippSetPort <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>ippTimeToDate <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippWrite <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippWriteFile <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>ippWriteIO <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+></TR
+><TR
+><TD
+>ppdClose <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdCollect <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdConflicts <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdEmit <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>ppdEmitFd <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdEmitJCL <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdErrorString <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdFindAttr <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>ppdFindChoice <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdFindMarkedChoice <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdFindNextAttr <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdFindOption <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>ppdIsMarked <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdLastError <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdMarkDefaults <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdMarkOption <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>ppdOpen <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdOpenFd <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdOpenFile <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdPageLength <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>ppdPageSize <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdPageWidth <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>ppdSetConformance <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.2"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the generic deprecated functions
+for CUPS Convenience ABI specified in <A
+HREF="libcupslib.html#TBL-LIBCUPS-CUPS-DEPINTS"
+>Table 7-3</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>These interfaces are deprecated, and applications
+should avoid using them.
+These interfaces may be withdrawn
+in future releases of this specification.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBCUPS-CUPS-DEPINTS"
+></A
+><P
+><B
+>Table 7-3. libcups - CUPS Convenience ABI Deprecated Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>httpConnect <A
+HREF="libcupslib.html#REFSTD.LIBCUPS.1"
+>[CUPS 1.2]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="toccupslib.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libcups-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Printing Libraries</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="toccupslib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libcups</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

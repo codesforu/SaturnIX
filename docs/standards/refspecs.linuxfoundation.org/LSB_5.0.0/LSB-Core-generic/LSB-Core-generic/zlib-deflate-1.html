@@ -1,0 +1,950 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>deflate</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libz"
+HREF="libzman.html"><LINK
+REL="PREVIOUS"
+TITLE="crc32"
+HREF="zlib-crc32-1.html"><LINK
+REL="NEXT"
+TITLE="deflateBound"
+HREF="zlib-deflatebound-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="zlib-crc32-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="zlib-deflatebound-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="ZLIB-DEFLATE-1"
+></A
+>deflate</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN29074"
+></A
+><H2
+>Name</H2
+>deflate&nbsp;--&nbsp;compress data</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN29079"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN29080"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;zlib.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>deflate</TT
+></CODE
+>(z_streamp
+<TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>flush</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29089"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>deflate()</TT
+> function shall attempt to compress
+data until either the input buffer is empty or the output buffer is full.
+The <TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+> references a
+<TT
+CLASS="STRUCTNAME"
+>z_stream</TT
+> structure. Before the first call to
+<TT
+CLASS="FUNCTION"
+>deflate()</TT
+>, this structure
+should have been initialized by a call to 
+<TT
+CLASS="FUNCTION"
+>deflateInit2_()</TT
+>.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+><TT
+CLASS="FUNCTION"
+>deflateInit2_()</TT
+> is only in the binary standard; source
+level applications should initialize <TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+>
+via a call to <TT
+CLASS="FUNCTION"
+>deflateInit()</TT
+> or 
+<TT
+CLASS="FUNCTION"
+>deflateInit2()</TT
+>.</P
+></BLOCKQUOTE
+></DIV
+>
+In addition, the <TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+> input and output buffers
+should have been initialized as follows:
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN29105"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>next_in</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>should point to the data to be compressed.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN29110"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>avail_in</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>should contain the number of bytes of data in the
+buffer referenced by <CODE
+CLASS="STRUCTFIELD"
+>next_in</CODE
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN29116"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>next_out</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>should point to a buffer where compressed data may be placed.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN29121"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>avail_out</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>should contain the size in bytes of the
+buffer referenced by <CODE
+CLASS="STRUCTFIELD"
+>next_out</CODE
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></P
+><P
+>The <TT
+CLASS="FUNCTION"
+>deflate()</TT
+> function
+shall perform one or both of the following actions:
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Compress input data from <CODE
+CLASS="STRUCTFIELD"
+>next_in</CODE
+>
+and update <CODE
+CLASS="STRUCTFIELD"
+>next_in</CODE
+>,
+<CODE
+CLASS="STRUCTFIELD"
+>avail_in</CODE
+> and
+<CODE
+CLASS="STRUCTFIELD"
+>total_in</CODE
+> to reflect the data that has been 
+compressed.</P
+></LI
+><LI
+><P
+>Fill the output buffer referenced by <CODE
+CLASS="STRUCTFIELD"
+>next_out</CODE
+>,
+and update <CODE
+CLASS="STRUCTFIELD"
+>next_out</CODE
+>,
+<CODE
+CLASS="STRUCTFIELD"
+>avail_out</CODE
+> and
+<CODE
+CLASS="STRUCTFIELD"
+>total_out</CODE
+> to reflect the compressed data that 
+has been placed there. If <TT
+CLASS="PARAMETER"
+><I
+>flush</I
+></TT
+> is not
+<CODE
+CLASS="CONSTANT"
+>Z_NO_FLUSH</CODE
+>, and
+<CODE
+CLASS="STRUCTFIELD"
+>avail_out</CODE
+> indicates that there is still space in
+output buffer, this action shall always occur (see below for further details).</P
+></LI
+></OL
+></P
+><P
+>The <TT
+CLASS="FUNCTION"
+>deflate()</TT
+> function shall return when either
+<CODE
+CLASS="STRUCTFIELD"
+>avail_in</CODE
+> reaches zero (indicating that all the input
+data has been compressed), or <CODE
+CLASS="STRUCTFIELD"
+>avail_out</CODE
+> reaches
+zero (indicating that the output buffer is full).</P
+><P
+>On success, the <TT
+CLASS="FUNCTION"
+>deflate()</TT
+> function shall set the
+<CODE
+CLASS="STRUCTFIELD"
+>adler</CODE
+> field of the <TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+>
+to the <TT
+CLASS="FUNCTION"
+>adler32()</TT
+> checksum of all the input data compressed
+so far (represented by <CODE
+CLASS="STRUCTFIELD"
+>total_in</CODE
+>).</P
+><P
+>If the <TT
+CLASS="FUNCTION"
+>deflate()</TT
+> function shall attempt to determine
+the type of input data, and set field <CODE
+CLASS="STRUCTFIELD"
+>data_type</CODE
+>
+in <TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+> to <CODE
+CLASS="CONSTANT"
+>Z_ASCII</CODE
+> if the
+majority of the data bytes fall within the ASCII (ISO 646) printable
+character range. Otherwise, it shall set <CODE
+CLASS="STRUCTFIELD"
+>data_type</CODE
+>
+to <CODE
+CLASS="CONSTANT"
+>Z_BINARY</CODE
+>.
+This data type is informational only, and does not affect the compression
+algorithm.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>Future versions of the LSB may remove this requirement, since it is based
+on an outdated character set that does not support Internationalization,
+and does not affect the algorithm. It is included for information
+only at this release. Applications should not depend on this field.</P
+></BLOCKQUOTE
+></DIV
+></P
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN29164"
+></A
+><H3
+>Flush Operation</H3
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>flush</I
+></TT
+> determines when compressed bits 
+are added to the output buffer in <CODE
+CLASS="STRUCTFIELD"
+>next_out</CODE
+>.
+If <TT
+CLASS="PARAMETER"
+><I
+>flush</I
+></TT
+> is <CODE
+CLASS="CONSTANT"
+>Z_NO_FLUSH</CODE
+>,
+<TT
+CLASS="FUNCTION"
+>deflate()</TT
+>
+may return with some data pending output, and not yet added to the 
+output buffer.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>flush</I
+></TT
+> is <CODE
+CLASS="CONSTANT"
+>Z_SYNC_FLUSH</CODE
+>,
+<TT
+CLASS="FUNCTION"
+>deflate()</TT
+> shall flush all pending output to
+<CODE
+CLASS="STRUCTFIELD"
+>next_out</CODE
+> and align the output to a byte 
+boundary. A synchronization point is generated in  the output.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>flush</I
+></TT
+> is <CODE
+CLASS="CONSTANT"
+>Z_FULL_FLUSH</CODE
+>,
+all output shall be flushed, as for <CODE
+CLASS="CONSTANT"
+>Z_SYNC_FLUSH</CODE
+>,
+and the compression state shall be reset. 
+A synchronization point is generated in  the output.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Rationale: </B
+><CODE
+CLASS="CONSTANT"
+>Z_SYNC_FLUSH</CODE
+> is intended to ensure that the compressed
+data contains all the data compressed so far, and allows a decompressor
+to reconstruct all of the input data. <CODE
+CLASS="CONSTANT"
+>Z_FULL_FLUSH</CODE
+>
+allows decompression to restart from this point if the previous compressed
+data has been lost or damaged. Flushing is likely to degrade the
+performance of the compression system, and should only be used where
+necessary.</P
+></BLOCKQUOTE
+></DIV
+></P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>flush</I
+></TT
+> is set to <CODE
+CLASS="CONSTANT"
+>Z_FINISH</CODE
+>,
+all pending input shall be processed and <TT
+CLASS="FUNCTION"
+>deflate()</TT
+>
+shall return with <SPAN
+CLASS="RETURNVALUE"
+>Z_STREAM_END</SPAN
+> if there is
+sufficient space in the output buffer at <CODE
+CLASS="STRUCTFIELD"
+>next_out</CODE
+>,
+as indicated by <CODE
+CLASS="STRUCTFIELD"
+>avail_out</CODE
+>. If
+<TT
+CLASS="FUNCTION"
+>deflate()</TT
+> is called with <TT
+CLASS="PARAMETER"
+><I
+>flush</I
+></TT
+>
+set to <CODE
+CLASS="CONSTANT"
+>Z_FINISH</CODE
+> and there is insufficient space to store
+the compressed data, and no other error has occurred during compression,
+<TT
+CLASS="FUNCTION"
+>deflate()</TT
+> shall return <SPAN
+CLASS="RETURNVALUE"
+>Z_OK</SPAN
+>,
+and the application should call <TT
+CLASS="FUNCTION"
+>deflate()</TT
+> again with
+<TT
+CLASS="PARAMETER"
+><I
+>flush</I
+></TT
+> unchanged, and having updated <CODE
+CLASS="STRUCTFIELD"
+>next_out</CODE
+> and <CODE
+CLASS="STRUCTFIELD"
+>avail_out</CODE
+>.</P
+><P
+>If all the compression is to be done in a single step, 
+<TT
+CLASS="FUNCTION"
+>deflate()</TT
+>
+may be called with <TT
+CLASS="PARAMETER"
+><I
+>flush</I
+></TT
+> set to 
+<CODE
+CLASS="CONSTANT"
+>Z_FINISH</CODE
+> immediately after the stream
+has been initialized if <CODE
+CLASS="STRUCTFIELD"
+>avail_out</CODE
+>
+is set to at least the value returned by <TT
+CLASS="FUNCTION"
+>deflateBound()</TT
+>.</P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29208"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <TT
+CLASS="FUNCTION"
+>deflate()</TT
+> shall return  
+<SPAN
+CLASS="RETURNVALUE"
+>Z_OK</SPAN
+>, unless <TT
+CLASS="PARAMETER"
+><I
+>flush</I
+></TT
+> was set 
+to <CODE
+CLASS="CONSTANT"
+>Z_FINISH</CODE
+> and there was sufficient space in the output buffer
+to compress all of the input data. In this case, <TT
+CLASS="FUNCTION"
+>deflate()</TT
+>
+shall return <SPAN
+CLASS="RETURNVALUE"
+>Z_STREAM_END</SPAN
+>.
+On error, <TT
+CLASS="FUNCTION"
+>deflate()</TT
+> shall return a value to indicate
+the error.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>If <TT
+CLASS="FUNCTION"
+>deflate()</TT
+> returns <SPAN
+CLASS="RETURNVALUE"
+>Z_OK</SPAN
+>
+and has set <CODE
+CLASS="STRUCTFIELD"
+>avail_out</CODE
+> to zero, the function should
+be called again with the same value for <TT
+CLASS="PARAMETER"
+><I
+>flush</I
+></TT
+>, and with
+updated <CODE
+CLASS="STRUCTFIELD"
+>next_out</CODE
+> and 
+<CODE
+CLASS="STRUCTFIELD"
+>avail_out</CODE
+> until <TT
+CLASS="FUNCTION"
+>deflate()</TT
+>
+returns with <SPAN
+CLASS="RETURNVALUE"
+>Z_OK</SPAN
+> (or <SPAN
+CLASS="RETURNVALUE"
+>Z_STREAM_END</SPAN
+>
+if <TT
+CLASS="PARAMETER"
+><I
+>flush</I
+></TT
+> is set to <CODE
+CLASS="CONSTANT"
+>Z_FINISH</CODE
+>) and a non-zero 
+<CODE
+CLASS="STRUCTFIELD"
+>avail_out</CODE
+>.</P
+></BLOCKQUOTE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29232"
+></A
+><H2
+>Errors</H2
+><P
+>On error, <TT
+CLASS="FUNCTION"
+>deflate()</TT
+> shall return a value as described 
+below, and set the <CODE
+CLASS="STRUCTFIELD"
+>msg</CODE
+> field of 
+<TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+> to point to a string describing the error:
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN29239"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>Z_BUF_ERROR</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>No progress is possible; either <CODE
+CLASS="STRUCTFIELD"
+>avail_in</CODE
+>
+or <CODE
+CLASS="STRUCTFIELD"
+>avail_out</CODE
+> was zero.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN29246"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>Z_MEM_ERROR</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Insufficient memory.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN29251"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>Z_STREAM_ERROR</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The state (as represented in <TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+>) is inconsistent, or
+<TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+> was <CODE
+CLASS="CONSTANT"
+>NULL</CODE
+>.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="zlib-crc32-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="zlib-deflatebound-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>crc32</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libzman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>deflateBound</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

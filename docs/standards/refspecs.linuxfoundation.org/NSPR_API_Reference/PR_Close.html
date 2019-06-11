@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PR_Close</title>
+</head>
+
+<body>
+          <div class="pageTitle">
+            <h1 id="title">PR_Close</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+<p>Closes a file descriptor.
+</p>
+<div id="section_1"><a id="Syntax"><h3 class="editable"> Syntax </h3>
+<pre class="eval">#include &lt;prio.h&gt; 
+
+PRStatus PR_Close(PRFileDesc *fd);
+</pre>
+</div><div id="section_2"><a id="Parameters"><h3 class="editable"> Parameters </h3>
+<p>The function has the following parameters:
+</p>
+<dl><dt><code>fd</code>
+</dt><dd>A pointer to a <code>PRFileDesc</code> object.
+</dd></dl>
+</div><div id="section_3"><a id="Returns"><h3 class="editable"> Returns </h3>
+<p>One of the following values:
+</p>
+<ul><li> If file descriptor is closed successfully, <code>PR_SUCCESS</code>.
+</li><li> If the file descriptor is not closed successfully, <code>PR_FAILURE</code>.
+</li></ul>
+</div><div id="section_4"><a id="Description"><h3 class="editable"> Description </h3>
+<p>The file descriptor may represent a normal file, a socket, or an end point of a pipe. On successful return, <code>PR_Close</code> frees the dynamic memory and other resources identified by the <code>fd</code> parameter.
+</p></div><hr />
+</body>
+</html>

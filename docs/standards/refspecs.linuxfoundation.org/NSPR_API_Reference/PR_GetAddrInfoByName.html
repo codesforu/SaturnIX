@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PR_GetAddrInfoByName</title>
+</head>
+
+<body>
+          <div class="pageTitle">
+            <h1 id="title">PR GetAddrInfoByName</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+<p>Looks up a host by name. Equivalent to <code>getaddrinfo(host, NULL, ...)</code> of RFC 3493.</p>
+<div id="section_1"><a id="Syntax"><h3 class="editable">Syntax</h3>
+<pre class="eval">#include &lt;prnetdb.h&gt;
+
+<a rel="internal" href="https://developer.mozilla.org/en/PRAddrInfo" class="new ">PRAddrInfo *PR GetAddrInfoByName(
+  const char *hostname,
+  PRUint16 af,
+  PRIntn flags);
+</pre>
+</div><div id="section_2"><a id="Parameters"><h3 class="editable">Parameters</h3>
+<p>The function has the following parameters:</p>
+<dl><dt><code>hostname</code> </dt><dd>The character string defining the host name of interest. </dd><dt><code>af</code> </dt><dd>The address family. May be <code>PR_AF_UNSPEC</code> or <code>PR_AF_INET</code>. </dd><dt><code>flags</code> </dt><dd>May be either <code>PR_AI_ADDRCONFIG</code> or <code>PR_AI_ADDRCONFIG | PR_AI_NOCANONNAME</code>. Include <code>PR_AI_NOCANONNAME</code> to suppress the determination of the canonical name corresponding to <code>hostname</code></dd></dl>
+</div><div id="section_3"><a id="Returns"><h3 class="editable">Returns</h3>
+<p>The function returns one of the following values:</p>
+<ul> <li>If successful, a pointer to the opaque <code>PRAddrInfo</code> structure containing the results of the host lookup. Use <code>PR_EnumerateAddrInfo</code> to inspect the <code>PRNetAddr</code> values stored in this structure. When no longer needed, this pointer must be destroyed with a call to <code>PR_FreeAddrInfo</code>.</li> <li>If unsuccessful, <code>NULL</code>. You can retrieve the reason for the failure by calling <code><a href="PR_GetError.html">PR_GetError</a></code>.</li>
+</ul></div><hr />
+</body>
+</html>

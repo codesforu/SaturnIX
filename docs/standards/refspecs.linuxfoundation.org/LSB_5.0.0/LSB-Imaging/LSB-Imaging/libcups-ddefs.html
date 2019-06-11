@@ -1,0 +1,1126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libcups</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Imaging Specification"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="libcupslib.html"><LINK
+REL="PREVIOUS"
+TITLE="Libraries"
+HREF="libcupslib.html"><LINK
+REL="NEXT"
+TITLE="Interface Definitions for libcups"
+HREF="libcupsman.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Imaging Specification</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libcupslib.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 7. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libcupsman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBCUPS-DDEFS"
+>7.2. Data Definitions for libcups</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libcups.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1016"
+>7.2.1. cups/cups.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define _CUPS_CUPS_H_
+#define CUPS_VERSION_MAJOR	1
+#define CUPS_VERSION_MINOR	1
+#define CUPS_VERSION	1.0123
+#define CUPS_VERSION_PATCH	23
+#define cupsLangDefault()	cupsLangGet(NULL)
+
+typedef enum {
+    CUPS_AUTO_ENCODING = -1,
+    CUPS_US_ASCII = 0,
+    CUPS_ISO8859_1 = 1,
+    CUPS_ISO8859_2 = 2,
+    CUPS_ISO8859_3 = 3,
+    CUPS_ISO8859_4 = 4,
+    CUPS_ISO8859_5 = 5,
+    CUPS_ISO8859_6 = 6,
+    CUPS_ISO8859_7 = 7,
+    CUPS_ISO8859_8 = 8,
+    CUPS_ISO8859_9 = 9,
+    CUPS_ISO8859_10 = 10,
+    CUPS_UTF8 = 11,
+    CUPS_ISO8859_13 = 12,
+    CUPS_ISO8859_14 = 13,
+    CUPS_ISO8859_15 = 14,
+    CUPS_WINDOWS_874 = 15,
+    CUPS_WINDOWS_1250 = 16,
+    CUPS_WINDOWS_1251 = 17,
+    CUPS_WINDOWS_1252 = 18,
+    CUPS_WINDOWS_1253 = 19,
+    CUPS_WINDOWS_1254 = 20,
+    CUPS_WINDOWS_1255 = 21,
+    CUPS_WINDOWS_1256 = 22,
+    CUPS_WINDOWS_1257 = 23,
+    CUPS_WINDOWS_1258 = 24,
+    CUPS_KOI8_R = 25,
+    CUPS_KOI8_U = 26
+} cups_encoding_t;
+typedef struct cups_lang_s {
+    struct cups_lang_s *next;
+    int used;
+    cups_encoding_t encoding;
+    char language[16];
+    cups_array_t *strings;
+} cups_lang_t;
+typedef enum {
+    HTTP_ENCRYPT_IF_REQUESTED = 0,
+    HTTP_ENCRYPT_NEVER = 1,
+    HTTP_ENCRYPT_REQUIRED = 2,
+    HTTP_ENCRYPT_ALWAYS = 3
+} http_encryption_t;
+typedef struct {
+    char *name;
+    char *value;
+} cups_option_t;
+typedef struct {
+    char *name;
+    char *instance;
+    int is_default;
+    int num_options;
+    cups_option_t *options;
+} cups_dest_t;
+typedef enum {
+    HTTP_WAITING = 0,
+    HTTP_OPTIONS = 1,
+    HTTP_GET = 2,
+    HTTP_GET_SEND = 3,
+    HTTP_HEAD = 4,
+    HTTP_POST = 5,
+    HTTP_POST_RECV = 6,
+    HTTP_POST_SEND = 7,
+    HTTP_PUT = 8,
+    HTTP_PUT_RECV = 9,
+    HTTP_DELETE = 10,
+    HTTP_TRACE = 11,
+    HTTP_CLOSE = 12,
+    HTTP_STATUS = 13
+} http_state_t;
+typedef enum {
+    HTTP_ERROR = -1,
+    HTTP_CONTINUE = 100,
+    HTTP_SWITCHING_PROTOCOLS = 101,
+    HTTP_OK = 200,
+    HTTP_CREATED = 201,
+    HTTP_ACCEPTED = 202,
+    HTTP_NOT_AUTHORITATIVE = 203,
+    HTTP_NO_CONTENT = 204,
+    HTTP_RESET_CONTENT = 205,
+    HTTP_PARTIAL_CONTENT = 206,
+    HTTP_MULTIPLE_CHOICES = 300,
+    HTTP_MOVED_PERMANENTLY = 301,
+    HTTP_MOVED_TEMPORARILY = 302,
+    HTTP_SEE_OTHER = 303,
+    HTTP_NOT_MODIFIED = 304,
+    HTTP_USE_PROXY = 305,
+    HTTP_BAD_REQUEST = 400,
+    HTTP_UNAUTHORIZED = 401,
+    HTTP_PAYMENT_REQUIRED = 402,
+    HTTP_FORBIDDEN = 403,
+    HTTP_NOT_FOUND = 404,
+    HTTP_METHOD_NOT_ALLOWED = 405,
+    HTTP_NOT_ACCEPTABLE = 406,
+    HTTP_PROXY_AUTHENTICATION = 407,
+    HTTP_REQUEST_TIMEOUT = 408,
+    HTTP_CONFLICT = 409,
+    HTTP_GONE = 410,
+    HTTP_LENGTH_REQUIRED = 411,
+    HTTP_PRECONDITION = 412,
+    HTTP_REQUEST_TOO_LARGE = 413,
+    HTTP_URI_TOO_LONG = 414,
+    HTTP_UNSUPPORTED_MEDIATYPE = 415,
+    HTTP_UPGRADE_REQUIRED = 426,
+    HTTP_SERVER_ERROR = 500,
+    HTTP_NOT_IMPLEMENTED = 501,
+    HTTP_BAD_GATEWAY = 502,
+    HTTP_SERVICE_UNAVAILABLE = 503,
+    HTTP_GATEWAY_TIMEOUT = 504,
+    HTTP_NOT_SUPPORTED = 505
+} http_status_t;
+typedef enum {
+    HTTP_0_9 = 9,
+    HTTP_1_0 = 100,
+    HTTP_1_1 = 101
+} http_version_t;
+typedef enum {
+    HTTP_KEEPALIVE_OFF = 0,
+    HTTP_KEEPALIVE_ON = 1
+} http_keepalive_t;
+typedef enum {
+    HTTP_ENCODE_LENGTH = 0,
+    HTTP_ENCODE_CHUNKED = 1
+} http_encoding_t;
+typedef enum {
+    IPP_JOB_PENDING = 3,
+    IPP_JOB_HELD = 4,
+    IPP_JOB_PROCESSING = 5,
+    IPP_JOB_STOPPED = 6,
+    IPP_JOB_CANCELLED = 7,
+    IPP_JOB_ABORTED = 8,
+    IPP_JOB_COMPLETED = 9
+} ipp_jstate_t;
+typedef struct {
+    int id;
+    char *dest;
+    char *title;
+    char *user;
+    char *format;
+    ipp_jstate_t state;
+    int size;
+    int priority;
+    time_t completed_time;
+    time_t creation_time;
+    time_t processing_time;
+} cups_job_t;
+typedef struct _cups_array_s cups_array_t;
+
+typedef struct _http_s http_t;
+extern int cupsAddDest(const char *name, const char *instance,
+		       int num_dests, cups_dest_t * *dests);
+extern int cupsAddOption(const char *name, const char *value,
+			 int num_options, cups_option_t * *options);
+extern int cupsCancelJob(const char *printer, int job);
+extern int cupsDoAuthentication(http_t * http, const char *method,
+				const char *resource);
+extern ipp_t *cupsDoFileRequest(http_t * http, ipp_t * request,
+				const char *resource,
+				const char *filename);
+extern void cupsEncodeOptions(ipp_t * ipp, int num_options,
+			      cups_option_t * options);
+extern http_encryption_t cupsEncryption(void);
+extern void cupsFreeDests(int num_dests, cups_dest_t * dests);
+extern void cupsFreeJobs(int num_jobs, cups_job_t * jobs);
+extern void cupsFreeOptions(int num_options, cups_option_t * options);
+extern const char *cupsGetDefault(void);
+extern const char *cupsGetDefault2(http_t * http);
+extern cups_dest_t *cupsGetDest(const char *name, const char *instance,
+				int num_dests, cups_dest_t * dests);
+extern int cupsGetDests(cups_dest_t * *dests);
+extern int cupsGetDests2(http_t * http, cups_dest_t * *dests);
+extern http_status_t cupsGetFd(http_t * http, const char *resource,
+			       int fd);
+extern http_status_t cupsGetFile(http_t * http, const char *resource,
+				 const char *filename);
+extern int cupsGetJobs(cups_job_t * *jobs, const char *dest, int myjobs,
+		       int completed);
+extern int cupsGetJobs2(http_t * http, cups_job_t * *jobs,
+			const char *dest, int myjobs, int completed);
+extern const char *cupsGetOption(const char *name, int num_options,
+				 cups_option_t * options);
+extern const char *cupsGetPPD(const char *printer);
+extern const char *cupsGetPPD2(http_t * http, const char *printer);
+extern const char *cupsGetPassword(const char *prompt);
+extern const char *cupsLangEncoding(cups_lang_t * lang);
+extern void cupsLangFlush(void);
+extern void cupsLangFree(cups_lang_t * lang);
+extern cups_lang_t *cupsLangGet(const char *language);
+extern ipp_status_t cupsLastError(void);
+extern int cupsMarkOptions(ppd_file_t * ppd, int num_options,
+			   cups_option_t * options);
+extern int cupsParseOptions(const char *arg, int num_options,
+			    cups_option_t * *options);
+extern int cupsPrintFile(const char *printer, const char *filename,
+			 const char *title, int num_options,
+			 cups_option_t * options);
+extern int cupsPrintFile2(http_t * http, const char *printer,
+			  const char *filename, const char *title,
+			  int num_options, cups_option_t * options);
+extern int cupsPrintFiles(const char *printer, int num_files,
+			  const char **files, const char *title,
+			  int num_options, cups_option_t * options);
+extern int cupsPrintFiles2(http_t * http, const char *printer,
+			   int num_files, const char **files,
+			   const char *title, int num_options,
+			   cups_option_t * options);
+extern http_status_t cupsPutFd(http_t * http, const char *resource,
+			       int fd);
+extern http_status_t cupsPutFile(http_t * http, const char *resource,
+				 const char *filename);
+extern const char *cupsServer(void);
+extern void cupsSetDests(int num_dests, cups_dest_t * dests);
+extern int cupsSetDests2(http_t * http, int num_dests,
+			 cups_dest_t * dests);
+extern void cupsSetEncryption(http_encryption_t e);
+extern void cupsSetPasswordCB(const char *(*cb) (const char *));
+extern void cupsSetServer(const char *server);
+extern void cupsSetUser(const char *user);
+extern int cupsTempFd(char *filename, int len);
+extern const char *cupsUser(void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1020"
+>7.2.2. cups/http.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define HTTP_MAX_URI	1024
+#define HTTP_MAX_BUFFER	2048
+#define HTTP_MAX_HOST	256
+#define HTTP_MAX_VALUE	256
+
+typedef enum http_auth_e {
+    HTTP_AUTH_NONE,
+    HTTP_AUTH_BASIC,
+    HTTP_AUTH_MD5,
+    HTTP_AUTH_MD5_SESS,
+    HTTP_AUTH_MD5_INT,
+    HTTP_AUTH_MD5_SESS_INT,
+    HTTP_AUTH_NEGOTIATE
+} http_auth_t;
+typedef enum http_field_e {
+    HTTP_FIELD_UNKNOWN,
+    HTTP_FIELD_ACCEPT_LANGUAGE,
+    HTTP_FIELD_ACCEPT_RANGES,
+    HTTP_FIELD_AUTHORIZATION,
+    HTTP_FIELD_CONNECTION,
+    HTTP_FIELD_CONTENT_ENCODING,
+    HTTP_FIELD_CONTENT_LANGUAGE,
+    HTTP_FIELD_CONTENT_LENGTH,
+    HTTP_FIELD_CONTENT_LOCATION,
+    HTTP_FIELD_CONTENT_MD5,
+    HTTP_FIELD_CONTENT_RANGE,
+    HTTP_FIELD_CONTENT_TYPE,
+    HTTP_FIELD_CONTENT_VERSION,
+    HTTP_FIELD_DATE,
+    HTTP_FIELD_HOST,
+    HTTP_FIELD_IF_MODIFIED_SINCE,
+    HTTP_FIELD_IF_UNMODIFIED_SINCE,
+    HTTP_FIELD_KEEP_ALIVE,
+    HTTP_FIELD_LAST_MODIFIED,
+    HTTP_FIELD_LINK,
+    HTTP_FIELD_LOCATION,
+    HTTP_FIELD_RANGE,
+    HTTP_FIELD_REFERER,
+    HTTP_FIELD_RETRY_AFTER,
+    HTTP_FIELD_TRANSFER_ENCODING,
+    HTTP_FIELD_UPGRADE,
+    HTTP_FIELD_USER_AGENT,
+    HTTP_FIELD_WWW_AUTHENTICATE,
+    HTTP_FIELD_MAX
+} http_field_t;
+typedef enum http_uri_status_e {
+    HTTP_URI_OVERFLOW,
+    HTTP_URI_BAD_ARGUMENTS,
+    HTTP_URI_BAD_RESOURCE,
+    HTTP_URI_BAD_PORT,
+    HTTP_URI_BAD_HOSTNAME,
+    HTTP_URI_BAD_USERNAME,
+    HTTP_URI_BAD_SCHEME,
+    HTTP_URI_BAD_URI,
+    HTTP_URI_OK,
+    HTTP_URI_MISSING_SCHEME,
+    HTTP_URI_UNKNOWN_SCHEME,
+    HTTP_URI_MISSING_RESOURCE
+} http_uri_status_t;
+typedef enum http_uri_coding_e {
+    HTTP_URI_CODING_NONE,
+    HTTP_URI_CODING_USERNAME,
+    HTTP_URI_CODING_HOSTNAME,
+    HTTP_URI_CODING_RESOURCE,
+    HTTP_URI_CODING_MOST,
+    HTTP_URI_CODING_QUERY,
+    HTTP_URI_CODING_ALL
+} http_uri_coding_t;
+typedef union _http_addr_u {
+    struct sockaddr addr;
+    struct sockaddr_in ipv4;
+    struct sockaddr_in6 ipv6;
+    struct sockaddr_un un;
+    char pad[256];
+} http_addr_t;
+typedef struct http_addrlist_s {
+    struct http_addrlist_s *next;
+    http_addr_t addr;
+} http_addrlist_t;
+extern void httpBlocking(http_t * http, int b);
+extern int httpCheck(http_t * http);
+extern void httpClearCookie(http_t * http);
+extern void httpClearFields(http_t * http);
+extern void httpClose(http_t * http);
+extern http_t *httpConnect(const char *host, int port);
+extern http_t *httpConnectEncrypt(const char *host, int port,
+				  http_encryption_t encryption);
+extern char *httpDecode64_2(char *out, int *outlen, const char *in);
+extern int httpDelete(http_t * http, const char *uri);
+extern char *httpEncode64_2(char *out, int outlen, const char *in,
+			    int inlen);
+extern int httpEncryption(http_t * http, http_encryption_t e);
+extern int httpError(http_t * http);
+extern void httpFlush(http_t * http);
+extern int httpGet(http_t * http, const char *uri);
+extern const char *httpGetCookie(http_t * http);
+extern const char *httpGetDateString(time_t t);
+extern time_t httpGetDateTime(const char *s);
+extern const char *httpGetField(http_t * http, http_field_t field);
+extern struct hostent *httpGetHostByName(const char *name);
+extern char *httpGetSubField(http_t * http, http_field_t field,
+			     const char *name, char *value);
+extern char *httpGets(char *line, int length, http_t * http);
+extern int httpHead(http_t * http, const char *uri);
+extern void httpInitialize(void);
+extern char *httpMD5(const char *, const char *, const char *, char *);
+extern char *httpMD5Final(const char *, const char *, const char *,
+			  char *);
+extern char *httpMD5String(const unsigned char *, char *);
+extern int httpOptions(http_t * http, const char *uri);
+extern int httpPost(http_t * http, const char *uri);
+extern int httpPut(http_t * http, const char *uri);
+extern int httpReconnect(http_t * http);
+extern void httpSetCookie(http_t * http, const char *cookie);
+extern void httpSetField(http_t * http, http_field_t field,
+			 const char *value);
+extern const char *httpStatus(http_status_t status);
+extern int httpTrace(http_t * http, const char *uri);
+extern http_status_t httpUpdate(http_t * http);
+extern int httpWait(http_t * http, int msec);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1024"
+>7.2.3. cups/ipp.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define IPP_MAX_NAME	256
+#define IPP_MAX_LENGTH	32767
+#define IPP_PORT	631
+#define IPP_MAX_VALUES	8
+#define CUPS_ADD_CLASS	CUPS_ADD_MODIFY_CLASS
+#define CUPS_ADD_PRINTER	CUPS_ADD_MODIFY_PRINTER
+#define IPP_ERROR_JOB_CANCELLED	IPP_ERROR_JOB_CANCELED
+#define IPP_JOB_CANCELLED	IPP_JOB_CANCELED
+#define IPP_VERSION	"\001\001"
+
+typedef enum {
+    IPP_OK = 0,
+    IPP_OK_SUBST = 1,
+    IPP_OK_CONFLICT = 2,
+    IPP_OK_IGNORED_SUBSCRIPTIONS = 3,
+    IPP_OK_IGNORED_NOTIFICATIONS = 4,
+    IPP_OK_TOO_MANY_EVENTS = 5,
+    IPP_OK_BUT_CANCEL_SUBSCRIPTION = 6,
+    IPP_REDIRECTION_OTHER_SITE = 768,
+    IPP_BAD_REQUEST = 1024,
+    IPP_FORBIDDEN = 1025,
+    IPP_NOT_AUTHENTICATED = 1026,
+    IPP_NOT_AUTHORIZED = 1027,
+    IPP_NOT_POSSIBLE = 1028,
+    IPP_TIMEOUT = 1029,
+    IPP_NOT_FOUND = 1030,
+    IPP_GONE = 1031,
+    IPP_REQUEST_ENTITY = 1032,
+    IPP_REQUEST_VALUE = 1033,
+    IPP_DOCUMENT_FORMAT = 1034,
+    IPP_ATTRIBUTES = 1035,
+    IPP_URI_SCHEME = 1036,
+    IPP_CHARSET = 1037,
+    IPP_CONFLICT = 1038,
+    IPP_COMPRESSION_NOT_SUPPORTED = 1039,
+    IPP_COMPRESSION_ERROR = 1040,
+    IPP_DOCUMENT_FORMAT_ERROR = 1041,
+    IPP_DOCUMENT_ACCESS_ERROR = 1042,
+    IPP_ATTRIBUTES_NOT_SETTABLE = 1043,
+    IPP_IGNORED_ALL_SUBSCRIPTIONS = 1044,
+    IPP_TOO_MANY_SUBSCRIPTIONS = 1045,
+    IPP_IGNORED_ALL_NOTIFICATIONS = 1046,
+    IPP_PRINT_SUPPORT_FILE_NOT_FOUND = 1047,
+    IPP_INTERNAL_ERROR = 1280,
+    IPP_OPERATION_NOT_SUPPORTED = 1281,
+    IPP_SERVICE_UNAVAILABLE = 1282,
+    IPP_VERSION_NOT_SUPPORTED = 1283,
+    IPP_DEVICE_ERROR = 1284,
+    IPP_TEMPORARY_ERROR = 1285,
+    IPP_NOT_ACCEPTING = 1286,
+    IPP_PRINTER_BUSY = 1287,
+    IPP_ERROR_JOB_CANCELLED = 1288,
+    IPP_MULTIPLE_JOBS_NOT_SUPPORTED = 1289,
+    IPP_PRINTER_IS_DEACTIVATED = 1290
+} ipp_status_t;
+typedef enum ipp_tag_e {
+    IPP_TAG_ZERO,
+    IPP_TAG_OPERATION,
+    IPP_TAG_JOB,
+    IPP_TAG_END,
+    IPP_TAG_PRINTER,
+    IPP_TAG_UNSUPPORTED_GROUP,
+    IPP_TAG_SUBSCRIPTION,
+    IPP_TAG_EVENT_NOTIFICATION,
+    IPP_TAG_UNSUPPORTED_VALUE,
+    IPP_TAG_DEFAULT,
+    IPP_TAG_UNKNOWN,
+    IPP_TAG_NOVALUE,
+    IPP_TAG_NOTSETTABLE,
+    IPP_TAG_DELETEATTR,
+    IPP_TAG_ADMINDEFINE,
+    IPP_TAG_INTEGER,
+    IPP_TAG_BOOLEAN,
+    IPP_TAG_ENUM,
+    IPP_TAG_STRING,
+    IPP_TAG_DATE,
+    IPP_TAG_RESOLUTION,
+    IPP_TAG_RANGE,
+    IPP_TAG_BEGIN_COLLECTION,
+    IPP_TAG_TEXTLANG,
+    IPP_TAG_NAMELANG,
+    IPP_TAG_END_COLLECTION,
+    IPP_TAG_TEXT,
+    IPP_TAG_NAME,
+    IPP_TAG_KEYWORD,
+    IPP_TAG_URI,
+    IPP_TAG_URISCHEME,
+    IPP_TAG_CHARSET,
+    IPP_TAG_LANGUAGE,
+    IPP_TAG_MIMETYPE,
+    IPP_TAG_MEMBERNAME,
+    IPP_TAG_MASK,
+    IPP_TAG_COPY
+} ipp_tag_t;
+typedef enum ipp_res_e {
+    IPP_RES_PER_INCH,
+    IPP_RES_PER_CM
+} ipp_res_t;
+typedef enum ipp_finish_e {
+    IPP_FINISHINGS_NONE,
+    IPP_FINISHINGS_STAPLE,
+    IPP_FINISHINGS_PUNCH,
+    IPP_FINISHINGS_COVER,
+    IPP_FINISHINGS_BIND,
+    IPP_FINISHINGS_SADDLE_STITCH,
+    IPP_FINISHINGS_EDGE_STITCH,
+    IPP_FINISHINGS_FOLD,
+    IPP_FINISHINGS_TRIM,
+    IPP_FINISHINGS_BALE,
+    IPP_FINISHINGS_BOOKLET_MAKER,
+    IPP_FINISHINGS_JOB_OFFSET,
+    IPP_FINISHINGS_STAPLE_TOP_LEFT,
+    IPP_FINISHINGS_STAPLE_BOTTOM_LEFT,
+    IPP_FINISHINGS_STAPLE_TOP_RIGHT,
+    IPP_FINISHINGS_STAPLE_BOTTOM_RIGHT,
+    IPP_FINISHINGS_EDGE_STITCH_LEFT,
+    IPP_FINISHINGS_EDGE_STITCH_TOP,
+    IPP_FINISHINGS_EDGE_STITCH_RIGHT,
+    IPP_FINISHINGS_EDGE_STITCH_BOTTOM,
+    IPP_FINISHINGS_STAPLE_DUAL_LEFT,
+    IPP_FINISHINGS_STAPLE_DUAL_TOP,
+    IPP_FINISHINGS_STAPLE_DUAL_RIGHT,
+    IPP_FINISHINGS_STAPLE_DUAL_BOTTOM,
+    IPP_FINISHINGS_BIND_LEFT,
+    IPP_FINISHINGS_BIND_TOP,
+    IPP_FINISHINGS_BIND_RIGHT,
+    IPP_FINISHINGS_BIND_BOTTOM
+} ipp_finish_t;
+typedef enum ipp_orient_e {
+    IPP_PORTRAIT,
+    IPP_LANDSCAPE,
+    IPP_REVERSE_LANDSCAPE,
+    IPP_REVERSE_PORTRAIT
+} ipp_orient_t;
+typedef enum ipp_quality_e {
+    IPP_QUALITY_DRAFT,
+    IPP_QUALITY_NORMAL,
+    IPP_QUALITY_HIGH
+} ipp_quality_t;
+typedef enum ipp_pstate_e {
+    IPP_PRINTER_IDLE,
+    IPP_PRINTER_PROCESSING,
+    IPP_PRINTER_STOPPED
+} ipp_pstate_t;
+typedef enum ipp_state_e {
+    IPP_ERROR,
+    IPP_IDLE,
+    IPP_HEADER,
+    IPP_ATTRIBUTE,
+    IPP_DATA
+} ipp_state_t;
+typedef enum ipp_op_e {
+    IPP_PRINT_JOB,
+    IPP_PRINT_URI,
+    IPP_VALIDATE_JOB,
+    IPP_CREATE_JOB,
+    IPP_SEND_DOCUMENT,
+    IPP_SEND_URI,
+    IPP_CANCEL_JOB,
+    IPP_GET_JOB_ATTRIBUTES,
+    IPP_GET_JOBS,
+    IPP_GET_PRINTER_ATTRIBUTES,
+    IPP_HOLD_JOB,
+    IPP_RELEASE_JOB,
+    IPP_RESTART_JOB,
+    IPP_PAUSE_PRINTER,
+    IPP_RESUME_PRINTER,
+    IPP_PURGE_JOBS,
+    IPP_SET_PRINTER_ATTRIBUTES,
+    IPP_SET_JOB_ATTRIBUTES,
+    IPP_GET_PRINTER_SUPPORTED_VALUES,
+    IPP_CREATE_PRINTER_SUBSCRIPTION,
+    IPP_CREATE_JOB_SUBSCRIPTION,
+    IPP_GET_SUBSCRIPTION_ATTRIBUTES,
+    IPP_GET_SUBSCRIPTIONS,
+    IPP_RENEW_SUBSCRIPTION,
+    IPP_CANCEL_SUBSCRIPTION,
+    IPP_GET_NOTIFICATIONS,
+    IPP_SEND_NOTIFICATIONS,
+    IPP_GET_PRINT_SUPPORT_FILES,
+    IPP_ENABLE_PRINTER,
+    IPP_DISABLE_PRINTER,
+    IPP_PAUSE_PRINTER_AFTER_CURRENT_JOB,
+    IPP_HOLD_NEW_JOBS,
+    IPP_RELEASE_HELD_NEW_JOBS,
+    IPP_DEACTIVATE_PRINTER,
+    IPP_ACTIVATE_PRINTER,
+    IPP_RESTART_PRINTER,
+    IPP_SHUTDOWN_PRINTER,
+    IPP_STARTUP_PRINTER,
+    IPP_REPROCESS_JOB,
+    IPP_CANCEL_CURRENT_JOB,
+    IPP_SUSPEND_CURRENT_JOB,
+    IPP_RESUME_JOB,
+    IPP_PROMOTE_JOB,
+    IPP_SCHEDULE_JOB_AFTER,
+    IPP_PRIVATE,
+    CUPS_GET_DEFAULT,
+    CUPS_GET_PRINTERS,
+    CUPS_ADD_MODIFY_PRINTER,
+    CUPS_DELETE_PRINTER,
+    CUPS_GET_CLASSES,
+    CUPS_ADD_MODIFY_CLASS,
+    CUPS_DELETE_CLASS,
+    CUPS_ACCEPT_JOBS,
+    CUPS_REJECT_JOBS,
+    CUPS_SET_DEFAULT,
+    CUPS_GET_DEVICES,
+    CUPS_GET_PPDS,
+    CUPS_MOVE_JOB,
+    CUPS_AUTHENTICATE_JOB,
+    CUPS_GET_PPD
+} ipp_op_t;
+typedef unsigned char ipp_uchar_t;
+typedef ssize_t(*ipp_iocb_t) (void *, ipp_uchar_t *, size_t);
+typedef union ipp_request_u {
+    struct {
+	ipp_uchar_t version[2];
+	int op_status;
+	int request_id;
+    } any;
+    struct {
+	ipp_uchar_t version[2];
+	ipp_op_t operation_id;
+	int request_id;
+    } op;
+    struct {
+	ipp_uchar_t version[2];
+	ipp_status_t status_code;
+	int request_id;
+    } status;
+    struct {
+	ipp_uchar_t version[2];
+	ipp_status_t status_code;
+	int request_id;
+    } event;
+} ipp_request_t;
+typedef struct ipp_s {
+    ipp_state_t state;
+    ipp_request_t request;
+    ipp_attribute_t *attrs;
+    ipp_attribute_t *last;
+    ipp_attribute_t *current;
+    ipp_tag_t curtag;
+} ipp_t;
+typedef union ipp_value_u {
+    int integer;
+    char boolean;
+    ipp_uchar_t date[11];
+    struct {
+	int xres;
+	int yres;
+	ipp_res_t units;
+    } resolution;
+    struct {
+	int lower;
+	int upper;
+    } range;
+    struct {
+	char *charset;
+	char *text;
+    } string;
+    struct {
+	int length;
+	void *data;
+    } unknown;
+    ipp_t *collection;
+} ipp_value_t;
+typedef struct ipp_attribute_s {
+    struct ipp_attribute_s *next;
+    ipp_tag_t group_tag;
+    ipp_tag_t value_tag;
+    char *name;
+    int num_values;
+    ipp_value_t values[1];
+} ipp_attribute_t;
+extern ipp_attribute_t *ippAddBoolean(ipp_t * ipp, ipp_tag_t group,
+				      const char *name, char value);
+extern ipp_attribute_t *ippAddBooleans(ipp_t * ipp, ipp_tag_t group,
+				       const char *name, int num_values,
+				       const char *values);
+extern ipp_attribute_t *ippAddCollection(ipp_t * ipp, ipp_tag_t group,
+					 const char *name, ipp_t * value);
+extern ipp_attribute_t *ippAddCollections(ipp_t * ipp, ipp_tag_t group,
+					  const char *name, int num_values,
+					  const ipp_t * *values);
+extern ipp_attribute_t *ippAddDate(ipp_t * ipp, ipp_tag_t group,
+				   const char *name,
+				   const ipp_uchar_t * value);
+extern ipp_attribute_t *ippAddInteger(ipp_t * ipp, ipp_tag_t group,
+				      ipp_tag_t type, const char *name,
+				      int value);
+extern ipp_attribute_t *ippAddIntegers(ipp_t * ipp, ipp_tag_t group,
+				       ipp_tag_t type, const char *name,
+				       int num_values, const int *values);
+extern ipp_attribute_t *ippAddRange(ipp_t * ipp, ipp_tag_t group,
+				    const char *name, int lower,
+				    int upper);
+extern ipp_attribute_t *ippAddRanges(ipp_t * ipp, ipp_tag_t group,
+				     const char *name, int num_values,
+				     const int *lower, const int *upper);
+extern ipp_attribute_t *ippAddResolution(ipp_t * ipp, ipp_tag_t group,
+					 const char *name, ipp_res_t units,
+					 int xres, int yres);
+extern ipp_attribute_t *ippAddResolutions(ipp_t * ipp, ipp_tag_t group,
+					  const char *name, int num_values,
+					  ipp_res_t units, const int *xres,
+					  const int *yres);
+extern ipp_attribute_t *ippAddSeparator(ipp_t * ipp);
+extern ipp_attribute_t *ippAddString(ipp_t * ipp, ipp_tag_t group,
+				     ipp_tag_t type, const char *name,
+				     const char *charset,
+				     const char *value);
+extern ipp_attribute_t *ippAddStrings(ipp_t * ipp, ipp_tag_t group,
+				      ipp_tag_t type, const char *name,
+				      int num_values, const char *charset,
+				      const char *const *values);
+extern time_t ippDateToTime(const ipp_uchar_t * date);
+extern void ippDelete(ipp_t * ipp);
+extern void ippDeleteAttribute(ipp_t * ipp, ipp_attribute_t * attr);
+extern const char *ippErrorString(ipp_status_t error);
+extern ipp_attribute_t *ippFindAttribute(ipp_t * ipp, const char *name,
+					 ipp_tag_t type);
+extern ipp_attribute_t *ippFindNextAttribute(ipp_t * ipp, const char *name,
+					     ipp_tag_t type);
+extern size_t ippLength(ipp_t * ipp);
+extern ipp_t *ippNew(void);
+extern int ippPort(void);
+extern ipp_state_t ippRead(http_t * http, ipp_t * ipp);
+extern ipp_state_t ippReadFile(int fd, ipp_t * ipp);
+extern ipp_state_t ippReadIO(void *src, ipp_iocb_t cb, int blocking,
+			     ipp_t * parent, ipp_t * ipp);
+extern void ippSetPort(int p);
+extern const ipp_uchar_t *ippTimeToDate(time_t t);
+extern ipp_state_t ippWrite(http_t * http, ipp_t * ipp);
+extern ipp_state_t ippWriteFile(int fd, ipp_t * ipp);
+extern ipp_state_t ippWriteIO(void *dst, ipp_iocb_t cb, int blocking,
+			      ipp_t * parent, ipp_t * ipp);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1028"
+>7.2.4. cups/ppd.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define _CUPS_PPD_H_
+#define PPD_MAX_LINE	256
+#define PPD_VERSION	4.3
+#define PPD_MAX_NAME	41
+#define PPD_MAX_TEXT	81
+
+typedef enum {
+    PPD_CS_CMYK = -4,
+    PPD_CS_CMY = -3,
+    PPD_CS_GRAY = 1,
+    PPD_CS_RGB = 3,
+    PPD_CS_RGBK = 4,
+    PPD_CS_N = 5
+} ppd_cs_t;
+typedef struct {
+    char name[41];
+    char *start;
+    char *stop;
+} ppd_emul_t;
+typedef enum {
+    PPD_UI_BOOLEAN = 0,
+    PPD_UI_PICKONE = 1,
+    PPD_UI_PICKMANY = 2
+} ppd_ui_t;
+typedef enum {
+    PPD_ORDER_ANY = 0,
+    PPD_ORDER_DOCUMENT = 1,
+    PPD_ORDER_EXIT = 2,
+    PPD_ORDER_JCL = 3,
+    PPD_ORDER_PAGE = 4,
+    PPD_ORDER_PROLOG = 5
+} ppd_section_t;
+typedef struct {
+    char marked;
+    char choice[41];
+    char text[81];
+    char *code;
+    void *option;
+} ppd_choice_t;
+typedef struct {
+    char conflicted;
+    char keyword[41];
+    char defchoice[41];
+    char text[81];
+    ppd_ui_t ui;
+    ppd_section_t section;
+    float order;
+    int num_choices;
+    ppd_choice_t *choices;
+} ppd_option_t;
+typedef struct ppd_group_str {
+    char text[40];
+    char name[41];
+    int num_options;
+    ppd_option_t *options;
+    int num_subgroups;
+    struct ppd_group_str *subgroups;
+} ppd_group_t;
+typedef struct {
+    int marked;
+    char name[41];
+    float width;
+    float length;
+    float left;
+    float bottom;
+    float right;
+    float top;
+} ppd_size_t;
+typedef struct {
+    char option1[41];
+    char choice1[41];
+    char option2[41];
+    char choice2[41];
+} ppd_const_t;
+typedef struct {
+    char resolution[41];
+    char media_type[41];
+    float density;
+    float gamma;
+    float matrix[3][3];
+} ppd_profile_t;
+typedef struct {
+    char name[41];
+    char spec[41];
+    char text[81];
+    char *value;
+} ppd_attr_t;
+typedef struct {
+    int language_level;
+    int color_device;
+    int variable_sizes;
+    int accurate_screens;
+    int contone_only;
+    int landscape;
+    int model_number;
+    int manual_copies;
+    int throughput;
+    ppd_cs_t colorspace;
+    char *patches;
+    int num_emulations;
+    ppd_emul_t *emulations;
+    char *jcl_begin;
+    char *jcl_ps;
+    char *jcl_end;
+    char *lang_encoding;
+    char *lang_version;
+    char *modelname;
+    char *ttrasterizer;
+    char *manufacturer;
+    char *product;
+    char *nickname;
+    char *shortnickname;
+    int num_groups;
+    ppd_group_t *groups;
+    int num_sizes;
+    ppd_size_t *sizes;
+    float custom_min[2];
+    float custom_max[2];
+    float custom_margins[4];
+    int num_consts;
+    ppd_const_t *consts;
+    int num_fonts;
+    char **fonts;
+    int num_profiles;
+    ppd_profile_t *profiles;
+    int num_filters;
+    char **filters;
+    int flip_duplex;
+    char *protocols;
+    char *pcfilename;
+    int num_attrs;
+    int cur_attr;
+    ppd_attr_t **attrs;
+} ppd_file_t;
+typedef enum {
+    PPD_OK = 0,
+    PPD_FILE_OPEN_ERROR = 1,
+    PPD_NULL_FILE = 2,
+    PPD_ALLOC_ERROR = 3,
+    PPD_MISSING_PPDADOBE4 = 4,
+    PPD_MISSING_VALUE = 5,
+    PPD_INTERNAL_ERROR = 6,
+    PPD_BAD_OPEN_GROUP = 7,
+    PPD_NESTED_OPEN_GROUP = 8,
+    PPD_BAD_OPEN_UI = 9,
+    PPD_NESTED_OPEN_UI = 10,
+    PPD_BAD_ORDER_DEPENDENCY = 11,
+    PPD_BAD_UI_CONSTRAINTS = 12,
+    PPD_MISSING_ASTERISK = 13,
+    PPD_LINE_TOO_LONG = 14,
+    PPD_ILLEGAL_CHARACTER = 15,
+    PPD_ILLEGAL_MAIN_KEYWORD = 16,
+    PPD_ILLEGAL_OPTION_KEYWORD = 17,
+    PPD_ILLEGAL_TRANSLATION = 18,
+    PPD_ILLEGAL_WHITESPACE = 19
+} ppd_status_t;
+typedef enum {
+    PPD_CONFORM_RELAXED = 0,
+    PPD_CONFORM_STRICT = 1
+} ppd_conform_t;
+extern void ppdClose(ppd_file_t * ppd);
+extern int ppdCollect(ppd_file_t * ppd, ppd_section_t section,
+		      ppd_choice_t * **choices);
+extern int ppdConflicts(ppd_file_t * ppd);
+extern int ppdEmit(ppd_file_t * ppd, FILE * fp, ppd_section_t section);
+extern int ppdEmitFd(ppd_file_t * ppd, int fd, ppd_section_t section);
+extern int ppdEmitJCL(ppd_file_t * ppd, FILE * fp, int job_id,
+		      const char *user, const char *title);
+extern const char *ppdErrorString(ppd_status_t status);
+extern ppd_attr_t *ppdFindAttr(ppd_file_t * ppd, const char *name,
+			       const char *spec);
+extern ppd_choice_t *ppdFindChoice(ppd_option_t * o, const char *option);
+extern ppd_choice_t *ppdFindMarkedChoice(ppd_file_t * ppd,
+					 const char *keyword);
+extern ppd_attr_t *ppdFindNextAttr(ppd_file_t * ppd, const char *name,
+				   const char *spec);
+extern ppd_option_t *ppdFindOption(ppd_file_t * ppd, const char *keyword);
+extern int ppdIsMarked(ppd_file_t * ppd, const char *keyword,
+		       const char *option);
+extern ppd_status_t ppdLastError(int *line);
+extern void ppdMarkDefaults(ppd_file_t * ppd);
+extern int ppdMarkOption(ppd_file_t * ppd, const char *keyword,
+			 const char *option);
+extern ppd_file_t *ppdOpen(FILE * fp);
+extern ppd_file_t *ppdOpenFd(int fd);
+extern ppd_file_t *ppdOpenFile(const char *filename);
+extern float ppdPageLength(ppd_file_t * ppd, const char *name);
+extern ppd_size_t *ppdPageSize(ppd_file_t * ppd, const char *name);
+extern float ppdPageWidth(ppd_file_t * ppd, const char *name);
+extern void ppdSetConformance(ppd_conform_t c);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libcupslib.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libcupsman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Libraries</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcupslib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interface Definitions for libcups</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

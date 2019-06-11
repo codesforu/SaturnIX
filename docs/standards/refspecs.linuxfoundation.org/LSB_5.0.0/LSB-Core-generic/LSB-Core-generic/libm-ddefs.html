@@ -1,0 +1,589 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libm</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Base Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libm"
+HREF="libm.html"><LINK
+REL="NEXT"
+TITLE="Interface Definitions for libm"
+HREF="libmman.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libm.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 14. Base Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libmman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBM-DDEFS"
+>14.7. Data Definitions for libm</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libm.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN22851"
+>14.7.1. complex.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define complex	_Complex
+
+extern double cabs(double complex);
+extern float cabsf(float complex);
+extern long double cabsl(long double complex);
+extern double complex cacos(double complex);
+extern float complex cacosf(float complex);
+extern double complex cacosh(double complex);
+extern float complex cacoshf(float complex);
+extern long double complex cacoshl(long double complex);
+extern long double complex cacosl(long double complex);
+extern double carg(double complex);
+extern float cargf(float complex);
+extern long double cargl(long double complex);
+extern double complex casin(double complex);
+extern float complex casinf(float complex);
+extern double complex casinh(double complex);
+extern float complex casinhf(float complex);
+extern long double complex casinhl(long double complex);
+extern long double complex casinl(long double complex);
+extern double complex catan(double complex);
+extern float complex catanf(float complex);
+extern double complex catanh(double complex);
+extern float complex catanhf(float complex);
+extern long double complex catanhl(long double complex);
+extern long double complex catanl(long double complex);
+extern double complex ccos(double complex);
+extern float complex ccosf(float complex);
+extern double complex ccosh(double complex);
+extern float complex ccoshf(float complex);
+extern long double complex ccoshl(long double complex);
+extern long double complex ccosl(long double complex);
+extern double complex cexp(double complex);
+extern float complex cexpf(float complex);
+extern long double complex cexpl(long double complex);
+extern double cimag(double complex);
+extern float cimagf(float complex);
+extern long double cimagl(long double complex);
+extern double complex clog(double complex);
+extern double complex clog10(double complex);
+extern float complex clog10f(float complex);
+extern long double complex clog10l(long double complex);
+extern float complex clogf(float complex);
+extern long double complex clogl(long double complex);
+extern double complex conj(double complex);
+extern float complex conjf(float complex);
+extern long double complex conjl(long double complex);
+extern double complex cpow(double complex, double complex);
+extern float complex cpowf(float complex, float complex);
+extern long double complex cpowl(long double complex, long double complex);
+extern double complex cproj(double complex);
+extern float complex cprojf(float complex);
+extern long double complex cprojl(long double complex);
+extern double creal(double complex);
+extern float crealf(float complex);
+extern long double creall(long double complex);
+extern double complex csin(double complex);
+extern float complex csinf(float complex);
+extern double complex csinh(double complex);
+extern float complex csinhf(float complex);
+extern long double complex csinhl(long double complex);
+extern long double complex csinl(long double complex);
+extern double complex csqrt(double complex);
+extern float complex csqrtf(float complex);
+extern long double complex csqrtl(long double complex);
+extern double complex ctan(double complex);
+extern float complex ctanf(float complex);
+extern double complex ctanh(double complex);
+extern float complex ctanhf(float complex);
+extern long double complex ctanhl(long double complex);
+extern long double complex ctanl(long double complex);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN22855"
+>14.7.2. fenv.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;extern int feclearexcept(int __excepts);
+extern int fedisableexcept(int __excepts);
+extern int feenableexcept(int __excepts);
+extern int fegetenv(fenv_t * __envp);
+extern int fegetexcept(void);
+extern int fegetexceptflag(fexcept_t * __flagp, int __excepts);
+extern int fegetround(void);
+extern int feholdexcept(fenv_t * __envp);
+extern int feraiseexcept(int __excepts);
+extern int fesetenv(const fenv_t * __envp);
+extern int fesetexceptflag(const fexcept_t * __flagp, int __excepts);
+extern int fesetround(int __rounding_direction);
+extern int fetestexcept(int __excepts);
+extern int feupdateenv(const fenv_t * __envp);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN22859"
+>14.7.3. math.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define DOMAIN	1
+#define SING	2
+
+#define FP_NAN	0
+#define FP_INFINITE	1
+#define FP_ZERO	2
+#define FP_SUBNORMAL	3
+#define FP_NORMAL	4
+
+#define isnormal(x)	(fpclassify (x) == FP_NORMAL)	/* Return nonzero value if X is neither zero, subnormal, Inf, n */
+
+#define HUGE_VAL	0x1.0p2047
+#define HUGE_VALF	0x1.0p255f
+
+#define NAN	((float)0x7fc00000UL)
+#define M_1_PI	0.31830988618379067154
+#define M_LOG10E	0.43429448190325182765
+#define M_2_PI	0.63661977236758134308
+#define M_LN2	0.69314718055994530942
+#define M_SQRT1_2	0.70710678118654752440
+#define M_PI_4	0.78539816339744830962
+#define M_2_SQRTPI	1.12837916709551257390
+#define M_SQRT2	1.41421356237309504880
+#define M_LOG2E	1.4426950408889634074
+#define M_PI_2	1.57079632679489661923
+#define M_LN10	2.30258509299404568402
+#define M_E	2.7182818284590452354
+#define M_PI	3.14159265358979323846
+#define INFINITY	HUGE_VALF
+
+#define MATH_ERRNO	1	/* errno set by math functions. */
+#define MATH_ERREXCEPT	2	/* Exceptions raised by math functions. */
+
+#define isunordered(u, v)	\
+	(__extension__({ __typeof__(u) __u = (u); __typeof__(v) __v = (v);fpclassify (__u) == FP_NAN || fpclassify (__v) == FP_NAN; }))	/* Return nonzero value if arguments are unordered. */
+#define islessgreater(x, y)	\
+	(__extension__({ __typeof__(x) __x = (x); __typeof__(y) __y = (y);!isunordered (__x, __y) &#38;&#38; (__x &#60; __y || __y &#60; __x); }))	/* Return nonzero value if either X is less than Y or Y is less */
+#define isless(x,y)	\
+	(__extension__({ __typeof__(x) __x = (x); __typeof__(y) __y = (y);!isunordered (__x, __y) &#38;&#38; __x &#60; __y; }))	/* Return nonzero value if X is less than Y. */
+#define islessequal(x, y)	\
+	(__extension__({ __typeof__(x) __x = (x); __typeof__(y) __y = (y);!isunordered (__x, __y) &#38;&#38; __x &#60;= __y; }))	/* Return nonzero value if X is less than or equal to Y. */
+#define isgreater(x,y)	\
+	(__extension__({ __typeof__(x) __x = (x); __typeof__(y) __y = (y);!isunordered (__x, __y) &#38;&#38; __x &#62; __y; }))	/* Return nonzero value if X is greater than Y. */
+#define isgreaterequal(x,y)	\
+	(__extension__({ __typeof__(x) __x = (x); __typeof__(y) __y = (y);!isunordered (__x, __y) &#38;&#38; __x &#62;= __y; }))	/* Return nonzero value if X is greater than or equal to Y. */
+
+extern int __finite(double);
+extern int __finitef(float);
+extern int __finitel(long double);
+extern int __fpclassify(double);
+extern int __fpclassifyf(float);
+extern int __isinf(double);
+extern int __isinff(float);
+extern int __isinfl(long double);
+extern int __isnan(double);
+extern int __isnanf(float);
+extern int __isnanl(long double);
+extern int __signbit(double);
+extern int __signbitf(float);
+extern double acos(double);
+extern float acosf(float);
+extern double acosh(double);
+extern float acoshf(float);
+extern long double acoshl(long double);
+extern long double acosl(long double);
+extern double asin(double);
+extern float asinf(float);
+extern double asinh(double);
+extern float asinhf(float);
+extern long double asinhl(long double);
+extern long double asinl(long double);
+extern double atan(double);
+extern double atan2(double, double);
+extern float atan2f(float, float);
+extern long double atan2l(long double, long double);
+extern float atanf(float);
+extern double atanh(double);
+extern float atanhf(float);
+extern long double atanhl(long double);
+extern long double atanl(long double);
+extern double cbrt(double);
+extern float cbrtf(float);
+extern long double cbrtl(long double);
+extern double ceil(double);
+extern float ceilf(float);
+extern long double ceill(long double);
+extern double copysign(double, double);
+extern float copysignf(float, float);
+extern long double copysignl(long double, long double);
+extern double cos(double);
+extern float cosf(float);
+extern double cosh(double);
+extern float coshf(float);
+extern long double coshl(long double);
+extern long double cosl(long double);
+extern double drem(double, double);
+extern float dremf(float, float);
+extern long double dreml(long double, long double);
+extern double erf(double);
+extern double erfc(double);
+extern float erfcf(float);
+extern long double erfcl(long double);
+extern float erff(float);
+extern long double erfl(long double);
+extern double exp(double);
+extern double exp10(double);
+extern float exp10f(float);
+extern long double exp10l(long double);
+extern double exp2(double);
+extern float exp2f(float);
+extern float expf(float);
+extern long double expl(long double);
+extern double expm1(double);
+extern float expm1f(float);
+extern long double expm1l(long double);
+extern double fabs(double);
+extern float fabsf(float);
+extern long double fabsl(long double);
+extern double fdim(double, double);
+extern float fdimf(float, float);
+extern long double fdiml(long double, long double);
+extern int finite(double);
+extern int finitef(float);
+extern int finitel(long double);
+extern double floor(double);
+extern float floorf(float);
+extern long double floorl(long double);
+extern double fma(double, double, double);
+extern float fmaf(float, float, float);
+extern long double fmal(long double, long double, long double);
+extern double fmax(double, double);
+extern float fmaxf(float, float);
+extern long double fmaxl(long double, long double);
+extern double fmin(double, double);
+extern float fminf(float, float);
+extern long double fminl(long double, long double);
+extern double fmod(double, double);
+extern float fmodf(float, float);
+extern long double fmodl(long double, long double);
+extern double frexp(double, int *);
+extern float frexpf(float, int *);
+extern long double frexpl(long double, int *);
+extern double gamma(double);
+extern float gammaf(float);
+extern long double gammal(long double);
+extern double hypot(double, double);
+extern float hypotf(float, float);
+extern long double hypotl(long double, long double);
+extern int ilogb(double);
+extern int ilogbf(float);
+extern int ilogbl(long double);
+extern double j0(double);
+extern float j0f(float);
+extern long double j0l(long double);
+extern double j1(double);
+extern float j1f(float);
+extern long double j1l(long double);
+extern double jn(int, double);
+extern float jnf(int, float);
+extern long double jnl(int, long double);
+extern double ldexp(double, int);
+extern float ldexpf(float, int);
+extern long double ldexpl(long double, int);
+extern double lgamma(double);
+extern double lgamma_r(double, int *);
+extern float lgammaf(float);
+extern float lgammaf_r(float, int *);
+extern long double lgammal(long double);
+extern long double lgammal_r(long double, int *);
+extern long long int llrint(double);
+extern long long int llrintf(float);
+extern long long int llrintl(long double);
+extern long long int llround(double);
+extern long long int llroundf(float);
+extern long long int llroundl(long double);
+extern double log(double);
+extern double log10(double);
+extern float log10f(float);
+extern long double log10l(long double);
+extern double log1p(double);
+extern float log1pf(float);
+extern long double log1pl(long double);
+extern double log2(double);
+extern float log2f(float);
+extern long double log2l(long double);
+extern double logb(double);
+extern float logbf(float);
+extern long double logbl(long double);
+extern float logf(float);
+extern long double logl(long double);
+extern long int lrint(double);
+extern long int lrintf(float);
+extern long int lrintl(long double);
+extern long int lround(double);
+extern long int lroundf(float);
+extern long int lroundl(long double);
+extern double modf(double, double *);
+extern float modff(float, float *);
+extern long double modfl(long double, long double *);
+extern double nan(const char *);
+extern float nanf(const char *);
+extern long double nanl(const char *);
+extern double nearbyint(double);
+extern float nearbyintf(float);
+extern long double nearbyintl(long double);
+extern double nextafter(double, double);
+extern float nextafterf(float, float);
+extern long double nextafterl(long double, long double);
+extern double nexttoward(double, long double);
+extern float nexttowardf(float, long double);
+extern long double nexttowardl(long double, long double);
+extern double pow(double, double);
+extern double pow10(double);
+extern float pow10f(float);
+extern long double pow10l(long double);
+extern float powf(float, float);
+extern long double powl(long double, long double);
+extern double remainder(double, double);
+extern float remainderf(float, float);
+extern long double remainderl(long double, long double);
+extern double remquo(double, double, int *);
+extern float remquof(float, float, int *);
+extern long double remquol(long double, long double, int *);
+extern double rint(double);
+extern float rintf(float);
+extern long double rintl(long double);
+extern double round(double);
+extern float roundf(float);
+extern long double roundl(long double);
+extern double scalb(double, double);
+extern float scalbf(float, float);
+extern long double scalbl(long double, long double);
+extern double scalbln(double, long int);
+extern float scalblnf(float, long int);
+extern long double scalblnl(long double, long int);
+extern double scalbn(double, int);
+extern float scalbnf(float, int);
+extern long double scalbnl(long double, int);
+extern int signgam;
+extern double significand(double);
+extern float significandf(float);
+extern long double significandl(long double);
+extern double sin(double);
+extern void sincos(double, double *, double *);
+extern void sincosf(float, float *, float *);
+extern void sincosl(long double, long double *, long double *);
+extern float sinf(float);
+extern double sinh(double);
+extern float sinhf(float);
+extern long double sinhl(long double);
+extern long double sinl(long double);
+extern double sqrt(double);
+extern float sqrtf(float);
+extern long double sqrtl(long double);
+extern double tan(double);
+extern float tanf(float);
+extern double tanh(double);
+extern float tanhf(float);
+extern long double tanhl(long double);
+extern long double tanl(long double);
+extern double tgamma(double);
+extern float tgammaf(float);
+extern long double tgammal(long double);
+extern double trunc(double);
+extern float truncf(float);
+extern long double truncl(long double);
+extern double y0(double);
+extern float y0f(float);
+extern long double y0l(long double);
+extern double y1(double);
+extern float y1f(float);
+extern long double y1l(long double);
+extern double yn(int, double);
+extern float ynf(int, float);
+extern long double ynl(int, long double);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libm.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libmman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libm</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interface Definitions for libm</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

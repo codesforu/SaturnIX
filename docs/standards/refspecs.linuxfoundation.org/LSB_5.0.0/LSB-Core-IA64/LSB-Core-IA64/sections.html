@@ -1,0 +1,715 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Sections</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for Itanium&#8482;"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Object Format"
+HREF="tocobjformat.html"><LINK
+REL="PREVIOUS"
+TITLE="ELF Header"
+HREF="elfheader.html"><LINK
+REL="NEXT"
+TITLE="Symbol Table"
+HREF="symboltable.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for Itanium&#8482;</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="elfheader.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 8. Object Format</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="symboltable.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="SECTIONS"
+>8.3. Sections</A
+></H1
+><P
+>The Itanium&#8482; architecture defines two processor-specific
+section types, as described in
+<A
+HREF="normativerefs.html#STD.IA64.ABI"
+>Intel® Itanium&#8482; Processor-specific Application Binary Interface</A
+>,
+Chapter 4.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SPECIALSECTIONS"
+>8.3.1. Special Sections</A
+></H2
+><P
+>The following sections are defined in the 
+<A
+HREF="normativerefs.html#STD.IA64.ABI"
+>Intel® Itanium&#8482; Processor-specific Application Binary Interface</A
+>.
+<DIV
+CLASS="TABLE"
+><A
+NAME="AEN1326"
+></A
+><P
+><B
+>Table 8-2. ELF Special Sections</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="CENTER"
+>Name</TH
+><TH
+ALIGN="CENTER"
+>Type</TH
+><TH
+ALIGN="CENTER"
+>Attributes</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+>.got</TD
+><TD
+>SHT_PROGBITS</TD
+><TD
+>SHF_ALLOC+SHF_WRITE+SHF_IA_64_SHORT</TD
+></TR
+><TR
+><TD
+>.IA_64.archext</TD
+><TD
+>SHT_IA_64_EXT</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>.IA_64.pltoff</TD
+><TD
+>SHT_PROGBITS</TD
+><TD
+>SHF_ALLOC+SHF_WRITE+SHF_IA_64_SHORT</TD
+></TR
+><TR
+><TD
+>.IA_64.unwind</TD
+><TD
+>SHT_IA_64_UNWIND</TD
+><TD
+>SHF_ALLOC+SHF_LINK_ORDER</TD
+></TR
+><TR
+><TD
+>.IA_64.unwind_info</TD
+><TD
+>SHT_PROGBITS</TD
+><TD
+>SHF_ALLOC</TD
+></TR
+><TR
+><TD
+>.plt</TD
+><TD
+>SHT_PROGBITS</TD
+><TD
+>SHF_ALLOC+SHF_EXECINSTR</TD
+></TR
+><TR
+><TD
+>.sbss</TD
+><TD
+>SHT_NOBITS</TD
+><TD
+>SHF_ALLOC+SHF_WRITE+SHF_IA_64_SHORT</TD
+></TR
+><TR
+><TD
+>.sdata</TD
+><TD
+>SHT_PROGBITS</TD
+><TD
+>SHF_ALLOC+SHF_WRITE+SHF_IA_64_SHORT</TD
+></TR
+><TR
+><TD
+>.sdata1</TD
+><TD
+>SHT_PROGBITS</TD
+><TD
+>SHF_ALLOC+SHF_WRITE+SHF_IA_64_SHORT</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1372"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>.got</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This section holds the Global Offset Table. See `Coding Examples' in Chapter 3, `Special Sections' in Chapter 4, and `Global Offset Table' in Chapter 5 of the processor supplement for more information.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1376"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>.IA_64.archext</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This section holds product-specific extension bits. The link editor will perform a logical "or" of the extension bits of each object when creating an executable so that it creates only a single .IA_64.archext section in the
+
+executable.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1380"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>.IA_64.pltoff</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This section holds local function descriptor entries.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1384"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>.IA_64.unwind</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This section holds the unwind function table. The contents are described in the Intel (r) Itanium (tm) Processor Specific ABI.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1388"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>.IA_64.unwind_info</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This section holds stack unwind and and exception handling information. The exception handling information is programming language specific, and is unspecified.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1392"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>.plt</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This section holds the procedure linkage table.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1396"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>.sbss</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This section holds uninitialized data that contribute to the program's memory image. Data objects contained in this section are recommended to be eight bytes or less in size. The system initializes the data with zeroes when the program begins to run. The section occupies no file space, as indicated by the section type SHT_NOBITS. The .sbss section is placed so it may be accessed using short direct addressing (22 bit offset from gp).</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1400"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>.sdata</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This section and the .sdata1 section hold initialized data that contribute to the program's memory image. Data objects contained in this section are recommended to be eight bytes or less in size. The .sdata and .sdata1 sections are placed so they may be accessed using short direct addressing (22 bit offset from gp).</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1404"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>.sdata1</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>See .sdata.</P
+></TD
+></TR
+></TBODY
+></TABLE
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="LINUXSPECIAL"
+>8.3.2. Linux Special Sections</A
+></H2
+><P
+>The following Linux IA-64 specific sections are defined here.
+<DIV
+CLASS="TABLE"
+><A
+NAME="AEN1411"
+></A
+><P
+><B
+>Table 8-3. Additional Special Sections</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="CENTER"
+>Name</TH
+><TH
+ALIGN="CENTER"
+>Type</TH
+><TH
+ALIGN="CENTER"
+>Attributes</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+>.opd</TD
+><TD
+>SHT_PROGBITS</TD
+><TD
+>SHF_ALLOC</TD
+></TR
+><TR
+><TD
+>.rela.dyn</TD
+><TD
+>SHT_RELA</TD
+><TD
+>SHF_ALLOC</TD
+></TR
+><TR
+><TD
+>.rela.IA_64.pltoff</TD
+><TD
+>SHT_RELA</TD
+><TD
+>SHF_ALLOC</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1433"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>.opd</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This section holds function descriptors.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1437"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>.rela.dyn</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This section holds RELA type relocation information for all sections of a shared library except the PLT.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1441"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>.rela.IA_64.pltoff</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This section holds relocation information, as described in `Relocation' section in Chapter 4 of System V ABI Update. These relocations are applied to the .IA_64.pltoff section.</P
+></TD
+></TR
+></TBODY
+></TABLE
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SECTIONTYPES"
+>8.3.3. Section Types</A
+></H2
+><P
+>Section Types are described in the 
+<A
+HREF="normativerefs.html#STD.IA64.ABI"
+>Intel® Itanium&#8482; Processor-specific Application Binary Interface</A
+>,
+Chapter 4.2.
+LSB conforming implementations are not
+required to use any sections in the range from
+<CODE
+CLASS="CONSTANT"
+>SHT_IA_64_LOPSREG</CODE
+> to
+<CODE
+CLASS="CONSTANT"
+>SHT_IA_64_HIPSREG</CODE
+>.
+Additionally, LSB conforming implementations are not required
+to support the
+<CODE
+CLASS="CONSTANT"
+>SHT_IA_64_PRIORITY_INIT</CODE
+>
+section, beyond the gABI requirements for the handling of
+unrecognized section types, linking them into a contiguous section
+in the object file created by the static linker.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SECTIONATTRIBFLAGS"
+>8.3.4. Section Attribute Flags</A
+></H2
+><P
+>LSB-conforming implementations shall support the section attribute flags
+specified in
+<A
+HREF="normativerefs.html#STD.IA64.ABI"
+>Intel® Itanium&#8482; Processor-specific Application Binary Interface</A
+>,
+Chapter 4.2.2.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SPECIALSECTIONTYPES"
+>8.3.5. Special Section Types</A
+></H2
+><P
+>The special section types <CODE
+CLASS="CONSTANT"
+>SHT_IA64_EXT</CODE
+> and
+<CODE
+CLASS="CONSTANT"
+>SHT_IA64_UNWIND</CODE
+> are defined in
+<A
+HREF="normativerefs.html#STD.IA64.ABI"
+>Intel® Itanium&#8482; Processor-specific Application Binary Interface</A
+>,
+Chapter 4.2.1.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="elfheader.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="symboltable.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>ELF Header</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tocobjformat.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Symbol Table</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

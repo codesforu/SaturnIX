@@ -1,0 +1,157 @@
+<HTML
+><HEAD
+><TITLE
+>Standard Shell Rationale</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Standard Shell"
+HREF="stdshell.html"><LINK
+REL="PREVIOUS"
+TITLE="Standard Shell Exceptions"
+HREF="stdshellexceptions.html"><LINK
+REL="NEXT"
+TITLE="Users & Groups"
+HREF="tocusersgroups.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="stdshellexceptions.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 16. Standard Shell</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="tocusersgroups.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="STDSHELLRAT">Standard Shell Rationale</H1
+><P
+>Among the many shells existing at the time of evaluation, the two
+most compliant were Bash and Pdksh.</P
+><P
+>At the time of evaluation, Bash was found mostly compliant 
+with the POSIX-1003.2 standard, and its maintainer demonstrated interest in 
+bringing the shell to full compliance.  Bash already enjoys wide use among 
+shell users, and is even included in many distributions as the default shell.
+Further, the abundance of documentation found both on the Internet and in 
+the bookstore makes Bash an easy shell to use.</P
+><P
+>Of course, shell scripts must avoid using bash extensions if they want
+to run on any LSB system.</P
+><P
+>The two exceptions to POSIX (concerning . and non-readable files, and
+argv[0]) in this section are to accommodate bash.  The need for
+exceptions should be reviewed if bash changes or POSIX changes to
+remove the conflict.  Future versions of this standard may also
+consider exceptions for pdksh or other almost-compliant shells, if
+they seem to be warranted.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="stdshellexceptions.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="tocusersgroups.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Standard Shell Exceptions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="stdshell.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Users &#38; Groups</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

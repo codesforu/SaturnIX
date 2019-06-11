@@ -1,0 +1,285 @@
+<HTML
+><HEAD
+><TITLE
+>Comment conventions for init scripts</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="System Initialization"
+HREF="sysinit.html"><LINK
+REL="PREVIOUS"
+TITLE="Init Script Actions"
+HREF="iniscrptact.html"><LINK
+REL="NEXT"
+TITLE="Installation and removal of init.d files"
+HREF="initsrcinstrm.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="iniscrptact.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 22. System Initialization</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="initsrcinstrm.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="INITSCRCOMCONV">Comment conventions for init scripts</H1
+><P
+>LSB applications which need to execute script(s) at bootup and/or
+shutdown may provide one or more init.d files.  These files are
+installed by the install_initd program described below, which copies
+it into a standard directory and makes whatever other adjustments
+(creation of symlinks, creation of entries in a database, etc.) are
+necessary so that the script can be run at boot-time.
+<A
+NAME="AEN18982"
+HREF="#FTN.AEN18982"
+>[1]</A
+></P
+><P
+> 
+In the init.d file, information about the shell script shall be
+delimited by the lines "### BEGIN INIT INFO" and "### END INIT INFO".
+These delimiter lines may containg trailing whitespace, which shall be
+ignored.  Inside this block there shall be lines of the form "#
+{keyword}: [arg1] [arg2] ...".  (All lines inside this block start
+with a hash ('#') character in the first column, so that shell treats
+them as comments.)  The following keywords, with their arguments are
+defined in this specification:</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>	# Provides: boot_facility_1 [ boot_facility_2 ...]
+	# Required-Start: boot_facility_1 [ boot_facility_2 ...]
+	# Required-Stop: boot_facility_1 [ boot_facility_2 ...]
+	# Default-Start: run_level_1 [ run_level_2 ...]
+	# Default-Stop: run_level_1 [ run_level_2 ...]
+	# Short-Description: short_description
+	# Description: multiline_description</PRE
+></TD
+></TR
+></TABLE
+><P
+>Additional keywords may be defined in future LSB specifications.
+Distributions may define local extensions by using the prefix
+"X-[distribution name]" --- for example, "X-RedHat-foobardecl", or
+"X-Debian-xyzzydecl".  </P
+><P
+>An init.d shell script may declare using the "Required-Start: " header
+that it must not be run until certain boot facilities are provided.
+This information is used by the installation tool or the boot-time
+boot-script execution facility to assure that init scripts are run in
+the correct order.   When an init script is run with a "start" argument, the 
+boot facility or facilities specified in the "Provides" header shall be
+considered present, and hence init scripts which require those boot facilities
+would then be eligble to be run.   When an init script is run with a "stop" 
+argument, the boot facilities specified in the "Provides" header are 
+considered  no longer  present.  
+There are naming conventions for boot facilities and system
+facilities, as described in a following section.</P
+><P
+>Similarly, the "Required-Stop:" header defines which facilities must
+still be available during the shutdown of that service.  Hence, the
+init script system should avoid stopping shell scripts which provide
+those facilities until this shell script is stopped.</P
+><P
+>The "Default-Start" and "Default-Stop" headers define which run levels
+should by default run the script with a start or stop argument,
+respectively, to start or stop the services controlled by the init script.</P
+><P
+>The "Short-Description" and "Description" header fields are used to
+provide text which describes the actions of the init script.  The
+"short_description" shall be a relatively short, pithy description of the
+init script, where as the "multiline_description" can be a much longer
+piece of text that may span mulitple lines.  In a multiline description,
+each continuation line must begin with a '#' followed by tab character
+or a '#' followed by at least two space characters.  The multiline
+description is terminated by the first line that does not match this
+criteria.</P
+><P
+>The comment conventions described in this session are only required for
+use by LSB-compliant applications; system init scripts as provided by
+LSB-compliant run-time environments are <SPAN
+CLASS="emphasis"
+><I
+CLASS="EMPHASIS"
+>not</I
+></SPAN
+> 
+required to use the scheme outlined here.
+<A
+NAME="AEN18993"
+HREF="#FTN.AEN18993"
+>[2]</A
+></P
+></DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN18982"
+HREF="initscrcomconv.html#AEN18982"
+>[1]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>This specification does not require, but is designed to allow, the
+development of a system which runs boot scripts in parallel.  Hence,
+enforced-serialization of scripts is avoided unless it is explicitly
+necessary. </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN18993"
+HREF="initscrcomconv.html#AEN18993"
+>[2]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>While these comment conventions do not prohibited in system
+init scripts, they do not provide sufficient functionality for most
+distributions' needs.  Extensions which would addressed these needs (for 
+example, "Should-Start:" and "Should-Stop:") would have substantially
+complicated the design of the install_initd script, which is why they
+were not included in this specification.  Future versions of this
+specification may extend these comment conventions to add this
+functionality, if and when reference implementations which implement
+these extensions become available for use by distributions.</P
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="iniscrptact.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="initsrcinstrm.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Init Script Actions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="sysinit.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Installation and removal of init.d files</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

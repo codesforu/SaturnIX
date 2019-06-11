@@ -1,0 +1,283 @@
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libGL</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="graphlib.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libGL"
+HREF="libgl.html"><LINK
+REL="NEXT"
+TITLE="Package Format and Installation"
+HREF="packagefmt.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libgl.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 13. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="packagefmt.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBGL-DDEFS">Data Definitions for libGL</H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN12946">GL/gl.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+
+
+
+typedef unsigned int GLenum;
+typedef unsigned char GLboolean;
+typedef unsigned int GLbitfield;
+typedef void GLvoid;
+typedef char GLbyte;
+typedef short GLshort;
+typedef int GLint;
+typedef unsigned char GLubyte;
+typedef unsigned short GLushort;
+typedef unsigned int GLuint;
+typedef int GLsizei;
+typedef float GLfloat;
+typedef float GLclampf;
+typedef double GLdouble;
+typedef double GLclampd;
+
+
+
+#define GL_UNSIGNED_BYTE	0x1401
+#define GL_SHORT	0x1402
+#define GL_UNSIGNED_SHORT	0x1403
+#define GL_INT	0x1404
+#define GL_UNSIGNED_INT	0x1405
+#define GL_FLOAT	0x1406
+#define GL_2_BYTES	0x1407
+#define GL_3_BYTES	0x1408
+#define GL_4_BYTES	0x1409
+#define GL_DOUBLE	0x140A
+
+
+
+#define GL_POINTS	0x0000
+#define GL_LINES	0x0001
+#define GL_LINE_LOOP	0x0002
+#define GL_LINE_STRIP	0x0003
+#define GL_TRIANGLES	0x0004
+#define GL_TRIANGLE_STRIP	0x0005
+#define GL_TRIANGLE_FAN	0x0006
+#define GL_QUADS	0x0007
+#define GL_QUAD_STRIP	0x0008
+#define GL_POLYGON	0x0009
+
+
+
+#define GL_V2F	0x2A20
+#define GL_V3F	0x2A21
+#define GL_C4UB_V2F	0x2A22
+#define GL_C4UB_V3F	0x2A23
+#define GL_C3F_V3F	0x2A24
+#define GL_N3F_V3F	0x2A25
+#define GL_C4F_N3F_V3F	0x2A26
+#define GL_T2F_V3F	0x2A27
+#define GL_T4F_V4F	0x2A28
+#define GL_T2F_C4UB_V3F	0x2A29
+#define GL_T2F_C3F_V3F	0x2A2A
+#define GL_T2F_N3F_V3F	0x2A2B
+#define GL_T2F_C4F_N3F_V3F	0x2A2C
+#define GL_T4F_C4F_N3F_V4F	0x2A2D
+#define GL_VERTEX_ARRAY	0x8074
+#define GL_NORMAL_ARRAY	0x8075
+#define GL_COLOR_ARRAY	0x8076
+#define GL_INDEX_ARRAY	0x8077
+#define GL_TEXTURE_COORD_ARRAY	0x8078
+#define GL_EDGE_FLAG_ARRAY	0x8079
+#define GL_VERTEX_ARRAY_SIZE	0x807A
+#define GL_VERTEX_ARRAY_TYPE	0x807B
+#define GL_VERTEX_ARRAY_STRIDE	0x807C
+#define GL_NORMAL_ARRAY_TYPE	0x807E
+#define GL_NORMAL_ARRAY_STRIDE	0x807F
+#define GL_COLOR_ARRAY_SIZE	0x8081
+#define GL_COLOR_ARRAY_TYPE	0x8082
+#define GL_COLOR_ARRAY_STRIDE	0x8083
+#define GL_INDEX_ARRAY_TYPE	0x8085
+#define GL_INDEX_ARRAY_STRIDE	0x8086
+#define GL_TEXTURE_COORD_ARRAY_SIZE	0x8088
+#define GL_TEXTURE_COORD_ARRAY_TYPE	0x8089
+#define GL_TEXTURE_COORD_ARRAY_STRIDE	0x808A
+#define GL_EDGE_FLAG_ARRAY_STRIDE	0x808C
+#define GL_VERTEX_ARRAY_POINTER	0x808E
+#define GL_NORMAL_ARRAY_POINTER	0x808F
+#define GL_COLOR_ARRAY_POINTER	0x8090
+#define GL_INDEX_ARRAY_POINTER	0x8091
+#define GL_TEXTURE_COORD_ARRAY_POINTER	0x8092
+
+
+
+#define GL_MATRIX_MODE	0x0BA0
+#define GL_MODELVIEW	0x1700
+#define GL_PROJECTION	0x1701
+#define GL_TEXTURE	0x1702</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN12950">GL/glx.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+typedef struct __GLXcontextRec *GLXContext;
+typedef struct __GLXFBConfigRec *GLXFBConfig;
+typedef XID GLXContextID;
+typedef XID GLXPixmap;
+typedef XID GLXDrawable;
+typedef XID GLXPbuffer;
+typedef XID GLXWindow;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libgl.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="packagefmt.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libGL</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="graphlib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Package Format and Installation</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

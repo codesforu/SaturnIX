@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>asprintf</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="argz_add,
+argz_add_sep,
+argz_append,
+argz_count,
+argz_create,
+argz_create_sep,
+argz_delete,
+argz_extract,
+argz_insert,
+argz_next,
+argz_replace,
+argz_stringify"
+HREF="baselib-argz-add.html"><LINK
+REL="NEXT"
+TITLE="backtrace, backtrace_symbols, backtrace_symbols_fd"
+HREF="baselib-backtrace-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-argz-add.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-backtrace-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-ASPRINTF"
+></A
+>asprintf</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN12604"
+></A
+><H2
+>Name</H2
+>asprintf&nbsp;--&nbsp;write formatted output to a dynamically allocated string</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN12607"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN12608"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;stdio.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int 
+  <TT
+CLASS="FUNCTION"
+>asprintf</TT
+></CODE
+>(char ** restrict 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>ptr</I
+></TT
+></I
+></TT
+>, const char * restrict
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>format</I
+></TT
+></I
+></TT
+>, ...);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12620"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>asprintf()</TT
+> function shall behave as
+<TT
+CLASS="FUNCTION"
+>sprintf()</TT
+>, except that the output string
+shall be dynamically allocated space of sufficient length to hold
+the resulting string. The address of this dynamically allocated string
+shall be stored in the location referenced by <TT
+CLASS="PARAMETER"
+><I
+>ptr</I
+></TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12626"
+></A
+><H2
+>Return Value</H2
+><P
+>Refer to <TT
+CLASS="FUNCTION"
+>fprintf()</TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12630"
+></A
+><H2
+>Errors</H2
+><P
+>Refer to <TT
+CLASS="FUNCTION"
+>fprintf()</TT
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-argz-add.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-backtrace-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>argz_add,
+argz_add_sep,
+argz_append,
+argz_count,
+argz_create,
+argz_create_sep,
+argz_delete,
+argz_extract,
+argz_insert,
+argz_next,
+argz_replace,
+argz_stringify</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>backtrace, backtrace_symbols, backtrace_symbols_fd</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

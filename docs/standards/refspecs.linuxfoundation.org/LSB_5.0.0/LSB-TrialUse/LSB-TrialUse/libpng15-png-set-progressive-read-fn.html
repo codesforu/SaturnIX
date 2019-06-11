@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>png_set_progressive_read_fn</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Trial Use Specification"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libpng15"
+HREF="libpng15man.html"><LINK
+REL="PREVIOUS"
+TITLE="png_set_palette_to_rgb"
+HREF="libpng15-png-set-palette-to-rgb.html"><LINK
+REL="NEXT"
+TITLE="png_set_read_fn"
+HREF="libpng15-png-set-read-fn.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Trial Use Specification</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpng15-png-set-palette-to-rgb.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpng15-png-set-read-fn.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="LIBPNG15-PNG-SET-PROGRESSIVE-READ-FN"
+></A
+>png_set_progressive_read_fn</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN4154"
+></A
+><H2
+>Name</H2
+>png_set_progressive_read_fn&nbsp;--&nbsp;set progressive read callback functions</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN4159"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN4160"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;png.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void
+<TT
+CLASS="FUNCTION"
+>png_set_progressive_read_fn</TT
+></CODE
+>(png_structp
+<TT
+CLASS="PARAMETER"
+><I
+>png_ptr</I
+></TT
+>, png_voidp
+<TT
+CLASS="PARAMETER"
+><I
+>user_ptr</I
+></TT
+>, png_progressive_info_ptr
+<TT
+CLASS="PARAMETER"
+><I
+>info_callback</I
+></TT
+>, png_progressive_row_ptr
+<TT
+CLASS="PARAMETER"
+><I
+>row_callback</I
+></TT
+>, png_progressive_end_ptr
+<TT
+CLASS="PARAMETER"
+><I
+>end_callback</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4175"
+></A
+><H2
+>Description</H2
+><P
+>png_set_progressive_read_fn() shall provide function callbacks for which shall
+be called for processing image data by png_process_data(). "info_callback" shall
+be called to process header information, "row_callback" shall be called when
+each row is completed and "end_callback" shall be called to process end of image
+information. png_set_progressive_read_fn() must be called even if all callback
+functions are NULL. The user-defined structure pointed to by "user_ptr" may be
+retrieved from inside the callbacks using function get_progressive_ptr().</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpng15-png-set-palette-to-rgb.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpng15-png-set-read-fn.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>png_set_palette_to_rgb</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libpng15man.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>png_set_read_fn</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

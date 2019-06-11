@@ -1,0 +1,685 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>foomatic-rip</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Imaging Specification"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="NEXT"
+TITLE="gs"
+HREF="gs.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Imaging Specification</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="gs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="FOOMATICRIP1"
+></A
+>foomatic-rip</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="FOOMATICRIP1-NAME"
+></A
+><H2
+>Name</H2
+>foomatic-rip&nbsp;--&nbsp;Universal print filter/RIP wrapper</DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="FOOMATICRIP1-SYNOPSIS"
+></A
+><H2
+>SYNOPSIS</H2
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="FOOMATICRIP1-SYNOPSIS-NOSPOOLER"
+></A
+><H3
+>Standalone Mode</H3
+><P
+>      foomatic-rip [-v] [-q] [-d] [ --ppd ppdfile ] [ -J jobtitle ] [ -o option=value [...] ] [ files ]
+    </P
+></DIV
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="FOOMATICRIP1-SYNOPSIS-CUPS"
+></A
+><H3
+>CUPS Mode</H3
+><P
+>      foomatic-rip jobid user jobtitle numcopies options [file]
+    </P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="FOOMATICRIP1-DESCRIPTION"
+></A
+><H2
+>DESCRIPTION</H2
+><P
+>    foomatic-rip is a universal print filter which works with every
+    known free software printer spooler.
+  </P
+><P
+>    This page describes the facilities of foomatic-rip when used as a
+    CUPS filter and when used outside of a print system.  While
+    implementations of foomatic-rip may support other print systems,
+    such use is not documented here.
+  </P
+><P
+>    When run as a CUPS filter, foomatic-rip reads the job from the
+    specified file, or from standard input if no file is specified.
+    It renders the file into a printer-specific format, and writes the
+    result to standard output.
+  </P
+><P
+>    When run standalone, foomatic-rip will read the job from the
+    specified files, or from standard input if no files are given.
+    The files are rendered into a printer-specific format, which is
+    then output according to the PPD option "FoomaticRIPPostPipe",
+    documented in the LSB.
+  </P
+><P
+>    Printer capabilities are described to foomatic-rip via PPD files,
+    as described (with extensions used by foomatic-rip) in the LSB.
+    The method foomatic-rip uses to determine the proper PPD file for
+    the printer in question is defined by the implementation of both
+    the spooler and foomatic-rip.
+  </P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="FOOMATICRIP1-CUPS-OPTIONS"
+></A
+><H2
+>CUPS OPTIONS</H2
+><P
+>    Unless otherwise noted, all parameters are required when running
+    foomatic-rip as a CUPS filter.
+  </P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN2732"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>jobid</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>          The internal Job ID from CUPS.
+        </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN2737"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>username</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>          The username of the user who submitted the job.
+        </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN2742"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>jobtitle</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>          The job's title, as submitted by the user.
+        </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN2747"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>numcopies</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>          The number of copies of the job requested.
+        </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN2752"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>options</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>          A series of printer options, separated by spaces, each of
+          which take the form <TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+> or
+          <TT
+CLASS="PARAMETER"
+><I
+>name=value</I
+></TT
+>.  The specific list of
+          options supported is dependent on the printer and spooler,
+          and is usually documented in the PPD file for the printer.
+        </P
+><P
+>          An option may be preceded by a page specification,
+          describing the pages to which the option should apply.  A
+          page specification consists of one or more items, separated
+          by commas, and separated from the option name by a colon.
+          Valid items include the words "even" and "odd", a single
+          page number, and a page range.  Page ranges are described
+          with a starting page, a dash ("-"), and an ending page.  If
+          omitted, the starting and ending pages are the first and
+          last page, respectively, but only one of the ends of the
+          range may be omitted.
+        </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN2760"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>          The full path to the file containing the job.  This
+          parameter is optional; if it is not supplied, the job is
+          read from standard input.
+        </P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="FOOMATICRIP1-SPOOLERLESS-OPTIONS"
+></A
+><H2
+>SPOOLER-LESS OPTIONS</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN2768"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-v</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>          Verbose mode.  Intended for debugging and testing purposes
+          only.
+        </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN2773"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-q</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Quiet mode - minimal information output.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN2778"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-d</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>          Identical to the 'opts' option, but option information is left
+          in text format.  The PPD file will need to be specified using
+          the --ppd option.
+        </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN2783"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>--ppd</CODE
+> <TT
+CLASS="REPLACEABLE"
+><I
+>ppdfile</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>          The PPD file <TT
+CLASS="FILENAME"
+>ppdfile</TT
+> should be applied
+          for processing this job.
+        </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN2790"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-J</CODE
+> <TT
+CLASS="REPLACEABLE"
+><I
+>jobtitle</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>          Print the given job title in the header of every page of a
+          plain text job.
+        </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN2796"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-o</CODE
+> <TT
+CLASS="REPLACEABLE"
+><I
+>option=value</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Set an option setting for this job.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="FOOMATICRIP1-EXIT-STATUS"
+></A
+><H2
+>EXIT STATUS</H2
+><P
+>    <I
+CLASS="EMPHASIS"
+>foomatic-rip</I
+> returns 0 unless
+    something unexpected happens.
+  </P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="FOOMATICRIP1-AUTHOR"
+></A
+><H2
+>AUTHOR</H2
+><P
+>    Till Kamppeter 
+    &#60;<I
+CLASS="EMPHASIS"
+>till.kamppeter@gmail.com</I
+>&#62;
+    with parts of Manfred Wassmanns's 
+    &#60;<I
+CLASS="EMPHASIS"
+>manolo@NCC-1701.B.Shuttle.de</I
+>&#62;
+    man pages for the Foomatic 2.0.x filters.
+  </P
+><P
+>    Jeff Licquia
+    &#60;<I
+CLASS="EMPHASIS"
+>licquia@linux-foundation.org</I
+>&#62;
+    adapted the original man page for the LSB.
+  </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="gs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Command Behavior</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>gs</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

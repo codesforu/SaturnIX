@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Requirements</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for X86"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Introductory Elements"
+HREF="tocintro.html"><LINK
+REL="PREVIOUS"
+TITLE="Informative References/Bibliography"
+HREF="informativerefs.html"><LINK
+REL="NEXT"
+TITLE="LSB Implementation Conformance "
+HREF="implementation.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for X86</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="informativerefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="implementation.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="REQUIREMENTS"
+></A
+>Chapter 3. Requirements</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="RLIBRARIES"
+>3.1. Relevant Libraries</A
+></H1
+><P
+>&#13;
+The libraries listed in <A
+HREF="requirements.html#TBL-ARCHLSB-STDLIB"
+>Table 3-1</A
+> shall
+be available on IA32 Linux Standard Base systems, with the specified
+runtime names. These names override or supplement the names specified
+in the generic LSB (LSB Core - Generic) specification. The specified program 
+interpreter, referred to as proginterp in this table,
+shall be used to load the shared libraries specified by
+<CODE
+CLASS="CONSTANT"
+>DT_NEEDED</CODE
+> entries at run time.&#13;</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-ARCHLSB-STDLIB"
+></A
+><P
+><B
+>Table 3-1. Standard Library Names</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+>Library</TH
+><TH
+>Runtime Name</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><A
+NAME="LIB.LIBC"
+></A
+><TD
+>libc</TD
+><TD
+>libc.so.6</TD
+></TR
+><TR
+><A
+NAME="LIB.LIBCRYPT"
+></A
+><TD
+>libcrypt</TD
+><TD
+>libcrypt.so.1</TD
+></TR
+><TR
+><A
+NAME="LIB.LIBDL"
+></A
+><TD
+>libdl</TD
+><TD
+>libdl.so.2</TD
+></TR
+><TR
+><A
+NAME="LIB.LIBGCC.S"
+></A
+><TD
+>libgcc_s</TD
+><TD
+>libgcc_s.so.1</TD
+></TR
+><TR
+><A
+NAME="LIB.LIBM"
+></A
+><TD
+>libm</TD
+><TD
+>libm.so.6</TD
+></TR
+><TR
+><A
+NAME="LIB.LIBNCURSES"
+></A
+><TD
+>libncurses</TD
+><TD
+>libncurses.so.5</TD
+></TR
+><TR
+><A
+NAME="LIB.LIBNCURSESW"
+></A
+><TD
+>libncursesw</TD
+><TD
+>libncursesw.so.5</TD
+></TR
+><TR
+><A
+NAME="LIB.LIBPTHREAD"
+></A
+><TD
+>libpthread</TD
+><TD
+>libpthread.so.0</TD
+></TR
+><TR
+><A
+NAME="LIB.LIBSTDCXX"
+></A
+><TD
+>libstdcxx</TD
+><TD
+>libstdc++.so.6</TD
+></TR
+><TR
+><A
+NAME="LIB.LIBUTIL"
+></A
+><TD
+>libutil</TD
+><TD
+>libutil.so.1</TD
+></TR
+><TR
+><A
+NAME="LIB.LIBZ"
+></A
+><TD
+>libz</TD
+><TD
+>libz.so.1</TD
+></TR
+><TR
+><A
+NAME="LIB.PROGINTERP"
+></A
+><TD
+>proginterp</TD
+><TD
+>/lib/ld-lsb.so.3</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>These libraries will be in an implementation-defined directory which
+the dynamic linker shall search by default.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="informativerefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="implementation.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Informative References/Bibliography</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tocintro.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>LSB Implementation Conformance</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

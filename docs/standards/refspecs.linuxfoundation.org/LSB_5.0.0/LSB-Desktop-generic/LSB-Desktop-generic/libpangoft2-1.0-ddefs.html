@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libpangoft2-1.0</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="gtk.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libpangoft2-1.0"
+HREF="libpangoft2-1.0.html"><LINK
+REL="NEXT"
+TITLE="Interfaces for libgdk_pixbuf-2.0"
+HREF="libgdk-pixbuf-2.0.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpangoft2-1.0.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 17. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libgdk-pixbuf-2.0.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBPANGOFT2-1.0-DDEFS"
+>17.24. Data Definitions for libpangoft2-1.0</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libpangoft2-1.0.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN44830"
+>17.24.1. pango-1.0/pango/pangofc-decoder.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define PANGO_FC_DECODER_CLASS(klass)	 \
+	(G_TYPE_CHECK_CLASS_CAST ((klass), PANGO_TYPE_FC_DECODER, \
+	PangoFcDecoderClass))
+#define PANGO_IS_FC_DECODER_CLASS(klass)	 \
+	(G_TYPE_CHECK_CLASS_TYPE ((klass), PANGO_TYPE_FC_DECODER))
+#define PANGO_FC_DECODER(object)	 \
+	(G_TYPE_CHECK_INSTANCE_CAST ((object), PANGO_TYPE_FC_DECODER, \
+	PangoFcDecoder))
+#define PANGO_IS_FC_DECODER(object)	 \
+	(G_TYPE_CHECK_INSTANCE_TYPE ((object), PANGO_TYPE_FC_DECODER))
+#define PANGO_FC_DECODER_GET_CLASS(obj)	 \
+	(G_TYPE_INSTANCE_GET_CLASS ((obj), PANGO_TYPE_FC_DECODER, \
+	PangoFcDecoderClass))
+#define PANGO_TYPE_FC_DECODER	(pango_fc_decoder_get_type())
+
+typedef struct _PangoFcDecoder {
+    GObject parent_instance;
+} PangoFcDecoder;
+typedef struct _PangoFcDecoderClass {
+    GObjectClass parent_class;
+    FcCharSet *(*get_charset) (PangoFcDecoder * decoder,
+			       PangoFcFont * fcfont);
+     PangoGlyph(*get_glyph) (PangoFcDecoder * decoder,
+			     PangoFcFont * fcfont, guint32 wc);
+    void (*_pango_reserved1) (void);
+    void (*_pango_reserved2) (void);
+    void (*_pango_reserved3) (void);
+    void (*_pango_reserved4) (void);
+} PangoFcDecoderClass;
+extern FcCharSet *pango_fc_decoder_get_charset(PangoFcDecoder * decoder,
+					       PangoFcFont * fcfont);
+extern PangoGlyph pango_fc_decoder_get_glyph(PangoFcDecoder * decoder,
+					     PangoFcFont * fcfont,
+					     guint32 wc);
+extern GType pango_fc_decoder_get_type(void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN44834"
+>17.24.2. pango-1.0/pango/pangofc-fontmap.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define PANGO_FC_FONT_MAP(object)	 \
+	(G_TYPE_CHECK_INSTANCE_CAST ((object), PANGO_TYPE_FC_FONT_MAP, \
+	PangoFcFontMap))
+#define PANGO_IS_FC_FONT_MAP(object)	 \
+	(G_TYPE_CHECK_INSTANCE_TYPE ((object), PANGO_TYPE_FC_FONT_MAP))
+#define PANGO_TYPE_FC_FONT_MAP	(pango_fc_font_map_get_type ())
+#define PANGO_FC_GRAVITY	"pangogravity"
+#define PANGO_FC_PRGNAME	"pangoprgname"
+#define PANGO_FC_VERSION	"pangoversion"
+
+typedef struct _PangoFcFontMap PangoFcFontMap;
+typedef PangoFcDecoder *(*PangoFcDecoderFindFunc) (FcPattern * pattern,
+						   gpointer user_data);
+typedef struct _PangoFcFontMapClass PangoFcFontMapClass;
+extern PangoFontDescription
+    *pango_fc_font_description_from_pattern(FcPattern * pattern,
+					    gboolean include_size);
+extern void pango_fc_font_map_add_decoder_find_func(PangoFcFontMap *
+						    fcfontmap,
+						    PangoFcDecoderFindFunc
+						    findfunc,
+						    gpointer user_data,
+						    GDestroyNotify
+						    dnotify);
+extern void pango_fc_font_map_cache_clear(PangoFcFontMap * fcfontmap);
+extern PangoFcDecoder *pango_fc_font_map_find_decoder(PangoFcFontMap *
+						      fcfontmap,
+						      FcPattern * pattern);
+extern GType pango_fc_font_map_get_type(void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN44838"
+>17.24.3. pango-1.0/pango/pangoft2.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define PANGO_FC_FONT(object)	 \
+	(G_TYPE_CHECK_INSTANCE_CAST ((object), PANGO_TYPE_FC_FONT, \
+	PangoFcFont))
+#define PANGO_FT2_FONT_MAP(object)	 \
+	(G_TYPE_CHECK_INSTANCE_CAST ((object), PANGO_TYPE_FT2_FONT_MAP, \
+	PangoFT2FontMap))
+#define PANGO_IS_FC_FONT(object)	 \
+	(G_TYPE_CHECK_INSTANCE_TYPE ((object), PANGO_TYPE_FC_FONT))
+#define PANGO_FT2_IS_FONT_MAP(object)	 \
+	(G_TYPE_CHECK_INSTANCE_TYPE ((object), PANGO_TYPE_FT2_FONT_MAP))
+#define PANGO_TYPE_FC_FONT	(pango_fc_font_get_type ())
+#define PANGO_TYPE_FT2_FONT_MAP	(pango_ft2_font_map_get_type ())
+#define PANGO_RENDER_TYPE_FT2	"PangoRenderFT2"
+
+typedef struct _PangoFT2FontMap PangoFT2FontMap;
+typedef void (*PangoFT2SubstituteFunc) (FcPattern * pattern,
+					gpointer data);
+extern GType pango_fc_font_get_type(void);
+extern FT_Face pango_fc_font_lock_face(PangoFcFont * font);
+extern void pango_fc_font_unlock_face(PangoFcFont * font);
+extern PangoContext *pango_ft2_font_map_create_context(PangoFT2FontMap *
+						       fontmap);
+extern GType pango_ft2_font_map_get_type(void);
+extern PangoFontMap *pango_ft2_font_map_new(void);
+extern void pango_ft2_font_map_set_default_substitute(PangoFT2FontMap *
+						      fontmap,
+						      PangoFT2SubstituteFunc
+						      func, gpointer data,
+						      GDestroyNotify
+						      notify);
+extern void pango_ft2_font_map_set_resolution(PangoFT2FontMap * fontmap,
+					      double dpi_x, double dpi_y);
+extern void pango_ft2_font_map_substitute_changed(PangoFT2FontMap *
+						  fontmap);
+extern void pango_ft2_render(FT_Bitmap * bitmap, PangoFont * font,
+			     PangoGlyphString * glyphs, gint x, gint y);
+extern void pango_ft2_render_layout(FT_Bitmap * bitmap,
+				    PangoLayout * layout, int x, int y);
+extern void pango_ft2_render_layout_line(FT_Bitmap * bitmap,
+					 PangoLayoutLine * line, int x,
+					 int y);
+extern void pango_ft2_render_layout_line_subpixel(FT_Bitmap * bitmap,
+						  PangoLayoutLine * line,
+						  int x, int y);
+extern void pango_ft2_render_layout_subpixel(FT_Bitmap * bitmap,
+					     PangoLayout * layout, int x,
+					     int y);
+extern void pango_ft2_render_transformed(FT_Bitmap * bitmap,
+					 const PangoMatrix * matrix,
+					 PangoFont * font,
+					 PangoGlyphString * glyphs, int x,
+					 int y);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpangoft2-1.0.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libgdk-pixbuf-2.0.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libpangoft2-1.0</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="gtk.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interfaces for libgdk_pixbuf-2.0</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

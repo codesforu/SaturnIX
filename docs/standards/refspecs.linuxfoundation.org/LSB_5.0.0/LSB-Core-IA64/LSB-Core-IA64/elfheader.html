@@ -1,0 +1,316 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>ELF Header</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for Itanium&#8482;"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Object Format"
+HREF="tocobjformat.html"><LINK
+REL="PREVIOUS"
+TITLE="Object Format"
+HREF="tocobjformat.html"><LINK
+REL="NEXT"
+TITLE="Sections"
+HREF="sections.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for Itanium&#8482;</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="tocobjformat.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 8. Object Format</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="sections.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="ELFHEADER"
+>8.2. ELF Header</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="MACHINEINFO"
+>8.2.1. Machine Information</A
+></H2
+><P
+>LSB-conforming applications shall use the Machine Information as defined in
+<A
+HREF="normativerefs.html#STD.IA64.ABI"
+>Intel® Itanium&#8482; Processor-specific Application Binary Interface</A
+>,
+Chapter 4.
+Implementations shall support the LP64 model. It is unspecified whether or
+not the ILP32 model shall also be supported.</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="MIFILECLASS"
+>8.2.1.1. File Class</A
+></H3
+><P
+>For LP64 relocatable objects, the file class value in
+<TT
+CLASS="LITERAL"
+>e_ident[EI_CLASS]</TT
+> may be either
+<SPAN
+CLASS="TYPE"
+>ELFCLASS32</SPAN
+> or 
+<SPAN
+CLASS="TYPE"
+>ELFCLASS64</SPAN
+>,
+and a conforming linker must be able to process
+either or both classes.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="MIDATAENCODING"
+>8.2.1.2. Data Encoding</A
+></H3
+><P
+>Implementations shall support 2's complement, little endian data encoding.
+The data encoding value in
+<TT
+CLASS="LITERAL"
+>e_ident[EI_DATA]</TT
+> shall contain the value
+<CODE
+CLASS="CONSTANT"
+>ELFDATA2LSB</CODE
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="MIOSIDENTIFICATION"
+>8.2.1.3. OS Identification</A
+></H3
+><P
+>The OS Identification field 
+<TT
+CLASS="LITERAL"
+>e_ident[EI_OSABI]</TT
+> shall contain the value 
+<CODE
+CLASS="CONSTANT"
+>ELFOSABI_NONE</CODE
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="MIPROCESSORIDENT"
+>8.2.1.4. Processor Identification</A
+></H3
+><P
+>The processor identification value held in <TT
+CLASS="LITERAL"
+>e_machine</TT
+>
+shall contain the value 
+<CODE
+CLASS="CONSTANT"
+>EM_IA_64</CODE
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="MIPROCESSORSPECIALFLAGS"
+>8.2.1.5. Processor Specific Flags</A
+></H3
+><P
+>The flags field <TT
+CLASS="LITERAL"
+>e_flags</TT
+> shall be
+as described in
+<A
+HREF="normativerefs.html#STD.IA64.ABI"
+>Intel® Itanium&#8482; Processor-specific Application Binary Interface</A
+>,
+Chapter 4.1.1.6.</P
+><P
+>The following additional processor-specific flags are defined:</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1302"
+></A
+><P
+><B
+>Table 8-1. Additional Processor-Specific Flags</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="CENTER"
+>Name</TH
+><TH
+ALIGN="CENTER"
+>Value</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+>EF_IA_64_LINUX_EXECUTABLE_STACK</TD
+><TD
+>0x00000001</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>EF_IA_64_LINUX_EXECUTABLE_STACK</DT
+><DD
+><P
+>The stack and heap sections are executable.  If this flag
+is not set, code can not be executed from the stack or heap.</P
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="tocobjformat.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="sections.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Object Format</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tocobjformat.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Sections</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

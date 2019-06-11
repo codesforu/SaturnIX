@@ -1,0 +1,1023 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Base Libraries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for X86"
+HREF="book1.html"><LINK
+REL="PREVIOUS"
+TITLE="Dynamic Linking"
+HREF="dynamiclinking.html"><LINK
+REL="NEXT"
+TITLE="Libraries"
+HREF="baselib.html"></HEAD
+><BODY
+CLASS="PART"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for X86</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="dynamiclinking.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="TOCBASELIB"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>III. Base Libraries</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>10. <A
+HREF="baselib.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>10.1. <A
+HREF="baselib.html#PROGINTERP"
+>Program Interpreter/Dynamic Linker</A
+></DT
+><DT
+>10.2. <A
+HREF="libc.html"
+>Interfaces for libc</A
+></DT
+><DD
+><DL
+><DT
+>10.2.1. <A
+HREF="libc.html#AEN1016"
+>RPC</A
+></DT
+><DT
+>10.2.2. <A
+HREF="libc.html#AEN1329"
+>Epoll</A
+></DT
+><DT
+>10.2.3. <A
+HREF="libc.html#AEN1335"
+>System Calls</A
+></DT
+><DT
+>10.2.4. <A
+HREF="libc.html#AEN2016"
+>Standard I/O</A
+></DT
+><DT
+>10.2.5. <A
+HREF="libc.html#AEN2465"
+>Signal Handling</A
+></DT
+><DT
+>10.2.6. <A
+HREF="libc.html#AEN2653"
+>Localization Functions</A
+></DT
+><DT
+>10.2.7. <A
+HREF="libc.html#AEN2757"
+>Posix Spawn Option</A
+></DT
+><DT
+>10.2.8. <A
+HREF="libc.html#AEN2861"
+>Posix Advisory Option</A
+></DT
+><DT
+>10.2.9. <A
+HREF="libc.html#AEN2889"
+>Socket Interface</A
+></DT
+><DT
+>10.2.10. <A
+HREF="libc.html#AEN3030"
+>Wide Characters</A
+></DT
+><DT
+>10.2.11. <A
+HREF="libc.html#AEN3423"
+>String Functions</A
+></DT
+><DT
+>10.2.12. <A
+HREF="libc.html#AEN3736"
+>IPC Functions</A
+></DT
+><DT
+>10.2.13. <A
+HREF="libc.html#AEN3798"
+>Regular Expressions</A
+></DT
+><DT
+>10.2.14. <A
+HREF="libc.html#AEN3826"
+>Character Type Functions</A
+></DT
+><DT
+>10.2.15. <A
+HREF="libc.html#AEN3970"
+>Time Manipulation</A
+></DT
+><DT
+>10.2.16. <A
+HREF="libc.html#AEN4074"
+>Terminal Interface Functions</A
+></DT
+><DT
+>10.2.17. <A
+HREF="libc.html#AEN4150"
+>System Database Interface</A
+></DT
+><DT
+>10.2.18. <A
+HREF="libc.html#AEN4415"
+>Language Support</A
+></DT
+><DT
+>10.2.19. <A
+HREF="libc.html#AEN4434"
+>Large File Support</A
+></DT
+><DT
+>10.2.20. <A
+HREF="libc.html#AEN4597"
+>Inotify</A
+></DT
+><DT
+>10.2.21. <A
+HREF="libc.html#AEN4603"
+>Standard Library</A
+></DT
+><DT
+>10.2.22. <A
+HREF="libc.html#AEN5520"
+>GNU Extensions for libc</A
+></DT
+></DL
+></DD
+><DT
+>10.3. <A
+HREF="libc-ddefs.html"
+>Data Definitions for libc</A
+></DT
+><DD
+><DL
+><DT
+>10.3.1. <A
+HREF="libc-ddefs.html#AEN5548"
+>argz.h</A
+></DT
+><DT
+>10.3.2. <A
+HREF="libc-ddefs.html#AEN5552"
+>assert.h</A
+></DT
+><DT
+>10.3.3. <A
+HREF="libc-ddefs.html#AEN5556"
+>cpio.h</A
+></DT
+><DT
+>10.3.4. <A
+HREF="libc-ddefs.html#AEN5560"
+>ctype.h</A
+></DT
+><DT
+>10.3.5. <A
+HREF="libc-ddefs.html#AEN5564"
+>dirent.h</A
+></DT
+><DT
+>10.3.6. <A
+HREF="libc-ddefs.html#AEN5568"
+>elf.h</A
+></DT
+><DT
+>10.3.7. <A
+HREF="libc-ddefs.html#AEN5572"
+>endian.h</A
+></DT
+><DT
+>10.3.8. <A
+HREF="libc-ddefs.html#AEN5576"
+>errno.h</A
+></DT
+><DT
+>10.3.9. <A
+HREF="libc-ddefs.html#AEN5580"
+>fcntl.h</A
+></DT
+><DT
+>10.3.10. <A
+HREF="libc-ddefs.html#AEN5584"
+>fmtmsg.h</A
+></DT
+><DT
+>10.3.11. <A
+HREF="libc-ddefs.html#AEN5588"
+>fnmatch.h</A
+></DT
+><DT
+>10.3.12. <A
+HREF="libc-ddefs.html#AEN5592"
+>ftw.h</A
+></DT
+><DT
+>10.3.13. <A
+HREF="libc-ddefs.html#AEN5596"
+>getopt.h</A
+></DT
+><DT
+>10.3.14. <A
+HREF="libc-ddefs.html#AEN5600"
+>glob.h</A
+></DT
+><DT
+>10.3.15. <A
+HREF="libc-ddefs.html#AEN5604"
+>iconv.h</A
+></DT
+><DT
+>10.3.16. <A
+HREF="libc-ddefs.html#AEN5608"
+>ifaddrs.h</A
+></DT
+><DT
+>10.3.17. <A
+HREF="libc-ddefs.html#AEN5612"
+>inttypes.h</A
+></DT
+><DT
+>10.3.18. <A
+HREF="libc-ddefs.html#AEN5616"
+>langinfo.h</A
+></DT
+><DT
+>10.3.19. <A
+HREF="libc-ddefs.html#AEN5620"
+>limits.h</A
+></DT
+><DT
+>10.3.20. <A
+HREF="libc-ddefs.html#AEN5624"
+>link.h</A
+></DT
+><DT
+>10.3.21. <A
+HREF="libc-ddefs.html#AEN5628"
+>locale.h</A
+></DT
+><DT
+>10.3.22. <A
+HREF="libc-ddefs.html#AEN5632"
+>lsb/time.h</A
+></DT
+><DT
+>10.3.23. <A
+HREF="libc-ddefs.html#AEN5636"
+>lsb/types.h</A
+></DT
+><DT
+>10.3.24. <A
+HREF="libc-ddefs.html#AEN5640"
+>lsb/wchar.h</A
+></DT
+><DT
+>10.3.25. <A
+HREF="libc-ddefs.html#AEN5644"
+>net/if.h</A
+></DT
+><DT
+>10.3.26. <A
+HREF="libc-ddefs.html#AEN5648"
+>netdb.h</A
+></DT
+><DT
+>10.3.27. <A
+HREF="libc-ddefs.html#AEN5652"
+>netinet/icmp6.h</A
+></DT
+><DT
+>10.3.28. <A
+HREF="libc-ddefs.html#AEN5656"
+>netinet/igmp.h</A
+></DT
+><DT
+>10.3.29. <A
+HREF="libc-ddefs.html#AEN5660"
+>netinet/in.h</A
+></DT
+><DT
+>10.3.30. <A
+HREF="libc-ddefs.html#AEN5664"
+>netinet/in_systm.h</A
+></DT
+><DT
+>10.3.31. <A
+HREF="libc-ddefs.html#AEN5668"
+>netinet/ip.h</A
+></DT
+><DT
+>10.3.32. <A
+HREF="libc-ddefs.html#AEN5672"
+>netinet/ip6.h</A
+></DT
+><DT
+>10.3.33. <A
+HREF="libc-ddefs.html#AEN5676"
+>netinet/ip_icmp.h</A
+></DT
+><DT
+>10.3.34. <A
+HREF="libc-ddefs.html#AEN5680"
+>netinet/tcp.h</A
+></DT
+><DT
+>10.3.35. <A
+HREF="libc-ddefs.html#AEN5684"
+>netinet/udp.h</A
+></DT
+><DT
+>10.3.36. <A
+HREF="libc-ddefs.html#AEN5688"
+>nl_types.h</A
+></DT
+><DT
+>10.3.37. <A
+HREF="libc-ddefs.html#AEN5692"
+>pwd.h</A
+></DT
+><DT
+>10.3.38. <A
+HREF="libc-ddefs.html#AEN5696"
+>regex.h</A
+></DT
+><DT
+>10.3.39. <A
+HREF="libc-ddefs.html#AEN5700"
+>rpc/auth.h</A
+></DT
+><DT
+>10.3.40. <A
+HREF="libc-ddefs.html#AEN5704"
+>rpc/clnt.h</A
+></DT
+><DT
+>10.3.41. <A
+HREF="libc-ddefs.html#AEN5708"
+>rpc/rpc_msg.h</A
+></DT
+><DT
+>10.3.42. <A
+HREF="libc-ddefs.html#AEN5712"
+>rpc/svc.h</A
+></DT
+><DT
+>10.3.43. <A
+HREF="libc-ddefs.html#AEN5716"
+>rpc/types.h</A
+></DT
+><DT
+>10.3.44. <A
+HREF="libc-ddefs.html#AEN5720"
+>rpc/xdr.h</A
+></DT
+><DT
+>10.3.45. <A
+HREF="libc-ddefs.html#AEN5724"
+>sched.h</A
+></DT
+><DT
+>10.3.46. <A
+HREF="libc-ddefs.html#AEN5728"
+>search.h</A
+></DT
+><DT
+>10.3.47. <A
+HREF="libc-ddefs.html#AEN5732"
+>setjmp.h</A
+></DT
+><DT
+>10.3.48. <A
+HREF="libc-ddefs.html#AEN5736"
+>signal.h</A
+></DT
+><DT
+>10.3.49. <A
+HREF="libc-ddefs.html#AEN5740"
+>spawn.h</A
+></DT
+><DT
+>10.3.50. <A
+HREF="libc-ddefs.html#AEN5744"
+>stddef.h</A
+></DT
+><DT
+>10.3.51. <A
+HREF="libc-ddefs.html#AEN5748"
+>stdint.h</A
+></DT
+><DT
+>10.3.52. <A
+HREF="libc-ddefs.html#AEN5752"
+>stdio.h</A
+></DT
+><DT
+>10.3.53. <A
+HREF="libc-ddefs.html#AEN5756"
+>stdlib.h</A
+></DT
+><DT
+>10.3.54. <A
+HREF="libc-ddefs.html#AEN5760"
+>string.h</A
+></DT
+><DT
+>10.3.55. <A
+HREF="libc-ddefs.html#AEN5764"
+>sys/epoll.h</A
+></DT
+><DT
+>10.3.56. <A
+HREF="libc-ddefs.html#AEN5768"
+>sys/file.h</A
+></DT
+><DT
+>10.3.57. <A
+HREF="libc-ddefs.html#AEN5772"
+>sys/inotify.h</A
+></DT
+><DT
+>10.3.58. <A
+HREF="libc-ddefs.html#AEN5776"
+>sys/io.h</A
+></DT
+><DT
+>10.3.59. <A
+HREF="libc-ddefs.html#AEN5780"
+>sys/ioctl.h</A
+></DT
+><DT
+>10.3.60. <A
+HREF="libc-ddefs.html#AEN5784"
+>sys/ipc.h</A
+></DT
+><DT
+>10.3.61. <A
+HREF="libc-ddefs.html#AEN5788"
+>sys/mman.h</A
+></DT
+><DT
+>10.3.62. <A
+HREF="libc-ddefs.html#AEN5792"
+>sys/msg.h</A
+></DT
+><DT
+>10.3.63. <A
+HREF="libc-ddefs.html#AEN5796"
+>sys/param.h</A
+></DT
+><DT
+>10.3.64. <A
+HREF="libc-ddefs.html#AEN5800"
+>sys/poll.h</A
+></DT
+><DT
+>10.3.65. <A
+HREF="libc-ddefs.html#AEN5804"
+>sys/ptrace.h</A
+></DT
+><DT
+>10.3.66. <A
+HREF="libc-ddefs.html#AEN5808"
+>sys/resource.h</A
+></DT
+><DT
+>10.3.67. <A
+HREF="libc-ddefs.html#AEN5812"
+>sys/select.h</A
+></DT
+><DT
+>10.3.68. <A
+HREF="libc-ddefs.html#AEN5816"
+>sys/sem.h</A
+></DT
+><DT
+>10.3.69. <A
+HREF="libc-ddefs.html#AEN5820"
+>sys/shm.h</A
+></DT
+><DT
+>10.3.70. <A
+HREF="libc-ddefs.html#AEN5824"
+>sys/socket.h</A
+></DT
+><DT
+>10.3.71. <A
+HREF="libc-ddefs.html#AEN5828"
+>sys/stat.h</A
+></DT
+><DT
+>10.3.72. <A
+HREF="libc-ddefs.html#AEN5832"
+>sys/statfs.h</A
+></DT
+><DT
+>10.3.73. <A
+HREF="libc-ddefs.html#AEN5836"
+>sys/statvfs.h</A
+></DT
+><DT
+>10.3.74. <A
+HREF="libc-ddefs.html#AEN5840"
+>sys/sysinfo.h</A
+></DT
+><DT
+>10.3.75. <A
+HREF="libc-ddefs.html#AEN5844"
+>sys/time.h</A
+></DT
+><DT
+>10.3.76. <A
+HREF="libc-ddefs.html#AEN5848"
+>sys/timeb.h</A
+></DT
+><DT
+>10.3.77. <A
+HREF="libc-ddefs.html#AEN5852"
+>sys/times.h</A
+></DT
+><DT
+>10.3.78. <A
+HREF="libc-ddefs.html#AEN5856"
+>sys/un.h</A
+></DT
+><DT
+>10.3.79. <A
+HREF="libc-ddefs.html#AEN5860"
+>sys/utsname.h</A
+></DT
+><DT
+>10.3.80. <A
+HREF="libc-ddefs.html#AEN5864"
+>sys/wait.h</A
+></DT
+><DT
+>10.3.81. <A
+HREF="libc-ddefs.html#AEN5868"
+>sysexits.h</A
+></DT
+><DT
+>10.3.82. <A
+HREF="libc-ddefs.html#AEN5872"
+>syslog.h</A
+></DT
+><DT
+>10.3.83. <A
+HREF="libc-ddefs.html#AEN5876"
+>tar.h</A
+></DT
+><DT
+>10.3.84. <A
+HREF="libc-ddefs.html#AEN5880"
+>termios.h</A
+></DT
+><DT
+>10.3.85. <A
+HREF="libc-ddefs.html#AEN5884"
+>time.h</A
+></DT
+><DT
+>10.3.86. <A
+HREF="libc-ddefs.html#AEN5888"
+>ucontext.h</A
+></DT
+><DT
+>10.3.87. <A
+HREF="libc-ddefs.html#AEN5892"
+>ulimit.h</A
+></DT
+><DT
+>10.3.88. <A
+HREF="libc-ddefs.html#AEN5896"
+>unistd.h</A
+></DT
+><DT
+>10.3.89. <A
+HREF="libc-ddefs.html#AEN5900"
+>utime.h</A
+></DT
+><DT
+>10.3.90. <A
+HREF="libc-ddefs.html#AEN5904"
+>utmp.h</A
+></DT
+><DT
+>10.3.91. <A
+HREF="libc-ddefs.html#AEN5908"
+>utmpx.h</A
+></DT
+><DT
+>10.3.92. <A
+HREF="libc-ddefs.html#AEN5912"
+>wordexp.h</A
+></DT
+></DL
+></DD
+><DT
+>10.4. <A
+HREF="libcman.html"
+>Interface Definitions for libc</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="baselib-ioperm-2.html"
+>ioperm</A
+>&nbsp;--&nbsp;set port input/output permissions</DT
+><DT
+><A
+HREF="baselib-iopl-2.html"
+>iopl</A
+>&nbsp;--&nbsp;change I/O privilege level</DT
+></DL
+></DD
+><DT
+>10.5. <A
+HREF="libm.html"
+>Interfaces for libm</A
+></DT
+><DD
+><DL
+><DT
+>10.5.1. <A
+HREF="libm.html#AEN6000"
+>Math</A
+></DT
+></DL
+></DD
+><DT
+>10.6. <A
+HREF="libm-ddefs.html"
+>Data Definitions for libm</A
+></DT
+><DD
+><DL
+><DT
+>10.6.1. <A
+HREF="libm-ddefs.html#AEN7401"
+>complex.h</A
+></DT
+><DT
+>10.6.2. <A
+HREF="libm-ddefs.html#AEN7405"
+>fenv.h</A
+></DT
+><DT
+>10.6.3. <A
+HREF="libm-ddefs.html#AEN7409"
+>math.h</A
+></DT
+></DL
+></DD
+><DT
+>10.7. <A
+HREF="libmman.html"
+>Interface Definitions for libm</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="baselib---fpclassifyl.html"
+>__fpclassifyl</A
+>&nbsp;--&nbsp;Classify real floating type</DT
+><DT
+><A
+HREF="baselib---signbitl.html"
+>__signbitl</A
+>&nbsp;--&nbsp;test sign of floating point value</DT
+></DL
+></DD
+><DT
+>10.8. <A
+HREF="libpthread.html"
+>Interfaces for libpthread</A
+></DT
+><DD
+><DL
+><DT
+>10.8.1. <A
+HREF="libpthread.html#AEN7490"
+>Realtime Threads</A
+></DT
+><DT
+>10.8.2. <A
+HREF="libpthread.html#AEN7535"
+>Advanced Realtime Threads</A
+></DT
+><DT
+>10.8.3. <A
+HREF="libpthread.html#AEN7597"
+>Posix Threads</A
+></DT
+><DT
+>10.8.4. <A
+HREF="libpthread.html#AEN7967"
+>Thread aware versions of libc interfaces</A
+></DT
+><DT
+>10.8.5. <A
+HREF="libpthread.html#AEN8006"
+>GNU Extensions for libpthread</A
+></DT
+><DT
+>10.8.6. <A
+HREF="libpthread.html#AEN8045"
+>System Calls</A
+></DT
+><DT
+>10.8.7. <A
+HREF="libpthread.html#AEN8118"
+>Standard I/O</A
+></DT
+><DT
+>10.8.8. <A
+HREF="libpthread.html#AEN8137"
+>Signal Handling</A
+></DT
+><DT
+>10.8.9. <A
+HREF="libpthread.html#AEN8176"
+>Standard Library</A
+></DT
+><DT
+>10.8.10. <A
+HREF="libpthread.html#AEN8212"
+>Socket Interface</A
+></DT
+><DT
+>10.8.11. <A
+HREF="libpthread.html#AEN8265"
+>Terminal Interface Functions</A
+></DT
+></DL
+></DD
+><DT
+>10.9. <A
+HREF="libpthread-ddefs.html"
+>Data Definitions for libpthread</A
+></DT
+><DD
+><DL
+><DT
+>10.9.1. <A
+HREF="libpthread-ddefs.html#AEN8290"
+>lsb/pthread.h</A
+></DT
+><DT
+>10.9.2. <A
+HREF="libpthread-ddefs.html#AEN8294"
+>pthread.h</A
+></DT
+><DT
+>10.9.3. <A
+HREF="libpthread-ddefs.html#AEN8298"
+>semaphore.h</A
+></DT
+></DL
+></DD
+><DT
+>10.10. <A
+HREF="libgcc-s.html"
+>Interfaces for libgcc_s</A
+></DT
+><DD
+><DL
+><DT
+>10.10.1. <A
+HREF="libgcc-s.html#AEN8320"
+>Unwind Library</A
+></DT
+></DL
+></DD
+><DT
+>10.11. <A
+HREF="libgcc-s-ddefs.html"
+>Data Definitions for libgcc_s</A
+></DT
+><DD
+><DL
+><DT
+>10.11.1. <A
+HREF="libgcc-s-ddefs.html#AEN8413"
+>unwind.h</A
+></DT
+></DL
+></DD
+><DT
+>10.12. <A
+HREF="libgcc-sman.html"
+>Interface Definitions for libgcc_s</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="baselib--unwind-find-fde.html"
+>_Unwind_Find_FDE</A
+>&nbsp;--&nbsp;private C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-getdatarelbase.html"
+>_Unwind_GetDataRelBase</A
+>&nbsp;--&nbsp;private IA64 C++ error handling method</DT
+><DT
+><A
+HREF="baselib--unwind-gettextrelbase.html"
+>_Unwind_GetTextRelBase</A
+>&nbsp;--&nbsp;private IA64 C++ error handling method</DT
+></DL
+></DD
+><DT
+>10.13. <A
+HREF="libdl.html"
+>Interfaces for libdl</A
+></DT
+><DD
+><DL
+><DT
+>10.13.1. <A
+HREF="libdl.html#AEN8514"
+>Dynamic Loader</A
+></DT
+></DL
+></DD
+><DT
+>10.14. <A
+HREF="libdl-ddefs.html"
+>Data Definitions for libdl</A
+></DT
+><DD
+><DL
+><DT
+>10.14.1. <A
+HREF="libdl-ddefs.html#AEN8559"
+>dlfcn.h</A
+></DT
+></DL
+></DD
+><DT
+>10.15. <A
+HREF="libcrypt.html"
+>Interfaces for libcrypt</A
+></DT
+><DD
+><DL
+><DT
+>10.15.1. <A
+HREF="libcrypt.html#AEN8583"
+>Encryption</A
+></DT
+></DL
+></DD
+><DT
+>10.16. <A
+HREF="libcrypt-ddefs.html"
+>Data Definitions for libcrypt</A
+></DT
+><DD
+><DL
+><DT
+>10.16.1. <A
+HREF="libcrypt-ddefs.html#AEN8628"
+>crypt.h</A
+></DT
+></DL
+></DD
+></DL
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="dynamiclinking.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Dynamic Linking</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Libraries</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

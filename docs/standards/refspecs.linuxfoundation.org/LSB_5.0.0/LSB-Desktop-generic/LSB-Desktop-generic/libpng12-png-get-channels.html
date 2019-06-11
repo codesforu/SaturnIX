@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>png_get_channels</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libpng12"
+HREF="libpng12man.html"><LINK
+REL="PREVIOUS"
+TITLE="png_get_cHRM"
+HREF="libpng12-png-get-chrm.html"><LINK
+REL="NEXT"
+TITLE="png_get_color_type"
+HREF="libpng12-png-get-color-type.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpng12-png-get-chrm.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpng12-png-get-color-type.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="LIBPNG12-PNG-GET-CHANNELS"
+></A
+>png_get_channels</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN13730"
+></A
+><H2
+>Name</H2
+>png_get_channels&nbsp;--&nbsp;get number of color channels in image</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN13735"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN13736"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;png.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>png_byte
+<TT
+CLASS="FUNCTION"
+>png_get_channels</TT
+></CODE
+>(png_structp
+<TT
+CLASS="PARAMETER"
+><I
+>png_ptr</I
+></TT
+>, png_infop
+<TT
+CLASS="PARAMETER"
+><I
+>info_ptr</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13745"
+></A
+><H2
+>Description</H2
+><P
+>png_get_channels() shall return the number of data channels per pixel for the
+color type of the image. The number of channels shall range from 1-4 depending
+on the color type as given below.
+<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>1 - PNG_COLOR_TYPE_GRAY or PNG_COLOR_TYPE_PALETTE </TD
+></TR
+><TR
+><TD
+>2 - PNG_COLOR_TYPE_GRAY_ALPHA </TD
+></TR
+><TR
+><TD
+>3 - PNG_COLOR_TYPE_RGB </TD
+></TR
+><TR
+><TD
+>4 - PNG_COLOR_TYPE_RGB_ALPHA or PNG_COLOR_TYPE_RGB+filler byte </TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13753"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, png_get_channels() shall return the number of channels ranging from
+1-4. Otherwise, png_get_channels shall return 0.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpng12-png-get-chrm.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpng12-png-get-color-type.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>png_get_cHRM</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libpng12man.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>png_get_color_type</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

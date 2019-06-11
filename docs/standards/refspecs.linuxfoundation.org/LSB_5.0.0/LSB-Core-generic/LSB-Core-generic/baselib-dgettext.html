@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>dgettext</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="dcngettext"
+HREF="baselib-dcngettext.html"><LINK
+REL="NEXT"
+TITLE="dl_iterate_phdr"
+HREF="baselib-dl-iterate-phdr-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-dcngettext.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-dl-iterate-phdr-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-DGETTEXT"
+></A
+>dgettext</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN13234"
+></A
+><H2
+>Name</H2
+>dgettext&nbsp;--&nbsp;perform lookup in message catalog for the current LC_MESSAGES locale</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN13237"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN13240"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;libintl.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>char *
+  <TT
+CLASS="FUNCTION"
+>dgettext</TT
+></CODE
+>(const char *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>domainname</I
+></TT
+></I
+></TT
+>, const char *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>msgid</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13251"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="FUNCTION"
+>dgettext()</TT
+> is a domain specified version of 
+<TT
+CLASS="FUNCTION"
+>gettext()</TT
+>.</P
+><P
+>The <TT
+CLASS="FUNCTION"
+>dgettext()</TT
+> function shall search the currently
+selected message catalogs in the domain
+<TT
+CLASS="PARAMETER"
+><I
+>domainname</I
+></TT
+> for a string identified by the string
+<TT
+CLASS="PARAMETER"
+><I
+>msgid</I
+></TT
+>. If a string is located,
+that string shall be returned.
+The domain specified by <TT
+CLASS="PARAMETER"
+><I
+>domainname</I
+></TT
+> applies to the 
+currently active
+<TT
+CLASS="SYMBOL"
+>LC_MESSAGE</TT
+> locale. The default domain shall not
+be changed by a call to <TT
+CLASS="FUNCTION"
+>dgettext()</TT
+>.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>The usage of <TT
+CLASS="PARAMETER"
+><I
+>domainanme</I
+></TT
+> is equivalent in 
+syntax and meaning to the <TT
+CLASS="FUNCTION"
+>textdomain()</TT
+> function's
+application of <TT
+CLASS="PARAMETER"
+><I
+>domainname</I
+></TT
+>, except that the 
+selection of the domain in <TT
+CLASS="FUNCTION"
+>dgettext()</TT
+> 
+is valid only for the duration of the call.</P
+></BLOCKQUOTE
+></DIV
+>&#13;</P
+><P
+>The <TT
+CLASS="FUNCTION"
+>dgettext()</TT
+> function is equivalent to
+<TT
+CLASS="LITERAL"
+>dcgettext(domainname, msgid, LC_MESSAGES)</TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13274"
+></A
+><H2
+>Return Value</H2
+><P
+>On success of a <TT
+CLASS="PARAMETER"
+><I
+>msgid</I
+></TT
+> query, the translated 
+<TT
+CLASS="LITERAL"
+>NULL</TT
+>-terminated string is returned. On error, the 
+original <TT
+CLASS="PARAMETER"
+><I
+>msgid</I
+></TT
+> is returned. The length of the
+string returned is undetermined until <TT
+CLASS="FUNCTION"
+>dgettext()</TT
+>
+is called.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13281"
+></A
+><H2
+>Errors</H2
+><P
+><TT
+CLASS="FUNCTION"
+>dgettext()</TT
+> shall not modify the 
+<CODE
+CLASS="VARNAME"
+>errno</CODE
+> global variable.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13286"
+></A
+><H2
+>See Also</H2
+><P
+>gettext, dgettext, ngettext, 
+dngettext, dcgettext, dcngettext, textdomain,
+bindtextdomain, bind_textdomain_codeset</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-dcngettext.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-dl-iterate-phdr-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>dcngettext</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>dl_iterate_phdr</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

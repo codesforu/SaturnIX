@@ -1,0 +1,28 @@
+<hr>
+
+<H1>LSB 2.1.0 Core-S390 Specification</H1>
+<TABLE>
+<TR>
+<TH>Specification</TH>
+<TH>Version</TH>
+<TH>HTML</TH>
+<TH>RTF</TH>
+<TH>PDF</TH>
+<TH>One Page HTML</TH>
+<TH>TXT</TH>
+<TH>TXT (numbered)</TH>
+<TH>Diff from 2.0 (pdf)</TH>
+</TR>
+<TR>
+<TD>LSB Core S390</TD>
+<TD ALIGN=center><B>2.1
+</B></TD>
+<TD><a href="LSB-Core-S390/set1.html">HTML</a></TD>
+<TD><a href="LSB-Core-S390.rtf">RTF</a></TD>
+<TD><!--<a href="../ISO/LSB-Core-S390.pdf">PDF</a>--></TD>
+<TD ALIGN=center><a href="LSB-Core-S390.html">HTML</a></TD>
+<TD ALIGN=center><a href="LSB-Core-S390.txt">TXT</a></TD>
+<TD ALIGN=center><a href="LSB-Core-S390_lines.txt">TXT</a></TD>
+<TD>Not published</TD>
+</TR>
+</TABLE>

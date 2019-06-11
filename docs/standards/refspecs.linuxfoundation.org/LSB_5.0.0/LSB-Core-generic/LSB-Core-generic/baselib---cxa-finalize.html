@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>__cxa_finalize</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="__cxa_atexit"
+HREF="baselib---cxa-atexit.html"><LINK
+REL="NEXT"
+TITLE="__daylight"
+HREF="baselib---daylight.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib---cxa-atexit.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib---daylight.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB---CXA-FINALIZE"
+></A
+>__cxa_finalize</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN8170"
+></A
+><H2
+>Name</H2
+>__cxa_finalize&nbsp;--&nbsp;call destructors of global (or local static) C++
+objects and exit functions registered with atexit</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN8173"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN8174"
+></A
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void
+<TT
+CLASS="FUNCTION"
+>__cxa_finalize</TT
+></CODE
+>(void *
+<TT
+CLASS="PARAMETER"
+><I
+>d</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN8180"
+></A
+><H2
+>Description</H2
+><P
+>As described in the Itanium® C++ ABI, the C runtime library shall
+maintain a list of termination function entries containing the
+following information:</P
+><P
+></P
+><UL
+><LI
+><P
+>A pointer to a termination function.</P
+></LI
+><LI
+><P
+>An operand to be passed to the function.</P
+></LI
+><LI
+><P
+>A handle identifying the home shared library of the
+entry.</P
+></LI
+></UL
+><P
+>The list is populated by entries of two kinds:</P
+><P
+></P
+><UL
+><LI
+><P
+>Destructors of global (or local static) C++ objects that require
+destruction on exit.</P
+></LI
+><LI
+><P
+>Functions registered by the user with atexit().</P
+></LI
+></UL
+><P
+>In the former case an entry consists of a pointer to the destructor,
+a pointer to the corresponding object and a handle for the home shared
+library of the object. In the latter case the pointer to the function
+is the pointer passed to atexit(), while the other pointers are NULL.</P
+><P
+>When __cxa_finalize(d) is called, it shall walk the termination function
+list, calling each in turn if d matches the handle of the termination
+function entry. If d is NULL, it shall call all the termination
+funtions. Multiple calls to __cxa_finalize shall not result in calling
+termination function entries multiple times; the implementation may either
+remove entries or mark them finished. The termination functions shall
+always be called in the reverse order of their registration (i.e. the
+most recently registered function shall be called first).</P
+><P
+>An application shall not call __cxa_finalize() directly. The
+implementation shall arrange for__cxa_finalize() to be called during
+early shared library unload (e.g. dlclose()) with a handle to the shared
+library. When the main program calls exit, the implementation shall cause
+any remaining __cxa_atexit-registered functions to be called, either by
+calling __cxa_finalize(NULL), or by walking the registration list
+itself.</P
+><P
+>__cxa_finalize() is not in the source standard; it is only in the binary
+standard.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib---cxa-atexit.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib---daylight.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>__cxa_atexit</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>__daylight</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

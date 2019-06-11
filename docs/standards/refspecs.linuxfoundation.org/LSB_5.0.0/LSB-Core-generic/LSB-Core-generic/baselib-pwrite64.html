@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>pwrite64</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="putwchar_unlocked"
+HREF="baselib-putwchar-unlocked-1.html"><LINK
+REL="NEXT"
+TITLE="random_r"
+HREF="baselib-random-r-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-putwchar-unlocked-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-random-r-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-PWRITE64"
+></A
+>pwrite64</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN18687"
+></A
+><H2
+>Name</H2
+>pwrite64&nbsp;--&nbsp;write on a file (Large File Support)</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN18690"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN18693"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;unistd.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>ssize_t 
+  <TT
+CLASS="FUNCTION"
+>pwrite64</TT
+></CODE
+>(int 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>fd</I
+></TT
+></I
+></TT
+>, const void *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>buf</I
+></TT
+></I
+></TT
+>, size_t 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>count</I
+></TT
+></I
+></TT
+>, off64_t 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>offset</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN18710"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="FUNCTION"
+>pwrite64()</TT
+> shall write <TT
+CLASS="PARAMETER"
+><I
+>count</I
+></TT
+> 
+bytes from <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+> to the file associated with the
+open file descriptor <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>, at the 
+position specified by <TT
+CLASS="PARAMETER"
+><I
+>offset</I
+></TT
+>, without changing 
+the file position.</P
+><P
+><TT
+CLASS="FUNCTION"
+>pwrite64()</TT
+> is a large-file version of
+the <TT
+CLASS="FUNCTION"
+>pwrite()</TT
+> function as defined in
+<A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>.
+It differs from <TT
+CLASS="FUNCTION"
+>pwrite()</TT
+>
+in that the <TT
+CLASS="PARAMETER"
+><I
+>offset</I
+></TT
+> parameter is an
+<SPAN
+CLASS="TYPE"
+>off64_t</SPAN
+> instead of an <SPAN
+CLASS="TYPE"
+>off_t</SPAN
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN18728"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <TT
+CLASS="FUNCTION"
+>pwrite64()</TT
+> shall return the number 
+of bytes actually written. Otherwise <TT
+CLASS="FUNCTION"
+>pwrite()</TT
+>
+shall return <SPAN
+CLASS="RETURNVALUE"
+>-1</SPAN
+> and
+set <CODE
+CLASS="VARNAME"
+>errno</CODE
+> to indicate the error.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN18735"
+></A
+><H2
+>Errors</H2
+><P
+>See <TT
+CLASS="FUNCTION"
+>pwrite()</TT
+> for possible error values.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-putwchar-unlocked-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-random-r-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>putwchar_unlocked</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>random_r</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>png_convert_from_struct_tm</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Trial Use Specification"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libpng15"
+HREF="libpng15man.html"><LINK
+REL="PREVIOUS"
+TITLE="png_access_version_number"
+HREF="libpng15-png-access-version-number.html"><LINK
+REL="NEXT"
+TITLE="png_convert_from_time_t"
+HREF="libpng15-png-convert-from-time-t.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Trial Use Specification</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpng15-png-access-version-number.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpng15-png-convert-from-time-t.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="LIBPNG15-PNG-CONVERT-FROM-STRUCT-TM"
+></A
+>png_convert_from_struct_tm</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN1333"
+></A
+><H2
+>Name</H2
+>png_convert_from_struct_tm&nbsp;--&nbsp;convert struct tm to png_time</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN1338"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN1339"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;png.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void
+<TT
+CLASS="FUNCTION"
+>png_convert_from_struct_tm</TT
+></CODE
+>(png_timep
+<TT
+CLASS="PARAMETER"
+><I
+>ptime</I
+></TT
+>, struct tm *
+<TT
+CLASS="PARAMETER"
+><I
+>ttime</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN1348"
+></A
+><H2
+>Description</H2
+><P
+>This interface shall convert from the <SPAN
+CLASS="TYPE"
+>struct tm</SPAN
+>
+time format to the <SPAN
+CLASS="TYPE"
+>png_time</SPAN
+> format.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>ttime</I
+></TT
+> shall specify the 
+<SPAN
+CLASS="TYPE"
+>struct tm</SPAN
+> value to convert to <SPAN
+CLASS="TYPE"
+>png_time</SPAN
+> format.</P
+><P
+>The output parameter <TT
+CLASS="PARAMETER"
+><I
+>ptime</I
+></TT
+>
+shall contain the converted value.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpng15-png-access-version-number.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpng15-png-convert-from-time-t.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>png_access_version_number</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libpng15man.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>png_convert_from_time_t</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,529 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Libraries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="JPEG library"
+HREF="toclibjpeg.html"><LINK
+REL="PREVIOUS"
+TITLE="JPEG library"
+HREF="toclibjpeg.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libjpeg"
+HREF="libjpeg-ddefs.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="toclibjpeg.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libjpeg-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="LIBJPEG62"
+></A
+>Chapter 9. Libraries</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBJPEG"
+>9.1. Interfaces for libjpeg</A
+></H1
+><P
+><A
+HREF="libjpeg62.html#LIB-LIBJPEG-DEF"
+>Table 9-1</A
+> defines the library name and shared object name
+for the libjpeg library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBJPEG-DEF"
+></A
+><P
+><B
+>Table 9-1. libjpeg Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libjpeg</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libjpeg.so.62</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBJPEG.1"
+></A
+>[LSB] <A
+HREF="normativerefs.html#STD.LSB"
+>This Specification</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN16887"
+>9.1.1. JPEG Reference library</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN16890"
+>9.1.1.1. Interfaces for JPEG Reference library</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for JPEG Reference library specified in <A
+HREF="libjpeg62.html#TBL-LIBJPEG-JPEG-INTS"
+>Table 9-2</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBJPEG-JPEG-INTS"
+></A
+><P
+><B
+>Table 9-2. libjpeg - JPEG Reference library Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>jpeg_CreateCompress(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_CreateDecompress(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_abort(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_abort_compress(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_abort_decompress(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_add_quant_table(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_alloc_huff_table(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_alloc_quant_table(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_calc_output_dimensions(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_consume_input(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_copy_critical_parameters(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_default_colorspace(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_destroy(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_destroy_compress(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_destroy_decompress(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_finish_compress(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_finish_decompress(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_finish_output(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_has_multiple_scans(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_input_complete(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_new_colormap(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_quality_scaling(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_read_coefficients(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_read_header(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_read_raw_data(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_read_scanlines(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_resync_to_restart(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_save_markers(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_set_colorspace(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_set_defaults(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_set_linear_quality(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_set_marker_processor(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_set_quality(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_simple_progression(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_start_compress(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_start_decompress(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_start_output(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_std_error(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_stdio_dest(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_stdio_src(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_suppress_tables(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_write_coefficients(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_write_m_byte(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_write_m_header(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_write_marker(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jpeg_write_raw_data(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_write_scanlines(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+><TD
+>jpeg_write_tables(LIBJPEG_6.2) <A
+HREF="libjpeg62.html#REFSTD.LIBJPEG.1"
+>[LSB]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="toclibjpeg.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libjpeg-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>JPEG library</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="toclibjpeg.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libjpeg</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

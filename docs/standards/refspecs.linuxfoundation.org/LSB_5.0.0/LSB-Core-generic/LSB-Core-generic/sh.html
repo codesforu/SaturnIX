@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>sh</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="seq"
+HREF="seq.html"><LINK
+REL="NEXT"
+TITLE="shutdown"
+HREF="shutdown.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="seq.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="shutdown.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="SH"
+></A
+>sh</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN60379"
+></A
+><H2
+>Name</H2
+>sh&nbsp;--&nbsp;shell, the standard command language interpreter</DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN60382"
+></A
+><H2
+>Description</H2
+><P
+>The <B
+CLASS="COMMAND"
+>sh</B
+> utility shall behave as specified in 
+<A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>, but with
+extensions listed below.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="CMD-SH-INVOKE"
+></A
+><H2
+>Shell Invocation</H2
+><P
+>The shell shall support an additional option, <TT
+CLASS="PARAMETER"
+><I
+>-l</I
+></TT
+> 
+(the letter <I
+CLASS="EMPHASIS"
+>ell</I
+>).
+If the <TT
+CLASS="PARAMETER"
+><I
+>-l</I
+></TT
+> option is specified, or if the first character
+of argument zero (the command name) is a <TT
+CLASS="LITERAL"
+>'-'</TT
+>, this invokation
+of the shell is a <I
+CLASS="EMPHASIS"
+>login shell</I
+>.</P
+><P
+>An interactive shell, as specified in <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>,
+that is also a login shell, or any shell if invoked with the <TT
+CLASS="PARAMETER"
+><I
+>-l</I
+></TT
+>
+option, shall, prior to reading from the input file,
+first read and execute commands from the file
+<TT
+CLASS="FILENAME"
+>/etc/profile</TT
+>,
+if that file exists, and then from a file called <TT
+CLASS="FILENAME"
+>~/.profile</TT
+>,
+if such a file exists.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>This specification requires that the <B
+CLASS="COMMAND"
+>sh</B
+> utility shall also read 
+and execute commands in its current execution environment from all the shell scripts 
+in the directory <TT
+CLASS="FILENAME"
+>/etc/profile.d</TT
+>. Such scripts are read and executed
+as a part of reading and executing <TT
+CLASS="FILENAME"
+>/etc/profile</TT
+>.</P
+></BLOCKQUOTE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="seq.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="shutdown.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>seq</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>shutdown</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,3166 @@
+     1	Linux Standard Base Specification for the PPC32 Architecture 1.2
+     2	
+     3	Copyright © 2002 by Free Standards Group
+     4	
+     5	Permission is granted to copy, distribute and/or modify this document under the
+     6	terms of the GNU Free Documentation License, Version 1.1; with no Invariant
+     7	Sections, with no Front-Cover Texts, and with no Back-Cover Texts. A copy of
+     8	the license is included in the section entitled "GNU Free Documentation
+     9	License".
+    10	
+    11	Portions of the text were taken from other copyrighted documents in accordance
+    12	with the respective licenses of those documents.
+    13	
+    14	Linux is a trademark of Linus Torvalds.
+    15	
+    16	UNIX a registered trademark of the Open Group in the United States and other
+    17	countries.
+    18	
+    19	Intel386 and Itanium are trademarks of Intel Corporation.
+    20	
+    21	OpenGL is a registered trademark of Silicon Graphics, Inc.
+    22	
+    23	-------------------------------------------------------------------------------
+    24	
+    25	Table of Contents
+    26	I. Introduction
+    27	   
+    28	    1. Introduction
+    29	       
+    30	        Introduction
+    31	        Purpose
+    32	        Related Standards
+    33	        Relevant Libraries
+    34	        How to Use this Standard
+    35	        Definitions
+    36	        Terminology
+    37	       
+    38	II. Low Level System Information
+    39	   
+    40	    2. Machine Interface
+    41	       
+    42	        Processor Architecture
+    43	        Data Representation
+    44	       
+    45	    3. Function Calling Sequence
+    46	       
+    47	        CPU Registers
+    48	        Floating Point Registers
+    49	        Stack Frame
+    50	        Arguments
+    51	        Return Values
+    52	       
+    53	    4. Operating System Interface
+    54	       
+    55	        Processor Execution Mode
+    56	        Exception Interface
+    57	        Signal Delivery
+    58	       
+    59	    5. Process Initialization
+    60	       
+    61	        Special Registers
+    62	        Process Stack (on entry)
+    63	        Auxiliary Vector
+    64	        Environment
+    65	       
+    66	    6. Coding Examples
+    67	       
+    68	        Code Model Overview/Architecture Constraints
+    69	        Position-Independent Function Prologue
+    70	        Data Objects
+    71	        Function Calls
+    72	        Branching
+    73	       
+    74	    7. C Stack Frame
+    75	       
+    76	        Variable Argument List
+    77	        Dynamic Allocation of Stack Space
+    78	       
+    79	    8. Debug Information
+    80	   
+    81	III. Object Format
+    82	   
+    83	    9. ELF Header
+    84	       
+    85	        Machine Information
+    86	       
+    87	    10. Sections
+    88	       
+    89	        Special Sections
+    90	        Linux Special Sections
+    91	        Section Types
+    92	        Section Attribute Flags
+    93	        Special Section Types
+    94	       
+    95	    11. Symbol Table
+    96	    12. Relocation
+    97	       
+    98	        Relocation Types
+    99	       
+   100	IV. Program Loading and Dynamic Linking
+   101	   
+   102	    13. Program Header
+   103	       
+   104	        Types
+   105	        Flags
+   106	       
+   107	    14. Program Loading
+   108	    15. Dynamic Linking
+   109	       
+   110	        Program Interpreter/Dynamic Linker
+   111	        Dynamic Section
+   112	        Global Offset Table
+   113	        Shared Object Dependencies
+   114	        Function Addresses
+   115	        Procedure Linkage Table
+   116	        Initialization and Termination Functions
+   117	       
+   118	V. Base Libraries
+   119	   
+   120	    16. Libraries
+   121	       
+   122	        Interfaces for libc
+   123	        Data Definitions for libc
+   124	        Interfaces for libm
+   125	        Data Definitions for libm
+   126	        Interfaces for libpthread
+   127	        Data Definitions for libpthread
+   128	        Interfaces for libdl
+   129	        Data Definitions for libdl
+   130	        Interfaces for libcrypt
+   131	        Data Definitions for libcrypt
+   132	       
+   133	VI. Execution Environment
+   134	   
+   135	    17. The /proc Subtree
+   136	       
+   137	        /proc/cpuinfo
+   138	       
+   139	A. Alphabetical Listing of Interfaces
+   140	B. GNU Free Documentation License
+   141	   
+   142	    PREAMBLE
+   143	    APPLICABILITY AND DEFINITIONS
+   144	    VERBATIM COPYING
+   145	    COPYING IN QUANTITY
+   146	    MODIFICATIONS
+   147	    COMBINING DOCUMENTS
+   148	    COLLECTIONS OF DOCUMENTS
+   149	    AGGREGATION WITH INDEPENDENT WORKS
+   150	    TRANSLATION
+   151	    TERMINATION
+   152	    FUTURE REVISIONS OF THIS LICENSE
+   153	    How to use this License for your documents
+   154	   
+   155	List of Tables
+   156	1-1. Related Standards
+   157	1-2. Standard Library Names
+   158	2-1. Scalar Types
+   159	5-1. Extra Auxiliary Types
+   160	10-1. ELF Special Sections
+   161	10-2. Additional Special Sections
+   162	16-1. libc Definition
+   163	16-2. libc - RPC Function Interfaces
+   164	16-3. libc - System Calls Function Interfaces
+   165	16-4. libc - Standard I/O Function Interfaces
+   166	16-5. libc - Standard I/O Data Interfaces
+   167	16-6. libc - Signal Handling Function Interfaces
+   168	16-7. libc - Signal Handling Data Interfaces
+   169	16-8. libc - Standard Library Function Interfaces
+   170	16-9. libc - Standard Library Data Interfaces
+   171	16-10. libc - Localization Functions Function Interfaces
+   172	16-11. libc - Localization Functions Data Interfaces
+   173	16-12. libc - Socket Interface Function Interfaces
+   174	16-13. libc - Wide Characters Function Interfaces
+   175	16-14. libc - String Functions Function Interfaces
+   176	16-15. libc - IPC Functions Function Interfaces
+   177	16-16. libc - Regular Expressions Function Interfaces
+   178	16-17. libc - Regular Expressions Data Interfaces
+   179	16-18. libc - Character Type Functions Function Interfaces
+   180	16-19. libc - Character Type Functions Data Interfaces
+   181	16-20. libc - Time Manipulation Function Interfaces
+   182	16-21. libc - Time Manipulation Data Interfaces
+   183	16-22. libc - Terminal Interface Functions Function Interfaces
+   184	16-23. libc - System Database Interface Function Interfaces
+   185	16-24. libc - Language Support Function Interfaces
+   186	16-25. libc - Large File Support Function Interfaces
+   187	16-26. libm Definition
+   188	16-27. libm - Math Function Interfaces
+   189	16-28. libm - Math Data Interfaces
+   190	16-29. libpthread Definition
+   191	16-30. libpthread - Posix Threads Function Interfaces
+   192	16-31. libdl Definition
+   193	16-32. libcrypt Definition
+   194	
+   195	List of Figures
+   196	5-1. Initial Process Stack
+   197	
+   198	I. Introduction
+   199	
+   200	Table of Contents
+   201	1. Introduction
+   202	
+   203	-------------------------------------------------------------------------------
+   204	
+   205	Chapter 1. Introduction
+   206	
+   207	Introduction
+   208	
+   209	This is version 1.2 of the Linux Standard Base Specification for 32 bit
+   210	implementations of the PowerPCTM Architecture. An implementation of this
+   211	version of the specification may not claim to be an implementation of the Linux
+   212	Standard Base unless it has successfully completed the compliance process as
+   213	defined by the Free Standards Group.
+   214	
+   215	-------------------------------------------------------------------------------
+   216	
+   217	Purpose
+   218	
+   219	The Linux Standard Base (LSB) defines a system interface for compiled
+   220	applications and a minimal environment for support of installation scripts. Its
+   221	purpose is to enable a uniform industry standard environment for high-volume
+   222	applications conforming to the LSB.
+   223	
+   224	The LSB defines a binary interface for application programs that are compiled
+   225	and packaged for LSB-conforming implementations on many different hardware
+   226	architectures. Since a binary specification must include information specific
+   227	to the computer processor architecture for which it is intended, it is not
+   228	possible for a single document to specify the interface for all possible
+   229	LSB-conforming implementations. Therefore, the LSB is a family of
+   230	specifications, rather than a single one.
+   231	
+   232	The LSB is composed of two basic parts: A common part of the specification
+   233	describes those parts of the interface that remain constant across all hardware
+   234	implementations of the LSB, and an architecture-specific part of the
+   235	specification describes the parts of the specification that are specific to a
+   236	particular processor architecture. Together, the generic LSB and the
+   237	architecture-specific supplement for a single hardware architecture provide a
+   238	complete interface specification for compiled application programs on systems
+   239	that share a common hardware architecture.
+   240	
+   241	This document is the architecture-specific supplement. It must be used in
+   242	conjunction with the generic LSB. This document provides architecture-specific
+   243	information that supplements the generic LSB as well as additional information
+   244	that is not found in the generic LSB.
+   245	
+   246	This document should be used in conjunction with the documents it references.
+   247	This document enumerates the system components it includes, but descriptions of
+   248	those components may be included entirely or partly in this document, partly in
+   249	other documents, or entirely in other reference documents. For example, the
+   250	section that describes system service routines includes a list of the system
+   251	routines supported in this interface, formal declarations of the data
+   252	structures they use that are visible to applications, and a pointer to the
+   253	underlying referenced specification for information about the syntax and
+   254	semantics of each call. Only those routines not described in standards
+   255	referenced by this document, or extensions to those standards, are described in
+   256	the detail. Information referenced in this way is as much a part of this
+   257	document as is the information explicitly included here.
+   258	
+   259	-------------------------------------------------------------------------------
+   260	
+   261	Related Standards
+   262	
+   263	The specifications listed below are referenced in whole or in part by the Linux
+   264	Standard Base. Such references may be normative or non-normative; a reference
+   265	to specification shall only be considered normative if it is explicitly cited
+   266	as such. The LSB may make normative references to a portion of these
+   267	specifications (that is, to define a specific function or group of functions);
+   268	in such cases, only the explicitly referenced portion of the specification is
+   269	to be considered normative.
+   270	
+   271	Table 1-1. Related Standards
+   272	
+   273	+-----------------------------------------------------------------------------+
+   274	|System V Application Binary Interface - DRAFT -|http://www.caldera.com/      |
+   275	|22 June 2000                                   |developers/gabi/2000-07-17/  |
+   276	|                                               |contents.html                |
+   277	|-----------------------------------------------+-----------------------------|
+   278	|Filesystem Hierarchy Standard (FHS) 2.2        |http://www.pathname.com/fhs/ |
+   279	|-----------------------------------------------+-----------------------------|
+   280	|IEEE Standard for Binary Floating-Point        |http://www.ieee.org/         |
+   281	|Arithmetic                                     |                             |
+   282	|-----------------------------------------------+-----------------------------|
+   283	|System V Application Binary Interface, Edition |http://www.caldera.com/      |
+   284	|4.1                                            |developers/devspecs/         |
+   285	|                                               |gabi41.pdf                   |
+   286	|-----------------------------------------------+-----------------------------|
+   287	|ISO/IEC 9899: 1990, Programming Languages --C  |                             |
+   288	|-----------------------------------------------+-----------------------------|
+   289	|ISO/IEC 9899: 1999, Programming Languages --C  |                             |
+   290	|-----------------------------------------------+-----------------------------|
+   291	|Linux Assigned Names And Numbers Authority     |http://www.lanana.org/       |
+   292	|-----------------------------------------------+-----------------------------|
+   293	|Large File Support                             |http://www.UNIX-systems.org/ |
+   294	|                                               |version2/whatsnew/           |
+   295	|                                               |lfs20mar.html                |
+   296	|-----------------------------------------------+-----------------------------|
+   297	|LI18NUX 2000 Globalization Specification,      |http://www.li18nux.org/docs/ |
+   298	|Version 1.0 with Amendment 4                   |html/LI18NUX-2000-amd4.htm   |
+   299	|-----------------------------------------------+-----------------------------|
+   300	|Linux Standard Base                            |http://www.linuxbase.org/spec|
+   301	|                                               |/                            |
+   302	|-----------------------------------------------+-----------------------------|
+   303	|OpenGL® Application Binary Interface for Linux |http://oss.sgi.com/projects/ |
+   304	|                                               |ogl-sample/ABI/              |
+   305	|-----------------------------------------------+-----------------------------|
+   306	|IEEE Std POSIX 1003.2-1992 (ISO/IEC 9945-2:    |http://www.ieee.org/         |
+   307	|1993)                                          |                             |
+   308	|-----------------------------------------------+-----------------------------|
+   309	|System V Application Binary Interface PowerPC  |http://www.esofta.com/pdfs/  |
+   310	|Processor Supplement                           |SVR4abippc.pdf               |
+   311	|-----------------------------------------------+-----------------------------|
+   312	|The PowerPC TM Architecture: A Specification   |http://www.austin.ibm.com    |
+   313	|for a new family of RISC processors            |                             |
+   314	|-----------------------------------------------+-----------------------------|
+   315	|The PowerPC Architecture Book I changes        |http://www-1.ibm.com/servers/|
+   316	|                                               |eserver/pseries/library/     |
+   317	|                                               |ppc_chg1.html                |
+   318	|-----------------------------------------------+-----------------------------|
+   319	|The PowerPC Architecture Book II changes       |http://www-1.ibm.com/servers/|
+   320	|                                               |eserver/pseries/library/     |
+   321	|                                               |ppc_chg2.html                |
+   322	|-----------------------------------------------+-----------------------------|
+   323	|The PowerPC Architecture Book III changes      |http://www-1.ibm.com/servers/|
+   324	|                                               |eserver/pseries/library/     |
+   325	|                                               |ppc_chg3.html                |
+   326	|-----------------------------------------------+-----------------------------|
+   327	|POSIX 1003.1c                                  |http://www.ieee.org/         |
+   328	|-----------------------------------------------+-----------------------------|
+   329	|CAE Specification, May 1996, X/Open Curses,    |http://www.opengroup.org/    |
+   330	|Issue 4, Version 2 (ISBN: 1-85912-171-3, C610),|                             |
+   331	|plus Corrigendum U018                          |                             |
+   332	|-----------------------------------------------+-----------------------------|
+   333	|CAE Specification, January 1997, System        |http://www.opengroup.org/    |
+   334	|Interface Definitions (XBD), Issue 5 (ISBN:    |                             |
+   335	|1-85912-186-1, C605)                           |                             |
+   336	|-----------------------------------------------+-----------------------------|
+   337	|CAE Specification, January 1997, Commands and  |http://www.opengroup.org/    |
+   338	|Utilities (XCU), Issue 5 (ISBN: 1-85912-191-8, |                             |
+   339	|C604)                                          |                             |
+   340	|-----------------------------------------------+-----------------------------|
+   341	|CAE Specification, February 1997, Networking   |http://www.opengroup.org/    |
+   342	|Services (XNS), Issue 5 (ISBN: 1-85912-165-9,  |                             |
+   343	|C523)                                          |                             |
+   344	|-----------------------------------------------+-----------------------------|
+   345	|CAE Specification, January 1997, System        |http://www.opengroup.org/    |
+   346	|Interfaces and Headers (XSH), Issue 5 (ISBN:   |                             |
+   347	|1-85912-181-0, C606)                           |                             |
+   348	|-----------------------------------------------+-----------------------------|
+   349	|The Single UNIX® Specification(SUS) Version 1  |http://www.opengroup.org/    |
+   350	|(UNIX 95) System Interfaces & Headers          |                             |
+   351	|-----------------------------------------------+-----------------------------|
+   352	|System V Interface Definition, Issue 3 (ISBN   |                             |
+   353	|0201566524)                                    |                             |
+   354	|-----------------------------------------------+-----------------------------|
+   355	|System V Interface Definition,Fourth Edition   |                             |
+   356	|-----------------------------------------------+-----------------------------|
+   357	|Double Buffer Extension Library                |http://www.x.org/            |
+   358	|-----------------------------------------------+-----------------------------|
+   359	|X Display Power Management Signaling (DPMS)    |http://www.x.org/            |
+   360	|Extension, Library Specification               |                             |
+   361	|-----------------------------------------------+-----------------------------|
+   362	|X Record Extension Library                     |http://www.x.org/            |
+   363	|-----------------------------------------------+-----------------------------|
+   364	|Security Extension Specification, Version 7.1  |http://www.x.org/            |
+   365	|-----------------------------------------------+-----------------------------|
+   366	|X Nonrectangular Window Shape Extension Library|http://www.x.org/            |
+   367	|Version 1.0                                    |                             |
+   368	|-----------------------------------------------+-----------------------------|
+   369	|MIT-SHM--The MIT Shared Memory Extension       |http://www.x.org/            |
+   370	|-----------------------------------------------+-----------------------------|
+   371	|X Synchronization Extension Library            |http://www.x.org/            |
+   372	|-----------------------------------------------+-----------------------------|
+   373	|XTEST Extension Library                        |http://www.x.org/            |
+   374	|-----------------------------------------------+-----------------------------|
+   375	|X11R6.4 X Inter-Client Exchange (ICE) Protocol |http://www.x.org/            |
+   376	|-----------------------------------------------+-----------------------------|
+   377	|X11R6.4 X11 Input Extension Library            |http://www.x.org/            |
+   378	|-----------------------------------------------+-----------------------------|
+   379	|X11R6.4 Xlib - C library                       |http://www.x.org/            |
+   380	|-----------------------------------------------+-----------------------------|
+   381	|X/Open Portability Guide, Issue 4              |http://www.opengroup.org/    |
+   382	|-----------------------------------------------+-----------------------------|
+   383	|X11R6.4 X Session Management Library           |http://www.x.org/            |
+   384	|-----------------------------------------------+-----------------------------|
+   385	|X11R6.4 X Toolkit Intrinsics                   |http://www.x.org/            |
+   386	|-----------------------------------------------+-----------------------------|
+   387	|zlib 1.1.3 Manual                              |http://www.gzip.org/zlib/    |
+   388	+-----------------------------------------------------------------------------+
+   389	-------------------------------------------------------------------------------
+   390	
+   391	Relevant Libraries
+   392	
+   393	The libraries listed here shall be available on a Linux Standard Base system.
+   394	This list is an addition to the list in the general specification.
+   395	
+   396	Table 1-2. Standard Library Names
+   397	
+   398	+----------------------------+
+   399	|Library   |Runtime Name     |
+   400	|----------+-----------------|
+   401	|libm      |libm.so.6        |
+   402	|----------+-----------------|
+   403	|libdl     |libdl.so.2       |
+   404	|----------+-----------------|
+   405	|libcrypt  |libcrypt.so.1    |
+   406	|----------+-----------------|
+   407	|libc      |libc.so.6        |
+   408	|----------+-----------------|
+   409	|libpthread|libpthread.so.0  |
+   410	|----------+-----------------|
+   411	|proginterp|/lib/ld-lsb.so.1 |
+   412	+----------------------------+
+   413	
+   414	These libraries will be in an implementation-dependent directory which the
+   415	dynamic linker will search by default.
+   416	
+   417	-------------------------------------------------------------------------------
+   418	
+   419	How to Use this Standard
+   420	
+   421	The complete LSB specification is composed of a generic LSB specification and
+   422	this supplemental processor-specific specification. These two documents
+   423	constitute a specification that should be used in conjunction with the
+   424	publicly-available standards documents it references. The LSB enumerates the
+   425	system components it includes, but descriptions of those components may be
+   426	included entirely in the LSB, partly in the LSB and partly in other documents,
+   427	or entirely in other reference documents.
+   428	
+   429	-------------------------------------------------------------------------------
+   430	
+   431	Definitions
+   432	
+   433	gLSB
+   434	   
+   435	    The common part of the LSB Specification that describes those parts of the
+   436	    interface that remain constant across all hardware implementations of the
+   437	    LSB.
+   438	   
+   439	archLSB
+   440	   
+   441	    The architectural part of the LSB Specification which describes the
+   442	    specific parts of the interface that are platform specific. The archLSB is
+   443	    complementary to the gLSB.
+   444	   
+   445	LSB Implementation Conformance
+   446	   
+   447	    An implementation satisfying the following requirements:
+   448	   
+   449	     1. The implementation shall implement fully the architecture described in
+   450	        the hardware manual for the target processor architecture.
+   451	       
+   452	     2. The implementation shall be capable of executing compiled applications
+   453	        having the format and using the system interfaces described in this
+   454	        document.
+   455	       
+   456	     3. The implementation shall provide libraries containing the interfaces
+   457	        specified by this document, and shall provide a dynamic linking
+   458	        mechanism that allows these interfaces to be attached to applications
+   459	        at runtime. All the interfaces shall behave as specified in this
+   460	        document.
+   461	       
+   462	     4. The map of virtual memory provided by the implementation shall conform
+   463	        to the requirements of this document.
+   464	       
+   465	     5. The implementation's low-level behavior with respect to function call
+   466	        linkage, system traps, signals, and other such activities shall conform
+   467	        to the formats described in this document.
+   468	       
+   469	     6. The implementation shall provide all of the mandatory interfaces in
+   470	        their entirety.
+   471	       
+   472	     7. The implementation may provide one or more of the optional interfaces.
+   473	        Each optional interface that is provided shall be provided in its
+   474	        entirety. The product documentation shall state which optional
+   475	        interfaces are provided.
+   476	       
+   477	     8. The implementation shall provide all files and utilities specified as
+   478	        part of this document in the format defined here and in other
+   479	        referenced documents. All commands and utilities shall behave as
+   480	        required by this document. The implementation shall also provide all
+   481	        mandatory components of an application's runtime environment that are
+   482	        included or referenced in this document.
+   483	       
+   484	     9. The implementation, when provided with standard data formats and values
+   485	        at a named interface, shall provide the behavior defined for those
+   486	        values and data formats at that interface. However, a conforming
+   487	        implementation may consist of components which are separately packaged
+   488	        and/or sold. For example, a vendor of a conforming implementation might
+   489	        sell the hardware, operating system, and windowing system as separately
+   490	        packaged items.
+   491	       
+   492	    10. The implementation may provide additional interfaces with different
+   493	        names. It may also provide additional behavior corresponding to data
+   494	        values outside the standard ranges, for standard named interfaces.
+   495	       
+   496	LSB Application Conformance
+   497	   
+   498	    An application with the following characteristics:
+   499	   
+   500	     1. Its executable files are either shell scripts or object files in the
+   501	        format defined for the Object File Format system interface.
+   502	       
+   503	     2. Its object files participate in dynamic linking as defined in the
+   504	        Program Loading and Linking System interface.
+   505	       
+   506	     3. It employs only the instructions, traps, and other low-level facilities
+   507	        defined in the Low-Level System interface as being for use by
+   508	        applications.
+   509	       
+   510	     4. If it requires any optional interface defined in this document in order
+   511	        to be installed or to execute successfully, the requirement for that
+   512	        optional interface is stated in the application's documentation.
+   513	       
+   514	     5. It does not use any interface or data format that is not required to be
+   515	        provided by a conforming implementation, unless:
+   516	       
+   517	          o If such an interface or data format is supplied by another
+   518	            application through direct invocation of that application during
+   519	            execution, that application is in turn an LSB conforming
+   520	            application.
+   521	           
+   522	          o The use of that interface or data format, as well as its source, is
+   523	            identified in the documentation of the application.
+   524	           
+   525	     6. It must not use any values for a named interface that are reserved for
+   526	        vendor extensions.
+   527	       
+   528	    A strictly conforming application does not require or use any interface,
+   529	    facility, or implementation-defined extension that is not defined in this
+   530	    document in order to be installed or to execute successfully.
+   531	   
+   532	Rationale
+   533	   
+   534	    An LSB conforming application is expected to have no dependencies on any
+   535	    vendor extensions to this document. The most common such extensions are
+   536	    additional function entry points and additional libraries other than the
+   537	    ones defined in this document. If an application requires such extensions,
+   538	    it is not portable, since other LSB conforming implementations may not
+   539	    provide those extensions.
+   540	   
+   541	    An LSB conforming application is required to use system services on the
+   542	    implementation on which it is running, rather than importing system
+   543	    routines from some other implementation. Thus, it must link dynamically to
+   544	    any routines in the implementation that perform system traps to kernel
+   545	    services.
+   546	   
+   547	    It is to be expected that some applications may be companion applications
+   548	    to other applications. For example, a query application may be a companion
+   549	    to a database application; a preprocessor may be an adjunct to one or more
+   550	    compilers; a data reformatter may convert data from one document manager to
+   551	    another. In such cases, the application may or may not be LSB conforming,
+   552	    regardless of whether the other application on which it is dependent is LSB
+   553	    conforming. If such an application merely uses data produced by another
+   554	    application, the application's compliance is independent of the other
+   555	    application's compliance. If such an application actually invokes another
+   556	    application during execution (as, for example, a third-party math library),
+   557	    the invoking application is LSB conforming only if it also constitutes a
+   558	    LSB conforming application in combination with the invoked application.
+   559	   
+   560	Shell Script
+   561	   
+   562	    A file that is read by an interpreter (e.g., awk). The first line of the
+   563	    shell script includes a reference to its interpreter binary.
+   564	   
+   565	-------------------------------------------------------------------------------
+   566	
+   567	Terminology
+   568	
+   569	can
+   570	   
+   571	    Describes a permissible optional feature or behavior available to the user
+   572	    or application. The feature or behavior is mandatory for an implementation
+   573	    that conforms to this document. An application can rely on the existence of
+   574	    the feature or behavior.
+   575	   
+   576	implementation-defined
+   577	   
+   578	    Describes a value or behavior that is not defined by this document but is
+   579	    selected by an implementor. The value or behavior may vary among
+   580	    implementations that conform to this document. An application should not
+   581	    rely on the existence of the value or behavior. An application that relies
+   582	    on such a value or behavior cannot be assured to be portable across
+   583	    conforming implementations. The implementor shall document such a value or
+   584	    behavior so that it can be used correctly by an application.
+   585	   
+   586	    Same as implementation-dependent.
+   587	   
+   588	may
+   589	   
+   590	    Describes a feature or behavior that is optional for an implementation that
+   591	    conforms to this document. An application should not rely on the existence
+   592	    of the feature or behavior. An application that relies on such a feature or
+   593	    behavior cannot be assured to be portable across conforming
+   594	    implementations.
+   595	   
+   596	    To avoid ambiguity, the opposite of may is expressed as need not, instead
+   597	    of may not.
+   598	   
+   599	must
+   600	   
+   601	    Describes a feature or behavior that is mandatory for an application or
+   602	    user. An implementation that conforms to this document shall support this
+   603	    feature or behavior.
+   604	   
+   605	shall
+   606	   
+   607	    Describes a feature or behavior that is mandatory for an implementation
+   608	    that conforms to this document. An application can rely on the existence of
+   609	    the feature or behavior.
+   610	   
+   611	should
+   612	   
+   613	    For an implementation that conforms to this document, describes a feature
+   614	    or behavior that is recommended but not mandatory. An application should
+   615	    not rely on the existence of the feature or behavior. An application that
+   616	    relies on such a feature or behavior cannot be assured to be portable
+   617	    across conforming implementations.
+   618	   
+   619	    For an application, describes a feature or behavior that is recommended
+   620	    programming practice for optimum portability.
+   621	   
+   622	undefined
+   623	   
+   624	    Describes the nature of a value or behavior not defined by this document
+   625	    which results from use of an invalid program construct or invalid data
+   626	    input. The value or behavior may vary among implementations that conform to
+   627	    this document. An application should not rely on the existence or validity
+   628	    of the value or behavior. An application that relies on any particular
+   629	    value or behavior cannot be assured to be portable across conforming
+   630	    implementations.
+   631	   
+   632	unspecified
+   633	   
+   634	    Describes the nature of a value or behavior not specified by this document
+   635	    which results from use of a valid program construct or valid data input.
+   636	    The value or behavior may vary among implementations that conform to this
+   637	    document. An application should not rely on the existence or validity of
+   638	    the value or behavior. An application that relies on any particular value
+   639	    or behavior cannot be assured to be portable across conforming
+   640	    implementations.
+   641	   
+   642	will
+   643	   
+   644	    Same meaning as shall; shall is the preferred term.
+   645	   
+   646	II. Low Level System Information
+   647	
+   648	Table of Contents
+   649	2. Machine Interface
+   650	3. Function Calling Sequence
+   651	4. Operating System Interface
+   652	5. Process Initialization
+   653	6. Coding Examples
+   654	7. C Stack Frame
+   655	8. Debug Information
+   656	
+   657	-------------------------------------------------------------------------------
+   658	
+   659	Chapter 2. Machine Interface
+   660	
+   661	Processor Architecture
+   662	
+   663	 The PowerPC Architecture is specified by the following documents:
+   664	
+   665	  * System V Application Binary Interface PowerPC Processor Supplement
+   666	   
+   667	  * The PowerPC TM Architecture: A Specification for a new family of RISC
+   668	    processors
+   669	   
+   670	  * The PowerPC Architecture Book I changes
+   671	   
+   672	  * The PowerPC Architecture Book II changes
+   673	   
+   674	  * The PowerPC Architecture Book III changes
+   675	   
+   676	 Only the features of the PowerPC processor instruction set may be assumed to
+   677	be present. An application must check /proc/cpuinfo to determine if any
+   678	additional instruction set features are available before using those additional
+   679	features. If a feature is not present, then the application may not use it. 
+   680	
+   681	An implementation must support the 32-bit computation mode as described in The
+   682	PowerPC TM Architecture: A Specification for a new family of RISC processors.
+   683	Conforming applications shall not use instructions provided only for the 64-bit
+   684	mode.
+   685	
+   686	Applications conforming to this specification must provide feedback to the user
+   687	if a feature that is required for correct execution of the application is not
+   688	present. Applications conforming to this specification should attempt to
+   689	execute in a diminished capacity if a required feature is not present.
+   690	
+   691	This specification does not provide any performance guarantees of a conforming
+   692	system. A system conforming to this specification may be implemented in either
+   693	hardware or software.
+   694	
+   695	-------------------------------------------------------------------------------
+   696	
+   697	Data Representation
+   698	
+   699	 LSB-conforming applications shall use the data representation as defined in
+   700	Chapter 3 of the System V Application Binary Interface PowerPC Processor
+   701	Supplement. 
+   702	
+   703	-------------------------------------------------------------------------------
+   704	
+   705	Byte Ordering
+   706	
+   707	LSB-conforming applications shall use big-endian byte ordering. LSB-conforming
+   708	implementations may support little-endian applications.
+   709	
+   710	-------------------------------------------------------------------------------
+   711	
+   712	Fundamental Types
+   713	
+   714	 In addition to the fundamental types specified in Chapter 3 of the System V
+   715	Application Binary Interface PowerPC Processor Supplement, a 64 bit data type
+   716	is defined here.
+   717	
+   718	Table 2-1. Scalar Types
+   719	
+   720	+---------------------------------------------------------------------------+
+   721	|Type    |C                 |sizeof|Alignment (bytes)|IntelI386 Architecture|
+   722	|--------+------------------+------+-----------------+----------------------|
+   723	|        |long long         |      |                 |                      |
+   724	|        |------------------|8     |8                |signed double word    |
+   725	|Integral|signed long long  |      |                 |                      |
+   726	|        |------------------+------+-----------------+----------------------|
+   727	|        |unsigned long long|8     |8                |unsigned double word  |
+   728	+---------------------------------------------------------------------------+
+   729	
+   730	LSB-conforming applications shall not use the long double fundamental type.
+   731	
+   732	-------------------------------------------------------------------------------
+   733	
+   734	Aggregates and Unions
+   735	
+   736	-------------------------------------------------------------------------------
+   737	
+   738	Bit Fields
+   739	
+   740	-------------------------------------------------------------------------------
+   741	
+   742	Chapter 3. Function Calling Sequence
+   743	
+   744	LSB-conforming applications shall use the function calling sequence as defined
+   745	in Chapter 3 of the System V Application Binary Interface PowerPC Processor
+   746	Supplement.
+   747	
+   748	-------------------------------------------------------------------------------
+   749	
+   750	CPU Registers
+   751	
+   752	-------------------------------------------------------------------------------
+   753	
+   754	Floating Point Registers
+   755	
+   756	-------------------------------------------------------------------------------
+   757	
+   758	Stack Frame
+   759	
+   760	-------------------------------------------------------------------------------
+   761	
+   762	Arguments
+   763	
+   764	-------------------------------------------------------------------------------
+   765	
+   766	Return Values
+   767	
+   768	LSB-conforming applications shall not return structures or unions in registers
+   769	as described in Section 3 of System V Application Binary Interface PowerPC
+   770	Processor Supplement. Instead they must use the alternative method of passing
+   771	the address of a buffer in a register as shown in the same section.
+   772	
+   773	-------------------------------------------------------------------------------
+   774	
+   775	Chapter 4. Operating System Interface
+   776	
+   777	LSB-conforming applications shall use the Operating System Interfaces as
+   778	defined in Chapter 3 of the System V Application Binary Interface PowerPC
+   779	Processor Supplement.
+   780	
+   781	-------------------------------------------------------------------------------
+   782	
+   783	Processor Execution Mode
+   784	
+   785	-------------------------------------------------------------------------------
+   786	
+   787	Exception Interface
+   788	
+   789	-------------------------------------------------------------------------------
+   790	
+   791	Hardware Exception Types
+   792	
+   793	-------------------------------------------------------------------------------
+   794	
+   795	Software Trap Types
+   796	
+   797	-------------------------------------------------------------------------------
+   798	
+   799	Debugging Support
+   800	
+   801	-------------------------------------------------------------------------------
+   802	
+   803	Process Startup
+   804	
+   805	-------------------------------------------------------------------------------
+   806	
+   807	Signal Delivery
+   808	
+   809	-------------------------------------------------------------------------------
+   810	
+   811	Signal Handler Interface
+   812	
+   813	-------------------------------------------------------------------------------
+   814	
+   815	Chapter 5. Process Initialization
+   816	
+   817	LSB-conforming applications shall use the Operating System Interfaces as
+   818	defined in Chapter 3 of the System V Application Binary Interface PowerPC
+   819	Processor Supplement.
+   820	
+   821	-------------------------------------------------------------------------------
+   822	
+   823	Special Registers
+   824	
+   825	 Contrary to what is stated in the Registers part of Chapter 3 of the System V
+   826	Application Binary Interface PowerPC Processor Supplement there are no values
+   827	set in registers r3, r4, r5, r6 and r7. Instead the values specified to appear
+   828	in all of those registers except r7 are placed on the stack. The value to be
+   829	placed into register r7, the termination function pointer is not passed to the
+   830	process. 
+   831	
+   832	-------------------------------------------------------------------------------
+   833	
+   834	Process Stack (on entry)
+   835	
+   836	Figure 3-31 in System V Application Binary Interface PowerPC Processor
+   837	Supplement is incorrect. The initial stack must look like the following.
+   838	
+   839	 
+   840	
+   841	Figure 5-1. Initial Process Stack
+   842	
+   843	[initial_pr]
+   844	
+   845	 
+   846	
+   847	-------------------------------------------------------------------------------
+   848	
+   849	Auxiliary Vector
+   850	
+   851	In addition to the types defined in Chapter 3 of the System V Application
+   852	Binary Interface PowerPC Processor Supplement the following are also supported:
+   853	
+   854	Table 5-1. Extra Auxiliary Types
+   855	
+   856	+-----------------------------------------------------------------------------+
+   857	|Name          |Value|Comment                                                 |
+   858	|--------------+-----+--------------------------------------------------------|
+   859	|AT_NOTELF     |10   |Program is not ELF                                      |
+   860	|--------------+-----+--------------------------------------------------------|
+   861	|AT_UID        |11   |Real uid                                                |
+   862	|--------------+-----+--------------------------------------------------------|
+   863	|AT_EUID       |12   |Effective uid                                           |
+   864	|--------------+-----+--------------------------------------------------------|
+   865	|AT_GID        |13   |Real gid                                                |
+   866	|--------------+-----+--------------------------------------------------------|
+   867	|AT_EGID       |14   |Effective gid                                           |
+   868	|--------------+-----+--------------------------------------------------------|
+   869	|AT_PLATFORM   |15   |String identifying CPU for optimizations                |
+   870	|--------------+-----+--------------------------------------------------------|
+   871	|AT_HWCAP      |16   |Arch dependent hints at CPU capabilities                |
+   872	|--------------+-----+--------------------------------------------------------|
+   873	|AT_CLKTCK     |17   |Frequency at which times() increments                   |
+   874	|--------------+-----+--------------------------------------------------------|
+   875	|AT_DCACHEBSIZE|19   |The a_val member of this entry gives the data cache     |
+   876	|              |     |block size for processors on the system on which this   |
+   877	|              |     |program is running. If the processors have unified      |
+   878	|              |     |caches, AT_DCACHEBSIZE is the same as AT_UCACHEBSIZE    |
+   879	|--------------+-----+--------------------------------------------------------|
+   880	|AT_ICACHEBSIZE|20   |The a_val member of this entyr gives the instruction    |
+   881	|              |     |cache block size for processors on the system on which  |
+   882	|              |     |this program is running. If the processors have unified |
+   883	|              |     |caches, AT_DCACHEBSIZE is the same as AT_UCACHEBSIZE.   |
+   884	|--------------+-----+--------------------------------------------------------|
+   885	|AT_UCACHEBSIZE|21   |The a_val member of this entry is zero if the processors|
+   886	|              |     |on the system on which this program is running do not   |
+   887	|              |     |have a unified instruction and data cache. Otherwise it |
+   888	|              |     |gives the cache block size.                             |
+   889	|--------------+-----+--------------------------------------------------------|
+   890	|AT_IGNOREPPC  |22   |All entries of this type should be ignored.             |
+   891	+-----------------------------------------------------------------------------+
+   892	
+   893	The last three entries in the table above override the values specified in 
+   894	System V Application Binary Interface PowerPC Processor Supplement. 
+   895	
+   896	-------------------------------------------------------------------------------
+   897	
+   898	Environment
+   899	
+   900	-------------------------------------------------------------------------------
+   901	
+   902	Chapter 6. Coding Examples
+   903	
+   904	LSB-conforming applications may implement fundamental operations using the
+   905	Coding Examples as defined in Chapter 3 of the System V Application Binary
+   906	Interface PowerPC Processor Supplement.
+   907	
+   908	-------------------------------------------------------------------------------
+   909	
+   910	Code Model Overview/Architecture Constraints
+   911	
+   912	-------------------------------------------------------------------------------
+   913	
+   914	Position-Independent Function Prologue
+   915	
+   916	-------------------------------------------------------------------------------
+   917	
+   918	Data Objects
+   919	
+   920	-------------------------------------------------------------------------------
+   921	
+   922	Absolute Load & Store
+   923	
+   924	-------------------------------------------------------------------------------
+   925	
+   926	Position Relative Load & Store
+   927	
+   928	-------------------------------------------------------------------------------
+   929	
+   930	Function Calls
+   931	
+   932	-------------------------------------------------------------------------------
+   933	
+   934	Absolute Direct Function Call
+   935	
+   936	-------------------------------------------------------------------------------
+   937	
+   938	Absolute Indirect Function Call
+   939	
+   940	-------------------------------------------------------------------------------
+   941	
+   942	Position-Independent Direct Function Call
+   943	
+   944	-------------------------------------------------------------------------------
+   945	
+   946	Position-Independent Indirect Function Call
+   947	
+   948	-------------------------------------------------------------------------------
+   949	
+   950	Branching
+   951	
+   952	-------------------------------------------------------------------------------
+   953	
+   954	Branch Instruction
+   955	
+   956	-------------------------------------------------------------------------------
+   957	
+   958	Absolute switch() code
+   959	
+   960	-------------------------------------------------------------------------------
+   961	
+   962	Position-Independent switch() code
+   963	
+   964	-------------------------------------------------------------------------------
+   965	
+   966	Chapter 7. C Stack Frame
+   967	
+   968	Variable Argument List
+   969	
+   970	-------------------------------------------------------------------------------
+   971	
+   972	Dynamic Allocation of Stack Space
+   973	
+   974	-------------------------------------------------------------------------------
+   975	
+   976	Chapter 8. Debug Information
+   977	
+   978	The LSB does not currently specify the format of Debug information.
+   979	
+   980	III. Object Format
+   981	
+   982	 LSB-conforming implementations shall support an object file , called
+   983	Executable and Linking Format (ELF) as defined by the System V Application
+   984	Binary Interface PowerPC Processor Supplement and as supplemented by the Linux
+   985	Standard Base Specification and this document. LSB-conforming implementations
+   986	need not support tags related functionality. LSB-conforming applications must
+   987	not rely on tags related functionality. 
+   988	
+   989	Table of Contents
+   990	9. ELF Header
+   991	10. Sections
+   992	11. Symbol Table
+   993	12. Relocation
+   994	
+   995	-------------------------------------------------------------------------------
+   996	
+   997	Chapter 9. ELF Header
+   998	
+   999	Machine Information
+  1000	
+  1001	LSB-conforming applications shall use the Machine Information as defined in 
+  1002	System V Application Binary Interface PowerPC Processor Supplement, Chapter 4.
+  1003	
+  1004	-------------------------------------------------------------------------------
+  1005	
+  1006	File Class
+  1007	
+  1008	-------------------------------------------------------------------------------
+  1009	
+  1010	Data Encoding
+  1011	
+  1012	-------------------------------------------------------------------------------
+  1013	
+  1014	OS Identification
+  1015	
+  1016	-------------------------------------------------------------------------------
+  1017	
+  1018	Processor Identification
+  1019	
+  1020	-------------------------------------------------------------------------------
+  1021	
+  1022	Processor Specific Flags
+  1023	
+  1024	-------------------------------------------------------------------------------
+  1025	
+  1026	Chapter 10. Sections
+  1027	
+  1028	-------------------------------------------------------------------------------
+  1029	
+  1030	Special Sections
+  1031	
+  1032	The following sections are defined in the System V Application Binary Interface
+  1033	PowerPC Processor Supplement.
+  1034	
+  1035	Table 10-1. ELF Special Sections
+  1036	
+  1037	+-----------------------------------------------------+
+  1038	| Name |    Type    |           Attributes            |
+  1039	|------+------------+---------------------------------|
+  1040	|.got  |SHT_PROGBITS|SHF_ALLOC+SHF_WRITE+SHF_EXECINSTR|
+  1041	|------+------------+---------------------------------|
+  1042	|.plt  |SHT_NOBITS  |SHF_ALLOC+SHF_WRITE+SHF_EXECINSTR|
+  1043	|------+------------+---------------------------------|
+  1044	|.sdata|SHT_PROGBITS|SHF_ALLOC+SHF_WRITE              |
+  1045	+-----------------------------------------------------+
+  1046	
+  1047	.got
+  1048	   
+  1049	    This section holds the global offset table. See `Coding Examples' in
+  1050	    Chapter 3, `Special Sections' in Chapter 4, and `Global Offset Table' in
+  1051	    Chapter 5 of the processor supplement for more information.
+  1052	   
+  1053	.plt
+  1054	   
+  1055	    This section holds the Procedure Linkage Table
+  1056	   
+  1057	.sdata
+  1058	   
+  1059	    This section holds initialized small data that contribute to the program
+  1060	    memory image
+  1061	   
+  1062	Note that the .tags, .taglist and .tagsym sections described in System V
+  1063	Application Binary Interface PowerPC Processor Supplement are not supported.
+  1064	
+  1065	-------------------------------------------------------------------------------
+  1066	
+  1067	Linux Special Sections
+  1068	
+  1069	The following Linux PPC32 specific sections are defined here.
+  1070	
+  1071	Table 10-2. Additional Special Sections
+  1072	
+  1073	+-------------------------------------------+
+  1074	|   Name   |    Type    |    Attributes     |
+  1075	|----------+------------+-------------------|
+  1076	|.got2     |SHT_PROGBITS|SHF_ALLOC+SHF_WRITE|
+  1077	|----------+------------+-------------------|
+  1078	|.rela.bss |SHT_RELA    |SHF_ALLOC          |
+  1079	|----------+------------+-------------------|
+  1080	|.rela.dyn |SHT_RELA    |SHF_ALLOC          |
+  1081	|----------+------------+-------------------|
+  1082	|.rela.got |SHT_RELA    |SHF_ALLOC          |
+  1083	|----------+------------+-------------------|
+  1084	|.rela.got2|SHT_RELA    |SHF_ALLOC          |
+  1085	|----------+------------+-------------------|
+  1086	|.rela.plt |SHT_RELA    |SHF_ALLOC          |
+  1087	|----------+------------+-------------------|
+  1088	|.rela.sbss|SHT_RELA    |SHF_ALLOC          |
+  1089	+-------------------------------------------+
+  1090	
+  1091	.got2
+  1092	   
+  1093	    This section holds the second level GOT
+  1094	   
+  1095	.rela.bss
+  1096	   
+  1097	    This section holds RELA type relocation information for the BSS section of
+  1098	    a shared library or dynamically linked application
+  1099	   
+  1100	.rela.dyn
+  1101	   
+  1102	    This section holds RELA type relocation information for all sections of a
+  1103	    shared library except the PLT
+  1104	   
+  1105	.rela.got
+  1106	   
+  1107	    This section holds RELA type relocation information for the GOT section of
+  1108	    a shared library or dynamically linked application
+  1109	   
+  1110	.rela.got2
+  1111	   
+  1112	    This section holds RELA type relocation information for the second level
+  1113	    GOT section of a shared library or dynamically linked application
+  1114	   
+  1115	.rela.plt
+  1116	   
+  1117	    This section holds RELA type relocation information for the PLT section of
+  1118	    a shared library or dynamically linked application
+  1119	   
+  1120	.rela.sbss
+  1121	   
+  1122	    This section holds RELA type relocation information for the SBSS section of
+  1123	    a shared library or dynamically linked application
+  1124	   
+  1125	 
+  1126	
+  1127	-------------------------------------------------------------------------------
+  1128	
+  1129	Section Types
+  1130	
+  1131	-------------------------------------------------------------------------------
+  1132	
+  1133	Section Attribute Flags
+  1134	
+  1135	-------------------------------------------------------------------------------
+  1136	
+  1137	Special Section Types
+  1138	
+  1139	-------------------------------------------------------------------------------
+  1140	
+  1141	Chapter 11. Symbol Table
+  1142	
+  1143	LSB-conforming applications shall use the Symbol Table as defined in Chapter 4
+  1144	of the System V Application Binary Interface PowerPC Processor Supplement. 
+  1145	
+  1146	-------------------------------------------------------------------------------
+  1147	
+  1148	Chapter 12. Relocation
+  1149	
+  1150	LSB-conforming applications shall use Relocations as defined in Chapter 4 of
+  1151	the System V Application Binary Interface PowerPC Processor Supplement.
+  1152	
+  1153	-------------------------------------------------------------------------------
+  1154	
+  1155	Relocation Types
+  1156	
+  1157	The relocation type R_PPC_ADDR30 as specified in Table 4-8 of System V
+  1158	Application Binary Interface PowerPC Processor Supplement is not supported.
+  1159	
+  1160	IV. Program Loading and Dynamic Linking
+  1161	
+  1162	LSB-conforming implementations shall support the object file information and
+  1163	system actions that create running programs as specified in the  System V
+  1164	Application Binary Interface, Edition 4.1,  System V Application Binary
+  1165	Interface PowerPC Processor Supplement and as supplemented by the Linux
+  1166	Standard Base Specification and this document.
+  1167	
+  1168	Table of Contents
+  1169	13. Program Header
+  1170	14. Program Loading
+  1171	15. Dynamic Linking
+  1172	
+  1173	-------------------------------------------------------------------------------
+  1174	
+  1175	Chapter 13. Program Header
+  1176	
+  1177	-------------------------------------------------------------------------------
+  1178	
+  1179	Types
+  1180	
+  1181	-------------------------------------------------------------------------------
+  1182	
+  1183	Flags
+  1184	
+  1185	-------------------------------------------------------------------------------
+  1186	
+  1187	Chapter 14. Program Loading
+  1188	
+  1189	See  System V Application Binary Interface PowerPC Processor Supplement,
+  1190	Chapter 5.1.
+  1191	
+  1192	-------------------------------------------------------------------------------
+  1193	
+  1194	Chapter 15. Dynamic Linking
+  1195	
+  1196	See  System V Application Binary Interface PowerPC Processor Supplement,
+  1197	Chapter 5.4.
+  1198	
+  1199	-------------------------------------------------------------------------------
+  1200	
+  1201	Program Interpreter/Dynamic Linker
+  1202	
+  1203	The LSB specifies the Program Interpreter to be
+  1204	
+  1205	  * /lib/ld-lsb.so.1
+  1206	
+  1207	-------------------------------------------------------------------------------
+  1208	
+  1209	Dynamic Section
+  1210	
+  1211	The following dynamic entries are defined in the  System V Application Binary
+  1212	Interface PowerPC Processor Supplement, Chapter 5.4. 
+  1213	
+  1214	-------------------------------------------------------------------------------
+  1215	
+  1216	Global Offset Table
+  1217	
+  1218	See  System V Application Binary Interface PowerPC Processor Supplement,
+  1219	Chapter 5.4.
+  1220	
+  1221	-------------------------------------------------------------------------------
+  1222	
+  1223	Shared Object Dependencies
+  1224	
+  1225	-------------------------------------------------------------------------------
+  1226	
+  1227	Function Addresses
+  1228	
+  1229	-------------------------------------------------------------------------------
+  1230	
+  1231	Procedure Linkage Table
+  1232	
+  1233	-------------------------------------------------------------------------------
+  1234	
+  1235	Initialization and Termination Functions
+  1236	
+  1237	V. Base Libraries
+  1238	
+  1239	Table of Contents
+  1240	16. Libraries
+  1241	
+  1242	-------------------------------------------------------------------------------
+  1243	
+  1244	Chapter 16. Libraries
+  1245	
+  1246	 An LSB-conforming implementation shall support base libraries which provide
+  1247	interfaces for accessing the operating system, processor and other hardware in
+  1248	the system.
+  1249	
+  1250	Only those interfaces that are unique to the PowerPC 32 platform are defined
+  1251	here. This section should be used in conjunction with the corresponding section
+  1252	in the Linux Standard Base Specification.
+  1253	
+  1254	-------------------------------------------------------------------------------
+  1255	
+  1256	Interfaces for libc
+  1257	
+  1258	Table 16-1. libc Definition
+  1259	
+  1260	+-------------------+
+  1261	|Library:|libc      |
+  1262	|--------+----------|
+  1263	|SONAME: |libc.so.6 |
+  1264	+-------------------+
+  1265	
+  1266	The behavior of the interfaces in this library is specified by the following
+  1267	standards.
+  1268	
+  1269	ISO/IEC 9899: 1999, Programming Languages --C[1]                               
+  1270	Large File Support[2]                                                          
+  1271	LI18NUX 2000 Globalization Specification, Version 1.0 with Amendment 4[3]      
+  1272	Linux Standard Base[4]                                                         
+  1273	IEEE Std POSIX.1-1996 [ISO/IEC 9945-1:1996][5]                                 
+  1274	CAE Specification, February 1997, Networking Services (XNS), Issue 5 (ISBN:    
+  1275	1-85912-165-9, C523)[6]                                                        
+  1276	CAE Specification, January 1997, System Interfaces and Headers (XSH), Issue 5  
+  1277	(ISBN: 1-85912-181-0, C606)[7]                                                 
+  1278	System V Interface Definition, Issue 3 (ISBN 0201566524)[8]                    
+  1279	System V Interface Definition,Fourth Edition[9]                                
+  1280	
+  1281	-------------------------------------------------------------------------------
+  1282	
+  1283	RPC
+  1284	
+  1285	Table 16-2. libc - RPC Function Interfaces
+  1286	
+  1287	+-----------------------------------------------------------------------------------+
+  1288	|authnone_create   |setdomainname     |xdr_array  |xdr_int(GLIBC_2.0)|xdr_u_char    |
+  1289	|(GLIBC_2.0)[9]    |(GLIBC_2.0)[4]    |(GLIBC_2.0)|[8]               |(GLIBC_2.0)[8]|
+  1290	|                  |                  |[8]        |                  |              |
+  1291	|------------------+------------------+-----------+------------------+--------------|
+  1292	|clnt_create       |svc_getreqset     |xdr_bool   |xdr_long          |xdr_u_long    |
+  1293	|(GLIBC_2.0)[9]    |(GLIBC_2.0)[8]    |(GLIBC_2.0)|(GLIBC_2.0)[8]    |(GLIBC_2.0)[8]|
+  1294	|                  |                  |[8]        |                  |              |
+  1295	|------------------+------------------+-----------+------------------+--------------|
+  1296	|clnt_pcreateerror |svcerr_auth       |xdr_bytes  |xdr_opaque        |xdr_u_short   |
+  1297	|(GLIBC_2.0)[9]    |(GLIBC_2.0)[8]    |(GLIBC_2.0)|(GLIBC_2.0)[8]    |(GLIBC_2.0)[8]|
+  1298	|                  |                  |[8]        |                  |              |
+  1299	|------------------+------------------+-----------+------------------+--------------|
+  1300	|clnt_perrno       |svcerr_decode     |xdr_callhdr|xdr_opaque_auth   |xdr_union     |
+  1301	|(GLIBC_2.0)[9]    |(GLIBC_2.0)[8]    |(GLIBC_2.0)|(GLIBC_2.0)[8]    |(GLIBC_2.0)[8]|
+  1302	|                  |                  |[8]        |                  |              |
+  1303	|------------------+------------------+-----------+------------------+--------------|
+  1304	|clnt_perror       |svcerr_noproc     |xdr_callmsg|xdr_pointer       |xdr_vector    |
+  1305	|(GLIBC_2.0)[9]    |(GLIBC_2.0)[8]    |(GLIBC_2.0)|(GLIBC_2.0)[8]    |(GLIBC_2.0)[8]|
+  1306	|                  |                  |[8]        |                  |              |
+  1307	|------------------+------------------+-----------+------------------+--------------|
+  1308	|clnt_spcreateerror|svcerr_noprog     |xdr_char   |xdr_reference     |xdr_void      |
+  1309	|(GLIBC_2.0)[9]    |(GLIBC_2.0)[8]    |(GLIBC_2.0)|(GLIBC_2.0)[8]    |(GLIBC_2.0)[8]|
+  1310	|                  |                  |[8]        |                  |              |
+  1311	|------------------+------------------+-----------+------------------+--------------|
+  1312	|clnt_sperrno      |svcerr_progvers   |xdr_double |xdr_rejected_reply|xdr_wrapstring|
+  1313	|(GLIBC_2.0)[9]    |(GLIBC_2.0)[8]    |(GLIBC_2.0)|(GLIBC_2.0)[8]    |(GLIBC_2.0)[8]|
+  1314	|                  |                  |[8]        |                  |              |
+  1315	|------------------+------------------+-----------+------------------+--------------|
+  1316	|clnt_sperror      |svcerr_systemerr  |xdr_enum   |xdr_replymsg      |xdrmem_create |
+  1317	|(GLIBC_2.0)[9]    |(GLIBC_2.0)[8]    |(GLIBC_2.0)|(GLIBC_2.0)[8]    |(GLIBC_2.0)[8]|
+  1318	|                  |                  |[8]        |                  |              |
+  1319	|------------------+------------------+-----------+------------------+--------------|
+  1320	|getdomainname     |svcerr_weakauth   |xdr_float  |xdr_short         |xdrrec_create |
+  1321	|(GLIBC_2.0)[4]    |(GLIBC_2.0)[8]    |(GLIBC_2.0)|(GLIBC_2.0)[8]    |(GLIBC_2.0)[8]|
+  1322	|                  |                  |[8]        |                  |              |
+  1323	|------------------+------------------+-----------+------------------+--------------|
+  1324	|key_decryptsession|xdr_accepted_reply|xdr_free   |xdr_string        |xdrrec_eof    |
+  1325	|(GLIBC_2.1)[8]    |(GLIBC_2.1)[8]    |(GLIBC_2.1)|(GLIBC_2.1)[8]    |(GLIBC_2.1)[8]|
+  1326	|                  |                  |[8]        |                  |              |
+  1327	+-----------------------------------------------------------------------------------+
+  1328	-------------------------------------------------------------------------------
+  1329	
+  1330	System Calls
+  1331	
+  1332	Table 16-3. libc - System Calls Function Interfaces
+  1333	
+  1334	+-----------------------------------------------------------------------------+
+  1335	|__fxstat    |fchown        |ioctl        |readdir(GLIBC_2.0)[7] |setsid      |
+  1336	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1337	|[4]         |              |[7]          |                      |[7]         |
+  1338	|------------+--------------+-------------+----------------------+------------|
+  1339	|__getpgid   |fcntl         |kill         |readdir_r(GLIBC_2.0)  |setuid      |
+  1340	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |[7]                   |(GLIBC_2.0) |
+  1341	|[4]         |              |[4]          |                      |[7]         |
+  1342	|------------+--------------+-------------+----------------------+------------|
+  1343	|__lxstat    |fdatasync     |killpg       |readlink(GLIBC_2.0)[7]|sleep       |
+  1344	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1345	|[4]         |              |[7]          |                      |[7]         |
+  1346	|------------+--------------+-------------+----------------------+------------|
+  1347	|__xmknod    |flock         |lchown       |readv(GLIBC_2.0)[7]   |statfs      |
+  1348	|(GLIBC_2.0) |(GLIBC_2.0)[4]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1349	|[4]         |              |[7]          |                      |[4]         |
+  1350	|------------+--------------+-------------+----------------------+------------|
+  1351	|__xstat     |fork          |link         |rename(GLIBC_2.0)[7]  |statvfs     |
+  1352	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1353	|[4]         |              |[7]          |                      |[7]         |
+  1354	|------------+--------------+-------------+----------------------+------------|
+  1355	|access      |fstatfs       |lockf        |rmdir(GLIBC_2.0)[7]   |stime       |
+  1356	|(GLIBC_2.0) |(GLIBC_2.0)[4]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1357	|[7]         |              |[7]          |                      |[4]         |
+  1358	|------------+--------------+-------------+----------------------+------------|
+  1359	|acct        |fsync         |lseek        |sbrk(GLIBC_2.0)[7]    |symlink     |
+  1360	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1361	|[4]         |              |[7]          |                      |[7]         |
+  1362	|------------+--------------+-------------+----------------------+------------|
+  1363	|alarm       |ftime         |mkdir        |sched_get_priority_max|sync        |
+  1364	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |(GLIBC_2.0)[7]        |(GLIBC_2.0) |
+  1365	|[7]         |              |[7]          |                      |[7]         |
+  1366	|------------+--------------+-------------+----------------------+------------|
+  1367	|brk         |ftruncate     |mkfifo       |sched_get_priority_min|sysconf     |
+  1368	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |(GLIBC_2.0)[7]        |(GLIBC_2.0) |
+  1369	|[7]         |              |[7]          |                      |[7]         |
+  1370	|------------+--------------+-------------+----------------------+------------|
+  1371	|chdir       |getcontext    |mlock        |sched_getparam        |time        |
+  1372	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |(GLIBC_2.0)[7]        |(GLIBC_2.0) |
+  1373	|[7]         |              |[7]          |                      |[7]         |
+  1374	|------------+--------------+-------------+----------------------+------------|
+  1375	|chmod       |getegid       |mlockall     |sched_getscheduler    |times       |
+  1376	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |(GLIBC_2.0)[7]        |(GLIBC_2.0) |
+  1377	|[7]         |              |[7]          |                      |[7]         |
+  1378	|------------+--------------+-------------+----------------------+------------|
+  1379	|chown       |geteuid       |mmap         |sched_rr_get_interval |truncate    |
+  1380	|(GLIBC_2.1) |(GLIBC_2.1)[7]|(GLIBC_2.1)  |(GLIBC_2.1)[7]        |(GLIBC_2.1) |
+  1381	|[7]         |              |[7]          |                      |[7]         |
+  1382	|------------+--------------+-------------+----------------------+------------|
+  1383	|chroot      |getgid        |mprotect     |sched_setparam        |ulimit      |
+  1384	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |(GLIBC_2.0)[7]        |(GLIBC_2.0) |
+  1385	|[7]         |              |[7]          |                      |[7]         |
+  1386	|------------+--------------+-------------+----------------------+------------|
+  1387	|clock       |getgroups     |msync        |sched_setscheduler    |umask       |
+  1388	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |(GLIBC_2.0)[7]        |(GLIBC_2.0) |
+  1389	|[7]         |              |[7]          |                      |[7]         |
+  1390	|------------+--------------+-------------+----------------------+------------|
+  1391	|close       |getitimer     |munlock      |sched_yield(GLIBC_2.0)|uname       |
+  1392	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |[7]                   |(GLIBC_2.0) |
+  1393	|[7]         |              |[7]          |                      |[7]         |
+  1394	|------------+--------------+-------------+----------------------+------------|
+  1395	|closedir    |getloadavg    |munlockall   |select(GLIBC_2.0)[6]  |unlink      |
+  1396	|(GLIBC_2.0) |(GLIBC_2.0)[4]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1397	|[7]         |              |[7]          |                      |[4]         |
+  1398	|------------+--------------+-------------+----------------------+------------|
+  1399	|creat       |getpagesize   |munmap       |setcontext(GLIBC_2.0) |utime       |
+  1400	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |[7]                   |(GLIBC_2.0) |
+  1401	|[7]         |              |[7]          |                      |[7]         |
+  1402	|------------+--------------+-------------+----------------------+------------|
+  1403	|dup         |getpgid       |nanosleep    |setegid(GLIBC_2.0)[4] |utimes      |
+  1404	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1405	|[7]         |              |[7]          |                      |[7]         |
+  1406	|------------+--------------+-------------+----------------------+------------|
+  1407	|dup2        |getpgrp       |nice         |seteuid(GLIBC_2.0)[4] |vfork       |
+  1408	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1409	|[7]         |              |[7]          |                      |[7]         |
+  1410	|------------+--------------+-------------+----------------------+------------|
+  1411	|execl       |getpid        |open         |setgid(GLIBC_2.0)[7]  |wait        |
+  1412	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1413	|[7]         |              |[7]          |                      |[7]         |
+  1414	|------------+--------------+-------------+----------------------+------------|
+  1415	|execle      |getppid       |opendir      |setitimer(GLIBC_2.0)  |wait3       |
+  1416	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |[7]                   |(GLIBC_2.0) |
+  1417	|[7]         |              |[7]          |                      |[7]         |
+  1418	|------------+--------------+-------------+----------------------+------------|
+  1419	|execlp      |getpriority   |pathconf     |setpgid(GLIBC_2.0)[7] |wait4       |
+  1420	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1421	|[7]         |              |[7]          |                      |[4]         |
+  1422	|------------+--------------+-------------+----------------------+------------|
+  1423	|execv       |getrlimit     |pause        |setpgrp(GLIBC_2.0)[7] |waitid      |
+  1424	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1425	|[7]         |              |[7]          |                      |[7]         |
+  1426	|------------+--------------+-------------+----------------------+------------|
+  1427	|execve      |getrusage     |pipe         |setpriority(GLIBC_2.0)|waitpid     |
+  1428	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |[7]                   |(GLIBC_2.0) |
+  1429	|[7]         |              |[7]          |                      |[7]         |
+  1430	|------------+--------------+-------------+----------------------+------------|
+  1431	|execvp      |getsid        |poll         |setregid(GLIBC_2.0)[7]|write       |
+  1432	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1433	|[7]         |              |[7]          |                      |[7]         |
+  1434	|------------+--------------+-------------+----------------------+------------|
+  1435	|exit        |getuid        |pread        |setreuid(GLIBC_2.0)[7]|writev      |
+  1436	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |                      |(GLIBC_2.0) |
+  1437	|[7]         |              |[7]          |                      |[7]         |
+  1438	|------------+--------------+-------------+----------------------+------------|
+  1439	|fchdir      |getwd         |pwrite       |setrlimit(GLIBC_2.0)  |            |
+  1440	|(GLIBC_2.0) |(GLIBC_2.0)[7]|(GLIBC_2.0)  |[7]                   |            |
+  1441	|[7]         |              |[7]          |                      |            |
+  1442	|------------+--------------+-------------+----------------------+------------|
+  1443	|fchmod      |initgroups    |read         |setrlimit64(GLIBC_2.0)|            |
+  1444	|(GLIBC_2.0) |(GLIBC_2.0)[4]|(GLIBC_2.0)  |[2]                   |            |
+  1445	|[7]         |              |[7]          |                      |            |
+  1446	+-----------------------------------------------------------------------------+
+  1447	-------------------------------------------------------------------------------
+  1448	
+  1449	Standard I/O
+  1450	
+  1451	Table 16-4. libc - Standard I/O Function Interfaces
+  1452	
+  1453	+-----------------------------------------------------------------------------+
+  1454	|_IO_feof       |fgetpos        |fsetpos         |putc(GLIBC_2.0) |snprintf   |
+  1455	|(GLIBC_2.0)[4] |(GLIBC_2.0)[7] |(GLIBC_2.0)[7]  |[7]             |(GLIBC_2.0)|
+  1456	|               |               |                |                |[7]        |
+  1457	|---------------+---------------+----------------+----------------+-----------|
+  1458	|_IO_getc       |fgets          |fstatvfs        |putc_unlocked   |sprintf    |
+  1459	|(GLIBC_2.0)[4] |(GLIBC_2.0)[7] |(GLIBC_2.0)[7]  |(GLIBC_2.0)[7]  |(GLIBC_2.0)|
+  1460	|               |               |                |                |[7]        |
+  1461	|---------------+---------------+----------------+----------------+-----------|
+  1462	|_IO_putc       |fgetwc_unlocked|ftell(GLIBC_2.0)|putchar         |sscanf     |
+  1463	|(GLIBC_2.0)[4] |(GLIBC_2.0)[7] |[7]             |(GLIBC_2.0)[7]  |(GLIBC_2.0)|
+  1464	|               |               |                |                |[7]        |
+  1465	|---------------+---------------+----------------+----------------+-----------|
+  1466	|_IO_puts       |fileno         |ftello          |putchar_unlocked|telldir    |
+  1467	|(GLIBC_2.0)[4] |(GLIBC_2.0)[7] |(GLIBC_2.0)[7]  |(GLIBC_2.0)[7]  |(GLIBC_2.0)|
+  1468	|               |               |                |                |[7]        |
+  1469	|---------------+---------------+----------------+----------------+-----------|
+  1470	|alphasort      |flockfile      |fwrite          |puts(GLIBC_2.0) |tempnam    |
+  1471	|(GLIBC_2.0)[4] |(GLIBC_2.0)[7] |(GLIBC_2.0)[7]  |[7]             |(GLIBC_2.0)|
+  1472	|               |               |                |                |[7]        |
+  1473	|---------------+---------------+----------------+----------------+-----------|
+  1474	|clearerr       |fopen          |getc(GLIBC_2.0) |putw(GLIBC_2.0) |ungetc     |
+  1475	|(GLIBC_2.0)[7] |(GLIBC_2.0)[7] |[7]             |[7]             |(GLIBC_2.0)|
+  1476	|               |               |                |                |[7]        |
+  1477	|---------------+---------------+----------------+----------------+-----------|
+  1478	|ctermid        |fprintf        |getc_unlocked   |remove          |vasprintf  |
+  1479	|(GLIBC_2.0)[7] |(GLIBC_2.0)[7] |(GLIBC_2.0)[7]  |(GLIBC_2.0)[7]  |(GLIBC_2.0)|
+  1480	|               |               |                |                |[4]        |
+  1481	|---------------+---------------+----------------+----------------+-----------|
+  1482	|fclose         |fputc          |getchar         |rewind          |vdprintf   |
+  1483	|(GLIBC_2.1)[7] |(GLIBC_2.1)[7] |(GLIBC_2.1)[7]  |(GLIBC_2.1)[7]  |(GLIBC_2.1)|
+  1484	|               |               |                |                |[4]        |
+  1485	|---------------+---------------+----------------+----------------+-----------|
+  1486	|fdopen         |fputs          |getchar_unlocked|rewinddir       |vfprintf   |
+  1487	|(GLIBC_2.1)[7] |(GLIBC_2.1)[7] |(GLIBC_2.1)[7]  |(GLIBC_2.1)[7]  |(GLIBC_2.1)|
+  1488	|               |               |                |                |[7]        |
+  1489	|---------------+---------------+----------------+----------------+-----------|
+  1490	|feof(GLIBC_2.0)|fread          |gets(GLIBC_2.0) |scanf(GLIBC_2.0)|vprintf    |
+  1491	|[7]            |(GLIBC_2.0)[7] |[7]             |[7]             |(GLIBC_2.0)|
+  1492	|               |               |                |                |[7]        |
+  1493	|---------------+---------------+----------------+----------------+-----------|
+  1494	|ferror         |freopen        |getw(GLIBC_2.0) |seekdir         |vsnprintf  |
+  1495	|(GLIBC_2.0)[7] |(GLIBC_2.0)[7] |[7]             |(GLIBC_2.0)[7]  |(GLIBC_2.0)|
+  1496	|               |               |                |                |[7]        |
+  1497	|---------------+---------------+----------------+----------------+-----------|
+  1498	|fflush         |fscanf         |pclose          |setbuf          |vsprintf   |
+  1499	|(GLIBC_2.0)[7] |(GLIBC_2.0)[7] |(GLIBC_2.0)[7]  |(GLIBC_2.0)[7]  |(GLIBC_2.0)|
+  1500	|               |               |                |                |[7]        |
+  1501	|---------------+---------------+----------------+----------------+-----------|
+  1502	|fflush_unlocked|fseek          |popen(GLIBC_2.0)|setbuffer       |wprintf    |
+  1503	|(GLIBC_2.0)[7] |(GLIBC_2.0)[7] |[7]             |(GLIBC_2.0)[4]  |(GLIBC_2.0)|
+  1504	|               |               |                |                |[1]        |
+  1505	|---------------+---------------+----------------+----------------+-----------|
+  1506	|fgetc          |fseeko         |printf          |setvbuf         |wscanf     |
+  1507	|(GLIBC_2.0)[7] |(GLIBC_2.0)[7] |(GLIBC_2.0)[7]  |(GLIBC_2.0)[7]  |(GLIBC_2.0)|
+  1508	|               |               |                |                |[1]        |
+  1509	+-----------------------------------------------------------------------------+
+  1510	
+  1511	Table 16-5. libc - Standard I/O Data Interfaces
+  1512	
+  1513	+--------------------------------+
+  1514	|stderr[7]|stdin[7]|stdout[7]| | |
+  1515	+--------------------------------+
+  1516	-------------------------------------------------------------------------------
+  1517	
+  1518	Signal Handling
+  1519	
+  1520	Table 16-6. libc - Signal Handling Function Interfaces
+  1521	
+  1522	+-----------------------------------------------------------------------------+
+  1523	|__libc_current_sigrtmax|sigaddset   |sighold      |sigpause    |sigsuspend   |
+  1524	|(GLIBC_2.1)[4]         |(GLIBC_2.1) |(GLIBC_2.1)  |(GLIBC_2.1) |(GLIBC_2.1)  |
+  1525	|                       |[7]         |[7]          |[7]         |[7]          |
+  1526	|-----------------------+------------+-------------+------------+-------------|
+  1527	|__libc_current_sigrtmin|sigaltstack |sigignore    |sigpending  |sigtimedwait |
+  1528	|(GLIBC_2.1)[4]         |(GLIBC_2.1) |(GLIBC_2.1)  |(GLIBC_2.1) |(GLIBC_2.1)  |
+  1529	|                       |[7]         |[7]          |[7]         |[7]          |
+  1530	|-----------------------+------------+-------------+------------+-------------|
+  1531	|__sigsetjmp(GLIBC_2.0) |sigandset   |siginterrupt |sigprocmask |sigwait      |
+  1532	|[4]                    |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0) |(GLIBC_2.0)  |
+  1533	|                       |[4]         |[7]          |[7]         |[7]          |
+  1534	|-----------------------+------------+-------------+------------+-------------|
+  1535	|__sysv_signal          |sigblock    |sigisemptyset|sigqueue    |sigwaitinfo  |
+  1536	|(GLIBC_2.0)[4]         |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0) |(GLIBC_2.0)  |
+  1537	|                       |[4]         |[4]          |[7]         |[7]          |
+  1538	|-----------------------+------------+-------------+------------+-------------|
+  1539	|bsd_signal(GLIBC_2.0)  |sigdelset   |sigismember  |sigrelse    |             |
+  1540	|[7]                    |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0) |             |
+  1541	|                       |[7]         |[7]          |[7]         |             |
+  1542	|-----------------------+------------+-------------+------------+-------------|
+  1543	|psignal(GLIBC_2.0)[4]  |sigemptyset |siglongjmp   |sigreturn   |             |
+  1544	|                       |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0) |             |
+  1545	|                       |[7]         |[7]          |[4]         |             |
+  1546	|-----------------------+------------+-------------+------------+-------------|
+  1547	|raise(GLIBC_2.0)[7]    |sigfillset  |signal       |sigset      |             |
+  1548	|                       |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0) |             |
+  1549	|                       |[7]         |[7]          |[7]         |             |
+  1550	|-----------------------+------------+-------------+------------+-------------|
+  1551	|sigaction(GLIBC_2.0)[7]|siggetmask  |sigorset     |sigstack    |             |
+  1552	|                       |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0) |             |
+  1553	|                       |[4]         |[4]          |[7]         |             |
+  1554	+-----------------------------------------------------------------------------+
+  1555	
+  1556	Table 16-7. libc - Signal Handling Data Interfaces
+  1557	
+  1558	+------------------------+
+  1559	|_sys_siglist[4] | | | | |
+  1560	+------------------------+
+  1561	-------------------------------------------------------------------------------
+  1562	
+  1563	Standard Library
+  1564	
+  1565	Table 16-8. libc - Standard Library Function Interfaces
+  1566	
+  1567	+-----------------------------------------------------------------------------+
+  1568	|_Exit           |erand48         |hsearch      |malloc         |srand48      |
+  1569	|(GLIBC_2.1.1)[1]|(GLIBC_2.1.1)[7]|(GLIBC_2.1.1)|(GLIBC_2.1.1)  |(GLIBC_2.1.1)|
+  1570	|                |                |[7]          |[7]            |[7]          |
+  1571	|----------------+----------------+-------------+---------------+-------------|
+  1572	|__assert_fail   |err(GLIBC_2.0)  |htonl        |memmem         |srandom      |
+  1573	|(GLIBC_2.0)[4]  |[4]             |(GLIBC_2.0)  |(GLIBC_2.0)[4] |(GLIBC_2.0)  |
+  1574	|                |                |[6]          |               |[7]          |
+  1575	|----------------+----------------+-------------+---------------+-------------|
+  1576	|__cxa_atexit    |error           |htons        |mkstemp        |strtod       |
+  1577	|(GLIBC_2.1.3)[4]|(GLIBC_2.1.3)[4]|(GLIBC_2.1.3)|(GLIBC_2.1.3)  |(GLIBC_2.1.3)|
+  1578	|                |                |[6]          |[7]            |[7]          |
+  1579	|----------------+----------------+-------------+---------------+-------------|
+  1580	|__errno_location|errx(GLIBC_2.0) |imaxabs      |mktemp         |strtol       |
+  1581	|(GLIBC_2.0)[4]  |[4]             |(GLIBC_2.0)  |(GLIBC_2.0)[7] |(GLIBC_2.0)  |
+  1582	|                |                |[1]          |               |[7]          |
+  1583	|----------------+----------------+-------------+---------------+-------------|
+  1584	|__fpending      |fcvt(GLIBC_2.2) |imaxdiv      |mrand48        |strtoul      |
+  1585	|(GLIBC_2.2)[4]  |[7]             |(GLIBC_2.2)  |(GLIBC_2.2)[7] |(GLIBC_2.2)  |
+  1586	|                |                |[1]          |               |[7]          |
+  1587	|----------------+----------------+-------------+---------------+-------------|
+  1588	|__getpagesize   |fmtmsg          |inet_addr    |nftw(GLIBC_2.0)|swapcontext  |
+  1589	|(GLIBC_2.0)[4]  |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |[7]            |(GLIBC_2.0)  |
+  1590	|                |                |[6]          |               |[7]          |
+  1591	|----------------+----------------+-------------+---------------+-------------|
+  1592	|__sysconf       |fnmatch         |inet_aton    |nrand48        |syslog       |
+  1593	|(GLIBC_2.2)[4]  |(GLIBC_2.2)[7]  |(GLIBC_2.2)  |(GLIBC_2.2)[7] |(GLIBC_2.2)  |
+  1594	|                |                |[6]          |               |[7]          |
+  1595	|----------------+----------------+-------------+---------------+-------------|
+  1596	|_exit(GLIBC_2.0)|fpathconf       |inet_ntoa    |ntohl          |system       |
+  1597	|[7]             |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |(GLIBC_2.0)[6] |(GLIBC_2.0)  |
+  1598	|                |                |[6]          |               |[4]          |
+  1599	|----------------+----------------+-------------+---------------+-------------|
+  1600	|_longjmp        |free(GLIBC_2.0) |initstate    |ntohs          |textdomain   |
+  1601	|(GLIBC_2.0)[7]  |[7]             |(GLIBC_2.0)  |(GLIBC_2.0)[6] |(GLIBC_2.0)  |
+  1602	|                |                |[7]          |               |[3]          |
+  1603	|----------------+----------------+-------------+---------------+-------------|
+  1604	|_setjmp         |ftrylockfile    |insque       |openlog        |tfind        |
+  1605	|(GLIBC_2.0)[7]  |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |(GLIBC_2.0)[7] |(GLIBC_2.0)  |
+  1606	|                |                |[7]          |               |[7]          |
+  1607	|----------------+----------------+-------------+---------------+-------------|
+  1608	|a64l(GLIBC_2.0) |ftw(GLIBC_2.0)  |isatty       |perror         |tmpfile      |
+  1609	|[7]             |[7]             |(GLIBC_2.0)  |(GLIBC_2.0)[7] |(GLIBC_2.0)  |
+  1610	|                |                |[7]          |               |[7]          |
+  1611	|----------------+----------------+-------------+---------------+-------------|
+  1612	|abort(GLIBC_2.0)|funlockfile     |isblank      |posix_memalign |tmpnam       |
+  1613	|[7]             |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |(GLIBC_2.0)[5] |(GLIBC_2.0)  |
+  1614	|                |                |[4]          |               |[7]          |
+  1615	|----------------+----------------+-------------+---------------+-------------|
+  1616	|abs(GLIBC_2.0)  |gcvt(GLIBC_2.0) |isinf        |ptsname        |tsearch      |
+  1617	|[7]             |[7]             |(GLIBC_2.0)  |(GLIBC_2.0)[7] |(GLIBC_2.0)  |
+  1618	|                |                |[1]          |               |[7]          |
+  1619	|----------------+----------------+-------------+---------------+-------------|
+  1620	|atexit          |getcwd          |isinfl       |putenv         |ttyname      |
+  1621	|(GLIBC_2.0)[7]  |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |(GLIBC_2.0)[7] |(GLIBC_2.0)  |
+  1622	|                |                |[1]          |               |[7]          |
+  1623	|----------------+----------------+-------------+---------------+-------------|
+  1624	|atof(GLIBC_2.0) |getdate         |isnan        |qsort          |ttyname_r    |
+  1625	|[7]             |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |(GLIBC_2.0)[7] |(GLIBC_2.0)  |
+  1626	|                |                |[1]          |               |[7]          |
+  1627	|----------------+----------------+-------------+---------------+-------------|
+  1628	|atoi(GLIBC_2.0) |getenv          |isnanf       |rand(GLIBC_2.0)|twalk        |
+  1629	|[7]             |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |[7]            |(GLIBC_2.0)  |
+  1630	|                |                |[1]          |               |[7]          |
+  1631	|----------------+----------------+-------------+---------------+-------------|
+  1632	|atol(GLIBC_2.0) |getlogin        |isnanl       |rand_r         |unlockpt     |
+  1633	|[7]             |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |(GLIBC_2.0)[7] |(GLIBC_2.0)  |
+  1634	|                |                |[1]          |               |[7]          |
+  1635	|----------------+----------------+-------------+---------------+-------------|
+  1636	|basename        |getopt          |jrand48      |random         |unsetenv     |
+  1637	|(GLIBC_2.0)[7]  |(GLIBC_2.0)[4]  |(GLIBC_2.0)  |(GLIBC_2.0)[7] |(GLIBC_2.0)  |
+  1638	|                |                |[7]          |               |[4]          |
+  1639	|----------------+----------------+-------------+---------------+-------------|
+  1640	|bindtextdomain  |getopt_long     |l64a         |random_r       |usleep       |
+  1641	|(GLIBC_2.0)[3]  |(GLIBC_2.0)[4]  |(GLIBC_2.0)  |(GLIBC_2.0)[4] |(GLIBC_2.0)  |
+  1642	|                |                |[7]          |               |[7]          |
+  1643	|----------------+----------------+-------------+---------------+-------------|
+  1644	|bsearch         |getopt_long_only|labs         |realloc        |verrx        |
+  1645	|(GLIBC_2.0)[7]  |(GLIBC_2.0)[4]  |(GLIBC_2.0)  |(GLIBC_2.0)[7] |(GLIBC_2.0)  |
+  1646	|                |                |[7]          |               |[4]          |
+  1647	|----------------+----------------+-------------+---------------+-------------|
+  1648	|calloc          |getsubopt       |lcong48      |realpath       |vsyslog      |
+  1649	|(GLIBC_2.0)[7]  |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |(GLIBC_2.0)[7] |(GLIBC_2.0)  |
+  1650	|                |                |[7]          |               |[4]          |
+  1651	|----------------+----------------+-------------+---------------+-------------|
+  1652	|closelog        |gettimeofday    |ldiv         |remque         |warn         |
+  1653	|(GLIBC_2.0)[7]  |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |(GLIBC_2.0)[7] |(GLIBC_2.0)  |
+  1654	|                |                |[7]          |               |[4]          |
+  1655	|----------------+----------------+-------------+---------------+-------------|
+  1656	|confstr         |glob(GLIBC_2.0) |lfind        |seed48         |warnx        |
+  1657	|(GLIBC_2.0)[7]  |[7]             |(GLIBC_2.0)  |(GLIBC_2.0)[7] |(GLIBC_2.0)  |
+  1658	|                |                |[7]          |               |[4]          |
+  1659	|----------------+----------------+-------------+---------------+-------------|
+  1660	|cuserid         |glob64          |llabs        |setenv         |wordexp      |
+  1661	|(GLIBC_2.0)[7]  |(GLIBC_2.0)[4]  |(GLIBC_2.0)  |(GLIBC_2.0)[4] |(GLIBC_2.0)  |
+  1662	|                |                |[1]          |               |[7]          |
+  1663	|----------------+----------------+-------------+---------------+-------------|
+  1664	|daemon          |globfree        |lldiv        |sethostid      |wordfree     |
+  1665	|(GLIBC_2.0)[4]  |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |(GLIBC_2.0)[4] |(GLIBC_2.0)  |
+  1666	|                |                |[1]          |               |[7]          |
+  1667	|----------------+----------------+-------------+---------------+-------------|
+  1668	|dirname         |globfree64      |longjmp      |sethostname    |             |
+  1669	|(GLIBC_2.0)[7]  |(GLIBC_2.0)[4]  |(GLIBC_2.0)  |(GLIBC_2.0)[4] |             |
+  1670	|                |                |[7]          |               |             |
+  1671	|----------------+----------------+-------------+---------------+-------------|
+  1672	|div(GLIBC_2.0)  |grantpt         |lrand48      |setlogmask     |             |
+  1673	|[7]             |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |(GLIBC_2.0)[7] |             |
+  1674	|                |                |[7]          |               |             |
+  1675	|----------------+----------------+-------------+---------------+-------------|
+  1676	|drand48         |hcreate         |lsearch      |setstate       |             |
+  1677	|(GLIBC_2.0)[7]  |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |(GLIBC_2.0)[7] |             |
+  1678	|                |                |[7]          |               |             |
+  1679	|----------------+----------------+-------------+---------------+-------------|
+  1680	|ecvt(GLIBC_2.0) |hdestroy        |makecontext  |srand          |             |
+  1681	|[7]             |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |(GLIBC_2.0)[7] |             |
+  1682	|                |                |[7]          |               |             |
+  1683	+-----------------------------------------------------------------------------+
+  1684	
+  1685	Table 16-9. libc - Standard Library Data Interfaces
+  1686	
+  1687	+---------------------------------------------------------------+
+  1688	|__environ[4]|_sys_errlist[4]|getdate_err[7]|opterr[4]|optopt[4]|
+  1689	|------------+---------------+--------------+---------+---------|
+  1690	|_environ[4] |environ[7]     |optarg[7]     |optind[4]|         |
+  1691	+---------------------------------------------------------------+
+  1692	-------------------------------------------------------------------------------
+  1693	
+  1694	Localization Functions
+  1695	
+  1696	Table 16-10. libc - Localization Functions Function Interfaces
+  1697	
+  1698	+------------------------------------------------------------------------------+
+  1699	|__dcgettext(GLIBC_2.0) |catgets     |dcngettext   |gettext      |nl_langinfo  |
+  1700	|[4]                    |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)  |
+  1701	|                       |[7]         |[3]          |[4]          |[7]          |
+  1702	|-----------------------+------------+-------------+-------------+-------------|
+  1703	|bind_textdomain_codeset|catopen     |dgettext     |iconv        |setlocale    |
+  1704	|(GLIBC_2.2)[3]         |(GLIBC_2.2) |(GLIBC_2.2)  |(GLIBC_2.2)  |(GLIBC_2.2)  |
+  1705	|                       |[7]         |[3]          |[7]          |[7]          |
+  1706	|-----------------------+------------+-------------+-------------+-------------|
+  1707	|catclose(GLIBC_2.0)[7] |dcgettext   |dngettext    |localeconv   |             |
+  1708	|                       |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0)  |             |
+  1709	|                       |[3]         |[3]          |[7]          |             |
+  1710	+------------------------------------------------------------------------------+
+  1711	
+  1712	Table 16-11. libc - Localization Functions Data Interfaces
+  1713	
+  1714	+----------------------------+
+  1715	|_nl_msg_cat_cntr[4] | | | | |
+  1716	+----------------------------+
+  1717	-------------------------------------------------------------------------------
+  1718	
+  1719	Socket Interface
+  1720	
+  1721	Table 16-12. libc - Socket Interface Function Interfaces
+  1722	
+  1723	+-----------------------------------------------------------------------------+
+  1724	|__h_errno_location|gethostbyname_r |getsockopt   |send         |socket       |
+  1725	|(GLIBC_2.0)[4]    |(GLIBC_2.0)[4]  |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)  |
+  1726	|                  |                |[6]          |[6]          |[6]          |
+  1727	|------------------+----------------+-------------+-------------+-------------|
+  1728	|accept(GLIBC_2.0) |gethostid       |listen       |sendmsg      |socketpair   |
+  1729	|[6]               |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)  |
+  1730	|                  |                |[6]          |[6]          |[6]          |
+  1731	|------------------+----------------+-------------+-------------+-------------|
+  1732	|bind(GLIBC_2.0)[6]|gethostname     |recv         |sendto       |             |
+  1733	|                  |(GLIBC_2.0)[6]  |(GLIBC_2.0)  |(GLIBC_2.0)  |             |
+  1734	|                  |                |[6]          |[6]          |             |
+  1735	|------------------+----------------+-------------+-------------+-------------|
+  1736	|bindresvport      |getpeername     |recvfrom     |setsockopt   |             |
+  1737	|(GLIBC_2.0)[4]    |(GLIBC_2.0)[6]  |(GLIBC_2.0)  |(GLIBC_2.0)  |             |
+  1738	|                  |                |[6]          |[6]          |             |
+  1739	|------------------+----------------+-------------+-------------+-------------|
+  1740	|connect(GLIBC_2.0)|getsockname     |recvmsg      |shutdown     |             |
+  1741	|[6]               |(GLIBC_2.0)[6]  |(GLIBC_2.0)  |(GLIBC_2.0)  |             |
+  1742	|                  |                |[6]          |[6]          |             |
+  1743	+-----------------------------------------------------------------------------+
+  1744	-------------------------------------------------------------------------------
+  1745	
+  1746	Wide Characters
+  1747	
+  1748	Table 16-13. libc - Wide Characters Function Interfaces
+  1749	
+  1750	+-----------------------------------------------------------------------------+
+  1751	|__wcstod_internal |mbrlen        |vswscanf      |wcsncmp       |wcstoul      |
+  1752	|(GLIBC_2.0)[4]    |(GLIBC_2.0)[7]|(GLIBC_2.0)[1]|(GLIBC_2.0)[7]|(GLIBC_2.0)  |
+  1753	|                  |              |              |              |[7]          |
+  1754	|------------------+--------------+--------------+--------------+-------------|
+  1755	|__wcstof_internal |mbrtowc       |vwprintf      |wcsncpy       |wcstoull     |
+  1756	|(GLIBC_2.0)[4]    |(GLIBC_2.0)[7]|(GLIBC_2.0)[1]|(GLIBC_2.0)[7]|(GLIBC_2.0)  |
+  1757	|                  |              |              |              |[1]          |
+  1758	|------------------+--------------+--------------+--------------+-------------|
+  1759	|__wcstol_internal |mbsinit       |vwscanf       |wcsnlen       |wcstoumax    |
+  1760	|(GLIBC_2.0)[4]    |(GLIBC_2.0)[7]|(GLIBC_2.0)[1]|(GLIBC_2.0)[4]|(GLIBC_2.0)  |
+  1761	|                  |              |              |              |[1]          |
+  1762	|------------------+--------------+--------------+--------------+-------------|
+  1763	|__wcstold_internal|mbsnrtowcs    |wcpcpy        |wcsnrtombs    |wcstouq      |
+  1764	|(GLIBC_2.0)[4]    |(GLIBC_2.0)[4]|(GLIBC_2.0)[4]|(GLIBC_2.0)[4]|(GLIBC_2.0)  |
+  1765	|                  |              |              |              |[4]          |
+  1766	|------------------+--------------+--------------+--------------+-------------|
+  1767	|__wcstoul_internal|mbsrtowcs     |wcpncpy       |wcspbrk       |wcswcs       |
+  1768	|(GLIBC_2.0)[4]    |(GLIBC_2.0)[7]|(GLIBC_2.0)[4]|(GLIBC_2.0)[1]|(GLIBC_2.0)  |
+  1769	|                  |              |              |              |[7]          |
+  1770	|------------------+--------------+--------------+--------------+-------------|
+  1771	|btowc(GLIBC_2.0)  |mbstowcs      |wcrtomb       |wcsrchr       |wcswidth     |
+  1772	|[7]               |(GLIBC_2.0)[7]|(GLIBC_2.0)[7]|(GLIBC_2.0)[7]|(GLIBC_2.0)  |
+  1773	|                  |              |              |              |[7]          |
+  1774	|------------------+--------------+--------------+--------------+-------------|
+  1775	|fgetwc(GLIBC_2.2) |mbtowc        |wcscasecmp    |wcsrtombs     |wcsxfrm      |
+  1776	|[7]               |(GLIBC_2.2)[7]|(GLIBC_2.2)[4]|(GLIBC_2.2)[7]|(GLIBC_2.2)  |
+  1777	|                  |              |              |              |[7]          |
+  1778	|------------------+--------------+--------------+--------------+-------------|
+  1779	|fgetws(GLIBC_2.2) |putwc         |wcscat        |wcsspn        |wctob        |
+  1780	|[1]               |(GLIBC_2.2)[1]|(GLIBC_2.2)[7]|(GLIBC_2.2)[7]|(GLIBC_2.2)  |
+  1781	|                  |              |              |              |[7]          |
+  1782	|------------------+--------------+--------------+--------------+-------------|
+  1783	|fputwc(GLIBC_2.2) |putwchar      |wcschr        |wcsstr        |wctomb       |
+  1784	|[1]               |(GLIBC_2.2)[1]|(GLIBC_2.2)[7]|(GLIBC_2.2)[7]|(GLIBC_2.2)  |
+  1785	|                  |              |              |              |[7]          |
+  1786	|------------------+--------------+--------------+--------------+-------------|
+  1787	|fputws(GLIBC_2.2) |swprintf      |wcscmp        |wcstod        |wctrans      |
+  1788	|[1]               |(GLIBC_2.2)[7]|(GLIBC_2.2)[7]|(GLIBC_2.2)[7]|(GLIBC_2.2)  |
+  1789	|                  |              |              |              |[7]          |
+  1790	|------------------+--------------+--------------+--------------+-------------|
+  1791	|fwide(GLIBC_2.2)  |swscanf       |wcscoll       |wcstof        |wctype       |
+  1792	|[1]               |(GLIBC_2.2)[1]|(GLIBC_2.2)[7]|(GLIBC_2.2)[1]|(GLIBC_2.2)  |
+  1793	|                  |              |              |              |[7]          |
+  1794	|------------------+--------------+--------------+--------------+-------------|
+  1795	|fwprintf          |towctrans     |wcscpy        |wcstoimax     |wcwidth      |
+  1796	|(GLIBC_2.2)[4]    |(GLIBC_2.2)[7]|(GLIBC_2.2)[7]|(GLIBC_2.2)[1]|(GLIBC_2.2)  |
+  1797	|                  |              |              |              |[7]          |
+  1798	|------------------+--------------+--------------+--------------+-------------|
+  1799	|fwscanf(GLIBC_2.2)|towlower      |wcscspn       |wcstok        |wmemchr      |
+  1800	|[1]               |(GLIBC_2.2)[1]|(GLIBC_2.2)[7]|(GLIBC_2.2)[7]|(GLIBC_2.2)  |
+  1801	|                  |              |              |              |[7]          |
+  1802	|------------------+--------------+--------------+--------------+-------------|
+  1803	|getwc(GLIBC_2.2)  |towupper      |wcsdup        |wcstol        |wmemcmp      |
+  1804	|[1]               |(GLIBC_2.2)[7]|(GLIBC_2.2)[4]|(GLIBC_2.2)[7]|(GLIBC_2.2)  |
+  1805	|                  |              |              |              |[7]          |
+  1806	|------------------+--------------+--------------+--------------+-------------|
+  1807	|getwchar          |ungetwc       |wcsftime      |wcstold       |wmemcpy      |
+  1808	|(GLIBC_2.2)[7]    |(GLIBC_2.2)[1]|(GLIBC_2.2)[1]|(GLIBC_2.2)[1]|(GLIBC_2.2)  |
+  1809	|                  |              |              |              |[7]          |
+  1810	|------------------+--------------+--------------+--------------+-------------|
+  1811	|iconv_close       |vfwprintf     |wcslen        |wcstoll       |wmemmove     |
+  1812	|(GLIBC_2.1)[7]    |(GLIBC_2.1)[1]|(GLIBC_2.1)[7]|(GLIBC_2.1)[1]|(GLIBC_2.1)  |
+  1813	|                  |              |              |              |[7]          |
+  1814	|------------------+--------------+--------------+--------------+-------------|
+  1815	|iconv_open        |vfwscanf      |wcsncasecmp   |wcstombs      |wmemset      |
+  1816	|(GLIBC_2.1)[7]    |(GLIBC_2.1)[1]|(GLIBC_2.1)[4]|(GLIBC_2.1)[7]|(GLIBC_2.1)  |
+  1817	|                  |              |              |              |[7]          |
+  1818	|------------------+--------------+--------------+--------------+-------------|
+  1819	|mblen(GLIBC_2.0)  |vswprintf     |wcsncat       |wcstoq        |             |
+  1820	|[7]               |(GLIBC_2.0)[1]|(GLIBC_2.0)[7]|(GLIBC_2.0)[4]|             |
+  1821	+-----------------------------------------------------------------------------+
+  1822	-------------------------------------------------------------------------------
+  1823	
+  1824	String Functions
+  1825	
+  1826	Table 16-14. libc - String Functions Function Interfaces
+  1827	
+  1828	+----------------------------------------------------------------------------+
+  1829	|__mempcpy          |bzero        |strcasestr   |strncasecmp   |strtoimax    |
+  1830	|(GLIBC_2.0)[4]     |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)[7]|(GLIBC_2.0)  |
+  1831	|                   |[7]          |[4]          |              |[1]          |
+  1832	|-------------------+-------------+-------------+--------------+-------------|
+  1833	|__rawmemchr        |ffs          |strcat       |strncat       |strtok       |
+  1834	|(GLIBC_2.1)[4]     |(GLIBC_2.1)  |(GLIBC_2.1)  |(GLIBC_2.1)[7]|(GLIBC_2.1)  |
+  1835	|                   |[7]          |[7]          |              |[7]          |
+  1836	|-------------------+-------------+-------------+--------------+-------------|
+  1837	|__stpcpy(GLIBC_2.0)|index        |strchr       |strncmp       |strtok_r     |
+  1838	|[4]                |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)[7]|(GLIBC_2.0)  |
+  1839	|                   |[7]          |[7]          |              |[4]          |
+  1840	|-------------------+-------------+-------------+--------------+-------------|
+  1841	|__strdup(GLIBC_2.0)|memccpy      |strcmp       |strncpy       |strtold      |
+  1842	|[4]                |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)[7]|(GLIBC_2.0)  |
+  1843	|                   |[7]          |[7]          |              |[1]          |
+  1844	|-------------------+-------------+-------------+--------------+-------------|
+  1845	|__strtod_internal  |memchr       |strcoll      |strndup       |strtoll      |
+  1846	|(GLIBC_2.0)[4]     |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)[4]|(GLIBC_2.0)  |
+  1847	|                   |[7]          |[7]          |              |[1]          |
+  1848	|-------------------+-------------+-------------+--------------+-------------|
+  1849	|__strtof_internal  |memcmp       |strcpy       |strnlen       |strtoq       |
+  1850	|(GLIBC_2.0)[4]     |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)[4]|(GLIBC_2.0)  |
+  1851	|                   |[7]          |[7]          |              |[4]          |
+  1852	|-------------------+-------------+-------------+--------------+-------------|
+  1853	|__strtok_r         |memcpy       |strcspn      |strpbrk       |strtoull     |
+  1854	|(GLIBC_2.0)[4]     |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)[7]|(GLIBC_2.0)  |
+  1855	|                   |[7]          |[7]          |              |[1]          |
+  1856	|-------------------+-------------+-------------+--------------+-------------|
+  1857	|__strtol_internal  |memmove      |strdup       |strptime      |strtoumax    |
+  1858	|(GLIBC_2.0)[4]     |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)[4]|(GLIBC_2.0)  |
+  1859	|                   |[7]          |[7]          |              |[1]          |
+  1860	|-------------------+-------------+-------------+--------------+-------------|
+  1861	|__strtold_internal |memrchr      |strerror     |strrchr       |strtouq      |
+  1862	|(GLIBC_2.0)[4]     |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)[7]|(GLIBC_2.0)  |
+  1863	|                   |[4]          |[7]          |              |[4]          |
+  1864	|-------------------+-------------+-------------+--------------+-------------|
+  1865	|__strtoll_internal |memset       |strerror_r   |strsep        |strverscmp   |
+  1866	|(GLIBC_2.0)[4]     |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)[4]|(GLIBC_2.0)  |
+  1867	|                   |[7]          |[4]          |              |[4]          |
+  1868	|-------------------+-------------+-------------+--------------+-------------|
+  1869	|__strtoul_internal |rindex       |strfmon      |strsignal     |strxfrm      |
+  1870	|(GLIBC_2.0)[4]     |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)[4]|(GLIBC_2.0)  |
+  1871	|                   |[7]          |[7]          |              |[7]          |
+  1872	|-------------------+-------------+-------------+--------------+-------------|
+  1873	|__strtoull_internal|stpcpy       |strfry       |strspn        |swab         |
+  1874	|(GLIBC_2.0)[4]     |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)[7]|(GLIBC_2.0)  |
+  1875	|                   |[4]          |[4]          |              |[7]          |
+  1876	|-------------------+-------------+-------------+--------------+-------------|
+  1877	|bcmp(GLIBC_2.0)[7] |stpncpy      |strftime     |strstr        |             |
+  1878	|                   |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)[7]|             |
+  1879	|                   |[4]          |[7]          |              |             |
+  1880	|-------------------+-------------+-------------+--------------+-------------|
+  1881	|bcopy(GLIBC_2.0)[7]|strcasecmp   |strlen       |strtof        |             |
+  1882	|                   |(GLIBC_2.0)  |(GLIBC_2.0)  |(GLIBC_2.0)[1]|             |
+  1883	|                   |[7]          |[7]          |              |             |
+  1884	+----------------------------------------------------------------------------+
+  1885	-------------------------------------------------------------------------------
+  1886	
+  1887	IPC Functions
+  1888	
+  1889	Table 16-15. libc - IPC Functions Function Interfaces
+  1890	
+  1891	+-----------------------------------------------------------------------------+
+  1892	|ftok(GLIBC_2.0)[7]|msgrcv(GLIBC_2.0) |semget(GLIBC_2.0) |shmctl(GLIBC_2.0) | |
+  1893	|                  |[7]               |[7]               |[7]               | |
+  1894	|------------------+------------------+------------------+------------------+-|
+  1895	|msgctl(GLIBC_2.2) |msgsnd(GLIBC_2.2) |semop(GLIBC_2.2)  |shmdt(GLIBC_2.2)  | |
+  1896	|[7]               |[7]               |[7]               |[7]               | |
+  1897	|------------------+------------------+------------------+------------------+-|
+  1898	|msgget(GLIBC_2.0) |semctl(GLIBC_2.0) |shmat(GLIBC_2.0)  |shmget(GLIBC_2.0) | |
+  1899	|[7]               |[7]               |[7]               |[7]               | |
+  1900	+-----------------------------------------------------------------------------+
+  1901	-------------------------------------------------------------------------------
+  1902	
+  1903	Regular Expressions
+  1904	
+  1905	Table 16-16. libc - Regular Expressions Function Interfaces
+  1906	
+  1907	+-----------------------------------------------------------------------------+
+  1908	|advance(GLIBC_2.0)|re_exec(GLIBC_2.0)|regerror          |regfree(GLIBC_2.0)| |
+  1909	|[7]               |[7]               |(GLIBC_2.0)[7]    |[7]               | |
+  1910	|------------------+------------------+------------------+------------------+-|
+  1911	|re_comp(GLIBC_2.0)|regcomp(GLIBC_2.0)|regexec(GLIBC_2.0)|step(GLIBC_2.0)[7]| |
+  1912	|[7]               |[7]               |[7]               |                  | |
+  1913	+-----------------------------------------------------------------------------+
+  1914	
+  1915	Table 16-17. libc - Regular Expressions Data Interfaces
+  1916	
+  1917	+---------------------------+
+  1918	|loc1[7]|loc2[7]|locs[7]| | |
+  1919	+---------------------------+
+  1920	-------------------------------------------------------------------------------
+  1921	
+  1922	Character Type Functions
+  1923	
+  1924	Table 16-18. libc - Character Type Functions Function Interfaces
+  1925	
+  1926	+-----------------------------------------------------------------------------+
+  1927	|__ctype_get_mb_cur_max|isdigit     |iswalnum     |iswlower      |toascii     |
+  1928	|(GLIBC_2.0)[4]        |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0)[7]|(GLIBC_2.0) |
+  1929	|                      |[7]         |[7]          |              |[7]         |
+  1930	|----------------------+------------+-------------+--------------+------------|
+  1931	|_tolower(GLIBC_2.0)[7]|isgraph     |iswalpha     |iswprint      |tolower     |
+  1932	|                      |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0)[7]|(GLIBC_2.0) |
+  1933	|                      |[7]         |[7]          |              |[7]         |
+  1934	|----------------------+------------+-------------+--------------+------------|
+  1935	|_toupper(GLIBC_2.0)[7]|islower     |iswblank     |iswpunct      |toupper     |
+  1936	|                      |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0)[7]|(GLIBC_2.0) |
+  1937	|                      |[7]         |[4]          |              |[7]         |
+  1938	|----------------------+------------+-------------+--------------+------------|
+  1939	|isalnum(GLIBC_2.0)[7] |isprint     |iswcntrl     |iswspace      |            |
+  1940	|                      |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0)[7]|            |
+  1941	|                      |[7]         |[7]          |              |            |
+  1942	|----------------------+------------+-------------+--------------+------------|
+  1943	|isalpha(GLIBC_2.0)[7] |ispunct     |iswctype     |iswupper      |            |
+  1944	|                      |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0)[7]|            |
+  1945	|                      |[7]         |[4]          |              |            |
+  1946	|----------------------+------------+-------------+--------------+------------|
+  1947	|isascii(GLIBC_2.0)[7] |isspace     |iswdigit     |iswxdigit     |            |
+  1948	|                      |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0)[7]|            |
+  1949	|                      |[7]         |[7]          |              |            |
+  1950	|----------------------+------------+-------------+--------------+------------|
+  1951	|iscntrl(GLIBC_2.0)[7] |isupper     |iswgraph     |isxdigit      |            |
+  1952	|                      |(GLIBC_2.0) |(GLIBC_2.0)  |(GLIBC_2.0)[7]|            |
+  1953	|                      |[7]         |[7]          |              |            |
+  1954	+-----------------------------------------------------------------------------+
+  1955	
+  1956	Table 16-19. libc - Character Type Functions Data Interfaces
+  1957	
+  1958	+------------------------------------------------------+
+  1959	|__ctype_b[4]|__ctype_tolower[4]|__ctype_toupper[4]| | |
+  1960	+------------------------------------------------------+
+  1961	-------------------------------------------------------------------------------
+  1962	
+  1963	Time Manipulation
+  1964	
+  1965	Table 16-20. libc - Time Manipulation Function Interfaces
+  1966	
+  1967	+------------------------------------------------------------------------------+
+  1968	|adjtime        |asctime_r      |difftime       |localtime       |tzset        |
+  1969	|(GLIBC_2.0)[4] |(GLIBC_2.0)[7] |(GLIBC_2.0)[7] |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |
+  1970	|               |               |               |                |[7]          |
+  1971	|---------------+---------------+---------------+----------------+-------------|
+  1972	|adjtimex       |ctime          |gmtime         |localtime_r     |ualarm       |
+  1973	|(GLIBC_2.0)[4] |(GLIBC_2.0)[7] |(GLIBC_2.0)[7] |(GLIBC_2.0)[7]  |(GLIBC_2.0)  |
+  1974	|               |               |               |                |[7]          |
+  1975	|---------------+---------------+---------------+----------------+-------------|
+  1976	|asctime        |ctime_r        |gmtime_r       |mktime          |             |
+  1977	|(GLIBC_2.0)[7] |(GLIBC_2.0)[7] |(GLIBC_2.0)[7] |(GLIBC_2.0)[7]  |             |
+  1978	+------------------------------------------------------------------------------+
+  1979	
+  1980	Table 16-21. libc - Time Manipulation Data Interfaces
+  1981	
+  1982	+-----------------------------------------+
+  1983	|__daylight[4]|__tzname[4]|timezone[7]| | |
+  1984	|-------------+-----------+-----------+-+-|
+  1985	|__timezone[4]|daylight[7]|tzname[7]  | | |
+  1986	+-----------------------------------------+
+  1987	-------------------------------------------------------------------------------
+  1988	
+  1989	Terminal Interface Functions
+  1990	
+  1991	Table 16-22. libc - Terminal Interface Functions Function Interfaces
+  1992	
+  1993	+----------------------------------------------------------------------------+
+  1994	|cfgetispeed    |cfsetispeed    |tcdrain      |tcgetattr     |tcsendbreak    |
+  1995	|(GLIBC_2.0)[7] |(GLIBC_2.0)[7] |(GLIBC_2.0)  |(GLIBC_2.0)[7]|(GLIBC_2.0)[7] |
+  1996	|               |               |[7]          |              |               |
+  1997	|---------------+---------------+-------------+--------------+---------------|
+  1998	|cfgetospeed    |cfsetospeed    |tcflow       |tcgetpgrp     |tcsetattr      |
+  1999	|(GLIBC_2.0)[7] |(GLIBC_2.0)[7] |(GLIBC_2.0)  |(GLIBC_2.0)[7]|(GLIBC_2.0)[7] |
+  2000	|               |               |[7]          |              |               |
+  2001	|---------------+---------------+-------------+--------------+---------------|
+  2002	|cfmakeraw      |cfsetspeed     |tcflush      |tcgetsid      |tcsetpgrp      |
+  2003	|(GLIBC_2.0)[4] |(GLIBC_2.0)[4] |(GLIBC_2.0)  |(GLIBC_2.0)[7]|(GLIBC_2.0)[7] |
+  2004	|               |               |[7]          |              |               |
+  2005	+----------------------------------------------------------------------------+
+  2006	-------------------------------------------------------------------------------
+  2007	
+  2008	System Database Interface
+  2009	
+  2010	Table 16-23. libc - System Database Interface Function Interfaces
+  2011	
+  2012	+-----------------------------------------------------------------------------+
+  2013	|endgrent      |getgrgid         |getpwnam       |getutxent    |setprotoent   |
+  2014	|(GLIBC_2.0)[7]|(GLIBC_2.0)[7]   |(GLIBC_2.0)[7] |(GLIBC_2.0)  |(GLIBC_2.0)[6]|
+  2015	|              |                 |               |[7]          |              |
+  2016	|--------------+-----------------+---------------+-------------+--------------|
+  2017	|endhostent    |getgrnam         |getpwnam_r     |getutxid     |setpwent      |
+  2018	|(GLIBC_2.0)[6]|(GLIBC_2.0)[7]   |(GLIBC_2.0)[4] |(GLIBC_2.0)  |(GLIBC_2.0)[7]|
+  2019	|              |                 |               |[7]          |              |
+  2020	|--------------+-----------------+---------------+-------------+--------------|
+  2021	|endnetent     |gethostbyaddr    |getpwuid       |getutxline   |setservent    |
+  2022	|(GLIBC_2.0)[6]|(GLIBC_2.0)[6]   |(GLIBC_2.0)[7] |(GLIBC_2.0)  |(GLIBC_2.0)[6]|
+  2023	|              |                 |               |[7]          |              |
+  2024	|--------------+-----------------+---------------+-------------+--------------|
+  2025	|endprotoent   |gethostbyname    |getpwuid_r     |pututxline   |setutent      |
+  2026	|(GLIBC_2.0)[6]|(GLIBC_2.0)[4]   |(GLIBC_2.0)[7] |(GLIBC_2.0)  |(GLIBC_2.0)[4]|
+  2027	|              |                 |               |[7]          |              |
+  2028	|--------------+-----------------+---------------+-------------+--------------|
+  2029	|endpwent      |getnetbyaddr     |getservbyname  |setgrent     |setutxent     |
+  2030	|(GLIBC_2.0)[7]|(GLIBC_2.0)[6]   |(GLIBC_2.0)[4] |(GLIBC_2.0)  |(GLIBC_2.0)[7]|
+  2031	|              |                 |               |[7]          |              |
+  2032	|--------------+-----------------+---------------+-------------+--------------|
+  2033	|endservent    |getprotobyname   |getservbyport  |setgroups    |              |
+  2034	|(GLIBC_2.0)[6]|(GLIBC_2.0)[4]   |(GLIBC_2.0)[6] |(GLIBC_2.0)  |              |
+  2035	|              |                 |               |[4]          |              |
+  2036	|--------------+-----------------+---------------+-------------+--------------|
+  2037	|endutent      |getprotobynumber |getservent     |sethostent   |              |
+  2038	|(GLIBC_2.0)[7]|(GLIBC_2.0)[6]   |(GLIBC_2.0)[4] |(GLIBC_2.0)  |              |
+  2039	|              |                 |               |[6]          |              |
+  2040	|--------------+-----------------+---------------+-------------+--------------|
+  2041	|endutxent     |getprotoent      |getutent       |setmntent    |              |
+  2042	|(GLIBC_2.1)[7]|(GLIBC_2.1)[4]   |(GLIBC_2.1)[4] |(GLIBC_2.1)  |              |
+  2043	|              |                 |               |[4]          |              |
+  2044	|--------------+-----------------+---------------+-------------+--------------|
+  2045	|getgrent      |getpwent         |getutent_r     |setnetent    |              |
+  2046	|(GLIBC_2.0)[7]|(GLIBC_2.0)[7]   |(GLIBC_2.0)[4] |(GLIBC_2.0)  |              |
+  2047	|              |                 |               |[6]          |              |
+  2048	+-----------------------------------------------------------------------------+
+  2049	-------------------------------------------------------------------------------
+  2050	
+  2051	Language Support
+  2052	
+  2053	Table 16-24. libc - Language Support Function Interfaces
+  2054	
+  2055	+-----------------------------------------------------------------------------+
+  2056	|__libc_start_main  |_obstack_begin    |_obstack_newchunk  |obstack_free    | |
+  2057	|(GLIBC_2.0)[4]     |(GLIBC_2.0)[4]    |(GLIBC_2.0)[4]     |(GLIBC_2.0)[4]  | |
+  2058	+-----------------------------------------------------------------------------+
+  2059	-------------------------------------------------------------------------------
+  2060	
+  2061	Large File Support
+  2062	
+  2063	Table 16-25. libc - Large File Support Function Interfaces
+  2064	
+  2065	+----------------------------------------------------------------------------+
+  2066	|__fxstat64     |fopen64       |ftello64       |mkstemp64     |readdir64     |
+  2067	|(GLIBC_2.2)[4] |(GLIBC_2.2)[2]|(GLIBC_2.2)[2] |(GLIBC_2.2)[2]|(GLIBC_2.2)[2]|
+  2068	|---------------+--------------+---------------+--------------+--------------|
+  2069	|__lxstat64     |freopen64     |ftruncate64    |mmap64        |tmpfile64     |
+  2070	|(GLIBC_2.2)[4] |(GLIBC_2.2)[2]|(GLIBC_2.2)[2] |(GLIBC_2.2)[2]|(GLIBC_2.2)[2]|
+  2071	|---------------+--------------+---------------+--------------+--------------|
+  2072	|__xstat64      |fseeko64      |ftw64          |nftw64        |truncate64    |
+  2073	|(GLIBC_2.2)[4] |(GLIBC_2.2)[2]|(GLIBC_2.2)[2] |(GLIBC_2.2)[2]|(GLIBC_2.2)[2]|
+  2074	|---------------+--------------+---------------+--------------+--------------|
+  2075	|alphasort64    |fsetpos64     |getrlimit64    |open64        |              |
+  2076	|(GLIBC_2.1)[4] |(GLIBC_2.1)[2]|(GLIBC_2.1)[2] |(GLIBC_2.1)[2]|              |
+  2077	|---------------+--------------+---------------+--------------+--------------|
+  2078	|creat64        |fstatfs64     |lockf64        |pread64       |              |
+  2079	|(GLIBC_2.1)[2] |(GLIBC_2.1)[2]|(GLIBC_2.1)[2] |(GLIBC_2.1)[2]|              |
+  2080	|---------------+--------------+---------------+--------------+--------------|
+  2081	|fgetpos64      |fstatvfs64    |lseek64        |pwrite64      |              |
+  2082	|(GLIBC_2.2)[2] |(GLIBC_2.2)[2]|(GLIBC_2.2)[2] |(GLIBC_2.2)[2]|              |
+  2083	+----------------------------------------------------------------------------+
+  2084	-------------------------------------------------------------------------------
+  2085	
+  2086	Data Definitions for libc
+  2087	
+  2088	-------------------------------------------------------------------------------
+  2089	
+  2090	errno.h
+  2091	
+  2092	
+  2093	
+  2094	
+  2095	#define EDEADLK 35
+  2096	#define ENAMETOOLONG    36
+  2097	#define ENOLCK  37
+  2098	#define ENOSYS  38
+  2099	#define ENOTEMPTY       39
+  2100	#define ELOOP   40
+  2101	#define ENOMSG  42
+  2102	#define EIDRM   43
+  2103	#define ECHRNG  44
+  2104	#define EL2NSYNC        45
+  2105	#define EL3HLT  46
+  2106	#define EL3RST  47
+  2107	#define ELNRNG  48
+  2108	#define EUNATCH 49
+  2109	#define ENOANO  55
+  2110	#define EBADRQC 56
+  2111	#define EBADSLT 57
+  2112	#define EDEADLOCK       58
+  2113	#define EBFONT  59
+  2114	#define ENOSTR  60
+  2115	#define ENODATA 61
+  2116	#define ETIME   62
+  2117	#define ENOSR   63
+  2118	#define ENONET  64
+  2119	#define ENOPKG  65
+  2120	#define EREMOTE 66
+  2121	#define ENOLINK 67
+  2122	#define EADV    68
+  2123	#define ESRMNT  69
+  2124	#define ECOMM   70
+  2125	#define EPROTO  71
+  2126	#define EMULTIHOP       72
+  2127	#define EDOTDOT 73
+  2128	#define EBADMSG 74
+  2129	#define EOVERFLOW       75
+  2130	#define ENOTUNIQ        76
+  2131	#define EBADFD  77
+  2132	#define EREMCHG 78
+  2133	#define ELIBACC 79
+  2134	#define ELIBBAD 80
+  2135	#define ELIBSCN 81
+  2136	#define ELIBMAX 82
+  2137	#define ELIBEXEC        83
+  2138	#define EILSEQ  84
+  2139	#define ERESTART        85
+  2140	#define ESTRPIPE        86
+  2141	#define EUSERS  87
+  2142	#define ENOTSOCK        88
+  2143	#define EDESTADDRREQ    89
+  2144	#define EMSGSIZE        90
+  2145	#define EPROTOTYPE      91
+  2146	#define ENOPROTOOPT     92
+  2147	#define EPROTONOSUPPORT 93
+  2148	#define ESOCKTNOSUPPORT 94
+  2149	#define EOPNOTSUPP      95
+  2150	#define EPFNOSUPPORT    96
+  2151	#define EAFNOSUPPORT    97
+  2152	#define EADDRINUSE      98
+  2153	#define EADDRNOTAVAIL   99
+  2154	-------------------------------------------------------------------------------
+  2155	
+  2156	regex.h
+  2157	
+  2158	
+  2159	
+  2160	
+  2161	#define _RE_SYNTAX_POSIX_COMMON 66244
+  2162	-------------------------------------------------------------------------------
+  2163	
+  2164	signal.h
+  2165	
+  2166	
+  2167	
+  2168	
+  2169	#define SIGUSR1 10
+  2170	#define SIGUSR2 12
+  2171	#define SIGSTKFLT       16
+  2172	#define SIGCHLD 17
+  2173	#define SIGCONT 18
+  2174	#define SIGSTOP 19
+  2175	#define SIGTSTP 20
+  2176	#define SIGTTIN 21
+  2177	#define SIGTTOU 22
+  2178	#define SIGURG  23
+  2179	#define SIGXCPU 24
+  2180	#define SIGXFSZ 25
+  2181	#define SIGVTALRM       26
+  2182	#define SIGPROF 27
+  2183	#define SIGWINCH        28
+  2184	#define SIGIO   29
+  2185	#define SIGPWR  30
+  2186	#define SIGSYS  31
+  2187	#define SIGUNUSED       31
+  2188	#define SIGBUS  7
+  2189	
+  2190	
+  2191	
+  2192	
+  2193	
+  2194	
+  2195	
+  2196	
+  2197	
+  2198	
+  2199	
+  2200	
+  2201	
+  2202	
+  2203	
+  2204	
+  2205	
+  2206	
+  2207	
+  2208	
+  2209	
+  2210	
+  2211	
+  2212	
+  2213	
+  2214	
+  2215	
+  2216	
+  2217	
+  2218	
+  2219	
+  2220	
+  2221	struct sigcontext;
+  2222	-------------------------------------------------------------------------------
+  2223	
+  2224	sys/ioctl.h
+  2225	
+  2226	#define TIOCNOTTY       0x5422
+  2227	#define FIONREAD        1074030207
+  2228	-------------------------------------------------------------------------------
+  2229	
+  2230	sys/mman.h
+  2231	
+  2232	#define MCL_FUTURE      16384
+  2233	#define MCL_CURRENT     8192
+  2234	-------------------------------------------------------------------------------
+  2235	
+  2236	termios.h
+  2237	
+  2238	#define TAB1    1024
+  2239	#define CR3     12288
+  2240	#define CRDLY   12288
+  2241	#define FF1     16384
+  2242	#define FFDLY   16384
+  2243	#define XCASE   16384
+  2244	#define ONLCR   2
+  2245	#define TAB2    2048
+  2246	#define TAB3    3072
+  2247	#define TABDLY  3072
+  2248	#define BS1     32768
+  2249	#define BSDLY   32768
+  2250	#define OLCUC   4
+  2251	#define CR1     4096
+  2252	#define IUCLC   4096
+  2253	#define VT1     65536
+  2254	#define VTDLY   65536
+  2255	#define NLDLY   768
+  2256	#define CR2     8192
+  2257	
+  2258	
+  2259	
+  2260	
+  2261	
+  2262	
+  2263	
+  2264	
+  2265	
+  2266	#define VWERASE 10
+  2267	#define VREPRINT        11
+  2268	#define VSUSP   12
+  2269	#define VSTART  13
+  2270	#define VSTOP   14
+  2271	#define VDISCARD        16
+  2272	#define VMIN    5
+  2273	#define VEOL    6
+  2274	#define VEOL2   8
+  2275	#define VSWTC   9
+  2276	
+  2277	
+  2278	
+  2279	#define IXOFF   1024
+  2280	#define IXON    512
+  2281	
+  2282	
+  2283	
+  2284	
+  2285	
+  2286	
+  2287	#define CSTOPB  1024
+  2288	#define HUPCL   16384
+  2289	#define CREAD   2048
+  2290	#define CS6     256
+  2291	#define CLOCAL  32768
+  2292	#define PARENB  4096
+  2293	#define CS7     512
+  2294	#define VTIME   7
+  2295	#define CS8     768
+  2296	#define CSIZE   768
+  2297	#define PARODD  8192
+  2298	
+  2299	
+  2300	
+  2301	#define NOFLSH  -2147483648
+  2302	#define ECHOKE  1
+  2303	#define IEXTEN  1024
+  2304	#define ISIG    128
+  2305	#define ECHONL  16
+  2306	#define ECHOE   2
+  2307	#define ICANON  256
+  2308	#define ECHOPRT 32
+  2309	#define ECHOK   4
+  2310	#define TOSTOP  4194304
+  2311	#define PENDIN  536870912
+  2312	#define ECHOCTL 64
+  2313	#define FLUSHO  8388608
+  2314	-------------------------------------------------------------------------------
+  2315	
+  2316	ucontext.h
+  2317	
+  2318	
+  2319	
+  2320	
+  2321	
+  2322	
+  2323	
+  2324	#define NGREG   48
+  2325	-------------------------------------------------------------------------------
+  2326	
+  2327	Interfaces for libm
+  2328	
+  2329	Table 16-26. libm Definition
+  2330	
+  2331	+-------------------+
+  2332	|Library:|libm      |
+  2333	|--------+----------|
+  2334	|SONAME: |libm.so.6 |
+  2335	+-------------------+
+  2336	
+  2337	The behavior of the interfaces in this library is specified by the following
+  2338	standards.
+  2339	
+  2340	ISO/IEC 9899: 1999, Programming Languages --C[10]                              
+  2341	CAE Specification, January 1997, System Interfaces and Headers (XSH), Issue 5  
+  2342	(ISBN: 1-85912-181-0, C606)[11]                                                
+  2343	
+  2344	-------------------------------------------------------------------------------
+  2345	
+  2346	Math
+  2347	
+  2348	Table 16-27. libm - Math Function Interfaces
+  2349	
+  2350	+-----------------------------------------------------------------------------+
+  2351	|acos        |ceilf         |erfcl(GLIBC_2.0) |j1(GLIBC_2.0)  |remainderl     |
+  2352	|(GLIBC_2.0) |(GLIBC_2.0)   |[10]             |[11]           |(GLIBC_2.0)[10]|
+  2353	|[11]        |[10]          |                 |               |               |
+  2354	|------------+--------------+-----------------+---------------+---------------|
+  2355	|acosf       |ceill         |erff(GLIBC_2.0)  |j1f(GLIBC_2.0) |remquo         |
+  2356	|(GLIBC_2.0) |(GLIBC_2.0)   |[10]             |[10]           |(GLIBC_2.0)[10]|
+  2357	|[10]        |[10]          |                 |               |               |
+  2358	|------------+--------------+-----------------+---------------+---------------|
+  2359	|acosh       |cexp          |erfl(GLIBC_2.0)  |j1l(GLIBC_2.0) |remquof        |
+  2360	|(GLIBC_2.0) |(GLIBC_2.0)   |[10]             |[10]           |(GLIBC_2.0)[10]|
+  2361	|[11]        |[10]          |                 |               |               |
+  2362	|------------+--------------+-----------------+---------------+---------------|
+  2363	|acoshf      |cexpf         |exp(GLIBC_2.0)   |jn(GLIBC_2.0)  |remquol        |
+  2364	|(GLIBC_2.0) |(GLIBC_2.0)   |[11]             |[11]           |(GLIBC_2.0)[10]|
+  2365	|[10]        |[10]          |                 |               |               |
+  2366	|------------+--------------+-----------------+---------------+---------------|
+  2367	|acoshl      |cexpl         |expm1(GLIBC_2.0) |jnf(GLIBC_2.0) |rint(GLIBC_2.0)|
+  2368	|(GLIBC_2.0) |(GLIBC_2.0)   |[11]             |[10]           |[11]           |
+  2369	|[10]        |[10]          |                 |               |               |
+  2370	|------------+--------------+-----------------+---------------+---------------|
+  2371	|acosl       |cimag         |fabs(GLIBC_2.0)  |jnl(GLIBC_2.0) |rintf          |
+  2372	|(GLIBC_2.0) |(GLIBC_2.0)   |[11]             |[10]           |(GLIBC_2.0)[10]|
+  2373	|[10]        |[10]          |                 |               |               |
+  2374	|------------+--------------+-----------------+---------------+---------------|
+  2375	|asin        |cimagf        |fabsf(GLIBC_2.0) |ldexp          |rintl          |
+  2376	|(GLIBC_2.0) |(GLIBC_2.0)   |[10]             |(GLIBC_2.0)[11]|(GLIBC_2.0)[10]|
+  2377	|[11]        |[10]          |                 |               |               |
+  2378	|------------+--------------+-----------------+---------------+---------------|
+  2379	|asinf       |cimagl        |fabsl(GLIBC_2.0) |ldexpf         |round          |
+  2380	|(GLIBC_2.0) |(GLIBC_2.0)   |[10]             |(GLIBC_2.0)[10]|(GLIBC_2.0)[10]|
+  2381	|[10]        |[10]          |                 |               |               |
+  2382	|------------+--------------+-----------------+---------------+---------------|
+  2383	|asinh       |clog          |fdim(GLIBC_2.0)  |ldexpl         |roundf         |
+  2384	|(GLIBC_2.0) |(GLIBC_2.0)   |[10]             |(GLIBC_2.0)[10]|(GLIBC_2.0)[10]|
+  2385	|[11]        |[10]          |                 |               |               |
+  2386	|------------+--------------+-----------------+---------------+---------------|
+  2387	|asinhf      |clog10        |fdimf(GLIBC_2.0) |lgamma         |roundl         |
+  2388	|(GLIBC_2.0) |(GLIBC_2.0)   |[10]             |(GLIBC_2.0)[11]|(GLIBC_2.0)[10]|
+  2389	|[10]        |[10]          |                 |               |               |
+  2390	|------------+--------------+-----------------+---------------+---------------|
+  2391	|asinhl      |clog10f       |fdiml(GLIBC_2.0) |lgamma_r       |scalb          |
+  2392	|(GLIBC_2.0) |(GLIBC_2.0)   |[10]             |(GLIBC_2.0)[10]|(GLIBC_2.0)[11]|
+  2393	|[10]        |[10]          |                 |               |               |
+  2394	|------------+--------------+-----------------+---------------+---------------|
+  2395	|asinl       |clog10l       |feclearexcept    |lgammaf        |scalbf         |
+  2396	|(GLIBC_2.0) |(GLIBC_2.0)   |(GLIBC_2.0)[10]  |(GLIBC_2.0)[10]|(GLIBC_2.0)[10]|
+  2397	|[10]        |[10]          |                 |               |               |
+  2398	|------------+--------------+-----------------+---------------+---------------|
+  2399	|atan        |clogf         |fegetenv         |lgammaf_r      |scalbl         |
+  2400	|(GLIBC_2.0) |(GLIBC_2.0)   |(GLIBC_2.0)[10]  |(GLIBC_2.0)[10]|(GLIBC_2.0)[10]|
+  2401	|[11]        |[10]          |                 |               |               |
+  2402	|------------+--------------+-----------------+---------------+---------------|
+  2403	|atan2       |clogl         |fegetexceptflag  |lgammal        |scalbln        |
+  2404	|(GLIBC_2.0) |(GLIBC_2.0)   |(GLIBC_2.0)[10]  |(GLIBC_2.0)[10]|(GLIBC_2.0)[10]|
+  2405	|[11]        |[10]          |                 |               |               |
+  2406	|------------+--------------+-----------------+---------------+---------------|
+  2407	|atan2f      |conj          |fegetround       |lgammal_r      |scalblnf       |
+  2408	|(GLIBC_2.0) |(GLIBC_2.0)   |(GLIBC_2.0)[10]  |(GLIBC_2.0)[10]|(GLIBC_2.0)[10]|
+  2409	|[10]        |[10]          |                 |               |               |
+  2410	|------------+--------------+-----------------+---------------+---------------|
+  2411	|atan2l      |conjf         |feholdexcept     |llrint         |scalblnl       |
+  2412	|(GLIBC_2.0) |(GLIBC_2.0)   |(GLIBC_2.0)[10]  |(GLIBC_2.0)[10]|(GLIBC_2.0)[10]|
+  2413	|[10]        |[10]          |                 |               |               |
+  2414	|------------+--------------+-----------------+---------------+---------------|
+  2415	|atanf       |conjl         |feraiseexcept    |llrintf        |scalbn         |
+  2416	|(GLIBC_2.0) |(GLIBC_2.0)   |(GLIBC_2.0)[10]  |(GLIBC_2.0)[10]|(GLIBC_2.0)[10]|
+  2417	|[10]        |[10]          |                 |               |               |
+  2418	|------------+--------------+-----------------+---------------+---------------|
+  2419	|atanh       |copysign      |fesetenv         |llrintl        |scalbnf        |
+  2420	|(GLIBC_2.0) |(GLIBC_2.0)   |(GLIBC_2.0)[10]  |(GLIBC_2.0)[10]|(GLIBC_2.0)[10]|
+  2421	|[11]        |[10]          |                 |               |               |
+  2422	|------------+--------------+-----------------+---------------+---------------|
+  2423	|atanhf      |copysignf     |fesetexceptflag  |llround        |scalbnl        |
+  2424	|(GLIBC_2.0) |(GLIBC_2.0)   |(GLIBC_2.0)[10]  |(GLIBC_2.0)[10]|(GLIBC_2.0)[10]|
+  2425	|[10]        |[10]          |                 |               |               |
+  2426	|------------+--------------+-----------------+---------------+---------------|
+  2427	|atanhl      |copysignl     |fesetround       |llroundf       |significand    |
+  2428	|(GLIBC_2.0) |(GLIBC_2.0)   |(GLIBC_2.0)[10]  |(GLIBC_2.0)[10]|(GLIBC_2.0)[10]|
+  2429	|[10]        |[10]          |                 |               |               |
+  2430	|------------+--------------+-----------------+---------------+---------------|
+  2431	|atanl       |cos(GLIBC_2.0)|fetestexcept     |llroundl       |significandf   |
+  2432	|(GLIBC_2.0) |[11]          |(GLIBC_2.0)[10]  |(GLIBC_2.0)[10]|(GLIBC_2.0)[10]|
+  2433	|[10]        |              |                 |               |               |
+  2434	|------------+--------------+-----------------+---------------+---------------|
+  2435	|cabs        |cosf          |feupdateenv      |log(GLIBC_2.1) |significandl   |
+  2436	|(GLIBC_2.1) |(GLIBC_2.1)   |(GLIBC_2.1)[10]  |[11]           |(GLIBC_2.1)[10]|
+  2437	|[11]        |[10]          |                 |               |               |
+  2438	|------------+--------------+-----------------+---------------+---------------|
+  2439	|cabsf       |cosh          |finite(GLIBC_2.1)|log10          |sin(GLIBC_2.1) |
+  2440	|(GLIBC_2.1) |(GLIBC_2.1)   |[11]             |(GLIBC_2.1)[11]|[11]           |
+  2441	|[10]        |[11]          |                 |               |               |
+  2442	|------------+--------------+-----------------+---------------+---------------|
+  2443	|cabsl       |coshf         |finitef          |log1p          |sincos         |
+  2444	|(GLIBC_2.1) |(GLIBC_2.1)   |(GLIBC_2.1)[10]  |(GLIBC_2.1)[11]|(GLIBC_2.1)[10]|
+  2445	|[10]        |[10]          |                 |               |               |
+  2446	|------------+--------------+-----------------+---------------+---------------|
+  2447	|cacos       |coshl         |finitel          |logb(GLIBC_2.1)|sincosf        |
+  2448	|(GLIBC_2.1) |(GLIBC_2.1)   |(GLIBC_2.1)[10]  |[11]           |(GLIBC_2.1)[10]|
+  2449	|[10]        |[10]          |                 |               |               |
+  2450	|------------+--------------+-----------------+---------------+---------------|
+  2451	|cacosf      |cosl          |floor(GLIBC_2.1) |lrint          |sincosl        |
+  2452	|(GLIBC_2.1) |(GLIBC_2.1)   |[11]             |(GLIBC_2.1)[10]|(GLIBC_2.1)[10]|
+  2453	|[10]        |[10]          |                 |               |               |
+  2454	|------------+--------------+-----------------+---------------+---------------|
+  2455	|cacosh      |cpow          |floorf(GLIBC_2.1)|lrintf         |sinf(GLIBC_2.1)|
+  2456	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|[10]           |
+  2457	|[10]        |[10]          |                 |               |               |
+  2458	|------------+--------------+-----------------+---------------+---------------|
+  2459	|cacoshf     |cpowf         |floorl(GLIBC_2.1)|lrintl         |sinh(GLIBC_2.1)|
+  2460	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|[11]           |
+  2461	|[10]        |[10]          |                 |               |               |
+  2462	|------------+--------------+-----------------+---------------+---------------|
+  2463	|cacoshl     |cpowl         |fma(GLIBC_2.1)   |lround         |sinhf          |
+  2464	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|(GLIBC_2.1)[10]|
+  2465	|[10]        |[10]          |                 |               |               |
+  2466	|------------+--------------+-----------------+---------------+---------------|
+  2467	|cacosl      |cproj         |fmaf(GLIBC_2.1)  |lroundf        |sinhl          |
+  2468	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|(GLIBC_2.1)[10]|
+  2469	|[10]        |[10]          |                 |               |               |
+  2470	|------------+--------------+-----------------+---------------+---------------|
+  2471	|carg        |cprojf        |fmal(GLIBC_2.1)  |lroundl        |sinl(GLIBC_2.1)|
+  2472	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|[10]           |
+  2473	|[10]        |[10]          |                 |               |               |
+  2474	|------------+--------------+-----------------+---------------+---------------|
+  2475	|cargf       |cprojl        |fmax(GLIBC_2.1)  |matherr        |sqrt(GLIBC_2.1)|
+  2476	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|[11]           |
+  2477	|[10]        |[10]          |                 |               |               |
+  2478	|------------+--------------+-----------------+---------------+---------------|
+  2479	|cargl       |creal         |fmaxf(GLIBC_2.1) |modf(GLIBC_2.1)|sqrtf          |
+  2480	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |[11]           |(GLIBC_2.1)[10]|
+  2481	|[10]        |[10]          |                 |               |               |
+  2482	|------------+--------------+-----------------+---------------+---------------|
+  2483	|casin       |crealf        |fmaxl(GLIBC_2.1) |modff          |tan(GLIBC_2.1) |
+  2484	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|[11]           |
+  2485	|[10]        |[10]          |                 |               |               |
+  2486	|------------+--------------+-----------------+---------------+---------------|
+  2487	|casinf      |creall        |fmin(GLIBC_2.1)  |modfl          |tanf(GLIBC_2.1)|
+  2488	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|[10]           |
+  2489	|[10]        |[10]          |                 |               |               |
+  2490	|------------+--------------+-----------------+---------------+---------------|
+  2491	|casinh      |csin          |fminf(GLIBC_2.1) |nan(GLIBC_2.1) |tanh(GLIBC_2.1)|
+  2492	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |[10]           |[11]           |
+  2493	|[10]        |[10]          |                 |               |               |
+  2494	|------------+--------------+-----------------+---------------+---------------|
+  2495	|casinhf     |csinf         |fminl(GLIBC_2.1) |nanf(GLIBC_2.1)|tanhf          |
+  2496	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |[10]           |(GLIBC_2.1)[10]|
+  2497	|[10]        |[10]          |                 |               |               |
+  2498	|------------+--------------+-----------------+---------------+---------------|
+  2499	|casinhl     |csinh         |fmod(GLIBC_2.1)  |nanl(GLIBC_2.1)|tanhl          |
+  2500	|(GLIBC_2.1) |(GLIBC_2.1)   |[11]             |[10]           |(GLIBC_2.1)[10]|
+  2501	|[10]        |[10]          |                 |               |               |
+  2502	|------------+--------------+-----------------+---------------+---------------|
+  2503	|casinl      |csinhf        |fmodf(GLIBC_2.1) |nearbyint      |tanl(GLIBC_2.1)|
+  2504	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|[10]           |
+  2505	|[10]        |[10]          |                 |               |               |
+  2506	|------------+--------------+-----------------+---------------+---------------|
+  2507	|catan       |csinhl        |fmodl(GLIBC_2.1) |nearbyintf     |tgamma         |
+  2508	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|(GLIBC_2.1)[10]|
+  2509	|[10]        |[10]          |                 |               |               |
+  2510	|------------+--------------+-----------------+---------------+---------------|
+  2511	|catanf      |csinl         |frexp(GLIBC_2.1) |nearbyintl     |tgammaf        |
+  2512	|(GLIBC_2.1) |(GLIBC_2.1)   |[11]             |(GLIBC_2.1)[10]|(GLIBC_2.1)[10]|
+  2513	|[10]        |[10]          |                 |               |               |
+  2514	|------------+--------------+-----------------+---------------+---------------|
+  2515	|catanh      |csqrt         |frexpf(GLIBC_2.1)|nextafter      |tgammal        |
+  2516	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[11]|(GLIBC_2.1)[10]|
+  2517	|[10]        |[10]          |                 |               |               |
+  2518	|------------+--------------+-----------------+---------------+---------------|
+  2519	|catanhf     |csqrtf        |frexpl(GLIBC_2.1)|nextafterf     |trunc          |
+  2520	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|(GLIBC_2.1)[10]|
+  2521	|[10]        |[10]          |                 |               |               |
+  2522	|------------+--------------+-----------------+---------------+---------------|
+  2523	|catanhl     |csqrtl        |gamma(GLIBC_2.1) |nextafterl     |truncf         |
+  2524	|(GLIBC_2.1) |(GLIBC_2.1)   |[11]             |(GLIBC_2.1)[10]|(GLIBC_2.1)[10]|
+  2525	|[10]        |[10]          |                 |               |               |
+  2526	|------------+--------------+-----------------+---------------+---------------|
+  2527	|catanl      |ctan          |gammaf(GLIBC_2.1)|nexttoward     |truncl         |
+  2528	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|(GLIBC_2.1)[10]|
+  2529	|[10]        |[10]          |                 |               |               |
+  2530	|------------+--------------+-----------------+---------------+---------------|
+  2531	|cbrt        |ctanf         |gammal(GLIBC_2.0)|nexttowardf    |y0(GLIBC_2.0)  |
+  2532	|(GLIBC_2.0) |(GLIBC_2.0)   |[10]             |(GLIBC_2.0)[10]|[11]           |
+  2533	|[11]        |[10]          |                 |               |               |
+  2534	|------------+--------------+-----------------+---------------+---------------|
+  2535	|cbrtf       |ctanh         |hypot(GLIBC_2.0) |nexttowardl    |y0f(GLIBC_2.0) |
+  2536	|(GLIBC_2.0) |(GLIBC_2.0)   |[11]             |(GLIBC_2.0)[10]|[10]           |
+  2537	|[10]        |[10]          |                 |               |               |
+  2538	|------------+--------------+-----------------+---------------+---------------|
+  2539	|cbrtl       |ctanhf        |hypotf(GLIBC_2.0)|pow(GLIBC_2.0) |y0l(GLIBC_2.0) |
+  2540	|(GLIBC_2.0) |(GLIBC_2.0)   |[10]             |[10]           |[10]           |
+  2541	|[10]        |[10]          |                 |               |               |
+  2542	|------------+--------------+-----------------+---------------+---------------|
+  2543	|ccos        |ctanhl        |hypotl(GLIBC_2.1)|pow10          |y1(GLIBC_2.1)  |
+  2544	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|[11]           |
+  2545	|[10]        |[10]          |                 |               |               |
+  2546	|------------+--------------+-----------------+---------------+---------------|
+  2547	|ccosf       |ctanl         |ilogb(GLIBC_2.1) |pow10f         |y1f(GLIBC_2.1) |
+  2548	|(GLIBC_2.1) |(GLIBC_2.1)   |[11]             |(GLIBC_2.1)[10]|[10]           |
+  2549	|[10]        |[10]          |                 |               |               |
+  2550	|------------+--------------+-----------------+---------------+---------------|
+  2551	|ccosh       |dremf         |ilogbf(GLIBC_2.1)|pow10l         |y1l(GLIBC_2.1) |
+  2552	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[10]|[10]           |
+  2553	|[10]        |[10]          |                 |               |               |
+  2554	|------------+--------------+-----------------+---------------+---------------|
+  2555	|ccoshf      |dreml         |ilogbl(GLIBC_2.1)|powf(GLIBC_2.1)|yn(GLIBC_2.1)  |
+  2556	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |[10]           |[11]           |
+  2557	|[10]        |[10]          |                 |               |               |
+  2558	|------------+--------------+-----------------+---------------+---------------|
+  2559	|ccoshl      |erf(GLIBC_2.1)|j0(GLIBC_2.1)[11]|powl(GLIBC_2.1)|ynf(GLIBC_2.1) |
+  2560	|(GLIBC_2.1) |[11]          |                 |[10]           |[10]           |
+  2561	|[10]        |              |                 |               |               |
+  2562	|------------+--------------+-----------------+---------------+---------------|
+  2563	|ccosl       |erfc          |j0f(GLIBC_2.1)   |remainder      |ynl(GLIBC_2.1) |
+  2564	|(GLIBC_2.1) |(GLIBC_2.1)   |[10]             |(GLIBC_2.1)[11]|[10]           |
+  2565	|[10]        |[11]          |                 |               |               |
+  2566	|------------+--------------+-----------------+---------------+---------------|
+  2567	|ceil        |erfcf         |j0l(GLIBC_2.0)   |remainderf     |               |
+  2568	|(GLIBC_2.0) |(GLIBC_2.0)   |[10]             |(GLIBC_2.0)[10]|               |
+  2569	|[11]        |[10]          |                 |               |               |
+  2570	+-----------------------------------------------------------------------------+
+  2571	
+  2572	Table 16-28. libm - Math Data Interfaces
+  2573	
+  2574	+--------------------+
+  2575	|signgam[11] | | | | |
+  2576	+--------------------+
+  2577	-------------------------------------------------------------------------------
+  2578	
+  2579	Data Definitions for libm
+  2580	
+  2581	-------------------------------------------------------------------------------
+  2582	
+  2583	Interfaces for libpthread
+  2584	
+  2585	Table 16-29. libpthread Definition
+  2586	
+  2587	+-------------------------+
+  2588	|Library:|libpthread      |
+  2589	|--------+----------------|
+  2590	|SONAME: |libpthread.so.0 |
+  2591	+-------------------------+
+  2592	
+  2593	The behavior of the interfaces in this library is specified by the following
+  2594	standards.
+  2595	
+  2596	Linux Standard Base[12]                                                        
+  2597	CAE Specification, January 1997, System Interfaces and Headers (XSH), Issue 5  
+  2598	(ISBN: 1-85912-181-0, C606)[13]                                                
+  2599	
+  2600	-------------------------------------------------------------------------------
+  2601	
+  2602	Posix Threads
+  2603	
+  2604	Table 16-30. libpthread - Posix Threads Function Interfaces
+  2605	
+  2606	+----------------------------------------------------------------------------------------------------------------------------------------+
+  2607	|pthread_attr_destroy        |pthread_attr_setstackaddr|pthread_getspecific         |pthread_once(GLIBC_2.0)[13]  |pthread_setcanceltype |
+  2608	|(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]          |(GLIBC_2.0)[13]             |                             |(GLIBC_2.0)[13]       |
+  2609	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2610	|pthread_attr_getdetachstate |pthread_attr_setstacksize|pthread_join(GLIBC_2.0)[13] |pthread_rwlock_destroy       |pthread_setconcurrency|
+  2611	|(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]          |                            |(GLIBC_2.0)[13]              |(GLIBC_2.0)[13]       |
+  2612	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2613	|pthread_attr_getguardsize   |pthread_cancel(GLIBC_2.1)|pthread_key_create          |pthread_rwlock_init          |pthread_setschedparam |
+  2614	|(GLIBC_2.1)[13]             |[13]                     |(GLIBC_2.1)[13]             |(GLIBC_2.1)[13]              |(GLIBC_2.1)[13]       |
+  2615	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2616	|pthread_attr_getinheritsched|pthread_cond_broadcast   |pthread_key_delete          |pthread_rwlock_rdlock        |pthread_setspecific   |
+  2617	|(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]          |(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]              |(GLIBC_2.0)[13]       |
+  2618	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2619	|pthread_attr_getschedparam  |pthread_cond_destroy     |pthread_kill(GLIBC_2.0)[13] |pthread_rwlock_timedrdlock   |pthread_sigmask       |
+  2620	|(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]          |                            |(GLIBC_2.0)[13]              |(GLIBC_2.0)[13]       |
+  2621	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2622	|pthread_attr_getschedpolicy |pthread_cond_init        |pthread_mutex_destroy       |pthread_rwlock_timedwrlock   |pthread_testcancel    |
+  2623	|(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]          |(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]              |(GLIBC_2.0)[13]       |
+  2624	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2625	|pthread_attr_getscope       |pthread_cond_signal      |pthread_mutex_init          |pthread_rwlock_tryrdlock     |sem_close(GLIBC_2.0)  |
+  2626	|(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]          |(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]              |[13]                  |
+  2627	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2628	|pthread_attr_getstackaddr   |pthread_cond_timedwait   |pthread_mutex_lock          |pthread_rwlock_trywrlock     |sem_destroy(GLIBC_2.1)|
+  2629	|(GLIBC_2.1)[13]             |(GLIBC_2.1)[13]          |(GLIBC_2.1)[13]             |(GLIBC_2.1)[13]              |[13]                  |
+  2630	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2631	|pthread_attr_getstacksize   |pthread_cond_wait        |pthread_mutex_trylock       |pthread_rwlock_unlock        |sem_getvalue          |
+  2632	|(GLIBC_2.1)[13]             |(GLIBC_2.1)[13]          |(GLIBC_2.1)[13]             |(GLIBC_2.1)[13]              |(GLIBC_2.1)[13]       |
+  2633	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2634	|pthread_attr_init(GLIBC_2.1)|pthread_condattr_destroy |pthread_mutex_unlock        |pthread_rwlock_wrlock        |sem_init(GLIBC_2.1)   |
+  2635	|[13]                        |(GLIBC_2.1)[13]          |(GLIBC_2.1)[13]             |(GLIBC_2.1)[13]              |[13]                  |
+  2636	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2637	|pthread_attr_setdetachstate |pthread_condattr_init    |pthread_mutexattr_destroy   |pthread_rwlockattr_destroy   |sem_open(GLIBC_2.0)   |
+  2638	|(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]          |(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]              |[13]                  |
+  2639	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2640	|pthread_attr_setguardsize   |pthread_create(GLIBC_2.1)|pthread_mutexattr_getpshared|pthread_rwlockattr_getpshared|sem_post(GLIBC_2.1)   |
+  2641	|(GLIBC_2.1)[13]             |[13]                     |(GLIBC_2.1)[13]             |(GLIBC_2.1)[13]              |[13]                  |
+  2642	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2643	|pthread_attr_setinheritsched|pthread_detach(GLIBC_2.0)|pthread_mutexattr_gettype   |pthread_rwlockattr_init      |sem_timedwait         |
+  2644	|(GLIBC_2.0)[13]             |[13]                     |(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]              |(GLIBC_2.0)[12]       |
+  2645	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2646	|pthread_attr_setschedparam  |pthread_equal(GLIBC_2.0) |pthread_mutexattr_init      |pthread_rwlockattr_setpshared|sem_trywait(GLIBC_2.0)|
+  2647	|(GLIBC_2.0)[13]             |[13]                     |(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]              |[13]                  |
+  2648	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2649	|pthread_attr_setschedpolicy |pthread_exit(GLIBC_2.0)  |pthread_mutexattr_setpshared|pthread_self(GLIBC_2.0)[13]  |sem_unlink(GLIBC_2.0) |
+  2650	|(GLIBC_2.0)[13]             |[13]                     |(GLIBC_2.0)[13]             |                             |[13]                  |
+  2651	|----------------------------+-------------------------+----------------------------+-----------------------------+----------------------|
+  2652	|pthread_attr_setscope       |pthread_getschedparam    |pthread_mutexattr_settype   |pthread_setcancelstate       |sem_wait(GLIBC_2.0)   |
+  2653	|(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]          |(GLIBC_2.0)[13]             |(GLIBC_2.0)[13]              |[13]                  |
+  2654	+----------------------------------------------------------------------------------------------------------------------------------------+
+  2655	-------------------------------------------------------------------------------
+  2656	
+  2657	Data Definitions for libpthread
+  2658	
+  2659	-------------------------------------------------------------------------------
+  2660	
+  2661	signal.h
+  2662	
+  2663	
+  2664	
+  2665	
+  2666	#define SIGUSR1 10
+  2667	#define SIGUSR2 12
+  2668	#define SIGSTKFLT       16
+  2669	#define SIGCHLD 17
+  2670	#define SIGCONT 18
+  2671	#define SIGSTOP 19
+  2672	#define SIGTSTP 20
+  2673	#define SIGTTIN 21
+  2674	#define SIGTTOU 22
+  2675	#define SIGURG  23
+  2676	#define SIGXCPU 24
+  2677	#define SIGXFSZ 25
+  2678	#define SIGVTALRM       26
+  2679	#define SIGPROF 27
+  2680	#define SIGWINCH        28
+  2681	#define SIGIO   29
+  2682	#define SIGPWR  30
+  2683	#define SIGSYS  31
+  2684	#define SIGUNUSED       31
+  2685	#define SIGBUS  7
+  2686	
+  2687	
+  2688	
+  2689	
+  2690	
+  2691	
+  2692	
+  2693	
+  2694	
+  2695	
+  2696	
+  2697	
+  2698	
+  2699	
+  2700	
+  2701	
+  2702	
+  2703	
+  2704	
+  2705	
+  2706	
+  2707	
+  2708	
+  2709	
+  2710	
+  2711	
+  2712	
+  2713	
+  2714	
+  2715	
+  2716	
+  2717	
+  2718	struct sigcontext;
+  2719	-------------------------------------------------------------------------------
+  2720	
+  2721	Interfaces for libdl
+  2722	
+  2723	Table 16-31. libdl Definition
+  2724	
+  2725	+--------------------+
+  2726	|Library:|libdl      |
+  2727	|--------+-----------|
+  2728	|SONAME: |libdl.so.2 |
+  2729	+--------------------+
+  2730	
+  2731	-------------------------------------------------------------------------------
+  2732	
+  2733	Dynamic Loader
+  2734	
+  2735	-------------------------------------------------------------------------------
+  2736	
+  2737	Data Definitions for libdl
+  2738	
+  2739	-------------------------------------------------------------------------------
+  2740	
+  2741	Interfaces for libcrypt
+  2742	
+  2743	Table 16-32. libcrypt Definition
+  2744	
+  2745	+-----------------------+
+  2746	|Library:|libcrypt      |
+  2747	|--------+--------------|
+  2748	|SONAME: |libcrypt.so.1 |
+  2749	+-----------------------+
+  2750	
+  2751	-------------------------------------------------------------------------------
+  2752	
+  2753	Encryption
+  2754	
+  2755	-------------------------------------------------------------------------------
+  2756	
+  2757	Data Definitions for libcrypt
+  2758	
+  2759	VI. Execution Environment
+  2760	
+  2761	Table of Contents
+  2762	17. The /proc Subtree
+  2763	
+  2764	-------------------------------------------------------------------------------
+  2765	
+  2766	Chapter 17. The /proc Subtree
+  2767	
+  2768	/proc/cpuinfo
+  2769	
+  2770	PPC32 specific details of /proc/cpuinfo go here.
+  2771	
+  2772	-------------------------------------------------------------------------------
+  2773	
+  2774	Appendix A. Alphabetical Listing of Interfaces
+  2775	
+  2776	-------------------------------------------------------------------------------
+  2777	
+  2778	Appendix B. GNU Free Documentation License
+  2779	
+  2780	Version 1.1, March 2000
+  2781	
+  2782	    Copyright (C) 2000 Free Software Foundation, Inc. 59 Temple Place, Suite
+  2783	    330, Boston, MA 02111-1307 USA Everyone is permitted to copy and distribute
+  2784	    verbatim copies of this license document, but changing it is not allowed.
+  2785	   
+  2786	-------------------------------------------------------------------------------
+  2787	
+  2788	PREAMBLE
+  2789	
+  2790	The purpose of this License is to make a manual, textbook, or other written
+  2791	document "free" in the sense of freedom: to assure everyone the effective
+  2792	freedom to copy and redistribute it, with or without modifying it, either
+  2793	commercially or noncommercially. Secondarily, this License preserves for the
+  2794	author and publisher a way to get credit for their work, while not being
+  2795	considered responsible for modifications made by others.
+  2796	
+  2797	This License is a kind of "copyleft", which means that derivative works of the
+  2798	document must themselves be free in the same sense. It complements the GNU
+  2799	General Public License, which is a copyleft license designed for free software.
+  2800	
+  2801	We have designed this License in order to use it for manuals for free software,
+  2802	because free software needs free documentation: a free program should come with
+  2803	manuals providing the same freedoms that the software does. But this License is
+  2804	not limited to software manuals; it can be used for any textual work,
+  2805	regardless of subject matter or whether it is published as a printed book. We
+  2806	recommend this License principally for works whose purpose is instruction or
+  2807	reference.
+  2808	
+  2809	-------------------------------------------------------------------------------
+  2810	
+  2811	APPLICABILITY AND DEFINITIONS
+  2812	
+  2813	This License applies to any manual or other work that contains a notice placed
+  2814	by the copyright holder saying it can be distributed under the terms of this
+  2815	License. The "Document", below, refers to any such manual or work. Any member
+  2816	of the public is a licensee, and is addressed as "you".
+  2817	
+  2818	A "Modified Version" of the Document means any work containing the Document or
+  2819	a portion of it, either copied verbatim, or with modifications and/or
+  2820	translated into another language.
+  2821	
+  2822	A "Secondary Section" is a named appendix or a front-matter section of the
+  2823	Document that deals exclusively with the relationship of the publishers or
+  2824	authors of the Document to the Document's overall subject (or to related
+  2825	matters) and contains nothing that could fall directly within that overall
+  2826	subject. (For example, if the Document is in part a textbook of mathematics, a
+  2827	Secondary Section may not explain any mathematics.) The relationship could be a
+  2828	matter of historical connection with the subject or with related matters, or of
+  2829	legal, commercial, philosophical, ethical or political position regarding them.
+  2830	
+  2831	The "Invariant Sections" are certain Secondary Sections whose titles are
+  2832	designated, as being those of Invariant Sections, in the notice that says that
+  2833	the Document is released under this License.
+  2834	
+  2835	The "Cover Texts" are certain short passages of text that are listed, as
+  2836	Front-Cover Texts or Back-Cover Texts, in the notice that says that the
+  2837	Document is released under this License.
+  2838	
+  2839	A "Transparent" copy of the Document means a machine-readable copy, represented
+  2840	in a format whose specification is available to the general public, whose
+  2841	contents can be viewed and edited directly and straightforwardly with generic
+  2842	text editors or (for images composed of pixels) generic paint programs or (for
+  2843	drawings) some widely available drawing editor, and that is suitable for input
+  2844	to text formatters or for automatic translation to a variety of formats
+  2845	suitable for input to text formatters. A copy made in an otherwise Transparent
+  2846	file format whose markup has been designed to thwart or discourage subsequent
+  2847	modification by readers is not Transparent. A copy that is not "Transparent" is
+  2848	called "Opaque".
+  2849	
+  2850	Examples of suitable formats for Transparent copies include plain ASCII without
+  2851	markup, Texinfo input format, LaTeX input format, SGML or XML using a publicly
+  2852	available DTD, and standard-conforming simple HTML designed for human
+  2853	modification. Opaque formats include PostScript, PDF, proprietary formats that
+  2854	can be read and edited only by proprietary word processors, SGML or XML for
+  2855	which the DTD and/or processing tools are not generally available, and the
+  2856	machine-generated HTML produced by some word processors for output purposes
+  2857	only.
+  2858	
+  2859	The "Title Page" means, for a printed book, the title page itself, plus such
+  2860	following pages as are needed to hold, legibly, the material this License
+  2861	requires to appear in the title page. For works in formats which do not have
+  2862	any title page as such, "Title Page" means the text near the most prominent
+  2863	appearance of the work's title, preceding the beginning of the body of the
+  2864	text.
+  2865	
+  2866	-------------------------------------------------------------------------------
+  2867	
+  2868	VERBATIM COPYING
+  2869	
+  2870	You may copy and distribute the Document in any medium, either commercially or
+  2871	noncommercially, provided that this License, the copyright notices, and the
+  2872	license notice saying this License applies to the Document are reproduced in
+  2873	all copies, and that you add no other conditions whatsoever to those of this
+  2874	License. You may not use technical measures to obstruct or control the reading
+  2875	or further copying of the copies you make or distribute. However, you may
+  2876	accept compensation in exchange for copies. If you distribute a large enough
+  2877	number of copies you must also follow the conditions in section 3.
+  2878	
+  2879	You may also lend copies, under the same conditions stated above, and you may
+  2880	publicly display copies.
+  2881	
+  2882	-------------------------------------------------------------------------------
+  2883	
+  2884	COPYING IN QUANTITY
+  2885	
+  2886	If you publish printed copies of the Document numbering more than 100, and the
+  2887	Document's license notice requires Cover Texts, you must enclose the copies in
+  2888	covers that carry, clearly and legibly, all these Cover Texts: Front-Cover
+  2889	Texts on the front cover, and Back-Cover Texts on the back cover. Both covers
+  2890	must also clearly and legibly identify you as the publisher of these copies.
+  2891	The front cover must present the full title with all words of the title equally
+  2892	prominent and visible. You may add other material on the covers in addition.
+  2893	Copying with changes limited to the covers, as long as they preserve the title
+  2894	of the Document and satisfy these conditions, can be treated as verbatim
+  2895	copying in other respects.
+  2896	
+  2897	If the required texts for either cover are too voluminous to fit legibly, you
+  2898	should put the first ones listed (as many as fit reasonably) on the actual
+  2899	cover, and continue the rest onto adjacent pages.
+  2900	
+  2901	If you publish or distribute Opaque copies of the Document numbering more than
+  2902	100, you must either include a machine-readable Transparent copy along with
+  2903	each Opaque copy, or state in or with each Opaque copy a publicly-accessible
+  2904	computer-network location containing a complete Transparent copy of the
+  2905	Document, free of added material, which the general network-using public has
+  2906	access to download anonymously at no charge using public-standard network
+  2907	protocols. If you use the latter option, you must take reasonably prudent
+  2908	steps, when you begin distribution of Opaque copies in quantity, to ensure that
+  2909	this Transparent copy will remain thus accessible at the stated location until
+  2910	at least one year after the last time you distribute an Opaque copy (directly
+  2911	or through your agents or retailers) of that edition to the public.
+  2912	
+  2913	It is requested, but not required, that you contact the authors of the Document
+  2914	well before redistributing any large number of copies, to give them a chance to
+  2915	provide you with an updated version of the Document.
+  2916	
+  2917	-------------------------------------------------------------------------------
+  2918	
+  2919	MODIFICATIONS
+  2920	
+  2921	You may copy and distribute a Modified Version of the Document under the
+  2922	conditions of sections 2 and 3 above, provided that you release the Modified
+  2923	Version under precisely this License, with the Modified Version filling the
+  2924	role of the Document, thus licensing distribution and modification of the
+  2925	Modified Version to whoever possesses a copy of it. In addition, you must do
+  2926	these things in the Modified Version:
+  2927	
+  2928	 A. Use in the Title Page (and on the covers, if any) a title distinct from
+  2929	    that of the Document, and from those of previous versions (which should, if
+  2930	    there were any, be listed in the History section of the Document). You may
+  2931	    use the same title as a previous version if the original publisher of that
+  2932	    version gives permission.
+  2933	   
+  2934	 B. List on the Title Page, as authors, one or more persons or entities
+  2935	    responsible for authorship of the modifications in the Modified Version,
+  2936	    together with at least five of the principal authors of the Document (all
+  2937	    of its principal authors, if it has less than five).
+  2938	   
+  2939	 C. State on the Title page the name of the publisher of the Modified Version,
+  2940	    as the publisher.
+  2941	   
+  2942	 D. Preserve all the copyright notices of the Document.
+  2943	   
+  2944	 E. Add an appropriate copyright notice for your modifications adjacent to the
+  2945	    other copyright notices.
+  2946	   
+  2947	 F. Include, immediately after the copyright notices, a license notice giving
+  2948	    the public permission to use the Modified Version under the terms of this
+  2949	    License, in the form shown in the Addendum below.
+  2950	   
+  2951	 G. Preserve in that license notice the full lists of Invariant Sections and
+  2952	    required Cover Texts given in the Document's license notice.
+  2953	   
+  2954	 H. Include an unaltered copy of this License.
+  2955	   
+  2956	 I. Preserve the section entitled "History", and its title, and add to it an
+  2957	    item stating at least the title, year, new authors, and publisher of the
+  2958	    Modified Version as given on the Title Page. If there is no section
+  2959	    entitled "History" in the Document, create one stating the title, year,
+  2960	    authors, and publisher of the Document as given on its Title Page, then add
+  2961	    an item describing the Modified Version as stated in the previous sentence.
+  2962	   
+  2963	 J. Preserve the network location, if any, given in the Document for public
+  2964	    access to a Transparent copy of the Document, and likewise the network
+  2965	    locations given in the Document for previous versions it was based on.
+  2966	    These may be placed in the "History" section. You may omit a network
+  2967	    location for a work that was published at least four years before the
+  2968	    Document itself, or if the original publisher of the version it refers to
+  2969	    gives permission.
+  2970	   
+  2971	 K. In any section entitled "Acknowledgements" or "Dedications", preserve the
+  2972	    section's title, and preserve in the section all the substance and tone of
+  2973	    each of the contributor acknowledgements and/or dedications given therein.
+  2974	   
+  2975	 L. Preserve all the Invariant Sections of the Document, unaltered in their
+  2976	    text and in their titles. Section numbers or the equivalent are not
+  2977	    considered part of the section titles.
+  2978	   
+  2979	 M. Delete any section entitled "Endorsements". Such a section may not be
+  2980	    included in the Modified Version.
+  2981	   
+  2982	 N. Do not retitle any existing section as "Endorsements" or to conflict in
+  2983	    title with any Invariant Section.
+  2984	   
+  2985	If the Modified Version includes new front-matter sections or appendices that
+  2986	qualify as Secondary Sections and contain no material copied from the Document,
+  2987	you may at your option designate some or all of these sections as invariant. To
+  2988	do this, add their titles to the list of Invariant Sections in the Modified
+  2989	Version's license notice. These titles must be distinct from any other section
+  2990	titles.
+  2991	
+  2992	You may add a section entitled "Endorsements", provided it contains nothing but
+  2993	endorsements of your Modified Version by various parties--for example,
+  2994	statements of peer review or that the text has been approved by an organization
+  2995	as the authoritative definition of a standard.
+  2996	
+  2997	You may add a passage of up to five words as a Front-Cover Text, and a passage
+  2998	of up to 25 words as a Back-Cover Text, to the end of the list of Cover Texts
+  2999	in the Modified Version. Only one passage of Front-Cover Text and one of
+  3000	Back-Cover Text may be added by (or through arrangements made by) any one
+  3001	entity. If the Document already includes a cover text for the same cover,
+  3002	previously added by you or by arrangement made by the same entity you are
+  3003	acting on behalf of, you may not add another; but you may replace the old one,
+  3004	on explicit permission from the previous publisher that added the old one.
+  3005	
+  3006	The author(s) and publisher(s) of the Document do not by this License give
+  3007	permission to use their names for publicity for or to assert or imply
+  3008	endorsement of any Modified Version.
+  3009	
+  3010	-------------------------------------------------------------------------------
+  3011	
+  3012	COMBINING DOCUMENTS
+  3013	
+  3014	You may combine the Document with other documents released under this License,
+  3015	under the terms defined in section 4 above for modified versions, provided that
+  3016	you include in the combination all of the Invariant Sections of all of the
+  3017	original documents, unmodified, and list them all as Invariant Sections of your
+  3018	combined work in its license notice.
+  3019	
+  3020	The combined work need only contain one copy of this License, and multiple
+  3021	identical Invariant Sections may be replaced with a single copy. If there are
+  3022	multiple Invariant Sections with the same name but different contents, make the
+  3023	title of each such section unique by adding at the end of it, in parentheses,
+  3024	the name of the original author or publisher of that section if known, or else
+  3025	a unique number. Make the same adjustment to the section titles in the list of
+  3026	Invariant Sections in the license notice of the combined work.
+  3027	
+  3028	In the combination, you must combine any sections entitled "History" in the
+  3029	various original documents, forming one section entitled "History"; likewise
+  3030	combine any sections entitled "Acknowledgements", and any sections entitled
+  3031	"Dedications". You must delete all sections entitled "Endorsements."
+  3032	
+  3033	-------------------------------------------------------------------------------
+  3034	
+  3035	COLLECTIONS OF DOCUMENTS
+  3036	
+  3037	You may make a collection consisting of the Document and other documents
+  3038	released under this License, and replace the individual copies of this License
+  3039	in the various documents with a single copy that is included in the collection,
+  3040	provided that you follow the rules of this License for verbatim copying of each
+  3041	of the documents in all other respects.
+  3042	
+  3043	You may extract a single document from such a collection, and distribute it
+  3044	individually under this License, provided you insert a copy of this License
+  3045	into the extracted document, and follow this License in all other respects
+  3046	regarding verbatim copying of that document.
+  3047	
+  3048	-------------------------------------------------------------------------------
+  3049	
+  3050	AGGREGATION WITH INDEPENDENT WORKS
+  3051	
+  3052	A compilation of the Document or its derivatives with other separate and
+  3053	independent documents or works, in or on a volume of a storage or distribution
+  3054	medium, does not as a whole count as a Modified Version of the Document,
+  3055	provided no compilation copyright is claimed for the compilation. Such a
+  3056	compilation is called an "aggregate", and this License does not apply to the
+  3057	other self-contained works thus compiled with the Document, on account of their
+  3058	being thus compiled, if they are not themselves derivative works of the
+  3059	Document.
+  3060	
+  3061	If the Cover Text requirement of section 3 is applicable to these copies of the
+  3062	Document, then if the Document is less than one quarter of the entire
+  3063	aggregate, the Document's Cover Texts may be placed on covers that surround
+  3064	only the Document within the aggregate. Otherwise they must appear on covers
+  3065	around the whole aggregate.
+  3066	
+  3067	-------------------------------------------------------------------------------
+  3068	
+  3069	TRANSLATION
+  3070	
+  3071	Translation is considered a kind of modification, so you may distribute
+  3072	translations of the Document under the terms of section 4. Replacing Invariant
+  3073	Sections with translations requires special permission from their copyright
+  3074	holders, but you may include translations of some or all Invariant Sections in
+  3075	addition to the original versions of these Invariant Sections. You may include
+  3076	a translation of this License provided that you also include the original
+  3077	English version of this License. In case of a disagreement between the
+  3078	translation and the original English version of this License, the original
+  3079	English version will prevail.
+  3080	
+  3081	-------------------------------------------------------------------------------
+  3082	
+  3083	TERMINATION
+  3084	
+  3085	You may not copy, modify, sublicense, or distribute the Document except as
+  3086	expressly provided for under this License. Any other attempt to copy, modify,
+  3087	sublicense or distribute the Document is void, and will automatically terminate
+  3088	your rights under this License. However, parties who have received copies, or
+  3089	rights, from you under this License will not have their licenses terminated so
+  3090	long as such parties remain in full compliance.
+  3091	
+  3092	-------------------------------------------------------------------------------
+  3093	
+  3094	FUTURE REVISIONS OF THIS LICENSE
+  3095	
+  3096	The Free Software Foundation may publish new, revised versions of the GNU Free
+  3097	Documentation License from time to time. Such new versions will be similar in
+  3098	spirit to the present version, but may differ in detail to address new problems
+  3099	or concerns. See http://www.gnu.org/copyleft/.
+  3100	
+  3101	Each version of the License is given a distinguishing version number. If the
+  3102	Document specifies that a particular numbered version of this License "or any
+  3103	later version" applies to it, you have the option of following the terms and
+  3104	conditions either of that specified version or of any later version that has
+  3105	been published (not as a draft) by the Free Software Foundation. If the
+  3106	Document does not specify a version number of this License, you may choose any
+  3107	version ever published (not as a draft) by the Free Software Foundation.
+  3108	
+  3109	-------------------------------------------------------------------------------
+  3110	
+  3111	How to use this License for your documents
+  3112	
+  3113	To use this License in a document you have written, include a copy of the
+  3114	License in the document and put the following copyright and license notices
+  3115	just after the title page:
+  3116	
+  3117	    Copyright (c) YEAR YOUR NAME. Permission is granted to copy, distribute and
+  3118	    /or modify this document under the terms of the GNU Free Documentation
+  3119	    License, Version 1.1 or any later version published by the Free Software
+  3120	    Foundation; with the Invariant Sections being LIST THEIR TITLES, with the
+  3121	    Front-Cover Texts being LIST, and with the Back-Cover Texts being LIST. A
+  3122	    copy of the license is included in the section entitled "GNU Free
+  3123	    Documentation License".
+  3124	   
+  3125	If you have no Invariant Sections, write "with no Invariant Sections" instead
+  3126	of saying which ones are invariant. If you have no Front-Cover Texts, write "no
+  3127	Front-Cover Texts" instead of "Front-Cover Texts being LIST"; likewise for
+  3128	Back-Cover Texts.
+  3129	
+  3130	If your document contains nontrivial examples of program code, we recommend
+  3131	releasing these examples in parallel under your choice of free software
+  3132	license, such as the GNU General Public License, to permit their use in free
+  3133	software.
+  3134	
+  3135	Notes
+  3136	
+  3137	[1]  ISO/IEC 9899: 1999, Programming Languages --C                             
+  3138	                                                                               
+  3139	[2]  Large File Support                                                        
+  3140	                                                                               
+  3141	[3]  LI18NUX 2000 Globalization Specification, Version 1.0 with Amendment 4    
+  3142	                                                                               
+  3143	[4]  Linux Standard Base                                                       
+  3144	                                                                               
+  3145	[5]  IEEE Std POSIX.1-1996 [ISO/IEC 9945-1:1996]                               
+  3146	                                                                               
+  3147	[6]  CAE Specification, February 1997, Networking Services (XNS), Issue 5      
+  3148	     (ISBN: 1-85912-165-9, C523)                                               
+  3149	                                                                               
+  3150	[7]  CAE Specification, January 1997, System Interfaces and Headers (XSH),     
+  3151	     Issue 5 (ISBN: 1-85912-181-0, C606)                                       
+  3152	                                                                               
+  3153	[8]  System V Interface Definition, Issue 3 (ISBN 0201566524)                  
+  3154	                                                                               
+  3155	[9]  System V Interface Definition,Fourth Edition                              
+  3156	                                                                               
+  3157	[10] ISO/IEC 9899: 1999, Programming Languages --C                             
+  3158	                                                                               
+  3159	[11] CAE Specification, January 1997, System Interfaces and Headers (XSH),     
+  3160	     Issue 5 (ISBN: 1-85912-181-0, C606)                                       
+  3161	                                                                               
+  3162	[12] Linux Standard Base                                                       
+  3163	                                                                               
+  3164	[13] CAE Specification, January 1997, System Interfaces and Headers (XSH),     
+  3165	     Issue 5 (ISBN: 1-85912-181-0, C606)                                       
+  3166	

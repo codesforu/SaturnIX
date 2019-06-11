@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux/x86 (vers 1st December 2004), see www.w3.org" />
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>LSB 3.0 Specifications</title>
+
+  <style type="text/css">
+    /*<![CDATA[*/
+    table  { border-collapse: collapse; margin-top: 12px; border-spacing: 0px; border: thin solid black; }
+    td, th { text-align: center; padding: 3px; margin: 0px; border: thin solid black; }
+    tr td:first-child { text-align: left; }
+    /*]]>*/
+  </style>
+  <style type="text/css">
+    /*<![CDATA[*/
+    /* this defines an LSB/FHS specification table type. To use:
+    /* <table class=spectable>, <td class=avail> or navail for green/red */
+    .spectable table  {
+      border-collapse: collapse;
+      margin-top: 12px;
+      border-spacing: 0px;
+      border: thin solid black;
+    }
+
+    .spectable td, th {
+      padding: 3px;
+      margin: 0px;
+      border: thin solid black;
+    }
+
+    .spectable td.avail {
+      background-color: #99cc00;
+      border-color: #ffffff;
+    }
+
+    .spectable td.avail:hover {
+      background-color: #999900;
+    }
+
+    .spectable td.navail {
+      background-color: #ff4040;
+      border-color: #ffffff;
+    }
+
+    .spectable td.navail:hover {
+      background-color: #a62020;
+    }
+
+    .avail a { text-decoration: underline; color: #000000 }
+    .avail a:hover { text-decoration: underline; color: #ffffff }
+    .navail a { text-decoration: none; color: #000000 }
+    .navail a:hover { text-decoration: none; color: #ffffff }
+
+    /*]]>*/
+  </style>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<table cellspacing=0 cellpadding=4 width="700px" style="background-color:#b6b6b6;box-shadow:5px 5px 0px 0px #494949">
+<tr>
+<td>
+<center><font face="helvetica"><font size=+4>Linux Standard Base</font></font>
+<p><font face="helvetica"><font size=+2>Specifications Archive</font></font></center>
+</td>
+</tr>
+</table>
+
+  <h1>LSB 3.0 Core Specification</h1>
+
+  <table class=spectable>
+    <tr>
+      <th>Specification</th>
+      <th>Version</th>
+      <th>HTML</th>
+      <th>RTF</th>
+      <th>PDF</th>
+      <th>HTML<br />(one page)</th>
+      <th>TXT</th>
+      <th>TXT<br />(numbered)</th>
+    </tr>
+
+    <tr>
+      <td>Generic</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-Core-generic/LSB-Core-generic/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-generic/LSB-Core-generic.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-Core-generic/LSB-Core-generic.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-Core-generic/LSB-Core-generic.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-generic/LSB-Core-generic.txt">TXT</a></td>
+      <td class=avail><a href="LSB-Core-generic/LSB-Core-generic_lines.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...IA32</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-Core-IA32/LSB-Core-IA32/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-IA32/LSB-Core-IA32.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-Core-IA32/LSB-Core-IA32.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-Core-IA32/LSB-Core-IA32.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-IA32/LSB-Core-IA32.txt">TXT</a></td>
+      <td class=avail><a href="LSB-Core-IA32/LSB-Core-IA32.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...IA64</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-Core-IA64/LSB-Core-IA64/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-IA64/LSB-Core-IA64.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-Core-IA64/LSB-Core-IA64.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-Core-IA64/LSB-Core-IA64.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-IA64/LSB-Core-IA64.txt">TXT</a></td>
+      <td class=avail><a href="LSB-Core-IA64/LSB-Core-IA64.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...PPC32</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-Core-PPC32/LSB-Core-PPC32/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-PPC32/LSB-Core-PPC32.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-Core-PPC32/LSB-Core-PPC32.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-Core-PPC32/LSB-Core-PPC32.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-PPC32/LSB-Core-PPC32.txt">TXT</a></td>
+      <td class=avail><a href="LSB-Core-PPC32/LSB-Core-PPC32.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...PPC64</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-Core-PPC64/LSB-Core-PPC64/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-PPC64/LSB-Core-PPC64.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-Core-PPC64/LSB-Core-PPC64.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-Core-PPC64/LSB-Core-PPC64.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-PPC64/LSB-Core-PPC64.txt">TXT</a></td>
+      <td class=avail><a href="LSB-Core-PPC64/LSB-Core-PPC64.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...S390</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-Core-S390/LSB-Core-S390/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-S390/LSB-Core-S390.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-Core-S390/LSB-Core-S390.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-Core-S390/LSB-Core-S390.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-S390/LSB-Core-S390.txt">TXT</a></td>
+      <td class=avail><a href="LSB-Core-S390/LSB-Core-S390.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...S390X</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-Core-S390X/LSB-Core-S390X/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-S390X/LSB-Core-S390X.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-Core-S390X/LSB-Core-S390X.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-Core-S390X/LSB-Core-S390X.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-S390X/LSB-Core-S390X.txt">TXT</a></td>
+      <td class=avail><a href="LSB-Core-S390X/LSB-Core-S390X.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...AMD64</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-Core-AMD64/LSB-Core-AMD64/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-AMD64/LSB-Core-AMD64.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-Core-AMD64/LSB-Core-AMD64.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-Core-AMD64/LSB-Core-AMD64.html">HTML</a></td>
+      <td class=avail><a href="LSB-Core-AMD64/LSB-Core-AMD64.txt">TXT</a></td>
+      <td class=avail><a href="LSB-Core-AMD64/LSB-Core-AMD64.txt">TXT</a></td>
+    </tr>
+  </table>
+
+  <h1>LSB 3.0 C++ Specification</h1>
+
+  <table class=spectable>
+    <tr>
+      <th>Specification</th>
+      <th>Version</th>
+      <th>HTML</th>
+      <th>RTF</th>
+      <th>PDF</th>
+      <th>HTML<br />(one page)</th>
+      <th>TXT</th>
+      <th>TXT<br />(numbered)</th>
+    </tr>
+
+    <tr>
+      <td>Generic</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-CXX-generic/LSB-CXX-generic/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-generic/LSB-CXX-generic.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-CXX-generic/LSB-CXX-generic.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-CXX-generic/LSB-CXX-generic.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-generic/LSB-CXX-generic.txt">TXT</a></td>
+      <td class=avail><a href="LSB-CXX-generic/LSB-CXX-generic_lines.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...IA32</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-CXX-IA32/LSB-CXX-IA32/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-IA32/LSB-CXX-IA32.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-CXX-IA32/LSB-CXX-IA32.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-CXX-IA32/LSB-CXX-IA32.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-IA32/LSB-CXX-IA32.txt">TXT</a></td>
+      <td class=avail><a href="LSB-CXX-IA32/LSB-CXX-IA32.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...IA64</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-CXX-IA64/LSB-CXX-IA64/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-IA64/LSB-CXX-IA64.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-CXX-IA64/LSB-CXX-IA64.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-CXX-IA64/LSB-CXX-IA64.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-IA64/LSB-CXX-IA64.txt">TXT</a></td>
+      <td class=avail><a href="LSB-CXX-IA64/LSB-CXX-IA64.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...PPC32</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-CXX-PPC32/LSB-CXX-PPC32/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-PPC32/LSB-CXX-PPC32.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-CXX-PPC32/LSB-CXX-PPC32.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-CXX-PPC32/LSB-CXX-PPC32.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-PPC32/LSB-CXX-PPC32.txt">TXT</a></td>
+      <td class=avail><a href="LSB-CXX-PPC32/LSB-CXX-PPC32.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...PPC64</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-CXX-PPC64/LSB-CXX-PPC64/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-PPC64/LSB-CXX-PPC64.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-CXX-PPC64/LSB-CXX-PPC64.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-CXX-PPC64/LSB-CXX-PPC64.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-PPC64/LSB-CXX-PPC64.txt">TXT</a></td>
+      <td class=avail><a href="LSB-CXX-PPC64/LSB-CXX-PPC64.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...S390</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-CXX-S390/LSB-CXX-S390/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-S390/LSB-CXX-S390.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-CXX-S390/LSB-CXX-S390.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-CXX-S390/LSB-CXX-S390.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-S390/LSB-CXX-S390.txt">TXT</a></td>
+      <td class=avail><a href="LSB-CXX-S390/LSB-CXX-S390.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...S390X</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-CXX-S390X/LSB-CXX-S390X/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-S390X/LSB-CXX-S390X.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-CXX-S390X/LSB-CXX-S390X.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-CXX-S390X/LSB-CXX-S390X.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-S390X/LSB-CXX-S390X.txt">TXT</a></td>
+      <td class=avail><a href="LSB-CXX-S390X/LSB-CXX-S390X.txt">TXT</a></td>
+    </tr>
+
+    <tr>
+      <td align="right">...AMD64</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href= "LSB-CXX-AMD64/LSB-CXX-AMD64/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-AMD64/LSB-CXX-AMD64.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-CXX-AMD64/LSB-CXX-AMD64.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-CXX-AMD64/LSB-CXX-AMD64.html">HTML</a></td>
+      <td class=avail><a href="LSB-CXX-AMD64/LSB-CXX-AMD64.txt">TXT</a></td>
+      <td class=avail><a href="LSB-CXX-AMD64/LSB-CXX-AMD64.txt">TXT</a></td>
+    </tr>
+  </table>
+
+  <h1>LSB 3.0 Graphics Specification</h1>
+
+  <table class=spectable>
+    <tr>
+      <th>Specification</th>
+      <th>Version</th>
+      <th>HTML</th>
+      <th>RTF</th>
+      <th>PDF</th>
+      <th>HTML<br />(one page)</th>
+      <th>TXT</th>
+      <th>TXT<br />(numbered)</th>
+    </tr>
+
+    <tr>
+      <td>Generic</td>
+      <td><b>3.0Preview1
+</b></td>
+      <td class=avail><a href="LSB-Graphics/LSB-Graphics/book1.html">HTML</a></td>
+      <td class=avail><a href="LSB-Graphics/LSB-Graphics.rtf">RTF</a></td>
+      <td class=avail><a href="LSB-Graphics/LSB-Graphics.pdf">PDF</a></td>
+      <td class=avail><a href="LSB-Graphics/LSB-Graphics.html">HTML</a></td>
+      <td class=avail><a href="LSB-Graphics/LSB-Graphics.txt">TXT</a></td>
+      <td class=avail><a href "LSB-Graphics/LSB-Graphics.txt">TXT</a></td>
+    </tr>
+
+  </table>
+</body>
+</html>

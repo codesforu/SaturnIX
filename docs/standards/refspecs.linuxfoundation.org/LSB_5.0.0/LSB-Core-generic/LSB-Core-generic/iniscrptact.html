@@ -1,0 +1,640 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Init Script Actions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="System Initialization"
+HREF="sysinit.html"><LINK
+REL="PREVIOUS"
+TITLE="System Initialization"
+HREF="sysinit.html"><LINK
+REL="NEXT"
+TITLE="Comment Conventions for Init Scripts"
+HREF="initscrcomconv.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="sysinit.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 22. System Initialization</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="initscrcomconv.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="INISCRPTACT"
+>22.2. Init Script Actions</A
+></H1
+><P
+>Conforming applications which need to execute commands on changes
+to the system run level (including boot and shutdown),
+may install one or more <I
+CLASS="FIRSTTERM"
+>init scripts</I
+>.
+Init scripts provided by conforming applications shall accept a single
+argument which selects the action:</P
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><B
+CLASS="COMMAND"
+>start</B
+></TD
+><TD
+>start the service</TD
+></TR
+><TR
+><TD
+><B
+CLASS="COMMAND"
+>stop</B
+></TD
+><TD
+>stop the service</TD
+></TR
+><TR
+><TD
+><B
+CLASS="COMMAND"
+>restart</B
+></TD
+><TD
+>stop and restart the service if the service
+is already running, otherwise start the service</TD
+></TR
+><TR
+><TD
+><B
+CLASS="COMMAND"
+>try-restart</B
+></TD
+><TD
+>restart the service if the service
+is already running</TD
+></TR
+><TR
+><TD
+><B
+CLASS="COMMAND"
+>reload</B
+></TD
+><TD
+>cause the configuration of the service to be
+reloaded without actually stopping and restarting the service</TD
+></TR
+><TR
+><TD
+><B
+CLASS="COMMAND"
+>force-reload</B
+></TD
+><TD
+>cause the configuration to be reloaded
+if the service supports this, otherwise restart the service if it is
+running</TD
+></TR
+><TR
+><TD
+><B
+CLASS="COMMAND"
+>status</B
+></TD
+><TD
+>print the current status of the service</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+><P
+>The <B
+CLASS="COMMAND"
+>start</B
+>, <B
+CLASS="COMMAND"
+>stop</B
+>, <B
+CLASS="COMMAND"
+>restart</B
+>, <B
+CLASS="COMMAND"
+>force-reload</B
+>, and <B
+CLASS="COMMAND"
+>status</B
+> actions shall be supported
+by all init scripts; the <B
+CLASS="COMMAND"
+>reload</B
+> and the <B
+CLASS="COMMAND"
+>try-restart</B
+> actions are optional. Other
+init-script actions may be defined by the init script.</P
+><P
+>Init scripts shall ensure that they will behave sensibly if invoked
+with <B
+CLASS="COMMAND"
+>start</B
+> when the service is already running, or with <B
+CLASS="COMMAND"
+>stop</B
+> when
+not running, and that they do not kill similarly-named user processes. 
+The best way to achieve this is to use the init-script functions provided by
+<TT
+CLASS="FILENAME"
+>/lib/lsb/init-functions</TT
+> (see 
+<A
+HREF="iniscrptfunc.html"
+>Init Script Functions</A
+>)</P
+><P
+>If a service reloads its configuration automatically (as in the case
+of cron, for example), the <B
+CLASS="COMMAND"
+>reload</B
+> action of the init
+script shall behave as if the configuration was reloaded successfully.
+The <B
+CLASS="COMMAND"
+>restart</B
+>,
+<B
+CLASS="COMMAND"
+>try-restart</B
+>, <B
+CLASS="COMMAND"
+>reload</B
+> and 
+<B
+CLASS="COMMAND"
+>force-reload</B
+> actions may be atomic; that is if a service
+is known not to be operational after a restart or reload, the script may return
+an error without any further action.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>This specification does not define the concept of a package
+<I
+CLASS="FIRSTTERM"
+>upgrade</I
+>. Implementations may do different
+things when packages are upgraded, including not replacing an
+init script if it is marked as a configuration file,
+particularly if the file appears to have been modified since
+installation.  In some circumstances, the init script may
+not be removed when the package is uninstalled. 
+Applications should design their installation
+procedure and init scripts to be robust in the face of such
+behavior.  In particular, init scripts should not fail obscurely
+if run in unexpected circumstances. Testing for the existence
+of application binaries before executing them is suggested.</P
+></BLOCKQUOTE
+></DIV
+><P
+>If the <B
+CLASS="COMMAND"
+>status</B
+> action is requested,
+the init script will return the following 
+exit status codes.  
+
+<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>0</SPAN
+></TD
+><TD
+>program is running or service is OK</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>1</SPAN
+></TD
+><TD
+>program is dead and /var/run pid file exists</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>2</SPAN
+></TD
+><TD
+>program is dead and /var/lock lock file exists</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>3</SPAN
+></TD
+><TD
+>program is not running</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>4</SPAN
+></TD
+><TD
+>program or service status is unknown</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>5-99</SPAN
+></TD
+><TD
+>reserved for future LSB use</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>100-149</SPAN
+></TD
+><TD
+>reserved for distribution use</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>150-199</SPAN
+></TD
+><TD
+>reserved for application use</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>200-254</SPAN
+></TD
+><TD
+>reserved</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><P
+>For all other init-script actions, the init
+script shall return an exit status of zero if the action 
+was successful.  Otherwise, the exit status shall
+be non-zero, as defined below.  In addition to straightforward
+success, the following situations are also to be considered
+successful:
+
+<P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>restarting a service (instead of reloading it) with the <B
+CLASS="COMMAND"
+>force-reload</B
+> argument</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>running <B
+CLASS="COMMAND"
+>start</B
+> on a service already running</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>running <B
+CLASS="COMMAND"
+>stop</B
+> on a service already stopped or not running</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>running <B
+CLASS="COMMAND"
+>restart</B
+> on a service already stopped or not running</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>running <B
+CLASS="COMMAND"
+>try-restart</B
+> on a service already stopped or not running</P
+></LI
+></UL
+>&#13;</P
+><P
+>In case of an error while processing any init-script action except
+for <B
+CLASS="COMMAND"
+>status</B
+>, the init script shall print an error
+message and exit with a non-zero status code:
+
+<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>1</SPAN
+></TD
+><TD
+>generic or unspecified error (current practice)</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>2</SPAN
+></TD
+><TD
+>invalid or excess argument(s)</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>3</SPAN
+></TD
+><TD
+>unimplemented feature (for example, "reload")</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>4</SPAN
+></TD
+><TD
+>user had insufficient privilege</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>5</SPAN
+></TD
+><TD
+>program is not installed</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>6</SPAN
+></TD
+><TD
+>program is not configured</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>7</SPAN
+></TD
+><TD
+>program is not running</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>8-99</SPAN
+></TD
+><TD
+>reserved for future LSB use</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>100-149</SPAN
+></TD
+><TD
+>reserved for distribution use</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>150-199</SPAN
+></TD
+><TD
+>reserved for application use</TD
+></TR
+><TR
+><TD
+><SPAN
+CLASS="ERRORCODE"
+>200-254</SPAN
+></TD
+><TD
+>reserved</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><P
+>Error and status messages should be printed with the logging
+functions (see <A
+HREF="iniscrptfunc.html"
+>Init Script Functions</A
+>) 
+<TT
+CLASS="FUNCTION"
+>log_success_msg()</TT
+>,
+<TT
+CLASS="FUNCTION"
+>log_failure_msg()</TT
+> and 
+<TT
+CLASS="FUNCTION"
+>log_warning_msg()</TT
+>.
+Scripts may write to
+standard error or standard output, but implementations need not
+present text written to standard error/output to the user or do
+anything else with it.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>Since init scripts may be run manually by a system administrator with
+non-standard environment variable values for <CODE
+CLASS="ENVAR"
+>PATH</CODE
+>, 
+<CODE
+CLASS="ENVAR"
+>USER</CODE
+>, <CODE
+CLASS="ENVAR"
+>LOGNAME</CODE
+>, etc., 
+init scripts should not depend on the values of these environment
+variables.  They should set them to some known/default values if they
+are needed.&#13;</P
+></BLOCKQUOTE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="sysinit.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="initscrcomconv.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>System Initialization</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="sysinit.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Comment Conventions for Init Scripts</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,395 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>logwtmp</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libutil"
+HREF="libutilman.html"><LINK
+REL="PREVIOUS"
+TITLE="logout"
+HREF="utillib-logout-3.html"><LINK
+REL="NEXT"
+TITLE="openpty"
+HREF="utillib-openpty-3.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="utillib-logout-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="utillib-openpty-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="UTILLIB-LOGWTMP-3"
+></A
+>logwtmp</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN35647"
+></A
+><H2
+>Name</H2
+>logwtmp&nbsp;--&nbsp;append an entry to the wtmp file</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN35652"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN35655"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;utmp.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void
+    <TT
+CLASS="FUNCTION"
+>logwtmp</TT
+>
+  </CODE
+>(const char *
+    <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>line</I
+></TT
+></I
+></TT
+>
+  , const char *
+    <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>name</I
+></TT
+></I
+></TT
+>
+  , const char *
+    <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>host</I
+></TT
+></I
+></TT
+>
+  );</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35669"
+></A
+><H2
+>Description</H2
+><P
+>If the process has permission to update the user accounting databases,
+the <TT
+CLASS="FUNCTION"
+>logwtmp()</TT
+> function
+shall append a record to the user accounting database 
+that records all logins and logouts. The record to be appended
+shall be constructed as follows:
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>The <CODE
+CLASS="VARNAME"
+>ut_line</CODE
+> field shall be initialized
+from <TT
+CLASS="PARAMETER"
+><I
+>line</I
+></TT
+>.
+If the user accounting database imposes a limit on the size of the 
+<CODE
+CLASS="STRUCTFIELD"
+>ut_line</CODE
+> field, it shall
+truncate the value, but any such limit shall not be smaller than 
+<CODE
+CLASS="CONSTANT"
+>UT_LINESIZE</CODE
+>
+(including a terminating null character).</P
+></LI
+><LI
+><P
+>The <CODE
+CLASS="VARNAME"
+>ut_name</CODE
+> field shall be initialized
+from <TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+>.
+If the user accounting database imposes a limit on the size of the 
+<CODE
+CLASS="STRUCTFIELD"
+>ut_name</CODE
+> field, it shall
+truncate the value, but any such limit shall not be smaller than 
+<CODE
+CLASS="CONSTANT"
+>UT_NAMESIZE</CODE
+>
+(including a terminating null character).</P
+></LI
+><LI
+><P
+>The <CODE
+CLASS="VARNAME"
+>ut_host</CODE
+> field shall be initialized
+from <TT
+CLASS="PARAMETER"
+><I
+>host</I
+></TT
+>.
+If the user accounting database imposes a limit on the size of the 
+<CODE
+CLASS="STRUCTFIELD"
+>ut_host</CODE
+> field, it shall
+truncate the value, but any such limit shall not be smaller than 
+<CODE
+CLASS="CONSTANT"
+>UT_HOSTSIZE</CODE
+>
+(including a terminating null character).</P
+></LI
+><LI
+><P
+>If the <TT
+CLASS="PARAMETER"
+><I
+>name</I
+></TT
+> parameter does not refer
+to an empty string (i.e. <CODE
+CLASS="CONSTANT"
+>""</CODE
+>), 
+the <CODE
+CLASS="VARNAME"
+>ut_type</CODE
+> field shall be set to 
+<CODE
+CLASS="CONSTANT"
+>USER_PROCESS</CODE
+>; otherwise the
+<CODE
+CLASS="VARNAME"
+>ut_type</CODE
+> field shall be set to 
+<CODE
+CLASS="CONSTANT"
+>DEAD_PROCESS</CODE
+>.</P
+></LI
+><LI
+><P
+>The <CODE
+CLASS="VARNAME"
+>ut_id</CODE
+> field shall be set to the 
+process identifier for the current process.</P
+></LI
+><LI
+><P
+>The <CODE
+CLASS="VARNAME"
+>ut_tv</CODE
+> field shall be set to the
+current time of day.</P
+></LI
+></OL
+>
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>If a process does not have write access to the 
+the user accounting database, the
+<TT
+CLASS="FUNCTION"
+>logwtmp()</TT
+> function will not update it. 
+Since the function does not return
+any value, an application has no way of knowing whether it succeeded or failed.</P
+></BLOCKQUOTE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN35711"
+></A
+><H2
+>Return Value</H2
+><P
+>None.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="utillib-logout-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="utillib-openpty-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>logout</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libutilman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>openpty</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

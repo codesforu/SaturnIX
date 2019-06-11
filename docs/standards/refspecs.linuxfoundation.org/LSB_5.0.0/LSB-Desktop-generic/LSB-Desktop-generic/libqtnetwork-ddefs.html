@@ -1,0 +1,554 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libQtNetwork</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="qt.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libQtNetwork"
+HREF="libqtnetwork.html"><LINK
+REL="NEXT"
+TITLE="Interface Definitions for libQtNetwork"
+HREF="libqtnetworkman.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libqtnetwork.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 18. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libqtnetworkman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBQTNETWORK-DDEFS"
+>18.19. Data Definitions for libQtNetwork</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libQtNetwork.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN167542"
+>18.19.1. QtNetwork/qabstractsocket.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QAbstractSocket;
+enum QAbstractSocket::SocketType {
+    UnknownSocketType = -1,
+    TcpSocket = 0,
+    UdpSocket = 1
+};
+enum QAbstractSocket::NetworkLayerProtocol {
+    UnknownNetworkLayerProtocol = -1,
+    IPv4Protocol = 0,
+    IPv6Protocol = 1
+};
+enum QAbstractSocket::SocketError {
+    UnknownSocketError = -1,
+    ConnectionRefusedError = 0,
+    RemoteHostClosedError = 1,
+    HostNotFoundError = 2,
+    SocketAccessError = 3,
+    SocketResourceError = 4,
+    SocketTimeoutError = 5,
+    DatagramTooLargeError = 6,
+    NetworkError = 7,
+    AddressInUseError = 8,
+    SocketAddressNotAvailableError = 9,
+    UnsupportedSocketOperationError = 10
+};
+enum QAbstractSocket::SocketState {
+    UnconnectedState = 0,
+    Idle = 0,
+    HostLookupState = 1,
+    HostLookup = 1,
+    ConnectingState = 2,
+    Connecting = 2,
+    Connected = 3,
+    Connection = 3,
+    ConnectedState = 3,
+    BoundState = 4,
+    ListeningState = 5,
+    Closing = 6,
+    ClosingState = 6
+};
+enum QAbstractSocket::Error {
+    ErrSocketRead = -1,
+    ErrConnectionRefused = 0,
+    ErrHostNotFound = 2
+};
+typedef enum QAbstractSocket::SocketState {
+    UnconnectedState = 0,
+    Idle = 0,
+    HostLookupState = 1,
+    HostLookup = 1,
+    ConnectingState = 2,
+    Connecting = 2,
+    Connected = 3,
+    Connection = 3,
+    ConnectedState = 3,
+    BoundState = 4,
+    ListeningState = 5,
+    Closing = 6,
+    ClosingState = 6
+} QAbstractSocket::State;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN167546"
+>18.19.2. QtNetwork/qftp.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QFtp;
+enum QFtp::State {
+    Unconnected = 0,
+    HostLookup = 1,
+    Connecting = 2,
+    Connected = 3,
+    LoggedIn = 4,
+    Closing = 5
+};
+enum QFtp::Error {
+    NoError = 0,
+    UnknownError = 1,
+    HostNotFound = 2,
+    ConnectionRefused = 3,
+    NotConnected = 4
+};
+enum QFtp::Command {
+    None = 0,
+    SetTransferMode = 1,
+    SetProxy = 2,
+    ConnectToHost = 3,
+    Login = 4,
+    Close = 5,
+    List = 6,
+    Cd = 7,
+    Get = 8,
+    Put = 9,
+    Remove = 10,
+    Mkdir = 11,
+    Rmdir = 12,
+    Rename = 13,
+    RawCommand = 14
+};
+enum QFtp::TransferMode {
+    Active = 0,
+    Passive = 1
+};
+enum QFtp::TransferType {
+    Binary = 0,
+    Ascii = 1
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN167550"
+>18.19.3. QtNetwork/qhostaddress.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QIPv6Address;
+typedef class QIPv6AddressQ_IPV6ADDR;
+class QHostAddress;
+enum QHostAddress::SpecialAddress {
+    Null = 0,
+    Broadcast = 1,
+    LocalHost = 2,
+    LocalHostIPv6 = 3,
+    Any = 4,
+    AnyIPv6 = 5
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN167554"
+>18.19.4. QtNetwork/qhostinfo.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QHostInfo;
+enum QHostInfo::HostInfoError {
+    NoError = 0,
+    HostNotFound = 1,
+    UnknownError = 2
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN167558"
+>18.19.5. QtNetwork/qhttp.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QHttpHeader;
+class QHttpResponseHeader;
+class QHttpRequestHeader;
+class QHttp;
+enum QHttp::State {
+    Unconnected = 0,
+    HostLookup = 1,
+    Connecting = 2,
+    Sending = 3,
+    Reading = 4,
+    Connected = 5,
+    Closing = 6
+};
+enum QHttp::Error {
+    NoError = 0,
+    UnknownError = 1,
+    HostNotFound = 2,
+    ConnectionRefused = 3,
+    UnexpectedClose = 4,
+    InvalidResponseHeader = 5,
+    WrongContentLength = 6,
+    Aborted = 7
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN167562"
+>18.19.6. QtNetwork/qnetworkproxy.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QNetworkProxy;
+enum QNetworkProxy::ProxyType {
+    DefaultProxy = 0,
+    Socks5Proxy = 1,
+    NoProxy = 2
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN167566"
+>18.19.7. QtNetwork/qtcpserver.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QTcpServer;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN167570"
+>18.19.8. QtNetwork/qtcpsocket.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef enum QtValidLicenseForNetworkModule QtNetworkModule;
+class QTcpSocket;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN167574"
+>18.19.9. QtNetwork/qudpsocket.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QUdpSocket;
+enum QUdpSocket::BindFlag {
+    DefaultForPlatform = 0,
+    ShareAddress = 1,
+    DontShareAddress = 2,
+    ReuseAddressHint = 4
+};
+class QFlags &#60; QUdpSocket::BindFlag &#62;;
+typedef class QFlags &#60; QUdpSocket::BindFlag &#62; QUdpSocket::BindMode;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN167578"
+>18.19.10. QtNetwork/qurlinfo.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;class QUrlInfo;
+enum QUrlInfo::PermissionSpec {
+    ExeOther = 1,
+    WriteOther = 2,
+    ReadOther = 4,
+    ExeGroup = 8,
+    WriteGroup = 16,
+    ReadGroup = 32,
+    ExeOwner = 64,
+    WriteOwner = 128,
+    ReadOwner = 256
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libqtnetwork.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libqtnetworkman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libQtNetwork</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="qt.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interface Definitions for libQtNetwork</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,430 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>dlopen</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libdl"
+HREF="libdlman.html"><LINK
+REL="PREVIOUS"
+TITLE="dladdr"
+HREF="baselib-dladdr-3.html"><LINK
+REL="NEXT"
+TITLE="dlsym"
+HREF="baselib-dlsym-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-dladdr-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-dlsym-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-DLOPEN-1"
+></A
+>dlopen</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN26953"
+></A
+><H2
+>Name</H2
+>dlopen&nbsp;--&nbsp;open dynamic object</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN26958"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>#include &#60;dlfcn.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN26962"
+></A
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void * 
+  <TT
+CLASS="FUNCTION"
+>dlopen</TT
+></CODE
+>(const char *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>filename</I
+></TT
+></I
+></TT
+>, int
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>flag</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26972"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>dlopen()</TT
+> function shall behave as specified in 
+<A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>, but with additional behaviors listed below.</P
+><P
+>If the file argument does not contain a &#60;slash&#62; character, then the
+system shall look for a library of that name in at least the following
+directories, and use the first one which is found:
+
+<P
+></P
+><UL
+><LI
+><P
+>The directories specified by the 
+<CODE
+CLASS="CONSTANT"
+>DT_RPATH</CODE
+> dynamic entry.</P
+></LI
+><LI
+><P
+>The directories specified in the 
+<CODE
+CLASS="CONSTANT"
+>LD_LIBRARY_PATH</CODE
+>
+environment variable (which is a colon separated list of pathnames).
+This step shall be skipped for setuid
+and setgid executables.</P
+></LI
+><LI
+><P
+>A set of directories sufficient to contain the
+libraries specified in this standard.
+
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>Traditionally, <TT
+CLASS="FILENAME"
+>/lib</TT
+> and
+<TT
+CLASS="FILENAME"
+>/usr/lib</TT
+>.  This case would also cover cases in
+which the system used the mechanism of
+<TT
+CLASS="FILENAME"
+>/etc/ld.so.conf</TT
+> and
+<TT
+CLASS="FILENAME"
+>/etc/ld.so.cache</TT
+> to provide access.</P
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+>Example: An application which is not linked against libm may
+choose to dlopen libm.</P
+></BLOCKQUOTE
+></DIV
+></P
+></LI
+></UL
+>&#13;</P
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN26994"
+></A
+><H3
+>Additional flags</H3
+><P
+>In addition to the available values for <TT
+CLASS="PARAMETER"
+><I
+>flag</I
+></TT
+>
+as documented in <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>, the following values may
+also be ORed into <TT
+CLASS="PARAMETER"
+><I
+>flag</I
+></TT
+>:</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN27001"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>RTLD_NODELETE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Do not unload the library during
+<TT
+CLASS="FUNCTION"
+>dlclose()</TT
+>. Consequently, the library's static
+variables are not reinitialized if the library is reloaded with
+<TT
+CLASS="FUNCTION"
+>dlopen()</TT
+> at a later time.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN27007"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>RTLD_NOLOAD</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Do not load the library. This can be used to test if the
+library is already resident. <TT
+CLASS="FUNCTION"
+>dlopen()</TT
+> returns a
+<CODE
+CLASS="CONSTANT"
+>NULL</CODE
+> pointer if it is not resident;
+it returns the library's handle if it is resident. 
+This flag can also be used to promote the flags on
+a library that is already loaded. For example, a library that was
+previously loaded with <CODE
+CLASS="CONSTANT"
+>RTLD_LOCAL</CODE
+> can be reopened
+using <CODE
+CLASS="CONSTANT"
+>RTLD_NOLOAD|RTLD_GLOBAL</CODE
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN27015"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>RTLD_DEEPBIND</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Place the lookup scope of the symbols in this library ahead of the global
+scope. This means that a self-contained library will use its own symbols
+in preference to global symbols with the same name contained in libraries
+that have already been loaded.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-dladdr-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-dlsym-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>dladdr</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libdlman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>dlsym</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

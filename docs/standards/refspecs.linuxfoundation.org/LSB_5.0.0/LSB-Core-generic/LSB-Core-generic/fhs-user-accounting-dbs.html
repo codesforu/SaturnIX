@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>User Accounting Databases</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="File System Hierarchy"
+HREF="execenvfhs.html"><LINK
+REL="PREVIOUS"
+TITLE="/etc: Host-specific system configuration"
+HREF="etc.html"><LINK
+REL="NEXT"
+TITLE="Path For System Administration Utilities"
+HREF="fhs-sysadmin.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="etc.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 18. File System Hierarchy</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="fhs-sysadmin.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="FHS-USER-ACCOUNTING-DBS"
+>18.3. User Accounting Databases</A
+></H1
+><P
+>The <A
+HREF="normativerefs.html#STD.FHS"
+>Filesystem Hierarchy Standard</A
+> specifies two optional locations for user
+accounting databases 
+used by the <TT
+CLASS="FUNCTION"
+>getutent()</TT
+>, <TT
+CLASS="FUNCTION"
+>getutent_r()</TT
+>, <TT
+CLASS="FUNCTION"
+>getutxent()</TT
+>, <TT
+CLASS="FUNCTION"
+>getutxid()</TT
+>, <TT
+CLASS="FUNCTION"
+>getutxline()</TT
+>, and <TT
+CLASS="FUNCTION"
+>pututxline()</TT
+> functions. These are
+<TT
+CLASS="FILENAME"
+>/var/run/utmp</TT
+> and <TT
+CLASS="FILENAME"
+>/var/run/wtmp</TT
+>.</P
+><P
+>The LSB does not specify the format or structure of these files, or even if
+they are files at all. They should be used only as "magic cookies" to
+the <TT
+CLASS="FUNCTION"
+>utmpname()</TT
+> function. </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="etc.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="fhs-sysadmin.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><TT
+CLASS="FILENAME"
+>/etc</TT
+>: Host-specific system configuration</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="execenvfhs.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Path For System Administration Utilities</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

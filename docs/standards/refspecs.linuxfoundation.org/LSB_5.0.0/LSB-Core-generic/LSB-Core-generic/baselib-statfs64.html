@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>statfs64</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="statfs"
+HREF="baselib-statfs-2.html"><LINK
+REL="NEXT"
+TITLE="stime"
+HREF="baselib-stime-2.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-statfs-2.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-stime-2.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-STATFS64"
+></A
+>statfs64</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN19911"
+></A
+><H2
+>Name</H2
+>statfs64&nbsp;--&nbsp;(deprecated)</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN19914"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN19915"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;sys/statfs.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int 
+  <TT
+CLASS="FUNCTION"
+>statfs64</TT
+></CODE
+>(const char *
+  <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>, struct statfs64 *<TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19924"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>statfs64()</TT
+> function returns information about a mounted 
+file system.  The file system is identified by <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>,
+a path name of a file within the mounted filesystem.
+The results are placed in the structure pointed to by
+<TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>.</P
+><P
+><TT
+CLASS="FUNCTION"
+>statfs64()</TT
+> is a large-file
+version of the <TT
+CLASS="FUNCTION"
+>statfs()</TT
+> function.</P
+><P
+>Fields that are undefined for a particular file system shall
+be set to
+<TT
+CLASS="LITERAL"
+>0</TT
+>.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>Application developers should use the <TT
+CLASS="FUNCTION"
+>statvfs64()</TT
+> function
+to obtain general file system information. Applications should only
+use the <TT
+CLASS="FUNCTION"
+>statfs64()</TT
+> function if they must determine
+the file system type, which need not be provided by 
+<TT
+CLASS="FUNCTION"
+>statvfs64()</TT
+>.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19940"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, the <TT
+CLASS="FUNCTION"
+>statfs64()</TT
+> function shall
+return <SPAN
+CLASS="RETURNVALUE"
+>0</SPAN
+> and set the fields of the
+structure idenfitied by <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+> accordingly.
+On error, the <TT
+CLASS="FUNCTION"
+>statfs64()</TT
+> function shall
+return <SPAN
+CLASS="RETURNVALUE"
+>-1</SPAN
+> and set
+<CODE
+CLASS="VARNAME"
+>errno</CODE
+> accordingly.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19949"
+></A
+><H2
+>Errors</H2
+><P
+>See <TT
+CLASS="FUNCTION"
+>fstatfs()</TT
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-statfs-2.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-stime-2.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>statfs</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>stime</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

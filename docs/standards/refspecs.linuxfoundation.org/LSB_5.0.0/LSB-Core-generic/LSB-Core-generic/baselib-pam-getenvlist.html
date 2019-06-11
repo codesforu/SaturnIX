@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>pam_getenvlist</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libpam"
+HREF="libpamman.html"><LINK
+REL="PREVIOUS"
+TITLE="pam_getenv"
+HREF="baselib-pam-getenv.html"><LINK
+REL="NEXT"
+TITLE="pam_open_session"
+HREF="baselib-pam-open-session.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-pam-getenv.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-pam-open-session.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-PAM-GETENVLIST"
+></A
+>pam_getenvlist</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN28093"
+></A
+><H2
+>Name</H2
+>pam_getenvlist&nbsp;--&nbsp;returns a pointer to the complete PAM environment.</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN28096"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN28099"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;security/pam_appl.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>char * const *
+  <TT
+CLASS="FUNCTION"
+>pam_getenvlist</TT
+></CODE
+>(pam_handle_t *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>pamh</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN28107"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="FUNCTION"
+>pam_getenvlist()</TT
+> returns a pointer to the complete 
+PAM environment. This pointer points to an array of pointers to
+<CODE
+CLASS="CONSTANT"
+>NUL</CODE
+>-terminated strings and must be terminated by a
+<CODE
+CLASS="CONSTANT"
+>NULL</CODE
+> pointer. Each string has the form "name=value".</P
+><P
+>The PAM library module allocates memory for the returned value and the
+associated strings. The calling application is responsible for freeing this
+memory. </P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN28116"
+></A
+><H2
+>Return Value</H2
+><P
+><TT
+CLASS="FUNCTION"
+>pam_getenvlist()</TT
+> returns an array of string pointers 
+containing the PAM environment. On error, <CODE
+CLASS="CONSTANT"
+>NULL</CODE
+> 
+is returned.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-pam-getenv.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-pam-open-session.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>pam_getenv</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libpamman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>pam_open_session</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

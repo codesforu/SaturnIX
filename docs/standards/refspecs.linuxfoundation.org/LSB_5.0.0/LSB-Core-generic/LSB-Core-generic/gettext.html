@@ -1,0 +1,721 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>gettext</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="fuser"
+HREF="fuser.html"><LINK
+REL="NEXT"
+TITLE="grep"
+HREF="grep.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="fuser.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="grep.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="GETTEXT"
+></A
+>gettext</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN58029"
+></A
+><H2
+>Name</H2
+>gettext&nbsp;--&nbsp;retrieve text string from message catalog</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN58032"
+></A
+><H2
+>Synopsis</H2
+><TT
+CLASS="CMDSYNOPSIS"
+><B
+CLASS="COMMAND"
+>gettext</B
+> [options] [textdomain]  msgid <BR><B
+CLASS="COMMAND"
+>gettext</B
+>  -s   [options]  msgid... </TT
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58043"
+></A
+><H2
+>Description</H2
+><P
+>The <B
+CLASS="COMMAND"
+>gettext</B
+> utility retrieves a translated 
+text string corresponding to
+string <TT
+CLASS="PARAMETER"
+><I
+>msgid</I
+></TT
+> from a message 
+object generated with <B
+CLASS="COMMAND"
+>msgfmt</B
+> utility.</P
+><P
+>The message object name is derived from the optional argument 
+<TT
+CLASS="PARAMETER"
+><I
+>textdomain</I
+></TT
+> if
+present, otherwise from the <CODE
+CLASS="CONSTANT"
+>TEXTDOMAIN</CODE
+> 
+environment variable. If no domain is
+specified, or if a corresponding string cannot be found, 
+<B
+CLASS="COMMAND"
+>gettext</B
+> prints
+<TT
+CLASS="PARAMETER"
+><I
+>msgid</I
+></TT
+>.</P
+><P
+>Ordinarily <B
+CLASS="COMMAND"
+>gettext</B
+>
+looks for its message object in 
+<TT
+CLASS="FILENAME"
+><TT
+CLASS="REPLACEABLE"
+><I
+>dirname</I
+></TT
+>/<TT
+CLASS="REPLACEABLE"
+><I
+>lang</I
+></TT
+>/LC_MESSAGES</TT
+>
+where <TT
+CLASS="REPLACEABLE"
+><I
+>dirname</I
+></TT
+>
+is the implementation-defined default directory and 
+<TT
+CLASS="REPLACEABLE"
+><I
+>lang</I
+></TT
+> is
+the locale name. If present, the <CODE
+CLASS="CONSTANT"
+>TEXTDOMAINDIR</CODE
+>
+environment variable replaces
+the <TT
+CLASS="REPLACEABLE"
+><I
+>dirname</I
+></TT
+>.</P
+><P
+>This utility interprets C escape sequences such as <TT
+CLASS="LITERAL"
+>\t</TT
+>
+for tab. Use <TT
+CLASS="LITERAL"
+>\\</TT
+> to
+print a backslash. To produce a message on a line of its own, either put a
+<TT
+CLASS="LITERAL"
+>\n</TT
+> at the end of 
+<TT
+CLASS="PARAMETER"
+><I
+>msgid,</I
+></TT
+> or use this command in
+conjunction with the <B
+CLASS="COMMAND"
+>printf</B
+>
+utility.</P
+><P
+>When used with the <TT
+CLASS="PARAMETER"
+><I
+>-s</I
+></TT
+>
+option the <B
+CLASS="COMMAND"
+>gettext</B
+>
+utility behaves like the <B
+CLASS="COMMAND"
+>echo</B
+> utility, 
+except that the message corresponding to 
+<TT
+CLASS="PARAMETER"
+><I
+>msgid</I
+></TT
+> in the selected catalog
+provides the arguments.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58074"
+></A
+><H2
+>Options</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58077"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>-d domainname</I
+></TT
+></SPAN
+>, <SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>--domain=domainname</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>PARAMETER translated messages from domainname.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58084"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>-e</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Enable expansion of some escape sequences.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58089"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>-n</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Suppress trailing newline.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58094"
+></A
+><H2
+>Operands</H2
+><P
+>The following operands are supported:</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58098"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>textdomain</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A domain name used to retrieve the messages.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58103"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>msgid</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A key to retrieve the localized message.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58108"
+></A
+><H2
+>Environment Variables</H2
+><P
+></P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58112"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="ENVAR"
+>LANGUAGE</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Specifies one or more locale names. </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58117"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>LANG</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Specifies locale name.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58122"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>LC_MESSAGES</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Specifies messaging locale, and if present overrides <CODE
+CLASS="CONSTANT"
+>LANG</CODE
+> for messages.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58128"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>TEXTDOMAIN</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Specifies the text domain name, which is identical to the message object
+filename without <TT
+CLASS="FILENAME"
+>.mo</TT
+> suffix.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58134"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>TEXTDOMAINDIR</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Specifies the pathname to the message catalog, and if present replaces the
+implementation-defined default directory.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58139"
+></A
+><H2
+>Exit Status</H2
+><P
+>The following exit values are returned:</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58143"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><SPAN
+CLASS="RETURNVALUE"
+>0</SPAN
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Successful completion.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58148"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><SPAN
+CLASS="RETURNVALUE"
+>&#62;0</SPAN
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>An error occurred.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="fuser.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="grep.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>fuser</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>grep</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,1130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Exception Frames</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Object Format"
+HREF="tocobjformat.html"><LINK
+REL="PREVIOUS"
+TITLE="DWARF Extensions"
+HREF="dwarfext.html"><LINK
+REL="NEXT"
+TITLE="Symbol Versioning"
+HREF="symversion.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="dwarfext.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 10. Object Format</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="symversion.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="EHFRAMECHPT"
+>10.6. Exception Frames</A
+></H1
+><P
+>When using languages that support exceptions, such as C++, additional
+information must be provided to the runtime environment that describes
+the call frames that must be unwound during the processing of an exception.
+This information is contained in the special sections
+<SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame</SAMP
+> and
+<SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_framehdr</SAMP
+>.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>The format of the <SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame</SAMP
+> section is similar
+in format and purpose to the <SAMP
+CLASS="COMPUTEROUTPUT"
+>.debug_frame</SAMP
+>
+section which is specified in <A
+HREF="informativerefs.html#STD.DWARF4"
+>DWARF Debugging Information Format, Version 4</A
+>.
+Readers are advised that there are some subtle difference,
+and care should be taken when comparing the two sections.</P
+></BLOCKQUOTE
+></DIV
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="EHFRAME"
+>10.6.1. The <SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame</SAMP
+> section</A
+></H2
+><P
+>The <SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame</SAMP
+> section shall contain 1 or more
+Call Frame Information (CFI) records. The number of records present shall be
+determined by size of the section as contained in the section header.
+Each CFI record contains a Common Information Entry (CIE) record followed by
+1 or more Frame Description Entry (FDE) records. Both CIEs and FDEs shall
+be aligned to an addressing unit sized boundary.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1214"
+></A
+><P
+><B
+>Table 10-8. Call Frame Information Format</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Common Information Entry Record</TD
+></TR
+><TR
+><TD
+>Frame Description Entry Record(s)</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN1222"
+>10.6.1.1. The Common Information Entry Format</A
+></H3
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1224"
+></A
+><P
+><B
+>Table 10-9. Common Information Entry Format</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Length</TD
+><TD
+>Required</TD
+></TR
+><TR
+><TD
+>Extended Length</TD
+><TD
+>Optional</TD
+></TR
+><TR
+><TD
+>CIE ID</TD
+><TD
+>Required</TD
+></TR
+><TR
+><TD
+>Version</TD
+><TD
+>Required</TD
+></TR
+><TR
+><TD
+>Augmentation String</TD
+><TD
+>Required</TD
+></TR
+><TR
+><TD
+>Code Alignment Factor</TD
+><TD
+>Required</TD
+></TR
+><TR
+><TD
+>Data Alignment Factor</TD
+><TD
+>Required</TD
+></TR
+><TR
+><TD
+>Return Address Register</TD
+><TD
+>Required</TD
+></TR
+><TR
+><TD
+>Augmentation Data Length</TD
+><TD
+>Optional</TD
+></TR
+><TR
+><TD
+>Augmentation Data</TD
+><TD
+>Optional</TD
+></TR
+><TR
+><TD
+>Initial Instructions</TD
+><TD
+>Required</TD
+></TR
+><TR
+><TD
+>Padding</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Length</CODE
+></DT
+><DD
+><P
+>A 4 byte unsigned value indicating the length in bytes of the CIE structure,
+not including the <CODE
+CLASS="STRUCTFIELD"
+>Length</CODE
+> field itself. If
+<CODE
+CLASS="STRUCTFIELD"
+>Length</CODE
+> contains the value 0xffffffff, then the
+length is contained in the <CODE
+CLASS="STRUCTFIELD"
+>Extended Length</CODE
+> field.
+If <CODE
+CLASS="STRUCTFIELD"
+>Length</CODE
+> contains the value 0, then this CIE shall
+be considered a terminator and processing shall end.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Extended Length</CODE
+></DT
+><DD
+><P
+>A 8 byte unsigned value indicating the length in bytes of the CIE structure,
+not including the <CODE
+CLASS="STRUCTFIELD"
+>Length</CODE
+> and
+<CODE
+CLASS="STRUCTFIELD"
+>Extended Length</CODE
+> fields themselves.
+This field is not present unless the <CODE
+CLASS="STRUCTFIELD"
+>Length</CODE
+> field
+contains the value 0xffffffff.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>CIE ID</CODE
+></DT
+><DD
+><P
+>A 4 byte unsigned value that is used to distinguish CIE records from FDE
+records.  This value shall always be 0, which indicates this record is a CIE.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Version</CODE
+></DT
+><DD
+><P
+>A 1 byte value that identifies the version number of the frame information
+structure. This value shall be 1.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Augmentation String</CODE
+></DT
+><DD
+><P
+>This value is a NUL terminated string that identifies the augmentation to
+the CIE or to the FDEs associated with this CIE. A zero length string
+indicates that no augmentation data is present.  The augmentation string
+is case sensitive and shall be interpreted as described below.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Code Alignment Factor</CODE
+></DT
+><DD
+><P
+>An unsigned LEB128 encoded value that is factored out of all advance location
+instructions that are associated with this CIE or its FDEs. This value shall be
+multiplied by the delta argument of an adavance location instruction to obtain
+the new location value.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Data Alignment Factor</CODE
+></DT
+><DD
+><P
+>A signed LEB128 encoded value that is factored out of all offset instructions
+that are associated with this CIE or its FDEs. This value shall be multiplied
+by the register offset argument of an offset instruction to obtain
+the new offset value.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Augmentation Length</CODE
+></DT
+><DD
+><P
+>An unsigned LEB128 encoded value indicating the length in bytes of the
+Augmentation Data. This field is only present if the Augmentation String
+contains the character 'z'.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Augmentation Data</CODE
+></DT
+><DD
+><P
+>A block of data whose contents are defined by the contents of the
+Augmentation String as described below. This field is only present if the
+Augmentation String contains the character 'z'. The size of this data is given
+by the Augentation Length.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Initial Instructions</CODE
+></DT
+><DD
+><P
+>Initial set of Call Frame Instructions. The number of instructions is
+determined by the remaining space in the CIE record.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Padding</CODE
+></DT
+><DD
+><P
+>Extra bytes to align the CIE structure to an addressing unit size boundary.</P
+></DD
+></DL
+></DIV
+><DIV
+CLASS="SECT4"
+><H4
+CLASS="SECT4"
+><A
+NAME="AEN1326"
+>10.6.1.1.1. Augmentation String Format</A
+></H4
+><P
+>The Agumentation String indicates the presence of some optional fields, and
+how those fields should be intepreted. This string is case sensitive.  Each
+character in the augmentation string in the CIE can be interpreted as below:</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1330"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>'z'</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A 'z' may be present as the first character of the string. If present, the
+Augmentation Data field shall be present. The contents of the Augmentation Data
+shall be intepreted according to other characters in the Augmentation String.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1334"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>'L'</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A 'L' may be present at any position after the first character of the string.
+This character may only be present if 'z' is the first character of the string.
+If present, it
+indicates the presence of one argument in the Augmentation Data of the CIE,
+and a corresponding argument in the Augmentation Data of the FDE.
+The argument in the Augmentation Data of the CIE is 1-byte and represents the
+pointer encoding used for the argument in the Augmentation Data of the FDE,
+which is the address of a language-specific data area (LSDA).
+The size of the LSDA pointer is specified by the pointer encoding used.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1338"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>'P'</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A 'P' may be present at any position after the first character of the string.
+This character may only be present if 'z' is the first character of the string.
+If present, it
+indicates the presence of two arguments in the Augmentation Data of the CIE.
+The first argument is 1-byte and represents the pointer encoding used for the
+second argument, which is the address of a 
+<I
+CLASS="FIRSTTERM"
+>personality routine</I
+> handler. 
+The personality routine is used to handle language and 
+vendor-specific tasks. The system unwind library interface accesses the 
+language-specific exception handling semantics via the pointer to the 
+personality routine. The personality routine does not have an ABI-specific 
+name.
+The size of the personality routine pointer is specified by the pointer encoding
+used.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1343"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>'R'</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A 'R' may be present at any position after the first character of the string.
+This character may only be present if 'z' is the first character of the string.
+If present, The
+Augmentation Data shall include a 1 byte argument that represents the pointer
+encoding for the address pointers used in the FDE.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN1347"
+>10.6.1.2. The Frame Description Entry Format</A
+></H3
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1349"
+></A
+><P
+><B
+>Table 10-10. Frame Description Entry Format</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Length</TD
+><TD
+>Required</TD
+></TR
+><TR
+><TD
+>Extended Length</TD
+><TD
+>Optional</TD
+></TR
+><TR
+><TD
+>FDE Pointer</TD
+><TD
+>Required</TD
+></TR
+><TR
+><TD
+>PC Begin</TD
+><TD
+>Required</TD
+></TR
+><TR
+><TD
+>PC Range</TD
+><TD
+>Required</TD
+></TR
+><TR
+><TD
+>Augmentation Data Length</TD
+><TD
+>Optional</TD
+></TR
+><TR
+><TD
+>Augmentation Data</TD
+><TD
+>Optional</TD
+></TR
+><TR
+><TD
+>Call Frame Instructions</TD
+><TD
+>Required</TD
+></TR
+><TR
+><TD
+>Padding</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Length</CODE
+></DT
+><DD
+><P
+>A 4 byte unsigned value indicating the length in bytes of the FDE structure,
+not including the <CODE
+CLASS="STRUCTFIELD"
+>Length</CODE
+> field itself. If
+<CODE
+CLASS="STRUCTFIELD"
+>Length</CODE
+> contains the value 0xffffffff, then the
+length is contained the <CODE
+CLASS="STRUCTFIELD"
+>Extended Length</CODE
+> field.
+If <CODE
+CLASS="STRUCTFIELD"
+>Length</CODE
+> contains the value 0, then this FDE shall
+be considered a terminator and processing shall end.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Extended Length</CODE
+></DT
+><DD
+><P
+>A 8 byte unsigned value indicating the length in bytes of the FDE structure, 
+not including the <CODE
+CLASS="STRUCTFIELD"
+>Length</CODE
+> or
+<CODE
+CLASS="STRUCTFIELD"
+>Extended Length</CODE
+> field themselves. 
+This field is not present unless the <CODE
+CLASS="STRUCTFIELD"
+>Length</CODE
+> field
+contains the value 0xffffffff.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>CIE Pointer</CODE
+></DT
+><DD
+><P
+>A 4 byte unsigned value that when subtracted from the offset of 
+the CIE Pointer in the current FDE yields the offset of the start of
+the associated CIE.  This value shall never be 0.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>PC Begin</CODE
+></DT
+><DD
+><P
+>An encoded value that indicates the address of the initial location
+associated with this FDE. The encoding format is specified in the
+Augmentation Data.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>PC Range</CODE
+></DT
+><DD
+><P
+>An absolute value that indicates the number of bytes of instructions 
+associated with this FDE.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Augmentation Length</CODE
+></DT
+><DD
+><P
+>An unsigned LEB128 encoded value indicating the length in bytes of the
+Augmentation Data. This field is only present if the Augmentation String
+in the associated CIE contains the character 'z'.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Augmentation Data</CODE
+></DT
+><DD
+><P
+>A block of data whose contents are defined by the contents of the
+Augmentation String in the associated CIE as described above.
+This field is only present if the Augmentation String in the associated CIE
+contains the character 'z'. The size of this data is given by the
+Augentation Length.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Call Frame Instructions</CODE
+></DT
+><DD
+><P
+>A set of Call Frame Instructions.</P
+></DD
+><DT
+><CODE
+CLASS="STRUCTFIELD"
+>Padding</CODE
+></DT
+><DD
+><P
+>Extra bytes to align the FDE structure to an addressing unit size boundary.</P
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="EHFRAMEHDR"
+>10.6.2. The <SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame_hdr</SAMP
+> section</A
+></H2
+><P
+>The <SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame_hdr</SAMP
+> section contains additional
+information about the <SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame</SAMP
+> section.
+A pointer to the start of the <SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame</SAMP
+> data,
+and optionally, a binary search table of pointers to the
+<SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame</SAMP
+> records are found in this section.</P
+><P
+>Data in this section is encoded according to <A
+HREF="dwarfext.html#DWARFEHENCODING"
+>Section 10.5.1</A
+>.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1442"
+></A
+><P
+><B
+>Table 10-11. <SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame_hdr</SAMP
+> Section Format</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+>Encoding</TH
+><TH
+>Field</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+>unsigned byte</TD
+><TD
+>version</TD
+></TR
+><TR
+><TD
+>unsigned byte</TD
+><TD
+>eh_frame_ptr_enc</TD
+></TR
+><TR
+><TD
+>unsigned byte</TD
+><TD
+>fde_count_enc</TD
+></TR
+><TR
+><TD
+>unsigned byte</TD
+><TD
+>table_enc</TD
+></TR
+><TR
+><TD
+>encoded</TD
+><TD
+>eh_frame_ptr</TD
+></TR
+><TR
+><TD
+>encoded</TD
+><TD
+>fde_count</TD
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+>binary search table</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1473"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>version</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Version of the <SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame_hdr</SAMP
+> format. This
+value shall be 1.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1478"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>eh_frame_ptr_enc</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The encoding format of the eh_frame_ptr field.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1482"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>fde_count_enc</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The encoding format of the fde_count field.
+A value of DW_EH_PE_omit indicates the binary search table is not present.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1486"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>table_enc</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The encoding format of the entries in the binary search table.
+A value of DW_EH_PE_omit indicates the binary search table is not present.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1490"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>eh_frame_ptr</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The encoded value of the pointer to the start of the
+<SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame</SAMP
+> section.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1495"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>fde_count</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The encoded value of the count of entries in the binary search table.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1499"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>binary search table</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A binary search table containing fde_count entries. Each entry of the table
+consist of two encoded values, the initial location, and the address.
+The entries are sorted in an increasing order by the initial location value.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="dwarfext.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="symversion.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>DWARF Extensions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tocobjformat.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Symbol Versioning</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

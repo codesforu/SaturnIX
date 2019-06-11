@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>png_set_write_fn</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Trial Use Specification"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libpng15"
+HREF="libpng15man.html"><LINK
+REL="PREVIOUS"
+TITLE="png_set_unknown_chunks"
+HREF="libpng15-png-set-unknown-chunks.html"><LINK
+REL="NEXT"
+TITLE="png_set_write_status_fn"
+HREF="libpng15-png-set-write-status-fn.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Trial Use Specification</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpng15-png-set-unknown-chunks.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpng15-png-set-write-status-fn.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="LIBPNG15-PNG-SET-WRITE-FN"
+></A
+>png_set_write_fn</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN4753"
+></A
+><H2
+>Name</H2
+>png_set_write_fn&nbsp;--&nbsp;set user-defined function for writing a PNG stream</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN4758"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN4759"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;png.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>void
+<TT
+CLASS="FUNCTION"
+>png_set_write_fn</TT
+></CODE
+>(png_structp
+<TT
+CLASS="PARAMETER"
+><I
+>png_ptr</I
+></TT
+>, png_voidp
+<TT
+CLASS="PARAMETER"
+><I
+>io_ptr</I
+></TT
+>, png_rw_ptr
+<TT
+CLASS="PARAMETER"
+><I
+>write_data_fn</I
+></TT
+>, png_flush_ptr
+<TT
+CLASS="PARAMETER"
+><I
+>output_flush_fn</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN4772"
+></A
+><H2
+>Description</H2
+><P
+>png_set_write_fn() sets the write_data_fn as the output function for writing PNG
+files instead of using standard C I/O stream functions.
+png_ptr       - pointer to output data structure png_struct
+io_ptr        - pointer to user-defined structure containing information about 
+                the output functions. This value may be NULL.
+write_data_fn - pointer to new output function that shall take the following
+                arguments:
+                - a pointer to a png_struct 
+			    - a pointer to a structure where output data can be stored
+			    - 32-bit unsigned int to indicate number of bytes to write
+			    The output function should invoke png_error() to handle any fatal
+			    errors and png_warning() to handle non-fatal errors.
+flush_data_fn - pointer to a new flush function that shall take a pointer to
+                a png_struct as argument. This function shall flush any
+				remaining data in buffers used by the output function. If the
+				output function does not buffer output, a function prototype
+				must still be supplied.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpng15-png-set-unknown-chunks.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpng15-png-set-write-status-fn.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>png_set_unknown_chunks</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libpng15man.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>png_set_write_status_fn</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

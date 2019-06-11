@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>png_create_read_struct</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libpng12"
+HREF="libpng12man.html"><LINK
+REL="PREVIOUS"
+TITLE="png_create_info_struct"
+HREF="libpng12-png-create-info-struct.html"><LINK
+REL="NEXT"
+TITLE="png_create_read_struct_2"
+HREF="libpng12-png-create-read-struct-2.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpng12-png-create-info-struct.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpng12-png-create-read-struct-2.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="LIBPNG12-PNG-CREATE-READ-STRUCT"
+></A
+>png_create_read_struct</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN13079"
+></A
+><H2
+>Name</H2
+>png_create_read_struct&nbsp;--&nbsp;allocate and initialize a png_struct structure for reading PNG file</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN13084"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN13085"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;png.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>png_structp
+<TT
+CLASS="FUNCTION"
+>png_create_read_struct</TT
+></CODE
+>(png_const_charp
+<TT
+CLASS="PARAMETER"
+><I
+>user_png_ver</I
+></TT
+>, png_voidp
+<TT
+CLASS="PARAMETER"
+><I
+>error_ptr</I
+></TT
+>, png_error_ptr
+<TT
+CLASS="PARAMETER"
+><I
+>error_fn</I
+></TT
+>, png_error_ptr
+<TT
+CLASS="PARAMETER"
+><I
+>warn_fn</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13098"
+></A
+><H2
+>Description</H2
+><P
+>png_create_read_struct() shall allocate and initialize a png_struct
+structure. The function shall return NULL if the allocation fails. The
+application should check for the return value.
+For handling errors and warnings, the application can pass desired error
+handling routines as arguments to png_create_read_struct(). Otherwise, the
+default error handling uses stderr and longjmp.  The error handling routine
+must NOT return to the calling routine.
+
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13102"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>user_png_ver</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+> version string of the library. Must be
+PNG_LIBPNG_VER_STRING</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13107"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>error_ptr</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>user defined struct for error functions.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13112"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>error_fn</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>user defined function for printing errors and aborting.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13117"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>warn_fn</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>user defined function for warnings.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13122"
+></A
+><H2
+>Return Value</H2
+><P
+>Returns the pointer to png_struct structure. Returns NULL if it fails to create
+the structure.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13125"
+></A
+><H2
+>Errors</H2
+><P
+>png_create_read_struct() shall return NULL if the allocation fails. The
+application should check for the return value.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpng12-png-create-info-struct.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpng12-png-create-read-struct-2.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>png_create_info_struct</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libpng12man.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>png_create_read_struct_2</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

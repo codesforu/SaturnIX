@@ -1,0 +1,245 @@
+<HTML
+><HEAD
+><TITLE
+>Symbol Versioning</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Object Format"
+HREF="tocobjformat.html"><LINK
+REL="PREVIOUS"
+TITLE="Symbol Mapping"
+HREF="symmap.html"><LINK
+REL="NEXT"
+TITLE="Version Definitions"
+HREF="symverdefs.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="symmap.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="symverdefs.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="SYMVERSION">Chapter 6. Symbol Versioning</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="symversion.html#SYMVERTBL"
+>Symbol Version Table</A
+></DT
+><DT
+><A
+HREF="symverdefs.html"
+>Version Definitions</A
+></DT
+><DT
+><A
+HREF="symverrqmts.html"
+>Version Requirements</A
+></DT
+><DT
+><A
+HREF="symstartseq.html"
+>Startup Sequence</A
+></DT
+><DT
+><A
+HREF="symresolution.html"
+>Symbol Resolution</A
+></DT
+></DL
+></DIV
+><P
+>This chapter describes the Symbol Versioning mechanism. All ELF objects may
+provide or depend on versioned symbols. Symbol Versioning is implemented by 3
+section types: SHT_GNU_versym, SHT_GNU_verdef, and SHT_GNU_verneed.</P
+><P
+>The term "Elfxx" means "Elf32" or "Elf64" depending on the architecture.</P
+><P
+>Versions are described by strings. The structures that are used for symbol
+versions also contain a member that holds the ELF hashing values of the
+strings. This allows for more efficient processing.</P
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="SYMVERTBL">Symbol Version Table</H1
+><P
+>The Symbol Version Table is contained in the special section <TT
+CLASS="COMPUTEROUTPUT"
+>.gnu.version</TT
+> which has a section type of <TT
+CLASS="COMPUTEROUTPUT"
+>SHT_GNU_versym</TT
+>. This section has the same number of entries
+as the Dynamic Symbol Table.</P
+><P
+>This section contains an array of elements of type Elfxx_Half. Each entry
+specifies the version defined for or required by the corresponding symbol in
+the Dynamic Symbol Table.</P
+><P
+>The values in the Symbol Version Table are unique to the object in which
+they are located. These values are identifiers that are provided by the
+the <TT
+CLASS="COMPUTEROUTPUT"
+>vna_other</TT
+> member of the
+<TT
+CLASS="COMPUTEROUTPUT"
+>Elfxx_Vernaux</TT
+> structure or the
+<TT
+CLASS="COMPUTEROUTPUT"
+>vd_ndx</TT
+> member of the
+<TT
+CLASS="COMPUTEROUTPUT"
+>Elfxx_Verdef</TT
+> structure.</P
+><P
+>The values 0 and 1 are reserved.</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>0</DT
+><DD
+><P
+>The symbol is local, not available outside the object.</P
+></DD
+><DT
+>1</DT
+><DD
+><P
+>The symbol is defined in this object and is globally available.</P
+></DD
+></DL
+></DIV
+><P
+>All other values are used to identify version strings located in one of the
+other Symbol Version sections. The value itself is not the version associated
+with the symbol. The string identified by the value defines the version of
+the symbol.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="symmap.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="symverdefs.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Symbol Mapping</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tocobjformat.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Version Definitions</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

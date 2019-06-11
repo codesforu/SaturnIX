@@ -1,0 +1,681 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for librt</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Base Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="dlvsym"
+HREF="baselib-dlvsym-1.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for librt"
+HREF="librt-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-dlvsym-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 14. Base Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="librt-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBRT"
+>14.18. Interfaces for librt</A
+></H1
+><P
+><A
+HREF="librt.html#LIB-LIBRT-DEF"
+>Table 14-59</A
+> defines the library name and shared object name
+for the librt library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBRT-DEF"
+></A
+><P
+><B
+>Table 14-59. librt Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>librt</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>librt.so.1</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBRT.1"
+></A
+>[LFS] <A
+HREF="normativerefs.html#STD.LFS"
+>Large File Support</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBRT.2"
+></A
+>[SUSv4] <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN27085"
+>14.18.1. Shared Memory Objects</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN27088"
+>14.18.1.1. Interfaces for Shared Memory Objects</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for Shared Memory Objects specified in <A
+HREF="librt.html#TBL-LIBRT-SHARE-INTS"
+>Table 14-60</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBRT-SHARE-INTS"
+></A
+><P
+><B
+>Table 14-60. librt - Shared Memory Objects Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>shm_open <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>shm_unlink <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN27107"
+>14.18.2. Asynchronous I/O</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN27110"
+>14.18.2.1. Interfaces for Asynchronous I/O</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for Asynchronous I/O specified in <A
+HREF="librt.html#TBL-LIBRT-ASYNC-INTS"
+>Table 14-61</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBRT-ASYNC-INTS"
+></A
+><P
+><B
+>Table 14-61. librt - Asynchronous I/O Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>aio_cancel <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>aio_cancel64 <A
+HREF="librt.html#REFSTD.LIBRT.1"
+>[LFS]</A
+></TD
+><TD
+>aio_error <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>aio_error64 <A
+HREF="librt.html#REFSTD.LIBRT.1"
+>[LFS]</A
+></TD
+></TR
+><TR
+><TD
+>aio_fsync <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>aio_fsync64 <A
+HREF="librt.html#REFSTD.LIBRT.1"
+>[LFS]</A
+></TD
+><TD
+>aio_read <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>aio_read64 <A
+HREF="librt.html#REFSTD.LIBRT.1"
+>[LFS]</A
+></TD
+></TR
+><TR
+><TD
+>aio_return <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>aio_return64 <A
+HREF="librt.html#REFSTD.LIBRT.1"
+>[LFS]</A
+></TD
+><TD
+>aio_suspend <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>aio_suspend64 <A
+HREF="librt.html#REFSTD.LIBRT.1"
+>[LFS]</A
+></TD
+></TR
+><TR
+><TD
+>aio_write <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>aio_write64 <A
+HREF="librt.html#REFSTD.LIBRT.1"
+>[LFS]</A
+></TD
+><TD
+>lio_listio(GLIBC_2.4) <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>lio_listio64(GLIBC_2.4) <A
+HREF="librt.html#REFSTD.LIBRT.1"
+>[LFS]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN27186"
+>14.18.3. Clock</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN27189"
+>14.18.3.1. Interfaces for Clock</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for Clock specified in <A
+HREF="librt.html#TBL-LIBRT-CLOCK-INTS"
+>Table 14-62</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBRT-CLOCK-INTS"
+></A
+><P
+><B
+>Table 14-62. librt - Clock Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>clock_getcpuclockid <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>clock_getres <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>clock_gettime <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>clock_nanosleep <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>clock_settime <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN27222"
+>14.18.4. Timers</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN27225"
+>14.18.4.1. Interfaces for Timers</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for Timers specified in <A
+HREF="librt.html#TBL-LIBRT-TIMER-INTS"
+>Table 14-63</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBRT-TIMER-INTS"
+></A
+><P
+><B
+>Table 14-63. librt - Timers Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>timer_create <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>timer_delete <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>timer_getoverrun <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>timer_gettime <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>timer_settime <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN27258"
+>14.18.5. Message Queues</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN27261"
+>14.18.5.1. Interfaces for Message Queues</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for Message Queues specified in <A
+HREF="librt.html#TBL-LIBRT-MESSA-INTS"
+>Table 14-64</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBRT-MESSA-INTS"
+></A
+><P
+><B
+>Table 14-64. librt - Message Queues Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>mq_close(GLIBC_2.3.4) <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>mq_getattr(GLIBC_2.3.4) <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>mq_notify(GLIBC_2.3.4) <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>mq_open(GLIBC_2.3.4) <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>mq_receive(GLIBC_2.3.4) <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>mq_send(GLIBC_2.3.4) <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>mq_setattr(GLIBC_2.3.4) <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>mq_timedreceive(GLIBC_2.3.4) <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>mq_timedsend(GLIBC_2.3.4) <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>mq_unlink(GLIBC_2.3.4) <A
+HREF="librt.html#REFSTD.LIBRT.2"
+>[SUSv4]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-dlvsym-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="librt-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>dlvsym</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for librt</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>svctcp_create</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="svc_sendreply"
+HREF="baselib-svc-sendreply-3.html"><LINK
+REL="NEXT"
+TITLE="svcudp_create"
+HREF="baselib-svcudp-create-3.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-svc-sendreply-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-svcudp-create-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-SVCTCP-CREATE-3"
+></A
+>svctcp_create</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN20432"
+></A
+><H2
+>Name</H2
+>svctcp_create&nbsp;--&nbsp;create a TCP/IP-based RPC service transport</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN20435"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN20438"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;rpc/rpc.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>SVCXPRT *
+  <TT
+CLASS="FUNCTION"
+>svctcp_create</TT
+></CODE
+>(int
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>sock</I
+></TT
+></I
+></TT
+>, u_int
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>send_buf_size</I
+></TT
+></I
+></TT
+>, u_int
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>recv_buf_size</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20452"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="FUNCTION"
+>svctcp_create()</TT
+> creates a TCP/IP-based RPC service transport, 
+to which it returns a pointer.  The transport is associated with the socket
+<TT
+CLASS="PARAMETER"
+><I
+>sock</I
+></TT
+>, which may be <CODE
+CLASS="VARNAME"
+>RPC_ANYSOCK</CODE
+>, in 
+which case a new socket is created.  If the socket is not bound to a local TCP
+port, then this routine binds it to an arbitrary port.  Upon completion, 
+<CODE
+CLASS="VARNAME"
+>xprt-&#62;xp_sock</CODE
+> is the transport's socket descriptor,
+and <CODE
+CLASS="VARNAME"
+>xprt-&#62;xp_port</CODE
+> is the transport's port number.  Since 
+TCP-based RPC uses buffered I/O, users may specify the size of buffers;
+values of zero choose suitable defaults.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20462"
+></A
+><H2
+>Return Value</H2
+><P
+><TT
+CLASS="FUNCTION"
+>svctcp_create()</TT
+> returns NULL if it fails, or a pointer to 
+the RPC service transport otherwise.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-svc-sendreply-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-svcudp-create-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>svc_sendreply</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>svcudp_create</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

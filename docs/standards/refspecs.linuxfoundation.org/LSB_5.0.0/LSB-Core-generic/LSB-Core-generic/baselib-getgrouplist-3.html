@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>getgrouplist</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="getgrent_r"
+HREF="baselib-getgrent-r-1.html"><LINK
+REL="NEXT"
+TITLE="gethostbyaddr_r"
+HREF="baselib-gethostbyaddr-r-3.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-getgrent-r-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-gethostbyaddr-r-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-GETGROUPLIST-3"
+></A
+>getgrouplist</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN14921"
+></A
+><H2
+>Name</H2
+>getgrouplist&nbsp;--&nbsp;get groups a user belongs to</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN14924"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN14925"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;grp.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>getgrouplist</TT
+></CODE
+>(const char *
+<TT
+CLASS="PARAMETER"
+><I
+>user</I
+></TT
+>, gid_t
+<TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+>, gid_t *
+<TT
+CLASS="PARAMETER"
+><I
+>groups</I
+></TT
+>, int *
+<TT
+CLASS="PARAMETER"
+><I
+>ngroups</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14938"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>getgrouplist()</TT
+> function shall
+fill in the array <TT
+CLASS="PARAMETER"
+><I
+>groups</I
+></TT
+> with 
+the supplementary groups for the user specified
+by <TT
+CLASS="PARAMETER"
+><I
+>user</I
+></TT
+>. On entry, 
+<TT
+CLASS="PARAMETER"
+><I
+>ngroups</I
+></TT
+> shall refer to an integer
+containing the maximum number of 
+elements in the <TT
+CLASS="PARAMETER"
+><I
+>groups</I
+></TT
+> array.
+The group <TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+> shall also be included
+in the values returned in <TT
+CLASS="PARAMETER"
+><I
+>groups</I
+></TT
+>.
+It is expected that <TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+> would be specified as the
+user's primary group from the password file (obtainable
+via <TT
+CLASS="FUNCTION"
+>getpwnam()</TT
+> or a similar function).</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14952"
+></A
+><H2
+>Return Value</H2
+><P
+>If on entry the value referenced by <TT
+CLASS="PARAMETER"
+><I
+>ngroups</I
+></TT
+>
+was greater than or equal to the number of supplementary
+group identifiers to be copied to the array identified by
+<TT
+CLASS="PARAMETER"
+><I
+>groups</I
+></TT
+>, 
+<TT
+CLASS="FUNCTION"
+>getgrouplist()</TT
+> shall return the number of 
+group identifiers actually copied, and shall set the value
+referenced by <TT
+CLASS="PARAMETER"
+><I
+>ngroups</I
+></TT
+> to this value.</P
+><P
+>If on entry the value referenced by <TT
+CLASS="PARAMETER"
+><I
+>ngroups</I
+></TT
+>
+was less than the number of supplementary
+group identifiers, <TT
+CLASS="FUNCTION"
+>getgrouplist()</TT
+> shall return
+<CODE
+CLASS="CONSTANT"
+>-1</CODE
+>. The initial <TT
+CLASS="PARAMETER"
+><I
+>ngroups</I
+></TT
+>
+entries in <TT
+CLASS="PARAMETER"
+><I
+>groups</I
+></TT
+> shall be overwritten.</P
+><P
+>If the number of groups exceeds the input
+<TT
+CLASS="PARAMETER"
+><I
+>ngroups</I
+></TT
+> value, then as well as returning
+<CODE
+CLASS="CONSTANT"
+>-1</CODE
+>, <TT
+CLASS="PARAMETER"
+><I
+>ngroups</I
+></TT
+> shall be set
+to the number of groups that would have been placed in
+<TT
+CLASS="PARAMETER"
+><I
+>groups</I
+></TT
+> if it had been large enough.
+
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>In such a case, the caller can use the information returned to make a
+further <TT
+CLASS="FUNCTION"
+>getgrouplist()</TT
+> call with a correctly sized
+<TT
+CLASS="PARAMETER"
+><I
+>groups</I
+></TT
+> array.</P
+></BLOCKQUOTE
+></DIV
+>&#13;</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>user</I
+></TT
+> does not refer to a valid user on the system,
+then the behavior of this function is undefined.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14976"
+></A
+><H2
+>Errors</H2
+><P
+>None defined.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14979"
+></A
+><H2
+>See Also</H2
+><P
+><TT
+CLASS="FUNCTION"
+>getgroups()</TT
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-getgrent-r-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-gethostbyaddr-r-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>getgrent_r</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>gethostbyaddr_r</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

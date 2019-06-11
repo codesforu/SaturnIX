@@ -1,0 +1,385 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>strtouq</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="strtoq"
+HREF="baselib-strtoq-3.html"><LINK
+REL="NEXT"
+TITLE="svc_register"
+HREF="baselib-svc-register-3.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-strtoq-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-svc-register-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-STRTOUQ-3"
+></A
+>strtouq</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN20257"
+></A
+><H2
+>Name</H2
+>strtouq&nbsp;--&nbsp;convert a string to an unsigned long long</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN20260"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN20263"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;sys/types.h&#62;
+#include &#60;stdlib.h&#62;
+#include &#60;limits.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>unsigned long long 
+  <TT
+CLASS="FUNCTION"
+>strtouq</TT
+></CODE
+>(const char *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>nptr</I
+></TT
+></I
+></TT
+>, char * *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>endptr</I
+></TT
+></I
+></TT
+>, int 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>base</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20277"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="FUNCTION"
+>strtouq()</TT
+> converts the string <TT
+CLASS="PARAMETER"
+><I
+>nptr</I
+></TT
+> 
+to an <SPAN
+CLASS="TYPE"
+>unsigned long long</SPAN
+>
+value. The conversion is done according to the given base, which 
+shall be between <TT
+CLASS="LITERAL"
+>2</TT
+> and <TT
+CLASS="LITERAL"
+>36</TT
+> inclusive, 
+or be the special value <TT
+CLASS="LITERAL"
+>0</TT
+>.</P
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>nptr</I
+></TT
+> may begin with an arbitrary amount of white 
+space (as determined by <TT
+CLASS="FUNCTION"
+>isspace()</TT
+>), followed by a 
+single optional <SPAN
+CLASS="TOKEN"
+>+</SPAN
+> or <SPAN
+CLASS="TOKEN"
+>-</SPAN
+> sign character. If 
+<TT
+CLASS="PARAMETER"
+><I
+>base</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>0</TT
+> or <TT
+CLASS="LITERAL"
+>16</TT
+>, 
+the string may then include a <SPAN
+CLASS="TOKEN"
+>0x</SPAN
+> prefix, and the number will 
+be read in base 16; otherwise, a <TT
+CLASS="LITERAL"
+>0</TT
+> base is taken as 
+10 (decimal), unless the next character is <TT
+CLASS="LITERAL"
+>0</TT
+>, in which 
+case it is taken as 8 (octal).</P
+><P
+>The remainder of the string is converted to an unsigned long value in the 
+obvious manner, stopping at the end of the string or at the first character 
+that does not produce a valid digit in the given base. (In bases above 10, 
+the letter <TT
+CLASS="LITERAL"
+>A</TT
+> in either upper or lower case represents 10, 
+<TT
+CLASS="LITERAL"
+>B</TT
+> represents 11, and so forth, with <TT
+CLASS="LITERAL"
+>Z</TT
+> 
+representing 35.)</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20303"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <TT
+CLASS="FUNCTION"
+>strtouq()</TT
+> returns either the result of 
+the conversion or, if there was a leading minus sign, the negation of 
+the result of the conversion, unless the original (non-negated) value 
+would overflow. In the case of an overflow the function returns 
+<CODE
+CLASS="VARNAME"
+>UQUAD_MAX</CODE
+> and the global variable <CODE
+CLASS="VARNAME"
+>errno</CODE
+> 
+is set to <SPAN
+CLASS="ERRORNAME"
+>ERANGE</SPAN
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20310"
+></A
+><H2
+>Errors</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN20313"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ERANGE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The given string was out of range; the value converted has been clamped.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-strtoq-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-svc-register-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>strtoq</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>svc_register</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

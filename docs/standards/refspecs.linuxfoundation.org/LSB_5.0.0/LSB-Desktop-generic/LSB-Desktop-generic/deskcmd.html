@@ -1,0 +1,337 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Desktop Commands</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Desktop Environment"
+HREF="tocdeskenv.html"><LINK
+REL="PREVIOUS"
+TITLE="Icon Theme Specification"
+HREF="xdg-iconthemes.html"><LINK
+REL="NEXT"
+TITLE="Package Format and Installation"
+HREF="packagefmt.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="xdg-iconthemes.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="packagefmt.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="DESKCMD"
+></A
+>Chapter 21. Desktop Commands</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="XDGUTILS"
+>21.1. Xdg-utils</A
+></H1
+><P
+>Xdg-utils is a set of command line utilities that assist applications with
+a variety of desktop integration tasks. Some of the utilities focus on
+tasks commonly required during the installation of a desktop application.
+The remainder focus on integration with the desktop environment
+while the application is running. </P
+><P
+>These utilities operate as described at <A
+HREF="informativerefs.html#STD.XDG.UTILS"
+>xdg-utils reference</A
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN171419"
+>21.1.1. Xdg-utils Commands</A
+></H2
+><P
+>An LSB conforming implementation shall provide the
+commands and utilities as described in <A
+HREF="deskcmd.html#XDG-CMDS"
+>Table 21-1</A
+>, with at least the behavior
+described as mandatory in the referenced underlying
+specification, with the following exceptions:
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>If any operand (except one which follows <CODE
+CLASS="OPTION"
+>--</CODE
+>) starts with a
+hyphen, the behavior is unspecified.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Rationale (Informative): </B
+>Applications should place options before operands, or use
+<CODE
+CLASS="OPTION"
+>--</CODE
+>, as needed.  This text is needed because,
+by default, GNU option parsing
+differs from POSIX, unless the environment variable 
+<CODE
+CLASS="ENVAR"
+>POSIXLY_CORRECT</CODE
+>
+is set.  For example, <B
+CLASS="COMMAND"
+>ls . -a</B
+> in GNU
+<B
+CLASS="COMMAND"
+>ls</B
+> means to list the current directory, showing all
+files (that is, <CODE
+CLASS="OPTION"
+>"."</CODE
+> is an operand and <CODE
+CLASS="OPTION"
+>-a</CODE
+> is an
+option).  In POSIX, <CODE
+CLASS="OPTION"
+>"."</CODE
+> and <CODE
+CLASS="OPTION"
+>-a</CODE
+> are both operands,
+and the command means to list the current directory, and also the file
+named <TT
+CLASS="FILENAME"
+>-a</TT
+>.  Suggesting that applications rely on the
+setting of the <CODE
+CLASS="ENVAR"
+>POSIXLY_CORRECT</CODE
+> environment variable,
+or try to set it, seems worse than just asking the applications to invoke
+commands in ways which work with either the POSIX or GNU behaviors.</P
+></BLOCKQUOTE
+></DIV
+></P
+></LI
+></OL
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="XDG-CMDS"
+></A
+><P
+><B
+>Table 21-1. Commands And Utilities</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>xdg-desktop-icon
+<A
+HREF="deskcmd.html#AEN171465"
+> [1]</A
+></TD
+><TD
+>xdg-email
+<A
+HREF="deskcmd.html#AEN171465"
+> [1]</A
+></TD
+><TD
+>xdg-mime
+<A
+HREF="deskcmd.html#AEN171465"
+> [1]</A
+></TD
+><TD
+>xdg-screensaver
+<A
+HREF="deskcmd.html#AEN171465"
+> [1]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+><TR
+><TD
+>xdg-desktop-menu
+<A
+HREF="deskcmd.html#AEN171465"
+> [1]</A
+></TD
+><TD
+>xdg-icon-resource
+<A
+HREF="deskcmd.html#AEN171465"
+> [1]</A
+></TD
+><TD
+>xdg-open
+<A
+HREF="deskcmd.html#AEN171465"
+> [1]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+><I
+CLASS="EMPHASIS"
+>Referenced Specification(s)</I
+></P
+><DIV
+CLASS="FORMALPARA"
+><P
+><B
+><B
+>[1]. </B
+></B
+><A
+HREF="informativerefs.html#STD.XDG.UTILS"
+>xdg-utils reference</A
+></P
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="xdg-iconthemes.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="packagefmt.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Icon Theme Specification</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tocdeskenv.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Package Format and Installation</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

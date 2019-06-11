@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>chsh</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="chfn"
+HREF="chfn.html"><LINK
+REL="NEXT"
+TITLE="col"
+HREF="col.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="chfn.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="col.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="CHSH"
+></A
+>chsh</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN57744"
+></A
+><H2
+>Name</H2
+>chsh&nbsp;--&nbsp;change login shell</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN57747"
+></A
+><H2
+>Synopsis</H2
+><TT
+CLASS="CMDSYNOPSIS"
+><B
+CLASS="COMMAND"
+>chsh</B
+> [-s <TT
+CLASS="REPLACEABLE"
+><I
+>login_shell</I
+></TT
+>] [<TT
+CLASS="REPLACEABLE"
+><I
+>user</I
+></TT
+>]</TT
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN57754"
+></A
+><H2
+>Description</H2
+><P
+><B
+CLASS="COMMAND"
+>chsh</B
+> changes the user login shell.  This determines 
+the name of the
+user's initial login command.  An unprivileged user may only change the login
+shell for their own account, a user with appropriate privilege may change the login shell
+for any account specified by <TT
+CLASS="PARAMETER"
+><I
+>user</I
+></TT
+>.</P
+><P
+>Unless the user has appropriate privilege, the initial login command name 
+shall be one of those listed in 
+<TT
+CLASS="FILENAME"
+>/etc/shells</TT
+>.
+The <TT
+CLASS="PARAMETER"
+><I
+>login_shell</I
+></TT
+> shall be the absolute path
+(i.e. it must start with '<TT
+CLASS="FILENAME"
+>/</TT
+>') to an executable file.
+Accounts which are restricted (in an implementation-defined manner)
+may not change their login shell.</P
+><P
+>If the <TT
+CLASS="PARAMETER"
+><I
+>-s</I
+></TT
+>
+option is not selected, <B
+CLASS="COMMAND"
+>chsh</B
+> operates in 
+an interactive mode. The prompts and expected input in this mode are
+unspecified.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN57766"
+></A
+><H2
+>Standard Options</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN57769"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>-s <TT
+CLASS="REPLACEABLE"
+><I
+>login_shell</I
+></TT
+></I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>sets the login shell. </P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="chfn.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="col.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>chfn</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>col</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Low Level System Information</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for S390X"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Executable and Linking Format (ELF)"
+HREF="elf-s390x.html"><LINK
+REL="PREVIOUS"
+TITLE="Introduction"
+HREF="elfintro.html"><LINK
+REL="NEXT"
+TITLE="Function Calling Sequence"
+HREF="callingsequence.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for S390X</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="elfintro.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="callingsequence.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="LOWLEVEL"
+></A
+>Chapter 7. Low Level System Information</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="MACHINEINTERFACE"
+>7.1. Machine Interface</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="PROCESSORARCH"
+>7.1.1. Processor Architecture</A
+></H2
+><P
+>The z/Architecture is specified by the following documents
+<P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+><A
+HREF="normativerefs.html#STD.S390X.ABI"
+>LINUX for zSeries Application Binary Interface Supplement</A
+></P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+><A
+HREF="normativerefs.html#STD.S390X.ARCH"
+>z/Architecture Principles of Operation</A
+></P
+></LI
+></UL
+></P
+><P
+>Only the non optional features of z/Architecture processor instruction
+set may be assumed to be present. An application should determine
+if any additional instruction set features are available
+before using those additional features. If a feature is not present,
+then a conforming application shall not use it.</P
+><P
+>Conforming applications shall not invoke the implementations underlying system call interface directly. 
+The interfaces in the
+implementation base libraries shall be used instead.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Rationale: </B
+>Implementation-supplied base libraries may use the system call interface
+but applications must not assume any particular operating system or
+kernel version is present.</P
+></BLOCKQUOTE
+></DIV
+></P
+><P
+>Applications conforming to this specification must provide feedback to the
+user if a feature that is required for correct execution of the application
+is not present. Applications conforming to this specification should attempt
+to execute in a diminished capacity if a required instruction set feature is
+not present.</P
+><P
+>This specfication does not provide any performance guarantees of a conforming
+system. A system conforming to this specification may be implemented in either
+hardware or software.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="DATAREPRESENTATION"
+>7.1.2. Data Representation</A
+></H2
+><P
+>LSB-conforming applications shall use the data representation as defined in 
+Chapter 1 of the <A
+HREF="normativerefs.html#STD.S390X.ABI"
+>LINUX for zSeries Application Binary Interface Supplement</A
+>.</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="BYTEORDERING"
+>7.1.2.1. Byte Ordering</A
+></H3
+><P
+>See chapter 1 of the <A
+HREF="normativerefs.html#STD.S390X.ABI"
+>LINUX for zSeries Application Binary Interface Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="FUNDAMENTALTYES"
+>7.1.2.2. Fundamental Types</A
+></H3
+><P
+>See chapter 1 of the <A
+HREF="normativerefs.html#STD.S390X.ABI"
+>LINUX for zSeries Application Binary Interface Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AGGREGATESANDUNIONS"
+>7.1.2.3. Aggregates and Unions</A
+></H3
+><P
+>See chapter 1 of the <A
+HREF="normativerefs.html#STD.S390X.ABI"
+>LINUX for zSeries Application Binary Interface Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="BITFIELDS"
+>7.1.2.4. Bit Fields</A
+></H3
+><P
+>See chapter 1 of the <A
+HREF="normativerefs.html#STD.S390X.ABI"
+>LINUX for zSeries Application Binary Interface Supplement</A
+>.</P
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="elfintro.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="callingsequence.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Introduction</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="elf-s390x.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Function Calling Sequence</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,955 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>epoll_ctl</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="epoll_create"
+HREF="baselib-epoll-create-1.html"><LINK
+REL="NEXT"
+TITLE="epoll_wait"
+HREF="baselib-epoll-wait-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-epoll-create-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-epoll-wait-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-EPOLL-CTL-1"
+></A
+>epoll_ctl</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN13671"
+></A
+><H2
+>Name</H2
+>epoll_ctl&nbsp;--&nbsp;control an epoll file descriptor</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN13676"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN13677"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;sys/epoll.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>epoll_ctl</TT
+></CODE
+>(int
+<TT
+CLASS="PARAMETER"
+><I
+>epfd</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>op</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>, struct epoll_event *
+<TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13690"
+></A
+><H2
+>Description</H2
+><P
+>The interface <TT
+CLASS="FUNCTION"
+>epoll_ctl()</TT
+> shall control an epoll file descriptor.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>epfd</I
+></TT
+> shall specify
+the epoll file descriptor to control.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>op</I
+></TT
+> shall specify
+the operation to perform on the specified target file descriptor.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+> shall specify
+the target file descriptor on which to perform the
+specified operation.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+> shall specify
+the object associated with the target file descriptor.
+The <CODE
+CLASS="VARNAME"
+>events</CODE
+> member of the
+<TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+> parameter is a bit set
+composed of the event types listed below.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13704"
+></A
+><H2
+>Event types</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13707"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EPOLLERR</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>An error condition occurred on the target file descriptor.
+It shall not be necessary to set this event in
+<CODE
+CLASS="VARNAME"
+>events</CODE
+>;
+this interface
+shall always wait for it.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13712"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EPOLLET</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This event shall set edge-triggered behavior
+for the target file descriptor.
+The default epoll behavior shall be level-triggered.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13716"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EPOLLHUP</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A hang up occurred on the target file descriptor.
+It shall not be necessary to set this event in
+<CODE
+CLASS="VARNAME"
+>events</CODE
+>;
+this interface
+shall always wait for it.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13721"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EPOLLIN</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The file is accessible to <TT
+CLASS="FUNCTION"
+>read()</TT
+> operations.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13726"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EPOLLONESHOT</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This event shall set one-shot behavior
+for the target file descriptor.
+After <TT
+CLASS="FUNCTION"
+>epoll_wait()</TT
+> retrieves an event,
+the file descriptor shall be disabled and epoll shall not
+report any other events. 
+To reenable the file descriptor with a new event mask,
+the user should invoke <TT
+CLASS="FUNCTION"
+>epoll_ctl()</TT
+>
+with <CODE
+CLASS="CONSTANT"
+>EPOLL_CTL_MOD</CODE
+> in the
+<TT
+CLASS="PARAMETER"
+><I
+>op</I
+></TT
+> parameter.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13734"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EPOLLOUT</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The file is accessible to <TT
+CLASS="FUNCTION"
+>write()</TT
+> operations.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13739"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EPOLLPRI</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Urgent data exists for <TT
+CLASS="FUNCTION"
+>read()</TT
+> operations.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13744"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EPOLLRDHUP</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A stream socket peer closed the connection,
+or else the peer shut down the writing half
+of the connection.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13748"
+></A
+><H2
+>Values of the op parameter</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13751"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EPOLL_CTL_ADD</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Associate <TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>
+with the file described by <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>,
+and add <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>
+to the epoll descriptor <TT
+CLASS="PARAMETER"
+><I
+>epfd</I
+></TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13759"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EPOLL_CTL_DEL</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Remove <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+> from
+<TT
+CLASS="PARAMETER"
+><I
+>epfd</I
+></TT
+>, and
+ignore <TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>, which
+can be <TT
+CLASS="LITERAL"
+>NULL</TT
+>. </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13767"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EPOLL_CTL_MOD</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Change the event <TT
+CLASS="PARAMETER"
+><I
+>event</I
+></TT
+>
+associated with <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13773"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <TT
+CLASS="FUNCTION"
+>epoll_ctl()</TT
+> shall return
+<TT
+CLASS="LITERAL"
+>0</TT
+>.</P
+><P
+>On failure, <TT
+CLASS="FUNCTION"
+>epoll_ctl()</TT
+> shall return
+<TT
+CLASS="LITERAL"
+>-1</TT
+> and set <CODE
+CLASS="VARNAME"
+>errno</CODE
+>
+as follows.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13782"
+></A
+><H2
+>Errors</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13785"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EBADF</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>epfd</I
+></TT
+> or the
+parameter <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+> is an invalid file descriptor.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13791"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EEXIST</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>op</I
+></TT
+> was <CODE
+CLASS="CONSTANT"
+>EPOLL_CTL_ADD</CODE
+>,
+but the file descriptor <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+> is already in
+<TT
+CLASS="PARAMETER"
+><I
+>epfd</I
+></TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13799"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EINVAL</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>epfd</I
+></TT
+> is invalid,
+or it is the same as <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>,
+or the operation specified by the parameter <TT
+CLASS="PARAMETER"
+><I
+>op</I
+></TT
+>
+is unsupported.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13806"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ENOENT</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>op</I
+></TT
+> was 
+<CODE
+CLASS="CONSTANT"
+>EPOLL_CTL_MOD</CODE
+> or <CODE
+CLASS="CONSTANT"
+>EPOLL_CTL_DEL</CODE
+>,
+but the file descriptor <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+> is not in
+<TT
+CLASS="PARAMETER"
+><I
+>epfd</I
+></TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13815"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ENOMEM</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Not enough memory for the operation specified by the parameter <TT
+CLASS="PARAMETER"
+><I
+>op</I
+></TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN13820"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EPERM</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The file specified by <TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+> does not support epoll.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13825"
+></A
+><H2
+>See Also</H2
+><P
+><TT
+CLASS="FUNCTION"
+>close()</TT
+>, <TT
+CLASS="FUNCTION"
+>epoll_create()</TT
+>, 
+<TT
+CLASS="FUNCTION"
+>epoll_wait()</TT
+>, <TT
+CLASS="FUNCTION"
+>poll()</TT
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-epoll-create-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-epoll-wait-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>epoll_create</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>epoll_wait</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

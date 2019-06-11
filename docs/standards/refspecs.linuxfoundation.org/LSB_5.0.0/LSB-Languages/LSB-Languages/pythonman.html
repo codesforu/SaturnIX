@@ -1,0 +1,1468 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>PYTHON</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Languages Specification"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Python Interpreter Command"
+HREF="pycommand.html"><LINK
+REL="PREVIOUS"
+TITLE="Python Interpreter Command"
+HREF="pycommand.html"><LINK
+REL="NEXT"
+TITLE="Perl Interpreter"
+HREF="perl.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Languages Specification</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="pycommand.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="perl.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="PYTHONMAN"
+></A
+>PYTHON</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="PYNAME"
+></A
+><H2
+>Name</H2
+>python&nbsp;--&nbsp;an interpreted, interactive, object-oriented programming language</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="PYSYNOPSIS"
+></A
+><H2
+>Synopsis</H2
+><TT
+CLASS="CMDSYNOPSIS"
+><B
+CLASS="COMMAND"
+>python</B
+> [-d ] [-E ] [-h ] [-i ] [ -m    <TT
+CLASS="REPLACEABLE"
+><I
+>module-name</I
+></TT
+> ] [-O ]<BR> [ -Q    <TT
+CLASS="REPLACEABLE"
+><I
+>argument</I
+></TT
+> ] [-S ] [-t ] [-u ]<BR> [-v ] [-V ] [ -W    <TT
+CLASS="REPLACEABLE"
+><I
+>argument</I
+></TT
+> ] [-x ]<BR> [ -c    <TT
+CLASS="REPLACEABLE"
+><I
+>command</I
+></TT
+> | <TT
+CLASS="REPLACEABLE"
+><I
+>script</I
+></TT
+> | -  ] [<TT
+CLASS="REPLACEABLE"
+><I
+>arguments</I
+></TT
+>]</TT
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="PYDESCRIPTION"
+></A
+><H2
+>DESCRIPTION</H2
+><P
+>Python is an interpreted, interactive, object-oriented programming
+language that combines remarkable power with very clear syntax.
+For an introduction to programming in Python you are referred to the
+Python Tutorial.
+The Python Library Reference documents built-in and standard types,
+constants, functions and modules.
+Finally, the Python Reference Manual describes the syntax and
+semantics of the core language in (perhaps too) much detail.
+(These documents may be located via the
+<A
+HREF="pythonman.html#PYINTERNET-RESOURCES"
+>INTERNET RESOURCES</A
+>
+below; they may be installed on your system as well.)</P
+><P
+>Python's basic power can be extended with your own modules written in
+C or C++.
+On most systems such modules may be dynamically loaded.
+Python is also adaptable as an extension language for existing
+applications.
+See the internal documentation for hints.</P
+><P
+>Documentation for installed Python modules and packages can be 
+viewed by running the 
+<I
+CLASS="EMPHASIS"
+>pydoc</I
+>
+program.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="PYCOMMAND-LINE-OPTIONS"
+></A
+><H2
+>COMMAND LINE OPTIONS</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN479"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-c </CODE
+><I
+CLASS="EMPHASIS"
+>command</I
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Specify the command to execute (see next section).
+This terminates the option list (following options are passed as
+arguments to the command).</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN485"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-d</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Turn on parser debugging output (for wizards only, depending on
+compilation options).</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN490"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-E</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Ignore environment variables like PYTHONPATH and PYTHONHOME that modify
+the behavior of the interpreter.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN495"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-h</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Prints the usage for the interpreter executable and exits.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN500"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-i</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>When a script is passed as first argument or the <CODE
+CLASS="OPTION"
+>-c</CODE
+> option is
+used, enter interactive mode after executing the script or the
+command.  It does not read the $PYTHONSTARTUP file.  This can be
+useful to inspect global variables or a stack trace when a script
+raises an exception.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN506"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-m </CODE
+><I
+CLASS="EMPHASIS"
+>module-name</I
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Searches 
+<I
+CLASS="EMPHASIS"
+>sys.path</I
+>
+for the named module and runs the corresponding 
+<SPAN
+CLASS="MARKUP"
+>.py</SPAN
+>
+file as a script.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN514"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-O</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Turn on basic optimizations.  This changes the filename extension for
+compiled (bytecode) files from
+<SPAN
+CLASS="MARKUP"
+>.pyc</SPAN
+>
+to <SPAN
+CLASS="MARKUP"
+>.pyo</SPAN
+>.  Given twice, causes docstrings to be discarded.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN521"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-Q </CODE
+><I
+CLASS="EMPHASIS"
+>argument</I
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Division control; see PEP 238.  The argument must be one of "old" (the
+default, int/int and long/long return an int or long), "new" (new
+division semantics, i.e. int/int and long/long returns a float),
+"warn" (old division semantics with a warning for int/int and
+long/long), or "warnall" (old division semantics with a warning for
+all use of the division operator).  For a use of "warnall", see the
+Tools/scripts/fixdiv.py script.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN527"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-S</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Disable the import of the module
+<I
+CLASS="EMPHASIS"
+>site</I
+>
+and the site-dependent manipulations of
+<I
+CLASS="EMPHASIS"
+>sys.path</I
+>
+that it entails.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN534"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-t</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Issue a warning when a source file mixes tabs and spaces for
+indentation in a way that makes it depend on the worth of a tab
+expressed in spaces.  Issue an error when the option is given twice.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN539"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-u</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Force stdin, stdout and stderr to be totally unbuffered.  On systems
+where it matters, also put stdin, stdout and stderr in binary mode.
+Note that there is internal buffering in xreadlines(), readlines() and
+file-object iterators ("for line in sys.stdin") which is not
+influenced by this option.  To work around this, you will want to use
+"sys.stdin.readline()" inside a "while 1:" loop.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN544"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-v</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Print a message each time a module is initialized, showing the place
+(filename or built-in module) from which it is loaded.  When given
+twice, print a message for each file that is checked for when 
+searching for a module.  Also provides information on module cleanup
+at exit.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN549"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-V</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Prints the Python version number of the executable and exits.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN554"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-W </CODE
+><I
+CLASS="EMPHASIS"
+>argument</I
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Warning control.  Python sometimes prints warning message to
+<I
+CLASS="EMPHASIS"
+>sys.stderr</I
+>.
+A typical warning message has the following form:
+<I
+CLASS="EMPHASIS"
+>file</I
+><I
+CLASS="EMPHASIS"
+>:</I
+><I
+CLASS="EMPHASIS"
+>line</I
+><I
+CLASS="EMPHASIS"
+>: </I
+><I
+CLASS="EMPHASIS"
+>category</I
+><I
+CLASS="EMPHASIS"
+>: </I
+><I
+CLASS="EMPHASIS"
+>message.</I
+>
+By default, each warning is printed once for each source line where it
+occurs.  This option controls how often warnings are printed.
+Multiple
+<CODE
+CLASS="OPTION"
+>-W</CODE
+>
+options may be given; when a warning matches more than one
+option, the action for the last matching option is performed.
+Invalid
+<CODE
+CLASS="OPTION"
+>-W</CODE
+>
+options are ignored (a warning message is printed about invalid
+options when the first warning is issued).  Warnings can also be
+controlled from within a Python program using the
+<I
+CLASS="EMPHASIS"
+>warnings</I
+>
+module.</P
+><P
+>The simplest form of
+<I
+CLASS="EMPHASIS"
+>argument</I
+>
+is one of the following
+<I
+CLASS="EMPHASIS"
+>action</I
+>
+strings (or a unique abbreviation):
+<I
+CLASS="EMPHASIS"
+>ignore</I
+>
+to ignore all warnings;
+<I
+CLASS="EMPHASIS"
+>default</I
+>
+to explicitly request the default behavior (printing each warning once
+per source line);
+<I
+CLASS="EMPHASIS"
+>all</I
+>
+to print a warning each time it occurs (this may generate many
+messages if a warning is triggered repeatedly for the same source
+line, such as inside a loop);
+<I
+CLASS="EMPHASIS"
+>module</I
+>
+to print each warning only only the first time it occurs in each
+module;
+<I
+CLASS="EMPHASIS"
+>once</I
+>
+to print each warning only the first time it occurs in the program; or
+<I
+CLASS="EMPHASIS"
+>error</I
+>
+to raise an exception instead of printing a warning message.</P
+><P
+>The full form of
+<I
+CLASS="EMPHASIS"
+>argument</I
+>
+is
+<I
+CLASS="EMPHASIS"
+>action</I
+><I
+CLASS="EMPHASIS"
+>:</I
+><I
+CLASS="EMPHASIS"
+>message</I
+><I
+CLASS="EMPHASIS"
+>:</I
+><I
+CLASS="EMPHASIS"
+>category</I
+><I
+CLASS="EMPHASIS"
+>:</I
+><I
+CLASS="EMPHASIS"
+>module</I
+><I
+CLASS="EMPHASIS"
+>:</I
+><I
+CLASS="EMPHASIS"
+>line.</I
+>
+Here,
+<I
+CLASS="EMPHASIS"
+>action</I
+>
+is as explained above but only applies to messages that match the
+remaining fields.  Empty fields match all values; trailing empty
+fields may be omitted.  The
+<I
+CLASS="EMPHASIS"
+>message</I
+>
+field matches the start of the warning message printed; this match is
+case-insensitive.  The
+<I
+CLASS="EMPHASIS"
+>category</I
+>
+field matches the warning category.  This must be a class name; the
+match test whether the actual warning category of the message is a
+subclass of the specified warning category.  The full class name must
+be given.  The
+<I
+CLASS="EMPHASIS"
+>module</I
+>
+field matches the (fully-qualified) module name; this match is
+case-sensitive.  The
+<I
+CLASS="EMPHASIS"
+>line</I
+>
+field matches the line number, where zero matches all line numbers and
+is thus equivalent to an omitted line number.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN596"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="OPTION"
+>-x</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Skip the first line of the source.  This is intended for a DOS
+specific hack only.  Warning: the line numbers in error messages will
+be off by one!</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="PYINTERPRETER-INTERFACE"
+></A
+><H2
+>INTERPRETER INTERFACE</H2
+><P
+>The interpreter interface resembles that of the UNIX shell: when
+called with standard input connected to a tty device, it prompts for
+commands and executes them until an EOF is read; when called with a
+file name argument or with a file as standard input, it reads and
+executes a
+<I
+CLASS="EMPHASIS"
+>script</I
+>
+from that file;
+when called with
+<CODE
+CLASS="OPTION"
+>-c</CODE
+>
+<TT
+CLASS="REPLACEABLE"
+><I
+>command,</I
+></TT
+>
+it executes the Python statement(s) given as
+<I
+CLASS="EMPHASIS"
+>command.</I
+>
+Here
+<I
+CLASS="EMPHASIS"
+>command</I
+>
+may contain multiple statements separated by newlines.
+Leading whitespace is significant in Python statements!
+In non-interactive mode, the entire input is parsed before it is
+executed.</P
+><P
+>If available, the script name and additional arguments thereafter are
+passed to the script in the Python variable
+<I
+CLASS="EMPHASIS"
+>sys.argv ,</I
+>
+which is a list of strings (you must first
+<I
+CLASS="EMPHASIS"
+>import sys</I
+>
+to be able to access it).
+If no script name is given,
+<I
+CLASS="EMPHASIS"
+>sys.argv[0]</I
+>
+is an empty string; if
+<CODE
+CLASS="OPTION"
+>-c</CODE
+>
+is used,
+<I
+CLASS="EMPHASIS"
+>sys.argv[0]</I
+>
+contains the string
+<I
+CLASS="EMPHASIS"
+>'-c'.</I
+>
+Note that options interpreted by the Python interpreter itself
+are not placed in
+<I
+CLASS="EMPHASIS"
+>sys.argv.</I
+></P
+><P
+>In interactive mode, the primary prompt is &#62;&#62;&#62;; the second prompt
+(which appears when a command is not complete) is ....
+The prompts can be changed by assignment to
+<I
+CLASS="EMPHASIS"
+>sys.ps1</I
+>
+or
+<I
+CLASS="EMPHASIS"
+>sys.ps2.</I
+>
+The interpreter quits when it reads an EOF at a prompt.
+When an unhandled exception occurs, a stack trace is printed and
+control returns to the primary prompt; in non-interactive mode, the
+interpreter exits after printing the stack trace.
+The interrupt signal raises the
+<I
+CLASS="EMPHASIS"
+>Keyboard­Interrupt</I
+>
+exception; other UNIX signals are not caught (except that SIGPIPE is
+sometimes ignored, in favor of the
+<I
+CLASS="EMPHASIS"
+>IOError</I
+>
+exception).  Error messages are written to stderr.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="PYFILES-AND-DIRECTORIES"
+></A
+><H2
+>FILES AND DIRECTORIES</H2
+><P
+>These are subject to difference depending on local installation
+conventions; ${prefix} and ${exec_prefix} are installation-dependent
+and should be interpreted as for GNU software; they may be the same.
+The default for both is <TT
+CLASS="FILENAME"
+>/usr/local</TT
+>.</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><I
+CLASS="EMPHASIS"
+>${exec_prefix}/bin/python</I
+></DT
+><DD
+><P
+>Recommended location of the interpreter.</P
+></DD
+></DL
+></DIV
+><P
+><I
+CLASS="EMPHASIS"
+>${prefix}/lib/python&#60;version&#62;</I
+>
+<I
+CLASS="EMPHASIS"
+>${exec_prefix}/lib/python&#60;version&#62;</I
+></P
+><A
+NAME="AEN635"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><P
+>Recommended locations of the directories containing the standard
+modules.
+  </P
+></BLOCKQUOTE
+><P
+><I
+CLASS="EMPHASIS"
+>${prefix}/include/python&#60;version&#62;</I
+>
+<I
+CLASS="EMPHASIS"
+>${exec_prefix}/include/python&#60;version&#62;</I
+></P
+><A
+NAME="AEN640"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><P
+>Recommended locations of the directories containing the include files
+needed for developing Python extensions and embedding the
+interpreter.
+  </P
+></BLOCKQUOTE
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN643"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="FILENAME"
+>~/.pythonrc.py</TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>User-specific initialization file loaded by the <I
+CLASS="EMPHASIS"
+>user</I
+> module;
+not used by default or by most applications.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="PYENVIRONMENT-VARIABLES"
+></A
+><H2
+>ENVIRONMENT VARIABLES</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN652"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PYTHONHOME</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Change the location of the standard Python libraries.  By default, the
+libraries are searched in ${prefix}/lib/python&#60;version&#62; and
+${exec_prefix}/lib/python&#60;version&#62;, where ${prefix} and ${exec_prefix}
+are installation-dependent directories, both defaulting to
+<TT
+CLASS="FILENAME"
+>/usr/local</TT
+>.  When $PYTHONHOME is set to a single directory, its value
+replaces both ${prefix} and ${exec_prefix}.  To specify different values
+for these, set $PYTHONHOME to ${prefix}:${exec_prefix}.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN657"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PYTHONPATH</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Augments the default search path for module files.
+The format is the same as the shell's $PATH: one or more directory
+pathnames separated by colons.
+Non-existent directories are silently ignored.
+The default search path is installation dependent, but generally
+begins with ${prefix}/lib/python&#60;version&#62; (see PYTHONHOME above).
+The default search path is always appended to $PYTHONPATH.
+If a script argument is given, the directory containing the script is
+inserted in the path in front of $PYTHONPATH.
+The search path can be manipulated from within a Python program as the
+variable
+<I
+CLASS="EMPHASIS"
+>sys.path .</I
+></P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN662"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PYTHONSTARTUP</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>If this is the name of a readable file, the Python commands in that
+file are executed before the first prompt is displayed in interactive
+mode.
+The file is executed in the same name space where interactive commands
+are executed so that objects defined or imported in it can be used
+without qualification in the interactive session.
+You can also change the prompts
+<I
+CLASS="EMPHASIS"
+>sys.ps1</I
+>
+and
+<I
+CLASS="EMPHASIS"
+>sys.ps2</I
+>
+in this file.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN668"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PYTHONY2K</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Set this to a non-empty string to cause the <I
+CLASS="EMPHASIS"
+>time</I
+> module to
+require dates specified as strings to include 4-digit years, otherwise
+2-digit years are converted based on rules described in the <I
+CLASS="EMPHASIS"
+>time</I
+>
+module documentation.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN674"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PYTHONOPTIMIZE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>If this is set to a non-empty string it is equivalent to specifying
+the <CODE
+CLASS="OPTION"
+>-O</CODE
+> option. If set to an integer, it is equivalent to
+specifying <CODE
+CLASS="OPTION"
+>-O</CODE
+> multiple times.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN680"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PYTHONDEBUG</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>If this is set to a non-empty string it is equivalent to specifying
+the <CODE
+CLASS="OPTION"
+>-d</CODE
+> option. If set to an integer, it is equivalent to
+specifying <CODE
+CLASS="OPTION"
+>-d</CODE
+> multiple times.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN686"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PYTHONINSPECT</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>If this is set to a non-empty string it is equivalent to specifying
+the <CODE
+CLASS="OPTION"
+>-i</CODE
+> option.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN691"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PYTHONUNBUFFERED</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>If this is set to a non-empty string it is equivalent to specifying
+the <CODE
+CLASS="OPTION"
+>-u</CODE
+> option.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN696"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>PYTHONVERBOSE</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>If this is set to a non-empty string it is equivalent to specifying
+the <CODE
+CLASS="OPTION"
+>-v</CODE
+> option. If set to an integer, it is equivalent to
+specifying <CODE
+CLASS="OPTION"
+>-v</CODE
+> multiple times.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="PYAUTHOR"
+></A
+><H2
+>AUTHOR</H2
+><P
+>The Python Software Foundation: <A
+HREF="http://www.python.org/psf"
+TARGET="_top"
+>http://www.python.org/psf</A
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="PYINTERNET-RESOURCES"
+></A
+><H2
+>INTERNET RESOURCES</H2
+><P
+>Main website:  <A
+HREF="http://www.python.org/"
+TARGET="_top"
+>http://www.python.org/</A
+>
+Documentation:  <A
+HREF="http://docs.python.org/"
+TARGET="_top"
+>http://docs.python.org/</A
+>
+Community website:  <A
+HREF="http://starship.python.net/"
+TARGET="_top"
+>http://starship.python.net/</A
+>
+Developer resources:  <A
+HREF="http://www.python.org/dev/"
+TARGET="_top"
+>http://www.python.org/dev/</A
+>
+FTP:  <A
+HREF="ftp://ftp.python.org/pub/python/"
+TARGET="_top"
+>ftp://ftp.python.org/pub/python/</A
+>
+Module repository:  <A
+HREF="http://www.vex.net/parnassus/"
+TARGET="_top"
+>http://www.vex.net/parnassus/</A
+>
+Newsgroups:  comp.lang.python, comp.lang.python.announce</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="PYLICENSING"
+></A
+><H2
+>LICENSING</H2
+><P
+>Python is distributed under an Open Source license.  See the file
+"LICENSE" in the Python source distribution for information on terms &#38;
+conditions for accessing and otherwise using Python and for a
+DISCLAIMER OF ALL WARRANTIES.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="pycommand.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="perl.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Python Interpreter Command</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="pycommand.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Perl Interpreter</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

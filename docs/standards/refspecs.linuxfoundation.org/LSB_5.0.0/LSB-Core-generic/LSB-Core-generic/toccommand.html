@@ -1,0 +1,487 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Commands and Utilities</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="PREVIOUS"
+TITLE="Interface Definitions for libstdcxx"
+HREF="libstdcxxman.html"><LINK
+REL="NEXT"
+TITLE="Commands and Utilities"
+HREF="command.html"></HEAD
+><BODY
+CLASS="PART"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libstdcxxman.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="command.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="TOCCOMMAND"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>VI. Commands and Utilities</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>17. <A
+HREF="command.html"
+>Commands and Utilities</A
+></DT
+><DD
+><DL
+><DT
+>17.1. <A
+HREF="command.html#CMDUTIL"
+>Commands and Utilities</A
+></DT
+><DT
+>17.2. <A
+HREF="cmdbehav.html"
+>Command Behavior</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="ar.html"
+>ar</A
+>&nbsp;--&nbsp;create and maintain library archives (DEPRECATED)</DT
+><DT
+><A
+HREF="at.html"
+>at</A
+>&nbsp;--&nbsp;examine or delete jobs for later execution</DT
+><DT
+><A
+HREF="awk.html"
+>awk</A
+>&nbsp;--&nbsp;pattern scanning and processing language</DT
+><DT
+><A
+HREF="batch.html"
+>batch</A
+>&nbsp;--&nbsp;schedule commands to be executed in a batch queue</DT
+><DT
+><A
+HREF="bc.html"
+>bc</A
+>&nbsp;--&nbsp;an arbitrary precision calculator language</DT
+><DT
+><A
+HREF="chfn.html"
+>chfn</A
+>&nbsp;--&nbsp;change user name and information</DT
+><DT
+><A
+HREF="chsh.html"
+>chsh</A
+>&nbsp;--&nbsp;change login shell</DT
+><DT
+><A
+HREF="col.html"
+>col</A
+>&nbsp;--&nbsp;filter reverse line feeds from input</DT
+><DT
+><A
+HREF="cpio.html"
+>cpio</A
+>&nbsp;--&nbsp;copy file archives in and out</DT
+><DT
+><A
+HREF="crontab.html"
+>crontab</A
+>&nbsp;--&nbsp;maintain crontab files for individual users</DT
+><DT
+><A
+HREF="df.html"
+>df</A
+>&nbsp;--&nbsp;report file system disk space usage</DT
+><DT
+><A
+HREF="dmesg.html"
+>dmesg</A
+>&nbsp;--&nbsp;print or control the system message buffer</DT
+><DT
+><A
+HREF="du.html"
+>du</A
+>&nbsp;--&nbsp;estimate file space usage</DT
+><DT
+><A
+HREF="echo.html"
+>echo</A
+>&nbsp;--&nbsp;write arguments to standard output</DT
+><DT
+><A
+HREF="egrep.html"
+>egrep</A
+>&nbsp;--&nbsp;search a file with an Extended Regular Expression pattern</DT
+><DT
+><A
+HREF="fgrep.html"
+>fgrep</A
+>&nbsp;--&nbsp;search a file with a fixed pattern</DT
+><DT
+><A
+HREF="file.html"
+>file</A
+>&nbsp;--&nbsp;determine file type</DT
+><DT
+><A
+HREF="fuser.html"
+>fuser</A
+>&nbsp;--&nbsp;identify processes using files or sockets</DT
+><DT
+><A
+HREF="gettext.html"
+>gettext</A
+>&nbsp;--&nbsp;retrieve text string from message catalog</DT
+><DT
+><A
+HREF="grep.html"
+>grep</A
+>&nbsp;--&nbsp;print lines matching a pattern</DT
+><DT
+><A
+HREF="groupadd.html"
+>groupadd</A
+>&nbsp;--&nbsp;create a new group</DT
+><DT
+><A
+HREF="groupdel.html"
+>groupdel</A
+>&nbsp;--&nbsp;delete a group</DT
+><DT
+><A
+HREF="groupmod.html"
+>groupmod</A
+>&nbsp;--&nbsp;modify a group</DT
+><DT
+><A
+HREF="groups.html"
+>groups</A
+>&nbsp;--&nbsp;display a group</DT
+><DT
+><A
+HREF="gunzip.html"
+>gunzip</A
+>&nbsp;--&nbsp;uncompress files</DT
+><DT
+><A
+HREF="gzip.html"
+>gzip</A
+>&nbsp;--&nbsp;compress or expand files</DT
+><DT
+><A
+HREF="hostname.html"
+>hostname</A
+>&nbsp;--&nbsp;show or set the system's host name</DT
+><DT
+><A
+HREF="install.html"
+>install</A
+>&nbsp;--&nbsp;copy files and set attributes</DT
+><DT
+><A
+HREF="installinitd.html"
+>install_initd</A
+>&nbsp;--&nbsp;activate an init script</DT
+><DT
+><A
+HREF="ipcrm.html"
+>ipcrm</A
+>&nbsp;--&nbsp;remove IPC Resources</DT
+><DT
+><A
+HREF="ipcs.html"
+>ipcs</A
+>&nbsp;--&nbsp;provide information on ipc facilities</DT
+><DT
+><A
+HREF="killall.html"
+>killall</A
+>&nbsp;--&nbsp;kill processes by name</DT
+><DT
+><A
+HREF="lpr.html"
+>lpr</A
+>&nbsp;--&nbsp;off line print</DT
+><DT
+><A
+HREF="ls.html"
+>ls</A
+>&nbsp;--&nbsp;list directory contents</DT
+><DT
+><A
+HREF="lsbrelease.html"
+>lsb_release</A
+>&nbsp;--&nbsp;print distribution specific information</DT
+><DT
+><A
+HREF="m4.html"
+>m4</A
+>&nbsp;--&nbsp;macro processor</DT
+><DT
+><A
+HREF="md5sum.html"
+>md5sum</A
+>&nbsp;--&nbsp;generate or check MD5 message digests</DT
+><DT
+><A
+HREF="mknod.html"
+>mknod</A
+>&nbsp;--&nbsp;make special files</DT
+><DT
+><A
+HREF="mktemp.html"
+>mktemp</A
+>&nbsp;--&nbsp;make temporary file name (unique)</DT
+><DT
+><A
+HREF="more.html"
+>more</A
+>&nbsp;--&nbsp;display files on a page-by-page basis</DT
+><DT
+><A
+HREF="mount.html"
+>mount</A
+>&nbsp;--&nbsp;mount a file system </DT
+><DT
+><A
+HREF="msgfmt.html"
+>msgfmt</A
+>&nbsp;--&nbsp;create a message object from a message file </DT
+><DT
+><A
+HREF="newgrp.html"
+>newgrp</A
+>&nbsp;--&nbsp;change group ID</DT
+><DT
+><A
+HREF="od.html"
+>od</A
+>&nbsp;--&nbsp;dump files in octal and other formats </DT
+><DT
+><A
+HREF="passwd.html"
+>passwd</A
+>&nbsp;--&nbsp;change user password</DT
+><DT
+><A
+HREF="patch.html"
+>patch</A
+>&nbsp;--&nbsp;apply a diff file to an original</DT
+><DT
+><A
+HREF="pidof.html"
+>pidof</A
+>&nbsp;--&nbsp;find the process ID of a running program</DT
+><DT
+><A
+HREF="removeinitd.html"
+>remove_initd</A
+>&nbsp;--&nbsp;clean up init script system modifications introduced by install_initd</DT
+><DT
+><A
+HREF="renice.html"
+>renice</A
+>&nbsp;--&nbsp;alter priority of running processes</DT
+><DT
+><A
+HREF="sed.html"
+>sed</A
+>&nbsp;--&nbsp;stream editor</DT
+><DT
+><A
+HREF="baselib-sendmail-1.html"
+>sendmail</A
+>&nbsp;--&nbsp;an electronic mail transport agent</DT
+><DT
+><A
+HREF="seq.html"
+>seq</A
+>&nbsp;--&nbsp;generate a sequence of numbers</DT
+><DT
+><A
+HREF="sh.html"
+>sh</A
+>&nbsp;--&nbsp;shell, the standard command language interpreter</DT
+><DT
+><A
+HREF="shutdown.html"
+>shutdown</A
+>&nbsp;--&nbsp;shut the system down</DT
+><DT
+><A
+HREF="su.html"
+>su</A
+>&nbsp;--&nbsp;change user ID</DT
+><DT
+><A
+HREF="sync.html"
+>sync</A
+>&nbsp;--&nbsp;flush file system buffers</DT
+><DT
+><A
+HREF="tar.html"
+>tar</A
+>&nbsp;--&nbsp;file archiver</DT
+><DT
+><A
+HREF="umount.html"
+>umount</A
+>&nbsp;--&nbsp;unmount file systems</DT
+><DT
+><A
+HREF="useradd.html"
+>useradd</A
+>&nbsp;--&nbsp;create a new user or update default new user information</DT
+><DT
+><A
+HREF="userdel.html"
+>userdel</A
+>&nbsp;--&nbsp;delete a user account and related files</DT
+><DT
+><A
+HREF="usermod.html"
+>usermod</A
+>&nbsp;--&nbsp;modify a user account</DT
+><DT
+><A
+HREF="xargs.html"
+>xargs</A
+>&nbsp;--&nbsp;build and execute command lines from standard input</DT
+><DT
+><A
+HREF="zcat.html"
+>zcat</A
+>&nbsp;--&nbsp;uncompress files to standard output</DT
+></DL
+></DD
+></DL
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libstdcxxman.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="command.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interface Definitions for libstdcxx</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Commands and Utilities</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,2958 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libxcb</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="graphlib.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libXtst"
+HREF="libxtst-ddefs.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libxcb"
+HREF="libxcb-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libxtst-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libxcb-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBXCB"
+>6.19. Interfaces for libxcb</A
+></H1
+><P
+><A
+HREF="libxcb.html#LIB-LIBXCB-DEF"
+>Table 6-24</A
+> defines the library name and shared object name
+for the libxcb library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBXCB-DEF"
+></A
+><P
+><B
+>Table 6-24. libxcb Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libxcb</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libxcb.so.1</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBXCB.1"
+></A
+>[Libxcb 1.7] <A
+HREF="normativerefs.html#STD.LIBXCB"
+>Libxcb API</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBXCB.2"
+></A
+>[LSB] <A
+HREF="normativerefs.html#STD.LSB"
+>This Specification</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN7033"
+>6.19.1. libxcb interfaces</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN7036"
+>6.19.1.1. Interfaces for libxcb interfaces</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for libxcb interfaces specified in <A
+HREF="libxcb.html#TBL-LIBXCB-LIBXC-INTS"
+>Table 6-25</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBXCB-LIBXC-INTS"
+></A
+><P
+><B
+>Table 6-25. libxcb - libxcb interfaces Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>xcb_alloc_color <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_color_cells <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_color_cells_masks <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_color_cells_masks_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_alloc_color_cells_masks_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_color_cells_pixels <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_color_cells_pixels_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_color_cells_pixels_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_alloc_color_cells_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_color_cells_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_color_planes <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_color_planes_pixels <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_alloc_color_planes_pixels_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_color_planes_pixels_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_color_planes_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_color_planes_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_alloc_color_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_color_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_named_color <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_alloc_named_color_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_alloc_named_color_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_allow_events <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_allow_events_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_arc_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_arc_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_atom_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_atom_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_bell <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_bell_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_big_requests_enable <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_big_requests_enable_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_big_requests_enable_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_button_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_button_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_active_pointer_grab <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_active_pointer_grab_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_change_gc <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_gc_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_hosts <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_hosts_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_change_keyboard_control <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_keyboard_control_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_keyboard_mapping <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_keyboard_mapping_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_change_pointer_control <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_pointer_control_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_property <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_property_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_change_save_set <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_save_set_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_window_attributes <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_change_window_attributes_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_char2b_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_char2b_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_charinfo_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_charinfo_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_circulate_window <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_circulate_window_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_clear_area <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_clear_area_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_client_message_data_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_client_message_data_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_close_font <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_close_font_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_coloritem_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_coloritem_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_colormap_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_colormap_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_configure_window <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_configure_window_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_connect <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+><TD
+>xcb_connect_to_display_with_auth_info <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_connect_to_fd <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+><TD
+>xcb_connection_has_error <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+><TD
+>xcb_convert_selection <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_convert_selection_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_copy_area <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_copy_area_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_copy_colormap_and_free <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_copy_colormap_and_free_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_copy_gc <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_copy_gc_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_copy_plane <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_copy_plane_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_create_colormap <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_create_colormap_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_create_cursor <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_create_cursor_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_create_gc <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_create_gc_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_create_glyph_cursor <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_create_glyph_cursor_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_create_pixmap <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_create_pixmap_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_create_window <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_create_window_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_cursor_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_cursor_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_delete_property <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_delete_property_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_depth_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_depth_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_depth_visuals <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_depth_visuals_iterator <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_depth_visuals_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_destroy_subwindows <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_destroy_subwindows_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_destroy_window <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_destroy_window_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_discard_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_disconnect <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+><TD
+>xcb_drawable_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_drawable_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_fill_poly <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_fill_poly_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_flush <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_font_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_font_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_fontable_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_fontable_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_fontprop_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_fontprop_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_force_screen_saver <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_force_screen_saver_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_format_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_format_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_free_colormap <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_free_colormap_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_free_colors <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_free_colors_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_free_cursor <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_free_cursor_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_free_gc <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_free_gc_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_free_pixmap <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_free_pixmap_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_gcontext_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_gcontext_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_generate_id <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+><TD
+>xcb_get_atom_name <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_atom_name_name <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_atom_name_name_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_atom_name_name_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_atom_name_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_atom_name_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_extension_data <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+><TD
+>xcb_get_file_descriptor <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+><TD
+>xcb_get_font_path <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_font_path_path_iterator <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_font_path_path_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_font_path_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_font_path_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_geometry <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_geometry_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_geometry_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_image <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_image_data <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_image_data_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_image_data_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_image_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_image_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_input_focus <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_input_focus_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_input_focus_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_keyboard_control <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_keyboard_control_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_keyboard_control_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_keyboard_mapping <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_keyboard_mapping_keysyms <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_keyboard_mapping_keysyms_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_keyboard_mapping_keysyms_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_keyboard_mapping_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_keyboard_mapping_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_maximum_request_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+><TD
+>xcb_get_modifier_mapping <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_modifier_mapping_keycodes <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_modifier_mapping_keycodes_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_modifier_mapping_keycodes_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_modifier_mapping_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_modifier_mapping_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_motion_events <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_motion_events_events <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_motion_events_events_iterator <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_motion_events_events_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_motion_events_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_motion_events_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_pointer_control <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_pointer_control_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_pointer_control_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_pointer_mapping <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_pointer_mapping_map <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_pointer_mapping_map_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_pointer_mapping_map_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_pointer_mapping_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_pointer_mapping_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_property <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_property_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_property_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_property_value <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_property_value_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_property_value_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_screen_saver <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_screen_saver_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_screen_saver_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_selection_owner <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_selection_owner_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_selection_owner_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_setup <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_get_window_attributes <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_window_attributes_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_get_window_attributes_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_grab_button <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_grab_button_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_grab_key <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_grab_key_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_grab_keyboard <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_grab_keyboard_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_grab_keyboard_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_grab_pointer <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_grab_pointer_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_grab_pointer_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_grab_server <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_grab_server_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_host_address <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_host_address_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_host_address_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_host_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_host_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_image_text_16 <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_image_text_16_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_image_text_8 <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_image_text_8_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_install_colormap <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_install_colormap_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_intern_atom <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_intern_atom_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_intern_atom_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_keycode_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_keycode_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_keysym_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_keysym_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_kill_client <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_kill_client_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_extensions <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_list_extensions_names_iterator <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_extensions_names_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_extensions_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_extensions_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_list_fonts <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_fonts_names_iterator <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_fonts_names_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_fonts_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_list_fonts_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_fonts_with_info <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_fonts_with_info_name <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_fonts_with_info_name_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_list_fonts_with_info_name_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_fonts_with_info_properties <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_fonts_with_info_properties_iterator <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_fonts_with_info_properties_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_list_fonts_with_info_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_fonts_with_info_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_hosts <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_hosts_hosts_iterator <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_list_hosts_hosts_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_hosts_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_hosts_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_installed_colormaps <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_list_installed_colormaps_cmaps <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_installed_colormaps_cmaps_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_installed_colormaps_cmaps_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_installed_colormaps_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_list_installed_colormaps_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_properties <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_properties_atoms <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_properties_atoms_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_list_properties_atoms_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_properties_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_list_properties_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_lookup_color <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_lookup_color_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_lookup_color_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_map_subwindows <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_map_subwindows_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_map_window <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_map_window_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_no_operation <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_no_operation_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_open_font <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_open_font_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_parse_display <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+><TD
+>xcb_pixmap_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_pixmap_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_point_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_point_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poll_for_event <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_poll_for_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+><TD
+>xcb_poly_arc <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poly_arc_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poly_fill_arc <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_poly_fill_arc_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poly_fill_rectangle <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poly_fill_rectangle_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poly_line <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_poly_line_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poly_point <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poly_point_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poly_rectangle <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_poly_rectangle_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poly_segment <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poly_segment_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poly_text_16 <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_poly_text_16_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poly_text_8 <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_poly_text_8_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_popcount <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_prefetch_extension_data <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+><TD
+>xcb_prefetch_maximum_request_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_put_image <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_put_image_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_query_best_size <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_best_size_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_best_size_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_colors <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_query_colors_colors <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_colors_colors_iterator <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_colors_colors_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_colors_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_query_colors_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_extension <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_extension_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_extension_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_query_font <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_font_char_infos <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_font_char_infos_iterator <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_font_char_infos_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_query_font_properties <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_font_properties_iterator <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_font_properties_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_font_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_query_font_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_keymap <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_keymap_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_keymap_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_query_pointer <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_pointer_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_pointer_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_text_extents <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_query_text_extents_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_text_extents_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_tree <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_tree_children <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_query_tree_children_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_tree_children_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_tree_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_query_tree_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_recolor_cursor <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_recolor_cursor_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_rectangle_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_rectangle_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_reparent_window <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_reparent_window_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_request_check <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+><TD
+>xcb_rgb_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_rgb_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_rotate_properties <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_rotate_properties_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_screen_allowed_depths_iterator <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_screen_allowed_depths_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_screen_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_screen_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_segment_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_segment_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_send_event <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_send_event_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_send_request <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_set_access_control <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_access_control_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_clip_rectangles <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_clip_rectangles_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_set_close_down_mode <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_close_down_mode_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_dashes <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_dashes_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_set_font_path <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_font_path_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_input_focus <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_input_focus_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_set_modifier_mapping <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_modifier_mapping_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_modifier_mapping_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_pointer_mapping <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_set_pointer_mapping_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_pointer_mapping_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_screen_saver <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_screen_saver_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_set_selection_owner <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_set_selection_owner_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_authenticate_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_authenticate_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_setup_authenticate_reason <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_authenticate_reason_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_authenticate_reason_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_setup_failed_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_failed_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_failed_reason <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_failed_reason_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_setup_failed_reason_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_pixmap_formats <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_pixmap_formats_iterator <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_setup_pixmap_formats_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_request_authorization_protocol_data <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_request_authorization_protocol_data_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_request_authorization_protocol_data_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_setup_request_authorization_protocol_name <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_request_authorization_protocol_name_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_request_authorization_protocol_name_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_request_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_setup_request_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_roots_iterator <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_roots_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_vendor <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_setup_vendor_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_setup_vendor_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_store_colors <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_store_colors_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_store_named_color <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_store_named_color_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_str_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_str_name <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_str_name_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_str_name_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_str_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_take_socket <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_timecoord_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_timecoord_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_timestamp_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_timestamp_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_translate_coordinates <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_translate_coordinates_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_translate_coordinates_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_ungrab_button <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_ungrab_button_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_ungrab_key <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_ungrab_key_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_ungrab_keyboard <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_ungrab_keyboard_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_ungrab_pointer <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_ungrab_pointer_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_ungrab_server <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_ungrab_server_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_uninstall_colormap <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_uninstall_colormap_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_unmap_subwindows <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_unmap_subwindows_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_unmap_window <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_unmap_window_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_visualid_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_visualid_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_visualtype_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_visualtype_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_wait_for_event <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_wait_for_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.1"
+>[Libxcb 1.7]</A
+></TD
+><TD
+>xcb_warp_pointer <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_warp_pointer_checked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_window_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_window_next <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_writev <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_xc_misc_get_version <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_xc_misc_get_version_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_xc_misc_get_version_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_xc_misc_get_xid_list <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_xc_misc_get_xid_list_ids <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_xc_misc_get_xid_list_ids_end <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_xc_misc_get_xid_list_ids_length <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_xc_misc_get_xid_list_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_xc_misc_get_xid_list_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_xc_misc_get_xid_range <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>xcb_xc_misc_get_xid_range_reply <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_xc_misc_get_xid_range_unchecked <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the generic data interfaces
+for libxcb interfaces specified in <A
+HREF="libxcb.html#TBL-LIBXCB-LIBXC-DATA"
+>Table 6-26</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBXCB-LIBXC-DATA"
+></A
+><P
+><B
+>Table 6-26. libxcb - libxcb interfaces Data Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>xcb_big_requests_id <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>xcb_xc_misc_id <A
+HREF="libxcb.html#REFSTD.LIBXCB.2"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libxtst-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libxcb-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libXtst</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="graphlib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libxcb</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

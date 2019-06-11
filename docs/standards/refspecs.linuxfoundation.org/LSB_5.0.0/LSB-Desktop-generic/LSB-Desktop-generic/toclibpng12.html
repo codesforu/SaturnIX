@@ -1,0 +1,858 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>PNG12 library</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libGLU"
+HREF="libglu-ddefs.html"><LINK
+REL="NEXT"
+TITLE="Libraries"
+HREF="libpng12ch.html"></HEAD
+><BODY
+CLASS="PART"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libglu-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpng12ch.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="TOCLIBPNG12"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>IV. PNG12 library</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>8. <A
+HREF="libpng12ch.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>8.1. <A
+HREF="libpng12ch.html#LIBPNG12"
+>Interfaces for libpng12</A
+></DT
+><DD
+><DL
+><DT
+>8.1.1. <A
+HREF="libpng12ch.html#AEN12331"
+>PNG Reference library</A
+></DT
+></DL
+></DD
+><DT
+>8.2. <A
+HREF="libpng12-ddefs.html"
+>Data Definitions for libpng12</A
+></DT
+><DD
+><DL
+><DT
+>8.2.1. <A
+HREF="libpng12-ddefs.html#AEN12930"
+>libpng12/png.h</A
+></DT
+></DL
+></DD
+><DT
+>8.3. <A
+HREF="libpng12man.html"
+>Interface Definitions for libpng12</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="libpng12-png-access-version-number.html"
+>png_access_version_number</A
+>&nbsp;--&nbsp;return version of the run-time library</DT
+><DT
+><A
+HREF="libpng12-png-check-sig.html"
+>png_check_sig</A
+>&nbsp;--&nbsp;INSERT PURPOSE HERE</DT
+><DT
+><A
+HREF="libpng12-png-convert-from-struct-tm.html"
+>png_convert_from_struct_tm</A
+>&nbsp;--&nbsp;convert struct tm to png_time</DT
+><DT
+><A
+HREF="libpng12-png-convert-from-time-t.html"
+>png_convert_from_time_t</A
+>&nbsp;--&nbsp;convert time_t to png_time</DT
+><DT
+><A
+HREF="libpng12-png-create-info-struct.html"
+>png_create_info_struct</A
+>&nbsp;--&nbsp;allocate and initialize a png_info structure</DT
+><DT
+><A
+HREF="libpng12-png-create-read-struct.html"
+>png_create_read_struct</A
+>&nbsp;--&nbsp;allocate and initialize a png_struct structure for reading PNG file</DT
+><DT
+><A
+HREF="libpng12-png-create-read-struct-2.html"
+>png_create_read_struct_2</A
+>&nbsp;--&nbsp;register custom read function</DT
+><DT
+><A
+HREF="libpng12-png-create-write-struct.html"
+>png_create_write_struct</A
+>&nbsp;--&nbsp;allocate and initialize a png_struct structure for writing PNG file</DT
+><DT
+><A
+HREF="libpng12-png-create-write-struct-2.html"
+>png_create_write_struct_2</A
+>&nbsp;--&nbsp;register custom write function</DT
+><DT
+><A
+HREF="libpng12-png-data-freer.html"
+>png_data_freer</A
+>&nbsp;--&nbsp;change the default behavior for freeing data</DT
+><DT
+><A
+HREF="libpng12-png-destroy-info-struct.html"
+>png_destroy_info_struct</A
+>&nbsp;--&nbsp;free memory in PNG info structure</DT
+><DT
+><A
+HREF="libpng12-png-destroy-read-struct.html"
+>png_destroy_read_struct</A
+>&nbsp;--&nbsp;free the memory associated with read png_struct</DT
+><DT
+><A
+HREF="libpng12-png-destroy-write-struct.html"
+>png_destroy_write_struct</A
+>&nbsp;--&nbsp;free the memory associated with write png_struct</DT
+><DT
+><A
+HREF="libpng12-png-error.html"
+>png_error</A
+>&nbsp;--&nbsp;default function to handle fatal errors</DT
+><DT
+><A
+HREF="libpng12-png-free.html"
+>png_free</A
+>&nbsp;--&nbsp;free a pointer allocated by png_malloc()</DT
+><DT
+><A
+HREF="libpng12-png-free-data.html"
+>png_free_data</A
+>&nbsp;--&nbsp;free internally allocated data</DT
+><DT
+><A
+HREF="libpng12-png-get-ihdr.html"
+>png_get_IHDR</A
+>&nbsp;--&nbsp;get PNG_IHDR chunk information from png_info structure</DT
+><DT
+><A
+HREF="libpng12-png-get-plte.html"
+>png_get_PLTE</A
+>&nbsp;--&nbsp;get image palette information from png_info structure</DT
+><DT
+><A
+HREF="libpng12-png-get-bkgd.html"
+>png_get_bKGD</A
+>&nbsp;--&nbsp;get background color for given image</DT
+><DT
+><A
+HREF="libpng12-png-get-bit-depth.html"
+>png_get_bit_depth</A
+>&nbsp;--&nbsp;return image bit_depth</DT
+><DT
+><A
+HREF="libpng12-png-get-chrm.html"
+>png_get_cHRM</A
+>&nbsp;--&nbsp;get CIE chromacities and referenced white point for given image</DT
+><DT
+><A
+HREF="libpng12-png-get-channels.html"
+>png_get_channels</A
+>&nbsp;--&nbsp;get number of color channels in image</DT
+><DT
+><A
+HREF="libpng12-png-get-color-type.html"
+>png_get_color_type</A
+>&nbsp;--&nbsp;return image color type</DT
+><DT
+><A
+HREF="libpng12-png-get-error-ptr.html"
+>png_get_error_ptr</A
+>&nbsp;--&nbsp;return error_ptr for user-defined functions</DT
+><DT
+><A
+HREF="libpng12-png-get-gama.html"
+>png_get_gAMA</A
+>&nbsp;--&nbsp;get the gamma value for given image</DT
+><DT
+><A
+HREF="libpng12-png-get-hist.html"
+>png_get_hIST</A
+>&nbsp;--&nbsp;get the histogram for given image</DT
+><DT
+><A
+HREF="libpng12-png-get-header-ver.html"
+>png_get_header_ver</A
+>&nbsp;--&nbsp;get version information for libpng header files</DT
+><DT
+><A
+HREF="libpng12-png-get-iccp.html"
+>png_get_iCCP</A
+>&nbsp;--&nbsp;get the embedded ICC profile data for given image</DT
+><DT
+><A
+HREF="libpng12-png-get-image-height.html"
+>png_get_image_height</A
+>&nbsp;--&nbsp;return image height</DT
+><DT
+><A
+HREF="libpng12-png-get-image-width.html"
+>png_get_image_width</A
+>&nbsp;--&nbsp;return image width</DT
+><DT
+><A
+HREF="libpng12-png-get-interlace-type.html"
+>png_get_interlace_type</A
+>&nbsp;--&nbsp;returns interlace method</DT
+><DT
+><A
+HREF="libpng12-png-get-io-ptr.html"
+>png_get_io_ptr</A
+>&nbsp;--&nbsp;return pointer for user-defined I/O</DT
+><DT
+><A
+HREF="libpng12-png-get-libpng-ver.html"
+>png_get_libpng_ver</A
+>&nbsp;--&nbsp;get the library version string</DT
+><DT
+><A
+HREF="libpng12-png-get-offs.html"
+>png_get_oFFs</A
+>&nbsp;--&nbsp;get screen offsets for the given image</DT
+><DT
+><A
+HREF="libpng12-png-get-phys.html"
+>png_get_pHYs</A
+>&nbsp;--&nbsp;get the physical resolution for given image</DT
+><DT
+><A
+HREF="libpng12-png-get-progressive-ptr.html"
+>png_get_progressive_ptr</A
+>&nbsp;--&nbsp;return pointer to user-defined push read functions</DT
+><DT
+><A
+HREF="libpng12-png-get-rowbytes.html"
+>png_get_rowbytes</A
+>&nbsp;--&nbsp;Return number of bytes for a row</DT
+><DT
+><A
+HREF="libpng12-png-get-rows.html"
+>png_get_rows</A
+>&nbsp;--&nbsp;retrieve image data from png_info structure</DT
+><DT
+><A
+HREF="libpng12-png-get-sbit.html"
+>png_get_sBIT</A
+>&nbsp;--&nbsp;get number of significant bits for each color channel</DT
+><DT
+><A
+HREF="libpng12-png-get-srgb.html"
+>png_get_sRGB</A
+>&nbsp;--&nbsp;get the rendering intent for given image</DT
+><DT
+><A
+HREF="libpng12-png-get-time.html"
+>png_get_tIME</A
+>&nbsp;--&nbsp;get last modification time for the image</DT
+><DT
+><A
+HREF="libpng12-png-get-trns.html"
+>png_get_tRNS</A
+>&nbsp;--&nbsp;get transparency data for images</DT
+><DT
+><A
+HREF="libpng12-png-get-text.html"
+>png_get_text</A
+>&nbsp;--&nbsp;get comments information from png_info structure</DT
+><DT
+><A
+HREF="libpng12-png-get-unknown-chunks.html"
+>png_get_unknown_chunks</A
+>&nbsp;--&nbsp;retrieve the unknown chunks from a PNG file</DT
+><DT
+><A
+HREF="libpng12-png-get-user-chunk-ptr.html"
+>png_get_user_chunk_ptr</A
+>&nbsp;--&nbsp;get pointer to user chunk data</DT
+><DT
+><A
+HREF="libpng12-png-get-valid.html"
+>png_get_valid</A
+>&nbsp;--&nbsp;determine if given chunk data is valid</DT
+><DT
+><A
+HREF="libpng12-png-get-x-offset-pixels.html"
+>png_get_x_offset_pixels</A
+>&nbsp;--&nbsp;return x offset in pixels from oFFs chunk</DT
+><DT
+><A
+HREF="libpng12-png-get-x-pixels-per-meter.html"
+>png_get_x_pixels_per_meter</A
+>&nbsp;--&nbsp;return horizontal pixel density per meter</DT
+><DT
+><A
+HREF="libpng12-png-get-y-offset-pixels.html"
+>png_get_y_offset_pixels</A
+>&nbsp;--&nbsp;return y offset in pixels from oFFs chunk</DT
+><DT
+><A
+HREF="libpng12-png-get-y-pixels-per-meter.html"
+>png_get_y_pixels_per_meter</A
+>&nbsp;--&nbsp;return vertical pixel density per meter</DT
+><DT
+><A
+HREF="libpng12-png-info-init-3.html"
+>png_info_init_3</A
+>&nbsp;--&nbsp;initialize an info structure (DEPRECATED)</DT
+><DT
+><A
+HREF="libpng12-png-init-io.html"
+>png_init_io</A
+>&nbsp;--&nbsp;initialize input/output for the PNG file</DT
+><DT
+><A
+HREF="libpng12-png-libpng-ver.html"
+>png_libpng_ver</A
+>&nbsp;--&nbsp;external variable holding version number of libpng</DT
+><DT
+><A
+HREF="libpng12-png-malloc.html"
+>png_malloc</A
+>&nbsp;--&nbsp;allocate memory</DT
+><DT
+><A
+HREF="libpng12-png-permit-mng-features.html"
+>png_permit_mng_features</A
+>&nbsp;--&nbsp;enable MNG extensions for PNG image wrapped
+in MNG datastream</DT
+><DT
+><A
+HREF="libpng12-png-process-data.html"
+>png_process_data</A
+>&nbsp;--&nbsp;read PNG file progressively</DT
+><DT
+><A
+HREF="libpng12-png-progressive-combine-row.html"
+>png_progressive_combine_row</A
+>&nbsp;--&nbsp;combines current row data with processed row</DT
+><DT
+><A
+HREF="libpng12-png-read-end.html"
+>png_read_end</A
+>&nbsp;--&nbsp;read the end of PNG file</DT
+><DT
+><A
+HREF="libpng12-png-read-image.html"
+>png_read_image</A
+>&nbsp;--&nbsp;read the entire image into memory</DT
+><DT
+><A
+HREF="libpng12-png-read-info.html"
+>png_read_info</A
+>&nbsp;--&nbsp;read the PNG image information</DT
+><DT
+><A
+HREF="libpng12-png-read-png.html"
+>png_read_png</A
+>&nbsp;--&nbsp;read the entire PNG file</DT
+><DT
+><A
+HREF="libpng12-png-read-row.html"
+>png_read_row</A
+>&nbsp;--&nbsp;read a row of image data</DT
+><DT
+><A
+HREF="libpng12-png-read-rows.html"
+>png_read_rows</A
+>&nbsp;--&nbsp;read multiple rows of image data</DT
+><DT
+><A
+HREF="libpng12-png-read-update-info.html"
+>png_read_update_info</A
+>&nbsp;--&nbsp;update png_info structure</DT
+><DT
+><A
+HREF="libpng12-png-set-ihdr.html"
+>png_set_IHDR</A
+>&nbsp;--&nbsp;set the PNG_IHDR chunk information</DT
+><DT
+><A
+HREF="libpng12-png-set-plte.html"
+>png_set_PLTE</A
+>&nbsp;--&nbsp;set color values for the palette</DT
+><DT
+><A
+HREF="libpng12-png-set-bkgd.html"
+>png_set_bKGD</A
+>&nbsp;--&nbsp;set the background color for given image</DT
+><DT
+><A
+HREF="libpng12-png-set-background.html"
+>png_set_background</A
+>&nbsp;--&nbsp;set the background for given image</DT
+><DT
+><A
+HREF="libpng12-png-set-bgr.html"
+>png_set_bgr</A
+>&nbsp;--&nbsp;set pixel order to blue, green, red</DT
+><DT
+><A
+HREF="libpng12-png-set-chrm.html"
+>png_set_cHRM</A
+>&nbsp;--&nbsp;set CIE chromacities and referenced white point for given image</DT
+><DT
+><A
+HREF="libpng12-png-set-compression-buffer-size.html"
+>png_set_compression_buffer_size</A
+>&nbsp;--&nbsp;set the size of the compression buffer</DT
+><DT
+><A
+HREF="libpng12-png-set-compression-level.html"
+>png_set_compression_level</A
+>&nbsp;--&nbsp;set image compression level</DT
+><DT
+><A
+HREF="libpng12-png-set-compression-mem-level.html"
+>png_set_compression_mem_level</A
+>&nbsp;--&nbsp;set how much memory to use for the internal state during PNG compression</DT
+><DT
+><A
+HREF="libpng12-png-set-compression-method.html"
+>png_set_compression_method</A
+>&nbsp;--&nbsp;set PNG compression algorithm</DT
+><DT
+><A
+HREF="libpng12-png-set-compression-strategy.html"
+>png_set_compression_strategy</A
+>&nbsp;--&nbsp;set PNG compression strategy</DT
+><DT
+><A
+HREF="libpng12-png-set-compression-window-bits.html"
+>png_set_compression_window_bits</A
+>&nbsp;--&nbsp;set PNG compression window size</DT
+><DT
+><A
+HREF="libpng12-png-set-dither.html"
+>png_set_dither</A
+>&nbsp;--&nbsp;turn on dithering to 8-bit</DT
+><DT
+><A
+HREF="libpng12-png-set-error-fn.html"
+>png_set_error_fn</A
+>&nbsp;--&nbsp;set user defined functions for error handling</DT
+><DT
+><A
+HREF="libpng12-png-set-expand.html"
+>png_set_expand</A
+>&nbsp;--&nbsp;set expansion transformation</DT
+><DT
+><A
+HREF="libpng12-png-set-filler.html"
+>png_set_filler</A
+>&nbsp;--&nbsp;add a filler byte to given image</DT
+><DT
+><A
+HREF="libpng12-png-set-filter.html"
+>png_set_filter</A
+>&nbsp;--&nbsp;set filtering method</DT
+><DT
+><A
+HREF="libpng12-png-set-gama.html"
+>png_set_gAMA</A
+>&nbsp;--&nbsp;set the gamma value for given image</DT
+><DT
+><A
+HREF="libpng12-png-set-gamma.html"
+>png_set_gamma</A
+>&nbsp;--&nbsp;transform the image from file gamma to screen gamma</DT
+><DT
+><A
+HREF="libpng12-png-set-gray-1-2-4-to-8.html"
+>png_set_gray_1_2_4_to_8</A
+>&nbsp;--&nbsp;set expansion transformation</DT
+><DT
+><A
+HREF="libpng12-png-set-gray-to-rgb.html"
+>png_set_gray_to_rgb</A
+>&nbsp;--&nbsp;expand the grayscale image to 24-bit RGB</DT
+><DT
+><A
+HREF="libpng12-png-set-hist.html"
+>png_set_hIST</A
+>&nbsp;--&nbsp;set the histogram of color palette</DT
+><DT
+><A
+HREF="libpng12-png-set-iccp.html"
+>png_set_iCCP</A
+>&nbsp;--&nbsp;set ICC component</DT
+><DT
+><A
+HREF="libpng12-png-set-interlace-handling.html"
+>png_set_interlace_handling</A
+>&nbsp;--&nbsp;get the number of passes for image interlacing</DT
+><DT
+><A
+HREF="libpng12-png-set-invert-alpha.html"
+>png_set_invert_alpha</A
+>&nbsp;--&nbsp;invert the level of opacity of a PNG file</DT
+><DT
+><A
+HREF="libpng12-png-set-invert-mono.html"
+>png_set_invert_mono</A
+>&nbsp;--&nbsp;reverse values for monochromicity</DT
+><DT
+><A
+HREF="libpng12-png-set-keep-unknown-chunks.html"
+>png_set_keep_unknown_chunks</A
+>&nbsp;--&nbsp;specify list of chunks and how to handle them</DT
+><DT
+><A
+HREF="libpng12-png-set-mem-fn.html"
+>png_set_mem_fn</A
+>&nbsp;--&nbsp;install custom memory allocation functions</DT
+><DT
+><A
+HREF="libpng12-png-set-offs.html"
+>png_set_oFFs</A
+>&nbsp;--&nbsp;set screen offsets for given image</DT
+><DT
+><A
+HREF="libpng12-png-set-phys.html"
+>png_set_pHYs</A
+>&nbsp;--&nbsp;set physical resolution</DT
+><DT
+><A
+HREF="libpng12-png-set-packing.html"
+>png_set_packing</A
+>&nbsp;--&nbsp;expand image to 1 pixel per byte for bit-depths 1,2 and 4</DT
+><DT
+><A
+HREF="libpng12-png-set-packswap.html"
+>png_set_packswap</A
+>&nbsp;--&nbsp;swap the order of pixels for packed-pixel image</DT
+><DT
+><A
+HREF="libpng12-png-set-palette-to-rgb.html"
+>png_set_palette_to_rgb</A
+>&nbsp;--&nbsp;set expansion transformation</DT
+><DT
+><A
+HREF="libpng12-png-set-progressive-read-fn.html"
+>png_set_progressive_read_fn</A
+>&nbsp;--&nbsp;set progressive read callback functions</DT
+><DT
+><A
+HREF="libpng12-png-set-read-fn.html"
+>png_set_read_fn</A
+>&nbsp;--&nbsp;set user-defined function for reading a PNG stream</DT
+><DT
+><A
+HREF="libpng12-png-set-read-user-chunk-fn.html"
+>png_set_read_user_chunk_fn</A
+>&nbsp;--&nbsp;install custom callback function to handle 
+unknown chunks in the input stream</DT
+><DT
+><A
+HREF="libpng12-png-set-read-user-transform-fn.html"
+>png_set_read_user_transform_fn</A
+>&nbsp;--&nbsp;install a custom input transformation callback function</DT
+><DT
+><A
+HREF="libpng12-png-set-rgb-to-gray.html"
+>png_set_rgb_to_gray</A
+>&nbsp;--&nbsp;reduce 24-bit RGB to grayscale image</DT
+><DT
+><A
+HREF="libpng12-png-set-rows.html"
+>png_set_rows</A
+>&nbsp;--&nbsp;put image data in png_info structure</DT
+><DT
+><A
+HREF="libpng12-png-set-sbit.html"
+>png_set_sBIT</A
+>&nbsp;--&nbsp;set number of significant bits for each channel</DT
+><DT
+><A
+HREF="libpng12-png-set-srgb.html"
+>png_set_sRGB</A
+>&nbsp;--&nbsp;set the rendering intent for given image</DT
+><DT
+><A
+HREF="libpng12-png-set-srgb-gama-and-chrm.html"
+>png_set_sRGB_gAMA_and_cHRM</A
+>&nbsp;--&nbsp;set rendering intent, gamma values, and CIE chromaticities of a PNG file</DT
+><DT
+><A
+HREF="libpng12-png-set-shift.html"
+>png_set_shift</A
+>&nbsp;--&nbsp;shift pixel values to valid bit-depth</DT
+><DT
+><A
+HREF="libpng12-png-set-sig-bytes.html"
+>png_set_sig_bytes</A
+>&nbsp;--&nbsp;number of bytes read from PNG file</DT
+><DT
+><A
+HREF="libpng12-png-set-strip-16.html"
+>png_set_strip_16</A
+>&nbsp;--&nbsp;strip 16 bit PNG file to 8 bit depth</DT
+><DT
+><A
+HREF="libpng12-png-set-strip-alpha.html"
+>png_set_strip_alpha</A
+>&nbsp;--&nbsp;remove alpha channel on the given image</DT
+><DT
+><A
+HREF="libpng12-png-set-swap.html"
+>png_set_swap</A
+>&nbsp;--&nbsp;swap byte-order for 16 bit depth files</DT
+><DT
+><A
+HREF="libpng12-png-set-swap-alpha.html"
+>png_set_swap_alpha</A
+>&nbsp;--&nbsp;swap image data from RGBA to ARGB format</DT
+><DT
+><A
+HREF="libpng12-png-set-time.html"
+>png_set_tIME</A
+>&nbsp;--&nbsp;set last modification time for the image</DT
+><DT
+><A
+HREF="libpng12-png-set-trns.html"
+>png_set_tRNS</A
+>&nbsp;--&nbsp;set transparency values for images</DT
+><DT
+><A
+HREF="libpng12-png-set-trns-to-alpha.html"
+>png_set_tRNS_to_alpha</A
+>&nbsp;--&nbsp;set expansion transformation</DT
+><DT
+><A
+HREF="libpng12-png-set-text.html"
+>png_set_text</A
+>&nbsp;--&nbsp;stores information for image comments</DT
+><DT
+><A
+HREF="libpng12-png-set-unknown-chunk-location.html"
+>png_set_unknown_chunk_location</A
+>&nbsp;--&nbsp;set the location of an unknown chunk in a PNG file</DT
+><DT
+><A
+HREF="libpng12-png-set-unknown-chunks.html"
+>png_set_unknown_chunks</A
+>&nbsp;--&nbsp;insert unknown chunks into a PNG file</DT
+><DT
+><A
+HREF="libpng12-png-set-write-fn.html"
+>png_set_write_fn</A
+>&nbsp;--&nbsp;set user-defined function for writing a PNG stream</DT
+><DT
+><A
+HREF="libpng12-png-set-write-status-fn.html"
+>png_set_write_status_fn</A
+>&nbsp;--&nbsp;install custom callback function
+to be called after row is written</DT
+><DT
+><A
+HREF="libpng12-png-set-write-user-transform-fn.html"
+>png_set_write_user_transform_fn</A
+>&nbsp;--&nbsp;install a custom output transformation callback function</DT
+><DT
+><A
+HREF="libpng12-png-sig-cmp.html"
+>png_sig_cmp</A
+>&nbsp;--&nbsp;match the PNG signature</DT
+><DT
+><A
+HREF="libpng12-png-start-read-image.html"
+>png_start_read_image</A
+>&nbsp;--&nbsp;start reading a PNG file</DT
+><DT
+><A
+HREF="libpng12-png-warning.html"
+>png_warning</A
+>&nbsp;--&nbsp;default function to handle non-fatal errors</DT
+><DT
+><A
+HREF="libpng12-png-write-chunk.html"
+>png_write_chunk</A
+>&nbsp;--&nbsp;write a PNG chunk</DT
+><DT
+><A
+HREF="libpng12-png-write-end.html"
+>png_write_end</A
+>&nbsp;--&nbsp;write the end of a PNG file</DT
+><DT
+><A
+HREF="libpng12-png-write-flush.html"
+>png_write_flush</A
+>&nbsp;--&nbsp;flush the current output buffers</DT
+><DT
+><A
+HREF="libpng12-png-write-image.html"
+>png_write_image</A
+>&nbsp;--&nbsp;write the given image data</DT
+><DT
+><A
+HREF="libpng12-png-write-info.html"
+>png_write_info</A
+>&nbsp;--&nbsp;write PNG information to file</DT
+><DT
+><A
+HREF="libpng12-png-write-png.html"
+>png_write_png</A
+>&nbsp;--&nbsp;write the entire PNG file</DT
+><DT
+><A
+HREF="libpng12-png-write-row.html"
+>png_write_row</A
+>&nbsp;--&nbsp;write a row of image data</DT
+><DT
+><A
+HREF="libpng12-png-write-rows.html"
+>png_write_rows</A
+>&nbsp;--&nbsp;write multiple rows of image data</DT
+></DL
+></DD
+></DL
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libglu-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpng12ch.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libGLU</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Libraries</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

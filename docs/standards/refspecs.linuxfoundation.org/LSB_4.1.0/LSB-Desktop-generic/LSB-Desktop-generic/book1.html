@@ -1,0 +1,8403 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Linux Standard Base Desktop Specification 4.1</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="NEXT"
+TITLE="Foreword"
+HREF="overview.html"></HEAD
+><BODY
+CLASS="BOOK"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="AEN1"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+>Linux Standard Base Desktop Specification 4.1</A
+></H1
+><P
+CLASS="COPYRIGHT"
+><A
+HREF="LEGAL.html"
+>Copyright</A
+> &copy; 2010 Linux Foundation</P
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="overview.html"
+>Foreword</A
+></DT
+><DT
+><A
+HREF="status.html"
+>Status of this Document</A
+></DT
+><DT
+><A
+HREF="intro.html"
+>Introduction</A
+></DT
+><DT
+>I. <A
+HREF="tocintro.html"
+>Introductory Elements</A
+></DT
+><DD
+><DL
+><DT
+>1. <A
+HREF="scope.html"
+>Scope</A
+></DT
+><DT
+>2. <A
+HREF="normativerefs.html"
+>References</A
+></DT
+><DD
+><DL
+><DT
+>2.1. <A
+HREF="normativerefs.html#NORMATIVEREFSSECT"
+>Normative References</A
+></DT
+><DT
+>2.2. <A
+HREF="informativerefs.html"
+>Informative References/Bibliography</A
+></DT
+></DL
+></DD
+><DT
+>3. <A
+HREF="requirements.html"
+>Requirements</A
+></DT
+><DD
+><DL
+><DT
+>3.1. <A
+HREF="requirements.html#RLIBRARIES"
+>Relevant Libraries</A
+></DT
+></DL
+></DD
+><DT
+>4. <A
+HREF="defs.html"
+>Terms and Definitions</A
+></DT
+><DT
+>5. <A
+HREF="docconv.html"
+>Documentation Conventions</A
+></DT
+></DL
+></DD
+><DT
+>II. <A
+HREF="tocgraphlib.html"
+>Graphic Libraries</A
+></DT
+><DD
+><DL
+><DT
+>6. <A
+HREF="graphlib.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>6.1. <A
+HREF="graphlib.html#LIBX11"
+>Interfaces for libX11</A
+></DT
+><DT
+>6.2. <A
+HREF="libx11-ddefs.html"
+>Data Definitions for libX11</A
+></DT
+><DT
+>6.3. <A
+HREF="libx11man.html"
+>Interface Definitions for libX11</A
+></DT
+><DT
+>6.4. <A
+HREF="libsm.html"
+>Interfaces for libSM</A
+></DT
+><DT
+>6.5. <A
+HREF="libsm-ddefs.html"
+>Data Definitions for libSM</A
+></DT
+><DT
+>6.6. <A
+HREF="libice.html"
+>Interfaces for libICE</A
+></DT
+><DT
+>6.7. <A
+HREF="libice-ddefs.html"
+>Data Definitions for libICE</A
+></DT
+><DT
+>6.8. <A
+HREF="libiceman.html"
+>Interface Definitions for libICE</A
+></DT
+><DT
+>6.9. <A
+HREF="libxt.html"
+>Interfaces for libXt</A
+></DT
+><DT
+>6.10. <A
+HREF="libxt-ddefs.html"
+>Data Definitions for libXt</A
+></DT
+><DT
+>6.11. <A
+HREF="libxtman.html"
+>Interface Definitions for libXt</A
+></DT
+><DT
+>6.12. <A
+HREF="libxext.html"
+>Interfaces for libXext</A
+></DT
+><DT
+>6.13. <A
+HREF="libxext-ddefs.html"
+>Data Definitions for libXext</A
+></DT
+><DT
+>6.14. <A
+HREF="libxextman.html"
+>Interface Definitions for libXext</A
+></DT
+><DT
+>6.15. <A
+HREF="libxi.html"
+>Interfaces for libXi</A
+></DT
+><DT
+>6.16. <A
+HREF="libxi-ddefs.html"
+>Data Definitions for libXi</A
+></DT
+><DT
+>6.17. <A
+HREF="libxtst.html"
+>Interfaces for libXtst</A
+></DT
+><DT
+>6.18. <A
+HREF="libxtst-ddefs.html"
+>Data Definitions for libXtst</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>III. <A
+HREF="tocopengl.html"
+>OpenGL Libraries</A
+></DT
+><DD
+><DL
+><DT
+>7. <A
+HREF="opengllib.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>7.1. <A
+HREF="opengllib.html#LIBGL"
+>Interfaces for libGL</A
+></DT
+><DT
+>7.2. <A
+HREF="libgl-ddefs.html"
+>Data Definitions for libGL</A
+></DT
+><DT
+>7.3. <A
+HREF="libglu.html"
+>Interfaces for libGLU</A
+></DT
+><DT
+>7.4. <A
+HREF="libglu-ddefs.html"
+>Data Definitions for libGLU</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>IV. <A
+HREF="toclibpng.html"
+>PNG12 library</A
+></DT
+><DD
+><DL
+><DT
+>8. <A
+HREF="libpng.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>8.1. <A
+HREF="libpng.html#LIBPNG12"
+>Interfaces for libpng12</A
+></DT
+><DT
+>8.2. <A
+HREF="libpng12-ddefs.html"
+>Data Definitions for libpng12</A
+></DT
+><DT
+>8.3. <A
+HREF="libpng12man.html"
+>Interface Definitions for libpng12</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>V. <A
+HREF="toclibjpeg.html"
+>JPEG library</A
+></DT
+><DD
+><DL
+><DT
+>9. <A
+HREF="libjpeg62.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>9.1. <A
+HREF="libjpeg62.html#LIBJPEG"
+>Interfaces for libjpeg</A
+></DT
+><DT
+>9.2. <A
+HREF="libjpeg-ddefs.html"
+>Data Definitions for libjpeg</A
+></DT
+><DT
+>9.3. <A
+HREF="libjpegman.html"
+>Interface Definitions for libjpeg</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>VI. <A
+HREF="toclibfontconfig.html"
+>Fontconfig library</A
+></DT
+><DD
+><DL
+><DT
+>10. <A
+HREF="libfontconfigchap.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>10.1. <A
+HREF="libfontconfigchap.html#LIBFONTCONFIG"
+>Interfaces for libfontconfig</A
+></DT
+><DT
+>10.2. <A
+HREF="libfontconfig-ddefs.html"
+>Data Definitions for libfontconfig</A
+></DT
+></DL
+></DD
+><DT
+>11. <A
+HREF="fontconfigcommand.html"
+>Commands and Utilities</A
+></DT
+><DD
+><DL
+><DT
+>11.1. <A
+HREF="fontconfigcommand.html#CMDUTIL"
+>Commands and Utilities</A
+></DT
+><DT
+>11.2. <A
+HREF="cmdbehav.html"
+>Command Behavior</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>VII. <A
+HREF="toclibfreetype.html"
+>Freetype library</A
+></DT
+><DD
+><DL
+><DT
+>12. <A
+HREF="libfreetypechap.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>12.1. <A
+HREF="libfreetypechap.html#LIBFREETYPE"
+>Interfaces for libfreetype</A
+></DT
+><DT
+>12.2. <A
+HREF="libfreetype-ddefs.html"
+>Data Definitions for libfreetype</A
+></DT
+><DT
+>12.3. <A
+HREF="libfreetypeman.html"
+>Interface Definitions for libfreetype</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>VIII. <A
+HREF="toclibxft.html"
+>Xft library</A
+></DT
+><DD
+><DL
+><DT
+>13. <A
+HREF="libxftchap.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>13.1. <A
+HREF="libxftchap.html#LIBXFT"
+>Interfaces for libXft</A
+></DT
+><DT
+>13.2. <A
+HREF="libxft-ddefs.html"
+>Data Definitions for libXft</A
+></DT
+><DT
+>13.3. <A
+HREF="libxftman.html"
+>Interface Definitions for libXft</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>IX. <A
+HREF="toclibxrender.html"
+>Xrender library</A
+></DT
+><DD
+><DL
+><DT
+>14. <A
+HREF="libxrenderchap.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>14.1. <A
+HREF="libxrenderchap.html#LIBXRENDER"
+>Interfaces for libXrender</A
+></DT
+><DT
+>14.2. <A
+HREF="libxrender-ddefs.html"
+>Data Definitions for libXrender</A
+></DT
+><DT
+>14.3. <A
+HREF="libxrenderman.html"
+>Interface Definitions for libXrender</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>X. <A
+HREF="toclibcairo.html"
+>Cairo Vector Graphics library</A
+></DT
+><DD
+><DL
+><DT
+>15. <A
+HREF="libcairochap.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>15.1. <A
+HREF="libcairochap.html#LIBCAIRO"
+>Interfaces for libcairo</A
+></DT
+><DT
+>15.2. <A
+HREF="libcairo-ddefs.html"
+>Data Definitions for libcairo</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>XI. <A
+HREF="tocgtk.html"
+>GTK+ Stack Libraries</A
+></DT
+><DD
+><DL
+><DT
+>16. <A
+HREF="gtk.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>16.1. <A
+HREF="gtk.html#AEN18567"
+>Introduction</A
+></DT
+><DT
+>16.2. <A
+HREF="libglib-2.0.html"
+>Interfaces for libglib-2.0</A
+></DT
+><DT
+>16.3. <A
+HREF="libglib-2.0-ddefs.html"
+>Data Definitions for libglib-2.0</A
+></DT
+><DT
+>16.4. <A
+HREF="libglib-2.0man.html"
+>Interface Definitions for libglib-2.0</A
+></DT
+><DT
+>16.5. <A
+HREF="libgobject-2.0.html"
+>Interfaces for libgobject-2.0</A
+></DT
+><DT
+>16.6. <A
+HREF="libgobject-2.0-ddefs.html"
+>Data Definitions for libgobject-2.0</A
+></DT
+><DT
+>16.7. <A
+HREF="libgobject-2.0man.html"
+>Interface Definitions for libgobject-2.0</A
+></DT
+><DT
+>16.8. <A
+HREF="libgmodule-2.0.html"
+>Interfaces for libgmodule-2.0</A
+></DT
+><DT
+>16.9. <A
+HREF="libgmodule-2.0-ddefs.html"
+>Data Definitions for libgmodule-2.0</A
+></DT
+><DT
+>16.10. <A
+HREF="libgthread-2.0.html"
+>Interfaces for libgthread-2.0</A
+></DT
+><DT
+>16.11. <A
+HREF="libatk-1.0.html"
+>Interfaces for libatk-1.0</A
+></DT
+><DT
+>16.12. <A
+HREF="libatk-1.0-ddefs.html"
+>Data Definitions for libatk-1.0</A
+></DT
+><DT
+>16.13. <A
+HREF="libpango-1.0.html"
+>Interfaces for libpango-1.0</A
+></DT
+><DT
+>16.14. <A
+HREF="libpango-1.0-ddefs.html"
+>Data Definitions for libpango-1.0</A
+></DT
+><DT
+>16.15. <A
+HREF="libpangocairo-1.0.html"
+>Interfaces for libpangocairo-1.0</A
+></DT
+><DT
+>16.16. <A
+HREF="libpangocairo-1.0-ddefs.html"
+>Data Definitions for libpangocairo-1.0</A
+></DT
+><DT
+>16.17. <A
+HREF="libpangoxft-1.0.html"
+>Interfaces for libpangoxft-1.0</A
+></DT
+><DT
+>16.18. <A
+HREF="libpangoxft-1.0-ddefs.html"
+>Data Definitions for libpangoxft-1.0</A
+></DT
+><DT
+>16.19. <A
+HREF="libpangoft2-1.0.html"
+>Interfaces for libpangoft2-1.0</A
+></DT
+><DT
+>16.20. <A
+HREF="libpangoft2-1.0-ddefs.html"
+>Data Definitions for libpangoft2-1.0</A
+></DT
+><DT
+>16.21. <A
+HREF="libgdk-pixbuf-2.0.html"
+>Interfaces for libgdk_pixbuf-2.0</A
+></DT
+><DT
+>16.22. <A
+HREF="libgdk-pixbuf-2.0-ddefs.html"
+>Data Definitions for libgdk_pixbuf-2.0</A
+></DT
+><DT
+>16.23. <A
+HREF="libgdk-pixbuf-xlib-2.0.html"
+>Interfaces for libgdk_pixbuf_xlib-2.0</A
+></DT
+><DT
+>16.24. <A
+HREF="libgdk-pixbuf-xlib-2.0-ddefs.html"
+>Data Definitions for libgdk_pixbuf_xlib-2.0</A
+></DT
+><DT
+>16.25. <A
+HREF="libgdk-x11-2.0.html"
+>Interfaces for libgdk-x11-2.0</A
+></DT
+><DT
+>16.26. <A
+HREF="libgdk-x11-2.0-ddefs.html"
+>Data Definitions for libgdk-x11-2.0</A
+></DT
+><DT
+>16.27. <A
+HREF="libgtk-x11-2.0.html"
+>Interfaces for libgtk-x11-2.0</A
+></DT
+><DT
+>16.28. <A
+HREF="libgtk-x11-2.0-ddefs.html"
+>Data Definitions for libgtk-x11-2.0</A
+></DT
+><DT
+>16.29. <A
+HREF="libgtk-x11-2.0man.html"
+>Interface Definitions for libgtk-x11-2.0</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>XII. <A
+HREF="tocqt.html"
+>Qt Libraries</A
+></DT
+><DD
+><DL
+><DT
+>17. <A
+HREF="qt.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>17.1. <A
+HREF="qt.html#AEN44432"
+>Introduction</A
+></DT
+><DT
+>17.2. <A
+HREF="libqtcore.html"
+>Interfaces for libQtCore</A
+></DT
+><DT
+>17.3. <A
+HREF="libqtcore-ddefs.html"
+>Data Definitions for libQtCore</A
+></DT
+><DT
+>17.4. <A
+HREF="libqtcoreman.html"
+>Interface Definitions for libQtCore</A
+></DT
+><DT
+>17.5. <A
+HREF="libqtgui.html"
+>Interfaces for libQtGui</A
+></DT
+><DT
+>17.6. <A
+HREF="libqtgui-ddefs.html"
+>Data Definitions for libQtGui</A
+></DT
+><DT
+>17.7. <A
+HREF="libqtguiman.html"
+>Interface Definitions for libQtGui</A
+></DT
+><DT
+>17.8. <A
+HREF="libqtxml.html"
+>Interfaces for libQtXml</A
+></DT
+><DT
+>17.9. <A
+HREF="libqtxml-ddefs.html"
+>Data Definitions for libQtXml</A
+></DT
+><DT
+>17.10. <A
+HREF="libqtopengl.html"
+>Interfaces for libQtOpenGL</A
+></DT
+><DT
+>17.11. <A
+HREF="libqtopengl-ddefs.html"
+>Data Definitions for libQtOpenGL</A
+></DT
+><DT
+>17.12. <A
+HREF="libqtopenglman.html"
+>Interface Definitions for libQtOpenGL</A
+></DT
+><DT
+>17.13. <A
+HREF="libqtsql.html"
+>Interfaces for libQtSql</A
+></DT
+><DT
+>17.14. <A
+HREF="libqtsql-ddefs.html"
+>Data Definitions for libQtSql</A
+></DT
+><DT
+>17.15. <A
+HREF="libqtsqlman.html"
+>Interface Definitions for libQtSql</A
+></DT
+><DT
+>17.16. <A
+HREF="libqtsvg.html"
+>Interfaces for libQtSvg</A
+></DT
+><DT
+>17.17. <A
+HREF="libqtsvg-ddefs.html"
+>Data Definitions for libQtSvg</A
+></DT
+><DT
+>17.18. <A
+HREF="libqtnetwork.html"
+>Interfaces for libQtNetwork</A
+></DT
+><DT
+>17.19. <A
+HREF="libqtnetwork-ddefs.html"
+>Data Definitions for libQtNetwork</A
+></DT
+><DT
+>17.20. <A
+HREF="libqtnetworkman.html"
+>Interface Definitions for libQtNetwork</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>XIII. <A
+HREF="tocqt3.html"
+>Qt3 Library</A
+></DT
+><DD
+><DL
+><DT
+>18. <A
+HREF="qt3.html"
+>Library</A
+></DT
+><DD
+><DL
+><DT
+>18.1. <A
+HREF="qt3.html#AEN151161"
+>Introduction</A
+></DT
+><DT
+>18.2. <A
+HREF="libqt-mt.html"
+>Interfaces for libqt-mt</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>XIV. <A
+HREF="toclibxml2.html"
+>XML2 library</A
+></DT
+><DD
+><DL
+><DT
+>19. <A
+HREF="xmllibxml2.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>19.1. <A
+HREF="xmllibxml2.html#LIBXML2"
+>Interfaces for libxml2</A
+></DT
+><DT
+>19.2. <A
+HREF="libxml2-ddefs.html"
+>Data Definitions for libxml2</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>XV. <A
+HREF="toclibasound.html"
+>ALSA sound library</A
+></DT
+><DD
+><DL
+><DT
+>20. <A
+HREF="asoundlibasound.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>20.1. <A
+HREF="asoundlibasound.html#LIBASOUND"
+>Interfaces for libasound</A
+></DT
+><DT
+>20.2. <A
+HREF="libasound-ddefs.html"
+>Data Definitions for libasound</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>XVI. <A
+HREF="tocdeskenv.html"
+>Desktop Environment</A
+></DT
+><DD
+><DL
+><DT
+>21. <A
+HREF="deskstuff.html"
+>Desktop Environment</A
+></DT
+><DD
+><DL
+><DT
+>21.1. <A
+HREF="deskstuff.html#XDG-BASEDIR"
+>Desktop Base Directory</A
+></DT
+><DT
+>21.2. <A
+HREF="xdg-entry.html"
+>Desktop Entries</A
+></DT
+><DT
+>21.3. <A
+HREF="xdg-menu.html"
+>Desktop Menu Specification</A
+></DT
+><DT
+>21.4. <A
+HREF="xdg-iconthemes.html"
+>Icon Theme Specification</A
+></DT
+></DL
+></DD
+><DT
+>22. <A
+HREF="deskcmd.html"
+>Desktop Commands</A
+></DT
+><DD
+><DL
+><DT
+>22.1. <A
+HREF="deskcmd.html#XDGUTILS"
+>Xdg-utils</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>XVII. <A
+HREF="packagefmt.html"
+>Package Information</A
+></DT
+><DD
+><DL
+><DT
+>23. <A
+HREF="desktoppkg.html"
+>Package Dependencies</A
+></DT
+><DD
+><DL
+><DT
+>23.1. <A
+HREF="desktoppkg.html#PKGDEPEND"
+>Package Dependencies</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>A. <A
+HREF="gfdl.html"
+>GNU Free Documentation License (Informative)</A
+></DT
+><DD
+><DL
+><DT
+>A.1. <A
+HREF="gfdl.html#GFDL-0"
+>PREAMBLE</A
+></DT
+><DT
+>A.2. <A
+HREF="gfdl-1.html"
+>APPLICABILITY AND DEFINITIONS</A
+></DT
+><DT
+>A.3. <A
+HREF="gfdl-2.html"
+>VERBATIM COPYING</A
+></DT
+><DT
+>A.4. <A
+HREF="gfdl-3.html"
+>COPYING IN QUANTITY</A
+></DT
+><DT
+>A.5. <A
+HREF="gfdl-4.html"
+>MODIFICATIONS</A
+></DT
+><DT
+>A.6. <A
+HREF="gfdl-5.html"
+>COMBINING DOCUMENTS</A
+></DT
+><DT
+>A.7. <A
+HREF="gfdl-6.html"
+>COLLECTIONS OF DOCUMENTS</A
+></DT
+><DT
+>A.8. <A
+HREF="gfdl-7.html"
+>AGGREGATION WITH INDEPENDENT WORKS</A
+></DT
+><DT
+>A.9. <A
+HREF="gfdl-8.html"
+>TRANSLATION</A
+></DT
+><DT
+>A.10. <A
+HREF="gfdl-9.html"
+>TERMINATION</A
+></DT
+><DT
+>A.11. <A
+HREF="gfdl-10.html"
+>FUTURE REVISIONS OF THIS LICENSE</A
+></DT
+><DT
+>A.12. <A
+HREF="gfdl-11.html"
+>How to use this License for your documents</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Tables</B
+></DT
+><DT
+>2-1. <A
+HREF="normativerefs.html#AEN104"
+>Normative References</A
+></DT
+><DT
+>2-2. <A
+HREF="informativerefs.html#AEN331"
+>Other References</A
+></DT
+><DT
+>3-1. <A
+HREF="requirements.html#TBL-DESKTOP-STDLIB"
+>Standard Library Names</A
+></DT
+><DT
+>6-1. <A
+HREF="graphlib.html#LIB-LIBX11-DEF"
+>libX11 Definition</A
+></DT
+><DT
+>6-2. <A
+HREF="graphlib.html#TBL-LIBX11-X-WIN-INTS"
+>libX11 - X Window System Interface Function Interfaces</A
+></DT
+><DT
+>6-3. <A
+HREF="libsm.html#LIB-LIBSM-DEF"
+>libSM Definition</A
+></DT
+><DT
+>6-4. <A
+HREF="libsm.html#TBL-LIBSM-SESSI-INTS"
+>libSM - Session Management Functions Function Interfaces</A
+></DT
+><DT
+>6-5. <A
+HREF="libice.html#LIB-LIBICE-DEF"
+>libICE Definition</A
+></DT
+><DT
+>6-6. <A
+HREF="libice.html#TBL-LIBICE-ICE-F-INTS"
+>libICE - ICE Functions Function Interfaces</A
+></DT
+><DT
+>6-7. <A
+HREF="libice.html#TBL-LIBICE-ICE-F-DEPINTS"
+>libICE - ICE Functions Deprecated Function Interfaces</A
+></DT
+><DT
+>6-8. <A
+HREF="libxt.html#LIB-LIBXT-DEF"
+>libXt Definition</A
+></DT
+><DT
+>6-9. <A
+HREF="libxt.html#TBL-LIBXT-X-TOO-INTS"
+>libXt - X Toolkit Function Interfaces</A
+></DT
+><DT
+>6-10. <A
+HREF="libxt.html#TBL-LIBXT-X-TOO-DATA"
+>libXt - X Toolkit Data Interfaces</A
+></DT
+><DT
+>6-11. <A
+HREF="libxext.html#LIB-LIBXEXT-DEF"
+>libXext Definition</A
+></DT
+><DT
+>6-12. <A
+HREF="libxext.html#TBL-LIBXEXT-LIBXE-INTS"
+>libXext - libXext interfaces Function Interfaces</A
+></DT
+><DT
+>6-13. <A
+HREF="libxext.html#TBL-LIBXEXT-X-SHA-INTS"
+>libXext - X Shape Extension Function Interfaces</A
+></DT
+><DT
+>6-14. <A
+HREF="libxext.html#TBL-LIBXEXT-X-DIS-INTS"
+>libXext - X Display Power Management Signaling Extension Function Interfaces</A
+></DT
+><DT
+>6-15. <A
+HREF="libxext.html#TBL-LIBXEXT-1-INTS"
+>libXext - X Shared Memory Extensions Function Interfaces</A
+></DT
+><DT
+>6-16. <A
+HREF="libxext.html#TBL-LIBXEXT-X-SYN-INTS"
+>libXext - X Synchronization Extension Function Interfaces</A
+></DT
+><DT
+>6-17. <A
+HREF="libxext.html#TBL-LIBXEXT-X-SEC-INTS"
+>libXext - X Security Extension Function Interfaces</A
+></DT
+><DT
+>6-18. <A
+HREF="libxext.html#TBL-LIBXEXT-X-DOU-INTS"
+>libXext - X Double Buffer Extension Function Interfaces</A
+></DT
+><DT
+>6-19. <A
+HREF="libxext.html#TBL-LIBXEXT-X-EXT-INTS"
+>libXext - X Extended Visual Interface Extension Function Interfaces</A
+></DT
+><DT
+>6-20. <A
+HREF="libxi.html#LIB-LIBXI-DEF"
+>libXi Definition</A
+></DT
+><DT
+>6-21. <A
+HREF="libxi.html#TBL-LIBXI-XINPU-INTS"
+>libXi - XInput Function Interfaces</A
+></DT
+><DT
+>6-22. <A
+HREF="libxtst.html#LIB-LIBXTST-DEF"
+>libXtst Definition</A
+></DT
+><DT
+>6-23. <A
+HREF="libxtst.html#TBL-LIBXTST-LIBXT-INTS"
+>libXtst - libXtst Interfaces Function Interfaces</A
+></DT
+><DT
+>7-1. <A
+HREF="opengllib.html#LIB-LIBGL-DEF"
+>libGL Definition</A
+></DT
+><DT
+>7-2. <A
+HREF="opengllib.html#TBL-LIBGL-GL-X-INTS"
+>libGL - GL X interface Function Interfaces</A
+></DT
+><DT
+>7-3. <A
+HREF="opengllib.html#TBL-LIBGL-OPENG-INTS"
+>libGL - OpenGL Function Interfaces</A
+></DT
+><DT
+>7-4. <A
+HREF="libglu.html#LIB-LIBGLU-DEF"
+>libGLU Definition</A
+></DT
+><DT
+>7-5. <A
+HREF="libglu.html#TBL-LIBGLU-GL-UT-INTS"
+>libGLU - GL Utilities Function Interfaces</A
+></DT
+><DT
+>8-1. <A
+HREF="libpng.html#LIB-LIBPNG12-DEF"
+>libpng12 Definition</A
+></DT
+><DT
+>8-2. <A
+HREF="libpng.html#TBL-LIBPNG12-PNG-R-INTS"
+>libpng12 - PNG Reference library Function Interfaces</A
+></DT
+><DT
+>8-3. <A
+HREF="libpng.html#TBL-LIBPNG12-PNG-R-DATA"
+>libpng12 - PNG Reference library Data Interfaces</A
+></DT
+><DT
+>9-1. <A
+HREF="libjpeg62.html#LIB-LIBJPEG-DEF"
+>libjpeg Definition</A
+></DT
+><DT
+>9-2. <A
+HREF="libjpeg62.html#TBL-LIBJPEG-JPEG-INTS"
+>libjpeg - JPEG Reference library Function Interfaces</A
+></DT
+><DT
+>10-1. <A
+HREF="libfontconfigchap.html#LIB-LIBFONTCONFIG-DEF"
+>libfontconfig Definition</A
+></DT
+><DT
+>10-2. <A
+HREF="libfontconfigchap.html#TBL-LIBFONTCONFIG-FONT-INTS"
+>libfontconfig - Font Customization and Configuration Library Function Interfaces</A
+></DT
+><DT
+>10-3. <A
+HREF="libfontconfigchap.html#TBL-LIBFONTCONFIG-FONT-DEPINTS"
+>libfontconfig - Font Customization and Configuration Library Deprecated Function Interfaces</A
+></DT
+><DT
+>11-1. <A
+HREF="fontconfigcommand.html#TBL-CMDS"
+>Commands And Utilities</A
+></DT
+><DT
+>12-1. <A
+HREF="libfreetypechap.html#LIB-LIBFREETYPE-DEF"
+>libfreetype Definition</A
+></DT
+><DT
+>12-2. <A
+HREF="libfreetypechap.html#TBL-LIBFREETYPE-FREET-INTS"
+>libfreetype - FreeType Library Function Interfaces</A
+></DT
+><DT
+>13-1. <A
+HREF="libxftchap.html#LIB-LIBXFT-DEF"
+>libXft Definition</A
+></DT
+><DT
+>13-2. <A
+HREF="libxftchap.html#TBL-LIBXFT-X-FRE-INTS"
+>libXft - X FreeType Library Function Interfaces</A
+></DT
+><DT
+>14-1. <A
+HREF="libxrenderchap.html#LIB-LIBXRENDER-DEF"
+>libXrender Definition</A
+></DT
+><DT
+>14-2. <A
+HREF="libxrenderchap.html#TBL-LIBXRENDER-X-REN-INTS"
+>libXrender - X Rendering Extension Function Interfaces</A
+></DT
+><DT
+>15-1. <A
+HREF="libcairochap.html#LIB-LIBCAIRO-DEF"
+>libcairo Definition</A
+></DT
+><DT
+>15-2. <A
+HREF="libcairochap.html#TBL-LIBCAIRO-CAIRO-INTS"
+>libcairo - Cairo Vector Graphics Library Function Interfaces</A
+></DT
+><DT
+>16-1. <A
+HREF="libglib-2.0.html#LIB-LIBGLIB-2.0-DEF"
+>libglib-2.0 Definition</A
+></DT
+><DT
+>16-2. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-GTK-G-INTS"
+>libglib-2.0 - GTK General purpose utility library Function Interfaces</A
+></DT
+><DT
+>16-3. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-GTK-G-DATA"
+>libglib-2.0 - GTK General purpose utility library Data Interfaces</A
+></DT
+><DT
+>16-4. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-GLIB-INTS"
+>libglib-2.0 - Glib Arrays Function Interfaces</A
+></DT
+><DT
+>16-5. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-1-INTS"
+>libglib-2.0 - Glib Asynchronous Queues Function Interfaces</A
+></DT
+><DT
+>16-6. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-2-INTS"
+>libglib-2.0 - Glib Atomic Operations Function Interfaces</A
+></DT
+><DT
+>16-7. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-3-INTS"
+>libglib-2.0 - Glib Automatic String Completion Function Interfaces</A
+></DT
+><DT
+>16-8. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-3-DEPINTS"
+>libglib-2.0 - Glib Automatic String Completion Deprecated Function Interfaces</A
+></DT
+><DT
+>16-9. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-4-INTS"
+>libglib-2.0 - Glib Balanced Binary Trees Function Interfaces</A
+></DT
+><DT
+>16-10. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-5-INTS"
+>libglib-2.0 - Glib Byte Arrays Function Interfaces</A
+></DT
+><DT
+>16-11. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-6-INTS"
+>libglib-2.0 - Glib Caches Function Interfaces</A
+></DT
+><DT
+>16-12. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-6-DEPINTS"
+>libglib-2.0 - Glib Caches Deprecated Function Interfaces</A
+></DT
+><DT
+>16-13. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-7-INTS"
+>libglib-2.0 - Glib Character Set Conversion Function Interfaces</A
+></DT
+><DT
+>16-14. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-8-INTS"
+>libglib-2.0 - Glib Commandline Option Parser Function Interfaces</A
+></DT
+><DT
+>16-15. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-9-INTS"
+>libglib-2.0 - Glib Datasets Function Interfaces</A
+></DT
+><DT
+>16-16. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-10-INTS"
+>libglib-2.0 - Glib Date and Time Functions Function Interfaces</A
+></DT
+><DT
+>16-17. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-10-DEPINTS"
+>libglib-2.0 - Glib Date and Time Functions Deprecated Function Interfaces</A
+></DT
+><DT
+>16-18. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-11-INTS"
+>libglib-2.0 - Glib Double-Ended Queues Function Interfaces</A
+></DT
+><DT
+>16-19. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-12-INTS"
+>libglib-2.0 - Glib Doubly-Linked Lists Function Interfaces</A
+></DT
+><DT
+>16-20. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-12-DEPINTS"
+>libglib-2.0 - Glib Doubly-Linked Lists Deprecated Function Interfaces</A
+></DT
+><DT
+>16-21. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-13-INTS"
+>libglib-2.0 - Glib Error Reporting Function Interfaces</A
+></DT
+><DT
+>16-22. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-14-INTS"
+>libglib-2.0 - Glib File Utilities Function Interfaces</A
+></DT
+><DT
+>16-23. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-15-INTS"
+>libglib-2.0 - Glib Glob-Style Pattern Matching Function Interfaces</A
+></DT
+><DT
+>16-24. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-16-INTS"
+>libglib-2.0 - Glib Hash Tables Function Interfaces</A
+></DT
+><DT
+>16-25. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-17-INTS"
+>libglib-2.0 - Glib Hook Functions Function Interfaces</A
+></DT
+><DT
+>16-26. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-18-INTS"
+>libglib-2.0 - Glib IO Channels Function Interfaces</A
+></DT
+><DT
+>16-27. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-19-INTS"
+>libglib-2.0 - Glib Internationalization Function Interfaces</A
+></DT
+><DT
+>16-28. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-20-INTS"
+>libglib-2.0 - Glib Key-Value File Parser Function Interfaces</A
+></DT
+><DT
+>16-29. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-21-INTS"
+>libglib-2.0 - Glib Keyed Data Lists Function Interfaces</A
+></DT
+><DT
+>16-30. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-22-INTS"
+>libglib-2.0 - Glib Lexical Scanner Function Interfaces</A
+></DT
+><DT
+>16-31. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-23-INTS"
+>libglib-2.0 - Glib Memory Allocation Function Interfaces</A
+></DT
+><DT
+>16-32. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-23-DATA"
+>libglib-2.0 - Glib Memory Allocation Data Interfaces</A
+></DT
+><DT
+>16-33. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-24-INTS"
+>libglib-2.0 - Glib Memory Allocators Function Interfaces</A
+></DT
+><DT
+>16-34. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-25-INTS"
+>libglib-2.0 - Glib Memory Chunks Function Interfaces</A
+></DT
+><DT
+>16-35. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-25-DEPINTS"
+>libglib-2.0 - Glib Memory Chunks Deprecated Function Interfaces</A
+></DT
+><DT
+>16-36. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-26-INTS"
+>libglib-2.0 - Glib Message Logging Function Interfaces</A
+></DT
+><DT
+>16-37. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-27-INTS"
+>libglib-2.0 - Glib Message Output and Debugging Functions Function Interfaces</A
+></DT
+><DT
+>16-38. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-28-INTS"
+>libglib-2.0 - Glib Miscellaneous Utility Functions Function Interfaces</A
+></DT
+><DT
+>16-39. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-29-INTS"
+>libglib-2.0 - Glib N-ary Trees Function Interfaces</A
+></DT
+><DT
+>16-40. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-29-DEPINTS"
+>libglib-2.0 - Glib N-ary Trees Deprecated Function Interfaces</A
+></DT
+><DT
+>16-41. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-30-INTS"
+>libglib-2.0 - Glib Pointer Arrays Function Interfaces</A
+></DT
+><DT
+>16-42. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-31-INTS"
+>libglib-2.0 - Glib Quarks Function Interfaces</A
+></DT
+><DT
+>16-43. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-32-INTS"
+>libglib-2.0 - Glib Random Numbers Function Interfaces</A
+></DT
+><DT
+>16-44. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-33-INTS"
+>libglib-2.0 - Glib Relations and Tuples Function Interfaces</A
+></DT
+><DT
+>16-45. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-33-DEPINTS"
+>libglib-2.0 - Glib Relations and Tuples Deprecated Function Interfaces</A
+></DT
+><DT
+>16-46. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-34-INTS"
+>libglib-2.0 - Glib Shell-related Utilities Function Interfaces</A
+></DT
+><DT
+>16-47. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-35-INTS"
+>libglib-2.0 - Glib Simple XML Subset Parser Function Interfaces</A
+></DT
+><DT
+>16-48. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-36-INTS"
+>libglib-2.0 - Glib Singly-Linked Lists Function Interfaces</A
+></DT
+><DT
+>16-49. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-36-DEPINTS"
+>libglib-2.0 - Glib Singly-Linked Lists Deprecated Function Interfaces</A
+></DT
+><DT
+>16-50. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-37-INTS"
+>libglib-2.0 - Glib Spawning Processes Function Interfaces</A
+></DT
+><DT
+>16-51. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-38-INTS"
+>libglib-2.0 - Glib String Chunks Function Interfaces</A
+></DT
+><DT
+>16-52. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-39-INTS"
+>libglib-2.0 - Glib String Utility Functions Function Interfaces</A
+></DT
+><DT
+>16-53. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-40-INTS"
+>libglib-2.0 - Glib Strings Function Interfaces</A
+></DT
+><DT
+>16-54. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-41-INTS"
+>libglib-2.0 - Glib - The Main Event Loop Function Interfaces</A
+></DT
+><DT
+>16-55. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-42-INTS"
+>libglib-2.0 - Glib Thread Pools Function Interfaces</A
+></DT
+><DT
+>16-56. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-43-INTS"
+>libglib-2.0 - Glib Threads Function Interfaces</A
+></DT
+><DT
+>16-57. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-44-INTS"
+>libglib-2.0 - Glib Timers Function Interfaces</A
+></DT
+><DT
+>16-58. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-45-INTS"
+>libglib-2.0 - Glib Trash Stacks Function Interfaces</A
+></DT
+><DT
+>16-59. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-46-INTS"
+>libglib-2.0 - Glib Unicode Manipulation Function Interfaces</A
+></DT
+><DT
+>16-60. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-47-INTS"
+>libglib-2.0 - Glib Version Information Function Interfaces</A
+></DT
+><DT
+>16-61. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-47-DATA"
+>libglib-2.0 - Glib Version Information Data Interfaces</A
+></DT
+><DT
+>16-62. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-48-INTS"
+>libglib-2.0 - Glib Bookmark File Parser Function Interfaces</A
+></DT
+><DT
+>16-63. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-49-INTS"
+>libglib-2.0 - Glib Memory Slices Function Interfaces</A
+></DT
+><DT
+>16-64. <A
+HREF="libglib-2.0.html#TBL-LIBGLIB-2.0-50-INTS"
+>libglib-2.0 - Glib Base64 Encoding Function Interfaces</A
+></DT
+><DT
+>16-65. <A
+HREF="libgobject-2.0.html#LIB-LIBGOBJECT-2.0-DEF"
+>libgobject-2.0 Definition</A
+></DT
+><DT
+>16-66. <A
+HREF="libgobject-2.0.html#TBL-LIBGOBJECT-2.0-GOBJE-INTS"
+>libgobject-2.0 - Gobject GTypeModule Function Interfaces</A
+></DT
+><DT
+>16-67. <A
+HREF="libgobject-2.0.html#TBL-LIBGOBJECT-2.0-GOBJF-INTS"
+>libgobject-2.0 - Gobject Enums and Flags Function Interfaces</A
+></DT
+><DT
+>16-68. <A
+HREF="libgobject-2.0.html#TBL-LIBGOBJECT-2.0-GOBJG-INTS"
+>libgobject-2.0 - Gobject Signals Function Interfaces</A
+></DT
+><DT
+>16-69. <A
+HREF="libgobject-2.0.html#TBL-LIBGOBJECT-2.0-GOBJH-INTS"
+>libgobject-2.0 - Gobject Value arrays Function Interfaces</A
+></DT
+><DT
+>16-70. <A
+HREF="libgobject-2.0.html#TBL-LIBGOBJECT-2.0-GOBJI-INTS"
+>libgobject-2.0 - Gobject Generic Values Function Interfaces</A
+></DT
+><DT
+>16-71. <A
+HREF="libgobject-2.0.html#TBL-LIBGOBJECT-2.0-GOBJJ-INTS"
+>libgobject-2.0 - Gobject Parameters and Values Function Interfaces</A
+></DT
+><DT
+>16-72. <A
+HREF="libgobject-2.0.html#TBL-LIBGOBJECT-2.0-GOBJJ-DATA"
+>libgobject-2.0 - Gobject Parameters and Values Data Interfaces</A
+></DT
+><DT
+>16-73. <A
+HREF="libgobject-2.0.html#TBL-LIBGOBJECT-2.0-GOBJK-INTS"
+>libgobject-2.0 - Gobject GParamSpec Function Interfaces</A
+></DT
+><DT
+>16-74. <A
+HREF="libgobject-2.0.html#TBL-LIBGOBJECT-2.0-GOBJL-INTS"
+>libgobject-2.0 - Gobject GBoxed Function Interfaces</A
+></DT
+><DT
+>16-75. <A
+HREF="libgobject-2.0.html#TBL-LIBGOBJECT-2.0-GOBJM-INTS"
+>libgobject-2.0 - Gobject Closures Function Interfaces</A
+></DT
+><DT
+>16-76. <A
+HREF="libgobject-2.0.html#TBL-LIBGOBJECT-2.0-GOBJN-INTS"
+>libgobject-2.0 - Gobject Gobject Function Interfaces</A
+></DT
+><DT
+>16-77. <A
+HREF="libgobject-2.0.html#TBL-LIBGOBJECT-2.0-GOBJO-INTS"
+>libgobject-2.0 - Gobject GType Function Interfaces</A
+></DT
+><DT
+>16-78. <A
+HREF="libgobject-2.0.html#TBL-LIBGOBJECT-2.0-GOBJP-INTS"
+>libgobject-2.0 - Gobject GTypePlugin Function Interfaces</A
+></DT
+><DT
+>16-79. <A
+HREF="libgmodule-2.0.html#LIB-LIBGMODULE-2.0-DEF"
+>libgmodule-2.0 Definition</A
+></DT
+><DT
+>16-80. <A
+HREF="libgmodule-2.0.html#TBL-LIBGMODULE-2.0-GLIB-INTS"
+>libgmodule-2.0 - Glib-Dynamic loading of Modules Function Interfaces</A
+></DT
+><DT
+>16-81. <A
+HREF="libgthread-2.0.html#LIB-LIBGTHREAD-2.0-DEF"
+>libgthread-2.0 Definition</A
+></DT
+><DT
+>16-82. <A
+HREF="libgthread-2.0.html#TBL-LIBGTHREAD-2.0-GLIB-INTS"
+>libgthread-2.0 - Glib thread abstraction Function Interfaces</A
+></DT
+><DT
+>16-83. <A
+HREF="libatk-1.0.html#LIB-LIBATK-1.0-DEF"
+>libatk-1.0 Definition</A
+></DT
+><DT
+>16-84. <A
+HREF="libatk-1.0.html#TBL-LIBATK-1.0-GTK-A-INTS"
+>libatk-1.0 - GTK Accessibility Toolkit Function Interfaces</A
+></DT
+><DT
+>16-85. <A
+HREF="libpango-1.0.html#LIB-LIBPANGO-1.0-DEF"
+>libpango-1.0 Definition</A
+></DT
+><DT
+>16-86. <A
+HREF="libpango-1.0.html#TBL-LIBPANGO-1.0-GTK-I-INTS"
+>libpango-1.0 - GTK Internationalized Text Layout and Rendering library Function Interfaces</A
+></DT
+><DT
+>16-87. <A
+HREF="libpangocairo-1.0.html#LIB-LIBPANGOCAIRO-1.0-DEF"
+>libpangocairo-1.0 Definition</A
+></DT
+><DT
+>16-88. <A
+HREF="libpangocairo-1.0.html#TBL-LIBPANGOCAIRO-1.0-PANGO-INTS"
+>libpangocairo-1.0 - Pango Cairo Rendering Function Interfaces</A
+></DT
+><DT
+>16-89. <A
+HREF="libpangoxft-1.0.html#LIB-LIBPANGOXFT-1.0-DEF"
+>libpangoxft-1.0 Definition</A
+></DT
+><DT
+>16-90. <A
+HREF="libpangoxft-1.0.html#TBL-LIBPANGOXFT-1.0-PANGO-INTS"
+>libpangoxft-1.0 - Pango Xft Fonts and Rendering library Function Interfaces</A
+></DT
+><DT
+>16-91. <A
+HREF="libpangoft2-1.0.html#LIB-LIBPANGOFT2-1.0-DEF"
+>libpangoft2-1.0 Definition</A
+></DT
+><DT
+>16-92. <A
+HREF="libpangoft2-1.0.html#TBL-LIBPANGOFT2-1.0-PANGO-INTS"
+>libpangoft2-1.0 - Pango Freetype Fonts and Rendering library Function Interfaces</A
+></DT
+><DT
+>16-93. <A
+HREF="libgdk-pixbuf-2.0.html#LIB-LIBGDK-PIXBUF-2.0-DEF"
+>libgdk_pixbuf-2.0 Definition</A
+></DT
+><DT
+>16-94. <A
+HREF="libgdk-pixbuf-2.0.html#TBL-LIBGDK-PIXBUF-2.0-GDK-P-INTS"
+>libgdk_pixbuf-2.0 - GDK pixbuf rendering on drawables library Function Interfaces</A
+></DT
+><DT
+>16-95. <A
+HREF="libgdk-pixbuf-2.0.html#TBL-LIBGDK-PIXBUF-2.0-GDK-P-DATA"
+>libgdk_pixbuf-2.0 - GDK pixbuf rendering on drawables library Data Interfaces</A
+></DT
+><DT
+>16-96. <A
+HREF="libgdk-pixbuf-xlib-2.0.html#LIB-LIBGDK-PIXBUF-XLIB-2.0-DEF"
+>libgdk_pixbuf_xlib-2.0 Definition</A
+></DT
+><DT
+>16-97. <A
+HREF="libgdk-pixbuf-xlib-2.0.html#TBL-LIBGDK-PIXBUF-XLIB-2.0-GDK-P-INTS"
+>libgdk_pixbuf_xlib-2.0 - GDK pixbuf rendering to an X drawable library Function Interfaces</A
+></DT
+><DT
+>16-98. <A
+HREF="libgdk-x11-2.0.html#LIB-LIBGDK-X11-2.0-DEF"
+>libgdk-x11-2.0 Definition</A
+></DT
+><DT
+>16-99. <A
+HREF="libgdk-x11-2.0.html#TBL-LIBGDK-X11-2.0-GTK-D-INTS"
+>libgdk-x11-2.0 - GTK Drawing toolkit Function Interfaces</A
+></DT
+><DT
+>16-100. <A
+HREF="libgdk-x11-2.0.html#TBL-LIBGDK-X11-2.0-GTK-D-DATA"
+>libgdk-x11-2.0 - GTK Drawing toolkit Data Interfaces</A
+></DT
+><DT
+>16-101. <A
+HREF="libgtk-x11-2.0.html#LIB-LIBGTK-X11-2.0-DEF"
+>libgtk-x11-2.0 Definition</A
+></DT
+><DT
+>16-102. <A
+HREF="libgtk-x11-2.0.html#TBL-LIBGTK-X11-2.0-GTK-M-INTS"
+>libgtk-x11-2.0 - GTK main Widgets library Function Interfaces</A
+></DT
+><DT
+>16-103. <A
+HREF="libgtk-x11-2.0.html#TBL-LIBGTK-X11-2.0-GTK-M-DEPINTS"
+>libgtk-x11-2.0 - GTK main Widgets library Deprecated Function Interfaces</A
+></DT
+><DT
+>16-104. <A
+HREF="libgtk-x11-2.0.html#TBL-LIBGTK-X11-2.0-GTK-M-DATA"
+>libgtk-x11-2.0 - GTK main Widgets library Data Interfaces</A
+></DT
+><DT
+>17-1. <A
+HREF="libqtcore.html#LIB-LIBQTCORE-DEF"
+>libQtCore Definition</A
+></DT
+><DT
+>17-2. <A
+HREF="libqtcore.html#CLS-92101-0"
+>Primary vtable for QDynamicPropertyChangeEvent</A
+></DT
+><DT
+>17-3. <A
+HREF="libqtcore.html#CLS-92098-0"
+>Primary vtable for QTimeLine</A
+></DT
+><DT
+>17-4. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-QT4-C-INTS"
+>libQtCore - Qt4 Core Functions Function Interfaces</A
+></DT
+><DT
+>17-5. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-QT4-C-DATA"
+>libQtCore - Qt4 Core Functions Data Interfaces</A
+></DT
+><DT
+>17-6. <A
+HREF="libqtcore.html#CLS-36423-0"
+>Primary vtable for QAbstractItemModel</A
+></DT
+><DT
+>17-7. <A
+HREF="libqtcore.html#RTTI-36375"
+>typeinfo for QAbstractItemModel</A
+></DT
+><DT
+>17-8. <A
+HREF="libqtcore.html#CLS-36426-0"
+>Primary vtable for QAbstractTableModel</A
+></DT
+><DT
+>17-9. <A
+HREF="libqtcore.html#RTTI-36378"
+>typeinfo for QAbstractTableModel</A
+></DT
+><DT
+>17-10. <A
+HREF="libqtcore.html#CLS-36424-0"
+>Primary vtable for QAbstractListModel</A
+></DT
+><DT
+>17-11. <A
+HREF="libqtcore.html#RTTI-36376"
+>typeinfo for QAbstractListModel</A
+></DT
+><DT
+>17-12. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-QT4-M-INTS"
+>libQtCore - Qt4 Models Function Interfaces</A
+></DT
+><DT
+>17-13. <A
+HREF="libqtcore.html#CLS-36399-0"
+>Primary vtable for QTextCodec</A
+></DT
+><DT
+>17-14. <A
+HREF="libqtcore.html#RTTI-36351"
+>typeinfo for QTextCodec</A
+></DT
+><DT
+>17-15. <A
+HREF="libqtcore.html#CLS-36433-0"
+>Primary vtable for QTextCodecFactoryInterface</A
+></DT
+><DT
+>17-16. <A
+HREF="libqtcore.html#RTTI-36385"
+>typeinfo for QTextCodecFactoryInterface</A
+></DT
+><DT
+>17-17. <A
+HREF="libqtcore.html#CLS-36404-0"
+>Primary vtable for QTranslator</A
+></DT
+><DT
+>17-18. <A
+HREF="libqtcore.html#RTTI-36356"
+>typeinfo for QTranslator</A
+></DT
+><DT
+>17-19. <A
+HREF="libqtcore.html#CLS-92099-0"
+>Primary vtable for QSystemLocale</A
+></DT
+><DT
+>17-20. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-QT4-I-INTS"
+>libQtCore - Qt4 Internationalization Function Interfaces</A
+></DT
+><DT
+>17-21. <A
+HREF="libqtcore.html#CLS-36444-0"
+>Primary vtable for QMimeData</A
+></DT
+><DT
+>17-22. <A
+HREF="libqtcore.html#RTTI-36396"
+>typeinfo for QMimeData</A
+></DT
+><DT
+>17-23. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-1-INTS"
+>libQtCore - Qt4 Containers Function Interfaces</A
+></DT
+><DT
+>17-24. <A
+HREF="libqtcore.html#CLS-36398-0"
+>Primary vtable for QEventLoop</A
+></DT
+><DT
+>17-25. <A
+HREF="libqtcore.html#RTTI-36350"
+>typeinfo for QEventLoop</A
+></DT
+><DT
+>17-26. <A
+HREF="libqtcore.html#CLS-36436-0"
+>Primary vtable for QEvent</A
+></DT
+><DT
+>17-27. <A
+HREF="libqtcore.html#RTTI-36388"
+>typeinfo for QEvent</A
+></DT
+><DT
+>17-28. <A
+HREF="libqtcore.html#CLS-36403-0"
+>Primary vtable for QTimerEvent</A
+></DT
+><DT
+>17-29. <A
+HREF="libqtcore.html#RTTI-36355"
+>typeinfo for QTimerEvent</A
+></DT
+><DT
+>17-30. <A
+HREF="libqtcore.html#CLS-36400-0"
+>Primary vtable for QChildEvent</A
+></DT
+><DT
+>17-31. <A
+HREF="libqtcore.html#RTTI-36352"
+>typeinfo for QChildEvent</A
+></DT
+><DT
+>17-32. <A
+HREF="libqtcore.html#CLS-36406-0"
+>Primary vtable for QCustomEvent</A
+></DT
+><DT
+>17-33. <A
+HREF="libqtcore.html#RTTI-36358"
+>typeinfo for QCustomEvent</A
+></DT
+><DT
+>17-34. <A
+HREF="libqtcore.html#CLS-36430-0"
+>Primary vtable for QAbstractEventDispatcher</A
+></DT
+><DT
+>17-35. <A
+HREF="libqtcore.html#RTTI-36382"
+>typeinfo for QAbstractEventDispatcher</A
+></DT
+><DT
+>17-36. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-QT4-E-INTS"
+>libQtCore - Qt4 Events Function Interfaces</A
+></DT
+><DT
+>17-37. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-QT4-A-INTS"
+>libQtCore - Qt4 Arrays Function Interfaces</A
+></DT
+><DT
+>17-38. <A
+HREF="libqtcore.html#CLS-36421-0"
+>Primary vtable for QTextCodecPlugin</A
+></DT
+><DT
+>17-39. <A
+HREF="libqtcore.html#RTTI-36373"
+>typeinfo for QTextCodecPlugin</A
+></DT
+><DT
+>17-40. <A
+HREF="libqtcore.html#CLS-36409-0"
+>Primary vtable for QPluginLoader</A
+></DT
+><DT
+>17-41. <A
+HREF="libqtcore.html#RTTI-36361"
+>typeinfo for QPluginLoader</A
+></DT
+><DT
+>17-42. <A
+HREF="libqtcore.html#CLS-36441-0"
+>Primary vtable for QLibrary</A
+></DT
+><DT
+>17-43. <A
+HREF="libqtcore.html#RTTI-36393"
+>typeinfo for QLibrary</A
+></DT
+><DT
+>17-44. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-QT4-P-INTS"
+>libQtCore - Qt4 Plugins Function Interfaces</A
+></DT
+><DT
+>17-45. <A
+HREF="libqtcore.html#CLS-36437-0"
+>Primary vtable for QTimer</A
+></DT
+><DT
+>17-46. <A
+HREF="libqtcore.html#RTTI-36389"
+>typeinfo for QTimer</A
+></DT
+><DT
+>17-47. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-QT4-D-INTS"
+>libQtCore - Qt4 Date and Time Function Interfaces</A
+></DT
+><DT
+>17-48. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-QT4-D-DEPINTS"
+>libQtCore - Qt4 Date and Time Deprecated Function Interfaces</A
+></DT
+><DT
+>17-49. <A
+HREF="libqtcore.html#CLS-36422-0"
+>Primary vtable for QFactoryInterface</A
+></DT
+><DT
+>17-50. <A
+HREF="libqtcore.html#RTTI-36374"
+>typeinfo for QFactoryInterface</A
+></DT
+><DT
+>17-51. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-2-INTS"
+>libQtCore - Qt4 Miscellaneous Function Interfaces</A
+></DT
+><DT
+>17-52. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-QT4-T-INTS"
+>libQtCore - Qt4 Text Function Interfaces</A
+></DT
+><DT
+>17-53. <A
+HREF="libqtcore.html#CLS-36443-0"
+>Primary vtable for QIODevice</A
+></DT
+><DT
+>17-54. <A
+HREF="libqtcore.html#RTTI-36395"
+>typeinfo for QIODevice</A
+></DT
+><DT
+>17-55. <A
+HREF="libqtcore.html#CLS-36401-0"
+>Primary vtable for QDataStream</A
+></DT
+><DT
+>17-56. <A
+HREF="libqtcore.html#RTTI-36353"
+>typeinfo for QDataStream</A
+></DT
+><DT
+>17-57. <A
+HREF="libqtcore.html#CLS-36402-0"
+>Primary vtable for QTextStream</A
+></DT
+><DT
+>17-58. <A
+HREF="libqtcore.html#RTTI-36354"
+>typeinfo for QTextStream</A
+></DT
+><DT
+>17-59. <A
+HREF="libqtcore.html#CLS-36435-0"
+>Primary vtable for QFile</A
+></DT
+><DT
+>17-60. <A
+HREF="libqtcore.html#RTTI-36387"
+>typeinfo for QFile</A
+></DT
+><DT
+>17-61. <A
+HREF="libqtcore.html#CLS-36414-0"
+>Primary vtable for QTemporaryFile</A
+></DT
+><DT
+>17-62. <A
+HREF="libqtcore.html#RTTI-36366"
+>typeinfo for QTemporaryFile</A
+></DT
+><DT
+>17-63. <A
+HREF="libqtcore.html#CLS-36425-0"
+>Primary vtable for QAbstractFileEngine</A
+></DT
+><DT
+>17-64. <A
+HREF="libqtcore.html#RTTI-36377"
+>typeinfo for QAbstractFileEngine</A
+></DT
+><DT
+>17-65. <A
+HREF="libqtcore.html#CLS-36432-0"
+>Primary vtable for QAbstractFileEngineHandler</A
+></DT
+><DT
+>17-66. <A
+HREF="libqtcore.html#RTTI-36384"
+>typeinfo for QAbstractFileEngineHandler</A
+></DT
+><DT
+>17-67. <A
+HREF="libqtcore.html#CLS-36408-0"
+>Primary vtable for QFSFileEngine</A
+></DT
+><DT
+>17-68. <A
+HREF="libqtcore.html#RTTI-36360"
+>typeinfo for QFSFileEngine</A
+></DT
+><DT
+>17-69. <A
+HREF="libqtcore.html#CLS-36442-0"
+>Primary vtable for QProcess</A
+></DT
+><DT
+>17-70. <A
+HREF="libqtcore.html#RTTI-36394"
+>typeinfo for QProcess</A
+></DT
+><DT
+>17-71. <A
+HREF="libqtcore.html#CLS-36438-0"
+>Primary vtable for QBuffer</A
+></DT
+><DT
+>17-72. <A
+HREF="libqtcore.html#RTTI-36390"
+>typeinfo for QBuffer</A
+></DT
+><DT
+>17-73. <A
+HREF="libqtcore.html#CLS-36445-0"
+>Primary vtable for QSettings</A
+></DT
+><DT
+>17-74. <A
+HREF="libqtcore.html#RTTI-36397"
+>typeinfo for QSettings</A
+></DT
+><DT
+>17-75. <A
+HREF="libqtcore.html#CLS-36410-0"
+>Primary vtable for QSignalMapper</A
+></DT
+><DT
+>17-76. <A
+HREF="libqtcore.html#RTTI-36362"
+>typeinfo for QSignalMapper</A
+></DT
+><DT
+>17-77. <A
+HREF="libqtcore.html#CLS-36417-0"
+>Primary vtable for QSocketNotifier</A
+></DT
+><DT
+>17-78. <A
+HREF="libqtcore.html#RTTI-36369"
+>typeinfo for QSocketNotifier</A
+></DT
+><DT
+>17-79. <A
+HREF="libqtcore.html#CLS-92100-0"
+>Primary vtable for QFileSystemWatcher</A
+></DT
+><DT
+>17-80. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-3-INTS"
+>libQtCore - Qt4 Input/Output Function Interfaces</A
+></DT
+><DT
+>17-81. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-3-DEPINTS"
+>libQtCore - Qt4 Input/Output Deprecated Function Interfaces</A
+></DT
+><DT
+>17-82. <A
+HREF="libqtcore.html#CLS-36418-0"
+>Primary vtable for QCoreApplication</A
+></DT
+><DT
+>17-83. <A
+HREF="libqtcore.html#RTTI-36370"
+>typeinfo for QCoreApplication</A
+></DT
+><DT
+>17-84. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-4-INTS"
+>libQtCore - Qt4 Core Application Function Interfaces</A
+></DT
+><DT
+>17-85. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-4-DEPINTS"
+>libQtCore - Qt4 Core Application Deprecated Function Interfaces</A
+></DT
+><DT
+>17-86. <A
+HREF="libqtcore.html#CLS-36439-0"
+>Primary vtable for QObject</A
+></DT
+><DT
+>17-87. <A
+HREF="libqtcore.html#RTTI-36391"
+>typeinfo for QObject</A
+></DT
+><DT
+>17-88. <A
+HREF="libqtcore.html#CLS-36416-0"
+>Primary vtable for QObjectUserData</A
+></DT
+><DT
+>17-89. <A
+HREF="libqtcore.html#RTTI-36368"
+>typeinfo for QObjectUserData</A
+></DT
+><DT
+>17-90. <A
+HREF="libqtcore.html#CLS-36428-0"
+>Primary vtable for QObjectCleanupHandler</A
+></DT
+><DT
+>17-91. <A
+HREF="libqtcore.html#RTTI-36380"
+>typeinfo for QObjectCleanupHandler</A
+></DT
+><DT
+>17-92. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-QT4-O-INTS"
+>libQtCore - Qt4 Object Model Function Interfaces</A
+></DT
+><DT
+>17-93. <A
+HREF="libqtcore.html#CLS-36440-0"
+>Primary vtable for QThread</A
+></DT
+><DT
+>17-94. <A
+HREF="libqtcore.html#RTTI-36392"
+>typeinfo for QThread</A
+></DT
+><DT
+>17-95. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-5-INTS"
+>libQtCore - Qt4 Threading Function Interfaces</A
+></DT
+><DT
+>17-96. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-QT4-2-INTS"
+>libQtCore - Qt4 2D Graphics Function Interfaces</A
+></DT
+><DT
+>17-97. <A
+HREF="libqtcore.html#TBL-LIBQTCORE-6-INTS"
+>libQtCore - Qt4 Internals Function Interfaces</A
+></DT
+><DT
+>17-98. <A
+HREF="libqtgui.html#LIB-LIBQTGUI-DEF"
+>libQtGui Definition</A
+></DT
+><DT
+>17-99. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-G-INTS"
+>libQtGui - Qt4 GUI Functions Function Interfaces</A
+></DT
+><DT
+>17-100. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-G-DEPINTS"
+>libQtGui - Qt4 GUI Functions Deprecated Function Interfaces</A
+></DT
+><DT
+>17-101. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-G-DATA"
+>libQtGui - Qt4 GUI Functions Data Interfaces</A
+></DT
+><DT
+>17-102. <A
+HREF="libqtgui.html#CLS-38940-0"
+>Primary vtable for QButtonGroup</A
+></DT
+><DT
+>17-103. <A
+HREF="libqtgui.html#RTTI-38735"
+>typeinfo for QButtonGroup</A
+></DT
+><DT
+>17-104. <A
+HREF="libqtgui.html#CLS-39077-0"
+>Primary vtable for QGroupBox</A
+></DT
+><DT
+>17-105. <A
+HREF="libqtgui.html#RTTI-38872"
+>typeinfo for QGroupBox</A
+></DT
+><DT
+>17-106. <A
+HREF="libqtgui.html#CLS-39084-0"
+>Primary vtable for QSplitter</A
+></DT
+><DT
+>17-107. <A
+HREF="libqtgui.html#RTTI-38879"
+>typeinfo for QSplitter</A
+></DT
+><DT
+>17-108. <A
+HREF="libqtgui.html#CLS-38988-0"
+>Primary vtable for QSplitterHandle</A
+></DT
+><DT
+>17-109. <A
+HREF="libqtgui.html#RTTI-38783"
+>typeinfo for QSplitterHandle</A
+></DT
+><DT
+>17-110. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-O-INTS"
+>libQtGui - Qt4 Organizers Function Interfaces</A
+></DT
+><DT
+>17-111. <A
+HREF="libqtgui.html#CLS-38912-0"
+>Primary vtable for QInputEvent</A
+></DT
+><DT
+>17-112. <A
+HREF="libqtgui.html#RTTI-38707"
+>typeinfo for QInputEvent</A
+></DT
+><DT
+>17-113. <A
+HREF="libqtgui.html#CLS-38919-0"
+>Primary vtable for QMouseEvent</A
+></DT
+><DT
+>17-114. <A
+HREF="libqtgui.html#RTTI-38714"
+>typeinfo for QMouseEvent</A
+></DT
+><DT
+>17-115. <A
+HREF="libqtgui.html#CLS-38910-0"
+>Primary vtable for QHoverEvent</A
+></DT
+><DT
+>17-116. <A
+HREF="libqtgui.html#RTTI-38705"
+>typeinfo for QHoverEvent</A
+></DT
+><DT
+>17-117. <A
+HREF="libqtgui.html#CLS-38933-0"
+>Primary vtable for QWheelEvent</A
+></DT
+><DT
+>17-118. <A
+HREF="libqtgui.html#RTTI-38728"
+>typeinfo for QWheelEvent</A
+></DT
+><DT
+>17-119. <A
+HREF="libqtgui.html#CLS-38954-0"
+>Primary vtable for QTabletEvent</A
+></DT
+><DT
+>17-120. <A
+HREF="libqtgui.html#RTTI-38749"
+>typeinfo for QTabletEvent</A
+></DT
+><DT
+>17-121. <A
+HREF="libqtgui.html#CLS-39078-0"
+>Primary vtable for QKeyEvent</A
+></DT
+><DT
+>17-122. <A
+HREF="libqtgui.html#RTTI-38873"
+>typeinfo for QKeyEvent</A
+></DT
+><DT
+>17-123. <A
+HREF="libqtgui.html#CLS-38904-0"
+>Primary vtable for QFocusEvent</A
+></DT
+><DT
+>17-124. <A
+HREF="libqtgui.html#RTTI-38699"
+>typeinfo for QFocusEvent</A
+></DT
+><DT
+>17-125. <A
+HREF="libqtgui.html#CLS-38920-0"
+>Primary vtable for QPaintEvent</A
+></DT
+><DT
+>17-126. <A
+HREF="libqtgui.html#RTTI-38715"
+>typeinfo for QPaintEvent</A
+></DT
+><DT
+>17-127. <A
+HREF="libqtgui.html#CLS-38890-0"
+>Primary vtable for QMoveEvent</A
+></DT
+><DT
+>17-128. <A
+HREF="libqtgui.html#RTTI-38684"
+>typeinfo for QMoveEvent</A
+></DT
+><DT
+>17-129. <A
+HREF="libqtgui.html#CLS-38952-0"
+>Primary vtable for QResizeEvent</A
+></DT
+><DT
+>17-130. <A
+HREF="libqtgui.html#RTTI-38747"
+>typeinfo for QResizeEvent</A
+></DT
+><DT
+>17-131. <A
+HREF="libqtgui.html#CLS-38901-0"
+>Primary vtable for QCloseEvent</A
+></DT
+><DT
+>17-132. <A
+HREF="libqtgui.html#RTTI-38696"
+>typeinfo for QCloseEvent</A
+></DT
+><DT
+>17-133. <A
+HREF="libqtgui.html#CLS-38971-0"
+>Primary vtable for QIconDragEvent</A
+></DT
+><DT
+>17-134. <A
+HREF="libqtgui.html#RTTI-38766"
+>typeinfo for QIconDragEvent</A
+></DT
+><DT
+>17-135. <A
+HREF="libqtgui.html#CLS-38892-0"
+>Primary vtable for QShowEvent</A
+></DT
+><DT
+>17-136. <A
+HREF="libqtgui.html#RTTI-38686"
+>typeinfo for QShowEvent</A
+></DT
+><DT
+>17-137. <A
+HREF="libqtgui.html#CLS-38888-0"
+>Primary vtable for QHideEvent</A
+></DT
+><DT
+>17-138. <A
+HREF="libqtgui.html#RTTI-38682"
+>typeinfo for QHideEvent</A
+></DT
+><DT
+>17-139. <A
+HREF="libqtgui.html#CLS-39004-0"
+>Primary vtable for QContextMenuEvent</A
+></DT
+><DT
+>17-140. <A
+HREF="libqtgui.html#RTTI-38799"
+>typeinfo for QContextMenuEvent</A
+></DT
+><DT
+>17-141. <A
+HREF="libqtgui.html#CLS-39008-0"
+>Primary vtable for QInputMethodEvent</A
+></DT
+><DT
+>17-142. <A
+HREF="libqtgui.html#RTTI-38803"
+>typeinfo for QInputMethodEvent</A
+></DT
+><DT
+>17-143. <A
+HREF="libqtgui.html#CLS-38887-0"
+>Primary vtable for QHelpEvent</A
+></DT
+><DT
+>17-144. <A
+HREF="libqtgui.html#RTTI-38681"
+>typeinfo for QHelpEvent</A
+></DT
+><DT
+>17-145. <A
+HREF="libqtgui.html#CLS-38989-0"
+>Primary vtable for QStatusTipEvent</A
+></DT
+><DT
+>17-146. <A
+HREF="libqtgui.html#RTTI-38784"
+>typeinfo for QStatusTipEvent</A
+></DT
+><DT
+>17-147. <A
+HREF="libqtgui.html#CLS-39035-0"
+>Primary vtable for QWhatsThisClickedEvent</A
+></DT
+><DT
+>17-148. <A
+HREF="libqtgui.html#RTTI-38830"
+>typeinfo for QWhatsThisClickedEvent</A
+></DT
+><DT
+>17-149. <A
+HREF="libqtgui.html#CLS-38937-0"
+>Primary vtable for QActionEvent</A
+></DT
+><DT
+>17-150. <A
+HREF="libqtgui.html#RTTI-38732"
+>typeinfo for QActionEvent</A
+></DT
+><DT
+>17-151. <A
+HREF="libqtgui.html#CLS-38970-0"
+>Primary vtable for QFileOpenEvent</A
+></DT
+><DT
+>17-152. <A
+HREF="libqtgui.html#RTTI-38765"
+>typeinfo for QFileOpenEvent</A
+></DT
+><DT
+>17-153. <A
+HREF="libqtgui.html#CLS-39023-0"
+>Primary vtable for QToolBarChangeEvent</A
+></DT
+><DT
+>17-154. <A
+HREF="libqtgui.html#RTTI-38818"
+>typeinfo for QToolBarChangeEvent</A
+></DT
+><DT
+>17-155. <A
+HREF="libqtgui.html#CLS-38974-0"
+>Primary vtable for QShortcutEvent</A
+></DT
+><DT
+>17-156. <A
+HREF="libqtgui.html#RTTI-38769"
+>typeinfo for QShortcutEvent</A
+></DT
+><DT
+>17-157. <A
+HREF="libqtgui.html#CLS-38980-0"
+>Primary vtable for QClipboardEvent</A
+></DT
+><DT
+>17-158. <A
+HREF="libqtgui.html#RTTI-38775"
+>typeinfo for QClipboardEvent</A
+></DT
+><DT
+>17-159. <A
+HREF="libqtgui.html#CLS-39038-0"
+>Primary vtable for QWindowStateChangeEvent</A
+></DT
+><DT
+>17-160. <A
+HREF="libqtgui.html#RTTI-38833"
+>typeinfo for QWindowStateChangeEvent</A
+></DT
+><DT
+>17-161. <A
+HREF="libqtgui.html#CLS-39026-0"
+>Primary vtable for QMenubarUpdatedEvent</A
+></DT
+><DT
+>17-162. <A
+HREF="libqtgui.html#RTTI-38821"
+>typeinfo for QMenubarUpdatedEvent</A
+></DT
+><DT
+>17-163. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-E-INTS"
+>libQtGui - Qt4 Events Function Interfaces</A
+></DT
+><DT
+>17-164. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-F-INTS"
+>libQtGui - Qt4 Fonts Function Interfaces</A
+></DT
+><DT
+>17-165. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-C-INTS"
+>libQtGui - Qt4 Colors Function Interfaces</A
+></DT
+><DT
+>17-166. <A
+HREF="libqtgui.html#CLS-39047-0"
+>Primary vtable for QAccessibleBridgeFactoryInterface</A
+></DT
+><DT
+>17-167. <A
+HREF="libqtgui.html#RTTI-38842"
+>typeinfo for QAccessibleBridgeFactoryInterface</A
+></DT
+><DT
+>17-168. <A
+HREF="libqtgui.html#CLS-39036-0"
+>Primary vtable for QAccessibleBridgePlugin</A
+></DT
+><DT
+>17-169. <A
+HREF="libqtgui.html#RTTI-38831"
+>typeinfo for QAccessibleBridgePlugin</A
+></DT
+><DT
+>17-170. <A
+HREF="libqtgui.html#CLS-39025-0"
+>Primary vtable for QAccessibleInterface</A
+></DT
+><DT
+>17-171. <A
+HREF="libqtgui.html#RTTI-38820"
+>typeinfo for QAccessibleInterface</A
+></DT
+><DT
+>17-172. <A
+HREF="libqtgui.html#CLS-39001-0"
+>Primary vtable for QAccessibleObject</A
+></DT
+><DT
+>17-173. <A
+HREF="libqtgui.html#RTTI-38796"
+>typeinfo for QAccessibleObject</A
+></DT
+><DT
+>17-174. <A
+HREF="libqtgui.html#CLS-39033-0"
+>Primary vtable for QAccessibleApplication</A
+></DT
+><DT
+>17-175. <A
+HREF="libqtgui.html#RTTI-38828"
+>typeinfo for QAccessibleApplication</A
+></DT
+><DT
+>17-176. <A
+HREF="libqtgui.html#CLS-39003-0"
+>Primary vtable for QAccessibleWidget</A
+></DT
+><DT
+>17-177. <A
+HREF="libqtgui.html#RTTI-38798"
+>typeinfo for QAccessibleWidget</A
+></DT
+><DT
+>17-178. <A
+HREF="libqtgui.html#CLS-39043-0"
+>Primary vtable for QAccessibleFactoryInterface</A
+></DT
+><DT
+>17-179. <A
+HREF="libqtgui.html#RTTI-38838"
+>typeinfo for QAccessibleFactoryInterface</A
+></DT
+><DT
+>17-180. <A
+HREF="libqtgui.html#CLS-39002-0"
+>Primary vtable for QAccessiblePlugin</A
+></DT
+><DT
+>17-181. <A
+HREF="libqtgui.html#RTTI-38797"
+>typeinfo for QAccessiblePlugin</A
+></DT
+><DT
+>17-182. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-A-INTS"
+>libQtGui - Qt4 Accessibility Function Interfaces</A
+></DT
+><DT
+>17-183. <A
+HREF="libqtgui.html#CLS-38898-0"
+>Primary vtable for QValidator</A
+></DT
+><DT
+>17-184. <A
+HREF="libqtgui.html#RTTI-38692"
+>typeinfo for QValidator</A
+></DT
+><DT
+>17-185. <A
+HREF="libqtgui.html#CLS-38962-0"
+>Primary vtable for QIntValidator</A
+></DT
+><DT
+>17-186. <A
+HREF="libqtgui.html#RTTI-38757"
+>typeinfo for QIntValidator</A
+></DT
+><DT
+>17-187. <A
+HREF="libqtgui.html#CLS-38994-0"
+>Primary vtable for QDoubleValidator</A
+></DT
+><DT
+>17-188. <A
+HREF="libqtgui.html#RTTI-38789"
+>typeinfo for QDoubleValidator</A
+></DT
+><DT
+>17-189. <A
+HREF="libqtgui.html#CLS-38997-0"
+>Primary vtable for QRegExpValidator</A
+></DT
+><DT
+>17-190. <A
+HREF="libqtgui.html#RTTI-38792"
+>typeinfo for QRegExpValidator</A
+></DT
+><DT
+>17-191. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-V-INTS"
+>libQtGui - Qt4 Validators Function Interfaces</A
+></DT
+><DT
+>17-192. <A
+HREF="libqtgui.html#CLS-38972-0"
+>Primary vtable for QImageIOPlugin</A
+></DT
+><DT
+>17-193. <A
+HREF="libqtgui.html#RTTI-38767"
+>typeinfo for QImageIOPlugin</A
+></DT
+><DT
+>17-194. <A
+HREF="libqtgui.html#CLS-39007-0"
+>Primary vtable for QIconEnginePlugin</A
+></DT
+><DT
+>17-195. <A
+HREF="libqtgui.html#RTTI-38802"
+>typeinfo for QIconEnginePlugin</A
+></DT
+><DT
+>17-196. <A
+HREF="libqtgui.html#CLS-39027-0"
+>Primary vtable for QPictureFormatPlugin</A
+></DT
+><DT
+>17-197. <A
+HREF="libqtgui.html#RTTI-38822"
+>typeinfo for QPictureFormatPlugin</A
+></DT
+><DT
+>17-198. <A
+HREF="libqtgui.html#CLS-38953-0"
+>Primary vtable for QStylePlugin</A
+></DT
+><DT
+>17-199. <A
+HREF="libqtgui.html#RTTI-38748"
+>typeinfo for QStylePlugin</A
+></DT
+><DT
+>17-200. <A
+HREF="libqtgui.html#CLS-39020-0"
+>Primary vtable for QInputContextPlugin</A
+></DT
+><DT
+>17-201. <A
+HREF="libqtgui.html#RTTI-38815"
+>typeinfo for QInputContextPlugin</A
+></DT
+><DT
+>17-202. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-P-INTS"
+>libQtGui - Qt4 Plugins Function Interfaces</A
+></DT
+><DT
+>17-203. <A
+HREF="libqtgui.html#CLS-39042-0"
+>Primary vtable for QAbstractTextDocumentLayout</A
+></DT
+><DT
+>17-204. <A
+HREF="libqtgui.html#RTTI-38837"
+>typeinfo for QAbstractTextDocumentLayout</A
+></DT
+><DT
+>17-205. <A
+HREF="libqtgui.html#CLS-39040-0"
+>Primary vtable for QAbstractPageSetupDialog</A
+></DT
+><DT
+>17-206. <A
+HREF="libqtgui.html#RTTI-38835"
+>typeinfo for QAbstractPageSetupDialog</A
+></DT
+><DT
+>17-207. <A
+HREF="libqtgui.html#CLS-39024-0"
+>Primary vtable for QAbstractPrintDialog</A
+></DT
+><DT
+>17-208. <A
+HREF="libqtgui.html#RTTI-38819"
+>typeinfo for QAbstractPrintDialog</A
+></DT
+><DT
+>17-209. <A
+HREF="libqtgui.html#CLS-39021-0"
+>Primary vtable for QItemSelectionModel</A
+></DT
+><DT
+>17-210. <A
+HREF="libqtgui.html#RTTI-38816"
+>typeinfo for QItemSelectionModel</A
+></DT
+><DT
+>17-211. <A
+HREF="libqtgui.html#CLS-39018-0"
+>Primary vtable for QAbstractScrollArea</A
+></DT
+><DT
+>17-212. <A
+HREF="libqtgui.html#RTTI-38813"
+>typeinfo for QAbstractScrollArea</A
+></DT
+><DT
+>17-213. <A
+HREF="libqtgui.html#CLS-38993-0"
+>Primary vtable for QAbstractSpinBox</A
+></DT
+><DT
+>17-214. <A
+HREF="libqtgui.html#RTTI-38788"
+>typeinfo for QAbstractSpinBox</A
+></DT
+><DT
+>17-215. <A
+HREF="libqtgui.html#CLS-38979-0"
+>Primary vtable for QAbstractSlider</A
+></DT
+><DT
+>17-216. <A
+HREF="libqtgui.html#RTTI-38774"
+>typeinfo for QAbstractSlider</A
+></DT
+><DT
+>17-217. <A
+HREF="libqtgui.html#CLS-39031-0"
+>Primary vtable for QAbstractItemDelegate</A
+></DT
+><DT
+>17-218. <A
+HREF="libqtgui.html#RTTI-38826"
+>typeinfo for QAbstractItemDelegate</A
+></DT
+><DT
+>17-219. <A
+HREF="libqtgui.html#CLS-39000-0"
+>Primary vtable for QAbstractItemView</A
+></DT
+><DT
+>17-220. <A
+HREF="libqtgui.html#RTTI-38795"
+>typeinfo for QAbstractItemView</A
+></DT
+><DT
+>17-221. <A
+HREF="libqtgui.html#CLS-38998-0"
+>Primary vtable for QStringListModel</A
+></DT
+><DT
+>17-222. <A
+HREF="libqtgui.html#RTTI-38793"
+>typeinfo for QStringListModel</A
+></DT
+><DT
+>17-223. <A
+HREF="libqtgui.html#CLS-39076-0"
+>Primary vtable for QDirModel</A
+></DT
+><DT
+>17-224. <A
+HREF="libqtgui.html#RTTI-38871"
+>typeinfo for QDirModel</A
+></DT
+><DT
+>17-225. <A
+HREF="libqtgui.html#CLS-39013-0"
+>Primary vtable for QStandardItemModel</A
+></DT
+><DT
+>17-226. <A
+HREF="libqtgui.html#RTTI-38808"
+>typeinfo for QStandardItemModel</A
+></DT
+><DT
+>17-227. <A
+HREF="libqtgui.html#CLS-39017-0"
+>Primary vtable for QAbstractProxyModel</A
+></DT
+><DT
+>17-228. <A
+HREF="libqtgui.html#RTTI-38812"
+>typeinfo for QAbstractProxyModel</A
+></DT
+><DT
+>17-229. <A
+HREF="libqtgui.html#CLS-39032-0"
+>Primary vtable for QSortFilterProxyModel</A
+></DT
+><DT
+>17-230. <A
+HREF="libqtgui.html#RTTI-38827"
+>typeinfo for QSortFilterProxyModel</A
+></DT
+><DT
+>17-231. <A
+HREF="libqtgui.html#CLS-38963-0"
+>Primary vtable for QItemDelegate</A
+></DT
+><DT
+>17-232. <A
+HREF="libqtgui.html#RTTI-38758"
+>typeinfo for QItemDelegate</A
+></DT
+><DT
+>17-233. <A
+HREF="libqtgui.html#CLS-38894-0"
+>Primary vtable for QTableView</A
+></DT
+><DT
+>17-234. <A
+HREF="libqtgui.html#RTTI-38688"
+>typeinfo for QTableView</A
+></DT
+><DT
+>17-235. <A
+HREF="libqtgui.html#CLS-38999-0"
+>Primary vtable for QTableWidgetItem</A
+></DT
+><DT
+>17-236. <A
+HREF="libqtgui.html#RTTI-38794"
+>typeinfo for QTableWidgetItem</A
+></DT
+><DT
+>17-237. <A
+HREF="libqtgui.html#CLS-38955-0"
+>Primary vtable for QTableWidget</A
+></DT
+><DT
+>17-238. <A
+HREF="libqtgui.html#RTTI-38750"
+>typeinfo for QTableWidget</A
+></DT
+><DT
+>17-239. <A
+HREF="libqtgui.html#CLS-39088-0"
+>Primary vtable for QTreeView</A
+></DT
+><DT
+>17-240. <A
+HREF="libqtgui.html#RTTI-38883"
+>typeinfo for QTreeView</A
+></DT
+><DT
+>17-241. <A
+HREF="libqtgui.html#CLS-38923-0"
+>Primary vtable for QProxyModel</A
+></DT
+><DT
+>17-242. <A
+HREF="libqtgui.html#RTTI-38718"
+>typeinfo for QProxyModel</A
+></DT
+><DT
+>17-243. <A
+HREF="libqtgui.html#CLS-38909-0"
+>Primary vtable for QHeaderView</A
+></DT
+><DT
+>17-244. <A
+HREF="libqtgui.html#RTTI-38704"
+>typeinfo for QHeaderView</A
+></DT
+><DT
+>17-245. <A
+HREF="libqtgui.html#CLS-39012-0"
+>Primary vtable for QItemEditorFactory</A
+></DT
+><DT
+>17-246. <A
+HREF="libqtgui.html#RTTI-38807"
+>typeinfo for QItemEditorFactory</A
+></DT
+><DT
+>17-247. <A
+HREF="libqtgui.html#CLS-38991-0"
+>Primary vtable for QTreeWidgetItem</A
+></DT
+><DT
+>17-248. <A
+HREF="libqtgui.html#RTTI-38786"
+>typeinfo for QTreeWidgetItem</A
+></DT
+><DT
+>17-249. <A
+HREF="libqtgui.html#CLS-38931-0"
+>Primary vtable for QTreeWidget</A
+></DT
+><DT
+>17-250. <A
+HREF="libqtgui.html#RTTI-38726"
+>typeinfo for QTreeWidget</A
+></DT
+><DT
+>17-251. <A
+HREF="libqtgui.html#CLS-38978-0"
+>Primary vtable for QAbstractButton</A
+></DT
+><DT
+>17-252. <A
+HREF="libqtgui.html#RTTI-38773"
+>typeinfo for QAbstractButton</A
+></DT
+><DT
+>17-253. <A
+HREF="libqtgui.html#CLS-92112-0"
+>Primary vtable for QAbstractGraphicsShapeItem</A
+></DT
+><DT
+>17-254. <A
+HREF="libqtgui.html#CLS-92119-0"
+>Primary vtable for QCompleter</A
+></DT
+><DT
+>17-255. <A
+HREF="libqtgui.html#CLS-92121-0"
+>Primary vtable for QDataWidgetMapper</A
+></DT
+><DT
+>17-256. <A
+HREF="libqtgui.html#CLS-92146-0"
+>Primary vtable for QStandardItem</A
+></DT
+><DT
+>17-257. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-M-INTS"
+>libQtGui - Qt4 Models and Views Function Interfaces</A
+></DT
+><DT
+>17-258. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-M-DEPINTS"
+>libQtGui - Qt4 Models and Views Deprecated Function Interfaces</A
+></DT
+><DT
+>17-259. <A
+HREF="libqtgui.html#CLS-39059-0"
+>Primary vtable for QDialog</A
+></DT
+><DT
+>17-260. <A
+HREF="libqtgui.html#RTTI-38854"
+>typeinfo for QDialog</A
+></DT
+><DT
+>17-261. <A
+HREF="libqtgui.html#CLS-38941-0"
+>Primary vtable for QColorDialog</A
+></DT
+><DT
+>17-262. <A
+HREF="libqtgui.html#RTTI-38736"
+>typeinfo for QColorDialog</A
+></DT
+><DT
+>17-263. <A
+HREF="libqtgui.html#CLS-38906-0"
+>Primary vtable for QFontDialog</A
+></DT
+><DT
+>17-264. <A
+HREF="libqtgui.html#RTTI-38701"
+>typeinfo for QFontDialog</A
+></DT
+><DT
+>17-265. <A
+HREF="libqtgui.html#CLS-38916-0"
+>Primary vtable for QMessageBox</A
+></DT
+><DT
+>17-266. <A
+HREF="libqtgui.html#RTTI-38711"
+>typeinfo for QMessageBox</A
+></DT
+><DT
+>17-267. <A
+HREF="libqtgui.html#CLS-38986-0"
+>Primary vtable for QProgressDialog</A
+></DT
+><DT
+>17-268. <A
+HREF="libqtgui.html#RTTI-38781"
+>typeinfo for QProgressDialog</A
+></DT
+><DT
+>17-269. <A
+HREF="libqtgui.html#CLS-38958-0"
+>Primary vtable for QErrorMessage</A
+></DT
+><DT
+>17-270. <A
+HREF="libqtgui.html#RTTI-38753"
+>typeinfo for QErrorMessage</A
+></DT
+><DT
+>17-271. <A
+HREF="libqtgui.html#CLS-38903-0"
+>Primary vtable for QFileDialog</A
+></DT
+><DT
+>17-272. <A
+HREF="libqtgui.html#RTTI-38698"
+>typeinfo for QFileDialog</A
+></DT
+><DT
+>17-273. <A
+HREF="libqtgui.html#CLS-38948-0"
+>Primary vtable for QPrintDialog</A
+></DT
+><DT
+>17-274. <A
+HREF="libqtgui.html#RTTI-38743"
+>typeinfo for QPrintDialog</A
+></DT
+><DT
+>17-275. <A
+HREF="libqtgui.html#CLS-38996-0"
+>Primary vtable for QPageSetupDialog</A
+></DT
+><DT
+>17-276. <A
+HREF="libqtgui.html#RTTI-38791"
+>typeinfo for QPageSetupDialog</A
+></DT
+><DT
+>17-277. <A
+HREF="libqtgui.html#CLS-38945-0"
+>Primary vtable for QInputDialog</A
+></DT
+><DT
+>17-278. <A
+HREF="libqtgui.html#RTTI-38740"
+>typeinfo for QInputDialog</A
+></DT
+><DT
+>17-279. <A
+HREF="libqtgui.html#CLS-39006-0"
+>Primary vtable for QFileIconProvider</A
+></DT
+><DT
+>17-280. <A
+HREF="libqtgui.html#RTTI-38801"
+>typeinfo for QFileIconProvider</A
+></DT
+><DT
+>17-281. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-D-INTS"
+>libQtGui - Qt4 Dialogs Function Interfaces</A
+></DT
+><DT
+>17-282. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-D-DEPINTS"
+>libQtGui - Qt4 Dialogs Deprecated Function Interfaces</A
+></DT
+><DT
+>17-283. <A
+HREF="libqtgui.html#CLS-38957-0"
+>Primary vtable for QDateTimeEdit</A
+></DT
+><DT
+>17-284. <A
+HREF="libqtgui.html#RTTI-38752"
+>typeinfo for QDateTimeEdit</A
+></DT
+><DT
+>17-285. <A
+HREF="libqtgui.html#CLS-39087-0"
+>Primary vtable for QTimeEdit</A
+></DT
+><DT
+>17-286. <A
+HREF="libqtgui.html#RTTI-38882"
+>typeinfo for QTimeEdit</A
+></DT
+><DT
+>17-287. <A
+HREF="libqtgui.html#CLS-39075-0"
+>Primary vtable for QDateEdit</A
+></DT
+><DT
+>17-288. <A
+HREF="libqtgui.html#RTTI-38870"
+>typeinfo for QDateEdit</A
+></DT
+><DT
+>17-289. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-1-INTS"
+>libQtGui - Qt4 Date and Time Function Interfaces</A
+></DT
+><DT
+>17-290. <A
+HREF="libqtgui.html#CLS-38925-0"
+>Primary vtable for QRubberBand</A
+></DT
+><DT
+>17-291. <A
+HREF="libqtgui.html#RTTI-38720"
+>typeinfo for QRubberBand</A
+></DT
+><DT
+>17-292. <A
+HREF="libqtgui.html#CLS-39082-0"
+>Primary vtable for QShortcut</A
+></DT
+><DT
+>17-293. <A
+HREF="libqtgui.html#RTTI-38877"
+>typeinfo for QShortcut</A
+></DT
+><DT
+>17-294. <A
+HREF="libqtgui.html#CLS-38964-0"
+>Primary vtable for QSplashScreen</A
+></DT
+><DT
+>17-295. <A
+HREF="libqtgui.html#RTTI-38759"
+>typeinfo for QSplashScreen</A
+></DT
+><DT
+>17-296. <A
+HREF="libqtgui.html#CLS-92149-0"
+>Primary vtable for QUndoCommand</A
+></DT
+><DT
+>17-297. <A
+HREF="libqtgui.html#CLS-92151-0"
+>Primary vtable for QUndoStack</A
+></DT
+><DT
+>17-298. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-2-INTS"
+>libQtGui - Qt4 Miscellaneous Function Interfaces</A
+></DT
+><DT
+>17-299. <A
+HREF="libqtgui.html#CLS-38946-0"
+>Primary vtable for QPaintDevice</A
+></DT
+><DT
+>17-300. <A
+HREF="libqtgui.html#RTTI-38741"
+>typeinfo for QPaintDevice</A
+></DT
+><DT
+>17-301. <A
+HREF="libqtgui.html#CLS-39061-0"
+>Primary vtable for QPixmap</A
+></DT
+><DT
+>17-302. <A
+HREF="libqtgui.html#RTTI-38856"
+>typeinfo for QPixmap</A
+></DT
+><DT
+>17-303. <A
+HREF="libqtgui.html#CLS-39066-0"
+>Primary vtable for QPicture</A
+></DT
+><DT
+>17-304. <A
+HREF="libqtgui.html#RTTI-38861"
+>typeinfo for QPicture</A
+></DT
+><DT
+>17-305. <A
+HREF="libqtgui.html#CLS-39058-0"
+>Primary vtable for QBitmap</A
+></DT
+><DT
+>17-306. <A
+HREF="libqtgui.html#RTTI-38853"
+>typeinfo for QBitmap</A
+></DT
+><DT
+>17-307. <A
+HREF="libqtgui.html#CLS-39037-0"
+>Primary vtable for QPictureFormatInterface</A
+></DT
+><DT
+>17-308. <A
+HREF="libqtgui.html#RTTI-38832"
+>typeinfo for QPictureFormatInterface</A
+></DT
+><DT
+>17-309. <A
+HREF="libqtgui.html#CLS-39067-0"
+>Primary vtable for QPrinter</A
+></DT
+><DT
+>17-310. <A
+HREF="libqtgui.html#RTTI-38862"
+>typeinfo for QPrinter</A
+></DT
+><DT
+>17-311. <A
+HREF="libqtgui.html#CLS-38949-0"
+>Primary vtable for QPrintEngine</A
+></DT
+><DT
+>17-312. <A
+HREF="libqtgui.html#RTTI-38744"
+>typeinfo for QPrintEngine</A
+></DT
+><DT
+>17-313. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-3-INTS"
+>libQtGui - Qt4 Paint Device Function Interfaces</A
+></DT
+><DT
+>17-314. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-3-DEPINTS"
+>libQtGui - Qt4 Paint Device Deprecated Function Interfaces</A
+></DT
+><DT
+>17-315. <A
+HREF="libqtgui.html#CLS-39052-0"
+>Primary vtable for QImage</A
+></DT
+><DT
+>17-316. <A
+HREF="libqtgui.html#RTTI-38847"
+>typeinfo for QImage</A
+></DT
+><DT
+>17-317. <A
+HREF="libqtgui.html#CLS-38983-0"
+>Primary vtable for QImageIOHandler</A
+></DT
+><DT
+>17-318. <A
+HREF="libqtgui.html#RTTI-38778"
+>typeinfo for QImageIOHandler</A
+></DT
+><DT
+>17-319. <A
+HREF="libqtgui.html#CLS-39046-0"
+>Primary vtable for QImageIOHandlerFactoryInterface</A
+></DT
+><DT
+>17-320. <A
+HREF="libqtgui.html#RTTI-38841"
+>typeinfo for QImageIOHandlerFactoryInterface</A
+></DT
+><DT
+>17-321. <A
+HREF="libqtgui.html#CLS-39054-0"
+>Primary vtable for QMovie</A
+></DT
+><DT
+>17-322. <A
+HREF="libqtgui.html#RTTI-38849"
+>typeinfo for QMovie</A
+></DT
+><DT
+>17-323. <A
+HREF="libqtgui.html#CLS-39055-0"
+>Primary vtable for QSound</A
+></DT
+><DT
+>17-324. <A
+HREF="libqtgui.html#RTTI-38850"
+>typeinfo for QSound</A
+></DT
+><DT
+>17-325. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-4-INTS"
+>libQtGui - Qt4 Multimedia Function Interfaces</A
+></DT
+><DT
+>17-326. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-4-DEPINTS"
+>libQtGui - Qt4 Multimedia Deprecated Function Interfaces</A
+></DT
+><DT
+>17-327. <A
+HREF="libqtgui.html#CLS-38913-0"
+>Primary vtable for QLayoutItem</A
+></DT
+><DT
+>17-328. <A
+HREF="libqtgui.html#RTTI-38708"
+>typeinfo for QLayoutItem</A
+></DT
+><DT
+>17-329. <A
+HREF="libqtgui.html#CLS-38927-0"
+>Primary vtable for QSpacerItem</A
+></DT
+><DT
+>17-330. <A
+HREF="libqtgui.html#RTTI-38722"
+>typeinfo for QSpacerItem</A
+></DT
+><DT
+>17-331. <A
+HREF="libqtgui.html#CLS-38934-0"
+>Primary vtable for QWidgetItem</A
+></DT
+><DT
+>17-332. <A
+HREF="libqtgui.html#RTTI-38729"
+>typeinfo for QWidgetItem</A
+></DT
+><DT
+>17-333. <A
+HREF="libqtgui.html#CLS-39060-0"
+>Primary vtable for QLayout</A
+></DT
+><DT
+>17-334. <A
+HREF="libqtgui.html#RTTI-38855"
+>typeinfo for QLayout</A
+></DT
+><DT
+>17-335. <A
+HREF="libqtgui.html#CLS-38907-0"
+>Primary vtable for QGridLayout</A
+></DT
+><DT
+>17-336. <A
+HREF="libqtgui.html#RTTI-38702"
+>typeinfo for QGridLayout</A
+></DT
+><DT
+>17-337. <A
+HREF="libqtgui.html#CLS-38884-0"
+>Primary vtable for QBoxLayout</A
+></DT
+><DT
+>17-338. <A
+HREF="libqtgui.html#RTTI-38678"
+>typeinfo for QBoxLayout</A
+></DT
+><DT
+>17-339. <A
+HREF="libqtgui.html#CLS-38908-0"
+>Primary vtable for QHBoxLayout</A
+></DT
+><DT
+>17-340. <A
+HREF="libqtgui.html#RTTI-38703"
+>typeinfo for QHBoxLayout</A
+></DT
+><DT
+>17-341. <A
+HREF="libqtgui.html#CLS-38932-0"
+>Primary vtable for QVBoxLayout</A
+></DT
+><DT
+>17-342. <A
+HREF="libqtgui.html#RTTI-38727"
+>typeinfo for QVBoxLayout</A
+></DT
+><DT
+>17-343. <A
+HREF="libqtgui.html#CLS-38975-0"
+>Primary vtable for QStackedLayout</A
+></DT
+><DT
+>17-344. <A
+HREF="libqtgui.html#RTTI-38770"
+>typeinfo for QStackedLayout</A
+></DT
+><DT
+>17-345. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-L-INTS"
+>libQtGui - Qt4 Layouts Function Interfaces</A
+></DT
+><DT
+>17-346. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-L-DEPINTS"
+>libQtGui - Qt4 Layouts Deprecated Function Interfaces</A
+></DT
+><DT
+>17-347. <A
+HREF="libqtgui.html#CLS-39056-0"
+>Primary vtable for QStyle</A
+></DT
+><DT
+>17-348. <A
+HREF="libqtgui.html#RTTI-38851"
+>typeinfo for QStyle</A
+></DT
+><DT
+>17-349. <A
+HREF="libqtgui.html#CLS-38942-0"
+>Primary vtable for QCommonStyle</A
+></DT
+><DT
+>17-350. <A
+HREF="libqtgui.html#RTTI-38737"
+>typeinfo for QCommonStyle</A
+></DT
+><DT
+>17-351. <A
+HREF="libqtgui.html#CLS-38918-0"
+>Primary vtable for QMotifStyle</A
+></DT
+><DT
+>17-352. <A
+HREF="libqtgui.html#RTTI-38713"
+>typeinfo for QMotifStyle</A
+></DT
+><DT
+>17-353. <A
+HREF="libqtgui.html#CLS-39034-0"
+>Primary vtable for QStyleFactoryInterface</A
+></DT
+><DT
+>17-354. <A
+HREF="libqtgui.html#RTTI-38829"
+>typeinfo for QStyleFactoryInterface</A
+></DT
+><DT
+>17-355. <A
+HREF="libqtgui.html#CLS-38966-0"
+>Primary vtable for QWindowsStyle</A
+></DT
+><DT
+>17-356. <A
+HREF="libqtgui.html#RTTI-38761"
+>typeinfo for QWindowsStyle</A
+></DT
+><DT
+>17-357. <A
+HREF="libqtgui.html#CLS-39072-0"
+>Primary vtable for QCDEStyle</A
+></DT
+><DT
+>17-358. <A
+HREF="libqtgui.html#RTTI-38867"
+>typeinfo for QCDEStyle</A
+></DT
+><DT
+>17-359. <A
+HREF="libqtgui.html#CLS-38985-0"
+>Primary vtable for QPlastiqueStyle</A
+></DT
+><DT
+>17-360. <A
+HREF="libqtgui.html#RTTI-38780"
+>typeinfo for QPlastiqueStyle</A
+></DT
+><DT
+>17-361. <A
+HREF="libqtgui.html#CLS-92118-0"
+>Primary vtable for QCleanlooksStyle</A
+></DT
+><DT
+>17-362. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-S-INTS"
+>libQtGui - Qt4 Style Function Interfaces</A
+></DT
+><DT
+>17-363. <A
+HREF="libqtgui.html#CLS-38929-0"
+>Primary vtable for QTextObject</A
+></DT
+><DT
+>17-364. <A
+HREF="libqtgui.html#RTTI-38724"
+>typeinfo for QTextObject</A
+></DT
+><DT
+>17-365. <A
+HREF="libqtgui.html#CLS-38990-0"
+>Primary vtable for QTextBlockGroup</A
+></DT
+><DT
+>17-366. <A
+HREF="libqtgui.html#RTTI-38785"
+>typeinfo for QTextBlockGroup</A
+></DT
+><DT
+>17-367. <A
+HREF="libqtgui.html#CLS-39028-0"
+>Primary vtable for QTextFrameLayoutData</A
+></DT
+><DT
+>17-368. <A
+HREF="libqtgui.html#RTTI-38823"
+>typeinfo for QTextFrameLayoutData</A
+></DT
+><DT
+>17-369. <A
+HREF="libqtgui.html#CLS-38896-0"
+>Primary vtable for QTextFrame</A
+></DT
+><DT
+>17-370. <A
+HREF="libqtgui.html#RTTI-38690"
+>typeinfo for QTextFrame</A
+></DT
+><DT
+>17-371. <A
+HREF="libqtgui.html#CLS-39015-0"
+>Primary vtable for QTextBlockUserData</A
+></DT
+><DT
+>17-372. <A
+HREF="libqtgui.html#RTTI-38810"
+>typeinfo for QTextBlockUserData</A
+></DT
+><DT
+>17-373. <A
+HREF="libqtgui.html#CLS-38965-0"
+>Primary vtable for QTextDocument</A
+></DT
+><DT
+>17-374. <A
+HREF="libqtgui.html#RTTI-38760"
+>typeinfo for QTextDocument</A
+></DT
+><DT
+>17-375. <A
+HREF="libqtgui.html#CLS-38897-0"
+>Primary vtable for QTextTable</A
+></DT
+><DT
+>17-376. <A
+HREF="libqtgui.html#RTTI-38691"
+>typeinfo for QTextTable</A
+></DT
+><DT
+>17-377. <A
+HREF="libqtgui.html#CLS-39086-0"
+>Primary vtable for QTextList</A
+></DT
+><DT
+>17-378. <A
+HREF="libqtgui.html#RTTI-38881"
+>typeinfo for QTextList</A
+></DT
+><DT
+>17-379. <A
+HREF="libqtgui.html#CLS-39029-0"
+>Primary vtable for QTextObjectInterface</A
+></DT
+><DT
+>17-380. <A
+HREF="libqtgui.html#RTTI-38824"
+>typeinfo for QTextObjectInterface</A
+></DT
+><DT
+>17-381. <A
+HREF="libqtgui.html#CLS-39014-0"
+>Primary vtable for QSyntaxHighlighter</A
+></DT
+><DT
+>17-382. <A
+HREF="libqtgui.html#RTTI-38809"
+>typeinfo for QSyntaxHighlighter</A
+></DT
+><DT
+>17-383. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-T-INTS"
+>libQtGui - Qt4 Text Function Interfaces</A
+></DT
+><DT
+>17-384. <A
+HREF="libqtgui.html#CLS-38885-0"
+>Primary vtable for QClipboard</A
+></DT
+><DT
+>17-385. <A
+HREF="libqtgui.html#RTTI-38679"
+>typeinfo for QClipboard</A
+></DT
+><DT
+>17-386. <A
+HREF="libqtgui.html#CLS-38987-0"
+>Primary vtable for QSessionManager</A
+></DT
+><DT
+>17-387. <A
+HREF="libqtgui.html#RTTI-38782"
+>typeinfo for QSessionManager</A
+></DT
+><DT
+>17-388. <A
+HREF="libqtgui.html#CLS-38939-0"
+>Primary vtable for QApplication</A
+></DT
+><DT
+>17-389. <A
+HREF="libqtgui.html#RTTI-38734"
+>typeinfo for QApplication</A
+></DT
+><DT
+>17-390. <A
+HREF="libqtgui.html#CLS-39057-0"
+>Primary vtable for QAction</A
+></DT
+><DT
+>17-391. <A
+HREF="libqtgui.html#RTTI-38852"
+>typeinfo for QAction</A
+></DT
+><DT
+>17-392. <A
+HREF="libqtgui.html#CLS-38938-0"
+>Primary vtable for QActionGroup</A
+></DT
+><DT
+>17-393. <A
+HREF="libqtgui.html#RTTI-38733"
+>typeinfo for QActionGroup</A
+></DT
+><DT
+>17-394. <A
+HREF="libqtgui.html#CLS-38899-0"
+>Primary vtable for QWorkspace</A
+></DT
+><DT
+>17-395. <A
+HREF="libqtgui.html#RTTI-38693"
+>typeinfo for QWorkspace</A
+></DT
+><DT
+>17-396. <A
+HREF="libqtgui.html#CLS-39083-0"
+>Primary vtable for QSizeGrip</A
+></DT
+><DT
+>17-397. <A
+HREF="libqtgui.html#RTTI-38878"
+>typeinfo for QSizeGrip</A
+></DT
+><DT
+>17-398. <A
+HREF="libqtgui.html#CLS-38893-0"
+>Primary vtable for QStatusBar</A
+></DT
+><DT
+>17-399. <A
+HREF="libqtgui.html#RTTI-38687"
+>typeinfo for QStatusBar</A
+></DT
+><DT
+>17-400. <A
+HREF="libqtgui.html#CLS-39070-0"
+>Primary vtable for QToolBar</A
+></DT
+><DT
+>17-401. <A
+HREF="libqtgui.html#RTTI-38865"
+>typeinfo for QToolBar</A
+></DT
+><DT
+>17-402. <A
+HREF="libqtgui.html#CLS-92153-0"
+>Primary vtable for QWidgetAction</A
+></DT
+><DT
+>17-403. <A
+HREF="libqtgui.html#RTTI-92195"
+>typeinfo for QWidgetAction</A
+></DT
+><DT
+>17-404. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-5-INTS"
+>libQtGui - Qt4 Main Window and Application Function Interfaces</A
+></DT
+><DT
+>17-405. <A
+HREF="libqtgui.html#CLS-39050-0"
+>Primary vtable for QMenu</A
+></DT
+><DT
+>17-406. <A
+HREF="libqtgui.html#RTTI-38845"
+>typeinfo for QMenu</A
+></DT
+><DT
+>17-407. <A
+HREF="libqtgui.html#CLS-39081-0"
+>Primary vtable for QMenuItem</A
+></DT
+><DT
+>17-408. <A
+HREF="libqtgui.html#RTTI-38876"
+>typeinfo for QMenuItem</A
+></DT
+><DT
+>17-409. <A
+HREF="libqtgui.html#CLS-39065-0"
+>Primary vtable for QMenuBar</A
+></DT
+><DT
+>17-410. <A
+HREF="libqtgui.html#RTTI-38860"
+>typeinfo for QMenuBar</A
+></DT
+><DT
+>17-411. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-6-INTS"
+>libQtGui - Qt4 Menus Function Interfaces</A
+></DT
+><DT
+>17-412. <A
+HREF="libqtgui.html#CLS-39064-0"
+>Primary vtable for QWidget</A
+></DT
+><DT
+>17-413. <A
+HREF="libqtgui.html#RTTI-38859"
+>typeinfo for QWidget</A
+></DT
+><DT
+>17-414. <A
+HREF="libqtgui.html#CLS-39051-0"
+>Primary vtable for QFrame</A
+></DT
+><DT
+>17-415. <A
+HREF="libqtgui.html#RTTI-38846"
+>typeinfo for QFrame</A
+></DT
+><DT
+>17-416. <A
+HREF="libqtgui.html#CLS-39079-0"
+>Primary vtable for QLineEdit</A
+></DT
+><DT
+>17-417. <A
+HREF="libqtgui.html#RTTI-38874"
+>typeinfo for QLineEdit</A
+></DT
+><DT
+>17-418. <A
+HREF="libqtgui.html#CLS-39062-0"
+>Primary vtable for QSlider</A
+></DT
+><DT
+>17-419. <A
+HREF="libqtgui.html#RTTI-38857"
+>typeinfo for QSlider</A
+></DT
+><DT
+>17-420. <A
+HREF="libqtgui.html#CLS-39063-0"
+>Primary vtable for QTabBar</A
+></DT
+><DT
+>17-421. <A
+HREF="libqtgui.html#RTTI-38858"
+>typeinfo for QTabBar</A
+></DT
+><DT
+>17-422. <A
+HREF="libqtgui.html#CLS-38895-0"
+>Primary vtable for QTabWidget</A
+></DT
+><DT
+>17-423. <A
+HREF="libqtgui.html#RTTI-38689"
+>typeinfo for QTabWidget</A
+></DT
+><DT
+>17-424. <A
+HREF="libqtgui.html#CLS-39080-0"
+>Primary vtable for QListView</A
+></DT
+><DT
+>17-425. <A
+HREF="libqtgui.html#RTTI-38875"
+>typeinfo for QListView</A
+></DT
+><DT
+>17-426. <A
+HREF="libqtgui.html#CLS-38984-0"
+>Primary vtable for QListWidgetItem</A
+></DT
+><DT
+>17-427. <A
+HREF="libqtgui.html#RTTI-38779"
+>typeinfo for QListWidgetItem</A
+></DT
+><DT
+>17-428. <A
+HREF="libqtgui.html#CLS-38914-0"
+>Primary vtable for QListWidget</A
+></DT
+><DT
+>17-429. <A
+HREF="libqtgui.html#RTTI-38709"
+>typeinfo for QListWidget</A
+></DT
+><DT
+>17-430. <A
+HREF="libqtgui.html#CLS-38967-0"
+>Primary vtable for QDesktopWidget</A
+></DT
+><DT
+>17-431. <A
+HREF="libqtgui.html#RTTI-38762"
+>typeinfo for QDesktopWidget</A
+></DT
+><DT
+>17-432. <A
+HREF="libqtgui.html#CLS-39045-0"
+>Primary vtable for QInputContextFactoryInterface</A
+></DT
+><DT
+>17-433. <A
+HREF="libqtgui.html#RTTI-38840"
+>typeinfo for QInputContextFactoryInterface</A
+></DT
+><DT
+>17-434. <A
+HREF="libqtgui.html#CLS-38961-0"
+>Primary vtable for QInputContext</A
+></DT
+><DT
+>17-435. <A
+HREF="libqtgui.html#RTTI-38756"
+>typeinfo for QInputContext</A
+></DT
+><DT
+>17-436. <A
+HREF="libqtgui.html#CLS-39073-0"
+>Primary vtable for QCheckBox</A
+></DT
+><DT
+>17-437. <A
+HREF="libqtgui.html#RTTI-38868"
+>typeinfo for QCheckBox</A
+></DT
+><DT
+>17-438. <A
+HREF="libqtgui.html#CLS-39068-0"
+>Primary vtable for QSpinBox</A
+></DT
+><DT
+>17-439. <A
+HREF="libqtgui.html#RTTI-38863"
+>typeinfo for QSpinBox</A
+></DT
+><DT
+>17-440. <A
+HREF="libqtgui.html#CLS-38968-0"
+>Primary vtable for QDoubleSpinBox</A
+></DT
+><DT
+>17-441. <A
+HREF="libqtgui.html#RTTI-38763"
+>typeinfo for QDoubleSpinBox</A
+></DT
+><DT
+>17-442. <A
+HREF="libqtgui.html#CLS-38889-0"
+>Primary vtable for QLCDNumber</A
+></DT
+><DT
+>17-443. <A
+HREF="libqtgui.html#RTTI-38683"
+>typeinfo for QLCDNumber</A
+></DT
+><DT
+>17-444. <A
+HREF="libqtgui.html#CLS-38976-0"
+>Primary vtable for QStackedWidget</A
+></DT
+><DT
+>17-445. <A
+HREF="libqtgui.html#RTTI-38771"
+>typeinfo for QStackedWidget</A
+></DT
+><DT
+>17-446. <A
+HREF="libqtgui.html#CLS-38924-0"
+>Primary vtable for QPushButton</A
+></DT
+><DT
+>17-447. <A
+HREF="libqtgui.html#RTTI-38719"
+>typeinfo for QPushButton</A
+></DT
+><DT
+>17-448. <A
+HREF="libqtgui.html#CLS-39053-0"
+>Primary vtable for QLabel</A
+></DT
+><DT
+>17-449. <A
+HREF="libqtgui.html#RTTI-38848"
+>typeinfo for QLabel</A
+></DT
+><DT
+>17-450. <A
+HREF="libqtgui.html#CLS-38902-0"
+>Primary vtable for QDockWidget</A
+></DT
+><DT
+>17-451. <A
+HREF="libqtgui.html#RTTI-38697"
+>typeinfo for QDockWidget</A
+></DT
+><DT
+>17-452. <A
+HREF="libqtgui.html#CLS-38915-0"
+>Primary vtable for QMainWindow</A
+></DT
+><DT
+>17-453. <A
+HREF="libqtgui.html#RTTI-38710"
+>typeinfo for QMainWindow</A
+></DT
+><DT
+>17-454. <A
+HREF="libqtgui.html#CLS-39085-0"
+>Primary vtable for QTextEdit</A
+></DT
+><DT
+>17-455. <A
+HREF="libqtgui.html#RTTI-38880"
+>typeinfo for QTextEdit</A
+></DT
+><DT
+>17-456. <A
+HREF="libqtgui.html#CLS-38950-0"
+>Primary vtable for QProgressBar</A
+></DT
+><DT
+>17-457. <A
+HREF="libqtgui.html#RTTI-38745"
+>typeinfo for QProgressBar</A
+></DT
+><DT
+>17-458. <A
+HREF="libqtgui.html#CLS-38891-0"
+>Primary vtable for QScrollBar</A
+></DT
+><DT
+>17-459. <A
+HREF="libqtgui.html#RTTI-38685"
+>typeinfo for QScrollBar</A
+></DT
+><DT
+>17-460. <A
+HREF="libqtgui.html#CLS-38956-0"
+>Primary vtable for QTextBrowser</A
+></DT
+><DT
+>17-461. <A
+HREF="libqtgui.html#RTTI-38751"
+>typeinfo for QTextBrowser</A
+></DT
+><DT
+>17-462. <A
+HREF="libqtgui.html#CLS-38926-0"
+>Primary vtable for QScrollArea</A
+></DT
+><DT
+>17-463. <A
+HREF="libqtgui.html#RTTI-38721"
+>typeinfo for QScrollArea</A
+></DT
+><DT
+>17-464. <A
+HREF="libqtgui.html#CLS-38930-0"
+>Primary vtable for QToolButton</A
+></DT
+><DT
+>17-465. <A
+HREF="libqtgui.html#RTTI-38725"
+>typeinfo for QToolButton</A
+></DT
+><DT
+>17-466. <A
+HREF="libqtgui.html#CLS-39074-0"
+>Primary vtable for QComboBox</A
+></DT
+><DT
+>17-467. <A
+HREF="libqtgui.html#RTTI-38869"
+>typeinfo for QComboBox</A
+></DT
+><DT
+>17-468. <A
+HREF="libqtgui.html#CLS-38951-0"
+>Primary vtable for QRadioButton</A
+></DT
+><DT
+>17-469. <A
+HREF="libqtgui.html#RTTI-38746"
+>typeinfo for QRadioButton</A
+></DT
+><DT
+>17-470. <A
+HREF="libqtgui.html#CLS-38905-0"
+>Primary vtable for QFocusFrame</A
+></DT
+><DT
+>17-471. <A
+HREF="libqtgui.html#RTTI-38700"
+>typeinfo for QFocusFrame</A
+></DT
+><DT
+>17-472. <A
+HREF="libqtgui.html#CLS-39071-0"
+>Primary vtable for QToolBox</A
+></DT
+><DT
+>17-473. <A
+HREF="libqtgui.html#RTTI-38866"
+>typeinfo for QToolBox</A
+></DT
+><DT
+>17-474. <A
+HREF="libqtgui.html#CLS-39048-0"
+>Primary vtable for QDial</A
+></DT
+><DT
+>17-475. <A
+HREF="libqtgui.html#RTTI-38843"
+>typeinfo for QDial</A
+></DT
+><DT
+>17-476. <A
+HREF="libqtgui.html#CLS-92147-0"
+>Primary vtable for QSystemTrayIcon</A
+></DT
+><DT
+>17-477. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-W-INTS"
+>libQtGui - Qt4 Widgets Function Interfaces</A
+></DT
+><DT
+>17-478. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-W-DEPINTS"
+>libQtGui - Qt4 Widgets Deprecated Function Interfaces</A
+></DT
+><DT
+>17-479. <A
+HREF="libqtgui.html#CLS-38917-0"
+>Primary vtable for QMimeSource</A
+></DT
+><DT
+>17-480. <A
+HREF="libqtgui.html#RTTI-38712"
+>typeinfo for QMimeSource</A
+></DT
+><DT
+>17-481. <A
+HREF="libqtgui.html#CLS-39049-0"
+>Primary vtable for QDrag</A
+></DT
+><DT
+>17-482. <A
+HREF="libqtgui.html#RTTI-38844"
+>typeinfo for QDrag</A
+></DT
+><DT
+>17-483. <A
+HREF="libqtgui.html#CLS-38886-0"
+>Primary vtable for QDropEvent</A
+></DT
+><DT
+>17-484. <A
+HREF="libqtgui.html#RTTI-38680"
+>typeinfo for QDropEvent</A
+></DT
+><DT
+>17-485. <A
+HREF="libqtgui.html#CLS-38969-0"
+>Primary vtable for QDragMoveEvent</A
+></DT
+><DT
+>17-486. <A
+HREF="libqtgui.html#RTTI-38764"
+>typeinfo for QDragMoveEvent</A
+></DT
+><DT
+>17-487. <A
+HREF="libqtgui.html#CLS-38981-0"
+>Primary vtable for QDragEnterEvent</A
+></DT
+><DT
+>17-488. <A
+HREF="libqtgui.html#RTTI-38776"
+>typeinfo for QDragEnterEvent</A
+></DT
+><DT
+>17-489. <A
+HREF="libqtgui.html#CLS-39010-0"
+>Primary vtable for QDragResponseEvent</A
+></DT
+><DT
+>17-490. <A
+HREF="libqtgui.html#RTTI-38805"
+>typeinfo for QDragResponseEvent</A
+></DT
+><DT
+>17-491. <A
+HREF="libqtgui.html#CLS-38982-0"
+>Primary vtable for QDragLeaveEvent</A
+></DT
+><DT
+>17-492. <A
+HREF="libqtgui.html#RTTI-38777"
+>typeinfo for QDragLeaveEvent</A
+></DT
+><DT
+>17-493. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-7-INTS"
+>libQtGui - Qt4 Drag and Drop Function Interfaces</A
+></DT
+><DT
+>17-494. <A
+HREF="libqtgui.html#CLS-39044-0"
+>Primary vtable for QIconEngineFactoryInterface</A
+></DT
+><DT
+>17-495. <A
+HREF="libqtgui.html#RTTI-38839"
+>typeinfo for QIconEngineFactoryInterface</A
+></DT
+><DT
+>17-496. <A
+HREF="libqtgui.html#CLS-38911-0"
+>Primary vtable for QIconEngine</A
+></DT
+><DT
+>17-497. <A
+HREF="libqtgui.html#RTTI-38706"
+>typeinfo for QIconEngine</A
+></DT
+><DT
+>17-498. <A
+HREF="libqtgui.html#CLS-38947-0"
+>Primary vtable for QPaintEngine</A
+></DT
+><DT
+>17-499. <A
+HREF="libqtgui.html#RTTI-38742"
+>typeinfo for QPaintEngine</A
+></DT
+><DT
+>17-500. <A
+HREF="libqtgui.html#CLS-92125-0"
+>Primary vtable for QGraphicsEllipseItem</A
+></DT
+><DT
+>17-501. <A
+HREF="libqtgui.html#CLS-92126-0"
+>Primary vtable for QGraphicsItem</A
+></DT
+><DT
+>17-502. <A
+HREF="libqtgui.html#CLS-92127-0"
+>Primary vtable for QGraphicsItemAnimation</A
+></DT
+><DT
+>17-503. <A
+HREF="libqtgui.html#CLS-92128-0"
+>Primary vtable for QGraphicsItemGroup</A
+></DT
+><DT
+>17-504. <A
+HREF="libqtgui.html#CLS-92129-0"
+>Primary vtable for QGraphicsLineItem</A
+></DT
+><DT
+>17-505. <A
+HREF="libqtgui.html#CLS-92130-0"
+>Primary vtable for QGraphicsPathItem</A
+></DT
+><DT
+>17-506. <A
+HREF="libqtgui.html#CLS-92131-0"
+>Primary vtable for QGraphicsPixmapItem</A
+></DT
+><DT
+>17-507. <A
+HREF="libqtgui.html#CLS-92132-0"
+>Primary vtable for QGraphicsPolygonItem</A
+></DT
+><DT
+>17-508. <A
+HREF="libqtgui.html#CLS-92133-0"
+>Primary vtable for QGraphicsRectItem</A
+></DT
+><DT
+>17-509. <A
+HREF="libqtgui.html#CLS-92134-0"
+>Primary vtable for QGraphicsScene</A
+></DT
+><DT
+>17-510. <A
+HREF="libqtgui.html#RTTI-92176"
+>typeinfo for QGraphicsScene</A
+></DT
+><DT
+>17-511. <A
+HREF="libqtgui.html#CLS-92135-0"
+>Primary vtable for QGraphicsSceneContextMenuEvent</A
+></DT
+><DT
+>17-512. <A
+HREF="libqtgui.html#CLS-92136-0"
+>Primary vtable for QGraphicsSceneDragDropEvent</A
+></DT
+><DT
+>17-513. <A
+HREF="libqtgui.html#CLS-92137-0"
+>Primary vtable for QGraphicsSceneEvent</A
+></DT
+><DT
+>17-514. <A
+HREF="libqtgui.html#CLS-92138-0"
+>Primary vtable for QGraphicsSceneHelpEvent</A
+></DT
+><DT
+>17-515. <A
+HREF="libqtgui.html#CLS-92139-0"
+>Primary vtable for QGraphicsSceneHoverEvent</A
+></DT
+><DT
+>17-516. <A
+HREF="libqtgui.html#CLS-92140-0"
+>Primary vtable for QGraphicsSceneMouseEvent</A
+></DT
+><DT
+>17-517. <A
+HREF="libqtgui.html#CLS-92141-0"
+>Primary vtable for QGraphicsSceneWheelEvent</A
+></DT
+><DT
+>17-518. <A
+HREF="libqtgui.html#CLS-92142-0"
+>Primary vtable for QGraphicsSimpleTextItem</A
+></DT
+><DT
+>17-519. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-2-INTS"
+>libQtGui - Qt4 2D Graphics Function Interfaces</A
+></DT
+><DT
+>17-520. <A
+HREF="libqtgui.html#TBL-LIBQTGUI-QT4-2-DEPINTS"
+>libQtGui - Qt4 2D Graphics Deprecated Function Interfaces</A
+></DT
+><DT
+>17-521. <A
+HREF="libqtxml.html#LIB-LIBQTXML-DEF"
+>libQtXml Definition</A
+></DT
+><DT
+>17-522. <A
+HREF="libqtxml.html#CLS-47180-0"
+>Primary vtable for QXmlAttributes</A
+></DT
+><DT
+>17-523. <A
+HREF="libqtxml.html#RTTI-47168"
+>typeinfo for QXmlAttributes</A
+></DT
+><DT
+>17-524. <A
+HREF="libqtxml.html#CLS-47183-0"
+>Primary vtable for QXmlInputSource</A
+></DT
+><DT
+>17-525. <A
+HREF="libqtxml.html#RTTI-47171"
+>typeinfo for QXmlInputSource</A
+></DT
+><DT
+>17-526. <A
+HREF="libqtxml.html#CLS-47178-0"
+>Primary vtable for QXmlReader</A
+></DT
+><DT
+>17-527. <A
+HREF="libqtxml.html#RTTI-47166"
+>typeinfo for QXmlReader</A
+></DT
+><DT
+>17-528. <A
+HREF="libqtxml.html#CLS-47185-0"
+>Primary vtable for QXmlSimpleReader</A
+></DT
+><DT
+>17-529. <A
+HREF="libqtxml.html#RTTI-47173"
+>typeinfo for QXmlSimpleReader</A
+></DT
+><DT
+>17-530. <A
+HREF="libqtxml.html#CLS-47179-0"
+>Primary vtable for QXmlLocator</A
+></DT
+><DT
+>17-531. <A
+HREF="libqtxml.html#RTTI-47167"
+>typeinfo for QXmlLocator</A
+></DT
+><DT
+>17-532. <A
+HREF="libqtxml.html#CLS-47186-0"
+>Primary vtable for QXmlContentHandler</A
+></DT
+><DT
+>17-533. <A
+HREF="libqtxml.html#RTTI-47174"
+>typeinfo for QXmlContentHandler</A
+></DT
+><DT
+>17-534. <A
+HREF="libqtxml.html#CLS-47184-0"
+>Primary vtable for QXmlErrorHandler</A
+></DT
+><DT
+>17-535. <A
+HREF="libqtxml.html#RTTI-47172"
+>typeinfo for QXmlErrorHandler</A
+></DT
+><DT
+>17-536. <A
+HREF="libqtxml.html#CLS-47181-0"
+>Primary vtable for QXmlDTDHandler</A
+></DT
+><DT
+>17-537. <A
+HREF="libqtxml.html#RTTI-47169"
+>typeinfo for QXmlDTDHandler</A
+></DT
+><DT
+>17-538. <A
+HREF="libqtxml.html#CLS-47188-0"
+>Primary vtable for QXmlEntityResolver</A
+></DT
+><DT
+>17-539. <A
+HREF="libqtxml.html#RTTI-47176"
+>typeinfo for QXmlEntityResolver</A
+></DT
+><DT
+>17-540. <A
+HREF="libqtxml.html#CLS-47189-0"
+>Primary vtable for QXmlLexicalHandler</A
+></DT
+><DT
+>17-541. <A
+HREF="libqtxml.html#RTTI-47177"
+>typeinfo for QXmlLexicalHandler</A
+></DT
+><DT
+>17-542. <A
+HREF="libqtxml.html#CLS-47182-0"
+>Primary vtable for QXmlDeclHandler</A
+></DT
+><DT
+>17-543. <A
+HREF="libqtxml.html#RTTI-47170"
+>typeinfo for QXmlDeclHandler</A
+></DT
+><DT
+>17-544. <A
+HREF="libqtxml.html#CLS-47187-0"
+>Primary vtable for QXmlDefaultHandler</A
+></DT
+><DT
+>17-545. <A
+HREF="libqtxml.html#RTTI-47175"
+>typeinfo for QXmlDefaultHandler</A
+></DT
+><DT
+>17-546. <A
+HREF="libqtxml.html#TBL-LIBQTXML-QT4-X-INTS"
+>libQtXml - Qt4 XML Function Interfaces</A
+></DT
+><DT
+>17-547. <A
+HREF="libqtxml.html#TBL-LIBQTXML-QT4-X-DATA"
+>libQtXml - Qt4 XML Data Interfaces</A
+></DT
+><DT
+>17-548. <A
+HREF="libqtopengl.html#LIB-LIBQTOPENGL-DEF"
+>libQtOpenGL Definition</A
+></DT
+><DT
+>17-549. <A
+HREF="libqtopengl.html#CLS-47798-0"
+>Primary vtable for QGLContext</A
+></DT
+><DT
+>17-550. <A
+HREF="libqtopengl.html#RTTI-47794"
+>typeinfo for QGLContext</A
+></DT
+><DT
+>17-551. <A
+HREF="libqtopengl.html#CLS-47801-0"
+>Primary vtable for QGLWidget</A
+></DT
+><DT
+>17-552. <A
+HREF="libqtopengl.html#RTTI-47797"
+>typeinfo for QGLWidget</A
+></DT
+><DT
+>17-553. <A
+HREF="libqtopengl.html#CLS-47800-0"
+>Primary vtable for QGLPixelBuffer</A
+></DT
+><DT
+>17-554. <A
+HREF="libqtopengl.html#RTTI-47796"
+>typeinfo for QGLPixelBuffer</A
+></DT
+><DT
+>17-555. <A
+HREF="libqtopengl.html#CLS-92088-0"
+>Primary vtable for QGLFramebufferObject</A
+></DT
+><DT
+>17-556. <A
+HREF="libqtopengl.html#RTTI-92085"
+>typeinfo for QGLFramebufferObject</A
+></DT
+><DT
+>17-557. <A
+HREF="libqtopengl.html#TBL-LIBQTOPENGL-QT4-O-INTS"
+>libQtOpenGL - Qt4 OpenGL Function Interfaces</A
+></DT
+><DT
+>17-558. <A
+HREF="libqtopengl.html#TBL-LIBQTOPENGL-QT4-O-DATA"
+>libQtOpenGL - Qt4 OpenGL Data Interfaces</A
+></DT
+><DT
+>17-559. <A
+HREF="libqtsql.html#LIB-LIBQTSQL-DEF"
+>libQtSql Definition</A
+></DT
+><DT
+>17-560. <A
+HREF="libqtsql.html#CLS-48015-0"
+>Primary vtable for QSqlResult</A
+></DT
+><DT
+>17-561. <A
+HREF="libqtsql.html#RTTI-48005"
+>typeinfo for QSqlResult</A
+></DT
+><DT
+>17-562. <A
+HREF="libqtsql.html#CLS-48023-0"
+>Primary vtable for QSqlDriverFactoryInterface</A
+></DT
+><DT
+>17-563. <A
+HREF="libqtsql.html#RTTI-48013"
+>typeinfo for QSqlDriverFactoryInterface</A
+></DT
+><DT
+>17-564. <A
+HREF="libqtsql.html#CLS-48019-0"
+>Primary vtable for QSqlDriverPlugin</A
+></DT
+><DT
+>17-565. <A
+HREF="libqtsql.html#RTTI-48009"
+>typeinfo for QSqlDriverPlugin</A
+></DT
+><DT
+>17-566. <A
+HREF="libqtsql.html#CLS-48014-0"
+>Primary vtable for QSqlDriver</A
+></DT
+><DT
+>17-567. <A
+HREF="libqtsql.html#RTTI-48004"
+>typeinfo for QSqlDriver</A
+></DT
+><DT
+>17-568. <A
+HREF="libqtsql.html#CLS-48016-0"
+>Primary vtable for QSqlQueryModel</A
+></DT
+><DT
+>17-569. <A
+HREF="libqtsql.html#RTTI-48006"
+>typeinfo for QSqlQueryModel</A
+></DT
+><DT
+>17-570. <A
+HREF="libqtsql.html#CLS-48017-0"
+>Primary vtable for QSqlTableModel</A
+></DT
+><DT
+>17-571. <A
+HREF="libqtsql.html#RTTI-48007"
+>typeinfo for QSqlTableModel</A
+></DT
+><DT
+>17-572. <A
+HREF="libqtsql.html#CLS-48021-0"
+>Primary vtable for QSqlRelationalTableModel</A
+></DT
+><DT
+>17-573. <A
+HREF="libqtsql.html#RTTI-48011"
+>typeinfo for QSqlRelationalTableModel</A
+></DT
+><DT
+>17-574. <A
+HREF="libqtsql.html#TBL-LIBQTSQL-QT4-S-INTS"
+>libQtSql - Qt4 SQL Function Interfaces</A
+></DT
+><DT
+>17-575. <A
+HREF="libqtsql.html#TBL-LIBQTSQL-QT4-S-DATA"
+>libQtSql - Qt4 SQL Data Interfaces</A
+></DT
+><DT
+>17-576. <A
+HREF="libqtsvg.html#LIB-LIBQTSVG-DEF"
+>libQtSvg Definition</A
+></DT
+><DT
+>17-577. <A
+HREF="libqtsvg.html#CLS-48431-0"
+>Primary vtable for QSvgRenderer</A
+></DT
+><DT
+>17-578. <A
+HREF="libqtsvg.html#RTTI-48421"
+>typeinfo for QSvgRenderer</A
+></DT
+><DT
+>17-579. <A
+HREF="libqtsvg.html#CLS-48430-0"
+>Primary vtable for QSvgWidget</A
+></DT
+><DT
+>17-580. <A
+HREF="libqtsvg.html#RTTI-48420"
+>typeinfo for QSvgWidget</A
+></DT
+><DT
+>17-581. <A
+HREF="libqtsvg.html#TBL-LIBQTSVG-QT4-S-INTS"
+>libQtSvg - Qt4 Svg Function Interfaces</A
+></DT
+><DT
+>17-582. <A
+HREF="libqtsvg.html#TBL-LIBQTSVG-QT4-S-DATA"
+>libQtSvg - Qt4 Svg Data Interfaces</A
+></DT
+><DT
+>17-583. <A
+HREF="libqtnetwork.html#LIB-LIBQTNETWORK-DEF"
+>libQtNetwork Definition</A
+></DT
+><DT
+>17-584. <A
+HREF="libqtnetwork.html#CLS-46739-0"
+>Primary vtable for QHttpHeader</A
+></DT
+><DT
+>17-585. <A
+HREF="libqtnetwork.html#RTTI-46724"
+>typeinfo for QHttpHeader</A
+></DT
+><DT
+>17-586. <A
+HREF="libqtnetwork.html#CLS-46742-0"
+>Primary vtable for QHttpResponseHeader</A
+></DT
+><DT
+>17-587. <A
+HREF="libqtnetwork.html#RTTI-46727"
+>typeinfo for QHttpResponseHeader</A
+></DT
+><DT
+>17-588. <A
+HREF="libqtnetwork.html#CLS-46741-0"
+>Primary vtable for QHttpRequestHeader</A
+></DT
+><DT
+>17-589. <A
+HREF="libqtnetwork.html#RTTI-46726"
+>typeinfo for QHttpRequestHeader</A
+></DT
+><DT
+>17-590. <A
+HREF="libqtnetwork.html#CLS-46749-0"
+>Primary vtable for QHttp</A
+></DT
+><DT
+>17-591. <A
+HREF="libqtnetwork.html#RTTI-46734"
+>typeinfo for QHttp</A
+></DT
+><DT
+>17-592. <A
+HREF="libqtnetwork.html#CLS-46740-0"
+>Primary vtable for QAbstractSocket</A
+></DT
+><DT
+>17-593. <A
+HREF="libqtnetwork.html#RTTI-46725"
+>typeinfo for QAbstractSocket</A
+></DT
+><DT
+>17-594. <A
+HREF="libqtnetwork.html#CLS-46750-0"
+>Primary vtable for QUrlInfo</A
+></DT
+><DT
+>17-595. <A
+HREF="libqtnetwork.html#RTTI-46735"
+>typeinfo for QUrlInfo</A
+></DT
+><DT
+>17-596. <A
+HREF="libqtnetwork.html#CLS-46748-0"
+>Primary vtable for QFtp</A
+></DT
+><DT
+>17-597. <A
+HREF="libqtnetwork.html#RTTI-46733"
+>typeinfo for QFtp</A
+></DT
+><DT
+>17-598. <A
+HREF="libqtnetwork.html#CLS-46736-0"
+>Primary vtable for QTcpServer</A
+></DT
+><DT
+>17-599. <A
+HREF="libqtnetwork.html#RTTI-46721"
+>typeinfo for QTcpServer</A
+></DT
+><DT
+>17-600. <A
+HREF="libqtnetwork.html#CLS-46738-0"
+>Primary vtable for QUdpSocket</A
+></DT
+><DT
+>17-601. <A
+HREF="libqtnetwork.html#RTTI-46723"
+>typeinfo for QUdpSocket</A
+></DT
+><DT
+>17-602. <A
+HREF="libqtnetwork.html#CLS-46737-0"
+>Primary vtable for QTcpSocket</A
+></DT
+><DT
+>17-603. <A
+HREF="libqtnetwork.html#RTTI-46722"
+>typeinfo for QTcpSocket</A
+></DT
+><DT
+>17-604. <A
+HREF="libqtnetwork.html#TBL-LIBQTNETWORK-QT4-N-INTS"
+>libQtNetwork - Qt4 Network Function Interfaces</A
+></DT
+><DT
+>17-605. <A
+HREF="libqtnetwork.html#TBL-LIBQTNETWORK-QT4-N-DEPINTS"
+>libQtNetwork - Qt4 Network Deprecated Function Interfaces</A
+></DT
+><DT
+>17-606. <A
+HREF="libqtnetwork.html#TBL-LIBQTNETWORK-QT4-N-DATA"
+>libQtNetwork - Qt4 Network Data Interfaces</A
+></DT
+><DT
+>18-1. <A
+HREF="libqt-mt.html#LIB-LIBQT-MT-DEF"
+>libqt-mt Definition</A
+></DT
+><DT
+>18-2. <A
+HREF="libqt-mt.html#CLS-58116-0"
+>Primary vtable for QNetworkProtocolFactoryBase</A
+></DT
+><DT
+>18-3. <A
+HREF="libqt-mt.html#RTTI-54191"
+>typeinfo for QNetworkProtocolFactoryBase</A
+></DT
+><DT
+>18-4. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT-INTS"
+>libqt-mt - Qt Function Interfaces</A
+></DT
+><DT
+>18-5. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT-DATA"
+>libqt-mt - Qt Data Interfaces</A
+></DT
+><DT
+>18-6. <A
+HREF="libqt-mt.html#CLS-52210-0"
+>Primary vtable for QPointArray</A
+></DT
+><DT
+>18-7. <A
+HREF="libqt-mt.html#RTTI-51499"
+>typeinfo for QPointArray</A
+></DT
+><DT
+>18-8. <A
+HREF="libqt-mt.html#CLS-56136-0"
+>Primary vtable for QBitArray</A
+></DT
+><DT
+>18-9. <A
+HREF="libqt-mt.html#RTTI-59264"
+>typeinfo for QBitArray</A
+></DT
+><DT
+>18-10. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-A-INTS"
+>libqt-mt - Qt3 Arrays Function Interfaces</A
+></DT
+><DT
+>18-11. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-A-DATA"
+>libqt-mt - Qt3 Arrays Data Interfaces</A
+></DT
+><DT
+>18-12. <A
+HREF="libqt-mt.html#CLS-54429-0"
+>Primary vtable for QPtrCollection</A
+></DT
+><DT
+>18-13. <A
+HREF="libqt-mt.html#RTTI-50540"
+>typeinfo for QPtrCollection</A
+></DT
+><DT
+>18-14. <A
+HREF="libqt-mt.html#CLS-60162-0"
+>Primary vtable for QObjectList</A
+></DT
+><DT
+>18-15. <A
+HREF="libqt-mt.html#RTTI-59557"
+>typeinfo for QObjectList</A
+></DT
+><DT
+>18-16. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-P-INTS"
+>libqt-mt - Qt3 Pointer Collection Function Interfaces</A
+></DT
+><DT
+>18-17. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-P-DATA"
+>libqt-mt - Qt3 Pointer Collection Data Interfaces</A
+></DT
+><DT
+>18-18. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-T-INTS"
+>libqt-mt - Qt3 Template Library Function Interfaces</A
+></DT
+><DT
+>18-19. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-C-INTS"
+>libqt-mt - Qt3 COM Function Interfaces</A
+></DT
+><DT
+>18-20. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-C-DATA"
+>libqt-mt - Qt3 COM Data Interfaces</A
+></DT
+><DT
+>18-21. <A
+HREF="libqt-mt.html#CLS-55972-0"
+>Primary vtable for QTimer</A
+></DT
+><DT
+>18-22. <A
+HREF="libqt-mt.html#RTTI-56241"
+>typeinfo for QTimer</A
+></DT
+><DT
+>18-23. <A
+HREF="libqt-mt.html#CLS-56364-0"
+>Primary vtable for QDateTimeEdit</A
+></DT
+><DT
+>18-24. <A
+HREF="libqt-mt.html#RTTI-56600"
+>typeinfo for QDateTimeEdit</A
+></DT
+><DT
+>18-25. <A
+HREF="libqt-mt.html#CLS-57860-0"
+>Primary vtable for QDateTimeEditBase</A
+></DT
+><DT
+>18-26. <A
+HREF="libqt-mt.html#RTTI-59628"
+>typeinfo for QDateTimeEditBase</A
+></DT
+><DT
+>18-27. <A
+HREF="libqt-mt.html#CLS-58172-0"
+>Primary vtable for QDateEdit</A
+></DT
+><DT
+>18-28. <A
+HREF="libqt-mt.html#RTTI-56508"
+>typeinfo for QDateEdit</A
+></DT
+><DT
+>18-29. <A
+HREF="libqt-mt.html#CLS-60681-0"
+>Primary vtable for QTimeEdit</A
+></DT
+><DT
+>18-30. <A
+HREF="libqt-mt.html#RTTI-59077"
+>typeinfo for QTimeEdit</A
+></DT
+><DT
+>18-31. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-D-INTS"
+>libqt-mt - Qt3 Date and Time Function Interfaces</A
+></DT
+><DT
+>18-32. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-D-DATA"
+>libqt-mt - Qt3 Date and Time Data Interfaces</A
+></DT
+><DT
+>18-33. <A
+HREF="libqt-mt.html#CLS-59480-0"
+>Primary vtable for QCanvasItem</A
+></DT
+><DT
+>18-34. <A
+HREF="libqt-mt.html#RTTI-51285"
+>typeinfo for QCanvasItem</A
+></DT
+><DT
+>18-35. <A
+HREF="libqt-mt.html#CLS-51525-0"
+>Primary vtable for QCanvasSprite</A
+></DT
+><DT
+>18-36. <A
+HREF="libqt-mt.html#RTTI-50724"
+>typeinfo for QCanvasSprite</A
+></DT
+><DT
+>18-37. <A
+HREF="libqt-mt.html#CLS-59305-0"
+>Primary vtable for QCanvasPolygonalItem</A
+></DT
+><DT
+>18-38. <A
+HREF="libqt-mt.html#RTTI-48854"
+>typeinfo for QCanvasPolygonalItem</A
+></DT
+><DT
+>18-39. <A
+HREF="libqt-mt.html#CLS-55929-0"
+>Primary vtable for QCanvasRectangle</A
+></DT
+><DT
+>18-40. <A
+HREF="libqt-mt.html#RTTI-59337"
+>typeinfo for QCanvasRectangle</A
+></DT
+><DT
+>18-41. <A
+HREF="libqt-mt.html#CLS-60116-0"
+>Primary vtable for QCanvasView</A
+></DT
+><DT
+>18-42. <A
+HREF="libqt-mt.html#RTTI-53208"
+>typeinfo for QCanvasView</A
+></DT
+><DT
+>18-43. <A
+HREF="libqt-mt.html#CLS-50742-0"
+>Primary vtable for QCanvasEllipse</A
+></DT
+><DT
+>18-44. <A
+HREF="libqt-mt.html#RTTI-59617"
+>typeinfo for QCanvasEllipse</A
+></DT
+><DT
+>18-45. <A
+HREF="libqt-mt.html#CLS-51912-0"
+>Primary vtable for QCanvasPixmap</A
+></DT
+><DT
+>18-46. <A
+HREF="libqt-mt.html#RTTI-53944"
+>typeinfo for QCanvasPixmap</A
+></DT
+><DT
+>18-47. <A
+HREF="libqt-mt.html#CLS-53152-0"
+>Primary vtable for QCanvasLine</A
+></DT
+><DT
+>18-48. <A
+HREF="libqt-mt.html#RTTI-58625"
+>typeinfo for QCanvasLine</A
+></DT
+><DT
+>18-49. <A
+HREF="libqt-mt.html#CLS-54534-0"
+>Primary vtable for QCanvasSpline</A
+></DT
+><DT
+>18-50. <A
+HREF="libqt-mt.html#RTTI-53758"
+>typeinfo for QCanvasSpline</A
+></DT
+><DT
+>18-51. <A
+HREF="libqt-mt.html#CLS-54239-0"
+>Primary vtable for QCanvasText</A
+></DT
+><DT
+>18-52. <A
+HREF="libqt-mt.html#RTTI-59751"
+>typeinfo for QCanvasText</A
+></DT
+><DT
+>18-53. <A
+HREF="libqt-mt.html#CLS-55045-0"
+>Primary vtable for QCanvasPolygon</A
+></DT
+><DT
+>18-54. <A
+HREF="libqt-mt.html#RTTI-53593"
+>typeinfo for QCanvasPolygon</A
+></DT
+><DT
+>18-55. <A
+HREF="libqt-mt.html#CLS-56162-0"
+>Primary vtable for QCanvas</A
+></DT
+><DT
+>18-56. <A
+HREF="libqt-mt.html#RTTI-60325"
+>typeinfo for QCanvas</A
+></DT
+><DT
+>18-57. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-1-INTS"
+>libqt-mt - Qt3 Canvas Function Interfaces</A
+></DT
+><DT
+>18-58. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-1-DATA"
+>libqt-mt - Qt3 Canvas Data Interfaces</A
+></DT
+><DT
+>18-59. <A
+HREF="libqt-mt.html#CLS-57404-0"
+>Primary vtable for QImageDrag</A
+></DT
+><DT
+>18-60. <A
+HREF="libqt-mt.html#RTTI-50014"
+>typeinfo for QImageDrag</A
+></DT
+><DT
+>18-61. <A
+HREF="libqt-mt.html#CLS-58321-0"
+>Primary vtable for QDragLeaveEvent</A
+></DT
+><DT
+>18-62. <A
+HREF="libqt-mt.html#RTTI-55996"
+>typeinfo for QDragLeaveEvent</A
+></DT
+><DT
+>18-63. <A
+HREF="libqt-mt.html#CLS-56153-0"
+>Primary vtable for QColorDrag</A
+></DT
+><DT
+>18-64. <A
+HREF="libqt-mt.html#RTTI-48654"
+>typeinfo for QColorDrag</A
+></DT
+><DT
+>18-65. <A
+HREF="libqt-mt.html#CLS-56539-0"
+>Primary vtable for QDragResponseEvent</A
+></DT
+><DT
+>18-66. <A
+HREF="libqt-mt.html#RTTI-58096"
+>typeinfo for QDragResponseEvent</A
+></DT
+><DT
+>18-67. <A
+HREF="libqt-mt.html#CLS-57609-0"
+>Primary vtable for QIconDrag</A
+></DT
+><DT
+>18-68. <A
+HREF="libqt-mt.html#RTTI-59217"
+>typeinfo for QIconDrag</A
+></DT
+><DT
+>18-69. <A
+HREF="libqt-mt.html#CLS-54440-0"
+>Primary vtable for QUriDrag</A
+></DT
+><DT
+>18-70. <A
+HREF="libqt-mt.html#RTTI-60641"
+>typeinfo for QUriDrag</A
+></DT
+><DT
+>18-71. <A
+HREF="libqt-mt.html#CLS-59613-0"
+>Primary vtable for QDropSite</A
+></DT
+><DT
+>18-72. <A
+HREF="libqt-mt.html#RTTI-56835"
+>typeinfo for QDropSite</A
+></DT
+><DT
+>18-73. <A
+HREF="libqt-mt.html#CLS-50760-0"
+>Primary vtable for QStoredDrag</A
+></DT
+><DT
+>18-74. <A
+HREF="libqt-mt.html#RTTI-51651"
+>typeinfo for QStoredDrag</A
+></DT
+><DT
+>18-75. <A
+HREF="libqt-mt.html#CLS-57961-0"
+>Primary vtable for QTextDrag</A
+></DT
+><DT
+>18-76. <A
+HREF="libqt-mt.html#RTTI-56313"
+>typeinfo for QTextDrag</A
+></DT
+><DT
+>18-77. <A
+HREF="libqt-mt.html#CLS-60010-0"
+>Primary vtable for QDragEnterEvent</A
+></DT
+><DT
+>18-78. <A
+HREF="libqt-mt.html#RTTI-55049"
+>typeinfo for QDragEnterEvent</A
+></DT
+><DT
+>18-79. <A
+HREF="libqt-mt.html#CLS-50912-0"
+>Primary vtable for QDragMoveEvent</A
+></DT
+><DT
+>18-80. <A
+HREF="libqt-mt.html#RTTI-57191"
+>typeinfo for QDragMoveEvent</A
+></DT
+><DT
+>18-81. <A
+HREF="libqt-mt.html#CLS-54433-0"
+>Primary vtable for QDropEvent</A
+></DT
+><DT
+>18-82. <A
+HREF="libqt-mt.html#RTTI-59301"
+>typeinfo for QDropEvent</A
+></DT
+><DT
+>18-83. <A
+HREF="libqt-mt.html#CLS-56406-0"
+>Primary vtable for QDragObject</A
+></DT
+><DT
+>18-84. <A
+HREF="libqt-mt.html#RTTI-55492"
+>typeinfo for QDragObject</A
+></DT
+><DT
+>18-85. <A
+HREF="libqt-mt.html#CLS-59292-0"
+>Primary vtable for QIconDragItem</A
+></DT
+><DT
+>18-86. <A
+HREF="libqt-mt.html#RTTI-58347"
+>typeinfo for QIconDragItem</A
+></DT
+><DT
+>18-87. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-2-INTS"
+>libqt-mt - Qt3 Drag and Drop Function Interfaces</A
+></DT
+><DT
+>18-88. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-2-DATA"
+>libqt-mt - Qt3 Drag and Drop Data Interfaces</A
+></DT
+><DT
+>18-89. <A
+HREF="libqt-mt.html#CLS-59085-0"
+>Primary vtable for QContextMenuEvent</A
+></DT
+><DT
+>18-90. <A
+HREF="libqt-mt.html#RTTI-54819"
+>typeinfo for QContextMenuEvent</A
+></DT
+><DT
+>18-91. <A
+HREF="libqt-mt.html#CLS-53756-0"
+>Primary vtable for QIMEvent</A
+></DT
+><DT
+>18-92. <A
+HREF="libqt-mt.html#RTTI-59961"
+>typeinfo for QIMEvent</A
+></DT
+><DT
+>18-93. <A
+HREF="libqt-mt.html#CLS-57635-0"
+>Primary vtable for QTimerEvent</A
+></DT
+><DT
+>18-94. <A
+HREF="libqt-mt.html#RTTI-49406"
+>typeinfo for QTimerEvent</A
+></DT
+><DT
+>18-95. <A
+HREF="libqt-mt.html#CLS-53296-0"
+>Primary vtable for QKeyEvent</A
+></DT
+><DT
+>18-96. <A
+HREF="libqt-mt.html#RTTI-56359"
+>typeinfo for QKeyEvent</A
+></DT
+><DT
+>18-97. <A
+HREF="libqt-mt.html#CLS-51226-0"
+>Primary vtable for QCustomEvent</A
+></DT
+><DT
+>18-98. <A
+HREF="libqt-mt.html#RTTI-48882"
+>typeinfo for QCustomEvent</A
+></DT
+><DT
+>18-99. <A
+HREF="libqt-mt.html#CLS-60717-0"
+>Primary vtable for QEventLoop</A
+></DT
+><DT
+>18-100. <A
+HREF="libqt-mt.html#RTTI-53080"
+>typeinfo for QEventLoop</A
+></DT
+><DT
+>18-101. <A
+HREF="libqt-mt.html#CLS-56003-0"
+>Primary vtable for QHideEvent</A
+></DT
+><DT
+>18-102. <A
+HREF="libqt-mt.html#RTTI-60312"
+>typeinfo for QHideEvent</A
+></DT
+><DT
+>18-103. <A
+HREF="libqt-mt.html#CLS-51153-0"
+>Primary vtable for QResizeEvent</A
+></DT
+><DT
+>18-104. <A
+HREF="libqt-mt.html#RTTI-50356"
+>typeinfo for QResizeEvent</A
+></DT
+><DT
+>18-105. <A
+HREF="libqt-mt.html#CLS-57184-0"
+>Primary vtable for QTabletEvent</A
+></DT
+><DT
+>18-106. <A
+HREF="libqt-mt.html#RTTI-53404"
+>typeinfo for QTabletEvent</A
+></DT
+><DT
+>18-107. <A
+HREF="libqt-mt.html#CLS-50075-0"
+>Primary vtable for QFocusEvent</A
+></DT
+><DT
+>18-108. <A
+HREF="libqt-mt.html#RTTI-49041"
+>typeinfo for QFocusEvent</A
+></DT
+><DT
+>18-109. <A
+HREF="libqt-mt.html#CLS-53104-0"
+>Primary vtable for QMouseEvent</A
+></DT
+><DT
+>18-110. <A
+HREF="libqt-mt.html#RTTI-53711"
+>typeinfo for QMouseEvent</A
+></DT
+><DT
+>18-111. <A
+HREF="libqt-mt.html#CLS-58942-0"
+>Primary vtable for QChildEvent</A
+></DT
+><DT
+>18-112. <A
+HREF="libqt-mt.html#RTTI-59659"
+>typeinfo for QChildEvent</A
+></DT
+><DT
+>18-113. <A
+HREF="libqt-mt.html#CLS-59021-0"
+>Primary vtable for QEvent</A
+></DT
+><DT
+>18-114. <A
+HREF="libqt-mt.html#RTTI-59456"
+>typeinfo for QEvent</A
+></DT
+><DT
+>18-115. <A
+HREF="libqt-mt.html#CLS-50266-0"
+>Primary vtable for QIMComposeEvent</A
+></DT
+><DT
+>18-116. <A
+HREF="libqt-mt.html#RTTI-56486"
+>typeinfo for QIMComposeEvent</A
+></DT
+><DT
+>18-117. <A
+HREF="libqt-mt.html#CLS-50108-0"
+>Primary vtable for QShowEvent</A
+></DT
+><DT
+>18-118. <A
+HREF="libqt-mt.html#RTTI-54950"
+>typeinfo for QShowEvent</A
+></DT
+><DT
+>18-119. <A
+HREF="libqt-mt.html#CLS-55568-0"
+>Primary vtable for QPaintEvent</A
+></DT
+><DT
+>18-120. <A
+HREF="libqt-mt.html#RTTI-56289"
+>typeinfo for QPaintEvent</A
+></DT
+><DT
+>18-121. <A
+HREF="libqt-mt.html#CLS-48547-0"
+>Primary vtable for QWheelEvent</A
+></DT
+><DT
+>18-122. <A
+HREF="libqt-mt.html#RTTI-49074"
+>typeinfo for QWheelEvent</A
+></DT
+><DT
+>18-123. <A
+HREF="libqt-mt.html#CLS-59824-0"
+>Primary vtable for QMoveEvent</A
+></DT
+><DT
+>18-124. <A
+HREF="libqt-mt.html#RTTI-54961"
+>typeinfo for QMoveEvent</A
+></DT
+><DT
+>18-125. <A
+HREF="libqt-mt.html#CLS-54613-0"
+>Primary vtable for QCloseEvent</A
+></DT
+><DT
+>18-126. <A
+HREF="libqt-mt.html#RTTI-55481"
+>typeinfo for QCloseEvent</A
+></DT
+><DT
+>18-127. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-E-INTS"
+>libqt-mt - Qt3 Events Function Interfaces</A
+></DT
+><DT
+>18-128. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-E-DATA"
+>libqt-mt - Qt3 Events Data Interfaces</A
+></DT
+><DT
+>18-129. <A
+HREF="libqt-mt.html#CLS-51383-0"
+>Primary vtable for QUtf8Codec</A
+></DT
+><DT
+>18-130. <A
+HREF="libqt-mt.html#RTTI-58732"
+>typeinfo for QUtf8Codec</A
+></DT
+><DT
+>18-131. <A
+HREF="libqt-mt.html#CLS-51098-0"
+>Primary vtable for QTranslator</A
+></DT
+><DT
+>18-132. <A
+HREF="libqt-mt.html#RTTI-51424"
+>typeinfo for QTranslator</A
+></DT
+><DT
+>18-133. <A
+HREF="libqt-mt.html#CLS-55728-0"
+>Primary vtable for QGb18030Codec</A
+></DT
+><DT
+>18-134. <A
+HREF="libqt-mt.html#RTTI-55916"
+>typeinfo for QGb18030Codec</A
+></DT
+><DT
+>18-135. <A
+HREF="libqt-mt.html#CLS-60167-0"
+>Primary vtable for QGbkCodec</A
+></DT
+><DT
+>18-136. <A
+HREF="libqt-mt.html#RTTI-58557"
+>typeinfo for QGbkCodec</A
+></DT
+><DT
+>18-137. <A
+HREF="libqt-mt.html#CLS-59037-0"
+>Primary vtable for QUtf16Codec</A
+></DT
+><DT
+>18-138. <A
+HREF="libqt-mt.html#RTTI-59538"
+>typeinfo for QUtf16Codec</A
+></DT
+><DT
+>18-139. <A
+HREF="libqt-mt.html#CLS-50972-0"
+>Primary vtable for QEucKrCodec</A
+></DT
+><DT
+>18-140. <A
+HREF="libqt-mt.html#RTTI-51407"
+>typeinfo for QEucKrCodec</A
+></DT
+><DT
+>18-141. <A
+HREF="libqt-mt.html#CLS-53159-0"
+>Primary vtable for QJisCodec</A
+></DT
+><DT
+>18-142. <A
+HREF="libqt-mt.html#RTTI-51478"
+>typeinfo for QJisCodec</A
+></DT
+><DT
+>18-143. <A
+HREF="libqt-mt.html#CLS-49819-0"
+>Primary vtable for QTextEncoder</A
+></DT
+><DT
+>18-144. <A
+HREF="libqt-mt.html#RTTI-53657"
+>typeinfo for QTextEncoder</A
+></DT
+><DT
+>18-145. <A
+HREF="libqt-mt.html#CLS-49193-0"
+>Primary vtable for QTsciiCodec</A
+></DT
+><DT
+>18-146. <A
+HREF="libqt-mt.html#RTTI-60358"
+>typeinfo for QTsciiCodec</A
+></DT
+><DT
+>18-147. <A
+HREF="libqt-mt.html#CLS-49432-0"
+>Primary vtable for QSjisCodec</A
+></DT
+><DT
+>18-148. <A
+HREF="libqt-mt.html#RTTI-57225"
+>typeinfo for QSjisCodec</A
+></DT
+><DT
+>18-149. <A
+HREF="libqt-mt.html#CLS-49439-0"
+>Primary vtable for QEucJpCodec</A
+></DT
+><DT
+>18-150. <A
+HREF="libqt-mt.html#RTTI-49876"
+>typeinfo for QEucJpCodec</A
+></DT
+><DT
+>18-151. <A
+HREF="libqt-mt.html#CLS-51009-0"
+>Primary vtable for QGb2312Codec</A
+></DT
+><DT
+>18-152. <A
+HREF="libqt-mt.html#RTTI-59339"
+>typeinfo for QGb2312Codec</A
+></DT
+><DT
+>18-153. <A
+HREF="libqt-mt.html#CLS-56665-0"
+>Primary vtable for QHebrewCodec</A
+></DT
+><DT
+>18-154. <A
+HREF="libqt-mt.html#RTTI-58922"
+>typeinfo for QHebrewCodec</A
+></DT
+><DT
+>18-155. <A
+HREF="libqt-mt.html#CLS-57262-0"
+>Primary vtable for QTextDecoder</A
+></DT
+><DT
+>18-156. <A
+HREF="libqt-mt.html#RTTI-48802"
+>typeinfo for QTextDecoder</A
+></DT
+><DT
+>18-157. <A
+HREF="libqt-mt.html#CLS-52368-0"
+>Primary vtable for QTextCodec</A
+></DT
+><DT
+>18-158. <A
+HREF="libqt-mt.html#RTTI-56702"
+>typeinfo for QTextCodec</A
+></DT
+><DT
+>18-159. <A
+HREF="libqt-mt.html#CLS-60054-0"
+>Primary vtable for QJpUnicodeConv</A
+></DT
+><DT
+>18-160. <A
+HREF="libqt-mt.html#RTTI-54740"
+>typeinfo for QJpUnicodeConv</A
+></DT
+><DT
+>18-161. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-I-INTS"
+>libqt-mt - Qt3 Internationalization Function Interfaces</A
+></DT
+><DT
+>18-162. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-I-DATA"
+>libqt-mt - Qt3 Internationalization Data Interfaces</A
+></DT
+><DT
+>18-163. <A
+HREF="libqt-mt.html#CLS-49042-0"
+>Primary vtable for QDataSource</A
+></DT
+><DT
+>18-164. <A
+HREF="libqt-mt.html#RTTI-60298"
+>typeinfo for QDataSource</A
+></DT
+><DT
+>18-165. <A
+HREF="libqt-mt.html#CLS-50477-0"
+>Primary vtable for QProcess</A
+></DT
+><DT
+>18-166. <A
+HREF="libqt-mt.html#RTTI-56781"
+>typeinfo for QProcess</A
+></DT
+><DT
+>18-167. <A
+HREF="libqt-mt.html#CLS-58608-0"
+>Primary vtable for QDataPump</A
+></DT
+><DT
+>18-168. <A
+HREF="libqt-mt.html#RTTI-55503"
+>typeinfo for QDataPump</A
+></DT
+><DT
+>18-169. <A
+HREF="libqt-mt.html#CLS-51318-0"
+>Primary vtable for QFile</A
+></DT
+><DT
+>18-170. <A
+HREF="libqt-mt.html#RTTI-55229"
+>typeinfo for QFile</A
+></DT
+><DT
+>18-171. <A
+HREF="libqt-mt.html#CLS-59737-0"
+>Primary vtable for QBuffer</A
+></DT
+><DT
+>18-172. <A
+HREF="libqt-mt.html#RTTI-51775"
+>typeinfo for QBuffer</A
+></DT
+><DT
+>18-173. <A
+HREF="libqt-mt.html#CLS-54888-0"
+>Primary vtable for QClipboard</A
+></DT
+><DT
+>18-174. <A
+HREF="libqt-mt.html#RTTI-50512"
+>typeinfo for QClipboard</A
+></DT
+><DT
+>18-175. <A
+HREF="libqt-mt.html#CLS-58445-0"
+>Primary vtable for QAsyncIO</A
+></DT
+><DT
+>18-176. <A
+HREF="libqt-mt.html#RTTI-52205"
+>typeinfo for QAsyncIO</A
+></DT
+><DT
+>18-177. <A
+HREF="libqt-mt.html#CLS-57937-0"
+>Primary vtable for QSignal</A
+></DT
+><DT
+>18-178. <A
+HREF="libqt-mt.html#RTTI-53038"
+>typeinfo for QSignal</A
+></DT
+><DT
+>18-179. <A
+HREF="libqt-mt.html#CLS-53396-0"
+>Primary vtable for QDataSink</A
+></DT
+><DT
+>18-180. <A
+HREF="libqt-mt.html#RTTI-50213"
+>typeinfo for QDataSink</A
+></DT
+><DT
+>18-181. <A
+HREF="libqt-mt.html#CLS-52493-0"
+>Primary vtable for QDir</A
+></DT
+><DT
+>18-182. <A
+HREF="libqt-mt.html#RTTI-55721"
+>typeinfo for QDir</A
+></DT
+><DT
+>18-183. <A
+HREF="libqt-mt.html#CLS-57156-0"
+>Primary vtable for QTextOStream</A
+></DT
+><DT
+>18-184. <A
+HREF="libqt-mt.html#RTTI-54873"
+>typeinfo for QTextOStream</A
+></DT
+><DT
+>18-185. <A
+HREF="libqt-mt.html#CLS-52665-0"
+>Primary vtable for QTextStream</A
+></DT
+><DT
+>18-186. <A
+HREF="libqt-mt.html#RTTI-52013"
+>typeinfo for QTextStream</A
+></DT
+><DT
+>18-187. <A
+HREF="libqt-mt.html#CLS-59769-0"
+>Primary vtable for QSignalMapper</A
+></DT
+><DT
+>18-188. <A
+HREF="libqt-mt.html#RTTI-59584"
+>typeinfo for QSignalMapper</A
+></DT
+><DT
+>18-189. <A
+HREF="libqt-mt.html#CLS-53283-0"
+>Primary vtable for QIODeviceSource</A
+></DT
+><DT
+>18-190. <A
+HREF="libqt-mt.html#RTTI-52402"
+>typeinfo for QIODeviceSource</A
+></DT
+><DT
+>18-191. <A
+HREF="libqt-mt.html#CLS-57967-0"
+>Primary vtable for QIODevice</A
+></DT
+><DT
+>18-192. <A
+HREF="libqt-mt.html#RTTI-56316"
+>typeinfo for QIODevice</A
+></DT
+><DT
+>18-193. <A
+HREF="libqt-mt.html#CLS-49297-0"
+>Primary vtable for QDataStream</A
+></DT
+><DT
+>18-194. <A
+HREF="libqt-mt.html#RTTI-48659"
+>typeinfo for QDataStream</A
+></DT
+><DT
+>18-195. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-3-INTS"
+>libqt-mt - Qt3 Input/Output Function Interfaces</A
+></DT
+><DT
+>18-196. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-3-DATA"
+>libqt-mt - Qt3 Input/Output Data Interfaces</A
+></DT
+><DT
+>18-197. <A
+HREF="libqt-mt.html#CLS-49260-0"
+>Primary vtable for QImageFormat</A
+></DT
+><DT
+>18-198. <A
+HREF="libqt-mt.html#RTTI-59159"
+>typeinfo for QImageFormat</A
+></DT
+><DT
+>18-199. <A
+HREF="libqt-mt.html#CLS-51862-0"
+>Primary vtable for QSound</A
+></DT
+><DT
+>18-200. <A
+HREF="libqt-mt.html#RTTI-52340"
+>typeinfo for QSound</A
+></DT
+><DT
+>18-201. <A
+HREF="libqt-mt.html#CLS-59371-0"
+>Primary vtable for QImageConsumer</A
+></DT
+><DT
+>18-202. <A
+HREF="libqt-mt.html#RTTI-52910"
+>typeinfo for QImageConsumer</A
+></DT
+><DT
+>18-203. <A
+HREF="libqt-mt.html#CLS-51653-0"
+>Primary vtable for QImageFormatType</A
+></DT
+><DT
+>18-204. <A
+HREF="libqt-mt.html#RTTI-48813"
+>typeinfo for QImageFormatType</A
+></DT
+><DT
+>18-205. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-M-INTS"
+>libqt-mt - Qt3 Multimedia Function Interfaces</A
+></DT
+><DT
+>18-206. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-M-DATA"
+>libqt-mt - Qt3 Multimedia Data Interfaces</A
+></DT
+><DT
+>18-207. <A
+HREF="libqt-mt.html#CLS-49871-0"
+>Primary vtable for QMimeSourceFactory</A
+></DT
+><DT
+>18-208. <A
+HREF="libqt-mt.html#RTTI-56981"
+>typeinfo for QMimeSourceFactory</A
+></DT
+><DT
+>18-209. <A
+HREF="libqt-mt.html#CLS-52818-0"
+>Primary vtable for QUrlOperator</A
+></DT
+><DT
+>18-210. <A
+HREF="libqt-mt.html#RTTI-55077"
+>typeinfo for QUrlOperator</A
+></DT
+><DT
+>18-211. <A
+HREF="libqt-mt.html#CLS-52591-0"
+>Primary vtable for QSocket</A
+></DT
+><DT
+>18-212. <A
+HREF="libqt-mt.html#RTTI-59775"
+>typeinfo for QSocket</A
+></DT
+><DT
+>18-213. <A
+HREF="libqt-mt.html#CLS-48663-0"
+>Primary vtable for QSocketNotifier</A
+></DT
+><DT
+>18-214. <A
+HREF="libqt-mt.html#RTTI-50530"
+>typeinfo for QSocketNotifier</A
+></DT
+><DT
+>18-215. <A
+HREF="libqt-mt.html#CLS-49837-0"
+>Primary vtable for QNetworkProtocol</A
+></DT
+><DT
+>18-216. <A
+HREF="libqt-mt.html#RTTI-59199"
+>typeinfo for QNetworkProtocol</A
+></DT
+><DT
+>18-217. <A
+HREF="libqt-mt.html#CLS-55966-0"
+>Primary vtable for QUrl</A
+></DT
+><DT
+>18-218. <A
+HREF="libqt-mt.html#RTTI-59229"
+>typeinfo for QUrl</A
+></DT
+><DT
+>18-219. <A
+HREF="libqt-mt.html#CLS-57695-0"
+>Primary vtable for QSocketDevice</A
+></DT
+><DT
+>18-220. <A
+HREF="libqt-mt.html#RTTI-57452"
+>typeinfo for QSocketDevice</A
+></DT
+><DT
+>18-221. <A
+HREF="libqt-mt.html#CLS-52065-0"
+>Primary vtable for QHttpResponseHeader</A
+></DT
+><DT
+>18-222. <A
+HREF="libqt-mt.html#RTTI-51512"
+>typeinfo for QHttpResponseHeader</A
+></DT
+><DT
+>18-223. <A
+HREF="libqt-mt.html#CLS-52964-0"
+>Primary vtable for QServerSocket</A
+></DT
+><DT
+>18-224. <A
+HREF="libqt-mt.html#RTTI-52611"
+>typeinfo for QServerSocket</A
+></DT
+><DT
+>18-225. <A
+HREF="libqt-mt.html#CLS-55688-0"
+>Primary vtable for QUrlInfo</A
+></DT
+><DT
+>18-226. <A
+HREF="libqt-mt.html#RTTI-49743"
+>typeinfo for QUrlInfo</A
+></DT
+><DT
+>18-227. <A
+HREF="libqt-mt.html#CLS-58913-0"
+>Primary vtable for QNetworkOperation</A
+></DT
+><DT
+>18-228. <A
+HREF="libqt-mt.html#RTTI-57703"
+>typeinfo for QNetworkOperation</A
+></DT
+><DT
+>18-229. <A
+HREF="libqt-mt.html#CLS-54665-0"
+>Primary vtable for QHttp</A
+></DT
+><DT
+>18-230. <A
+HREF="libqt-mt.html#RTTI-58538"
+>typeinfo for QHttp</A
+></DT
+><DT
+>18-231. <A
+HREF="libqt-mt.html#CLS-50460-0"
+>Primary vtable for QMimeSource</A
+></DT
+><DT
+>18-232. <A
+HREF="libqt-mt.html#RTTI-54532"
+>typeinfo for QMimeSource</A
+></DT
+><DT
+>18-233. <A
+HREF="libqt-mt.html#CLS-52460-0"
+>Primary vtable for QDns</A
+></DT
+><DT
+>18-234. <A
+HREF="libqt-mt.html#RTTI-55679"
+>typeinfo for QDns</A
+></DT
+><DT
+>18-235. <A
+HREF="libqt-mt.html#CLS-48581-0"
+>Primary vtable for QHttpRequestHeader</A
+></DT
+><DT
+>18-236. <A
+HREF="libqt-mt.html#RTTI-56172"
+>typeinfo for QHttpRequestHeader</A
+></DT
+><DT
+>18-237. <A
+HREF="libqt-mt.html#CLS-52397-0"
+>Primary vtable for QHttpHeader</A
+></DT
+><DT
+>18-238. <A
+HREF="libqt-mt.html#RTTI-52935"
+>typeinfo for QHttpHeader</A
+></DT
+><DT
+>18-239. <A
+HREF="libqt-mt.html#CLS-52128-0"
+>Primary vtable for QLocalFs</A
+></DT
+><DT
+>18-240. <A
+HREF="libqt-mt.html#RTTI-58307"
+>typeinfo for QLocalFs</A
+></DT
+><DT
+>18-241. <A
+HREF="libqt-mt.html#CLS-56968-0"
+>Primary vtable for QConnectionList</A
+></DT
+><DT
+>18-242. <A
+HREF="libqt-mt.html#RTTI-54202"
+>typeinfo for QConnectionList</A
+></DT
+><DT
+>18-243. <A
+HREF="libqt-mt.html#CLS-56916-0"
+>Primary vtable for QHostAddress</A
+></DT
+><DT
+>18-244. <A
+HREF="libqt-mt.html#RTTI-53129"
+>typeinfo for QHostAddress</A
+></DT
+><DT
+>18-245. <A
+HREF="libqt-mt.html#CLS-52770-0"
+>Primary vtable for QFtp</A
+></DT
+><DT
+>18-246. <A
+HREF="libqt-mt.html#RTTI-55971"
+>typeinfo for QFtp</A
+></DT
+><DT
+>18-247. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-N-INTS"
+>libqt-mt - Qt3 Network Function Interfaces</A
+></DT
+><DT
+>18-248. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-N-DATA"
+>libqt-mt - Qt3 Network Data Interfaces</A
+></DT
+><DT
+>18-249. <A
+HREF="libqt-mt.html#CLS-55113-0"
+>Primary vtable for QObjectCleanupHandler</A
+></DT
+><DT
+>18-250. <A
+HREF="libqt-mt.html#RTTI-60166"
+>typeinfo for QObjectCleanupHandler</A
+></DT
+><DT
+>18-251. <A
+HREF="libqt-mt.html#CLS-48827-0"
+>Primary vtable for QObjectUserData</A
+></DT
+><DT
+>18-252. <A
+HREF="libqt-mt.html#RTTI-53916"
+>typeinfo for QObjectUserData</A
+></DT
+><DT
+>18-253. <A
+HREF="libqt-mt.html#CLS-49384-0"
+>Primary vtable for QObject</A
+></DT
+><DT
+>18-254. <A
+HREF="libqt-mt.html#RTTI-54399"
+>typeinfo for QObject</A
+></DT
+><DT
+>18-255. <A
+HREF="libqt-mt.html#CLS-59296-0"
+>Primary vtable for QMetaObject</A
+></DT
+><DT
+>18-256. <A
+HREF="libqt-mt.html#RTTI-58768"
+>typeinfo for QMetaObject</A
+></DT
+><DT
+>18-257. <A
+HREF="libqt-mt.html#CLS-50518-0"
+>Primary vtable for QGuardedPtrPrivate</A
+></DT
+><DT
+>18-258. <A
+HREF="libqt-mt.html#RTTI-58110"
+>typeinfo for QGuardedPtrPrivate</A
+></DT
+><DT
+>18-259. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-O-INTS"
+>libqt-mt - Qt3 Object Model Function Interfaces</A
+></DT
+><DT
+>18-260. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-O-DATA"
+>libqt-mt - Qt3 Object Model Data Interfaces</A
+></DT
+><DT
+>18-261. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-4-INTS"
+>libqt-mt - Qt3 OpenGL Function Interfaces</A
+></DT
+><DT
+>18-262. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-4-DATA"
+>libqt-mt - Qt3 OpenGL Data Interfaces</A
+></DT
+><DT
+>18-263. <A
+HREF="libqt-mt.html#CLS-52331-0"
+>Primary vtable for QPaintDevice</A
+></DT
+><DT
+>18-264. <A
+HREF="libqt-mt.html#RTTI-54620"
+>typeinfo for QPaintDevice</A
+></DT
+><DT
+>18-265. <A
+HREF="libqt-mt.html#CLS-59103-0"
+>Primary vtable for QBitmap</A
+></DT
+><DT
+>18-266. <A
+HREF="libqt-mt.html#RTTI-54937"
+>typeinfo for QBitmap</A
+></DT
+><DT
+>18-267. <A
+HREF="libqt-mt.html#CLS-56662-0"
+>Primary vtable for QPicture</A
+></DT
+><DT
+>18-268. <A
+HREF="libqt-mt.html#RTTI-50414"
+>typeinfo for QPicture</A
+></DT
+><DT
+>18-269. <A
+HREF="libqt-mt.html#CLS-59975-0"
+>Primary vtable for QPixmap</A
+></DT
+><DT
+>18-270. <A
+HREF="libqt-mt.html#RTTI-55789"
+>typeinfo for QPixmap</A
+></DT
+><DT
+>18-271. <A
+HREF="libqt-mt.html#CLS-59579-0"
+>Primary vtable for QPrinter</A
+></DT
+><DT
+>18-272. <A
+HREF="libqt-mt.html#RTTI-53397"
+>typeinfo for QPrinter</A
+></DT
+><DT
+>18-273. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-5-INTS"
+>libqt-mt - Qt3 Paint Device Function Interfaces</A
+></DT
+><DT
+>18-274. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-5-DATA"
+>libqt-mt - Qt3 Paint Device Data Interfaces</A
+></DT
+><DT
+>18-275. <A
+HREF="libqt-mt.html#CLS-50705-0"
+>Primary vtable for QSqlResult</A
+></DT
+><DT
+>18-276. <A
+HREF="libqt-mt.html#RTTI-58515"
+>typeinfo for QSqlResult</A
+></DT
+><DT
+>18-277. <A
+HREF="libqt-mt.html#CLS-58443-0"
+>Primary vtable for QSqlSelectCursor</A
+></DT
+><DT
+>18-278. <A
+HREF="libqt-mt.html#RTTI-48857"
+>typeinfo for QSqlSelectCursor</A
+></DT
+><DT
+>18-279. <A
+HREF="libqt-mt.html#CLS-51203-0"
+>Primary vtable for QSqlDriver</A
+></DT
+><DT
+>18-280. <A
+HREF="libqt-mt.html#RTTI-59298"
+>typeinfo for QSqlDriver</A
+></DT
+><DT
+>18-281. <A
+HREF="libqt-mt.html#CLS-51788-0"
+>Primary vtable for QSqlPropertyMap</A
+></DT
+><DT
+>18-282. <A
+HREF="libqt-mt.html#RTTI-53181"
+>typeinfo for QSqlPropertyMap</A
+></DT
+><DT
+>18-283. <A
+HREF="libqt-mt.html#CLS-51207-0"
+>Primary vtable for QSqlQuery</A
+></DT
+><DT
+>18-284. <A
+HREF="libqt-mt.html#RTTI-54334"
+>typeinfo for QSqlQuery</A
+></DT
+><DT
+>18-285. <A
+HREF="libqt-mt.html#CLS-53074-0"
+>Primary vtable for QSqlRecord</A
+></DT
+><DT
+>18-286. <A
+HREF="libqt-mt.html#RTTI-48824"
+>typeinfo for QSqlRecord</A
+></DT
+><DT
+>18-287. <A
+HREF="libqt-mt.html#CLS-58660-0"
+>Primary vtable for QSqlDatabase</A
+></DT
+><DT
+>18-288. <A
+HREF="libqt-mt.html#RTTI-48795"
+>typeinfo for QSqlDatabase</A
+></DT
+><DT
+>18-289. <A
+HREF="libqt-mt.html#CLS-56319-0"
+>Primary vtable for QEditorFactory</A
+></DT
+><DT
+>18-290. <A
+HREF="libqt-mt.html#RTTI-50364"
+>typeinfo for QEditorFactory</A
+></DT
+><DT
+>18-291. <A
+HREF="libqt-mt.html#CLS-59671-0"
+>Primary vtable for QSqlDriverPlugin</A
+></DT
+><DT
+>18-292. <A
+HREF="libqt-mt.html#RTTI-56846"
+>typeinfo for QSqlDriverPlugin</A
+></DT
+><DT
+>18-293. <A
+HREF="libqt-mt.html#CLS-59241-0"
+>Primary vtable for QSqlResultShared</A
+></DT
+><DT
+>18-294. <A
+HREF="libqt-mt.html#RTTI-50304"
+>typeinfo for QSqlResultShared</A
+></DT
+><DT
+>18-295. <A
+HREF="libqt-mt.html#CLS-56597-0"
+>Primary vtable for QSqlError</A
+></DT
+><DT
+>18-296. <A
+HREF="libqt-mt.html#RTTI-59682"
+>typeinfo for QSqlError</A
+></DT
+><DT
+>18-297. <A
+HREF="libqt-mt.html#CLS-59986-0"
+>Primary vtable for QSqlForm</A
+></DT
+><DT
+>18-298. <A
+HREF="libqt-mt.html#RTTI-54159"
+>typeinfo for QSqlForm</A
+></DT
+><DT
+>18-299. <A
+HREF="libqt-mt.html#CLS-57267-0"
+>Primary vtable for QSqlEditorFactory</A
+></DT
+><DT
+>18-300. <A
+HREF="libqt-mt.html#RTTI-55222"
+>typeinfo for QSqlEditorFactory</A
+></DT
+><DT
+>18-301. <A
+HREF="libqt-mt.html#CLS-52434-0"
+>Primary vtable for QSqlCursor</A
+></DT
+><DT
+>18-302. <A
+HREF="libqt-mt.html#RTTI-60271"
+>typeinfo for QSqlCursor</A
+></DT
+><DT
+>18-303. <A
+HREF="libqt-mt.html#CLS-48617-0"
+>Primary vtable for QSqlFieldInfo</A
+></DT
+><DT
+>18-304. <A
+HREF="libqt-mt.html#RTTI-59252"
+>typeinfo for QSqlFieldInfo</A
+></DT
+><DT
+>18-305. <A
+HREF="libqt-mt.html#CLS-59867-0"
+>Primary vtable for QSqlIndex</A
+></DT
+><DT
+>18-306. <A
+HREF="libqt-mt.html#RTTI-50549"
+>typeinfo for QSqlIndex</A
+></DT
+><DT
+>18-307. <A
+HREF="libqt-mt.html#CLS-51124-0"
+>Primary vtable for QSqlField</A
+></DT
+><DT
+>18-308. <A
+HREF="libqt-mt.html#RTTI-54266"
+>typeinfo for QSqlField</A
+></DT
+><DT
+>18-309. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-S-INTS"
+>libqt-mt - Qt3 SQL Function Interfaces</A
+></DT
+><DT
+>18-310. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-S-DATA"
+>libqt-mt - Qt3 SQL Data Interfaces</A
+></DT
+><DT
+>18-311. <A
+HREF="libqt-mt.html#CLS-56194-0"
+>Primary vtable for QCommonStyle</A
+></DT
+><DT
+>18-312. <A
+HREF="libqt-mt.html#RTTI-52552"
+>typeinfo for QCommonStyle</A
+></DT
+><DT
+>18-313. <A
+HREF="libqt-mt.html#CLS-49529-0"
+>Primary vtable for QStyle</A
+></DT
+><DT
+>18-314. <A
+HREF="libqt-mt.html#RTTI-50033"
+>typeinfo for QStyle</A
+></DT
+><DT
+>18-315. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-6-INTS"
+>libqt-mt - Qt3 Style Function Interfaces</A
+></DT
+><DT
+>18-316. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-6-DATA"
+>libqt-mt - Qt3 Style Data Interfaces</A
+></DT
+><DT
+>18-317. <A
+HREF="libqt-mt.html#CLS-49783-0"
+>Primary vtable for QSyntaxHighlighter</A
+></DT
+><DT
+>18-318. <A
+HREF="libqt-mt.html#RTTI-54347"
+>typeinfo for QSyntaxHighlighter</A
+></DT
+><DT
+>18-319. <A
+HREF="libqt-mt.html#CLS-57578-0"
+>Primary vtable for QStyleSheet</A
+></DT
+><DT
+>18-320. <A
+HREF="libqt-mt.html#RTTI-58455"
+>typeinfo for QStyleSheet</A
+></DT
+><DT
+>18-321. <A
+HREF="libqt-mt.html#CLS-49671-0"
+>Primary vtable for QStrList</A
+></DT
+><DT
+>18-322. <A
+HREF="libqt-mt.html#RTTI-55572"
+>typeinfo for QStrList</A
+></DT
+><DT
+>18-323. <A
+HREF="libqt-mt.html#CLS-57914-0"
+>Primary vtable for QCString</A
+></DT
+><DT
+>18-324. <A
+HREF="libqt-mt.html#RTTI-51708"
+>typeinfo for QCString</A
+></DT
+><DT
+>18-325. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-7-INTS"
+>libqt-mt - Qt3 Text Function Interfaces</A
+></DT
+><DT
+>18-326. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-7-DATA"
+>libqt-mt - Qt3 Text Data Interfaces</A
+></DT
+><DT
+>18-327. <A
+HREF="libqt-mt.html#CLS-49879-0"
+>Primary vtable for QWaitCondition</A
+></DT
+><DT
+>18-328. <A
+HREF="libqt-mt.html#RTTI-51987"
+>typeinfo for QWaitCondition</A
+></DT
+><DT
+>18-329. <A
+HREF="libqt-mt.html#CLS-57003-0"
+>Primary vtable for QMutex</A
+></DT
+><DT
+>18-330. <A
+HREF="libqt-mt.html#RTTI-57249"
+>typeinfo for QMutex</A
+></DT
+><DT
+>18-331. <A
+HREF="libqt-mt.html#CLS-60622-0"
+>Primary vtable for QThread</A
+></DT
+><DT
+>18-332. <A
+HREF="libqt-mt.html#RTTI-53486"
+>typeinfo for QThread</A
+></DT
+><DT
+>18-333. <A
+HREF="libqt-mt.html#CLS-57692-0"
+>Primary vtable for QSemaphore</A
+></DT
+><DT
+>18-334. <A
+HREF="libqt-mt.html#RTTI-50209"
+>typeinfo for QSemaphore</A
+></DT
+><DT
+>18-335. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-8-INTS"
+>libqt-mt - Qt3 Threading Function Interfaces</A
+></DT
+><DT
+>18-336. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-8-DATA"
+>libqt-mt - Qt3 Threading Data Interfaces</A
+></DT
+><DT
+>18-337. <A
+HREF="libqt-mt.html#CLS-53090-0"
+>Primary vtable for QToolBar</A
+></DT
+><DT
+>18-338. <A
+HREF="libqt-mt.html#RTTI-59225"
+>typeinfo for QToolBar</A
+></DT
+><DT
+>18-339. <A
+HREF="libqt-mt.html#CLS-56571-0"
+>Primary vtable for QActionGroup</A
+></DT
+><DT
+>18-340. <A
+HREF="libqt-mt.html#RTTI-58794"
+>typeinfo for QActionGroup</A
+></DT
+><DT
+>18-341. <A
+HREF="libqt-mt.html#CLS-53693-0"
+>Primary vtable for QStatusBar</A
+></DT
+><DT
+>18-342. <A
+HREF="libqt-mt.html#RTTI-48799"
+>typeinfo for QStatusBar</A
+></DT
+><DT
+>18-343. <A
+HREF="libqt-mt.html#CLS-57878-0"
+>Primary vtable for QSizeGrip</A
+></DT
+><DT
+>18-344. <A
+HREF="libqt-mt.html#RTTI-48765"
+>typeinfo for QSizeGrip</A
+></DT
+><DT
+>18-345. <A
+HREF="libqt-mt.html#CLS-54941-0"
+>Primary vtable for QSessionManager</A
+></DT
+><DT
+>18-346. <A
+HREF="libqt-mt.html#RTTI-55759"
+>typeinfo for QSessionManager</A
+></DT
+><DT
+>18-347. <A
+HREF="libqt-mt.html#CLS-60692-0"
+>Primary vtable for QApplication</A
+></DT
+><DT
+>18-348. <A
+HREF="libqt-mt.html#RTTI-50815"
+>typeinfo for QApplication</A
+></DT
+><DT
+>18-349. <A
+HREF="libqt-mt.html#CLS-59711-0"
+>Primary vtable for QWorkspace</A
+></DT
+><DT
+>18-350. <A
+HREF="libqt-mt.html#RTTI-54929"
+>typeinfo for QWorkspace</A
+></DT
+><DT
+>18-351. <A
+HREF="libqt-mt.html#CLS-49252-0"
+>Primary vtable for QAction</A
+></DT
+><DT
+>18-352. <A
+HREF="libqt-mt.html#RTTI-54254"
+>typeinfo for QAction</A
+></DT
+><DT
+>18-353. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-9-INTS"
+>libqt-mt - Qt3 Main Window and Application Function Interfaces</A
+></DT
+><DT
+>18-354. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-9-DATA"
+>libqt-mt - Qt3 Main Window and Application Data Interfaces</A
+></DT
+><DT
+>18-355. <A
+HREF="libqt-mt.html#CLS-58266-0"
+>Primary vtable for QFrame</A
+></DT
+><DT
+>18-356. <A
+HREF="libqt-mt.html#RTTI-58740"
+>typeinfo for QFrame</A
+></DT
+><DT
+>18-357. <A
+HREF="libqt-mt.html#CLS-53139-0"
+>Primary vtable for QScrollView</A
+></DT
+><DT
+>18-358. <A
+HREF="libqt-mt.html#RTTI-52594"
+>typeinfo for QScrollView</A
+></DT
+><DT
+>18-359. <A
+HREF="libqt-mt.html#CLS-57227-0"
+>Primary vtable for QTextBrowser</A
+></DT
+><DT
+>18-360. <A
+HREF="libqt-mt.html#RTTI-54911"
+>typeinfo for QTextBrowser</A
+></DT
+><DT
+>18-361. <A
+HREF="libqt-mt.html#CLS-52235-0"
+>Primary vtable for QLineEdit</A
+></DT
+><DT
+>18-362. <A
+HREF="libqt-mt.html#RTTI-55330"
+>typeinfo for QLineEdit</A
+></DT
+><DT
+>18-363. <A
+HREF="libqt-mt.html#CLS-57099-0"
+>Primary vtable for QListBoxText</A
+></DT
+><DT
+>18-364. <A
+HREF="libqt-mt.html#RTTI-53326"
+>typeinfo for QListBoxText</A
+></DT
+><DT
+>18-365. <A
+HREF="libqt-mt.html#CLS-57094-0"
+>Primary vtable for QLCDNumber</A
+></DT
+><DT
+>18-366. <A
+HREF="libqt-mt.html#RTTI-52148"
+>typeinfo for QLCDNumber</A
+></DT
+><DT
+>18-367. <A
+HREF="libqt-mt.html#CLS-52292-0"
+>Primary vtable for QGridView</A
+></DT
+><DT
+>18-368. <A
+HREF="libqt-mt.html#RTTI-50642"
+>typeinfo for QGridView</A
+></DT
+><DT
+>18-369. <A
+HREF="libqt-mt.html#CLS-49489-0"
+>Primary vtable for QButton</A
+></DT
+><DT
+>18-370. <A
+HREF="libqt-mt.html#RTTI-54470"
+>typeinfo for QButton</A
+></DT
+><DT
+>18-371. <A
+HREF="libqt-mt.html#CLS-58899-0"
+>Primary vtable for QTabWidget</A
+></DT
+><DT
+>18-372. <A
+HREF="libqt-mt.html#RTTI-51563"
+>typeinfo for QTabWidget</A
+></DT
+><DT
+>18-373. <A
+HREF="libqt-mt.html#CLS-54943-0"
+>Primary vtable for QTextView</A
+></DT
+><DT
+>18-374. <A
+HREF="libqt-mt.html#RTTI-53340"
+>typeinfo for QTextView</A
+></DT
+><DT
+>18-375. <A
+HREF="libqt-mt.html#CLS-55621-0"
+>Primary vtable for QTab</A
+></DT
+><DT
+>18-376. <A
+HREF="libqt-mt.html#RTTI-58872"
+>typeinfo for QTab</A
+></DT
+><DT
+>18-377. <A
+HREF="libqt-mt.html#CLS-56943-0"
+>Primary vtable for QDial</A
+></DT
+><DT
+>18-378. <A
+HREF="libqt-mt.html#RTTI-48608"
+>typeinfo for QDial</A
+></DT
+><DT
+>18-379. <A
+HREF="libqt-mt.html#CLS-49461-0"
+>Primary vtable for QListView</A
+></DT
+><DT
+>18-380. <A
+HREF="libqt-mt.html#RTTI-59996"
+>typeinfo for QListView</A
+></DT
+><DT
+>18-381. <A
+HREF="libqt-mt.html#CLS-55983-0"
+>Primary vtable for QDesktopWidget</A
+></DT
+><DT
+>18-382. <A
+HREF="libqt-mt.html#RTTI-49734"
+>typeinfo for QDesktopWidget</A
+></DT
+><DT
+>18-383. <A
+HREF="libqt-mt.html#CLS-50565-0"
+>Primary vtable for QListBoxItem</A
+></DT
+><DT
+>18-384. <A
+HREF="libqt-mt.html#RTTI-60438"
+>typeinfo for QListBoxItem</A
+></DT
+><DT
+>18-385. <A
+HREF="libqt-mt.html#CLS-60211-0"
+>Primary vtable for QScrollBar</A
+></DT
+><DT
+>18-386. <A
+HREF="libqt-mt.html#RTTI-55428"
+>typeinfo for QScrollBar</A
+></DT
+><DT
+>18-387. <A
+HREF="libqt-mt.html#CLS-53917-0"
+>Primary vtable for QIconFactory</A
+></DT
+><DT
+>18-388. <A
+HREF="libqt-mt.html#RTTI-54590"
+>typeinfo for QIconFactory</A
+></DT
+><DT
+>18-389. <A
+HREF="libqt-mt.html#CLS-56299-0"
+>Primary vtable for QSpinBox</A
+></DT
+><DT
+>18-390. <A
+HREF="libqt-mt.html#RTTI-50017"
+>typeinfo for QSpinBox</A
+></DT
+><DT
+>18-391. <A
+HREF="libqt-mt.html#CLS-60399-0"
+>Primary vtable for QLabel</A
+></DT
+><DT
+>18-392. <A
+HREF="libqt-mt.html#RTTI-59973"
+>typeinfo for QLabel</A
+></DT
+><DT
+>18-393. <A
+HREF="libqt-mt.html#CLS-49126-0"
+>Primary vtable for QListBoxPixmap</A
+></DT
+><DT
+>18-394. <A
+HREF="libqt-mt.html#RTTI-55109"
+>typeinfo for QListBoxPixmap</A
+></DT
+><DT
+>18-395. <A
+HREF="libqt-mt.html#CLS-52272-0"
+>Primary vtable for QWhatsThis</A
+></DT
+><DT
+>18-396. <A
+HREF="libqt-mt.html#RTTI-59595"
+>typeinfo for QWhatsThis</A
+></DT
+><DT
+>18-397. <A
+HREF="libqt-mt.html#CLS-51111-0"
+>Primary vtable for QMultiLineEdit</A
+></DT
+><DT
+>18-398. <A
+HREF="libqt-mt.html#RTTI-59710"
+>typeinfo for QMultiLineEdit</A
+></DT
+><DT
+>18-399. <A
+HREF="libqt-mt.html#CLS-56655-0"
+>Primary vtable for QListBox</A
+></DT
+><DT
+>18-400. <A
+HREF="libqt-mt.html#RTTI-50420"
+>typeinfo for QListBox</A
+></DT
+><DT
+>18-401. <A
+HREF="libqt-mt.html#CLS-52572-0"
+>Primary vtable for QComboBox</A
+></DT
+><DT
+>18-402. <A
+HREF="libqt-mt.html#RTTI-50899"
+>typeinfo for QComboBox</A
+></DT
+><DT
+>18-403. <A
+HREF="libqt-mt.html#CLS-57458-0"
+>Primary vtable for QRadioButton</A
+></DT
+><DT
+>18-404. <A
+HREF="libqt-mt.html#RTTI-49012"
+>typeinfo for QRadioButton</A
+></DT
+><DT
+>18-405. <A
+HREF="libqt-mt.html#CLS-50618-0"
+>Primary vtable for QSlider</A
+></DT
+><DT
+>18-406. <A
+HREF="libqt-mt.html#RTTI-55543"
+>typeinfo for QSlider</A
+></DT
+><DT
+>18-407. <A
+HREF="libqt-mt.html#CLS-56340-0"
+>Primary vtable for QMainWindow</A
+></DT
+><DT
+>18-408. <A
+HREF="libqt-mt.html#RTTI-57106"
+>typeinfo for QMainWindow</A
+></DT
+><DT
+>18-409. <A
+HREF="libqt-mt.html#CLS-53589-0"
+>Primary vtable for QToolButton</A
+></DT
+><DT
+>18-410. <A
+HREF="libqt-mt.html#RTTI-55848"
+>typeinfo for QToolButton</A
+></DT
+><DT
+>18-411. <A
+HREF="libqt-mt.html#CLS-54958-0"
+>Primary vtable for QWidgetIntDict</A
+></DT
+><DT
+>18-412. <A
+HREF="libqt-mt.html#RTTI-58211"
+>typeinfo for QWidgetIntDict</A
+></DT
+><DT
+>18-413. <A
+HREF="libqt-mt.html#CLS-54417-0"
+>Primary vtable for QTabBar</A
+></DT
+><DT
+>18-414. <A
+HREF="libqt-mt.html#RTTI-58554"
+>typeinfo for QTabBar</A
+></DT
+><DT
+>18-415. <A
+HREF="libqt-mt.html#CLS-49289-0"
+>Primary vtable for QToolTip</A
+></DT
+><DT
+>18-416. <A
+HREF="libqt-mt.html#RTTI-55515"
+>typeinfo for QToolTip</A
+></DT
+><DT
+>18-417. <A
+HREF="libqt-mt.html#CLS-51950-0"
+>Primary vtable for QCheckBox</A
+></DT
+><DT
+>18-418. <A
+HREF="libqt-mt.html#RTTI-50309"
+>typeinfo for QCheckBox</A
+></DT
+><DT
+>18-419. <A
+HREF="libqt-mt.html#CLS-51434-0"
+>Primary vtable for QDockWindow</A
+></DT
+><DT
+>18-420. <A
+HREF="libqt-mt.html#RTTI-50723"
+>typeinfo for QDockWindow</A
+></DT
+><DT
+>18-421. <A
+HREF="libqt-mt.html#CLS-57224-0"
+>Primary vtable for QSpinWidget</A
+></DT
+><DT
+>18-422. <A
+HREF="libqt-mt.html#RTTI-56589"
+>typeinfo for QSpinWidget</A
+></DT
+><DT
+>18-423. <A
+HREF="libqt-mt.html#CLS-52758-0"
+>Primary vtable for QToolBox</A
+></DT
+><DT
+>18-424. <A
+HREF="libqt-mt.html#RTTI-58919"
+>typeinfo for QToolBox</A
+></DT
+><DT
+>18-425. <A
+HREF="libqt-mt.html#CLS-49612-0"
+>Primary vtable for QProgressBar</A
+></DT
+><DT
+>18-426. <A
+HREF="libqt-mt.html#RTTI-58022"
+>typeinfo for QProgressBar</A
+></DT
+><DT
+>18-427. <A
+HREF="libqt-mt.html#CLS-51418-0"
+>Primary vtable for QIconViewItem</A
+></DT
+><DT
+>18-428. <A
+HREF="libqt-mt.html#RTTI-50445"
+>typeinfo for QIconViewItem</A
+></DT
+><DT
+>18-429. <A
+HREF="libqt-mt.html#CLS-50340-0"
+>Primary vtable for QCheckListItem</A
+></DT
+><DT
+>18-430. <A
+HREF="libqt-mt.html#RTTI-58646"
+>typeinfo for QCheckListItem</A
+></DT
+><DT
+>18-431. <A
+HREF="libqt-mt.html#CLS-57970-0"
+>Primary vtable for QDockArea</A
+></DT
+><DT
+>18-432. <A
+HREF="libqt-mt.html#RTTI-48561"
+>typeinfo for QDockArea</A
+></DT
+><DT
+>18-433. <A
+HREF="libqt-mt.html#CLS-56434-0"
+>Primary vtable for QListViewItem</A
+></DT
+><DT
+>18-434. <A
+HREF="libqt-mt.html#RTTI-56805"
+>typeinfo for QListViewItem</A
+></DT
+><DT
+>18-435. <A
+HREF="libqt-mt.html#CLS-55095-0"
+>Primary vtable for QIconView</A
+></DT
+><DT
+>18-436. <A
+HREF="libqt-mt.html#RTTI-56742"
+>typeinfo for QIconView</A
+></DT
+><DT
+>18-437. <A
+HREF="libqt-mt.html#CLS-54430-0"
+>Primary vtable for QWidget</A
+></DT
+><DT
+>18-438. <A
+HREF="libqt-mt.html#RTTI-58563"
+>typeinfo for QWidget</A
+></DT
+><DT
+>18-439. <A
+HREF="libqt-mt.html#CLS-59275-0"
+>Primary vtable for QToolTipGroup</A
+></DT
+><DT
+>18-440. <A
+HREF="libqt-mt.html#RTTI-49166"
+>typeinfo for QToolTipGroup</A
+></DT
+><DT
+>18-441. <A
+HREF="libqt-mt.html#CLS-55551-0"
+>Primary vtable for QPushButton</A
+></DT
+><DT
+>18-442. <A
+HREF="libqt-mt.html#RTTI-55056"
+>typeinfo for QPushButton</A
+></DT
+><DT
+>18-443. <A
+HREF="libqt-mt.html#CLS-54545-0"
+>Primary vtable for QWidgetList</A
+></DT
+><DT
+>18-444. <A
+HREF="libqt-mt.html#RTTI-55146"
+>typeinfo for QWidgetList</A
+></DT
+><DT
+>18-445. <A
+HREF="libqt-mt.html#CLS-56297-0"
+>Primary vtable for QDataView</A
+></DT
+><DT
+>18-446. <A
+HREF="libqt-mt.html#RTTI-53237"
+>typeinfo for QDataView</A
+></DT
+><DT
+>18-447. <A
+HREF="libqt-mt.html#CLS-52982-0"
+>Primary vtable for QDataBrowser</A
+></DT
+><DT
+>18-448. <A
+HREF="libqt-mt.html#RTTI-50635"
+>typeinfo for QDataBrowser</A
+></DT
+><DT
+>18-449. <A
+HREF="libqt-mt.html#CLS-58547-0"
+>Primary vtable for QTextEdit</A
+></DT
+><DT
+>18-450. <A
+HREF="libqt-mt.html#RTTI-56980"
+>typeinfo for QTextEdit</A
+></DT
+><DT
+>18-451. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-W-INTS"
+>libqt-mt - Qt3 Widgets Function Interfaces</A
+></DT
+><DT
+>18-452. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-W-DATA"
+>libqt-mt - Qt3 Widgets Data Interfaces</A
+></DT
+><DT
+>18-453. <A
+HREF="libqt-mt.html#CLS-59198-0"
+>Primary vtable for QPopupMenu</A
+></DT
+><DT
+>18-454. <A
+HREF="libqt-mt.html#RTTI-51842"
+>typeinfo for QPopupMenu</A
+></DT
+><DT
+>18-455. <A
+HREF="libqt-mt.html#CLS-51449-0"
+>Primary vtable for QMenuBar</A
+></DT
+><DT
+>18-456. <A
+HREF="libqt-mt.html#RTTI-57732"
+>typeinfo for QMenuBar</A
+></DT
+><DT
+>18-457. <A
+HREF="libqt-mt.html#CLS-54464-0"
+>Primary vtable for QCustomMenuItem</A
+></DT
+><DT
+>18-458. <A
+HREF="libqt-mt.html#RTTI-56776"
+>typeinfo for QCustomMenuItem</A
+></DT
+><DT
+>18-459. <A
+HREF="libqt-mt.html#CLS-53466-0"
+>Primary vtable for QMenuData</A
+></DT
+><DT
+>18-460. <A
+HREF="libqt-mt.html#RTTI-56557"
+>typeinfo for QMenuData</A
+></DT
+><DT
+>18-461. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-10-INTS"
+>libqt-mt - Qt3 Menus Function Interfaces</A
+></DT
+><DT
+>18-462. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-10-DATA"
+>libqt-mt - Qt3 Menus Data Interfaces</A
+></DT
+><DT
+>18-463. <A
+HREF="libqt-mt.html#CLS-51933-0"
+>Primary vtable for QHBox</A
+></DT
+><DT
+>18-464. <A
+HREF="libqt-mt.html#RTTI-55837"
+>typeinfo for QHBox</A
+></DT
+><DT
+>18-465. <A
+HREF="libqt-mt.html#CLS-51355-0"
+>Primary vtable for QSplitter</A
+></DT
+><DT
+>18-466. <A
+HREF="libqt-mt.html#RTTI-60663"
+>typeinfo for QSplitter</A
+></DT
+><DT
+>18-467. <A
+HREF="libqt-mt.html#CLS-57974-0"
+>Primary vtable for QVBox</A
+></DT
+><DT
+>18-468. <A
+HREF="libqt-mt.html#RTTI-49682"
+>typeinfo for QVBox</A
+></DT
+><DT
+>18-469. <A
+HREF="libqt-mt.html#CLS-54537-0"
+>Primary vtable for QGroupBox</A
+></DT
+><DT
+>18-470. <A
+HREF="libqt-mt.html#RTTI-52922"
+>typeinfo for QGroupBox</A
+></DT
+><DT
+>18-471. <A
+HREF="libqt-mt.html#CLS-54817-0"
+>Primary vtable for QHGroupBox</A
+></DT
+><DT
+>18-472. <A
+HREF="libqt-mt.html#RTTI-49893"
+>typeinfo for QHGroupBox</A
+></DT
+><DT
+>18-473. <A
+HREF="libqt-mt.html#CLS-59039-0"
+>Primary vtable for QHButtonGroup</A
+></DT
+><DT
+>18-474. <A
+HREF="libqt-mt.html#RTTI-58830"
+>typeinfo for QHButtonGroup</A
+></DT
+><DT
+>18-475. <A
+HREF="libqt-mt.html#CLS-59825-0"
+>Primary vtable for QWidgetStack</A
+></DT
+><DT
+>18-476. <A
+HREF="libqt-mt.html#RTTI-56007"
+>typeinfo for QWidgetStack</A
+></DT
+><DT
+>18-477. <A
+HREF="libqt-mt.html#CLS-58024-0"
+>Primary vtable for QButtonGroup</A
+></DT
+><DT
+>18-478. <A
+HREF="libqt-mt.html#RTTI-60252"
+>typeinfo for QButtonGroup</A
+></DT
+><DT
+>18-479. <A
+HREF="libqt-mt.html#CLS-55758-0"
+>Primary vtable for QVButtonGroup</A
+></DT
+><DT
+>18-480. <A
+HREF="libqt-mt.html#RTTI-55547"
+>typeinfo for QVButtonGroup</A
+></DT
+><DT
+>18-481. <A
+HREF="libqt-mt.html#CLS-58301-0"
+>Primary vtable for QGrid</A
+></DT
+><DT
+>18-482. <A
+HREF="libqt-mt.html#RTTI-50044"
+>typeinfo for QGrid</A
+></DT
+><DT
+>18-483. <A
+HREF="libqt-mt.html#CLS-58599-0"
+>Primary vtable for QVGroupBox</A
+></DT
+><DT
+>18-484. <A
+HREF="libqt-mt.html#RTTI-53762"
+>typeinfo for QVGroupBox</A
+></DT
+><DT
+>18-485. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-11-INTS"
+>libqt-mt - Qt3 Organizers Function Interfaces</A
+></DT
+><DT
+>18-486. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-11-DATA"
+>libqt-mt - Qt3 Organizers Data Interfaces</A
+></DT
+><DT
+>18-487. <A
+HREF="libqt-mt.html#CLS-48695-0"
+>Primary vtable for QDockAreaLayout</A
+></DT
+><DT
+>18-488. <A
+HREF="libqt-mt.html#RTTI-57408"
+>typeinfo for QDockAreaLayout</A
+></DT
+><DT
+>18-489. <A
+HREF="libqt-mt.html#CLS-56097-0"
+>Primary vtable for QBoxLayout</A
+></DT
+><DT
+>18-490. <A
+HREF="libqt-mt.html#RTTI-51214"
+>typeinfo for QBoxLayout</A
+></DT
+><DT
+>18-491. <A
+HREF="libqt-mt.html#CLS-49924-0"
+>Primary vtable for QLayout</A
+></DT
+><DT
+>18-492. <A
+HREF="libqt-mt.html#RTTI-57917"
+>typeinfo for QLayout</A
+></DT
+><DT
+>18-493. <A
+HREF="libqt-mt.html#CLS-59017-0"
+>Primary vtable for QHBoxLayout</A
+></DT
+><DT
+>18-494. <A
+HREF="libqt-mt.html#RTTI-59895"
+>typeinfo for QHBoxLayout</A
+></DT
+><DT
+>18-495. <A
+HREF="libqt-mt.html#CLS-58584-0"
+>Primary vtable for QVBoxLayout</A
+></DT
+><DT
+>18-496. <A
+HREF="libqt-mt.html#RTTI-59472"
+>typeinfo for QVBoxLayout</A
+></DT
+><DT
+>18-497. <A
+HREF="libqt-mt.html#CLS-52870-0"
+>Primary vtable for QGLayoutIterator</A
+></DT
+><DT
+>18-498. <A
+HREF="libqt-mt.html#RTTI-55855"
+>typeinfo for QGLayoutIterator</A
+></DT
+><DT
+>18-499. <A
+HREF="libqt-mt.html#CLS-50351-0"
+>Primary vtable for QWidgetItem</A
+></DT
+><DT
+>18-500. <A
+HREF="libqt-mt.html#RTTI-50977"
+>typeinfo for QWidgetItem</A
+></DT
+><DT
+>18-501. <A
+HREF="libqt-mt.html#CLS-49573-0"
+>Primary vtable for QGridLayout</A
+></DT
+><DT
+>18-502. <A
+HREF="libqt-mt.html#RTTI-50117"
+>typeinfo for QGridLayout</A
+></DT
+><DT
+>18-503. <A
+HREF="libqt-mt.html#CLS-55446-0"
+>Primary vtable for QSpacerItem</A
+></DT
+><DT
+>18-504. <A
+HREF="libqt-mt.html#RTTI-56466"
+>typeinfo for QSpacerItem</A
+></DT
+><DT
+>18-505. <A
+HREF="libqt-mt.html#CLS-56376-0"
+>Primary vtable for QLayoutItem</A
+></DT
+><DT
+>18-506. <A
+HREF="libqt-mt.html#RTTI-55664"
+>typeinfo for QLayoutItem</A
+></DT
+><DT
+>18-507. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-L-INTS"
+>libqt-mt - Qt3 Layouts Function Interfaces</A
+></DT
+><DT
+>18-508. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-L-DATA"
+>libqt-mt - Qt3 Layouts Data Interfaces</A
+></DT
+><DT
+>18-509. <A
+HREF="libqt-mt.html#CLS-54350-0"
+>Primary vtable for QProgressDialog</A
+></DT
+><DT
+>18-510. <A
+HREF="libqt-mt.html#RTTI-50797"
+>typeinfo for QProgressDialog</A
+></DT
+><DT
+>18-511. <A
+HREF="libqt-mt.html#CLS-55301-0"
+>Primary vtable for QWizard</A
+></DT
+><DT
+>18-512. <A
+HREF="libqt-mt.html#RTTI-59465"
+>typeinfo for QWizard</A
+></DT
+><DT
+>18-513. <A
+HREF="libqt-mt.html#CLS-55817-0"
+>Primary vtable for QSemiModal</A
+></DT
+><DT
+>18-514. <A
+HREF="libqt-mt.html#RTTI-48618"
+>typeinfo for QSemiModal</A
+></DT
+><DT
+>18-515. <A
+HREF="libqt-mt.html#CLS-54118-0"
+>Primary vtable for QFileDialog</A
+></DT
+><DT
+>18-516. <A
+HREF="libqt-mt.html#RTTI-54577"
+>typeinfo for QFileDialog</A
+></DT
+><DT
+>18-517. <A
+HREF="libqt-mt.html#CLS-52605-0"
+>Primary vtable for QErrorMessage</A
+></DT
+><DT
+>18-518. <A
+HREF="libqt-mt.html#RTTI-53005"
+>typeinfo for QErrorMessage</A
+></DT
+><DT
+>18-519. <A
+HREF="libqt-mt.html#CLS-56839-0"
+>Primary vtable for QFilePreview</A
+></DT
+><DT
+>18-520. <A
+HREF="libqt-mt.html#RTTI-59527"
+>typeinfo for QFilePreview</A
+></DT
+><DT
+>18-521. <A
+HREF="libqt-mt.html#CLS-59424-0"
+>Primary vtable for QMessageBox</A
+></DT
+><DT
+>18-522. <A
+HREF="libqt-mt.html#RTTI-58820"
+>typeinfo for QMessageBox</A
+></DT
+><DT
+>18-523. <A
+HREF="libqt-mt.html#CLS-53832-0"
+>Primary vtable for QDialog</A
+></DT
+><DT
+>18-524. <A
+HREF="libqt-mt.html#RTTI-49561"
+>typeinfo for QDialog</A
+></DT
+><DT
+>18-525. <A
+HREF="libqt-mt.html#CLS-51143-0"
+>Primary vtable for QFontDialog</A
+></DT
+><DT
+>18-526. <A
+HREF="libqt-mt.html#RTTI-50225"
+>typeinfo for QFontDialog</A
+></DT
+><DT
+>18-527. <A
+HREF="libqt-mt.html#CLS-48615-0"
+>Primary vtable for QPrintDialog</A
+></DT
+><DT
+>18-528. <A
+HREF="libqt-mt.html#RTTI-58519"
+>typeinfo for QPrintDialog</A
+></DT
+><DT
+>18-529. <A
+HREF="libqt-mt.html#CLS-55687-0"
+>Primary vtable for QColorDialog</A
+></DT
+><DT
+>18-530. <A
+HREF="libqt-mt.html#RTTI-59362"
+>typeinfo for QColorDialog</A
+></DT
+><DT
+>18-531. <A
+HREF="libqt-mt.html#CLS-54680-0"
+>Primary vtable for QInputDialog</A
+></DT
+><DT
+>18-532. <A
+HREF="libqt-mt.html#RTTI-58427"
+>typeinfo for QInputDialog</A
+></DT
+><DT
+>18-533. <A
+HREF="libqt-mt.html#CLS-49081-0"
+>Primary vtable for QTabDialog</A
+></DT
+><DT
+>18-534. <A
+HREF="libqt-mt.html#RTTI-53972"
+>typeinfo for QTabDialog</A
+></DT
+><DT
+>18-535. <A
+HREF="libqt-mt.html#CLS-53213-0"
+>Primary vtable for QFileIconProvider</A
+></DT
+><DT
+>18-536. <A
+HREF="libqt-mt.html#RTTI-52043"
+>typeinfo for QFileIconProvider</A
+></DT
+><DT
+>18-537. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-12-INTS"
+>libqt-mt - Qt3 Dialogs Function Interfaces</A
+></DT
+><DT
+>18-538. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-12-DATA"
+>libqt-mt - Qt3 Dialogs Data Interfaces</A
+></DT
+><DT
+>18-539. <A
+HREF="libqt-mt.html#CLS-50852-0"
+>Primary vtable for QTableItem</A
+></DT
+><DT
+>18-540. <A
+HREF="libqt-mt.html#RTTI-58220"
+>typeinfo for QTableItem</A
+></DT
+><DT
+>18-541. <A
+HREF="libqt-mt.html#CLS-55092-0"
+>Primary vtable for QCheckTableItem</A
+></DT
+><DT
+>18-542. <A
+HREF="libqt-mt.html#RTTI-52811"
+>typeinfo for QCheckTableItem</A
+></DT
+><DT
+>18-543. <A
+HREF="libqt-mt.html#CLS-53440-0"
+>Primary vtable for QHeader</A
+></DT
+><DT
+>18-544. <A
+HREF="libqt-mt.html#RTTI-58320"
+>typeinfo for QHeader</A
+></DT
+><DT
+>18-545. <A
+HREF="libqt-mt.html#CLS-58124-0"
+>Primary vtable for QDataTable</A
+></DT
+><DT
+>18-546. <A
+HREF="libqt-mt.html#RTTI-50255"
+>typeinfo for QDataTable</A
+></DT
+><DT
+>18-547. <A
+HREF="libqt-mt.html#CLS-54093-0"
+>Primary vtable for QComboTableItem</A
+></DT
+><DT
+>18-548. <A
+HREF="libqt-mt.html#RTTI-59022"
+>typeinfo for QComboTableItem</A
+></DT
+><DT
+>18-549. <A
+HREF="libqt-mt.html#CLS-60708-0"
+>Primary vtable for QTable</A
+></DT
+><DT
+>18-550. <A
+HREF="libqt-mt.html#RTTI-60432"
+>typeinfo for QTable</A
+></DT
+><DT
+>18-551. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-13-INTS"
+>libqt-mt - Qt3 Tables Function Interfaces</A
+></DT
+><DT
+>18-552. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-13-DATA"
+>libqt-mt - Qt3 Tables Data Interfaces</A
+></DT
+><DT
+>18-553. <A
+HREF="libqt-mt.html#CLS-54975-0"
+>Primary vtable for QGPlugin</A
+></DT
+><DT
+>18-554. <A
+HREF="libqt-mt.html#RTTI-48698"
+>typeinfo for QGPlugin</A
+></DT
+><DT
+>18-555. <A
+HREF="libqt-mt.html#CLS-52227-0"
+>Primary vtable for QStylePlugin</A
+></DT
+><DT
+>18-556. <A
+HREF="libqt-mt.html#RTTI-54503"
+>typeinfo for QStylePlugin</A
+></DT
+><DT
+>18-557. <A
+HREF="libqt-mt.html#CLS-58132-0"
+>Primary vtable for QTextCodecPlugin</A
+></DT
+><DT
+>18-558. <A
+HREF="libqt-mt.html#RTTI-55241"
+>typeinfo for QTextCodecPlugin</A
+></DT
+><DT
+>18-559. <A
+HREF="libqt-mt.html#CLS-56950-0"
+>Primary vtable for QWidgetPlugin</A
+></DT
+><DT
+>18-560. <A
+HREF="libqt-mt.html#RTTI-56526"
+>typeinfo for QWidgetPlugin</A
+></DT
+><DT
+>18-561. <A
+HREF="libqt-mt.html#CLS-55694-0"
+>Primary vtable for QLibrary</A
+></DT
+><DT
+>18-562. <A
+HREF="libqt-mt.html#RTTI-49777"
+>typeinfo for QLibrary</A
+></DT
+><DT
+>18-563. <A
+HREF="libqt-mt.html#CLS-56876-0"
+>Primary vtable for QImageFormatPlugin</A
+></DT
+><DT
+>18-564. <A
+HREF="libqt-mt.html#RTTI-49235"
+>typeinfo for QImageFormatPlugin</A
+></DT
+><DT
+>18-565. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-14-INTS"
+>libqt-mt - Qt3 Plugins Function Interfaces</A
+></DT
+><DT
+>18-566. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-14-DATA"
+>libqt-mt - Qt3 Plugins Data Interfaces</A
+></DT
+><DT
+>18-567. <A
+HREF="libqt-mt.html#CLS-57165-0"
+>Primary vtable for QXmlEntityResolver</A
+></DT
+><DT
+>18-568. <A
+HREF="libqt-mt.html#RTTI-49589"
+>typeinfo for QXmlEntityResolver</A
+></DT
+><DT
+>18-569. <A
+HREF="libqt-mt.html#CLS-55349-0"
+>Primary vtable for QXmlLocator</A
+></DT
+><DT
+>18-570. <A
+HREF="libqt-mt.html#RTTI-52983"
+>typeinfo for QXmlLocator</A
+></DT
+><DT
+>18-571. <A
+HREF="libqt-mt.html#CLS-50374-0"
+>Primary vtable for QDomElement</A
+></DT
+><DT
+>18-572. <A
+HREF="libqt-mt.html#RTTI-52943"
+>typeinfo for QDomElement</A
+></DT
+><DT
+>18-573. <A
+HREF="libqt-mt.html#CLS-54316-0"
+>Primary vtable for QDomImplementation</A
+></DT
+><DT
+>18-574. <A
+HREF="libqt-mt.html#RTTI-49986"
+>typeinfo for QDomImplementation</A
+></DT
+><DT
+>18-575. <A
+HREF="libqt-mt.html#CLS-49013-0"
+>Primary vtable for QDomDocumentType</A
+></DT
+><DT
+>18-576. <A
+HREF="libqt-mt.html#RTTI-51911"
+>typeinfo for QDomDocumentType</A
+></DT
+><DT
+>18-577. <A
+HREF="libqt-mt.html#CLS-50084-0"
+>Primary vtable for QDomDocument</A
+></DT
+><DT
+>18-578. <A
+HREF="libqt-mt.html#RTTI-58467"
+>typeinfo for QDomDocument</A
+></DT
+><DT
+>18-579. <A
+HREF="libqt-mt.html#CLS-52945-0"
+>Primary vtable for QDomAttr</A
+></DT
+><DT
+>18-580. <A
+HREF="libqt-mt.html#RTTI-59175"
+>typeinfo for QDomAttr</A
+></DT
+><DT
+>18-581. <A
+HREF="libqt-mt.html#CLS-49268-0"
+>Primary vtable for QDomNodeList</A
+></DT
+><DT
+>18-582. <A
+HREF="libqt-mt.html#RTTI-57706"
+>typeinfo for QDomNodeList</A
+></DT
+><DT
+>18-583. <A
+HREF="libqt-mt.html#CLS-55725-0"
+>Primary vtable for QXmlReader</A
+></DT
+><DT
+>18-584. <A
+HREF="libqt-mt.html#RTTI-51278"
+>typeinfo for QXmlReader</A
+></DT
+><DT
+>18-585. <A
+HREF="libqt-mt.html#CLS-57088-0"
+>Primary vtable for QDomEntity</A
+></DT
+><DT
+>18-586. <A
+HREF="libqt-mt.html#RTTI-52444"
+>typeinfo for QDomEntity</A
+></DT
+><DT
+>18-587. <A
+HREF="libqt-mt.html#CLS-56761-0"
+>Primary vtable for QXmlDeclHandler</A
+></DT
+><DT
+>18-588. <A
+HREF="libqt-mt.html#RTTI-60234"
+>typeinfo for QXmlDeclHandler</A
+></DT
+><DT
+>18-589. <A
+HREF="libqt-mt.html#CLS-52332-0"
+>Primary vtable for QDomNode</A
+></DT
+><DT
+>18-590. <A
+HREF="libqt-mt.html#RTTI-58502"
+>typeinfo for QDomNode</A
+></DT
+><DT
+>18-591. <A
+HREF="libqt-mt.html#CLS-60401-0"
+>Primary vtable for QDomText</A
+></DT
+><DT
+>18-592. <A
+HREF="libqt-mt.html#RTTI-54276"
+>typeinfo for QDomText</A
+></DT
+><DT
+>18-593. <A
+HREF="libqt-mt.html#CLS-58013-0"
+>Primary vtable for QDomCharacterData</A
+></DT
+><DT
+>18-594. <A
+HREF="libqt-mt.html#RTTI-56157"
+>typeinfo for QDomCharacterData</A
+></DT
+><DT
+>18-595. <A
+HREF="libqt-mt.html#CLS-55991-0"
+>Primary vtable for QDomComment</A
+></DT
+><DT
+>18-596. <A
+HREF="libqt-mt.html#RTTI-58507"
+>typeinfo for QDomComment</A
+></DT
+><DT
+>18-597. <A
+HREF="libqt-mt.html#CLS-55832-0"
+>Primary vtable for QXmlDefaultHandler</A
+></DT
+><DT
+>18-598. <A
+HREF="libqt-mt.html#RTTI-60414"
+>typeinfo for QXmlDefaultHandler</A
+></DT
+><DT
+>18-599. <A
+HREF="libqt-mt.html#CLS-53382-0"
+>Primary vtable for QDomNotation</A
+></DT
+><DT
+>18-600. <A
+HREF="libqt-mt.html#RTTI-57250"
+>typeinfo for QDomNotation</A
+></DT
+><DT
+>18-601. <A
+HREF="libqt-mt.html#CLS-49109-0"
+>Primary vtable for QXmlSimpleReader</A
+></DT
+><DT
+>18-602. <A
+HREF="libqt-mt.html#RTTI-52406"
+>typeinfo for QXmlSimpleReader</A
+></DT
+><DT
+>18-603. <A
+HREF="libqt-mt.html#CLS-53171-0"
+>Primary vtable for QXmlLexicalHandler</A
+></DT
+><DT
+>18-604. <A
+HREF="libqt-mt.html#RTTI-60711"
+>typeinfo for QXmlLexicalHandler</A
+></DT
+><DT
+>18-605. <A
+HREF="libqt-mt.html#CLS-57360-0"
+>Primary vtable for QXmlAttributes</A
+></DT
+><DT
+>18-606. <A
+HREF="libqt-mt.html#RTTI-51414"
+>typeinfo for QXmlAttributes</A
+></DT
+><DT
+>18-607. <A
+HREF="libqt-mt.html#CLS-56607-0"
+>Primary vtable for QDomProcessingInstruction</A
+></DT
+><DT
+>18-608. <A
+HREF="libqt-mt.html#RTTI-51757"
+>typeinfo for QDomProcessingInstruction</A
+></DT
+><DT
+>18-609. <A
+HREF="libqt-mt.html#CLS-50885-0"
+>Primary vtable for QXmlContentHandler</A
+></DT
+><DT
+>18-610. <A
+HREF="libqt-mt.html#RTTI-58523"
+>typeinfo for QXmlContentHandler</A
+></DT
+><DT
+>18-611. <A
+HREF="libqt-mt.html#CLS-53476-0"
+>Primary vtable for QDomEntityReference</A
+></DT
+><DT
+>18-612. <A
+HREF="libqt-mt.html#RTTI-57782"
+>typeinfo for QDomEntityReference</A
+></DT
+><DT
+>18-613. <A
+HREF="libqt-mt.html#CLS-53150-0"
+>Primary vtable for QDomCDATASection</A
+></DT
+><DT
+>18-614. <A
+HREF="libqt-mt.html#RTTI-56515"
+>typeinfo for QDomCDATASection</A
+></DT
+><DT
+>18-615. <A
+HREF="libqt-mt.html#CLS-51902-0"
+>Primary vtable for QXmlDTDHandler</A
+></DT
+><DT
+>18-616. <A
+HREF="libqt-mt.html#RTTI-60484"
+>typeinfo for QXmlDTDHandler</A
+></DT
+><DT
+>18-617. <A
+HREF="libqt-mt.html#CLS-54821-0"
+>Primary vtable for QXmlInputSource</A
+></DT
+><DT
+>18-618. <A
+HREF="libqt-mt.html#RTTI-50809"
+>typeinfo for QXmlInputSource</A
+></DT
+><DT
+>18-619. <A
+HREF="libqt-mt.html#CLS-51850-0"
+>Primary vtable for QXmlErrorHandler</A
+></DT
+><DT
+>18-620. <A
+HREF="libqt-mt.html#RTTI-49005"
+>typeinfo for QXmlErrorHandler</A
+></DT
+><DT
+>18-621. <A
+HREF="libqt-mt.html#CLS-58424-0"
+>Primary vtable for QDomDocumentFragment</A
+></DT
+><DT
+>18-622. <A
+HREF="libqt-mt.html#RTTI-52837"
+>typeinfo for QDomDocumentFragment</A
+></DT
+><DT
+>18-623. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-X-INTS"
+>libqt-mt - Qt3 XML Function Interfaces</A
+></DT
+><DT
+>18-624. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-X-DATA"
+>libqt-mt - Qt3 XML Data Interfaces</A
+></DT
+><DT
+>18-625. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-15-DATA"
+>libqt-mt - Qt3 Namespace Data Interfaces</A
+></DT
+><DT
+>18-626. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-16-INTS"
+>libqt-mt - Qt3 Colors Function Interfaces</A
+></DT
+><DT
+>18-627. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-16-DATA"
+>libqt-mt - Qt3 Colors Data Interfaces</A
+></DT
+><DT
+>18-628. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-F-INTS"
+>libqt-mt - Qt3 Fonts Function Interfaces</A
+></DT
+><DT
+>18-629. <A
+HREF="libqt-mt.html#CLS-57751-0"
+>Primary vtable for QIconSet</A
+></DT
+><DT
+>18-630. <A
+HREF="libqt-mt.html#RTTI-51759"
+>typeinfo for QIconSet</A
+></DT
+><DT
+>18-631. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-2-INTS"
+>libqt-mt - Qt3 2D Graphics Function Interfaces</A
+></DT
+><DT
+>18-632. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-2-DATA"
+>libqt-mt - Qt3 2D Graphics Data Interfaces</A
+></DT
+><DT
+>18-633. <A
+HREF="libqt-mt.html#CLS-59957-0"
+>Primary vtable for QRegExpValidator</A
+></DT
+><DT
+>18-634. <A
+HREF="libqt-mt.html#RTTI-57374"
+>typeinfo for QRegExpValidator</A
+></DT
+><DT
+>18-635. <A
+HREF="libqt-mt.html#CLS-60640-0"
+>Primary vtable for QIntValidator</A
+></DT
+><DT
+>18-636. <A
+HREF="libqt-mt.html#RTTI-48846"
+>typeinfo for QIntValidator</A
+></DT
+><DT
+>18-637. <A
+HREF="libqt-mt.html#CLS-49395-0"
+>Primary vtable for QValidator</A
+></DT
+><DT
+>18-638. <A
+HREF="libqt-mt.html#RTTI-54073"
+>typeinfo for QValidator</A
+></DT
+><DT
+>18-639. <A
+HREF="libqt-mt.html#CLS-59102-0"
+>Primary vtable for QDoubleValidator</A
+></DT
+><DT
+>18-640. <A
+HREF="libqt-mt.html#RTTI-56100"
+>typeinfo for QDoubleValidator</A
+></DT
+><DT
+>18-641. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-V-INTS"
+>libqt-mt - Qt3 Validators Function Interfaces</A
+></DT
+><DT
+>18-642. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-QT3-V-DATA"
+>libqt-mt - Qt3 Validators Data Interfaces</A
+></DT
+><DT
+>18-643. <A
+HREF="libqt-mt.html#CLS-49910-0"
+>Primary vtable for QGVector</A
+></DT
+><DT
+>18-644. <A
+HREF="libqt-mt.html#RTTI-55869"
+>typeinfo for QGVector</A
+></DT
+><DT
+>18-645. <A
+HREF="libqt-mt.html#CLS-60488-0"
+>Primary vtable for QGList</A
+></DT
+><DT
+>18-646. <A
+HREF="libqt-mt.html#RTTI-60059"
+>typeinfo for QGList</A
+></DT
+><DT
+>18-647. <A
+HREF="libqt-mt.html#CLS-53878-0"
+>Primary vtable for QPolygonScanner</A
+></DT
+><DT
+>18-648. <A
+HREF="libqt-mt.html#RTTI-58836"
+>typeinfo for QPolygonScanner</A
+></DT
+><DT
+>18-649. <A
+HREF="libqt-mt.html#CLS-59369-0"
+>Primary vtable for QGCache</A
+></DT
+><DT
+>18-650. <A
+HREF="libqt-mt.html#RTTI-51406"
+>typeinfo for QGCache</A
+></DT
+><DT
+>18-651. <A
+HREF="libqt-mt.html#CLS-53381-0"
+>Primary vtable for QGArray</A
+></DT
+><DT
+>18-652. <A
+HREF="libqt-mt.html#RTTI-57538"
+>typeinfo for QGArray</A
+></DT
+><DT
+>18-653. <A
+HREF="libqt-mt.html#CLS-61099-0"
+>Primary vtable for QSignalVec</A
+></DT
+><DT
+>18-654. <A
+HREF="libqt-mt.html#RTTI-61100"
+>typeinfo for QSignalVec</A
+></DT
+><DT
+>18-655. <A
+HREF="libqt-mt.html#CLS-53407-0"
+>Primary vtable for QGDict</A
+></DT
+><DT
+>18-656. <A
+HREF="libqt-mt.html#RTTI-53716"
+>typeinfo for QGDict</A
+></DT
+><DT
+>18-657. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-17-INTS"
+>libqt-mt - Qt3 Internals Function Interfaces</A
+></DT
+><DT
+>18-658. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-17-DATA"
+>libqt-mt - Qt3 Internals Data Interfaces</A
+></DT
+><DT
+>18-659. <A
+HREF="libqt-mt.html#CLS-49554-0"
+>Primary vtable for QRangeControl</A
+></DT
+><DT
+>18-660. <A
+HREF="libqt-mt.html#RTTI-48730"
+>typeinfo for QRangeControl</A
+></DT
+><DT
+>18-661. <A
+HREF="libqt-mt.html#CLS-50960-0"
+>Primary vtable for QSplashScreen</A
+></DT
+><DT
+>18-662. <A
+HREF="libqt-mt.html#RTTI-50562"
+>typeinfo for QSplashScreen</A
+></DT
+><DT
+>18-663. <A
+HREF="libqt-mt.html#CLS-55154-0"
+>Primary vtable for QAccel</A
+></DT
+><DT
+>18-664. <A
+HREF="libqt-mt.html#RTTI-54715"
+>typeinfo for QAccel</A
+></DT
+><DT
+>18-665. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-18-INTS"
+>libqt-mt - Qt3 Miscellaneous Function Interfaces</A
+></DT
+><DT
+>18-666. <A
+HREF="libqt-mt.html#TBL-LIBQT-MT-18-DATA"
+>libqt-mt - Qt3 Miscellaneous Data Interfaces</A
+></DT
+><DT
+>19-1. <A
+HREF="xmllibxml2.html#LIB-LIBXML2-DEF"
+>libxml2 Definition</A
+></DT
+><DT
+>19-2. <A
+HREF="xmllibxml2.html#TBL-LIBXML2-THE-X-INTS"
+>libxml2 - The XML C parser and toolkit for XML processing Function Interfaces</A
+></DT
+><DT
+>19-3. <A
+HREF="xmllibxml2.html#TBL-LIBXML2-THE-X-DATA"
+>libxml2 - The XML C parser and toolkit for XML processing Data Interfaces</A
+></DT
+><DT
+>20-1. <A
+HREF="asoundlibasound.html#LIB-LIBASOUND-DEF"
+>libasound Definition</A
+></DT
+><DT
+>20-2. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-ALSA-INTS"
+>libasound - ALSA Configuration Interface Function Interfaces</A
+></DT
+><DT
+>20-3. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-ALSA-DATA"
+>libasound - ALSA Configuration Interface Data Interfaces</A
+></DT
+><DT
+>20-4. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-1-INTS"
+>libasound - ALSA Control Interface Function Interfaces</A
+></DT
+><DT
+>20-5. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-2-INTS"
+>libasound - ALSA Global defines and functions Function Interfaces</A
+></DT
+><DT
+>20-6. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-3-INTS"
+>libasound - ALSA Hardware Dependant Interface Function Interfaces</A
+></DT
+><DT
+>20-7. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-4-INTS"
+>libasound - ALSA High level Control Interface Function Interfaces</A
+></DT
+><DT
+>20-8. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-5-INTS"
+>libasound - ALSA Input Interface Function Interfaces</A
+></DT
+><DT
+>20-9. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-6-INTS"
+>libasound - ALSA MIDI Sequencer Function Interfaces</A
+></DT
+><DT
+>20-10. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-7-INTS"
+>libasound - ALSA Mixer Interface Function Interfaces</A
+></DT
+><DT
+>20-11. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-8-INTS"
+>libasound - ALSA Output Interface Function Interfaces</A
+></DT
+><DT
+>20-12. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-9-INTS"
+>libasound - ALSA PCM Interface - General Functions Function Interfaces</A
+></DT
+><DT
+>20-13. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-9-DEPINTS"
+>libasound - ALSA PCM Interface - General Functions Deprecated Function Interfaces</A
+></DT
+><DT
+>20-14. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-10-INTS"
+>libasound - ALSA PCM Interface - Access Mask Functions Function Interfaces</A
+></DT
+><DT
+>20-15. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-11-INTS"
+>libasound - ALSA PCM Interface - Debug Functions Function Interfaces</A
+></DT
+><DT
+>20-16. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-12-INTS"
+>libasound - ALSA PCM Interface - Description Functions Function Interfaces</A
+></DT
+><DT
+>20-17. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-13-INTS"
+>libasound - ALSA PCM Interface - Direct Access (MMAP) Functions Function Interfaces</A
+></DT
+><DT
+>20-18. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-14-INTS"
+>libasound - ALSA PCM Interface - Format Mask Functions Function Interfaces</A
+></DT
+><DT
+>20-19. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-15-INTS"
+>libasound - ALSA PCM Interface - Hardware Parameters Function Interfaces</A
+></DT
+><DT
+>20-20. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-16-INTS"
+>libasound - ALSA PCM Interface - Helper Functions Function Interfaces</A
+></DT
+><DT
+>20-21. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-17-INTS"
+>libasound - ALSA PCM Interface - Software Parameters Function Interfaces</A
+></DT
+><DT
+>20-22. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-17-DEPINTS"
+>libasound - ALSA PCM Interface - Software Parameters Deprecated Function Interfaces</A
+></DT
+><DT
+>20-23. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-18-INTS"
+>libasound - ALSA PCM Interface - Status Functions Function Interfaces</A
+></DT
+><DT
+>20-24. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-19-INTS"
+>libasound - ALSA PCM Interface - Stream Information Function Interfaces</A
+></DT
+><DT
+>20-25. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-20-DATA"
+>libasound - ALSA Sequencer Event Type Checks Data Interfaces</A
+></DT
+><DT
+>20-26. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-21-INTS"
+>libasound - ALSA Error Handling Function Interfaces</A
+></DT
+><DT
+>20-27. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-22-INTS"
+>libasound - ALSA RawMidi Interface Function Interfaces</A
+></DT
+><DT
+>20-28. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-23-INTS"
+>libasound - ALSA Sequencer Client Interface Function Interfaces</A
+></DT
+><DT
+>20-29. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-24-INTS"
+>libasound - ALSA Sequencer Event API Function Interfaces</A
+></DT
+><DT
+>20-30. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-24-DEPINTS"
+>libasound - ALSA Sequencer Event API Deprecated Function Interfaces</A
+></DT
+><DT
+>20-31. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-25-INTS"
+>libasound - ALSA Sequencer Middle Level Interface Function Interfaces</A
+></DT
+><DT
+>20-32. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-26-INTS"
+>libasound - ALSA Sequencer Port Interface Function Interfaces</A
+></DT
+><DT
+>20-33. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-27-INTS"
+>libasound - ALSA Sequencer Port Subscription Function Interfaces</A
+></DT
+><DT
+>20-34. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-28-INTS"
+>libasound - ALSA Sequencer Queue Interface Function Interfaces</A
+></DT
+><DT
+>20-35. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-29-INTS"
+>libasound - ALSA Sequencer event - MIDI byte stream coder Function Interfaces</A
+></DT
+><DT
+>20-36. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-30-INTS"
+>libasound - ALSA Simple Mixer Interface Function Interfaces</A
+></DT
+><DT
+>20-37. <A
+HREF="asoundlibasound.html#TBL-LIBASOUND-31-INTS"
+>libasound - ALSA Timer Interface Function Interfaces</A
+></DT
+><DT
+>22-1. <A
+HREF="deskcmd.html#XDG-CMDS"
+>Commands And Utilities</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="overview.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Foreword</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

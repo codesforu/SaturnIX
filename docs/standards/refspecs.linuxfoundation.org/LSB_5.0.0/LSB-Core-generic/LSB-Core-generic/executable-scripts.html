@@ -1,0 +1,392 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Executable Scripts</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Additional Behaviors"
+HREF="execenv-addntl-bhvr.html"><LINK
+REL="PREVIOUS"
+TITLE="Optional Mandatory Behaviors"
+HREF="exec-opt-mandatory.html"><LINK
+REL="NEXT"
+TITLE="Localization"
+HREF="localization.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="exec-opt-mandatory.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 20. Additional Behaviors</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="localization.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="EXECUTABLE-SCRIPTS"
+>20.3. Executable Scripts</A
+></H1
+><P
+>An executable script is an executable file of which the first two
+characters are <TT
+CLASS="LITERAL"
+>#!</TT
+> as defined in the portable character
+set. In <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>, this construct is undefined, but
+reserved for implementations which wish to provide this functionality.
+LSB conforming implementations shall support executable scripts.</P
+><P
+>A successful call to a function of the exec family with an executable
+script as the first parameter shall result in a new process, where the
+process image started is that of the interpreter. The path name of the
+interpreter follows the <TT
+CLASS="LITERAL"
+>#!</TT
+> characters.</P
+><P
+>If the executable script has a first line
+<DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN61299"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#! interpreter [arg]</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+>
+then <TT
+CLASS="PARAMETER"
+><I
+>interpreter</I
+></TT
+> shall be called with an
+argument array consisting of an unspecified zeroth argument, followed
+by <TT
+CLASS="PARAMETER"
+><I
+>arg</I
+></TT
+> (if present), followed by a path name for
+the script, followed by the arguments following the zeroth argument in
+the exec call of the script.</P
+><P
+>The interpreter shall not perform any operations on the first line of
+an executable script.</P
+><P
+>The first line of the executable script shall meet all of the following
+criteria otherwise the results are unspecified:</P
+><P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Is of one of the forms:
+<DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN61309"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>#!interpreter
+#! interpreter
+#!interpreter arg
+#! interpreter arg</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></P
+></LI
+><LI
+><P
+>The <TT
+CLASS="PARAMETER"
+><I
+>interpreter</I
+></TT
+> argument is an absolute pathname
+of an executable file other than an executable script.</P
+></LI
+><LI
+><P
+>Neither the <TT
+CLASS="PARAMETER"
+><I
+>interpreter</I
+></TT
+> argument nor the
+<TT
+CLASS="PARAMETER"
+><I
+>arg</I
+></TT
+> argument, if present, contain any quoting
+characters.</P
+></LI
+><LI
+><P
+>Neither the <TT
+CLASS="PARAMETER"
+><I
+>interpreter</I
+></TT
+> argument nor the
+<TT
+CLASS="PARAMETER"
+><I
+>arg</I
+></TT
+> argument, if present, contain any whitespace
+characters.</P
+></LI
+><LI
+><P
+>The length of the entire line is no longer than 80 bytes.</P
+></LI
+></OL
+></P
+><P
+>If the interpreter is required by this specification to be in a
+specfic named directory, a conforming application must use that
+path for <TT
+CLASS="PARAMETER"
+><I
+>interpreter</I
+></TT
+>, as implementations are
+not prohibited from having other, possibly non-conforming, versions
+of the same interpreter installed on the system.  If the interpreter
+is a required command in this specification, but does not have a
+required path, the application should take special measures to
+insure the appropriate version is selected.  If the interpreter is
+not a required command in this specification, the application must
+make appropriate provisions that the interpreter is available at
+the appropriate path.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>In case the path is not specified, it is recommended that an installation
+script for executable scripts use the standard <CODE
+CLASS="ENVAR"
+>PATH</CODE
+>
+returned by a call to the <B
+CLASS="COMMAND"
+>getconf</B
+> command with the
+argument <TT
+CLASS="PARAMETER"
+><I
+>PATH</I
+></TT
+>, combined with the 
+<B
+CLASS="COMMAND"
+>command</B
+> command to determine the location of a
+standard command.</P
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+>For example to determine the location of the standard <B
+CLASS="COMMAND"
+>awk</B
+>
+command:
+<DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN61334"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>PATH=`getconf PATH` command -v awk</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></P
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+>The installation script should ensure that the returned
+pathname is an absolute pathname prior to use, since a shell builtin 
+might be returned for some utilities.</P
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+>Use of the common form <TT
+CLASS="LITERAL"
+>#!/usr/bin/env interpreter</TT
+>
+is not recommended as the <CODE
+CLASS="ENVAR"
+>PATH</CODE
+> will be unknown at execution
+time and an alternative version of <TT
+CLASS="PARAMETER"
+><I
+>interpreter</I
+></TT
+>
+might be selected.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="exec-opt-mandatory.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="localization.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Optional Mandatory Behaviors</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="execenv-addntl-bhvr.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Localization</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

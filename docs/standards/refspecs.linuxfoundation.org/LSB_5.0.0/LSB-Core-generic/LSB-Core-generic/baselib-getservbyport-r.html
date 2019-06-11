@@ -1,0 +1,344 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>getservbyport_r</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="getservbyname_r"
+HREF="baselib-getservbyname-r.html"><LINK
+REL="NEXT"
+TITLE="getservent_r"
+HREF="baselib-getservent-r.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-getservbyname-r.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-getservent-r.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-GETSERVBYPORT-R"
+></A
+>getservbyport_r</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN16113"
+></A
+><H2
+>Name</H2
+>getservbyport_r&nbsp;--&nbsp;retrieve information from the network services database by service port, reentrantly</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN16116"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN16119"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;netdb.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+  <TT
+CLASS="FUNCTION"
+>getservbyport_r</TT
+></CODE
+>(int
+  <TT
+CLASS="PARAMETER"
+><I
+>port</I
+></TT
+>, const char *
+  <TT
+CLASS="PARAMETER"
+><I
+>proto</I
+></TT
+>, struct servent *
+  <TT
+CLASS="PARAMETER"
+><I
+>result_buf</I
+></TT
+>, char *
+  <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>, size_t
+  <TT
+CLASS="PARAMETER"
+><I
+>buflen</I
+></TT
+>, struct servent * *
+  <TT
+CLASS="PARAMETER"
+><I
+>result</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16136"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>getservbyport_r()</TT
+> function is a reentrant version 
+of the <TT
+CLASS="FUNCTION"
+>getservbyport()</TT
+> function.</P
+><P
+>The <TT
+CLASS="FUNCTION"
+>getservbyport_r()</TT
+> function shall search the network services database
+for an entry with the port <TT
+CLASS="PARAMETER"
+><I
+>port</I
+></TT
+>.
+The <TT
+CLASS="PARAMETER"
+><I
+>proto</I
+></TT
+> parameter 
+shall restrict the search to entries with the specified protocol. 
+If <TT
+CLASS="PARAMETER"
+><I
+>proto</I
+></TT
+> is <TT
+CLASS="LITERAL"
+>NULL</TT
+>, 
+<TT
+CLASS="FUNCTION"
+>getservbyport_r()</TT
+> may return entries with any protocol.</P
+><P
+>If a matching entry is found in the database, this function shall
+copy the relevant information to the application-supplied <TT
+CLASS="STRUCTNAME"
+>servent</TT
+> structure referenced by 
+<TT
+CLASS="PARAMETER"
+><I
+>result_buf</I
+></TT
+>, and return a pointer to this structure in *<TT
+CLASS="PARAMETER"
+><I
+>result</I
+></TT
+>.
+If no matching entry is found, *<TT
+CLASS="PARAMETER"
+><I
+>result</I
+></TT
+> shall be set to a null pointer.</P
+><P
+>The array <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+> shall contain the string fields 
+referenced by the <TT
+CLASS="STRUCTNAME"
+>servent</TT
+> structure that
+was returned. The parameter <TT
+CLASS="PARAMETER"
+><I
+>buflen</I
+></TT
+> 
+shall specify the array's size. 1024 bytes should be enough
+for most uses.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16157"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, the <TT
+CLASS="FUNCTION"
+>getservbyport_r()</TT
+> function shall return zero. If the 
+return value was 
+<SPAN
+CLASS="ERRORCODE"
+>ERANGE</SPAN
+>,
+the size of the buffer <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>, indicated by <TT
+CLASS="PARAMETER"
+><I
+>buflen</I
+></TT
+>, was too small.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-getservbyname-r.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-getservent-r.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>getservbyname_r</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>getservent_r</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

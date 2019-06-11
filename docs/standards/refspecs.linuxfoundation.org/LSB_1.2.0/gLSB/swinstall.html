@@ -1,0 +1,274 @@
+<HTML
+><HEAD
+><TITLE
+>Software Installation</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Package Format and Installation"
+HREF="packagefmt.html"><LINK
+REL="PREVIOUS"
+TITLE="Package Format and Installation"
+HREF="packagefmt.html"><LINK
+REL="NEXT"
+TITLE="Package Tools"
+HREF="pkgtools.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="packagefmt.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="pkgtools.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="SWINSTALL">Chapter 14. Software Installation</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="swinstall.html#PKGFORMAT"
+>Package Format</A
+></DT
+><DT
+><A
+HREF="pkgtools.html"
+>Package Tools</A
+></DT
+><DT
+><A
+HREF="pkgnameconv.html"
+>Package Naming</A
+></DT
+><DT
+><A
+HREF="pkgdepend.html"
+>Package Dependencies</A
+></DT
+><DT
+><A
+HREF="pkgarchcon.html"
+>Package Architecture Considerations</A
+></DT
+></DL
+></DIV
+><P
+></P
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="PKGFORMAT">Package Format</H1
+><P
+>Applications should be provided in the RPM packaging format
+as defined in the
+<A
+HREF="http://www.rpm.org/max-rpm/s1-rpm-file-format-rpm-file-format.html"
+TARGET="_top"
+>appendix</A
+> of the 1997 edition of
+<A
+HREF="http://www.rpm.org/max-rpm/"
+TARGET="_top"
+>Maximum RPM</A
+>,
+with some restrictions listed below.
+<A
+NAME="PKG-1"
+HREF="#FTN.PKG-1"
+>[1]</A
+></P
+><P
+>Distributions must provide a mechanism for installing applications in
+this packaging format with some restrictions listed
+below.
+<A
+NAME="PKG-2"
+HREF="#FTN.PKG-2"
+>[2]</A
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN12969">Package Script Restrictions</H2
+><P
+>Scripts used as part of the package install and uninstall may only use
+commands and interfaces that are specified by the LSB. All other commands are
+not guaranteed to be present, or to behave in expected ways.</P
+><P
+>Packages may not use RPM triggers.</P
+><P
+>Packages may not depend on the order in which scripts are executed
+(pre-install, pre-uninstall, &amp;c), when doing an upgrade.</P
+></DIV
+></DIV
+></DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.PKG-1"
+HREF="swinstall.html#PKG-1"
+>[1]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>Some versions of RPM may produce packages which contain extensions or 
+modifications to the RPM package format beyond what has been documented 
+in the appendix of the Maximum RPM book.  An LSB-conformant package must 
+not contain any of these extensions, in order to assure interoperability
+with the largest number of versions of RPM and packaging systems which
+understand how to import RPM format packages.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.PKG-2"
+HREF="swinstall.html#PKG-2"
+>[2]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>The distribution itself may use a different packaging format for its
+own packages, and of course it may use any available mechanism for 
+installing the LSB-conformant packages.</P
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="packagefmt.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="pkgtools.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Package Format and Installation</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="packagefmt.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Package Tools</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

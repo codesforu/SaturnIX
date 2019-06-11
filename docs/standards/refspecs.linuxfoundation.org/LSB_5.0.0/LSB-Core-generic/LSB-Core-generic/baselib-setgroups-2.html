@@ -1,0 +1,373 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>setgroups</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="setbuffer"
+HREF="baselib-setbuffer-3.html"><LINK
+REL="NEXT"
+TITLE="sethostname"
+HREF="baselib-sethostname-2.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-setbuffer-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-sethostname-2.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-SETGROUPS-2"
+></A
+>setgroups</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN19252"
+></A
+><H2
+>Name</H2
+>setgroups&nbsp;--&nbsp;set list of supplementary group IDs</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN19255"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN19256"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;grp.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int 
+  <TT
+CLASS="FUNCTION"
+>setgroups</TT
+></CODE
+>(size_t 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>size</I
+></TT
+></I
+></TT
+>, const gid_t *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>list</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19267"
+></A
+><H2
+>Description</H2
+><P
+>If the process has appropriate privilege,
+the <TT
+CLASS="FUNCTION"
+>setgroups()</TT
+> function shall set
+the supplementary group IDs for 
+the current process. <TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+> shall reference
+an array of <TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+> group IDs. A process
+may have at most <CODE
+CLASS="CONSTANT"
+>NGROUPS_MAX</CODE
+> supplementary
+group IDs.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19274"
+></A
+><H2
+>Return Value</H2
+><P
+>On successful completion, <SPAN
+CLASS="RETURNVALUE"
+>0</SPAN
+> is returned. 
+On error, <SPAN
+CLASS="RETURNVALUE"
+>-1</SPAN
+> is returned and
+the <CODE
+CLASS="VARNAME"
+>errno</CODE
+> is set to indicate the error.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19280"
+></A
+><H2
+>Errors</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19283"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><SPAN
+CLASS="ERRORCODE"
+>EFAULT</SPAN
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>list</I
+></TT
+> has an invalid address.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19289"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><SPAN
+CLASS="ERRORCODE"
+>EPERM</SPAN
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The process does not have appropriate privileges.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19294"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><SPAN
+CLASS="ERRORCODE"
+>EINVAL</SPAN
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>size</I
+></TT
+> is greater than <CODE
+CLASS="VARNAME"
+>NGROUPS_MAX</CODE
+>.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-setbuffer-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-sethostname-2.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>setbuffer</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>sethostname</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

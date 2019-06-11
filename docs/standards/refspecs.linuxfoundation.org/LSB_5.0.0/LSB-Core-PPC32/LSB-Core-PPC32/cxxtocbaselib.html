@@ -1,0 +1,947 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Base Libraries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for PPC32"
+HREF="book1.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libutil"
+HREF="libutil.html"><LINK
+REL="NEXT"
+TITLE="Libraries"
+HREF="cxxbaselib.html"></HEAD
+><BODY
+CLASS="PART"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for PPC32</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libutil.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="cxxbaselib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="CXXTOCBASELIB"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>V. Base Libraries</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>12. <A
+HREF="cxxbaselib.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>12.1. <A
+HREF="cxxbaselib.html#LIBSTDCXX"
+>Interfaces for libstdcxx</A
+></DT
+><DD
+><DL
+><DT
+>12.1.1. <A
+HREF="cxxbaselib.html#AEN9939"
+>C++ Runtime Support</A
+></DT
+><DT
+>12.1.2. <A
+HREF="cxxbaselib.html#AEN9970"
+>C++ type descriptors for built-in types</A
+></DT
+><DT
+>12.1.3. <A
+HREF="cxxbaselib.html#AEN9976"
+>C++ _Rb_tree</A
+></DT
+><DT
+>12.1.4. <A
+HREF="cxxbaselib.html#AEN9982"
+>Class type_info</A
+></DT
+><DT
+>12.1.5. <A
+HREF="cxxbaselib.html#AEN10008"
+>Class __cxxabiv1::__enum_type_info</A
+></DT
+><DT
+>12.1.6. <A
+HREF="cxxbaselib.html#AEN10034"
+>Class __cxxabiv1::__array_type_info</A
+></DT
+><DT
+>12.1.7. <A
+HREF="cxxbaselib.html#AEN10060"
+>Class __cxxabiv1::__class_type_info</A
+></DT
+><DT
+>12.1.8. <A
+HREF="cxxbaselib.html#AEN10162"
+>Class __cxxabiv1::__pbase_type_info</A
+></DT
+><DT
+>12.1.9. <A
+HREF="cxxbaselib.html#AEN10188"
+>Class __cxxabiv1::__pointer_type_info</A
+></DT
+><DT
+>12.1.10. <A
+HREF="cxxbaselib.html#AEN10214"
+>Class __cxxabiv1::__function_type_info</A
+></DT
+><DT
+>12.1.11. <A
+HREF="cxxbaselib.html#AEN10240"
+>Class __cxxabiv1::__si_class_type_info</A
+></DT
+><DT
+>12.1.12. <A
+HREF="cxxbaselib.html#AEN10342"
+>Class __cxxabiv1::__vmi_class_type_info</A
+></DT
+><DT
+>12.1.13. <A
+HREF="cxxbaselib.html#AEN10444"
+>Class __cxxabiv1::__fundamental_type_info</A
+></DT
+><DT
+>12.1.14. <A
+HREF="cxxbaselib.html#AEN10470"
+>Class __cxxabiv1::__pointer_to_member_type_info</A
+></DT
+><DT
+>12.1.15. <A
+HREF="cxxbaselib.html#AEN10496"
+>Class __gnu_cxx::stdio_filebuf&#60;char, char_traits&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.16. <A
+HREF="cxxbaselib.html#AEN10502"
+>Class __gnu_cxx::stdio_filebuf&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.17. <A
+HREF="cxxbaselib.html#AEN10508"
+>Class __gnu_cxx::__pool_alloc_base</A
+></DT
+><DT
+>12.1.18. <A
+HREF="cxxbaselib.html#AEN10529"
+>Class __gnu_cxx::stdio_sync_filebuf&#60;char, char_traits&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.19. <A
+HREF="cxxbaselib.html#AEN10625"
+>Class __gnu_cxx::stdio_sync_filebuf&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.20. <A
+HREF="cxxbaselib.html#AEN10721"
+>Class exception</A
+></DT
+><DT
+>12.1.21. <A
+HREF="cxxbaselib.html#AEN10747"
+>Class bad_typeid</A
+></DT
+><DT
+>12.1.22. <A
+HREF="cxxbaselib.html#AEN10773"
+>Class logic_error</A
+></DT
+><DT
+>12.1.23. <A
+HREF="cxxbaselib.html#AEN10799"
+>Class range_error</A
+></DT
+><DT
+>12.1.24. <A
+HREF="cxxbaselib.html#AEN10825"
+>Class domain_error</A
+></DT
+><DT
+>12.1.25. <A
+HREF="cxxbaselib.html#AEN10851"
+>Class length_error</A
+></DT
+><DT
+>12.1.26. <A
+HREF="cxxbaselib.html#AEN10877"
+>Class out_of_range</A
+></DT
+><DT
+>12.1.27. <A
+HREF="cxxbaselib.html#AEN10903"
+>Class bad_exception</A
+></DT
+><DT
+>12.1.28. <A
+HREF="cxxbaselib.html#AEN10929"
+>Class runtime_error</A
+></DT
+><DT
+>12.1.29. <A
+HREF="cxxbaselib.html#AEN10955"
+>Class overflow_error</A
+></DT
+><DT
+>12.1.30. <A
+HREF="cxxbaselib.html#AEN10981"
+>Class underflow_error</A
+></DT
+><DT
+>12.1.31. <A
+HREF="cxxbaselib.html#AEN11007"
+>Class invalid_argument</A
+></DT
+><DT
+>12.1.32. <A
+HREF="cxxbaselib.html#AEN11033"
+>Class bad_cast</A
+></DT
+><DT
+>12.1.33. <A
+HREF="cxxbaselib.html#AEN11059"
+>Class bad_alloc</A
+></DT
+><DT
+>12.1.34. <A
+HREF="cxxbaselib.html#AEN11085"
+>struct __numeric_limits_base</A
+></DT
+><DT
+>12.1.35. <A
+HREF="cxxbaselib.html#AEN11091"
+>struct numeric_limits&#60;long double&#62;</A
+></DT
+><DT
+>12.1.36. <A
+HREF="cxxbaselib.html#AEN11097"
+>struct numeric_limits&#60;long long&#62;</A
+></DT
+><DT
+>12.1.37. <A
+HREF="cxxbaselib.html#AEN11103"
+>struct numeric_limits&#60;unsigned long long&#62;</A
+></DT
+><DT
+>12.1.38. <A
+HREF="cxxbaselib.html#AEN11109"
+>struct numeric_limits&#60;float&#62;</A
+></DT
+><DT
+>12.1.39. <A
+HREF="cxxbaselib.html#AEN11115"
+>struct numeric_limits&#60;double&#62;</A
+></DT
+><DT
+>12.1.40. <A
+HREF="cxxbaselib.html#AEN11121"
+>struct numeric_limits&#60;short&#62;</A
+></DT
+><DT
+>12.1.41. <A
+HREF="cxxbaselib.html#AEN11127"
+>struct numeric_limits&#60;unsigned short&#62;</A
+></DT
+><DT
+>12.1.42. <A
+HREF="cxxbaselib.html#AEN11133"
+>struct numeric_limits&#60;int&#62;</A
+></DT
+><DT
+>12.1.43. <A
+HREF="cxxbaselib.html#AEN11139"
+>struct numeric_limits&#60;unsigned int&#62;</A
+></DT
+><DT
+>12.1.44. <A
+HREF="cxxbaselib.html#AEN11145"
+>struct numeric_limits&#60;long&#62;</A
+></DT
+><DT
+>12.1.45. <A
+HREF="cxxbaselib.html#AEN11151"
+>struct numeric_limits&#60;unsigned long&#62;</A
+></DT
+><DT
+>12.1.46. <A
+HREF="cxxbaselib.html#AEN11157"
+>struct numeric_limits&#60;wchar_t&#62;</A
+></DT
+><DT
+>12.1.47. <A
+HREF="cxxbaselib.html#AEN11163"
+>struct numeric_limits&#60;unsigned char&#62;</A
+></DT
+><DT
+>12.1.48. <A
+HREF="cxxbaselib.html#AEN11169"
+>struct numeric_limits&#60;signed char&#62;</A
+></DT
+><DT
+>12.1.49. <A
+HREF="cxxbaselib.html#AEN11175"
+>struct numeric_limits&#60;char&#62;</A
+></DT
+><DT
+>12.1.50. <A
+HREF="cxxbaselib.html#AEN11181"
+>struct numeric_limits&#60;bool&#62;</A
+></DT
+><DT
+>12.1.51. <A
+HREF="cxxbaselib.html#AEN11187"
+>struct numeric_limits&#60;__float128&#62;</A
+></DT
+><DT
+>12.1.52. <A
+HREF="cxxbaselib.html#AEN11339"
+>Class ctype_base</A
+></DT
+><DT
+>12.1.53. <A
+HREF="cxxbaselib.html#AEN11364"
+>Class __ctype_abstract_base&#60;char&#62;</A
+></DT
+><DT
+>12.1.54. <A
+HREF="cxxbaselib.html#AEN11374"
+>Class __ctype_abstract_base&#60;wchar_t&#62;</A
+></DT
+><DT
+>12.1.55. <A
+HREF="cxxbaselib.html#AEN11384"
+>Class ctype&#60;char&#62;</A
+></DT
+><DT
+>12.1.56. <A
+HREF="cxxbaselib.html#AEN11419"
+>Class ctype&#60;wchar_t&#62;</A
+></DT
+><DT
+>12.1.57. <A
+HREF="cxxbaselib.html#AEN11470"
+>Class ctype_byname&#60;char&#62;</A
+></DT
+><DT
+>12.1.58. <A
+HREF="cxxbaselib.html#AEN11511"
+>Class ctype_byname&#60;wchar_t&#62;</A
+></DT
+><DT
+>12.1.59. <A
+HREF="cxxbaselib.html#AEN11552"
+>Class basic_string&#60;char, char_traits&#60;char&#62;, allocator&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.60. <A
+HREF="cxxbaselib.html#AEN11953"
+>Class basic_string&#60;wchar_t, char_traits&#60;wchar_t&#62;, allocator&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.61. <A
+HREF="cxxbaselib.html#AEN12354"
+>Class basic_stringstream&#60;char, char_traits&#60;char&#62;, allocator&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.62. <A
+HREF="cxxbaselib.html#AEN12479"
+>Class basic_stringstream&#60;wchar_t, char_traits&#60;wchar_t&#62;, allocator&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.63. <A
+HREF="cxxbaselib.html#AEN12604"
+>Class basic_istringstream&#60;char, char_traits&#60;char&#62;, allocator&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.64. <A
+HREF="cxxbaselib.html#AEN12694"
+>Class basic_istringstream&#60;wchar_t, char_traits&#60;wchar_t&#62;, allocator&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.65. <A
+HREF="cxxbaselib.html#AEN12784"
+>Class basic_ostringstream&#60;char, char_traits&#60;char&#62;, allocator&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.66. <A
+HREF="cxxbaselib.html#AEN12874"
+>Class basic_ostringstream&#60;wchar_t, char_traits&#60;wchar_t&#62;, allocator&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.67. <A
+HREF="cxxbaselib.html#AEN12964"
+>Class basic_stringbuf&#60;char, char_traits&#60;char&#62;, allocator&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.68. <A
+HREF="cxxbaselib.html#AEN13096"
+>Class basic_stringbuf&#60;wchar_t, char_traits&#60;wchar_t&#62;, allocator&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.69. <A
+HREF="cxxbaselib.html#AEN13228"
+>Class basic_iostream&#60;char, char_traits&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.70. <A
+HREF="cxxbaselib.html#AEN13353"
+>Class basic_iostream&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.71. <A
+HREF="cxxbaselib.html#AEN13478"
+>Class basic_istream&#60;char, char_traits&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.72. <A
+HREF="cxxbaselib.html#AEN13628"
+>Class basic_istream&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.73. <A
+HREF="cxxbaselib.html#AEN13773"
+>Class istreambuf_iterator&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.74. <A
+HREF="cxxbaselib.html#AEN13779"
+>Class istreambuf_iterator&#60;char, char_traits&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.75. <A
+HREF="cxxbaselib.html#AEN13785"
+>Class basic_ostream&#60;char, char_traits&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.76. <A
+HREF="cxxbaselib.html#AEN13905"
+>Class basic_ostream&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.77. <A
+HREF="cxxbaselib.html#AEN14015"
+>Class basic_fstream&#60;char, char_traits&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.78. <A
+HREF="cxxbaselib.html#AEN14140"
+>Class basic_fstream&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.79. <A
+HREF="cxxbaselib.html#AEN14265"
+>Class basic_ifstream&#60;char, char_traits&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.80. <A
+HREF="cxxbaselib.html#AEN14355"
+>Class basic_ifstream&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.81. <A
+HREF="cxxbaselib.html#AEN14445"
+>Class basic_ofstream&#60;char, char_traits&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.82. <A
+HREF="cxxbaselib.html#AEN14535"
+>Class basic_ofstream&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.83. <A
+HREF="cxxbaselib.html#AEN14625"
+>Class basic_streambuf&#60;char, char_traits&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.84. <A
+HREF="cxxbaselib.html#AEN14782"
+>Class basic_streambuf&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.85. <A
+HREF="cxxbaselib.html#AEN14939"
+>Class basic_filebuf&#60;char, char_traits&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.86. <A
+HREF="cxxbaselib.html#AEN15091"
+>Class basic_filebuf&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.87. <A
+HREF="cxxbaselib.html#AEN15258"
+>Class ios_base</A
+></DT
+><DT
+>12.1.88. <A
+HREF="cxxbaselib.html#AEN15284"
+>Class basic_ios&#60;char, char_traits&#60;char&#62; &#62;</A
+></DT
+><DT
+>12.1.89. <A
+HREF="cxxbaselib.html#AEN15294"
+>Class basic_ios&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62;</A
+></DT
+><DT
+>12.1.90. <A
+HREF="cxxbaselib.html#AEN15329"
+>Class ios_base::failure</A
+></DT
+><DT
+>12.1.91. <A
+HREF="cxxbaselib.html#AEN15355"
+>Class __timepunct&#60;char&#62;</A
+></DT
+><DT
+>12.1.92. <A
+HREF="cxxbaselib.html#AEN15421"
+>Class __timepunct&#60;wchar_t&#62;</A
+></DT
+><DT
+>12.1.93. <A
+HREF="cxxbaselib.html#AEN15487"
+>Class messages_base</A
+></DT
+><DT
+>12.1.94. <A
+HREF="cxxbaselib.html#AEN15512"
+>Class messages&#60;char&#62;</A
+></DT
+><DT
+>12.1.95. <A
+HREF="cxxbaselib.html#AEN15547"
+>Class messages&#60;wchar_t&#62;</A
+></DT
+><DT
+>12.1.96. <A
+HREF="cxxbaselib.html#AEN15582"
+>Class messages_byname&#60;char&#62;</A
+></DT
+><DT
+>12.1.97. <A
+HREF="cxxbaselib.html#AEN15623"
+>Class messages_byname&#60;wchar_t&#62;</A
+></DT
+><DT
+>12.1.98. <A
+HREF="cxxbaselib.html#AEN15664"
+>Class numpunct&#60;char&#62;</A
+></DT
+><DT
+>12.1.99. <A
+HREF="cxxbaselib.html#AEN15725"
+>Class numpunct&#60;wchar_t&#62;</A
+></DT
+><DT
+>12.1.100. <A
+HREF="cxxbaselib.html#AEN15776"
+>Class numpunct_byname&#60;char&#62;</A
+></DT
+><DT
+>12.1.101. <A
+HREF="cxxbaselib.html#AEN15817"
+>Class numpunct_byname&#60;wchar_t&#62;</A
+></DT
+><DT
+>12.1.102. <A
+HREF="cxxbaselib.html#AEN15858"
+>Class __codecvt_abstract_base&#60;char, char, __mbstate_t&#62;</A
+></DT
+><DT
+>12.1.103. <A
+HREF="cxxbaselib.html#AEN15868"
+>Class __codecvt_abstract_base&#60;wchar_t, char, __mbstate_t&#62;</A
+></DT
+><DT
+>12.1.104. <A
+HREF="cxxbaselib.html#AEN15878"
+>Class codecvt_base</A
+></DT
+><DT
+>12.1.105. <A
+HREF="cxxbaselib.html#AEN15903"
+>Class codecvt&#60;char, char, __mbstate_t&#62;</A
+></DT
+><DT
+>12.1.106. <A
+HREF="cxxbaselib.html#AEN16020"
+>Class codecvt&#60;wchar_t, char, __mbstate_t&#62;</A
+></DT
+><DT
+>12.1.107. <A
+HREF="cxxbaselib.html#AEN16137"
+>Class codecvt_byname&#60;char, char, __mbstate_t&#62;</A
+></DT
+><DT
+>12.1.108. <A
+HREF="cxxbaselib.html#AEN16239"
+>Class codecvt_byname&#60;wchar_t, char, __mbstate_t&#62;</A
+></DT
+><DT
+>12.1.109. <A
+HREF="cxxbaselib.html#AEN16341"
+>Class collate&#60;char&#62;</A
+></DT
+><DT
+>12.1.110. <A
+HREF="cxxbaselib.html#AEN16397"
+>Class collate&#60;wchar_t&#62;</A
+></DT
+><DT
+>12.1.111. <A
+HREF="cxxbaselib.html#AEN16453"
+>Class collate_byname&#60;char&#62;</A
+></DT
+><DT
+>12.1.112. <A
+HREF="cxxbaselib.html#AEN16494"
+>Class collate_byname&#60;wchar_t&#62;</A
+></DT
+><DT
+>12.1.113. <A
+HREF="cxxbaselib.html#AEN16535"
+>Class time_base</A
+></DT
+><DT
+>12.1.114. <A
+HREF="cxxbaselib.html#AEN16560"
+>Class time_get_byname&#60;char, istreambuf_iterator&#60;char, char_traits&#60;char&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.115. <A
+HREF="cxxbaselib.html#AEN16601"
+>Class time_get_byname&#60;wchar_t, istreambuf_iterator&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.116. <A
+HREF="cxxbaselib.html#AEN16642"
+>Class time_put_byname&#60;char, ostreambuf_iterator&#60;char, char_traits&#60;char&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.117. <A
+HREF="cxxbaselib.html#AEN16683"
+>Class time_put_byname&#60;wchar_t, ostreambuf_iterator&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.118. <A
+HREF="cxxbaselib.html#AEN16724"
+>Class time_get&#60;char, istreambuf_iterator&#60;char, char_traits&#60;char&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.119. <A
+HREF="cxxbaselib.html#AEN16759"
+>Class time_get&#60;wchar_t, istreambuf_iterator&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.120. <A
+HREF="cxxbaselib.html#AEN16794"
+>Class time_put&#60;char, ostreambuf_iterator&#60;char, char_traits&#60;char&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.121. <A
+HREF="cxxbaselib.html#AEN16850"
+>Class time_put&#60;wchar_t, ostreambuf_iterator&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.122. <A
+HREF="cxxbaselib.html#AEN16906"
+>Class moneypunct&#60;char, false&#62;</A
+></DT
+><DT
+>12.1.123. <A
+HREF="cxxbaselib.html#AEN16951"
+>Class moneypunct&#60;char, true&#62;</A
+></DT
+><DT
+>12.1.124. <A
+HREF="cxxbaselib.html#AEN16996"
+>Class moneypunct&#60;wchar_t, false&#62;</A
+></DT
+><DT
+>12.1.125. <A
+HREF="cxxbaselib.html#AEN17041"
+>Class moneypunct&#60;wchar_t, true&#62;</A
+></DT
+><DT
+>12.1.126. <A
+HREF="cxxbaselib.html#AEN17086"
+>Class moneypunct_byname&#60;char, false&#62;</A
+></DT
+><DT
+>12.1.127. <A
+HREF="cxxbaselib.html#AEN17127"
+>Class moneypunct_byname&#60;char, true&#62;</A
+></DT
+><DT
+>12.1.128. <A
+HREF="cxxbaselib.html#AEN17168"
+>Class moneypunct_byname&#60;wchar_t, false&#62;</A
+></DT
+><DT
+>12.1.129. <A
+HREF="cxxbaselib.html#AEN17209"
+>Class moneypunct_byname&#60;wchar_t, true&#62;</A
+></DT
+><DT
+>12.1.130. <A
+HREF="cxxbaselib.html#AEN17250"
+>Class money_base</A
+></DT
+><DT
+>12.1.131. <A
+HREF="cxxbaselib.html#AEN17275"
+>Class money_get&#60;char, istreambuf_iterator&#60;char, char_traits&#60;char&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.132. <A
+HREF="cxxbaselib.html#AEN17362"
+>Class money_get&#60;wchar_t, istreambuf_iterator&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.133. <A
+HREF="cxxbaselib.html#AEN17484"
+>Class money_put&#60;char, ostreambuf_iterator&#60;char, char_traits&#60;char&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.134. <A
+HREF="cxxbaselib.html#AEN17586"
+>Class money_put&#60;wchar_t, ostreambuf_iterator&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.135. <A
+HREF="cxxbaselib.html#AEN17708"
+>Class locale</A
+></DT
+><DT
+>12.1.136. <A
+HREF="cxxbaselib.html#AEN17749"
+>Class locale::facet</A
+></DT
+><DT
+>12.1.137. <A
+HREF="cxxbaselib.html#AEN17775"
+>facet functions</A
+></DT
+><DT
+>12.1.138. <A
+HREF="cxxbaselib.html#AEN17871"
+>Class __num_base</A
+></DT
+><DT
+>12.1.139. <A
+HREF="cxxbaselib.html#AEN17880"
+>Class num_get&#60;char, istreambuf_iterator&#60;char, char_traits&#60;char&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.140. <A
+HREF="cxxbaselib.html#AEN18117"
+>Class num_get&#60;wchar_t, istreambuf_iterator&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.141. <A
+HREF="cxxbaselib.html#AEN18354"
+>Class num_put&#60;char, ostreambuf_iterator&#60;char, char_traits&#60;char&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.142. <A
+HREF="cxxbaselib.html#AEN18586"
+>Class num_put&#60;wchar_t, ostreambuf_iterator&#60;wchar_t, char_traits&#60;wchar_t&#62; &#62; &#62;</A
+></DT
+><DT
+>12.1.143. <A
+HREF="cxxbaselib.html#AEN18973"
+>Class gslice</A
+></DT
+><DT
+>12.1.144. <A
+HREF="cxxbaselib.html#AEN18997"
+>Class __basic_file&#60;char&#62;</A
+></DT
+><DT
+>12.1.145. <A
+HREF="cxxbaselib.html#AEN19031"
+>Class _List_node_base</A
+></DT
+><DT
+>12.1.146. <A
+HREF="cxxbaselib.html#AEN19037"
+>Class valarray&#60;unsigned int&#62;</A
+></DT
+><DT
+>12.1.147. <A
+HREF="cxxbaselib.html#AEN19091"
+>Class allocator&#60;char&#62;</A
+></DT
+><DT
+>12.1.148. <A
+HREF="cxxbaselib.html#AEN19100"
+>Class allocator&#60;wchar_t&#62;</A
+></DT
+><DT
+>12.1.149. <A
+HREF="cxxbaselib.html#AEN19109"
+>Class __gnu_cxx::__pool&#60;true&#62;</A
+></DT
+><DT
+>12.1.150. <A
+HREF="cxxbaselib.html#AEN19130"
+>Class __gnu_cxx::__pool&#60;false&#62;</A
+></DT
+><DT
+>12.1.151. <A
+HREF="cxxbaselib.html#AEN19151"
+>Class __gnu_cxx::free_list</A
+></DT
+><DT
+>12.1.152. <A
+HREF="cxxbaselib.html#AEN19167"
+>Class locale::_Impl</A
+></DT
+><DT
+>12.1.153. <A
+HREF="cxxbaselib.html#AEN19183"
+>Namespace std Functions</A
+></DT
+><DT
+>12.1.154. <A
+HREF="cxxbaselib.html#AEN19204"
+>Class char_traits&#60;char&#62;</A
+></DT
+><DT
+>12.1.155. <A
+HREF="cxxbaselib.html#AEN19210"
+>Class char_traits&#60;wchar_t&#62;</A
+></DT
+></DL
+></DD
+><DT
+>12.2. <A
+HREF="libstdcxxman.html"
+>Interface Definitions for libstdcxx</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libutil.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="cxxbaselib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libutil</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Libraries</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

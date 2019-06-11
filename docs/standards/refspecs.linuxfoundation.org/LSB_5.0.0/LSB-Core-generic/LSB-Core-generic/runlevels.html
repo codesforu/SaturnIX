@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Run Levels</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="System Initialization"
+HREF="sysinit.html"><LINK
+REL="PREVIOUS"
+TITLE="Installation and Removal of Init Scripts"
+HREF="initsrcinstrm.html"><LINK
+REL="NEXT"
+TITLE="Facility Names"
+HREF="facilname.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="initsrcinstrm.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 22. System Initialization</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="facilname.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="RUNLEVELS"
+>22.5. Run Levels</A
+></H1
+><P
+>The following <I
+CLASS="FIRSTTERM"
+>run levels</I
+> are specified for use by the 
+<B
+CLASS="COMMAND"
+>Default-Start</B
+> and <B
+CLASS="COMMAND"
+>Default-Stop</B
+> 
+actions defined in <A
+HREF="initscrcomconv.html"
+>Comment Conventions for Init Scripts</A
+> as hints
+to the <B
+CLASS="COMMAND"
+>install_initd</B
+> command.
+Conforming implementations are not required to provide these exact
+run levels or give them the meanings described here,
+and may map any level described here to a different level which
+provides the equivalent functionality. Applications may not depend
+on specific run-level numbers.</P
+><P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>0</TD
+><TD
+>halt</TD
+></TR
+><TR
+><TD
+>1</TD
+><TD
+>single user mode</TD
+></TR
+><TR
+><TD
+>2</TD
+><TD
+>multiuser with no network services exported</TD
+></TR
+><TR
+><TD
+>3</TD
+><TD
+>normal/full multiuser</TD
+></TR
+><TR
+><TD
+>4</TD
+><TD
+>reserved for local use, default is normal/full multiuser</TD
+></TR
+><TR
+><TD
+>5</TD
+><TD
+>multiuser with a display manager or equivalent</TD
+></TR
+><TR
+><TD
+>6</TD
+><TD
+>reboot</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>These run levels were chosen as reflecting the most frequent existing
+practice, and in the absence of other considerations, implementors are
+strongly encouraged to follow this convention to provide consistency
+for system administrators who need to work with multiple distributions.  </P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="initsrcinstrm.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="facilname.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Installation and Removal of Init Scripts</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="sysinit.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Facility Names</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

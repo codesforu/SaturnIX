@@ -1,0 +1,421 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>su</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="shutdown"
+HREF="shutdown.html"><LINK
+REL="NEXT"
+TITLE="sync"
+HREF="sync.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="shutdown.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="sync.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="SU"
+></A
+>su</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN60518"
+></A
+><H2
+>Name</H2
+>su&nbsp;--&nbsp;change user ID</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN60521"
+></A
+><H2
+>Synopsis</H2
+><TT
+CLASS="CMDSYNOPSIS"
+><B
+CLASS="COMMAND"
+>su</B
+> [options] [-] [username  [ARGS]]</TT
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN60528"
+></A
+><H2
+>Description</H2
+><P
+>The <B
+CLASS="COMMAND"
+>su</B
+> command shall start a shell
+running with the real and effective user and group IDs of
+the user <TT
+CLASS="PARAMETER"
+><I
+>username</I
+></TT
+>.
+If <TT
+CLASS="PARAMETER"
+><I
+>username</I
+></TT
+> is not specified, 
+<B
+CLASS="COMMAND"
+>su</B
+> shall default to an unspecified user with
+all appropriate privileges. If the <TT
+CLASS="PARAMETER"
+><I
+>-s</I
+></TT
+> or 
+<TT
+CLASS="PARAMETER"
+><I
+>--shell</I
+></TT
+> is not specified, the shell to be invoked shall be that
+specified for <TT
+CLASS="PARAMETER"
+><I
+>username</I
+></TT
+> in the user database
+(see <TT
+CLASS="FUNCTION"
+>getpwnam()</TT
+>),
+or <TT
+CLASS="FILENAME"
+>/bin/sh</TT
+> if there is no shell specified
+in the user database.</P
+><P
+>If the <TT
+CLASS="PARAMETER"
+><I
+>-</I
+></TT
+> option
+is specified, or if the first operand is <TT
+CLASS="LITERAL"
+>-</TT
+>, the 
+environment for the shell shall be initialized as if the new shell was a login shell
+(see <A
+HREF="sh.html#CMD-SH-INVOKE"
+>Shell Invocation</A
+>).</P
+><P
+>If the invoking user does not have appropriate privileges, the <B
+CLASS="COMMAND"
+>su</B
+>
+command shall prompt for a password and validate this before continuing.
+Invalid
+passwords shall produce an error message.  
+The <B
+CLASS="COMMAND"
+>su</B
+> command shall log in an unspecified manner all invokations,
+whether successful or unsuccessful.</P
+><P
+>Any operands specified after the <TT
+CLASS="PARAMETER"
+><I
+>username</I
+></TT
+>
+shall be passed to the invoked shell.</P
+><P
+>If the option <TT
+CLASS="PARAMETER"
+><I
+>-</I
+></TT
+> is not specified, 
+and if the first operand is not <TT
+CLASS="LITERAL"
+>-</TT
+>,
+the environemnt for the new shell shall be intialized from the current
+environment. If none of the 
+<TT
+CLASS="PARAMETER"
+><I
+>-m</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>-p</I
+></TT
+>, or <TT
+CLASS="PARAMETER"
+><I
+>--preserve-environment</I
+></TT
+> 
+options are specified, the environment 
+may be modified in unspecified ways before invoking the shell.
+If any of the 
+<TT
+CLASS="PARAMETER"
+><I
+>-m</I
+></TT
+>, <TT
+CLASS="PARAMETER"
+><I
+>-p</I
+></TT
+>, or <TT
+CLASS="PARAMETER"
+><I
+>--preserve-environment</I
+></TT
+> 
+options are specified, the environment shall not be altered.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>Although the <B
+CLASS="COMMAND"
+>su</B
+> command shall not alter the
+environment, the invoked shell may still alter it before it is ready
+to intepret any commands.</P
+></BLOCKQUOTE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN60569"
+></A
+><H2
+>Standard Options</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>-</DT
+><DD
+><P
+>the invoked shell shall be a login shell.</P
+></DD
+><DT
+>-c <TT
+CLASS="PARAMETER"
+><I
+>command</I
+></TT
+>, --command=<TT
+CLASS="PARAMETER"
+><I
+>command</I
+></TT
+></DT
+><DD
+><P
+>Invoke the shell with the option <TT
+CLASS="LITERAL"
+>-c <TT
+CLASS="PARAMETER"
+><I
+>command</I
+></TT
+></TT
+>.</P
+></DD
+><DT
+>-m, -p, --preserve-environment</DT
+><DD
+><P
+>The current environment shall be passed to the invoked shell. If the environment
+variable <CODE
+CLASS="ENVAR"
+>SHELL</CODE
+> is set, it shall specify the shell to invoke, if it matches
+an entry in <TT
+CLASS="FILENAME"
+>/etc/shells</TT
+>. If there is no matching entry in
+<TT
+CLASS="FILENAME"
+>/etc/shells</TT
+>, 
+this option shall be ignored if the <TT
+CLASS="PARAMETER"
+><I
+>-</I
+></TT
+> option is also specified, or if the
+first operand is <TT
+CLASS="LITERAL"
+>-</TT
+>.</P
+></DD
+><DT
+>-s <TT
+CLASS="PARAMETER"
+><I
+>shell</I
+></TT
+>, --shell=<TT
+CLASS="PARAMETER"
+><I
+>shell</I
+></TT
+></DT
+><DD
+><P
+>Invoke <TT
+CLASS="PARAMETER"
+><I
+>shell</I
+></TT
+> as the comamnd interpreter.
+The shell specified
+shall be present in <TT
+CLASS="FILENAME"
+>/etc/shells</TT
+>.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="shutdown.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="sync.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>shutdown</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>sync</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>sigisemptyset</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="sigandset"
+HREF="baselib-sigandset.html"><LINK
+REL="NEXT"
+TITLE="sigorset"
+HREF="baselib-sigorset.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-sigandset.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-sigorset.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-SIGISEMPTYSET"
+></A
+>sigisemptyset</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN19604"
+></A
+><H2
+>Name</H2
+>sigisemptyset&nbsp;--&nbsp;check for empty signal set</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN19607"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN19608"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;signal.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int 
+  <TT
+CLASS="FUNCTION"
+>sigisemptyset</TT
+></CODE
+>(const sigset_t *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>set</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19616"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>sigisemptyset()</TT
+> function shall
+check for empty signal set referenced by <TT
+CLASS="PARAMETER"
+><I
+>set</I
+></TT
+>. </P
+><P
+>Applications shall call <TT
+CLASS="FUNCTION"
+>sigemptyset()</TT
+> or
+<TT
+CLASS="FUNCTION"
+>sigfillset()</TT
+> at least once for each object
+of type <SPAN
+CLASS="TYPE"
+>sigset_t</SPAN
+> to initialize it.  If an uninitialized
+or <TT
+CLASS="LITERAL"
+>NULL</TT
+> object is passed to
+<TT
+CLASS="FUNCTION"
+>sigisemptyset()</TT
+>, the results are undefined.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19627"
+></A
+><H2
+>Return Value</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>sigisemptyset()</TT
+> function shall return
+a positive non-zero value if the signal set referenced by 
+<TT
+CLASS="PARAMETER"
+><I
+>set</I
+></TT
+> is empty, or zero if this set is empty.
+There are no defined error returns.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-sigandset.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-sigorset.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>sigandset</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>sigorset</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

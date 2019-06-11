@@ -1,0 +1,4103 @@
+<HTML
+><HEAD
+><TITLE
+>Linux Standard Base Specification for the IA32 Architecture 1.1.0</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.74b"></HEAD
+><BODY
+CLASS="BOOK"
+><DIV
+CLASS="BOOK"
+><A
+NAME="AEN1"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+>Linux Standard Base Specification for the IA32 Architecture 1.1.0</A
+></H1
+><P
+CLASS="COPYRIGHT"
+>Copyright &copy; 2001 by Free Standards Group</P
+><DIV
+CLASS="LEGALNOTICE"
+><A
+NAME="AEN7"
+></A
+><P
+></P
+><P
+>This material may be distributed only subject to the terms and conditions set
+forth in the Open Publication License, v1.0 or later (the latest version is
+presently available at <A
+HREF="http://www.opencontent.org/openpub/"
+TARGET="_top"
+>http://www.opencontent.org/openpub/</A
+>)
+and provided that neither the name of the Free Standards Group, the name
+of the Linux Standard Base, nor the names of its contributors may be
+used to endorse or promote derived works without specific prior written
+permission.</P
+><P
+></P
+></DIV
+><DIV
+CLASS="LEGALNOTICE"
+><A
+NAME="AEN10"
+></A
+><P
+></P
+><P
+>Portions of the text were taken from other copyrighted documents in accordance
+with the respective license of those documents.</P
+><P
+></P
+></DIV
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>I. <A
+HREF="#TOCINTRO"
+>Introduction</A
+></DT
+><DD
+><DL
+><DT
+>1. <A
+HREF="#INTRODUCTION"
+>Introduction</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#OVERVIEW"
+>Introduction</A
+></DT
+><DT
+><A
+HREF="#OVERPURP"
+>Purpose</A
+></DT
+><DT
+><A
+HREF="#RSTANDARDS"
+>Related Standards</A
+></DT
+><DT
+><A
+HREF="#RIMPLEMENTATIONS"
+>Related Implementations</A
+></DT
+><DT
+><A
+HREF="#RLIBRARIES"
+>Relevant Libraries</A
+></DT
+><DT
+><A
+HREF="#HOWTO"
+>How to Use this Standard</A
+></DT
+><DT
+><A
+HREF="#DEFNS"
+>Definitions</A
+></DT
+><DT
+><A
+HREF="#TERMS"
+>Terminology</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>II. <A
+HREF="#LOWLEVEL"
+>Low Level System Information</A
+></DT
+><DD
+><DL
+><DT
+>2. <A
+HREF="#MACHINEINTERFACE"
+>Machine Interface</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#PROCESSORARCH"
+>Processor Architecture</A
+></DT
+><DT
+><A
+HREF="#DATAREPRESENTATION"
+>Data Representation</A
+></DT
+></DL
+></DD
+><DT
+>3. <A
+HREF="#CALLINGSEQUENCE"
+>Function Calling Sequence</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#CPUREGISTERS"
+>CPU Registers</A
+></DT
+><DT
+><A
+HREF="#FPUREGISTERS"
+>Floating Point Registers</A
+></DT
+><DT
+><A
+HREF="#STACKFRAME"
+>Stack Frame</A
+></DT
+><DT
+><A
+HREF="#ARGUMENTS"
+>Arguments</A
+></DT
+><DT
+><A
+HREF="#RETURNVALUES"
+>Return Values</A
+></DT
+></DL
+></DD
+><DT
+>4. <A
+HREF="#OSINTERFACE"
+>Operating System Interface</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#VIRTUALADDRESSSPACE"
+>Virtual Address Space</A
+></DT
+><DT
+><A
+HREF="#PROCESSOREXECUTIONMODE"
+>Processor Execution Mode</A
+></DT
+><DT
+><A
+HREF="#EXCEPTIONINTERFACE"
+>Exception Interface</A
+></DT
+><DT
+><A
+HREF="#SIGNALDELIVERY"
+>Signal Delivery</A
+></DT
+></DL
+></DD
+><DT
+>5. <A
+HREF="#PROCESSINITIALIZATION"
+>Process Initialization</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#SPECIALREGISTERS"
+>Special Registers</A
+></DT
+><DT
+><A
+HREF="#PROCESSSTACK"
+>Process Stack (on entry)</A
+></DT
+><DT
+><A
+HREF="#AUXILLIARYVECTORS"
+>Auxilliary Vectors</A
+></DT
+><DT
+><A
+HREF="#ENVIRONMENT"
+>Environment</A
+></DT
+></DL
+></DD
+><DT
+>6. <A
+HREF="#CODINGEXAMPLES"
+>Coding Examples</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#CODEMODELOVERVIEW"
+>Code Model Overview/Architecture Constraints</A
+></DT
+><DT
+><A
+HREF="#PICPROLOGUE"
+>Position-Independent Fucntion Prologue</A
+></DT
+><DT
+><A
+HREF="#DATAOBJECTS"
+>Data Objects</A
+></DT
+><DT
+><A
+HREF="#FUNCTIONCALLS"
+>Function Calls</A
+></DT
+><DT
+><A
+HREF="#BRANCHING"
+>Branching</A
+></DT
+></DL
+></DD
+><DT
+>7. <A
+HREF="#CSTACKFRAME"
+>C Stack Frame</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#VARIABLEARGLIST"
+>Variable Argument List</A
+></DT
+><DT
+><A
+HREF="#DYNAMICSTACKALLOC"
+>Dynamic Allocation of Stack Space</A
+></DT
+></DL
+></DD
+><DT
+>8. <A
+HREF="#DEBUGINFO"
+>Debug Information</A
+></DT
+></DL
+></DD
+><DT
+>III. <A
+HREF="#TOCOBJFORMAT"
+>Object Format</A
+></DT
+><DD
+><DL
+><DT
+>9. <A
+HREF="#ELFHEADER"
+>ELF Header</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#MACHINEINFO"
+>Machine Information</A
+></DT
+></DL
+></DD
+><DT
+>10. <A
+HREF="#SECTIONS"
+>Sections</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#SPECIALSECTIONS"
+>Special Sections</A
+></DT
+><DT
+><A
+HREF="#LINUXSPECIAL"
+>Linux Special Sections</A
+></DT
+><DT
+><A
+HREF="#SECTIONTYPES"
+>Section Types</A
+></DT
+><DT
+><A
+HREF="#SECTIONATTRIBFLAGS"
+>Section Attribute Flags</A
+></DT
+><DT
+><A
+HREF="#SPECIALSECTIONTYPES"
+>Special Section Types</A
+></DT
+></DL
+></DD
+><DT
+>11. <A
+HREF="#SYMBOLTABLE"
+>Symbol Table</A
+></DT
+><DT
+>12. <A
+HREF="#RELOCATION"
+>Relocation</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#RELOCATIONTYPES"
+>Relocation Types</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>IV. <A
+HREF="#TOCDYNLNK"
+>Program Loading and Dynamic Linking</A
+></DT
+><DD
+><DL
+><DT
+>13. <A
+HREF="#PROGRAMHEADER"
+>Program Header</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#PROGHEADTYPES"
+>Types</A
+></DT
+><DT
+><A
+HREF="#PROGHEADFLAGS"
+>Flags</A
+></DT
+></DL
+></DD
+><DT
+>14. <A
+HREF="#PROGRAMLOADING"
+>Program Loading</A
+></DT
+><DT
+>15. <A
+HREF="#DYNAMICLINKING"
+>Dynamic Linking</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#PROGINTERP"
+>Program Intepreter/Dynamic Linker</A
+></DT
+><DT
+><A
+HREF="#DYNSECTION"
+>Dynamic Section</A
+></DT
+><DT
+><A
+HREF="#GLOBALOFFETTABLE"
+>Global Offset Table</A
+></DT
+><DT
+><A
+HREF="#SHAREDOBJECTDEPENDENCIES"
+>Shared Object Dependencies</A
+></DT
+><DT
+><A
+HREF="#FUNCTIONADDRESSES"
+>Function Addresses</A
+></DT
+><DT
+><A
+HREF="#PROCEEDURELINKAGETABLE"
+>Procedure Linkage Table</A
+></DT
+><DT
+><A
+HREF="#INITANDFINIFUNCTONS"
+>Initialization and Termination Functions</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>V. <A
+HREF="#TOCBASELIB"
+>Base Libraries</A
+></DT
+><DD
+><DL
+><DT
+>16. <A
+HREF="#BASELIB"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#LIBC"
+>Interfaces for libc</A
+></DT
+><DT
+><A
+HREF="#LIBC-DDEFS"
+>Data Definitions for libc</A
+></DT
+><DT
+><A
+HREF="#LIBCMAN"
+>Interfaces Definitions for libc</A
+></DT
+><DT
+><A
+HREF="#LIBM"
+>Interfaces for libm</A
+></DT
+><DT
+><A
+HREF="#LIBM-DDEFS"
+>Data Definitions for libm</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>A. <A
+HREF="#APP-A"
+>Alphabetical Listing of Interfaces</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#APP-LIBC"
+>libc</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Tables</B
+></DT
+><DT
+>1-1. <A
+HREF="#AEN29"
+>Related Standards</A
+></DT
+><DT
+>1-2. <A
+HREF="#AEN256"
+>Related Implementations</A
+></DT
+><DT
+>1-3. <A
+HREF="#AEN283"
+>Relevant Libraries</A
+></DT
+><DT
+>2-1. <A
+HREF="#AEN460"
+>Scalar Types</A
+></DT
+><DT
+>10-1. <A
+HREF="#AEN672"
+></A
+></DT
+><DT
+>10-2. <A
+HREF="#AEN701"
+></A
+></DT
+><DT
+>16-1. <A
+HREF="#AEN794"
+>libc Definition</A
+></DT
+><DT
+>16-2. <A
+HREF="#AEN812"
+>libc - Standard Library Function Interfaces</A
+></DT
+><DT
+>16-3. <A
+HREF="#AEN827"
+>libc - Language Support Function Interfaces</A
+></DT
+><DT
+>16-4. <A
+HREF="#AEN927"
+>libm Definition</A
+></DT
+><DT
+>A-1. <A
+HREF="#AEN950"
+>libc Function Interfaces</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="TOCINTRO"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>I. Introduction</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>1. <A
+HREF="#INTRODUCTION"
+>Introduction</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="INTRODUCTION"
+>Chapter 1. Introduction</A
+></H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="OVERVIEW"
+>Introduction</A
+></H1
+><P
+>This is version 1.1.0 of the Linux Standard Base Specification for
+the IA32 Architecture. An implementation of this version of the specification
+may not claim to be an implementation of the Linux Standard Base unless it
+has successfully completed the compliance process as defined by the
+Free Standards Group.</P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="OVERPURP"
+>Purpose</A
+></H1
+><P
+>The Linux Standard Base (LSB) defines a system interface for compiled
+applications and a minimal environment for support of installation scripts.
+Its purpose is to enable a uniform industry standard environment for
+high-volume applications conforming to the LSB.</P
+><P
+>The LSB defines a binary interface for application programs that are compiled
+and packaged for LSB-conforming implementations on many different hardware
+architectures. Since a binary specification must include information specific
+to the computer processor architecture for which it is intended, it is not
+possible for a single document to specify the interface for all possible
+LSB-conforming implementations. Therefore, the LSB is a family of
+specifications, rather than a single one.</P
+><P
+>The LSB is composed of two basic parts: A common part of the specification
+describes those parts of the interface that remain constant across all hardware
+implementations of the LSB, and an architecture-specific part of the
+specification describes the parts of the specification that are specific to a
+particular processor architecture. Together, the generic LSB and the
+architecture-specific supplement for a single hardware architecture provide a
+complete interface specification for compiled application programs on systems
+that share a common hardware architecture.</P
+><P
+>This document is the architecture-specific suppliment. It must be used in
+conjunction with the generic LSB. This document provides architecture-specific
+information that supplements the generic LSB as well as additional information
+that is not found in the generic LSB.</P
+><P
+>This document should be used in conjunction with the documents it references.
+This document enumerates the system components it includes, but descriptions of
+those components may be included entirely or partly in this document, partly in
+other documents, or entirely in other reference documents. For example, the
+section that describes system service routines includes a list of the system
+routines supported in this interface, formal declarations of the data
+structures they use that are visible to applications, and a pointer to the
+underlying referenced specification for information about the syntax and
+semantics of each call. Only those routines not described in standards
+referenced by this document, or extensions to those standards, are described in
+the detail. Information referenced in this way is as much a part of this
+document as is the information explicitly included here.</P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="RSTANDARDS"
+>Related Standards</A
+></H1
+><P
+>The specifications listed below are referenced in whole or in part by
+the Linux Standard Base.  Such references may be normative or
+non-normative; a reference to specification shall only be considered
+normative if it is explicitly cited as such.  The LSB
+may make normative references to a portion of these
+specifications (that is, to define a specific function or group of
+functions); in such cases, only the explicitly referenced portion of
+the specification is to be considered normative.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN29"
+></A
+><P
+><B
+>Table 1-1. Related Standards</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>System V Application Binary Interface - DRAFT - 22 June 2000</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.caldera.com/developers/gabi/2000-07-17/contents.html"
+TARGET="_top"
+>http://www.caldera.com/developers/gabi/2000-07-17/contents.html</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Filesystem Hierarchy Standard 2.2</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.pathname.com/fhs/"
+TARGET="_top"
+>http://www.pathname.com/fhs/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>IEEE Standard for Binary Floating-Point Arithmetic</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.ieee.org/"
+TARGET="_top"
+>http://www.ieee.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>ANSI/IEEE Standards 745-1985 and 854-1987</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>System V Application Binary Interface, Edition 4.1</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.caldera.com/developers/devspecs/gabi41.pdf"
+TARGET="_top"
+>http://www.caldera.com/developers/devspecs/gabi41.pdf</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>IA32 Architecture Software Developer's Manual Volume 1: Basic Architecture</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://developer.intel.com/design/pentiium4/manuals/24570.ht"
+TARGET="_top"
+>http://developer.intel.com/design/pentiium4/manuals/24570.ht</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>IA32 Architecture Software Developer's Manual Volume 2: Instruction Set Reference</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://developer.intel.com/design/pentiium4/manuals/24571.ht"
+TARGET="_top"
+>http://developer.intel.com/design/pentiium4/manuals/24571.ht</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>IA32 Architecture Software Developer's Manual Volume 3: System Programming Guide</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://developer.intel.com/design/pentiium4/manuals/24572.ht"
+TARGET="_top"
+>http://developer.intel.com/design/pentiium4/manuals/24572.ht</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>System V Application Binary Interface - Intel386 Architecture Processor Supplement</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.caldera.com/developers/devspecs/abi386-4.pdf"
+TARGET="_top"
+>http://www.caldera.com/developers/devspecs/abi386-4.pdf</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Itanium Architecture Software Developer's Manual Volume 1: Application Architecture</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://developer.intel.com/design/itanium/downloads/24531702"
+TARGET="_top"
+>http://developer.intel.com/design/itanium/downloads/24531702</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Itanium Architecture Software Developer's Manual Volume 2: System Architecture</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://developer.intel.com/design/itanium/downloads/24531802"
+TARGET="_top"
+>http://developer.intel.com/design/itanium/downloads/24531802</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Itanium Architecture Software Developer's Manual Volume 3: Instruction Set Reference</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://developer.intel.com/design/itanium/downloads/24531902"
+TARGET="_top"
+>http://developer.intel.com/design/itanium/downloads/24531902</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Itanium Architecture Software Developer's Manual Volume 4: Itanium Processor Programmer's Guide</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://developer.intel.com/design/itanium/downloads/24532002"
+TARGET="_top"
+>http://developer.intel.com/design/itanium/downloads/24532002</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Itanium(R) Software Conventions &#38; Runtime Architecture Guide</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://developer.intel.com/design/ia-64/downloads/245358.htm"
+TARGET="_top"
+>http://developer.intel.com/design/ia-64/downloads/245358.htm</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>ISO/IEC 9899: 1990, Programming Languages --C</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=""
+TARGET="_top"
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>ISO/IEC 9899: 1999, Programming Languages --C</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=""
+TARGET="_top"
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Linux Assigned Names And Numbers Authority</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.lanana.org/"
+TARGET="_top"
+>http://www.lanana.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Large File Support</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.UNIX-systems.org/version2/whatsnew/lfs20mar.html"
+TARGET="_top"
+>http://www.UNIX-systems.org/version2/whatsnew/lfs20mar.html</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Linux Standard Base</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.linuxbase.org/spec/"
+TARGET="_top"
+>http://www.linuxbase.org/spec/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>OpenGL&reg; Application Binary Interface for Linux</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://oss.sgi.com/projects/ogl-sample/ABI/"
+TARGET="_top"
+>http://oss.sgi.com/projects/ogl-sample/ABI/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>IEEE Std POSIX 1003.2-1992 (ISO/IEC 9945-2:1993)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.ieee.org/"
+TARGET="_top"
+>http://www.ieee.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>POSIX 1003.1c</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.ieee.org/"
+TARGET="_top"
+>http://www.ieee.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>CAE Specification, May 1996, X/Open Curses, Issue 4, Version 2 (ISBN:  1-85912-171-3, C610), plus Corrigendum U018</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.opengroup.org/"
+TARGET="_top"
+>http://www.opengroup.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>CAE Specification, January 1997, System Interface Definitions (XBD),
+
+Issue 5 (ISBN: 1-85912-186-1, C605)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.opengroup.org/"
+TARGET="_top"
+>http://www.opengroup.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>CAE Specification, January 1997, Commands and Utilities (XCU), Issue 5 (ISBN: 1-85912-191-8, C604)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.opengroup.org/"
+TARGET="_top"
+>http://www.opengroup.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>CAE Specification, February 1997, Networking Services (XNS), Issue 5
+
+(ISBN: 1-85912-165-9, C523)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.opengroup.org/"
+TARGET="_top"
+>http://www.opengroup.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>CAE Specification, January 1997, System Interfaces and Headers (XSH),
+
+Issue 5 (ISBN: 1-85912-181-0, C606)</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.opengroup.org/"
+TARGET="_top"
+>http://www.opengroup.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>The Single UNIX Specification Version 1 (UNIX 95) System Interfaces &#38; Headers</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.opengroup.org/"
+TARGET="_top"
+>http://www.opengroup.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>System V Interface Definition, Issue 3</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=""
+TARGET="_top"
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>ISBN 0201566524</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>System V Interface Definition,Fourth Edition</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=""
+TARGET="_top"
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Double Buffer Extension Library</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.x.org/"
+TARGET="_top"
+>http://www.x.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>X Display Power Management Signaling (DPMS) Extension, Library Specification</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.x.org/"
+TARGET="_top"
+>http://www.x.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>X Record Extension Library</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.x.org/"
+TARGET="_top"
+>http://www.x.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Security Extension Specification, Version 7.1</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.x.org/"
+TARGET="_top"
+>http://www.x.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>X Nonrectangular Window Shape Extension Library Version 1.0</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.x.org/"
+TARGET="_top"
+>http://www.x.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>MIT-SHM--The MIT Shared Memory Extension</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.x.org/"
+TARGET="_top"
+>http://www.x.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>X Synchronization Extension Library</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.x.org/"
+TARGET="_top"
+>http://www.x.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>XTEST Extension Library</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.x.org/"
+TARGET="_top"
+>http://www.x.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>X11R6.4 X Inter-Client Exchange (ICE) Protocol</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.x.org/"
+TARGET="_top"
+>http://www.x.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>X11R6.4  X11 Input Extension Library</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.x.org/"
+TARGET="_top"
+>http://www.x.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>X11R6.4 Xlib - C library</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.x.org/"
+TARGET="_top"
+>http://www.x.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>X/Open Portability Guide, Issue 4</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.opengroup.org/"
+TARGET="_top"
+>http://www.opengroup.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>X11R6.4 X Session Management Library</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.x.org/"
+TARGET="_top"
+>http://www.x.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>X11R.4 X Toolkit Intrinsics</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.x.org/"
+TARGET="_top"
+>http://www.x.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>zlib 1.1.3 Manual</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.gzip.org/zlib/"
+TARGET="_top"
+>http://www.gzip.org/zlib/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>See</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="RIMPLEMENTATIONS"
+>Related Implementations</A
+></H1
+><P
+>The implementations listed here are referenced in whole or in part by the
+Linux Standard Base when no formal specification is available.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN256"
+></A
+><P
+><B
+>Table 1-2. Related Implementations</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>BSD 4.4 Lite version 2</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF=""
+TARGET="_top"
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>GNU/Linux defacto standard</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.gnu.org/"
+TARGET="_top"
+>http://www.gnu.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>RFC 1831 &#38; 1832</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.ietf.org/"
+TARGET="_top"
+>http://www.ietf.org/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Still need API reference, instead of protocol reference</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>RPM Package Format V3.0</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+HREF="http://www.rpmdp.org/rpmbook/"
+TARGET="_top"
+>http://www.rpmdp.org/rpmbook/</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="RLIBRARIES"
+>Relevant Libraries</A
+></H1
+><P
+>The libraries listed here shall be available on a Linux Standard Base 
+system. This list is an addition to the list in the general specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN283"
+></A
+><P
+><B
+>Table 1-3. Relevant Libraries</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Library</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Runtime Name</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>libm</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>libm.so.6</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>libutil</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>libutil.so.1</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>libc</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>libc.so.6</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>libpthread</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>libpthread.so.0</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>proginterp-ia32</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>/lib/ld-lsb.so.1</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>librt</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>librt.so.1</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>These libraries will be in an implementation-dependent directory which
+the dynamic linker will search by default.</P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="HOWTO"
+>How to Use this Standard</A
+></H1
+><P
+>The complete LSB specification is composed of a generic LSB specification
+and this supplemental processor-specific specification. These two documents
+constitute a specification that should be used in conjunction with the
+publicly-available standards documents it references. The LSB enumerates
+the system components it includes, but descriptions of those components may
+be included entirely in the LSB, partly in the LSB and partly in other
+documents, or entirely in other reference documents.</P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="DEFNS"
+>Definitions</A
+></H1
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>gLSB</DT
+><DD
+><P
+>This document.</P
+></DD
+><DT
+>LSB-Compliant Application</DT
+><DD
+><P
+>An application written to include only the system routines, commands,
+and other resources included in this document, and that has been compiled
+into an executable file that has the formats and characteristics specified
+for such files in this document, and whose behavior complies, installs,
+and is executed in the environment with the rules given in this document.</P
+></DD
+><DT
+>LSB-Conforming Implementation</DT
+><DD
+><P
+>An implementation that provides the binary system interface for
+applications described in this document.</P
+></DD
+><DT
+>Non-LSB-Compliant Application</DT
+><DD
+><P
+>An application which has been written to include system routines,
+commands, or other resources not included in this document, or which
+has been compiled into a  different from those specified here,
+or which does not behave as specified in this document.</P
+></DD
+><DT
+>LSB Implementation Conformance</DT
+><DD
+><P
+>An implementation satisfying the following requirements:
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>The implementation shall implement fully the architecture described in the hardware manual for the target processor architecture. </P
+></LI
+><LI
+><P
+>The implementation shall be capable of executing compiled applications having the  and using the system interfaces described in this document.</P
+></LI
+><LI
+><P
+>The implementation shall provide libraries containing the interfaces specified by this document, and shall provide a dynamic linking mechanism that allows these interfaces to be attached to applications at runtime. All the interfaces shall behave as specified in the normative references and requirements of this document.</P
+></LI
+><LI
+><P
+>The map of virtual memory provided by the implementation shall conform to the requirements of this document. </P
+></LI
+><LI
+><P
+>The implementation's low-level behavior with respect to function call linkage, system traps, signals, and other such activities shall conform to the formats described in this document. </P
+></LI
+><LI
+><P
+>The compilation system shall compile source code into executable files having the formats and characteristics specified in this document. </P
+></LI
+><LI
+><P
+>The implementation shall provide all of the mandatory interfaces
+in their entirety. </P
+></LI
+><LI
+><P
+>The implementation may provide one or more of the optional interfaces. Each optional interface that is provided shall be provided in its entirety. The product documentation shall state which optional interfaces are provided. </P
+></LI
+><LI
+><P
+>The implementation shall provide all files and utilities specified as part of this document in the  defined here and in other referenced documents. All commands and utilities shall behave as required by this document. The implementation shall also provide all mandatory components of an application's runtime environment that are included or referenced in this document. </P
+></LI
+><LI
+><P
+>The implementation, when provided with standard data formats and
+values at a named interface, shall provide the behavior defined for
+those values and data formats at that interface. However, a conforming
+implementation may consist of components which are separately packaged
+and/or sold. For example, a vendor of a conforming implementation
+might sell the hardware, operating system, and windowing system as
+separately packaged items.</P
+></LI
+><LI
+><P
+>The implementation may provide additional interfaces with different names. It may also provide additional behavior corresponding to data values outside the standard ranges, for standard named interfaces.</P
+></LI
+></OL
+></P
+></DD
+><DT
+>LSB Application Conformance</DT
+><DD
+><P
+>An application with the following characteristics: 
+<P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Its executable files are either shell scripts or object files in the  defined for the Object File Format system interface.</P
+></LI
+><LI
+><P
+>Its object files participate in dynamic linking as defined in the Program Loading and Linking System interface.</P
+></LI
+><LI
+><P
+>It employs only the instructions, traps, and other low-level facilities defined in the Low-Level System interface as being for use by applications.</P
+></LI
+><LI
+><P
+>If it requires any optional interface defined in this document in order to be installed or to execute successfully, the requirement for that optional interface is stated in the application's documentation. </P
+></LI
+><LI
+><P
+>It does not use any interface or data  that is not required to be provided by a conforming implementation, unless: 
+<P
+></P
+><UL
+><LI
+STYLE="list-style-type: BULLET"
+><P
+>If such an interface or data  is supplied by another application through direct invocation of that application during execution, that application is in turn an LSB-compliant application.</P
+></LI
+><LI
+STYLE="list-style-type: BULLET"
+><P
+>The use of that interface or data , as well as its source, is identified in the documentation of the application. </P
+></LI
+></UL
+></P
+></LI
+><LI
+><P
+>It must not use any values for a named interface that are reserved for vendor extensions. </P
+></LI
+></OL
+>
+A strictly conforming application does not require or use any interface, facility, or implementation-defined extension that is not defined in this document in order to be installed or to execute successfully. </P
+></DD
+><DT
+>Rationale</DT
+><DD
+><P
+>An LSB-compliant application is expected to have no dependencies on any 
+vendor extensions to this document. The most common such extensions are 
+additional function entry points and additional libraries other than the 
+ones defined in this document. If an application requires such extensions, 
+it is not portable, since other LSB-conforming implementations may not 
+provide those extensions. </P
+><P
+>An LSB-compliant application is required to use system services on the 
+implementation on which it is running, rather than importing system 
+routines from some other implementation. Thus, it must link dynamically 
+to any routines in the implementation that perform system traps to 
+kernel services. </P
+><P
+>It is to be expected that some applications may be companion applications 
+to other applications. For example, a query application may be a 
+companion to a database application; a preprocessor may be an adjunct 
+to one or more compilers; a data reformatter may convert data from one 
+document manager to another. In such cases, the application may or may 
+not be LSB-compliant, regardless of whether the other application on 
+which it is dependent is LSB-compliant. If such an application merely 
+uses data produced by another application, the application's compliance is 
+independent of the other application's compliance. If such an application 
+actually invokes another application during execution (as, for example, 
+a third-party math library), the invoking application is LSB-compliant 
+only if it also constitutes a LSB-compliant application in combination 
+with the invoked application. </P
+></DD
+><DT
+>Shell Script</DT
+><DD
+><P
+>A file that is read by an interpreter (e.g., awk). The first line of the shell script includes a reference to its interpreter binary.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="TERMS"
+>Terminology</A
+></H1
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>can</DT
+><DD
+><P
+>Describes a permissible optional feature or behavior available to
+the user or application. The feature or behavior is mandatory for an
+implementation that conforms to this document. An application can rely
+on the existence of the feature or behavior.</P
+></DD
+><DT
+>implementation-defined</DT
+><DD
+><P
+>Describes a value or
+behavior that is not defined by this document but is selected by an
+implementor. The value or behavior may vary among implementations
+that conform to this document. An application should not rely on the
+existence of the value or behavior. An application that relies on such
+a value or behavior cannot be assured to be portable across conforming
+implementations.  The implementor shall document such a value or behavior
+so that it can be used correctly by an application.</P
+><P
+>Same as implementation-dependent.</P
+></DD
+><DT
+>may</DT
+><DD
+><P
+>Describes a feature or behavior that is optional for an implementation
+that conforms to this document. An application should not rely on the
+existence of the feature or behavior. An application that relies on such
+a feature or behavior cannot be assured to be portable across conforming
+implementations.</P
+><P
+>To avoid ambiguity, the opposite of may is expressed
+as need not, instead of may not.</P
+></DD
+><DT
+>must</DT
+><DD
+><P
+>Describes a feature or behavior that is mandatory for an application
+or user. An implementation that conforms to this document shall support
+this feature or behavior.</P
+></DD
+><DT
+>shall</DT
+><DD
+><P
+>Describes a feature or behavior that is mandatory for an implementation
+that conforms to this document. An application can rely on the existence
+of the feature or behavior.</P
+></DD
+><DT
+>should</DT
+><DD
+><P
+>For an implementation that conforms to this document, describes a feature
+or behavior that is recommended but not mandatory. An application should
+not rely on the existence of the feature or behavior. An application that
+relies on such a feature or behavior cannot be assured to be portable
+across conforming implementations.</P
+><P
+>For an application, describes a feature or behavior that is recommended
+programming practice for optimum portability.</P
+></DD
+><DT
+>undefined</DT
+><DD
+><P
+>Describes the nature of a value or behavior not defined by this document
+which results from use of an invalid program construct or invalid
+data input.  The value or behavior may vary among implementations that
+conform to this document. An application should not rely on the existence
+or validity of the value or behavior. An application that relies on any
+particular value or behavior cannot be assured to be portable across
+conforming implementations.</P
+></DD
+><DT
+>unspecified</DT
+><DD
+><P
+>Describes the nature of a value or behavior not specified by this document
+which results from use of a valid program construct or valid data input.
+The value or behavior may vary among implementations that conform to this
+document. An application should not rely on the existence or validity
+of the value or behavior. An application that relies on any particular
+value or behavior cannot be assured to be portable across conforming
+implementations.</P
+></DD
+><DT
+>will</DT
+><DD
+><P
+>Same meaning as shall; shall is the preferred term.</P
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="LOWLEVEL"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>II. Low Level System Information</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>2. <A
+HREF="#MACHINEINTERFACE"
+>Machine Interface</A
+></DT
+><DT
+>3. <A
+HREF="#CALLINGSEQUENCE"
+>Function Calling Sequence</A
+></DT
+><DT
+>4. <A
+HREF="#OSINTERFACE"
+>Operating System Interface</A
+></DT
+><DT
+>5. <A
+HREF="#PROCESSINITIALIZATION"
+>Process Initialization</A
+></DT
+><DT
+>6. <A
+HREF="#CODINGEXAMPLES"
+>Coding Examples</A
+></DT
+><DT
+>7. <A
+HREF="#CSTACKFRAME"
+>C Stack Frame</A
+></DT
+><DT
+>8. <A
+HREF="#DEBUGINFO"
+>Debug Information</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="MACHINEINTERFACE"
+>Chapter 2. Machine Interface</A
+></H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="PROCESSORARCH"
+>Processor Architecture</A
+></H1
+><P
+>The IA32 Architecture is specified by the following documents
+<P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>Intel Architecture Software Developer's Manual, Volume 1:
+Basic Architecture</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>Intel Architecture Software Developer's Manual, Volume 2:
+Instruction Set Reference Manual</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>Intel Architecture Software Developer's Manual, Volume 3:
+System Programming Guide</P
+></LI
+></UL
+></P
+><P
+>Only the features of the Intel486 processor instruction set may be assumed
+to be present. An application is responsible for determining if any additional
+instruction set features are available before using those additional features.
+If a feature is not present, then the application may not use it.</P
+><P
+>Applications conforming to this specification must provide feedback to the
+user if a feature that is required for correct execution of the application
+is not present. Applications conforming to this specification should attempt
+to execute in a diminished capacity if a required instruction set feature is
+not present.</P
+><P
+>This specfication does not provide any performance guarantees of a conforming
+system. A system conforming to this specification may be implemented in either
+hardware or software.</P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="DATAREPRESENTATION"
+>Data Representation</A
+></H1
+><P
+>LSB-conforming applications shall use the data representation as defined in 
+Chapter 3 of the System V Application Binary Interface - Intel386 Architecture
+Processor Supplement.</P
+><P
+></P
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="BYTEORDERING"
+>Byte Ordering</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="FUNDAMENTALTYES"
+>Fundamental Types</A
+></H2
+><P
+>In addition to the fundamental types specified in Chapter 3 of the System V
+Application Binary Interface - Intel386 Architecture, a 64 bit data type is
+defined here.
+<DIV
+CLASS="TABLE"
+><A
+NAME="AEN460"
+></A
+><P
+><B
+>Table 2-1. Scalar Types</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Type</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>C</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="COMPUTEROUTPUT"
+>sizeof</TT
+></TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>Alignment (bytes)</TH
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+>IntelI386 Architecture</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ROWSPAN="3"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>Integral</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>long long</TD
+><TD
+ROWSPAN="2"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><TT
+CLASS="COMPUTEROUTPUT"
+>8</TT
+></TD
+><TD
+ROWSPAN="2"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>4</TD
+><TD
+ROWSPAN="2"
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+>signed double word</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>signed long long</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>unsigned long long</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><TT
+CLASS="COMPUTEROUTPUT"
+>8</TT
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>4</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>unsigned double word</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="AGGREGATESANDUNIONS"
+>Aggregates and Unions</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="BITFIELDS"
+>Bit Fields</A
+></H2
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="CALLINGSEQUENCE"
+>Chapter 3. Function Calling Sequence</A
+></H1
+><P
+>LSB-conforming applications shall use the function calling sequence as defined
+in Chapter 3 of the System V Application Binary Interface - Intel386
+Architecture Processor Supplement.</P
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="CPUREGISTERS"
+>CPU Registers</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="FPUREGISTERS"
+>Floating Point Registers</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="STACKFRAME"
+>Stack Frame</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="ARGUMENTS"
+>Arguments</A
+></H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="INTEGRALPOINTERARG"
+>Integral/Pointer</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="FLOATINGPOINTARG"
+>Floating Point</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="STRUCTUNITONARG"
+>Struct and Union Point</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="VARIABLEARGS"
+>Variable Arguments</A
+></H2
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="RETURNVALUES"
+>Return Values</A
+></H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="VOIDRET"
+>Void</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="INTEGRALPOINTERRET"
+>Integral/Pointer</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="FLOATINGPOINTRET"
+>Floating Point</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="STRUCTUNITONRET"
+>Struct and Union Point</A
+></H2
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="OSINTERFACE"
+>Chapter 4. Operating System Interface</A
+></H1
+><P
+>LSB-conforming applications shall use the Operating System Interfaces as
+defined in Chapter 3 of the System V Application Binary Interface - Intel386
+Architecture Processor Supplement.</P
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="VIRTUALADDRESSSPACE"
+>Virtual Address Space</A
+></H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="PAGESIZE"
+>Page Size</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="VIRTUALADDRESSASSIGNMENTS"
+>Virtual Address Assignments</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="MANAGINPROCESSTACK"
+>Managing the PRocess Stack</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="CODINGGUIDLINES"
+>Coding Guidlines</A
+></H2
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="PROCESSOREXECUTIONMODE"
+>Processor Execution Mode</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="EXCEPTIONINTERFACE"
+>Exception Interface</A
+></H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="HARDWAREEXCEPTIONTYPES"
+>Hardware Exception Types</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="SOFTWARETRAPTYPES"
+>Software Trap Types</A
+></H2
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="SIGNALDELIVERY"
+>Signal Delivery</A
+></H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="SIGNALHANDLERINTERFACE"
+>Signal Handler Interface</A
+></H2
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="PROCESSINITIALIZATION"
+>Chapter 5. Process Initialization</A
+></H1
+><P
+>LSB-conforming applications shall use the Process Initialization as
+defined in Chapter 3 of the System V Application Binary Interface - Intel386
+Architecture Processor Supplement.</P
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="SPECIALREGISTERS"
+>Special Registers</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="PROCESSSTACK"
+>Process Stack (on entry)</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="AUXILLIARYVECTORS"
+>Auxilliary Vectors</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="ENVIRONMENT"
+>Environment</A
+></H1
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="CODINGEXAMPLES"
+>Chapter 6. Coding Examples</A
+></H1
+><P
+>LSB-conforming applications may implement fundamental operations using the
+Coding Examples as defined in Chapter 3 of the System V Application Binary
+Interface - Intel386 Architecture Processor Supplement.</P
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="CODEMODELOVERVIEW"
+>Code Model Overview/Architecture Constraints</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="PICPROLOGUE"
+>Position-Independent Fucntion Prologue</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="DATAOBJECTS"
+>Data Objects</A
+></H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="DATAOBJECTSABSLOAD"
+>Absolute Load &#38; Store</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="DATAOBJECTSRELLOAD"
+>Position Relative Load &#38; Store</A
+></H2
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="FUNCTIONCALLS"
+>Function Calls</A
+></H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="FUNCCALLDIRECT"
+>Absolute Direct Function Call</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="FUNCCALLINDIRECT"
+>Absolute Indirect Function Call</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="FUNCCALLPICDIRECT"
+>Position-Independent Direct Function Call</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="FUNCCALLPICINDIRECT"
+>Position-Independent Indirect Function Call</A
+></H2
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="BRANCHING"
+>Branching</A
+></H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="BRANCHINSTRUCTION"
+>Branch Instruction</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="ABSOLUTESWITCHCODE"
+>Absolute switch() code</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="PICSWITCHCODE"
+>Position-Independent switch() code</A
+></H2
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="CSTACKFRAME"
+>Chapter 7. C Stack Frame</A
+></H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="VARIABLEARGLIST"
+>Variable Argument List</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="DYNAMICSTACKALLOC"
+>Dynamic Allocation of Stack Space</A
+></H1
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="DEBUGINFO"
+>Chapter 8. Debug Information</A
+></H1
+><P
+>The LSB does not currently specify the format of Debug information.</P
+></DIV
+></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="TOCOBJFORMAT"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>III. Object Format</H1
+><DIV
+CLASS="PARTINTRO"
+><A
+NAME="AEN644"
+></A
+><P
+>LSB-conforming implementations shall support an object file , called
+Executable and Linking Format (ELF) as defined by the System V Application
+Binary Interface, Edition 4.1, the System V Application Binary Interface -
+DRAFT - April 29, 1998, System V Application Binary Interface - Intel386
+Architecture Processor Supplement and as supplemented by the Linux Standard
+Base Specification and this document.</P
+></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>9. <A
+HREF="#ELFHEADER"
+>ELF Header</A
+></DT
+><DT
+>10. <A
+HREF="#SECTIONS"
+>Sections</A
+></DT
+><DT
+>11. <A
+HREF="#SYMBOLTABLE"
+>Symbol Table</A
+></DT
+><DT
+>12. <A
+HREF="#RELOCATION"
+>Relocation</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="ELFHEADER"
+>Chapter 9. ELF Header</A
+></H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="MACHINEINFO"
+>Machine Information</A
+></H1
+><P
+>LSB-conforming applications shall use the Machine Information as defined in
+Chapter 4 of the System V Application Binary Interface - Intel386 Architecture
+Processor Supplement.</P
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="MIFILECLASS"
+>File Class</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="MIDATAENCODING"
+>Data Encoding</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="MIOSIDENTIFICATION"
+>OS Identification</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="MIPROCESSORIDENT"
+>Processor Identification</A
+></H2
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="MIPROCESSORSPECIALFLAGS"
+>Processor Specific Flags</A
+></H2
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="SECTIONS"
+>Chapter 10. Sections</A
+></H1
+><P
+></P
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="SPECIALSECTIONS"
+>Special Sections</A
+></H1
+><P
+>The following sections are defined in the System V Application Binary
+Interface - Intel386 Architecture Processor Supplement.
+<DIV
+CLASS="TABLE"
+><A
+NAME="AEN672"
+></A
+><P
+><B
+>Table 10-1. </B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="CENTER"
+VALIGN="TOP"
+>Name</TH
+><TH
+ALIGN="CENTER"
+VALIGN="TOP"
+>Type</TH
+><TH
+ALIGN="CENTER"
+VALIGN="TOP"
+>Attributes</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>.got</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>SHT_PROGBITS</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>SHF_ALLOC+SHF_WRITE</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>.plt</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>SHT_PROGBITS</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>SHF_ALLOC+SHF_EXECINSTR</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>.got</DT
+><DD
+><P
+>This section holds the global offset table.</P
+></DD
+><DT
+>.plt</DT
+><DD
+><P
+>This section holds the procedure linkage table.</P
+></DD
+></DL
+></DIV
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="LINUXSPECIAL"
+>Linux Special Sections</A
+></H1
+><P
+>The following Linux IA-32 specific sections are defined here.
+<DIV
+CLASS="TABLE"
+><A
+NAME="AEN701"
+></A
+><P
+><B
+>Table 10-2. </B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+ALIGN="CENTER"
+VALIGN="TOP"
+>Name</TH
+><TH
+ALIGN="CENTER"
+VALIGN="TOP"
+>Type</TH
+><TH
+ALIGN="CENTER"
+VALIGN="TOP"
+>Attributes</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>.sbss</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>SHT_NOTE</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>SHF_WRITE</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+>
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>.sbss</DT
+><DD
+><P
+>Need a proper description</P
+></DD
+></DL
+></DIV
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="SECTIONTYPES"
+>Section Types</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="SECTIONATTRIBFLAGS"
+>Section Attribute Flags</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="SPECIALSECTIONTYPES"
+>Special Section Types</A
+></H1
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="SYMBOLTABLE"
+>Chapter 11. Symbol Table</A
+></H1
+><P
+>LSB-conforming applications shall use the Symbol Table as defined in
+Chapter 4 of the System V Application Binary Interface - Intel386 Architecture
+Processor Supplement.</P
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="RELOCATION"
+>Chapter 12. Relocation</A
+></H1
+><P
+>LSB-conforming applications shall use Relocations as defined in
+Chapter 4 of the System V Application Binary Interface - Intel386 Architecture
+Processor Supplement.</P
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="RELOCATIONTYPES"
+>Relocation Types</A
+></H1
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="TOCDYNLNK"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>IV. Program Loading and Dynamic Linking</H1
+><DIV
+CLASS="PARTINTRO"
+><A
+NAME="AEN739"
+></A
+><P
+>LSB-conforming implementations shall support the object file information and
+system actions that create running programs as specified in the System V
+Application Binary Interface, Edition 4.1, the System V Application Binary
+Interface - DRAFT - April 29, 1998, System V Application Binary Interface -
+Intel386 Architecture Processor Supplement and as supplemented by the Linux
+Standard Base Specification and this document.</P
+></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>13. <A
+HREF="#PROGRAMHEADER"
+>Program Header</A
+></DT
+><DT
+>14. <A
+HREF="#PROGRAMLOADING"
+>Program Loading</A
+></DT
+><DT
+>15. <A
+HREF="#DYNAMICLINKING"
+>Dynamic Linking</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="PROGRAMHEADER"
+>Chapter 13. Program Header</A
+></H1
+><P
+></P
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="PROGHEADTYPES"
+>Types</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="PROGHEADFLAGS"
+>Flags</A
+></H1
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="PROGRAMLOADING"
+>Chapter 14. Program Loading</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="DYNAMICLINKING"
+>Chapter 15. Dynamic Linking</A
+></H1
+><P
+></P
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="PROGINTERP"
+>Program Intepreter/Dynamic Linker</A
+></H1
+><P
+>The LSB specifies the Program Interpreter to be
+<P
+></P
+><UL
+><LI
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>/lib/ld-lsb.so.1</PRE
+></TD
+></TR
+></TABLE
+></LI
+></UL
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="DYNSECTION"
+>Dynamic Section</A
+></H1
+><P
+>The following dynamic entries are defined in the System V Application Binary
+Interface - Intel386 Architecture Processor Supplement.
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>DT_PLTGOT</DT
+><DD
+><P
+>On the Intel386 architecture, this entrys d_ptr member gives the address of the first entry in the global offset table.</P
+></DD
+></DL
+></DIV
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="GLOBALOFFETTABLE"
+>Global Offset Table</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="SHAREDOBJECTDEPENDENCIES"
+>Shared Object Dependencies</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="FUNCTIONADDRESSES"
+>Function Addresses</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="PROCEEDURELINKAGETABLE"
+>Procedure Linkage Table</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="INITANDFINIFUNCTONS"
+>Initialization and Termination Functions</A
+></H1
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="TOCBASELIB"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>V. Base Libraries</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>16. <A
+HREF="#BASELIB"
+>Libraries</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="BASELIB"
+>Chapter 16. Libraries</A
+></H1
+><P
+>An LSB-conforming implementation shall support some base libraries which
+provide interfaces for accessing the operating system, processor and other
+hardware in the system.</P
+><P
+>Interfaces that are unique to the IA32 platform are defined here. This
+section should be used in conjunction with the corresponding section in
+the Linux Standard Base Specification.</P
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="LIBC"
+>Interfaces for libc</A
+></H1
+><P
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN794"
+></A
+><P
+><B
+>Table 16-1. libc Definition</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Library:</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>libc</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>SONAME:</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>libc.so.6</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following standards.<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>Linux Standard Base<A
+NAME="STD-131-10"
+HREF="#FTN.STD-131-10"
+>[1]</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="AEN809"
+>Standard Library</A
+></H2
+><P
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN812"
+></A
+><P
+><B
+>Table 16-2. libc - Standard Library Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>ioperm(GLIBC_2.0)<A
+HREF="#FTN.STD-131-10"
+>[1]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>iopl(GLIBC_2.0)<A
+HREF="#FTN.STD-131-10"
+>[1]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H2
+CLASS="SECT2"
+><A
+NAME="AEN824"
+>Language Support</A
+></H2
+><P
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN827"
+></A
+><P
+><B
+>Table 16-3. libc - Language Support Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>__divdi3(GLIBC_2.0)<A
+HREF="#FTN.STD-131-10"
+>[1]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="LIBC-DDEFS"
+>Data Definitions for libc</A
+></H1
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="LIBCMAN"
+>Interfaces Definitions for libc</A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="#BASELIB---DIVDI3-3"
+>__divdi3</A
+>&nbsp;--&nbsp;mathematic operation</DT
+><DT
+><A
+HREF="#BASELIB-IOPERM-2"
+>ioperm</A
+>&nbsp;--&nbsp;set port input/output permissions</DT
+><DT
+><A
+HREF="#BASELIB-IOPL-2"
+>iopl</A
+>&nbsp;--&nbsp;change I/O privilege level</DT
+></DL
+></DIV
+><P
+></P
+><H1
+><A
+NAME="BASELIB---DIVDI3-3"
+>__divdi3</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN848"
+></A
+><H2
+>Name</H2
+>__divdi3&nbsp;--&nbsp;mathematic operation</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN851"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>DItype
+__divdi3(DItype u, DItype v);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN855"
+></A
+><H2
+>Description</H2
+><P
+>__divdi3() divides two DItypes(unsigned ints).</P
+><P
+>__divdi3 is not in the source standard; it is only in the binary standard.</P
+></DIV
+><H1
+><A
+NAME="BASELIB-IOPERM-2"
+>ioperm</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN865"
+></A
+><H2
+>Name</H2
+>ioperm&nbsp;--&nbsp;set port input/output permissions</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN868"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>#include &lt;unistd.h&#62; /* for libc5 */
+#include &lt;sys/io.h&#62; /* for glibc */
+
+int ioperm(unsigned long from, unsigned long num, int turn_on);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN872"
+></A
+><H2
+>Description</H2
+><P
+>ioperm sets the port access permission bits for the process for num bytes starting from port address from to the value turn_on. The use of ioperm requires root privileges.</P
+><P
+>Only the first 0x3ff I/O ports can be specified in this manner. For more ports, the iopl function must be used. Permissions are not inherited on fork, but on exec they are. This is useful for giving port access permissions to non-privileged tasks.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN878"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, zero is returned. On error, -1 is returned, and errno is set appropriately.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN881"
+></A
+><H2
+>Notes</H2
+><P
+>Libc5 treats it as a system call and has a prototype in &lt;unistd.h&#62;. Glibc1 does not have a prototype. Glibc2 has a prototype both in &lt;sys/io.h&#62; and in &lt;sys/perm.h&#62;. Avoid the latter, it is available on i386 only.</P
+></DIV
+><H1
+><A
+NAME="BASELIB-IOPL-2"
+>iopl</A
+></H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN888"
+></A
+><H2
+>Name</H2
+>iopl&nbsp;--&nbsp;change I/O privilege level</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN891"
+></A
+><H2
+>Synopsis</H2
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>#include &lt;unistd.h&#62; /* for libc5 */
+#include &lt;sys/io.h&#62; /* for glibc */
+
+int iopl(int level);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN895"
+></A
+><H2
+>Description</H2
+><P
+>iopl changes the I/O privilege level of the current process, as specified in level.</P
+><P
+>This call is necessary to allow 8514-compatible X servers to run under Linux. Since these X servers require access to all 65536 I/O ports, the ioperm call is not sufficient.</P
+><P
+>In addition to granting unrestricted I/O port access, running at a higher I/O privilege level also allows the process to disable interrupts. This will probably crash the system, and is not recommended.</P
+><P
+>Permissions are inherited by fork and exec.</P
+><P
+>The I/O privilege level for a normal process is 0.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN904"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, zero is returned. On error, -1 is returned, and errno is set appropriately.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN907"
+></A
+><H2
+>Errors</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>EINVAL</DT
+><DD
+><P
+>level is greater than 3.</P
+></DD
+><DT
+>EPERM</DT
+><DD
+><P
+>The current user is not the super-user.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN918"
+></A
+><H2
+>Notes from the Kernel Source</H2
+><P
+>iopl has to be used when you want to access the I/O ports beyond the 0x3ff range: to get the full 65536 ports bitmapped you'd need 8kB of bitmaps/process, which is a bit excessive.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN921"
+></A
+><H2
+>Notes</H2
+><P
+>Libc5 treats it as a system call and has a prototype in &lt;unistd.h&#62;. Glibc1 does not have a prototype. Glibc2 has a prototype both in &lt;sys/io.h&#62; and in &lt;sys/perm.h&#62;. Avoid the latter, it is available on i386 only.</P
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="LIBM"
+>Interfaces for libm</A
+></H1
+><P
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN927"
+></A
+><P
+><B
+>Table 16-4. libm Definition</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>Library:</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>libm</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>SONAME:</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>libm.so.6</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="LIBM-DDEFS"
+>Data Definitions for libm</A
+></H1
+><P
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPENDIX"
+><HR><H1
+><A
+NAME="APP-A"
+>Appendix A. Alphabetical Listing of Interfaces</A
+></H1
+><P
+></P
+><DIV
+CLASS="SECT1"
+><HR><H1
+CLASS="SECT1"
+><A
+NAME="APP-LIBC"
+>libc</A
+></H1
+><P
+></P
+><P
+>The behaviour of the interfaces in this library is specified by the following Standards.<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>Linux Standard Base</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN950"
+></A
+><P
+><B
+>Table A-1. libc Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>__divdi3(GLIBC_2.0)<A
+HREF="#FTN.STD-131-10"
+>[1]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>ioperm(GLIBC_2.0)<A
+HREF="#FTN.STD-131-10"
+>[1]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+>iopl(GLIBC_2.0)<A
+HREF="#FTN.STD-131-10"
+>[1]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.STD-131-10"
+HREF="#STD-131-10"
+>[1]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>Linux Standard Base</P
+></TD
+></TR
+></TABLE
+></BODY
+></HTML
+>

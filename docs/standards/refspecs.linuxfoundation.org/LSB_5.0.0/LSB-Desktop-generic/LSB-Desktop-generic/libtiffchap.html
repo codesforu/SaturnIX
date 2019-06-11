@@ -1,0 +1,1087 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Libraries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="tiff library"
+HREF="toclibtiff.html"><LINK
+REL="PREVIOUS"
+TITLE="tiff library"
+HREF="toclibtiff.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libtiff"
+HREF="libtiff-ddefs.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="toclibtiff.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libtiff-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="LIBTIFFCHAP"
+></A
+>Chapter 16. Libraries</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBTIFF"
+>16.1. Interfaces for libtiff</A
+></H1
+><P
+><A
+HREF="libtiffchap.html#LIB-LIBTIFF-DEF"
+>Table 16-1</A
+> defines the library name and shared object name
+for the libtiff library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBTIFF-DEF"
+></A
+><P
+><B
+>Table 16-1. libtiff Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libtiff</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libtiff.so.5</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBTIFF.1"
+></A
+>[Libtiff 4.0.2] <A
+HREF="normativerefs.html#STD.TIFF"
+>Libtiff 4.0.2 Reference Manual</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN22321"
+>16.1.1. libtiff interfaces</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN22324"
+>16.1.1.1. Interfaces for libtiff interfaces</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for libtiff interfaces specified in <A
+HREF="libtiffchap.html#TBL-LIBTIFF-LIBTI-INTS"
+>Table 16-2</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBTIFF-LIBTI-INTS"
+></A
+><P
+><B
+>Table 16-2. libtiff - libtiff interfaces Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>TIFFAccessTagMethods <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFCIELabToRGBInit <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFCIELabToXYZ <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFCheckTile <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFCheckpointDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFCleanup <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFClientOpen <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFClientdata <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFClose <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFComputeStrip <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFComputeTile <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFCreateCustomDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFCreateDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFCreateEXIFDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFCurrentDirOffset <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFCurrentDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFCurrentRow <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFCurrentStrip <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFCurrentTile <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFDataWidth <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFDefaultStripSize <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFDefaultTileSize <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFError <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFErrorExt <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFFdOpen <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFFieldWithName <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFFieldWithTag <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFFileName <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFFileno <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFFindCODEC <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFFindField <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFFlush <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFFlushData <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFFreeDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFGetBitRevTable <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFGetClientInfo <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFGetCloseProc <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFGetConfiguredCODECs <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFGetField <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFGetFieldDefaulted <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFGetMapFileProc <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFGetMode <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFGetReadProc <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFGetSeekProc <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFGetSizeProc <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFGetTagListCount <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFGetTagListEntry <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFGetUnmapFileProc <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFGetVersion <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFGetWriteProc <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFIsBigEndian <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFIsByteSwapped <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFIsCODECConfigured <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFIsMSB2LSB <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFIsTiled <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFIsUpSampled <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFLastDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFNumberOfDirectories <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFNumberOfStrips <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFNumberOfTiles <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFOpen <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFPrintDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFRGBAImageBegin <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFRGBAImageEnd <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFRGBAImageGet <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFRGBAImageOK <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFRasterScanlineSize <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFRasterScanlineSize64 <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFRawStripSize <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFRawStripSize64 <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFReadBufferSetup <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFReadCustomDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFReadDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFReadEXIFDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFReadEncodedStrip <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFReadEncodedTile <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFReadRGBAImage <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFReadRGBAImageOriented <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFReadRGBAStrip <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFReadRGBATile <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFReadRawStrip <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFReadRawTile <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFReadScanline <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFReadTile <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFRegisterCODEC <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFReverseBits <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFRewriteDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFScanlineSize <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFScanlineSize64 <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSetClientInfo <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFSetClientdata <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSetDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSetErrorHandler <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFSetErrorHandlerExt <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSetField <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSetFileName <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFSetFileno <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSetMode <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSetSubDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFSetTagExtender <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSetWarningHandler <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSetWarningHandlerExt <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFSetWriteOffset <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSetupStrips <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFStripSize <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFStripSize64 <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSwabArrayOfDouble <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSwabArrayOfFloat <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFSwabArrayOfLong <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSwabArrayOfLong8 <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSwabArrayOfShort <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFSwabArrayOfTriples <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSwabDouble <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSwabFloat <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFSwabLong <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSwabLong8 <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFSwabShort <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFTileRowSize <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFTileRowSize64 <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFTileSize <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFTileSize64 <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFUnRegisterCODEC <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFUnlinkDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFUnsetField <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFVGetField <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFVGetFieldDefaulted <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFVSetField <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFVStripSize <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFVStripSize64 <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFVTileSize <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFVTileSize64 <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFWarning <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFWarningExt <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFWriteBufferSetup <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFWriteCheck <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFWriteCustomDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFWriteDirectory <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFWriteEncodedStrip <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFWriteEncodedTile <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFWriteRawStrip <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFWriteRawTile <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFWriteScanline <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFWriteTile <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFXYZToRGB <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+></TR
+><TR
+><TD
+>TIFFYCbCrToRGBInit <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>TIFFYCbCrtoRGB <A
+HREF="libtiffchap.html#REFSTD.LIBTIFF.1"
+>[Libtiff 4.0.2]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="toclibtiff.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libtiff-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>tiff library</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="toclibtiff.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libtiff</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

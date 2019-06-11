@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PR_PushIOLayer</title>
+</head>
+
+<body>
+          <div class="pageTitle">
+            <h1 id="title">PR_PushIOLayer</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+<p>Adds a layer onto the stack.
+</p>
+<div id="section_1"><a id="Syntax"><h3 class="editable"> Syntax </h3>
+<pre class="eval">#include &lt;prio.h&gt; 
+
+PRStatus PR_PushIOLayer(
+  PRFileDesc *stack, 
+  PRDescIdentity id,
+  PRFileDesc *layer);
+</pre>
+</div><div id="section_2"><a id="Parameters"><h3 class="editable"> Parameters </h3>
+<p>The function has the following parameters:
+</p>
+<dl><dt><code>stack</code>
+</dt><dd>A pointer to a <code>PRFileDesc</code> object representing the stack.
+</dd><dt><code>id</code>
+</dt><dd>A <code>PRDescIdentity</code> object for the layer on the stack above which the new layer is to be added.
+</dd><dt><code>layer</code>
+</dt><dd>A pointer to a <code>PRFileDesc</code> object representing the new layer to be added to the stack.
+</dd></dl>
+</div><div id="section_3"><a id="Returns"><h3 class="editable"> Returns </h3>
+<p>The function returns one of the following values:
+</p>
+<ul><li> If the layer is successfully pushed onto the stack, <code>PR_SUCCESS</code>.
+</li><li> If the layer is not successfully pushed onto the stack, <code>PR_FAILURE</code>. Use <code><a href="PR_GetError.html">PR_GetError</a></code> to get additional information regarding the reason for the failure.
+</li></ul>
+</div><div id="section_4"><a id="Description"><h3 class="editable"> Description </h3>
+<p>A file descriptor for a layer (possibly allocated using <code><a href="PR_CreateIOLayerStub.html">PR_CreateIOLayerStub</a></code>) may be pushed onto an existing stack of file descriptors at any time. The new layer is inserted into the stack just above the layer with the identity specified by <code>id</code>.
+<p>Even if the <code>id</code> parameter indicates the topmost layer of the stack, the value of the file descriptor describing the original stack will not change. In other words, <code>stack</code> continues to point to the top of the stack after the function returns. </p>
+</div><div id="section_5"><a id="Caution"><h3 class="editable"> Caution </h3>
+<p>Keeping the pointer to the stack even as layers are pushed onto the top of the stack is accomplished by swapping the contents of the file descriptor being pushed and the stack's current top layer file descriptor.
+<p>The intent is that the pointer to the stack remain the stack's identity even if someone (perhaps covertly) has pushed other layers. Some subtle ramifications:
+</p>
+<ul><li> The ownership of the storage pointed to by the caller's layer argument is relinquished to the runtime. Accessing the object via the pointer is not permitted while the runtime has ownership. The correct mechanism to access the object is to get a pointer to it by calling <code><a href="PR_GetIdentitiesLayer.html">PR_GetIdentitiesLayer</a></code>.
+</li></ul>
+<ul><li> The contents of the caller's object are swapped into another container, including the reference to the object's destructor. If the original container was allocated using a different mechanism than used by the runtime, the default calling of the layer's destructor by the runtime will fail <code><a href="PR_CreateIOLayerStub.html">PR_CreateIOLayerStub</a></code> is provided to allocate layer objects and template implementations). The destructor will be called on all layers when the stack is closed (see <code><a href="PR_Close.html">PR_Close</a></code>). If the containers are allocated by some method other than <code><a href="PR_CreateIOLayerStub.html">PR_CreateIOLayerStub</a></code>, it may be required that the stack have the layers popped off (in reverse order that they were pushed) before calling <code><a href="PR_Close.html">PR_Close</a></code>.
+</li></ul>
+</div><hr />
+</body>
+</html>

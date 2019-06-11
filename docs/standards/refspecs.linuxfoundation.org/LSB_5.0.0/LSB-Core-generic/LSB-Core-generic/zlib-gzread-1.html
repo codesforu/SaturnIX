@@ -1,0 +1,524 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>gzread</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libz"
+HREF="libzman.html"><LINK
+REL="PREVIOUS"
+TITLE="gzputs"
+HREF="zlib-gzputs-1.html"><LINK
+REL="NEXT"
+TITLE="gzrewind"
+HREF="zlib-gzrewind-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="zlib-gzputs-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="zlib-gzrewind-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="ZLIB-GZREAD-1"
+></A
+>gzread</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN30567"
+></A
+><H2
+>Name</H2
+>gzread&nbsp;--&nbsp;read from a compressed file</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN30572"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN30573"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;zlib.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>   int <TT
+CLASS="FUNCTION"
+>gzread</TT
+>
+  </CODE
+>(gzFile <TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+>, voidp <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>, unsigned int <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN30584"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>gzread()</TT
+> function shall read data from
+the compressed file
+referenced by <TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+>, which shall have been opened
+in a read mode (see <TT
+CLASS="FUNCTION"
+>gzopen()</TT
+> and 
+<TT
+CLASS="FUNCTION"
+>gzdopen()</TT
+>).
+The <TT
+CLASS="FUNCTION"
+>gzread()</TT
+> function shall read data from
+<TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+>, and uncompress it into 
+<TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>. At most, <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+>
+bytes of uncompressed data shall be copied to <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>.
+If the file is not compressed, <TT
+CLASS="FUNCTION"
+>gzread()</TT
+> shall simply
+copy data from <TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+> to <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>
+without alteration.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN30599"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <TT
+CLASS="FUNCTION"
+>gzread()</TT
+> shall return the number of bytes
+decompressed into <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>.
+If <TT
+CLASS="FUNCTION"
+>gzread()</TT
+> returns <CODE
+CLASS="CONSTANT"
+>0</CODE
+>,
+either the end-of-file has been reached
+or an underlying read error has occurred. Applications
+should use <TT
+CLASS="FUNCTION"
+>gzerror()</TT
+> or <TT
+CLASS="FUNCTION"
+>gzeof()</TT
+>
+to determine which occurred.
+On other errors, 
+<TT
+CLASS="FUNCTION"
+>gzread()</TT
+> shall return a value less than 
+<CODE
+CLASS="CONSTANT"
+>0</CODE
+> and applications may examine the cause using <TT
+CLASS="FUNCTION"
+>gzerror()</TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN30611"
+></A
+><H2
+>Errors</H2
+><P
+>On error, <TT
+CLASS="FUNCTION"
+>gzread()</TT
+> shall set
+the error number associated with the stream identified by 
+<TT
+CLASS="PARAMETER"
+><I
+>file</I
+></TT
+>
+to indicate the error. Applications should use <TT
+CLASS="FUNCTION"
+>gzerror()</TT
+>
+to access this error value.</P
+><P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN30619"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>Z_ERRNO</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>An underlying base library function has indicated an error.
+The global variable <CODE
+CLASS="VARNAME"
+>errno</CODE
+> may be examined 
+for further information.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN30625"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>Z_STREAM_END</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>End of file has been reached on input.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN30630"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>Z_DATA_ERROR</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A CRC error occurred when reading data; the file is corrupt.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN30635"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>Z_STREAM_ERROR</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The stream is invalid, or is in an invalid state.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN30640"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>Z_NEED_DICT</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A dictionary is needed (see <TT
+CLASS="FUNCTION"
+>inflateSetDictionary()</TT
+>).</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN30646"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>Z_MEM_ERROR</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Insufficient memory available to decompress.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="zlib-gzputs-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="zlib-gzrewind-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>gzputs</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libzman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>gzrewind</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

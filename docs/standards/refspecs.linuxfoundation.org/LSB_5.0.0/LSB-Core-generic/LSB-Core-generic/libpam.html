@@ -1,0 +1,390 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libpam</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Base Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="setkey_r"
+HREF="baselib-setkey-r-1.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libpam"
+HREF="libpam-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-setkey-r-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 14. Base Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpam-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBPAM"
+>14.23. Interfaces for libpam</A
+></H1
+><P
+><A
+HREF="libpam.html#LIB-LIBPAM-DEF"
+>Table 14-67</A
+> defines the library name and shared object name
+for the libpam library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBPAM-DEF"
+></A
+><P
+><B
+>Table 14-67. libpam Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libpam</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libpam.so.0</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The Pluggable Authentication Module (PAM) interfaces allow
+applications to request authentication via a system administrator
+defined mechanism, known as a <I
+CLASS="FIRSTTERM"
+>service</I
+>.</P
+><P
+>A single service name, <CODE
+CLASS="VARNAME"
+>other</CODE
+>, shall always be present.
+The behavior of this service shall be determined by the system administrator.
+Additional service names may also exist.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>Future versions of this specification might define additional
+service names.</P
+></BLOCKQUOTE
+></DIV
+></P
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBPAM.1"
+></A
+>[LSB] <A
+HREF="normativerefs.html#STD.LSB"
+>This Specification</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBPAM.2"
+></A
+>[PAM] <A
+HREF="informativerefs.html#STD.PAM"
+>PAM</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN27548"
+>14.23.1. Pluggable Authentication API</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN27551"
+>14.23.1.1. Interfaces for Pluggable Authentication API</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for Pluggable Authentication API specified in <A
+HREF="libpam.html#TBL-LIBPAM-PLUGG-INTS"
+>Table 14-68</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBPAM-PLUGG-INTS"
+></A
+><P
+><B
+>Table 14-68. libpam - Pluggable Authentication API Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>pam_acct_mgmt(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+><TD
+>pam_authenticate(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+><TD
+>pam_chauthtok(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+><TD
+>pam_close_session(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>pam_end(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+><TD
+>pam_fail_delay(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+><TD
+>pam_get_data(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.2"
+>[PAM]</A
+></TD
+><TD
+>pam_get_item(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>pam_get_user(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.2"
+>[PAM]</A
+></TD
+><TD
+>pam_getenv(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+><TD
+>pam_getenvlist(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+><TD
+>pam_open_session(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>pam_putenv(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+><TD
+>pam_set_data(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.2"
+>[PAM]</A
+></TD
+><TD
+>pam_set_item(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+><TD
+>pam_setcred(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>pam_start(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+><TD
+>pam_strerror(LIBPAM_1.0) <A
+HREF="libpam.html#REFSTD.LIBPAM.1"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-setkey-r-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpam-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>setkey_r</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libpam</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

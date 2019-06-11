@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Localization</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Execution Environment"
+HREF="tocexecenv.html"><LINK
+REL="PREVIOUS"
+TITLE="Executable Scripts"
+HREF="executable-scripts.html"><LINK
+REL="NEXT"
+TITLE="Regular Expressions"
+HREF="localization-regex.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="executable-scripts.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="localization-regex.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="LOCALIZATION"
+></A
+>Chapter 21. Localization</H1
+><DIV
+CLASS="SECTION"
+><H1
+CLASS="SECTION"
+><A
+NAME="AEN61343"
+>21.1. Introduction</A
+></H1
+><P
+>In order to install a message catalog, the installation procedure 
+shall supply the message catalog in a format readable by the
+<B
+CLASS="COMMAND"
+>msgfmt</B
+> command, which shall be invoked to compile
+the message catalog into an appropriate binary format on the target system.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Rationale: </B
+>The original intent was to allow an application to contain the binary
+GNU MO format files. However, the format of these files is not
+officially stable, hence it is necessary to compile these catalogs
+on the target system. These binary catalogs
+may differ from architecture to architecture
+as well.</P
+></BLOCKQUOTE
+></DIV
+>
+The resulting binary message catalog shall be
+located in the package's private area under <TT
+CLASS="FILENAME"
+>/opt</TT
+>, and the
+application may use <TT
+CLASS="FUNCTION"
+>bindtextdomain()</TT
+> to specify this
+location.</P
+><P
+>Implementations shall support the POSIX and C locales as specified in
+<A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>. Other locales may be supported.</P
+><P
+>Implementations may define additional locale categories not defined by that standard.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>Implementations choosing additional locale categories should be aware
+of <A
+HREF="informativerefs.html#STD.TR14652"
+>ISO/IEC TR14652</A
+> and are advised not to choose names that conflict with that
+specification. If implementations provide locale categories whose names
+are part of the FDCC set of <A
+HREF="informativerefs.html#STD.TR14652"
+>ISO/IEC TR14652</A
+>, they should behave as defined by
+that specification.</P
+></BLOCKQUOTE
+></DIV
+></P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="executable-scripts.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="localization-regex.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Executable Scripts</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tocexecenv.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Regular Expressions</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

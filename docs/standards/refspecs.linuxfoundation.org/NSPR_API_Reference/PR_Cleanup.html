@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PR_Cleanup</title>
+</head>
+
+<body>
+          <div class="pageTitle">
+            <h1 id="title">PR_Cleanup</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+<p>Coordinates a graceful shutdown of NSPR.
+</p>
+<div id="section_1"><a id="Syntax"><h3 class="editable"> Syntax </h3>
+<pre class="eval">#include &lt;prinit.h&gt;
+
+PRStatus PR_Cleanup(void);
+</pre>
+</div><div id="section_2"><a id="Returns"><h3 class="editable"> Returns </h3>
+<p>The function returns one of the following values:
+</p>
+<ul><li> If NSPR has been shut down successfully, <code>PR_SUCCESS</code>.
+</li><li> If the calling thread of this function is not the primordial thread, <code>PR_FAILURE</code>.
+</li></ul>
+</div><div id="section_3"><a id="Description"><h3 class="editable"> Description </h3>
+<p><code>PR_Cleanup</code> must be called by the primordial thread near the end of the <code>main</code> function.
+<p><code>PR_Cleanup</code> attempts to synchronize the natural termination of the process. It does so by blocking the caller, if and only if it is the primordial thread, until all user threads have terminated. When the primordial thread returns from <code>main</code>, the process immediately and silently exits. That is, the process (if necessary) forcibly terminates any existing threads and exits without significant blocking and without error messages or core files.
+</p></div><hr />
+</body>
+</html>

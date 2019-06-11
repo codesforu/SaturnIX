@@ -1,0 +1,26 @@
+<hr>
+
+<H1>LSB 2.0.1 S390 Specification</H1>
+<TABLE>
+<TR>
+<TH>Specification</TH>
+<TH>Version</TH>
+<TH>HTML</TH>
+<TH>RTF</TH>
+<TH>PDF</TH>
+<TH>One Page HTML</TH>
+<TH>TXT</TH>
+<TH>TXT (numbered)</TH>
+</TR>
+<TR>
+<TD>LSB S390</TD>
+<TD ALIGN=center><B>2.0.1
+</B></TD>
+<TD><a href="LSB-S390/book1.html">HTML</a></TD>
+<TD><a href="LSB-S390.rtf">RTF</a></TD>
+<TD><!--a href="LSB-S390.pdf">PDF</a--></TD>
+<TD ALIGN=center><a href="LSB-S390.html">HTML</a></TD>
+<TD ALIGN=center><a href="LSB-S390.txt">TXT</a></TD>
+<TD ALIGN=center><a href="LSB-S390_lines.txt">TXT</a></TD>
+</TR>
+</TABLE>

@@ -1,0 +1,576 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libGLU</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="opengllib.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libGL"
+HREF="libgl-ddefs.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libGLU"
+HREF="libglu-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libgl-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 7. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libglu-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBGLU"
+>7.3. Interfaces for libGLU</A
+></H1
+><P
+><A
+HREF="libglu.html#LIB-LIBGLU-DEF"
+>Table 7-4</A
+> defines the library name and shared object name
+for the libGLU library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBGLU-DEF"
+></A
+><P
+><B
+>Table 7-4. libGLU Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libGLU</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libGLU.so.1</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBGLU.1"
+></A
+>[GLU] <A
+HREF="normativerefs.html#STD.GLU"
+>OpenGL Utilities</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN12036"
+>7.3.1. GL Utilities</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN12039"
+>7.3.1.1. Interfaces for GL Utilities</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for GL Utilities specified in <A
+HREF="libglu.html#TBL-LIBGLU-GL-UT-INTS"
+>Table 7-5</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBGLU-GL-UT-INTS"
+></A
+><P
+><B
+>Table 7-5. libGLU - GL Utilities Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>gluBeginCurve <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluBeginPolygon <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluBeginSurface <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluBeginTrim <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluBuild1DMipmapLevels <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluBuild1DMipmaps <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluBuild2DMipmapLevels <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluBuild2DMipmaps <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluBuild3DMipmapLevels <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluBuild3DMipmaps <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluCheckExtension <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluCylinder <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluDeleteNurbsRenderer <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluDeleteQuadric <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluDeleteTess <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluDisk <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluEndCurve <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluEndPolygon <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluEndSurface <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluEndTrim <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluErrorString <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluGetNurbsProperty <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluGetString <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluGetTessProperty <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluLoadSamplingMatrices <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluLookAt <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluNewNurbsRenderer <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluNewQuadric <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluNewTess <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluNextContour <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluNurbsCallback <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluNurbsCallbackData <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluNurbsCallbackDataEXT <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluNurbsCurve <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluNurbsProperty <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluNurbsSurface <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluOrtho2D <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluPartialDisk <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluPerspective <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluPickMatrix <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluProject <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluPwlCurve <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluQuadricCallback <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluQuadricDrawStyle <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluQuadricNormals <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluQuadricOrientation <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluQuadricTexture <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluScaleImage <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluSphere <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluTessBeginContour <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluTessBeginPolygon <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluTessCallback <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluTessEndContour <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluTessEndPolygon <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluTessNormal <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluTessProperty <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+></TR
+><TR
+><TD
+>gluTessVertex <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluUnProject <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>gluUnProject4 <A
+HREF="libglu.html#REFSTD.LIBGLU.1"
+>[GLU]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libgl-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libglu-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libGL</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="opengllib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libGLU</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

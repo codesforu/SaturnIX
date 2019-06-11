@@ -1,0 +1,1763 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>GTK+ Stack Libraries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libtiff"
+HREF="libtiff-ddefs.html"><LINK
+REL="NEXT"
+TITLE="Libraries"
+HREF="gtk.html"></HEAD
+><BODY
+CLASS="PART"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libtiff-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="gtk.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="TOCGTK"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>XII. GTK+ Stack Libraries</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>17. <A
+HREF="gtk.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>17.1. <A
+HREF="gtk.html#AEN22992"
+>Introduction</A
+></DT
+><DT
+>17.2. <A
+HREF="libglib-2.0.html"
+>Interfaces for libglib-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.2.1. <A
+HREF="libglib-2.0.html#AEN23062"
+>GTK General purpose utility library</A
+></DT
+><DT
+>17.2.2. <A
+HREF="libglib-2.0.html#AEN25721"
+>Glib Arrays</A
+></DT
+><DT
+>17.2.3. <A
+HREF="libglib-2.0.html#AEN25786"
+>Glib Asynchronous Queues</A
+></DT
+><DT
+>17.2.4. <A
+HREF="libglib-2.0.html#AEN25901"
+>Glib Atomic Operations</A
+></DT
+><DT
+>17.2.5. <A
+HREF="libglib-2.0.html#AEN25944"
+>Glib Automatic String Completion</A
+></DT
+><DT
+>17.2.6. <A
+HREF="libglib-2.0.html#AEN26035"
+>Glib Balanced Binary Trees</A
+></DT
+><DT
+>17.2.7. <A
+HREF="libglib-2.0.html#AEN26109"
+>Glib Byte Arrays</A
+></DT
+><DT
+>17.2.8. <A
+HREF="libglib-2.0.html#AEN26171"
+>Glib Caches</A
+></DT
+><DT
+>17.2.9. <A
+HREF="libglib-2.0.html#AEN26244"
+>Glib Character Set Conversion</A
+></DT
+><DT
+>17.2.10. <A
+HREF="libglib-2.0.html#AEN26336"
+>Glib Commandline Option Parser</A
+></DT
+><DT
+>17.2.11. <A
+HREF="libglib-2.0.html#AEN26461"
+>Glib Datasets</A
+></DT
+><DT
+>17.2.12. <A
+HREF="libglib-2.0.html#AEN26496"
+>Glib Date and Time Functions</A
+></DT
+><DT
+>17.2.13. <A
+HREF="libglib-2.0.html#AEN26761"
+>Glib Double-Ended Queues</A
+></DT
+><DT
+>17.2.14. <A
+HREF="libglib-2.0.html#AEN26940"
+>Glib Doubly-Linked Lists</A
+></DT
+><DT
+>17.2.15. <A
+HREF="libglib-2.0.html#AEN27109"
+>Glib Error Reporting</A
+></DT
+><DT
+>17.2.16. <A
+HREF="libglib-2.0.html#AEN27156"
+>Glib File Utilities</A
+></DT
+><DT
+>17.2.17. <A
+HREF="libglib-2.0.html#AEN27253"
+>Glib Glob-Style Pattern Matching</A
+></DT
+><DT
+>17.2.18. <A
+HREF="libglib-2.0.html#AEN27291"
+>Glib Hash Tables</A
+></DT
+><DT
+>17.2.19. <A
+HREF="libglib-2.0.html#AEN27410"
+>Glib Hook Functions</A
+></DT
+><DT
+>17.2.20. <A
+HREF="libglib-2.0.html#AEN27526"
+>Glib IO Channels</A
+></DT
+><DT
+>17.2.21. <A
+HREF="libglib-2.0.html#AEN27690"
+>Glib Internationalization</A
+></DT
+><DT
+>17.2.22. <A
+HREF="libglib-2.0.html#AEN27710"
+>Glib Key-Value File Parser</A
+></DT
+><DT
+>17.2.23. <A
+HREF="libglib-2.0.html#AEN27901"
+>Glib Keyed Data Lists</A
+></DT
+><DT
+>17.2.24. <A
+HREF="libglib-2.0.html#AEN27954"
+>Glib Lexical Scanner</A
+></DT
+><DT
+>17.2.25. <A
+HREF="libglib-2.0.html#AEN28061"
+>Glib Memory Allocation</A
+></DT
+><DT
+>17.2.26. <A
+HREF="libglib-2.0.html#AEN28129"
+>Glib Memory Allocators</A
+></DT
+><DT
+>17.2.27. <A
+HREF="libglib-2.0.html#AEN28166"
+>Glib Memory Chunks</A
+></DT
+><DT
+>17.2.28. <A
+HREF="libglib-2.0.html#AEN28275"
+>Glib Message Logging</A
+></DT
+><DT
+>17.2.29. <A
+HREF="libglib-2.0.html#AEN28322"
+>Glib Message Output and Debugging Functions</A
+></DT
+><DT
+>17.2.30. <A
+HREF="libglib-2.0.html#AEN28360"
+>Glib Miscellaneous Utility Functions</A
+></DT
+><DT
+>17.2.31. <A
+HREF="libglib-2.0.html#AEN28547"
+>Glib N-ary Trees</A
+></DT
+><DT
+>17.2.32. <A
+HREF="libglib-2.0.html#AEN28701"
+>Glib Pointer Arrays</A
+></DT
+><DT
+>17.2.33. <A
+HREF="libglib-2.0.html#AEN28772"
+>Glib Quarks</A
+></DT
+><DT
+>17.2.34. <A
+HREF="libglib-2.0.html#AEN28810"
+>Glib Random Numbers</A
+></DT
+><DT
+>17.2.35. <A
+HREF="libglib-2.0.html#AEN28893"
+>Glib Relations and Tuples</A
+></DT
+><DT
+>17.2.36. <A
+HREF="libglib-2.0.html#AEN29014"
+>Glib Shell-related Utilities</A
+></DT
+><DT
+>17.2.37. <A
+HREF="libglib-2.0.html#AEN29043"
+>Glib Simple XML Subset Parser</A
+></DT
+><DT
+>17.2.38. <A
+HREF="libglib-2.0.html#AEN29099"
+>Glib Singly-Linked Lists</A
+></DT
+><DT
+>17.2.39. <A
+HREF="libglib-2.0.html#AEN29259"
+>Glib Spawning Processes</A
+></DT
+><DT
+>17.2.40. <A
+HREF="libglib-2.0.html#AEN29303"
+>Glib String Chunks</A
+></DT
+><DT
+>17.2.41. <A
+HREF="libglib-2.0.html#AEN29338"
+>Glib String Utility Functions</A
+></DT
+><DT
+>17.2.42. <A
+HREF="libglib-2.0.html#AEN29601"
+>Glib Strings</A
+></DT
+><DT
+>17.2.43. <A
+HREF="libglib-2.0.html#AEN29720"
+>Glib - The Main Event Loop</A
+></DT
+><DT
+>17.2.44. <A
+HREF="libglib-2.0.html#AEN30024"
+>Glib Thread Pools</A
+></DT
+><DT
+>17.2.45. <A
+HREF="libglib-2.0.html#AEN30098"
+>Glib Threads</A
+></DT
+><DT
+>17.2.46. <A
+HREF="libglib-2.0.html#AEN30312"
+>Glib Timers</A
+></DT
+><DT
+>17.2.47. <A
+HREF="libglib-2.0.html#AEN30356"
+>Glib Trash Stacks</A
+></DT
+><DT
+>17.2.48. <A
+HREF="libglib-2.0.html#AEN30385"
+>Glib Unicode Manipulation</A
+></DT
+><DT
+>17.2.49. <A
+HREF="libglib-2.0.html#AEN30659"
+>Glib Version Information</A
+></DT
+><DT
+>17.2.50. <A
+HREF="libglib-2.0.html#AEN30709"
+>Glib Bookmark File Parser</A
+></DT
+><DT
+>17.2.51. <A
+HREF="libglib-2.0.html#AEN30900"
+>Glib Memory Slices</A
+></DT
+><DT
+>17.2.52. <A
+HREF="libglib-2.0.html#AEN30935"
+>Glib Base64 Encoding</A
+></DT
+></DL
+></DD
+><DT
+>17.3. <A
+HREF="libglib-2.0-ddefs.html"
+>Data Definitions for libglib-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.3.1. <A
+HREF="libglib-2.0-ddefs.html#AEN30979"
+>glib-2.0/glib.h</A
+></DT
+><DT
+>17.3.2. <A
+HREF="libglib-2.0-ddefs.html#AEN30983"
+>glib-2.0/glib/gi18n.h</A
+></DT
+><DT
+>17.3.3. <A
+HREF="libglib-2.0-ddefs.html#AEN30987"
+>glib-2.0/glib/gprintf.h</A
+></DT
+><DT
+>17.3.4. <A
+HREF="libglib-2.0-ddefs.html#AEN30991"
+>glib-2.0/glib/gstdio.h</A
+></DT
+></DL
+></DD
+><DT
+>17.4. <A
+HREF="libglib-2.0man.html"
+>Interface Definitions for libglib-2.0</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="libglib-2.0-g-cache-value-foreach-1.html"
+>g_cache_value_foreach</A
+>&nbsp;--&nbsp;call specified interface for each value in GCache (DEPRECATED)</DT
+></DL
+></DD
+><DT
+>17.5. <A
+HREF="libgmodule-2.0.html"
+>Interfaces for libgmodule-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.5.1. <A
+HREF="libgmodule-2.0.html#AEN31046"
+>Glib-Dynamic loading of Modules</A
+></DT
+></DL
+></DD
+><DT
+>17.6. <A
+HREF="libgmodule-2.0-ddefs.html"
+>Data Definitions for libgmodule-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.6.1. <A
+HREF="libgmodule-2.0-ddefs.html#AEN31099"
+>glib-2.0/gmodule.h</A
+></DT
+></DL
+></DD
+><DT
+>17.7. <A
+HREF="libgobject-2.0.html"
+>Interfaces for libgobject-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.7.1. <A
+HREF="libgobject-2.0.html#AEN31123"
+>Gobject GTypeModule</A
+></DT
+><DT
+>17.7.2. <A
+HREF="libgobject-2.0.html#AEN31340"
+>Gobject Enums and Flags</A
+></DT
+><DT
+>17.7.3. <A
+HREF="libgobject-2.0.html#AEN31396"
+>Gobject Signals</A
+></DT
+><DT
+>17.7.4. <A
+HREF="libgobject-2.0.html#AEN31560"
+>Gobject Value arrays</A
+></DT
+><DT
+>17.7.5. <A
+HREF="libgobject-2.0.html#AEN31669"
+>Gobject Generic Values</A
+></DT
+><DT
+>17.7.6. <A
+HREF="libgobject-2.0.html#AEN31757"
+>Gobject Parameters and Values</A
+></DT
+><DT
+>17.7.7. <A
+HREF="libgobject-2.0.html#AEN32109"
+>Gobject GParamSpec</A
+></DT
+><DT
+>17.7.8. <A
+HREF="libgobject-2.0.html#AEN32237"
+>Gobject GBoxed</A
+></DT
+><DT
+>17.7.9. <A
+HREF="libgobject-2.0.html#AEN32361"
+>Gobject Closures</A
+></DT
+><DT
+>17.7.10. <A
+HREF="libgobject-2.0.html#AEN32639"
+>Gobject Gobject</A
+></DT
+><DT
+>17.7.11. <A
+HREF="libgobject-2.0.html#AEN32839"
+>Gobject GType</A
+></DT
+><DT
+>17.7.12. <A
+HREF="libgobject-2.0.html#AEN33135"
+>Gobject GTypePlugin</A
+></DT
+><DT
+>17.7.13. <A
+HREF="libgobject-2.0.html#AEN33170"
+>Gobject GBinding</A
+></DT
+></DL
+></DD
+><DT
+>17.8. <A
+HREF="libgobject-2.0-ddefs.html"
+>Data Definitions for libgobject-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.8.1. <A
+HREF="libgobject-2.0-ddefs.html#AEN33223"
+>glib-2.0/glib-object.h</A
+></DT
+><DT
+>17.8.2. <A
+HREF="libgobject-2.0-ddefs.html#AEN33227"
+>glib-2.0/gobject/gvaluecollector.h</A
+></DT
+></DL
+></DD
+><DT
+>17.9. <A
+HREF="libgobject-2.0man.html"
+>Interface Definitions for libgobject-2.0</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="gobject-g.type.name.from.class.html"
+>g_type_name_from_class</A
+>&nbsp;--&nbsp;get unique type name of the class</DT
+><DT
+><A
+HREF="gobject-g.type.name.from.instance.html"
+>g_type_name_from_instance</A
+>&nbsp;--&nbsp;get name of type from the instance</DT
+><DT
+><A
+HREF="gobject-g.value.set.instance.html"
+>g_value_set_instance</A
+>&nbsp;--&nbsp;set value from an instantiatable type</DT
+></DL
+></DD
+><DT
+>17.10. <A
+HREF="libgthread-2.0.html"
+>Interfaces for libgthread-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.10.1. <A
+HREF="libgthread-2.0.html#AEN33333"
+>Glib thread abstraction</A
+></DT
+></DL
+></DD
+><DT
+>17.11. <A
+HREF="libgio-2.0.html"
+>Interfaces for libgio-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.11.1. <A
+HREF="libgio-2.0.html#AEN33375"
+>libgio-2.0 interfaces</A
+></DT
+></DL
+></DD
+><DT
+>17.12. <A
+HREF="libgio-2.0-ddefs.html"
+>Data Definitions for libgio-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.12.1. <A
+HREF="libgio-2.0-ddefs.html#AEN40879"
+>gio-unix-2.0/gio/gdesktopappinfo.h</A
+></DT
+><DT
+>17.12.2. <A
+HREF="libgio-2.0-ddefs.html#AEN40883"
+>gio-unix-2.0/gio/gfiledescriptorbased.h</A
+></DT
+><DT
+>17.12.3. <A
+HREF="libgio-2.0-ddefs.html#AEN40887"
+>gio-unix-2.0/gio/gunixconnection.h</A
+></DT
+><DT
+>17.12.4. <A
+HREF="libgio-2.0-ddefs.html#AEN40891"
+>gio-unix-2.0/gio/gunixcredentialsmessage.h</A
+></DT
+><DT
+>17.12.5. <A
+HREF="libgio-2.0-ddefs.html#AEN40895"
+>gio-unix-2.0/gio/gunixfdlist.h</A
+></DT
+><DT
+>17.12.6. <A
+HREF="libgio-2.0-ddefs.html#AEN40899"
+>gio-unix-2.0/gio/gunixfdmessage.h</A
+></DT
+><DT
+>17.12.7. <A
+HREF="libgio-2.0-ddefs.html#AEN40903"
+>gio-unix-2.0/gio/gunixinputstream.h</A
+></DT
+><DT
+>17.12.8. <A
+HREF="libgio-2.0-ddefs.html#AEN40907"
+>gio-unix-2.0/gio/gunixmounts.h</A
+></DT
+><DT
+>17.12.9. <A
+HREF="libgio-2.0-ddefs.html#AEN40911"
+>gio-unix-2.0/gio/gunixoutputstream.h</A
+></DT
+><DT
+>17.12.10. <A
+HREF="libgio-2.0-ddefs.html#AEN40915"
+>gio-unix-2.0/gio/gunixsocketaddress.h</A
+></DT
+><DT
+>17.12.11. <A
+HREF="libgio-2.0-ddefs.html#AEN40919"
+>glib-2.0/gio/gaction.h</A
+></DT
+><DT
+>17.12.12. <A
+HREF="libgio-2.0-ddefs.html#AEN40923"
+>glib-2.0/gio/gactiongroup.h</A
+></DT
+><DT
+>17.12.13. <A
+HREF="libgio-2.0-ddefs.html#AEN40927"
+>glib-2.0/gio/gactiongroupexporter.h</A
+></DT
+><DT
+>17.12.14. <A
+HREF="libgio-2.0-ddefs.html#AEN40931"
+>glib-2.0/gio/gactionmap.h</A
+></DT
+><DT
+>17.12.15. <A
+HREF="libgio-2.0-ddefs.html#AEN40935"
+>glib-2.0/gio/gappinfo.h</A
+></DT
+><DT
+>17.12.16. <A
+HREF="libgio-2.0-ddefs.html#AEN40939"
+>glib-2.0/gio/gapplication.h</A
+></DT
+><DT
+>17.12.17. <A
+HREF="libgio-2.0-ddefs.html#AEN40943"
+>glib-2.0/gio/gapplicationcommandline.h</A
+></DT
+><DT
+>17.12.18. <A
+HREF="libgio-2.0-ddefs.html#AEN40947"
+>glib-2.0/gio/gasyncinitable.h</A
+></DT
+><DT
+>17.12.19. <A
+HREF="libgio-2.0-ddefs.html#AEN40951"
+>glib-2.0/gio/gasyncresult.h</A
+></DT
+><DT
+>17.12.20. <A
+HREF="libgio-2.0-ddefs.html#AEN40955"
+>glib-2.0/gio/gbufferedinputstream.h</A
+></DT
+><DT
+>17.12.21. <A
+HREF="libgio-2.0-ddefs.html#AEN40959"
+>glib-2.0/gio/gbufferedoutputstream.h</A
+></DT
+><DT
+>17.12.22. <A
+HREF="libgio-2.0-ddefs.html#AEN40963"
+>glib-2.0/gio/gcancellable.h</A
+></DT
+><DT
+>17.12.23. <A
+HREF="libgio-2.0-ddefs.html#AEN40967"
+>glib-2.0/gio/gcharsetconverter.h</A
+></DT
+><DT
+>17.12.24. <A
+HREF="libgio-2.0-ddefs.html#AEN40971"
+>glib-2.0/gio/gcontenttype.h</A
+></DT
+><DT
+>17.12.25. <A
+HREF="libgio-2.0-ddefs.html#AEN40975"
+>glib-2.0/gio/gconverter.h</A
+></DT
+><DT
+>17.12.26. <A
+HREF="libgio-2.0-ddefs.html#AEN40979"
+>glib-2.0/gio/gconverterinputstream.h</A
+></DT
+><DT
+>17.12.27. <A
+HREF="libgio-2.0-ddefs.html#AEN40983"
+>glib-2.0/gio/gconverteroutputstream.h</A
+></DT
+><DT
+>17.12.28. <A
+HREF="libgio-2.0-ddefs.html#AEN40987"
+>glib-2.0/gio/gcredentials.h</A
+></DT
+><DT
+>17.12.29. <A
+HREF="libgio-2.0-ddefs.html#AEN40991"
+>glib-2.0/gio/gdatainputstream.h</A
+></DT
+><DT
+>17.12.30. <A
+HREF="libgio-2.0-ddefs.html#AEN40995"
+>glib-2.0/gio/gdataoutputstream.h</A
+></DT
+><DT
+>17.12.31. <A
+HREF="libgio-2.0-ddefs.html#AEN40999"
+>glib-2.0/gio/gdbusactiongroup.h</A
+></DT
+><DT
+>17.12.32. <A
+HREF="libgio-2.0-ddefs.html#AEN41003"
+>glib-2.0/gio/gdbusaddress.h</A
+></DT
+><DT
+>17.12.33. <A
+HREF="libgio-2.0-ddefs.html#AEN41007"
+>glib-2.0/gio/gdbusauthobserver.h</A
+></DT
+><DT
+>17.12.34. <A
+HREF="libgio-2.0-ddefs.html#AEN41011"
+>glib-2.0/gio/gdbusconnection.h</A
+></DT
+><DT
+>17.12.35. <A
+HREF="libgio-2.0-ddefs.html#AEN41015"
+>glib-2.0/gio/gdbuserror.h</A
+></DT
+><DT
+>17.12.36. <A
+HREF="libgio-2.0-ddefs.html#AEN41019"
+>glib-2.0/gio/gdbusinterface.h</A
+></DT
+><DT
+>17.12.37. <A
+HREF="libgio-2.0-ddefs.html#AEN41023"
+>glib-2.0/gio/gdbusinterfaceskeleton.h</A
+></DT
+><DT
+>17.12.38. <A
+HREF="libgio-2.0-ddefs.html#AEN41027"
+>glib-2.0/gio/gdbusintrospection.h</A
+></DT
+><DT
+>17.12.39. <A
+HREF="libgio-2.0-ddefs.html#AEN41031"
+>glib-2.0/gio/gdbusmenumodel.h</A
+></DT
+><DT
+>17.12.40. <A
+HREF="libgio-2.0-ddefs.html#AEN41035"
+>glib-2.0/gio/gdbusmessage.h</A
+></DT
+><DT
+>17.12.41. <A
+HREF="libgio-2.0-ddefs.html#AEN41039"
+>glib-2.0/gio/gdbusmethodinvocation.h</A
+></DT
+><DT
+>17.12.42. <A
+HREF="libgio-2.0-ddefs.html#AEN41043"
+>glib-2.0/gio/gdbusnameowning.h</A
+></DT
+><DT
+>17.12.43. <A
+HREF="libgio-2.0-ddefs.html#AEN41047"
+>glib-2.0/gio/gdbusnamewatching.h</A
+></DT
+><DT
+>17.12.44. <A
+HREF="libgio-2.0-ddefs.html#AEN41051"
+>glib-2.0/gio/gdbusobject.h</A
+></DT
+><DT
+>17.12.45. <A
+HREF="libgio-2.0-ddefs.html#AEN41055"
+>glib-2.0/gio/gdbusobjectmanager.h</A
+></DT
+><DT
+>17.12.46. <A
+HREF="libgio-2.0-ddefs.html#AEN41059"
+>glib-2.0/gio/gdbusobjectmanagerclient.h</A
+></DT
+><DT
+>17.12.47. <A
+HREF="libgio-2.0-ddefs.html#AEN41063"
+>glib-2.0/gio/gdbusobjectmanagerserver.h</A
+></DT
+><DT
+>17.12.48. <A
+HREF="libgio-2.0-ddefs.html#AEN41067"
+>glib-2.0/gio/gdbusobjectproxy.h</A
+></DT
+><DT
+>17.12.49. <A
+HREF="libgio-2.0-ddefs.html#AEN41071"
+>glib-2.0/gio/gdbusobjectskeleton.h</A
+></DT
+><DT
+>17.12.50. <A
+HREF="libgio-2.0-ddefs.html#AEN41075"
+>glib-2.0/gio/gdbusproxy.h</A
+></DT
+><DT
+>17.12.51. <A
+HREF="libgio-2.0-ddefs.html#AEN41079"
+>glib-2.0/gio/gdbusserver.h</A
+></DT
+><DT
+>17.12.52. <A
+HREF="libgio-2.0-ddefs.html#AEN41083"
+>glib-2.0/gio/gdbusutils.h</A
+></DT
+><DT
+>17.12.53. <A
+HREF="libgio-2.0-ddefs.html#AEN41087"
+>glib-2.0/gio/gdrive.h</A
+></DT
+><DT
+>17.12.54. <A
+HREF="libgio-2.0-ddefs.html#AEN41091"
+>glib-2.0/gio/gemblem.h</A
+></DT
+><DT
+>17.12.55. <A
+HREF="libgio-2.0-ddefs.html#AEN41095"
+>glib-2.0/gio/gemblemedicon.h</A
+></DT
+><DT
+>17.12.56. <A
+HREF="libgio-2.0-ddefs.html#AEN41099"
+>glib-2.0/gio/gfile.h</A
+></DT
+><DT
+>17.12.57. <A
+HREF="libgio-2.0-ddefs.html#AEN41103"
+>glib-2.0/gio/gfileattribute.h</A
+></DT
+><DT
+>17.12.58. <A
+HREF="libgio-2.0-ddefs.html#AEN41107"
+>glib-2.0/gio/gfileenumerator.h</A
+></DT
+><DT
+>17.12.59. <A
+HREF="libgio-2.0-ddefs.html#AEN41111"
+>glib-2.0/gio/gfileicon.h</A
+></DT
+><DT
+>17.12.60. <A
+HREF="libgio-2.0-ddefs.html#AEN41115"
+>glib-2.0/gio/gfileinfo.h</A
+></DT
+><DT
+>17.12.61. <A
+HREF="libgio-2.0-ddefs.html#AEN41119"
+>glib-2.0/gio/gfileinputstream.h</A
+></DT
+><DT
+>17.12.62. <A
+HREF="libgio-2.0-ddefs.html#AEN41123"
+>glib-2.0/gio/gfileiostream.h</A
+></DT
+><DT
+>17.12.63. <A
+HREF="libgio-2.0-ddefs.html#AEN41127"
+>glib-2.0/gio/gfilemonitor.h</A
+></DT
+><DT
+>17.12.64. <A
+HREF="libgio-2.0-ddefs.html#AEN41131"
+>glib-2.0/gio/gfilenamecompleter.h</A
+></DT
+><DT
+>17.12.65. <A
+HREF="libgio-2.0-ddefs.html#AEN41135"
+>glib-2.0/gio/gfileoutputstream.h</A
+></DT
+><DT
+>17.12.66. <A
+HREF="libgio-2.0-ddefs.html#AEN41139"
+>glib-2.0/gio/gfilterinputstream.h</A
+></DT
+><DT
+>17.12.67. <A
+HREF="libgio-2.0-ddefs.html#AEN41143"
+>glib-2.0/gio/gfilteroutputstream.h</A
+></DT
+><DT
+>17.12.68. <A
+HREF="libgio-2.0-ddefs.html#AEN41147"
+>glib-2.0/gio/gicon.h</A
+></DT
+><DT
+>17.12.69. <A
+HREF="libgio-2.0-ddefs.html#AEN41151"
+>glib-2.0/gio/ginetaddress.h</A
+></DT
+><DT
+>17.12.70. <A
+HREF="libgio-2.0-ddefs.html#AEN41155"
+>glib-2.0/gio/ginetaddressmask.h</A
+></DT
+><DT
+>17.12.71. <A
+HREF="libgio-2.0-ddefs.html#AEN41159"
+>glib-2.0/gio/ginetsocketaddress.h</A
+></DT
+><DT
+>17.12.72. <A
+HREF="libgio-2.0-ddefs.html#AEN41163"
+>glib-2.0/gio/ginitable.h</A
+></DT
+><DT
+>17.12.73. <A
+HREF="libgio-2.0-ddefs.html#AEN41167"
+>glib-2.0/gio/ginputstream.h</A
+></DT
+><DT
+>17.12.74. <A
+HREF="libgio-2.0-ddefs.html#AEN41171"
+>glib-2.0/gio/gio.h</A
+></DT
+><DT
+>17.12.75. <A
+HREF="libgio-2.0-ddefs.html#AEN41175"
+>glib-2.0/gio/gioenums.h</A
+></DT
+><DT
+>17.12.76. <A
+HREF="libgio-2.0-ddefs.html#AEN41179"
+>glib-2.0/gio/gioenumtypes.h</A
+></DT
+><DT
+>17.12.77. <A
+HREF="libgio-2.0-ddefs.html#AEN41183"
+>glib-2.0/gio/gioerror.h</A
+></DT
+><DT
+>17.12.78. <A
+HREF="libgio-2.0-ddefs.html#AEN41187"
+>glib-2.0/gio/giomodule.h</A
+></DT
+><DT
+>17.12.79. <A
+HREF="libgio-2.0-ddefs.html#AEN41191"
+>glib-2.0/gio/gioscheduler.h</A
+></DT
+><DT
+>17.12.80. <A
+HREF="libgio-2.0-ddefs.html#AEN41195"
+>glib-2.0/gio/giostream.h</A
+></DT
+><DT
+>17.12.81. <A
+HREF="libgio-2.0-ddefs.html#AEN41199"
+>glib-2.0/gio/giotypes.h</A
+></DT
+><DT
+>17.12.82. <A
+HREF="libgio-2.0-ddefs.html#AEN41203"
+>glib-2.0/gio/gloadableicon.h</A
+></DT
+><DT
+>17.12.83. <A
+HREF="libgio-2.0-ddefs.html#AEN41207"
+>glib-2.0/gio/gmemoryinputstream.h</A
+></DT
+><DT
+>17.12.84. <A
+HREF="libgio-2.0-ddefs.html#AEN41211"
+>glib-2.0/gio/gmemoryoutputstream.h</A
+></DT
+><DT
+>17.12.85. <A
+HREF="libgio-2.0-ddefs.html#AEN41215"
+>glib-2.0/gio/gmenu.h</A
+></DT
+><DT
+>17.12.86. <A
+HREF="libgio-2.0-ddefs.html#AEN41219"
+>glib-2.0/gio/gmenuexporter.h</A
+></DT
+><DT
+>17.12.87. <A
+HREF="libgio-2.0-ddefs.html#AEN41223"
+>glib-2.0/gio/gmenumodel.h</A
+></DT
+><DT
+>17.12.88. <A
+HREF="libgio-2.0-ddefs.html#AEN41227"
+>glib-2.0/gio/gmount.h</A
+></DT
+><DT
+>17.12.89. <A
+HREF="libgio-2.0-ddefs.html#AEN41231"
+>glib-2.0/gio/gmountoperation.h</A
+></DT
+><DT
+>17.12.90. <A
+HREF="libgio-2.0-ddefs.html#AEN41235"
+>glib-2.0/gio/gnativevolumemonitor.h</A
+></DT
+><DT
+>17.12.91. <A
+HREF="libgio-2.0-ddefs.html#AEN41239"
+>glib-2.0/gio/gnetworkaddress.h</A
+></DT
+><DT
+>17.12.92. <A
+HREF="libgio-2.0-ddefs.html#AEN41243"
+>glib-2.0/gio/gnetworkmonitor.h</A
+></DT
+><DT
+>17.12.93. <A
+HREF="libgio-2.0-ddefs.html#AEN41247"
+>glib-2.0/gio/gnetworkservice.h</A
+></DT
+><DT
+>17.12.94. <A
+HREF="libgio-2.0-ddefs.html#AEN41251"
+>glib-2.0/gio/goutputstream.h</A
+></DT
+><DT
+>17.12.95. <A
+HREF="libgio-2.0-ddefs.html#AEN41255"
+>glib-2.0/gio/gpermission.h</A
+></DT
+><DT
+>17.12.96. <A
+HREF="libgio-2.0-ddefs.html#AEN41259"
+>glib-2.0/gio/gpollableinputstream.h</A
+></DT
+><DT
+>17.12.97. <A
+HREF="libgio-2.0-ddefs.html#AEN41263"
+>glib-2.0/gio/gpollableoutputstream.h</A
+></DT
+><DT
+>17.12.98. <A
+HREF="libgio-2.0-ddefs.html#AEN41267"
+>glib-2.0/gio/gproxy.h</A
+></DT
+><DT
+>17.12.99. <A
+HREF="libgio-2.0-ddefs.html#AEN41271"
+>glib-2.0/gio/gproxyaddress.h</A
+></DT
+><DT
+>17.12.100. <A
+HREF="libgio-2.0-ddefs.html#AEN41275"
+>glib-2.0/gio/gproxyaddressenumerator.h</A
+></DT
+><DT
+>17.12.101. <A
+HREF="libgio-2.0-ddefs.html#AEN41279"
+>glib-2.0/gio/gproxyresolver.h</A
+></DT
+><DT
+>17.12.102. <A
+HREF="libgio-2.0-ddefs.html#AEN41283"
+>glib-2.0/gio/gremoteactiongroup.h</A
+></DT
+><DT
+>17.12.103. <A
+HREF="libgio-2.0-ddefs.html#AEN41287"
+>glib-2.0/gio/gresolver.h</A
+></DT
+><DT
+>17.12.104. <A
+HREF="libgio-2.0-ddefs.html#AEN41291"
+>glib-2.0/gio/gresource.h</A
+></DT
+><DT
+>17.12.105. <A
+HREF="libgio-2.0-ddefs.html#AEN41295"
+>glib-2.0/gio/gseekable.h</A
+></DT
+><DT
+>17.12.106. <A
+HREF="libgio-2.0-ddefs.html#AEN41299"
+>glib-2.0/gio/gsettings.h</A
+></DT
+><DT
+>17.12.107. <A
+HREF="libgio-2.0-ddefs.html#AEN41303"
+>glib-2.0/gio/gsettingsbackend.h</A
+></DT
+><DT
+>17.12.108. <A
+HREF="libgio-2.0-ddefs.html#AEN41307"
+>glib-2.0/gio/gsettingsschema.h</A
+></DT
+><DT
+>17.12.109. <A
+HREF="libgio-2.0-ddefs.html#AEN41311"
+>glib-2.0/gio/gsimpleaction.h</A
+></DT
+><DT
+>17.12.110. <A
+HREF="libgio-2.0-ddefs.html#AEN41315"
+>glib-2.0/gio/gsimpleactiongroup.h</A
+></DT
+><DT
+>17.12.111. <A
+HREF="libgio-2.0-ddefs.html#AEN41319"
+>glib-2.0/gio/gsimpleasyncresult.h</A
+></DT
+><DT
+>17.12.112. <A
+HREF="libgio-2.0-ddefs.html#AEN41323"
+>glib-2.0/gio/gsimplepermission.h</A
+></DT
+><DT
+>17.12.113. <A
+HREF="libgio-2.0-ddefs.html#AEN41327"
+>glib-2.0/gio/gsocket.h</A
+></DT
+><DT
+>17.12.114. <A
+HREF="libgio-2.0-ddefs.html#AEN41331"
+>glib-2.0/gio/gsocketaddress.h</A
+></DT
+><DT
+>17.12.115. <A
+HREF="libgio-2.0-ddefs.html#AEN41335"
+>glib-2.0/gio/gsocketaddressenumerator.h</A
+></DT
+><DT
+>17.12.116. <A
+HREF="libgio-2.0-ddefs.html#AEN41339"
+>glib-2.0/gio/gsocketclient.h</A
+></DT
+><DT
+>17.12.117. <A
+HREF="libgio-2.0-ddefs.html#AEN41343"
+>glib-2.0/gio/gsocketconnectable.h</A
+></DT
+><DT
+>17.12.118. <A
+HREF="libgio-2.0-ddefs.html#AEN41347"
+>glib-2.0/gio/gsocketconnection.h</A
+></DT
+><DT
+>17.12.119. <A
+HREF="libgio-2.0-ddefs.html#AEN41351"
+>glib-2.0/gio/gsocketcontrolmessage.h</A
+></DT
+><DT
+>17.12.120. <A
+HREF="libgio-2.0-ddefs.html#AEN41355"
+>glib-2.0/gio/gsocketlistener.h</A
+></DT
+><DT
+>17.12.121. <A
+HREF="libgio-2.0-ddefs.html#AEN41359"
+>glib-2.0/gio/gsocketservice.h</A
+></DT
+><DT
+>17.12.122. <A
+HREF="libgio-2.0-ddefs.html#AEN41363"
+>glib-2.0/gio/gsrvtarget.h</A
+></DT
+><DT
+>17.12.123. <A
+HREF="libgio-2.0-ddefs.html#AEN41367"
+>glib-2.0/gio/gtcpconnection.h</A
+></DT
+><DT
+>17.12.124. <A
+HREF="libgio-2.0-ddefs.html#AEN41371"
+>glib-2.0/gio/gtcpwrapperconnection.h</A
+></DT
+><DT
+>17.12.125. <A
+HREF="libgio-2.0-ddefs.html#AEN41375"
+>glib-2.0/gio/gthemedicon.h</A
+></DT
+><DT
+>17.12.126. <A
+HREF="libgio-2.0-ddefs.html#AEN41379"
+>glib-2.0/gio/gthreadedsocketservice.h</A
+></DT
+><DT
+>17.12.127. <A
+HREF="libgio-2.0-ddefs.html#AEN41383"
+>glib-2.0/gio/gtlsbackend.h</A
+></DT
+><DT
+>17.12.128. <A
+HREF="libgio-2.0-ddefs.html#AEN41387"
+>glib-2.0/gio/gtlscertificate.h</A
+></DT
+><DT
+>17.12.129. <A
+HREF="libgio-2.0-ddefs.html#AEN41391"
+>glib-2.0/gio/gtlsclientconnection.h</A
+></DT
+><DT
+>17.12.130. <A
+HREF="libgio-2.0-ddefs.html#AEN41395"
+>glib-2.0/gio/gtlsconnection.h</A
+></DT
+><DT
+>17.12.131. <A
+HREF="libgio-2.0-ddefs.html#AEN41399"
+>glib-2.0/gio/gtlsdatabase.h</A
+></DT
+><DT
+>17.12.132. <A
+HREF="libgio-2.0-ddefs.html#AEN41403"
+>glib-2.0/gio/gtlsfiledatabase.h</A
+></DT
+><DT
+>17.12.133. <A
+HREF="libgio-2.0-ddefs.html#AEN41407"
+>glib-2.0/gio/gtlsinteraction.h</A
+></DT
+><DT
+>17.12.134. <A
+HREF="libgio-2.0-ddefs.html#AEN41411"
+>glib-2.0/gio/gtlspassword.h</A
+></DT
+><DT
+>17.12.135. <A
+HREF="libgio-2.0-ddefs.html#AEN41415"
+>glib-2.0/gio/gtlsserverconnection.h</A
+></DT
+><DT
+>17.12.136. <A
+HREF="libgio-2.0-ddefs.html#AEN41419"
+>glib-2.0/gio/gvfs.h</A
+></DT
+><DT
+>17.12.137. <A
+HREF="libgio-2.0-ddefs.html#AEN41423"
+>glib-2.0/gio/gvolume.h</A
+></DT
+><DT
+>17.12.138. <A
+HREF="libgio-2.0-ddefs.html#AEN41427"
+>glib-2.0/gio/gvolumemonitor.h</A
+></DT
+><DT
+>17.12.139. <A
+HREF="libgio-2.0-ddefs.html#AEN41431"
+>glib-2.0/gio/gzlibcompressor.h</A
+></DT
+><DT
+>17.12.140. <A
+HREF="libgio-2.0-ddefs.html#AEN41435"
+>glib-2.0/gio/gzlibdecompressor.h</A
+></DT
+></DL
+></DD
+><DT
+>17.13. <A
+HREF="libgio-2.0man.html"
+>Interface Definitions for libgio-2.0</A
+></DT
+><DT
+>17.14. <A
+HREF="libatk-1.0.html"
+>Interfaces for libatk-1.0</A
+></DT
+><DD
+><DL
+><DT
+>17.14.1. <A
+HREF="libatk-1.0.html#AEN41466"
+>GTK Accessibility Toolkit</A
+></DT
+></DL
+></DD
+><DT
+>17.15. <A
+HREF="libatk-1.0-ddefs.html"
+>Data Definitions for libatk-1.0</A
+></DT
+><DD
+><DL
+><DT
+>17.15.1. <A
+HREF="libatk-1.0-ddefs.html#AEN42613"
+>atk-1.0/atk/atk-enum-types.h</A
+></DT
+><DT
+>17.15.2. <A
+HREF="libatk-1.0-ddefs.html#AEN42617"
+>atk-1.0/atk/atk.h</A
+></DT
+><DT
+>17.15.3. <A
+HREF="libatk-1.0-ddefs.html#AEN42621"
+>atk-1.0/atk/atkplug.h</A
+></DT
+><DT
+>17.15.4. <A
+HREF="libatk-1.0-ddefs.html#AEN42625"
+>atk-1.0/atk/atksocket.h</A
+></DT
+><DT
+>17.15.5. <A
+HREF="libatk-1.0-ddefs.html#AEN42629"
+>atk-1.0/atk/atkwindow.h</A
+></DT
+></DL
+></DD
+><DT
+>17.16. <A
+HREF="libatk-1.0man.html"
+>Interface Definitions for libatk-1.0</A
+></DT
+><DT
+>17.17. <A
+HREF="libpango-1.0.html"
+>Interfaces for libpango-1.0</A
+></DT
+><DD
+><DL
+><DT
+>17.17.1. <A
+HREF="libpango-1.0.html#AEN42658"
+>GTK Internationalized Text Layout and Rendering library</A
+></DT
+></DL
+></DD
+><DT
+>17.18. <A
+HREF="libpango-1.0-ddefs.html"
+>Data Definitions for libpango-1.0</A
+></DT
+><DD
+><DL
+><DT
+>17.18.1. <A
+HREF="libpango-1.0-ddefs.html#AEN44373"
+>pango-1.0/pango/pango-bidi-type.h</A
+></DT
+><DT
+>17.18.2. <A
+HREF="libpango-1.0-ddefs.html#AEN44377"
+>pango-1.0/pango/pango-utils.h</A
+></DT
+><DT
+>17.18.3. <A
+HREF="libpango-1.0-ddefs.html#AEN44381"
+>pango-1.0/pango/pango.h</A
+></DT
+></DL
+></DD
+><DT
+>17.19. <A
+HREF="libpangocairo-1.0.html"
+>Interfaces for libpangocairo-1.0</A
+></DT
+><DD
+><DL
+><DT
+>17.19.1. <A
+HREF="libpangocairo-1.0.html#AEN44405"
+>Pango Cairo Rendering</A
+></DT
+></DL
+></DD
+><DT
+>17.20. <A
+HREF="libpangocairo-1.0-ddefs.html"
+>Data Definitions for libpangocairo-1.0</A
+></DT
+><DD
+><DL
+><DT
+>17.20.1. <A
+HREF="libpangocairo-1.0-ddefs.html#AEN44557"
+>pango-1.0/pango/pangocairo.h</A
+></DT
+></DL
+></DD
+><DT
+>17.21. <A
+HREF="libpangoxft-1.0.html"
+>Interfaces for libpangoxft-1.0</A
+></DT
+><DD
+><DL
+><DT
+>17.21.1. <A
+HREF="libpangoxft-1.0.html#AEN44581"
+>Pango Xft Fonts and Rendering library</A
+></DT
+></DL
+></DD
+><DT
+>17.22. <A
+HREF="libpangoxft-1.0-ddefs.html"
+>Data Definitions for libpangoxft-1.0</A
+></DT
+><DD
+><DL
+><DT
+>17.22.1. <A
+HREF="libpangoxft-1.0-ddefs.html#AEN44670"
+>pango-1.0/pango/pangoxft.h</A
+></DT
+></DL
+></DD
+><DT
+>17.23. <A
+HREF="libpangoft2-1.0.html"
+>Interfaces for libpangoft2-1.0</A
+></DT
+><DD
+><DL
+><DT
+>17.23.1. <A
+HREF="libpangoft2-1.0.html#AEN44694"
+>Pango Freetype Fonts and Rendering library</A
+></DT
+></DL
+></DD
+><DT
+>17.24. <A
+HREF="libpangoft2-1.0-ddefs.html"
+>Data Definitions for libpangoft2-1.0</A
+></DT
+><DD
+><DL
+><DT
+>17.24.1. <A
+HREF="libpangoft2-1.0-ddefs.html#AEN44830"
+>pango-1.0/pango/pangofc-decoder.h</A
+></DT
+><DT
+>17.24.2. <A
+HREF="libpangoft2-1.0-ddefs.html#AEN44834"
+>pango-1.0/pango/pangofc-fontmap.h</A
+></DT
+><DT
+>17.24.3. <A
+HREF="libpangoft2-1.0-ddefs.html#AEN44838"
+>pango-1.0/pango/pangoft2.h</A
+></DT
+></DL
+></DD
+><DT
+>17.25. <A
+HREF="libgdk-pixbuf-2.0.html"
+>Interfaces for libgdk_pixbuf-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.25.1. <A
+HREF="libgdk-pixbuf-2.0.html#AEN44862"
+>GDK pixbuf rendering on drawables library</A
+></DT
+></DL
+></DD
+><DT
+>17.26. <A
+HREF="libgdk-pixbuf-2.0-ddefs.html"
+>Data Definitions for libgdk_pixbuf-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.26.1. <A
+HREF="libgdk-pixbuf-2.0-ddefs.html#AEN45406"
+>gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixbuf.h</A
+></DT
+><DT
+>17.26.2. <A
+HREF="libgdk-pixbuf-2.0-ddefs.html#AEN45410"
+>gdk-pixbuf-2.0/gdk-pixbuf/gdk-pixdata.h</A
+></DT
+></DL
+></DD
+><DT
+>17.27. <A
+HREF="libgdk-pixbuf-xlib-2.0.html"
+>Interfaces for libgdk_pixbuf_xlib-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.27.1. <A
+HREF="libgdk-pixbuf-xlib-2.0.html#AEN45432"
+>GDK pixbuf rendering to an X drawable library</A
+></DT
+></DL
+></DD
+><DT
+>17.28. <A
+HREF="libgdk-pixbuf-xlib-2.0-ddefs.html"
+>Data Definitions for libgdk_pixbuf_xlib-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.28.1. <A
+HREF="libgdk-pixbuf-xlib-2.0-ddefs.html#AEN45581"
+>gdk-pixbuf-2.0/gdk-pixbuf-xlib/gdk-pixbuf-xlib.h</A
+></DT
+></DL
+></DD
+><DT
+>17.29. <A
+HREF="libgdk-x11-2.0.html"
+>Interfaces for libgdk-x11-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.29.1. <A
+HREF="libgdk-x11-2.0.html#AEN45605"
+>GTK Drawing toolkit</A
+></DT
+></DL
+></DD
+><DT
+>17.30. <A
+HREF="libgdk-x11-2.0-ddefs.html"
+>Data Definitions for libgdk-x11-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.30.1. <A
+HREF="libgdk-x11-2.0-ddefs.html#AEN48232"
+>gtk-2.0/gdk/gdk.h</A
+></DT
+><DT
+>17.30.2. <A
+HREF="libgdk-x11-2.0-ddefs.html#AEN48236"
+>gtk-2.0/gdk/gdkcairo.h</A
+></DT
+><DT
+>17.30.3. <A
+HREF="libgdk-x11-2.0-ddefs.html#AEN48240"
+>gtk-2.0/gdk/gdkkeysyms.h</A
+></DT
+><DT
+>17.30.4. <A
+HREF="libgdk-x11-2.0-ddefs.html#AEN48244"
+>gtk-2.0/gdk/gdkx.h</A
+></DT
+></DL
+></DD
+><DT
+>17.31. <A
+HREF="libgtk-x11-2.0.html"
+>Interfaces for libgtk-x11-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.31.1. <A
+HREF="libgtk-x11-2.0.html#AEN48270"
+>GTK main Widgets library</A
+></DT
+></DL
+></DD
+><DT
+>17.32. <A
+HREF="libgtk-x11-2.0-ddefs.html"
+>Data Definitions for libgtk-x11-2.0</A
+></DT
+><DD
+><DL
+><DT
+>17.32.1. <A
+HREF="libgtk-x11-2.0-ddefs.html#AEN60718"
+>gtk-2.0/gtk/gtk.h</A
+></DT
+><DT
+>17.32.2. <A
+HREF="libgtk-x11-2.0-ddefs.html#AEN60722"
+>gtk-2.0/gtk/gtkenums.h</A
+></DT
+><DT
+>17.32.3. <A
+HREF="libgtk-x11-2.0-ddefs.html#AEN60726"
+>gtk-2.0/gtk/gtkprintoperationpreview.h</A
+></DT
+><DT
+>17.32.4. <A
+HREF="libgtk-x11-2.0-ddefs.html#AEN60730"
+>gtk-2.0/gtk/gtkrecentfilter.h</A
+></DT
+><DT
+>17.32.5. <A
+HREF="libgtk-x11-2.0-ddefs.html#AEN60734"
+>gtk-2.0/gtk/gtkrecentmanager.h</A
+></DT
+><DT
+>17.32.6. <A
+HREF="libgtk-x11-2.0-ddefs.html#AEN60738"
+>gtk-2.0/gtk/gtkstatusicon.h</A
+></DT
+><DT
+>17.32.7. <A
+HREF="libgtk-x11-2.0-ddefs.html#AEN60742"
+>gtk-2.0/gtk/gtktextbufferrichtext.h</A
+></DT
+><DT
+>17.32.8. <A
+HREF="libgtk-x11-2.0-ddefs.html#AEN60746"
+>gtk-unix-print-2.0/gtk/gtkpagesetupunixdialog.h</A
+></DT
+><DT
+>17.32.9. <A
+HREF="libgtk-x11-2.0-ddefs.html#AEN60750"
+>gtk-unix-print-2.0/gtk/gtkprinter.h</A
+></DT
+><DT
+>17.32.10. <A
+HREF="libgtk-x11-2.0-ddefs.html#AEN60754"
+>gtk-unix-print-2.0/gtk/gtkprintjob.h</A
+></DT
+><DT
+>17.32.11. <A
+HREF="libgtk-x11-2.0-ddefs.html#AEN60758"
+>gtk-unix-print-2.0/gtk/gtkprintunixdialog.h</A
+></DT
+><DT
+>17.32.12. <A
+HREF="libgtk-x11-2.0-ddefs.html#AEN60762"
+>gtk-unix-print-2.0/gtk/gtkunixprint.h</A
+></DT
+></DL
+></DD
+><DT
+>17.33. <A
+HREF="libgtk-x11-2.0man.html"
+>Interface Definitions for libgtk-x11-2.0</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="gtk-x11-gtk.button.get.image.html"
+>gtk_button_get_image</A
+>&nbsp;--&nbsp;get button image widget</DT
+><DT
+><A
+HREF="gtk-x11-gtk.button.set.image.html"
+>gtk_button_set_image</A
+>&nbsp;--&nbsp;set button image widget</DT
+><DT
+><A
+HREF="gtk-x11-gtk.toolbar.get.tooltips.html"
+>gtk_toolbar_get_tooltips</A
+>&nbsp;--&nbsp;retrieve whether tooltips are enabled</DT
+><DT
+><A
+HREF="gtk-x11-gtk.toolbar.set.tooltips.html"
+>gtk_toolbar_set_tooltips</A
+>&nbsp;--&nbsp;set whether a toolbar's tooltips are active</DT
+></DL
+></DD
+></DL
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libtiff-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="gtk.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libtiff</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Libraries</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

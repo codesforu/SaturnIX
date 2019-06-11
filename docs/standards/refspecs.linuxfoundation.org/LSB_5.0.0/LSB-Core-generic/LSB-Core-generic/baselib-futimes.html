@@ -1,0 +1,373 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>futimes</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="fstatfs64"
+HREF="baselib-fstatfs64.html"><LINK
+REL="NEXT"
+TITLE="fwrite_unlocked"
+HREF="baselib-fwrite-unlocked-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-fstatfs64.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-fwrite-unlocked-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-FUTIMES"
+></A
+>futimes</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN14613"
+></A
+><H2
+>Name</H2
+>futimes, lutimes&nbsp;--&nbsp;set file access and modification times</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN14620"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN14621"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;sys/time.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>futimes</TT
+></CODE
+>(int
+<TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>, const struct timeval
+<TT
+CLASS="PARAMETER"
+><I
+>tv[2]</I
+></TT
+>);</CODE
+></P
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>lutimes</TT
+></CODE
+>(const char *
+<TT
+CLASS="PARAMETER"
+><I
+>filename</I
+></TT
+>, const struct timeval
+<TT
+CLASS="PARAMETER"
+><I
+>tv[2]</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14637"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>futimes()</TT
+> and <TT
+CLASS="FUNCTION"
+>lutimes()</TT
+> functions
+shall set the access and modification times of a file to the values of 
+the <CODE
+CLASS="VARNAME"
+>tv</CODE
+> argument, which is an array of two
+<SPAN
+CLASS="TYPE"
+>timeval</SPAN
+> structures.
+The behavior is as for <TT
+CLASS="FUNCTION"
+>utimes()</TT
+>
+in <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>.</P
+><P
+>The <TT
+CLASS="FUNCTION"
+>futimes()</TT
+> function shall change the times of of the
+open file described by file descriptor <CODE
+CLASS="VARNAME"
+>fd</CODE
+>.</P
+><P
+>The <TT
+CLASS="FUNCTION"
+>lutimes()</TT
+> function shall change the times of of the
+file pointed to by the <CODE
+CLASS="VARNAME"
+>filename</CODE
+> argument,
+except that if <CODE
+CLASS="VARNAME"
+>filename</CODE
+> refers to a symbolic
+link, then the link is not followed and the times of the
+symbolic link are changed. This is similar to supplying
+<CODE
+CLASS="CONSTANT"
+>AT_SYMLINK_NOFOLLOW</CODE
+> in the <CODE
+CLASS="VARNAME"
+>flag</CODE
+>
+argument to the <TT
+CLASS="FUNCTION"
+>utimensat()</TT
+> function.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14656"
+></A
+><H2
+>Errors</H2
+><P
+>As for <TT
+CLASS="FUNCTION"
+>utimes()</TT
+>, but in addition:
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN14661"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><SPAN
+CLASS="ERRORNAME"
+>ENOSYS</SPAN
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Ths implementation does not support this function 
+(for <TT
+CLASS="FUNCTION"
+>lutimes()</TT
+>).</P
+><P
+>The implementation could not access a resource needed to
+complete the function (for <TT
+CLASS="FUNCTION"
+>futimes()</TT
+>).</P
+></TD
+></TR
+></TBODY
+></TABLE
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN14669"
+></A
+><H2
+>See Also</H2
+><P
+><TT
+CLASS="FUNCTION"
+>utimes()</TT
+>,
+<TT
+CLASS="FUNCTION"
+>utime()</TT
+>,
+<TT
+CLASS="FUNCTION"
+>utimensat()</TT
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-fstatfs64.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-fwrite-unlocked-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>fstatfs64</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>fwrite_unlocked</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,855 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libQtSql</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification for PPC32"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="qt.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libQtOpenGL"
+HREF="libqtopengl-ddefs.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libQtSql"
+HREF="libqtsql-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification for PPC32</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libqtopengl-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 7. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libqtsql-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBQTSQL"
+>7.11. Interfaces for libQtSql</A
+></H1
+><P
+><A
+HREF="libqtsql.html#LIB-LIBQTSQL-DEF"
+>Table 7-429</A
+> defines the library name and shared object name
+for the libQtSql library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBQTSQL-DEF"
+></A
+><P
+><B
+>Table 7-429. libQtSql Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libQtSql</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libQtSql.so.4</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBQTSQL.1"
+></A
+>[CXXABI-1.86] <A
+HREF="normativerefs.html#STD.CXXABI"
+>Itanium&#8482; C++ ABI</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN37760"
+>7.11.1. Qt4 SQL</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN37763"
+>7.11.1.1. Class data for QSqlResult</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlResult class
+is described in the generic part of this specification.</P
+><P
+>The Run Time Type Information for the QSqlResult  class
+is described by <A
+HREF="libqtsql.html#RTTI-48005"
+>Table 7-430</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48005"
+></A
+><P
+><B
+>Table 7-430. typeinfo for QSqlResult</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlResult</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN37783"
+>7.11.1.2. Class data for QSqlDriverFactoryInterface</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlDriverFactoryInterface class
+is described in the generic part of this specification.</P
+><P
+>The Run Time Type Information for the QSqlDriverFactoryInterface  class
+is described by <A
+HREF="libqtsql.html#RTTI-48013"
+>Table 7-431</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48013"
+></A
+><P
+><B
+>Table 7-431. typeinfo for QSqlDriverFactoryInterface</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__si_class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlDriverFactoryInterface</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QFactoryInterface</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN37808"
+>7.11.1.3. Class data for QSqlDriverPlugin</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlDriverPlugin class
+is described by <A
+HREF="libqtsql.html#CLS-48019-0"
+>Table 7-432</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="CLS-48019-0"
+></A
+><P
+><B
+>Table 7-432. Primary vtable for QSqlDriverPlugin</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>Virtual Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>RTTI</TD
+><TD
+>typeinfo for QSqlDriverPlugin</TD
+></TR
+><TR
+><TD
+>vfunc[0]:</TD
+><TD
+>QSqlDriverPlugin::metaObject() const</TD
+></TR
+><TR
+><TD
+>vfunc[1]:</TD
+><TD
+>QSqlDriverPlugin::qt_metacast(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[2]:</TD
+><TD
+>QSqlDriverPlugin::qt_metacall(QMetaObject::Call, int, void**)</TD
+></TR
+><TR
+><TD
+>vfunc[3]:</TD
+><TD
+>QSqlDriverPlugin::~QSqlDriverPlugin()</TD
+></TR
+><TR
+><TD
+>vfunc[4]:</TD
+><TD
+>QSqlDriverPlugin::~QSqlDriverPlugin()</TD
+></TR
+><TR
+><TD
+>vfunc[5]:</TD
+><TD
+>QObject::event(QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[6]:</TD
+><TD
+>QObject::eventFilter(QObject*, QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[7]:</TD
+><TD
+>QObject::timerEvent(QTimerEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[8]:</TD
+><TD
+>QObject::childEvent(QChildEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[9]:</TD
+><TD
+>QObject::customEvent(QEvent*)</TD
+></TR
+><TR
+><TD
+>vfunc[10]:</TD
+><TD
+>QObject::connectNotify(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[11]:</TD
+><TD
+>QObject::disconnectNotify(char const*)</TD
+></TR
+><TR
+><TD
+>vfunc[12]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[13]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="TABLE"
+><A
+NAME="CLS-48019-1"
+></A
+><P
+><B
+>Table 7-433. Secondary vtable for QSqlDriverPlugin</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Offset</TD
+><TD
+>-8</TD
+></TR
+><TR
+><TD
+>Virtual Base Offset</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>RTTI</TD
+><TD
+>typeinfo for QSqlDriverPlugin</TD
+></TR
+><TR
+><TD
+>vfunc[0]:</TD
+><TD
+>non-virtual thunk to QSqlDriverPlugin::~QSqlDriverPlugin()</TD
+></TR
+><TR
+><TD
+>vfunc[1]:</TD
+><TD
+>non-virtual thunk to QSqlDriverPlugin::~QSqlDriverPlugin()</TD
+></TR
+><TR
+><TD
+>vfunc[2]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+><TR
+><TD
+>vfunc[3]:</TD
+><TD
+>__cxa_pure_virtual</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The Run Time Type Information for the QSqlDriverPlugin  class
+is described by <A
+HREF="libqtsql.html#RTTI-48009"
+>Table 7-434</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48009"
+></A
+><P
+><B
+>Table 7-434. typeinfo for QSqlDriverPlugin</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__vmi_class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlDriverPlugin</TD
+></TR
+><TR
+><TD
+>flags:</TD
+><TD
+>0</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QObject</TD
+><TD
+>2</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QSqlDriverFactoryInterface</TD
+><TD
+>2050</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN37964"
+>7.11.1.4. Class data for QSqlDriver</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlDriver class
+is described in the generic part of this specification.</P
+><P
+>The Run Time Type Information for the QSqlDriver  class
+is described by <A
+HREF="libqtsql.html#RTTI-48004"
+>Table 7-435</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48004"
+></A
+><P
+><B
+>Table 7-435. typeinfo for QSqlDriver</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__si_class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlDriver</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QObject</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN37989"
+>7.11.1.5. Class data for QSqlQueryModel</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlQueryModel class
+is described in the generic part of this specification.</P
+><P
+>The Run Time Type Information for the QSqlQueryModel  class
+is described by <A
+HREF="libqtsql.html#RTTI-48006"
+>Table 7-436</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48006"
+></A
+><P
+><B
+>Table 7-436. typeinfo for QSqlQueryModel</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__si_class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlQueryModel</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QAbstractTableModel</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN38014"
+>7.11.1.6. Class data for QSqlTableModel</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlTableModel class
+is described in the generic part of this specification.</P
+><P
+>The Run Time Type Information for the QSqlTableModel  class
+is described by <A
+HREF="libqtsql.html#RTTI-48007"
+>Table 7-437</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48007"
+></A
+><P
+><B
+>Table 7-437. typeinfo for QSqlTableModel</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__si_class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlTableModel</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QSqlQueryModel</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN38039"
+>7.11.1.7. Class data for QSqlRelationalTableModel</A
+></H3
+><P
+></P
+><P
+>The virtual table for the QSqlRelationalTableModel class
+is described in the generic part of this specification.</P
+><P
+>The Run Time Type Information for the QSqlRelationalTableModel  class
+is described by <A
+HREF="libqtsql.html#RTTI-48011"
+>Table 7-438</A
+></P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RTTI-48011"
+></A
+><P
+><B
+>Table 7-438. typeinfo for QSqlRelationalTableModel</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Base Vtable</TD
+><TD
+>vtable for __cxxabiv1::__si_class_type_info</TD
+></TR
+><TR
+><TD
+>Name</TD
+><TD
+>typeinfo name for QSqlRelationalTableModel</TD
+></TR
+><TR
+><TD
+>basetype:</TD
+><TD
+>typeinfo for QSqlTableModel</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN38064"
+>7.11.1.8. Interfaces for Qt4 SQL</A
+></H3
+><P
+>An LSB conforming implementation shall provide the architecture specific functions
+for Qt4 SQL specified in <A
+HREF="libqtsql.html#TBL-LIBQTSQL-QT4-S-INTS"
+>Table 7-439</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBQTSQL-QT4-S-INTS"
+></A
+><P
+><B
+>Table 7-439. libQtSql - Qt4 SQL Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>_ZThn8_N16QSqlDriverPluginD0Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+><TD
+>_ZThn8_N16QSqlDriverPluginD1Ev <A
+HREF="libqtsql.html#REFSTD.LIBQTSQL.1"
+>[CXXABI-1.86]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libqtopengl-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libqtsql-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libQtOpenGL</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="qt.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libQtSql</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,363 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libz</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Utility Libraries"
+HREF="utillib.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libz"
+HREF="libz.html"><LINK
+REL="NEXT"
+TITLE="Interface Definitions for libz"
+HREF="libzman.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libz.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 15. Utility Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libzman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBZ-DDEFS"
+>15.3. Data Definitions for libz</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libz.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN28775"
+>15.3.1. zconf.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define ZEXPORT
+#define ZEXPORTVA
+#define OF(args)	args
+#define ZEXTERN	extern</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN28779"
+>15.3.2. zlib.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define ZLIB_VERSION	"1.2.2"
+#define Z_NULL	0
+#define MAX_WBITS	15	/* 32K LZ77 window */
+#define MAX_MEM_LEVEL	9	/* Maximum value for memLevel in deflateInit2 */
+#define deflateInit2(strm,level,method,windowBits,memLevel,strategy)	\
+	deflateInit2_((strm),(level),(method),(windowBits),(memLevel),(strategy),ZLIB_VERSION,sizeof(z_stream))
+#define deflateInit(strm,level)	\
+	deflateInit_((strm), (level),       ZLIB_VERSION, sizeof(z_stream))
+#define inflateInit2(strm,windowBits)	\
+	inflateInit2_((strm), (windowBits), ZLIB_VERSION, sizeof(z_stream))
+#define inflateInit(strm)	\
+	inflateInit_((strm),                ZLIB_VERSION, sizeof(z_stream))
+#define inflateBackInit(strm, windowBits, window)	\
+        inflateBackInit_((strm), (windowBits), (window), \
+                                            ZLIB_VERSION, sizeof(z_stream))
+
+typedef char charf;
+typedef int intf;
+
+typedef void *voidpf;
+typedef unsigned int uInt;
+typedef unsigned long int uLong;
+typedef uLong uLongf;
+typedef void *voidp;
+typedef unsigned char Byte;
+typedef off_t z_off_t;
+typedef void *const voidpc;
+
+typedef voidpf(*alloc_func) (voidpf opaque, uInt items, uInt size);
+typedef void (*free_func) (voidpf opaque, voidpf address);
+struct internal_state {
+    int dummy;
+};
+typedef Byte Bytef;
+typedef uInt uIntf;
+typedef unsigned int (*in_func) (void *, unsigned char **);
+typedef int (*out_func) (void *, unsigned char *, unsigned int);
+
+typedef struct z_stream_s {
+    Bytef *next_in;		/* next input byte */
+    uInt avail_in;		/* number of bytes available at next_in */
+    uLong total_in;		/* total nb of input bytes read so far */
+    Bytef *next_out;		/* next output byte should be put there */
+    uInt avail_out;		/* remaining free space at next_out */
+    uLong total_out;		/* total nb of bytes output so far */
+    char *msg;			/* last error message, NULL if no error */
+    struct internal_state *state;	/* not visible by applications */
+    alloc_func zalloc;		/* used to allocate the internal state */
+    free_func zfree;		/* used to free the internal state */
+    voidpf opaque;		/* private data object passed to zalloc and zfree */
+    int data_type;		/* best guess about the data type: ascii or binary */
+    uLong adler;		/* adler32 value of the uncompressed data */
+    uLong reserved;		/* reserved for future use */
+} z_stream;
+
+typedef z_stream *z_streamp;
+typedef voidp gzFile;
+
+#define Z_NO_FLUSH	0
+#define Z_PARTIAL_FLUSH	1
+#define Z_SYNC_FLUSH	2
+#define Z_FULL_FLUSH	3
+#define Z_FINISH	4
+#define Z_BLOCK	5
+
+#define Z_ERRNO	(-1)
+#define Z_STREAM_ERROR	(-2)
+#define Z_DATA_ERROR	(-3)
+#define Z_MEM_ERROR	(-4)
+#define Z_BUF_ERROR	(-5)
+#define Z_VERSION_ERROR	(-6)
+#define Z_OK	0
+#define Z_STREAM_END	1
+#define Z_NEED_DICT	2
+
+#define Z_DEFAULT_COMPRESSION	(-1)
+#define Z_NO_COMPRESSION	0
+#define Z_BEST_SPEED	1
+#define Z_BEST_COMPRESSION	9
+
+#define Z_DEFAULT_STRATEGY	0
+#define Z_FILTERED	1
+#define Z_HUFFMAN_ONLY	2
+
+#define Z_BINARY	0
+#define Z_ASCII	1
+#define Z_UNKNOWN	2
+
+#define Z_DEFLATED	8
+
+extern uLong adler32(uLong adler, const Bytef * buf, uInt len);
+extern int compress(Bytef * dest, uLongf * destLen, const Bytef * source,
+		    uLong sourceLen);
+extern int compress2(Bytef * dest, uLongf * destLen, const Bytef * source,
+		     uLong sourceLen, int level);
+extern uLong compressBound(uLong sourceLen);
+extern uLong crc32(uLong crc, const Bytef * buf, uInt len);
+extern int deflate(z_streamp strm, int flush);
+extern uLong deflateBound(z_streamp strm, uLong sourceLen);
+extern int deflateCopy(z_streamp dest, z_streamp source);
+extern int deflateEnd(z_streamp strm);
+extern int deflateInit2_(z_streamp strm, int level, int method,
+			 int windowBits, int memLevel, int strategy,
+			 const char *version, int stream_size);
+extern int deflateInit_(z_streamp strm, int level, const char *version,
+			int stream_size);
+extern int deflateParams(z_streamp strm, int level, int strategy);
+extern int deflatePrime(z_streamp strm, int bits, int value);
+extern int deflateReset(z_streamp strm);
+extern int deflateSetDictionary(z_streamp strm, const Bytef * dictionary,
+				uInt dictLength);
+extern const uLongf *get_crc_table(void);
+extern void gzclearerr(gzFile file);
+extern int gzclose(gzFile file);
+extern gzFile gzdopen(int fd, const char *mode);
+extern int gzeof(gzFile file);
+extern const char *gzerror(gzFile file, int *errnum);
+extern int gzflush(gzFile file, int flush);
+extern int gzgetc(gzFile file);
+extern char *gzgets(gzFile file, char *buf, int len);
+extern gzFile gzopen(const char *path, const char *mode);
+extern int gzprintf(gzFile file, const char *format, ...);
+extern int gzputc(gzFile file, int c);
+extern int gzputs(gzFile file, const char *s);
+extern int gzread(gzFile file, voidp buf, unsigned int len);
+extern int gzrewind(gzFile file);
+extern z_off_t gzseek(gzFile file, z_off_t offset, int whence);
+extern int gzsetparams(gzFile file, int level, int strategy);
+extern z_off_t gztell(gzFile file);
+extern int gzwrite(gzFile file, voidpc buf, unsigned int len);
+extern int inflate(z_streamp strm, int flush);
+extern int inflateBack(z_streamp strm, in_func in, void *in_desc,
+		       out_func out, void *out_desc);
+extern int inflateBackEnd(z_streamp strm);
+extern int inflateBackInit_(z_streamp strm, int windowBits,
+			    unsigned char *window, const char *version,
+			    int stream_size);
+extern int inflateCopy(z_streamp dest, z_streamp source);
+extern int inflateEnd(z_streamp strm);
+extern int inflateInit2_(z_streamp strm, int windowBits,
+			 const char *version, int stream_size);
+extern int inflateInit_(z_streamp strm, const char *version,
+			int stream_size);
+extern int inflateReset(z_streamp strm);
+extern int inflateSetDictionary(z_streamp strm, const Bytef * dictionary,
+				uInt dictLength);
+extern int inflateSync(z_streamp strm);
+extern int inflateSyncPoint(z_streamp z);
+extern int uncompress(Bytef * dest, uLongf * destLen, const Bytef * source,
+		      uLong sourceLen);
+extern const char *zError(int);
+extern const char *zlibVersion(void);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libz.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libzman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libz</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="utillib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interface Definitions for libz</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

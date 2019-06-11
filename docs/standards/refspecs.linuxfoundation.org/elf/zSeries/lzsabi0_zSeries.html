@@ -1,0 +1,9845 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>zSeries ELF Application Binary Interface Supplement</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"></HEAD
+><BODY
+CLASS="BOOK"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="AEN1"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+>zSeries ELF Application Binary Interface Supplement</A
+></H1
+><P
+CLASS="COPYRIGHT"
+>Copyright &copy; 2001, 2002 IBM Corporation</P
+><P
+CLASS="COPYRIGHT"
+>Copyright &copy; 2002 Linux Foundation</P
+><DIV
+CLASS="LEGALNOTICE"
+><P
+></P
+><A
+NAME="AEN14"
+></A
+><P
+>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1;
+with no Invariant Sections, with no Front-Cover Texts, and with no
+Back-Cover Texts.  A copy of the license is included in the section
+entitled "GNU Free Documentation License".</P
+><P
+></P
+></DIV
+><DIV
+CLASS="LEGALNOTICE"
+><P
+></P
+><A
+NAME="AEN16"
+></A
+><P
+>Linux is a trademark of Linus Torvalds.</P
+><P
+>LSB is a trademark of the Free Standards Group in the USA and other countries.</P
+><P
+></P
+></DIV
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="#AEN19"
+>Preface</A
+></DT
+><DT
+><A
+HREF="#AEN22"
+>Low-level system information</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN24"
+>Machine interface</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN27"
+>Processor architecture</A
+></DT
+><DT
+><A
+HREF="#AEN37"
+>Data representation</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="#AEN410"
+>Function calling sequence</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN413"
+>Registers</A
+></DT
+><DT
+><A
+HREF="#AEN607"
+>The stack frame</A
+></DT
+><DT
+><A
+HREF="#PARAMETERPASSING"
+>Parameter passing</A
+></DT
+><DT
+><A
+HREF="#AEN760"
+>Variable argument lists</A
+></DT
+><DT
+><A
+HREF="#AEN763"
+>Return values</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="#AEN791"
+>Operating system interface</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN793"
+>Virtual address space</A
+></DT
+><DT
+><A
+HREF="#AEN798"
+>Page size</A
+></DT
+><DT
+><A
+HREF="#AEN802"
+>Virtual address assignments</A
+></DT
+><DT
+><A
+HREF="#AEN818"
+>Managing the process stack</A
+></DT
+><DT
+><A
+HREF="#AEN823"
+>Coding guidelines</A
+></DT
+><DT
+><A
+HREF="#AEN828"
+>Processor execution modes</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="#EXCEPTIONINT"
+>Exception interface</A
+></DT
+><DT
+><A
+HREF="#PROCINIT"
+>Process initialization</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN905"
+>Registers</A
+></DT
+><DT
+><A
+HREF="#PROCESSSTACK"
+>Process stack</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="#CODINGEXAMPLES"
+>Coding examples</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN1143"
+>Code model overview</A
+></DT
+><DT
+><A
+HREF="#AEN1155"
+>Function prolog and epilog</A
+></DT
+><DT
+><A
+HREF="#AEN1185"
+>Profiling</A
+></DT
+><DT
+><A
+HREF="#AEN1195"
+>Data objects</A
+></DT
+><DT
+><A
+HREF="#AEN1276"
+>Function calls</A
+></DT
+><DT
+><A
+HREF="#AEN1355"
+>Branching</A
+></DT
+><DT
+><A
+HREF="#DYNAMICSTACK"
+>Dynamic stack space allocation</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="#AEN1472"
+>DWARF definition</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="#CHOBJFILES"
+>Object files</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN1597"
+>ELF Header</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN1599"
+>Machine Information</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="#AEN1633"
+>Sections</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN1635"
+>Special Sections</A
+></DT
+><DT
+><A
+HREF="#AEN1693"
+>Symbol Table</A
+></DT
+><DT
+><A
+HREF="#AEN1699"
+>Relocation</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+><A
+HREF="#CHPROGLOAD"
+>Program loading and dynamic linking</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN2086"
+>Program Loading</A
+></DT
+><DT
+><A
+HREF="#DYNAMICLINKING"
+>Dynamic Linking</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN2253"
+>Dynamic Section</A
+></DT
+><DT
+><A
+HREF="#GLOBALOFFSETTABLE"
+>Global Offset Table</A
+></DT
+><DT
+><A
+HREF="#FUNCTIONADDRESSES"
+>Function Addresses</A
+></DT
+><DT
+><A
+HREF="#PROCEDURELINKAGETABLE"
+>Procedure Linkage Table</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+><A
+HREF="#AEN2330"
+></A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN2332"
+>GNU Free Documentation License</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN2339"
+>PREAMBLE</A
+></DT
+><DT
+><A
+HREF="#AEN2342"
+>APPLICABILITY AND DEFINITIONS</A
+></DT
+><DT
+><A
+HREF="#AEN2352"
+>VERBATIM COPYING</A
+></DT
+><DT
+><A
+HREF="#AEN2356"
+>COPYING IN QUANTITY</A
+></DT
+><DT
+><A
+HREF="#AEN2362"
+>MODIFICATIONS</A
+></DT
+><DT
+><A
+HREF="#AEN2398"
+>COMBINING DOCUMENTS</A
+></DT
+><DT
+><A
+HREF="#AEN2403"
+>COLLECTIONS OF DOCUMENTS</A
+></DT
+><DT
+><A
+HREF="#AEN2407"
+>AGGREGATION WITH INDEPENDENT WORKS</A
+></DT
+><DT
+><A
+HREF="#AEN2411"
+>TRANSLATION</A
+></DT
+><DT
+><A
+HREF="#AEN2414"
+>TERMINATION</A
+></DT
+><DT
+><A
+HREF="#AEN2417"
+>FUTURE REVISIONS OF THIS LICENSE</A
+></DT
+><DT
+><A
+HREF="#AEN2421"
+>How to use this License for your documents</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+><A
+HREF="#NOTICES"
+>Notices</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="#AEN2443"
+>Programming interface information</A
+></DT
+><DT
+><A
+HREF="#TRADEMARKS"
+>Trademarks</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="#AEN2472"
+></A
+></DT
+><DT
+><A
+HREF="#AEN2484"
+>Index</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="PREFACE"
+><HR><H1
+><A
+NAME="AEN19"
+></A
+>Preface</H1
+><P
+>This v1.02 edition, published on 18 November 2002,
+applies to version 2, release 2, modification 16 of the
+Linux kernel and to all subsequent releases and modifications until
+otherwise indicated in new editions. This edition replaces LNUX-1007-02
+published in July 2001.</P
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="AEN22"
+></A
+>Low-level system information</H1
+><DIV
+CLASS="SECT1"
+><H2
+CLASS="SECT1"
+><A
+NAME="AEN24"
+>Machine interface</A
+></H2
+><P
+>This section describes the processor-specific information for the zSeries
+
+processors.</P
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN27"
+>Processor architecture</A
+></H3
+><P
+>[<SPAN
+CLASS="CITATION"
+><I
+CLASS="CITETITLE"
+>z/Architecture Principles of Operation</I
+></SPAN
+>] (SA22&#8211;7832)
+
+defines the zSeries architecture.</P
+><P
+>Programs intended to execute directly on the processor use the zSeries
+
+instruction set, and the instruction encoding and semantics of the architecture.&#13;</P
+><P
+>An application program can assume that all instructions defined by the
+
+architecture that are neither privileged nor optional exist and work as documented.&#13;</P
+><P
+>To be ABI-conforming the processor must implement the instructions of
+
+the architecture, perform the specified operations, and produce the expected
+
+results. The ABI neither places performance constraints on systems nor specifies
+
+what instructions must be implemented in hardware. A software emulation of
+
+the architecture could conform to the ABI.</P
+><P
+>In z/Architecture a processor runs in big-endian mode. (See <A
+HREF="#BYTEORDERING"
+>the Section called <I
+>Byte ordering</I
+></A
+>.)&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN37"
+>Data representation</A
+></H3
+><DIV
+CLASS="SECT3"
+><H4
+CLASS="SECT3"
+><A
+NAME="BYTEORDERING"
+>Byte ordering</A
+></H4
+><P
+>The architecture defines an 8-bit byte, a 16-bit halfword, a 32-bit
+
+word, a 64-bit doubleword and a 128-bit quadword. Byte ordering defines how
+
+the bytes that make up halfwords, words, doublewords and quadwords are ordered
+
+in memory. Most significant byte (MSB) ordering, or "Big-Endian" as it is
+
+sometimes called, means that the most significant byte of a structure is located
+
+in the lowest addressed byte position in a storage unit (byte 0).</P
+><P
+><A
+HREF="#HALFWORD"
+>Figure 1</A
+> to <A
+HREF="#QUADWORDS"
+>Figure 4</A
+> illustrate the
+
+conventions for bit and byte numbering within storage units of various widths.
+
+These conventions apply to both integer data and floating-point data, where
+
+the most significant byte of a floating-point value holds the sign and the
+
+exponent (or at least the start of the exponent). The figures show big-endian
+
+byte numbers in the upper left corners and bit numbers in the lower corners.&#13;</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="HALFWORD"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/halfwrd.png"></P
+></DIV
+><P
+><B
+>Figure 1. Bit and byte numbering in halfwords</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="WORDS"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/word.png"></P
+></DIV
+><P
+><B
+>Figure 2. Bit and byte numbering in words</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="DOUBLEWORDS"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/dblword.png"></P
+></DIV
+><P
+><B
+>Figure 3. Bit and byte numbering in doublewords</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="QUADWORDS"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/quadword.png"></P
+></DIV
+><P
+><B
+>Figure 4. Bit and byte numbering in quadwords</B
+></P
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><HR><H4
+CLASS="SECT3"
+><A
+NAME="AEN65"
+>Fundamental types</A
+></H4
+><P
+><A
+HREF="#SCALAR"
+>Table 1</A
+> shows how ANSI C scalar types correspond to
+
+those of the zSeries processor. For all types a NULL pointer has the value
+
+zero (binary).</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="SCALAR"
+></A
+><P
+><B
+>Table 1. Scalar types</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="MIDDLE"
+><P
+>Type</P
+></TH
+><TH
+VALIGN="MIDDLE"
+><P
+>ANSI C</P
+></TH
+><TH
+VALIGN="MIDDLE"
+><P
+>sizeof (bytes)</P
+></TH
+><TH
+VALIGN="MIDDLE"
+><P
+>&#13;Alignment</P
+></TH
+><TH
+VALIGN="MIDDLE"
+><P
+>type (zSeries)&#13;</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+VALIGN="MIDDLE"
+><P
+>Character</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN99"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>signed&nbsp;char<br>
+<br>
+char<br>
+<br>
+unsigned&nbsp;char</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>1</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>1</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>byte</P
+></TD
+></TR
+><TR
+><TD
+VALIGN="MIDDLE"
+><P
+>Short</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN112"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>signed&nbsp;short<br>
+<br>
+short<br>
+<br>
+unsigned&nbsp;short</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>2</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>2</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>halfword</P
+></TD
+></TR
+><TR
+><TD
+VALIGN="MIDDLE"
+><P
+>Integer</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN125"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>signed&nbsp;int<br>
+<br>
+int<br>
+<br>
+unsigned&nbsp;int<br>
+<br>
+enum</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>4</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>4</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>word</P
+></TD
+></TR
+><TR
+><TD
+VALIGN="MIDDLE"
+><P
+></P
+><P
+>Long</P
+><P
+>&#13;Long long</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN140"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>signed&nbsp;long<br>
+<br>
+long<br>
+<br>
+unsigned&nbsp;long<br>
+<br>
+signed&nbsp;long&nbsp;long<br>
+<br>
+long&nbsp;long<br>
+<br>
+unsigned&nbsp;long&nbsp;long</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>8</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>8</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>doubleword</P
+></TD
+></TR
+><TR
+><TD
+VALIGN="MIDDLE"
+><P
+>Pointer</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN153"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>any-type&nbsp;*<br>
+<br>
+any-type&nbsp;(*)&nbsp;()</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>8</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>8</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>unsigned  doubleword</P
+></TD
+></TR
+><TR
+><TD
+ROWSPAN="3"
+VALIGN="MIDDLE"
+><P
+>Floating point</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN166"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>float</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>4</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>4</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>single precision (IEEE)</P
+></TD
+></TR
+><TR
+><TD
+VALIGN="MIDDLE"
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN177"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>double</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>8</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>8</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>double precision (IEEE)</P
+></TD
+></TR
+><TR
+><TD
+VALIGN="MIDDLE"
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN188"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>long<br>
+<br>
+double¹</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>16</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>16</P
+></TD
+><TD
+VALIGN="MIDDLE"
+><P
+>extended precision (IEEE)</P
+></TD
+></TR
+></TBODY
+><TFOOT
+><TR
+><TH
+COLSPAN="5"
+VALIGN="TOP"
+><P
+>¹Compilers and
+
+systems may implement the long double data type in some other way, for performance
+
+reasons, using a compiler option. Examples of such formats could be two successive
+
+doubles or even a single double. Such usage does not conform to this ABI however,
+
+and runs the risk of passing a wrongly formatted floating-point number to
+
+another function as an argument. Programs using other formats should transform
+
+long double floating-point numbers to a conforming format before passing them.&#13;</P
+></TH
+></TR
+></TFOOT
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><HR><H4
+CLASS="SECT3"
+><A
+NAME="AEN196"
+>Aggregates and unions</A
+></H4
+><P
+>Aggregates (structures and arrays) and unions assume the alignment of
+
+their most strictly aligned component, that is, the component with the largest
+
+alignment. The size of any object, including aggregates and unions, is always
+
+a multiple of the alignment of the object. An array uses the same alignment
+
+as its elements. Structure and union objects may require padding to meet size
+
+and alignment constraints:</P
+><P
+></P
+><UL
+><LI
+><P
+>An entire structure or union object is aligned on the same
+
+boundary as its most strictly aligned member.</P
+></LI
+><LI
+><P
+>Each member is assigned to the lowest available offset with
+
+the appropriate alignment. This may require internal padding, depending on
+
+the previous member.</P
+></LI
+><LI
+><P
+>If necessary, a structure's size is increased to make it a
+
+multiple of the structure's alignment. This may require tail padding if the
+
+last member does not end on the appropriate boundary.</P
+></LI
+></UL
+><P
+>In the following examples (<A
+HREF="#STRUCT1"
+>Figure 5</A
+> to <A
+HREF="#STRUCT5"
+>Figure 9</A
+>),
+
+member byte offsets (for the big-endian implementation) appear in the upper
+
+left corners.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="STRUCT1"
+></A
+><A
+NAME="AEN211"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN212"
+></A
+><P
+><B
+>Table 2. </B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN221"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>struct&nbsp;{<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;c;<br>
+<br>
+};</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/strctsmall.png"></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 5. Structure smaller than a word</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="STRUCT2"
+></A
+><A
+NAME="AEN230"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN231"
+></A
+><P
+><B
+>Table 3. </B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN240"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>struct&nbsp;{<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;c;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;d;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short&nbsp;s;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;n;<br>
+<br>
+};</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/strct8nop.png"></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 6. No padding</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="STRUCT3"
+></A
+><A
+NAME="AEN249"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN250"
+></A
+><P
+><B
+>Table 4. </B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN259"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>struct&nbsp;{<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;c;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short&nbsp;s;<br>
+<br>
+};</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/strct4pad.png"></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 7. Internal padding</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="STRUCT4"
+></A
+><A
+NAME="AEN268"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN269"
+></A
+><P
+><B
+>Table 5. </B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN278"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>struct&nbsp;{<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;c;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double&nbsp;d;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short&nbsp;s;<br>
+<br>
+};</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/strct24pad.png"></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 8. Internal and tail padding</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="STRUCT5"
+></A
+><A
+NAME="AEN287"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN288"
+></A
+><P
+><B
+>Table 6. </B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN297"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>union&nbsp;&nbsp;{<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;c;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short&nbsp;s;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;&nbsp;j;<br>
+<br>
+};</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/strctunion.png"></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 9. Union padding</B
+></P
+></DIV
+></DIV
+><DIV
+CLASS="SECT3"
+><HR><H4
+CLASS="SECT3"
+><A
+NAME="AEN304"
+>Bit-fields</A
+></H4
+><P
+>C struct and union definitions may have "bit-fields," defining integral
+
+objects with a specified number of bits (see <A
+HREF="#BITFIELDTABLE"
+>Table 7</A
+>).&#13;</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="BITFIELDTABLE"
+></A
+><P
+><B
+>Table 7. Bit fields</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="TOP"
+><P
+>Bit-field type</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>Width n</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>Range</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN326"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>signed&nbsp;char<br>
+<br>
+<br>
+<br>
+char<br>
+<br>
+<br>
+<br>
+unsigned&nbsp;char</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+><P
+>1 to 8</P
+></TD
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN332"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>-2&#65533;&#65533;¹&nbsp;to<br>
+<br>
+2&#65533;&#65533;¹&nbsp;-&nbsp;1<br>
+<br>
+<br>
+<br>
+0&nbsp;to&nbsp;2&#65533;&nbsp;-&nbsp;1<br>
+<br>
+<br>
+<br>
+0&nbsp;to&nbsp;2&#65533;&nbsp;-&nbsp;1</P
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN337"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>signed&nbsp;short<br>
+<br>
+<br>
+<br>
+short<br>
+<br>
+<br>
+<br>
+unsigned&nbsp;short</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+><P
+>1 to 16</P
+></TD
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN343"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>-2&#65533;&#65533;¹&nbsp;to<br>
+<br>
+2&#65533;&#65533;¹&nbsp;-&nbsp;1<br>
+<br>
+<br>
+<br>
+0&nbsp;to&nbsp;2&#65533;&nbsp;-&nbsp;1<br>
+<br>
+<br>
+<br>
+0&nbsp;to&nbsp;2&#65533;&nbsp;-&nbsp;1</P
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN348"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>signed&nbsp;int<br>
+<br>
+<br>
+<br>
+int<br>
+<br>
+<br>
+<br>
+unsigned&nbsp;int<br>
+<br>
+<br>
+<br>
+enum</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+><P
+>1 to 32</P
+></TD
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN354"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>-2&#65533;&#65533;¹&nbsp;to<br>
+<br>
+2&#65533;&#65533;¹&nbsp;-&nbsp;1<br>
+<br>
+<br>
+<br>
+0&nbsp;to&nbsp;2&#65533;&nbsp;-&nbsp;1<br>
+<br>
+<br>
+<br>
+0&nbsp;to&nbsp;2&#65533;&nbsp;-&nbsp;1<br>
+<br>
+<br>
+<br>
+0&nbsp;to&nbsp;2&#65533;&nbsp;-&nbsp;1</P
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN359"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>signed&nbsp;long<br>
+<br>
+<br>
+<br>
+long<br>
+<br>
+<br>
+<br>
+unsigned&nbsp;long<br>
+<br>
+<br>
+<br>
+signed&nbsp;long&nbsp;long<br>
+<br>
+<br>
+<br>
+long&nbsp;long<br>
+<br>
+<br>
+<br>
+unsigned&nbsp;long&nbsp;long</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+ALIGN="CENTER"
+VALIGN="MIDDLE"
+><P
+>1 to 64</P
+></TD
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN365"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>-2&#65533;&#65533;¹&nbsp;to<br>
+<br>
+2&#65533;&#65533;¹&nbsp;-&nbsp;1<br>
+<br>
+<br>
+<br>
+0&nbsp;to&nbsp;2&#65533;&nbsp;-&nbsp;1<br>
+<br>
+<br>
+<br>
+0&nbsp;to&nbsp;2&#65533;&nbsp;-&nbsp;1<br>
+<br>
+<br>
+<br>
+-2&#65533;&#65533;¹&nbsp;to&nbsp;2&#65533;&#65533;¹&nbsp;-&nbsp;1<br>
+<br>
+<br>
+<br>
+0&nbsp;to&nbsp;2&#65533;&nbsp;-&nbsp;1<br>
+<br>
+<br>
+<br>
+0&nbsp;to&nbsp;2&#65533;&nbsp;-<br>
+<br>
+1</P
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>"Plain" bit-fields (that is, those neither signed nor unsigned) always
+
+have non-negative values. Although they may have type short, int or long (which
+
+can have negative values), bit-fields of these types have the same range as
+
+bit-fields of the same size with the corresponding unsigned type. Bit-fields
+
+obey the same size and alignment rules as other structure and union members,
+
+with the following additions:</P
+><P
+></P
+><UL
+><LI
+><P
+>Bit-fields are allocated from left to right (most to least
+
+significant).</P
+></LI
+><LI
+><P
+>A bit-field must entirely reside in a storage unit appropriate
+
+for its declared type. Thus, a bit-field never crosses its unit boundary.&#13;</P
+></LI
+><LI
+><P
+>Bit-fields must share a storage unit with other structure
+
+and union members (either bit-field or non-bit-field) if and only if there
+
+is sufficient space within the storage unit.</P
+></LI
+><LI
+><P
+>Unnamed bit-fields' types do not affect the alignment of a
+
+structure or union, although an individual bit-field's member offsets obey
+
+the alignment constraints. An unnamed, zero-width bit-field shall prevent
+
+any further member, bit-field or other, from residing in the storage unit
+
+corresponding to the type of the zero-width bit-field.</P
+></LI
+></UL
+><P
+>The following examples (<A
+HREF="#FIGBITNUM"
+>Figure 10</A
+> through <A
+HREF="#FIGUNNBITF"
+>Figure 15</A
+>)
+
+show structure and union member byte offsets in the upper left corners. Bit
+
+numbers appear in the lower corners.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIGBITNUM"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/bitnum.png"></P
+></DIV
+><P
+><B
+>Figure 10. Bit numbering</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIGLRALLOC"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/lralloc.png"></P
+></DIV
+><P
+><B
+>Figure 11. Left-to-right allocation</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIGBALIGN"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/balign.png"></P
+></DIV
+><P
+><B
+>Figure 12. Boundary alignment</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIGSUSHAR"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/sushar.png"></P
+></DIV
+><P
+><B
+>Figure 13. Storage unit sharing</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIGUNALLOC"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/unalloc.png"></P
+></DIV
+><P
+><B
+>Figure 14. Union allocation</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIGUNNBITF"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/unnbitf.png"></P
+></DIV
+><P
+><B
+>Figure 15. Unnamed bit fields</B
+></P
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H2
+CLASS="SECT1"
+><A
+NAME="AEN410"
+>Function calling sequence</A
+></H2
+><P
+>This section discusses the standard function calling sequence, including
+
+stack frame layout, register usage, and parameter passing.</P
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN413"
+>Registers</A
+></H3
+><P
+>The ABI makes the assumption that the processor has 16 general purpose
+
+registers and 16 IEEE floating point registers. zSeries processors have these
+
+registers; each register is 64 bits wide. The use of the registers is described
+
+in the table below.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN416"
+></A
+><P
+><B
+>Table 8. </B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="TOP"
+><P
+>Register name</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>Usage</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>Call effect</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN440"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>r0,<br>
+<br>
+r1</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+>General purpose</P
+></TD
+><TD
+><P
+>Volatile¹</P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN449"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>r2</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+>Parameter passing and return values</P
+></TD
+><TD
+><P
+>Volatile</P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN458"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>r3,&nbsp;r4,<br>
+<br>
+r5</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+>Parameter passing</P
+></TD
+><TD
+><P
+>Volatile</P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN467"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>r6</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+>Parameter passing</P
+></TD
+><TD
+><P
+>Saved²</P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN476"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>r7&nbsp;-<br>
+<br>
+r11</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+>Local variables</P
+></TD
+><TD
+><P
+>Saved</P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN485"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>r12</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+>Local variable, commonly used as GOT pointer</P
+></TD
+><TD
+><P
+>Saved</P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN494"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>r13</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+>Local variable, commonly used as Literal Pool
+
+pointer</P
+></TD
+><TD
+><P
+>Saved</P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN503"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>r14</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+>Return address</P
+></TD
+><TD
+><P
+>Volatile</P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN512"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>r15</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+>Stack pointer</P
+></TD
+><TD
+><P
+>Saved</P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN521"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>f0,&nbsp;f2,&nbsp;f4,<br>
+<br>
+f6</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+>Parameter passing and return values</P
+></TD
+><TD
+><P
+>Volatile</P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN530"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>f1,&nbsp;f3,&nbsp;f5,<br>
+<br>
+f7</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+>General purpose</P
+></TD
+><TD
+><P
+>Volatile</P
+></TD
+></TR
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN539"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>f8&nbsp;&#8211;<br>
+<br>
+f15</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+>General purpose</P
+></TD
+><TD
+><P
+>Saved</P
+></TD
+></TR
+><TR
+><TD
+><P
+>Access registers 0, 1</P
+></TD
+><TD
+><P
+>Reserved for system use</P
+></TD
+><TD
+><P
+>Volatile</P
+></TD
+></TR
+><TR
+><TD
+><P
+>Access registers 2-15</P
+></TD
+><TD
+><P
+>General purpose</P
+></TD
+><TD
+><P
+>Volatile</P
+></TD
+></TR
+></TBODY
+><TFOOT
+><TR
+><TH
+COLSPAN="3"
+VALIGN="TOP"
+><P
+></P
+><P
+>¹Volatile:
+
+These registers are not preserved across function calls.</P
+><P
+>²Saved:
+
+These registers belong to the calling function. A called function shall save
+
+these registers' values before it changes them, restoring their values before
+
+it returns.</P
+></TH
+></TR
+></TFOOT
+></TABLE
+></DIV
+><P
+><P
+></P
+><UL
+><LI
+><P
+>Registers r6 through r13, r15, and f8 through f15 are nonvolatile;
+
+that is, they "belong" to the calling function. A called function shall save
+
+these registers' values before it changes them, restoring their values before
+
+it returns.</P
+></LI
+><LI
+><P
+>Registers r0 through r5, r14 and f0 through f7 are volatile; 
+
+that is, they are not preserved across function
+
+calls.</P
+></LI
+><LI
+><P
+>Furthermore the values in registers r0 and r1 may be altered
+
+by the interface code in cross-module calls, so a function cannot depend on
+
+the values in these registers having the same values that were placed in them
+
+by the caller.</P
+></LI
+></UL
+></P
+><P
+>The following registers have assigned roles in the standard calling
+
+sequence:</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN568"
+></A
+><P
+><B
+>Table 9. </B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+>r12</P
+></TD
+><TD
+><P
+>Global Offset Table pointer. If a position-independent
+
+module uses cross-linking the compiler must point r12 to the GOT as described
+
+in <A
+HREF="#DYNAMICLINKING"
+>the Section called <I
+>Dynamic Linking</I
+> in the Chapter called <I
+>Program loading and dynamic linking</I
+></A
+>. If not this register may be used locally.&#13;</P
+></TD
+></TR
+><TR
+><TD
+><P
+>r13</P
+></TD
+><TD
+><P
+>Commonly used as the Literal Pool pointer. If
+
+the Literal Pool is not required this register may be used locally.</P
+></TD
+></TR
+><TR
+><TD
+><P
+>r14</P
+></TD
+><TD
+><P
+>This register will contain the address to which
+
+a called function will normally return. r14 is volatile across function calls.&#13;</P
+></TD
+></TR
+><TR
+><TD
+><P
+>r15</P
+></TD
+><TD
+><P
+>The stack pointer (stored in r15) will maintain
+
+an 8-byte alignment. It will always point to the lowest allocated valid stack
+
+frame, and will grow towards low addresses. The contents of the word addressed
+
+by this register may point to the previously allocated stack frame. If required
+
+it can be decremented by the called function &#8211; see <A
+HREF="#DYNAMICSTACK"
+>the Section called <I
+>Dynamic stack space allocation</I
+></A
+>.&#13;</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>Signals can interrupt processes. Functions called during signal handling
+
+have no unusual restrictions on their use of registers. Moreover, if a signal
+
+handling function returns, the process will resume its original execution
+
+path with all registers restored to their original values. Thus programs and
+
+compilers may freely use all registers listed above, except those reserved
+
+for system use, without the danger of signal handlers inadvertently changing
+
+their values.</P
+><DIV
+CLASS="SECT3"
+><HR><H4
+CLASS="SECT3"
+><A
+NAME="AEN597"
+>Register usage</A
+></H4
+><P
+>With these calling conventions the following usage of the registers
+
+for inline assemblies is recommended:  <P
+></P
+><UL
+><LI
+><P
+>General registers r0 and r1 should be used internally whenever
+
+possible</P
+></LI
+><LI
+><P
+>General registers r2 to r5 should be second choice</P
+></LI
+><LI
+><P
+>General registers r12 to r15 should only be used for their
+
+standard function.</P
+></LI
+></UL
+></P
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN607"
+>The stack frame</A
+></H3
+><P
+>A function will be passed a frame on the runtime stack by the function
+
+which called it, and may allocate a new stack frame. A new stack frame is
+
+required if the called function will in turn call further functions (which
+
+must be passed the address of the new frame). This stack grows downwards from
+
+high addresses. <A
+HREF="#STACKFRAME"
+>Figure 16</A
+> shows the stack frame organization.
+
+SP in the figure denotes the stack pointer (general purpose register r15)
+
+passed to the called function on entry. Maintenance of the back chain pointers
+
+is not a requirement of the ABI, but the storage area for these pointers must
+
+be allocated whether used or not.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="STACKFRAME"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/ststfr64.png"></P
+></DIV
+><P
+><B
+>Figure 16. Standard stack frame</B
+></P
+></DIV
+><P
+>The format of the register save area created by the gcc compiler is:&#13;</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="REGSAVE"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/regsav64.png"></P
+></DIV
+><P
+><B
+>Figure 17. Register save area</B
+></P
+></DIV
+><P
+>The following requirements apply to the stack frame:</P
+><P
+></P
+><UL
+><LI
+><P
+>The stack pointer shall maintain 8-byte alignment.</P
+></LI
+><LI
+><P
+>The stack pointer points to the first word of the lowest allocated
+
+stack frame. If the "back chain" is implemented this word will point to the
+
+previously allocated stack frame (towards higher addresses), except for the
+
+first stack frame, which shall have a back chain of zero (NULL). The stack
+
+shall grow downwards, in other words towards lower addresses.</P
+></LI
+><LI
+><P
+>The called function may create a new stack frame by decrementing
+
+the stack pointer by the size of the new frame. This is required if this function
+
+calls further functions. The stack pointer must be restored prior to return.&#13;</P
+></LI
+><LI
+><P
+>The parameter list area shall be allocated by the caller and
+
+shall be large enough to contain the arguments that the caller stores in it.
+
+Its contents are not preserved across calls.</P
+></LI
+><LI
+><P
+>Other areas depend on the compiler and the code being compiled.
+
+The standard calling sequence does not define a maximum stack frame size.&#13;</P
+></LI
+></UL
+><P
+>The stack space for the register save area and back chain must be allocated
+
+by the caller. The size of these is 160 bytes.</P
+><P
+>Except for the stack frame header and any padding necessary to make
+
+the entire frame a multiple of 8 bytes in length, a function need not allocate
+
+space for the areas that it does not use. If a function does not call any
+
+other functions and does not require any of the other parts of the stack frame,
+
+it need not establish a stack frame. Any padding of the frame as a whole shall
+
+be within the local variable area; the parameter list area shall immediately
+
+follow the stack frame header, and the register save areas shall contain no
+
+padding.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="PARAMETERPASSING"
+>Parameter passing</A
+></H3
+><P
+>Arguments to called functions are passed in registers. Since all computations
+
+must be performed in registers, memory traffic can be eliminated if the caller
+
+can compute arguments into registers and pass them in the same registers to
+
+the called function, where the called function can then use these arguments
+
+for further computation in the same registers. The number of registers implemented
+
+in a processor architecture naturally limits the number of arguments that
+
+can be passed in this manner.</P
+><P
+>For Linux for zSeries, the following applies: <P
+></P
+><UL
+><LI
+><P
+>General registers r2 to r6 are used for integer values.</P
+></LI
+><LI
+><P
+>Floating point registers f0, f2, f4 and f6 are used for floating
+
+point values.</P
+></LI
+></UL
+>If there are more than five integral values or four floating
+
+point values, the rest of the arguments are passed on the stack 160 bytes
+
+above the initial stack pointer.</P
+><P
+>Beside these general rules the following rules apply: <P
+></P
+><UL
+><LI
+><P
+>char, short, int, long and long long are passed in general
+
+registers.</P
+></LI
+><LI
+><P
+>Structures equivalent to a floating point type are passed in floating
+point registers.  A structure is equivalent to a floating point type
+if and only if it has exactly one member, which is either of floating
+point type of itself a structure equivalent to a floating point type.</P
+></LI
+><LI
+><P
+>Structures with a size of 1, 2, 4, or 8 bytes which are not 
+equivalent to a floating point type are passed as integral values.</P
+></LI
+><LI
+><P
+>All other structures are passed by reference. If needed, the
+
+called function makes a copy of the value.</P
+></LI
+><LI
+><P
+>Complex numbers are passed as structures.</P
+></LI
+></UL
+></P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PRMLISTAR"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/parla64.png"></P
+></DIV
+><P
+><B
+>Figure 18. Parameter list area</B
+></P
+></DIV
+><P
+>The following algorithm specifies where argument data is passed for
+
+the C language. For this purpose, consider the arguments as ordered from left
+
+(first argument) to right, although the order of evaluation of the arguments
+
+is unspecified. In this algorithm fr contains the number of the next available
+
+floating-point register, gr contains the number of the next available general
+
+purpose register, and starg is the address of the next available stack argument
+
+word.</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>INITIALIZE</DT
+><DD
+><P
+>Set fr=0, gr=2, and starg to the address of parameter word 1.</P
+></DD
+><DT
+>SCAN</DT
+><DD
+><P
+>If there are no more arguments, terminate. Otherwise, select one of
+
+the following depending on the type of the next argument: <P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>DOUBLE_OR_FLOAT:</DT
+><DD
+><P
+>A DOUBLE_OR_FLOAT is one of the following: <P
+></P
+><UL
+><LI
+><P
+>A single length floating point type,</P
+></LI
+><LI
+><P
+>A double length floating point type.</P
+></LI
+><LI
+><P
+>A structure equivalent to a floating point type.</P
+></LI
+></UL
+>If fr&#62;6, that is, if there are no more available floating-point
+
+registers, go to OTHER. Otherwise, load the argument value into floating-point
+
+register fr, set fr to fr+2, and go to SCAN.</P
+></DD
+><DT
+>SIMPLE_ARG</DT
+><DD
+><P
+>A SIMPLE_ARG is one of the following: <P
+></P
+><UL
+><LI
+><P
+>One of the simple integer types no more than 64 bits wide
+
+(char, short, int, long, long long, enum).</P
+></LI
+><LI
+><P
+>A pointer to an object of any type.</P
+></LI
+><LI
+><P
+>A struct or a union of 1, 2, 4 or 8 bytes
+which is not a structure equivalent to a floating point type.</P
+></LI
+><LI
+><P
+>A struct or union of another size, or a long double, any of
+
+which shall be passed as a pointer to the object, or to a copy of the object
+
+where necessary to enforce call-by-value semantics. Only if the caller can
+
+ascertain that the object is "constant" can it pass a pointer to the object
+
+itself.</P
+></LI
+></UL
+></P
+><P
+>If gr&#62;6, go to OTHER. Otherwise load the argument value into general
+
+register gr, set gr to gr+1, and go to SCAN. Values shorter than 64 bits are
+
+sign- or zero-extended (as appropriate) to 64 bits.</P
+></DD
+></DL
+></DIV
+></P
+></DD
+><DT
+>OTHER</DT
+><DD
+><P
+>Arguments not otherwise handled above are passed in the parameter words
+
+of the caller's stack frame. SIMPLE_ARGs, as defined above, are considered
+
+to have size of 8 bytes, where simple integer types shorter than 8 bytes
+are signed or zero-extended (as appropriate) to 8 bytes, and other arguments
+of size less than 8 bytes will be placed right-justified into a 8 byte
+slot.  float and double arguments are considered to have a size of 8 bytes,
+where float arguments will be placed right-justified into an 8 byte slot.&#13;</P
+></DD
+></DL
+></DIV
+><P
+>The contents of registers and words which are skipped by the above algorithm
+
+for alignment purposes (padding) are undefined.</P
+><P
+>As an example, assume the declarations and the function call shown in <A
+HREF="#PRMPASS"
+>Figure 19</A
+>. The corresponding register allocation and storage would
+
+be as shown in <A
+HREF="#TABPRMPASS"
+>Table 10</A
+>.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PRMPASS"
+></A
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN708"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>int&nbsp;i,&nbsp;j,&nbsp;k,&nbsp;l;<br>
+<br>
+long&nbsp;long&nbsp;ll;<br>
+<br>
+double&nbsp;f,&nbsp;g,&nbsp;h;<br>
+<br>
+int&nbsp;m;<br>
+<br>
+<br>
+<br>
+x&nbsp;=&nbsp;func(i,&nbsp;j,&nbsp;g,&nbsp;k,&nbsp;l,&nbsp;ll,&nbsp;f,&nbsp;h,<br>
+<br>
+m);</P
+><P
+></P
+></DIV
+><P
+><B
+>Figure 19. Parameter passing example</B
+></P
+></DIV
+><DIV
+CLASS="TABLE"
+><A
+NAME="TABPRMPASS"
+></A
+><P
+><B
+>Table 10. Parameter passing example: Register allocation</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="TOP"
+><P
+>General purpose registers&#13;</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>Floating-point registers&#13;</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>Stack frame offset&#13;</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+><P
+>r2: i</P
+></TD
+><TD
+><P
+>f0: g</P
+></TD
+><TD
+><P
+>160: m</P
+></TD
+></TR
+><TR
+><TD
+><P
+>r3: j</P
+></TD
+><TD
+><P
+>f2: f</P
+></TD
+><TD
+><P
+></P
+></TD
+></TR
+><TR
+><TD
+><P
+>r4: k</P
+></TD
+><TD
+><P
+>f4: h</P
+></TD
+><TD
+><P
+></P
+></TD
+></TR
+><TR
+><TD
+><P
+>r5: l</P
+></TD
+><TD
+><P
+></P
+></TD
+><TD
+><P
+></P
+></TD
+></TR
+><TR
+><TD
+><P
+>r6: ll</P
+></TD
+><TD
+><P
+></P
+></TD
+><TD
+><P
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN760"
+>Variable argument lists</A
+></H3
+><P
+>Some otherwise portable C programs depend on the argument passing scheme,
+
+implicitly assuming that 1) all arguments are passed on the stack, and 2)
+
+arguments appear in increasing order on the stack. Programs that make these
+
+assumptions  have never been portable, but they have worked on many implementations.
+
+However, they do not work on z/Architecture because some arguments are passed
+
+in registers. Portable C programs use the header files &#60;stdarg.h&#62; or &#60;varargs.h&#62; to
+
+deal with variable argument lists on zSeries and other machines as well.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN763"
+>Return values</A
+></H3
+><P
+>In general, arguments are returned in registers, as described in <A
+HREF="#RETREG"
+>Table 11</A
+>.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="RETREG"
+></A
+><P
+><B
+>Table 11. Registers for return values</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="TOP"
+><P
+>Type</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>Returned in register:</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+><P
+>char, short, int, long and long long</P
+></TD
+><TD
+><P
+>general register 2 (r2)</P
+></TD
+></TR
+><TR
+><TD
+><P
+>double and float</P
+></TD
+><TD
+><P
+>floating point register 0 (f0)</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>Functions shall return float or double values in f0, with float values
+
+rounded to single precision. Functions shall return values of type int, long,
+
+long long, enum, short and char, or a pointer to any type as unsigned or signed
+
+integers as appropriate, zero- or sign-extended to 64 bits if necessary, in
+
+r2. &#13;</P
+><P
+>Values of type long double and structures or unions 
+are returned in a storage buffer allocated by the caller.</P
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H2
+CLASS="SECT1"
+><A
+NAME="AEN791"
+>Operating system interface</A
+></H2
+><DIV
+CLASS="SECT2"
+><H3
+CLASS="SECT2"
+><A
+NAME="AEN793"
+>Virtual address space</A
+></H3
+><P
+>Processes execute in a 64-bit virtual address space. Memory management
+
+translates virtual addresses to physical addresses, hiding physical addressing
+
+and letting a process run anywhere in the system's real memory. Processes
+
+typically begin with three logical segments, commonly called "text", "data"
+
+and "stack". An object file may contain more segments (for example, for debugger
+
+use), and a process can also create additional segments for itself with system
+
+services.</P
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="./stylesheet-images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The term "virtual address" as used in this document refers to a 64-bit
+
+address generated by a program, as contrasted with the physical address to
+
+which it is mapped.</P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN798"
+>Page size</A
+></H3
+><P
+>Memory is organized into pages, which are the system's smallest units
+
+of memory allocation. The hardware page size for z/Architecture is 4096 bytes.&#13;</P
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN802"
+>Virtual address assignments</A
+></H3
+><P
+>Processes have a 42, 53 or 64-bit address space available to them, depending
+
+on the Linux kernel level.</P
+><P
+><A
+HREF="#FIGVAC"
+>Figure 20</A
+> shows the virtual address configuration on the
+
+zSeries architecture. The segments with different properties are typically
+
+grouped in different areas of the address space. The loadable segments may
+
+begin at zero (0); the exact addresses depend on the executable file format
+
+(see <A
+HREF="#CHOBJFILES"
+>the Chapter called <I
+>Object files</I
+></A
+> and <A
+HREF="#CHPROGLOAD"
+>the Chapter called <I
+>Program loading and dynamic linking</I
+></A
+>). The process'
+
+stack resides at the end of the virtual memory and grows downwards. Processes
+
+can control the amount of virtual memory allotted for stack space, as described
+
+below.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIGVAC"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/viradc64.png"></P
+></DIV
+><P
+><B
+>Figure 20. 42&#8211;bit virtual address configuration</B
+></P
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="./stylesheet-images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Although application programs may begin at virtual address 0, they conventionally
+
+begin above 0x1000 (4 Kbytes), leaving the initial 4 Kbytes with an invalid
+
+address mapping. Processes that reference this invalid memory (for example
+
+by de-referencing a null pointer) generate an translation exception as described
+
+in <A
+HREF="#EXCEPTIONINT"
+>the Section called <I
+>Exception interface</I
+></A
+>.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>Although applications may control their memory assignments, the typical
+
+arrangement follows the diagram above. When applications let the system choose
+
+addresses for dynamic segments (including shared object segments), the system
+
+will prefer addresses in the upper half of the address space (for a 42&#8211;bit
+
+address space this means addresses above 1 TByte).</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN818"
+>Managing the process stack</A
+></H3
+><P
+>The section <A
+HREF="#PROCINIT"
+>the Section called <I
+>Process initialization</I
+></A
+> describes the initial stack contents.
+
+Stack addresses can change from one system to the next &#8211; even from one
+
+process execution to the next on a single system. A program, therefore, should
+
+not depend on finding its stack at a particular virtual address.</P
+><P
+>A tunable configuration parameter controls the system maximum stack
+
+size. A process can also use setrlimit to set its own maximum stack size,
+
+up to the system limit. The stack segment is both readable and writable.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN823"
+>Coding guidelines</A
+></H3
+><P
+>Operating system facilities, such as mmap, allow a process to establish
+
+address mappings in two ways. Firstly, the program can let the system choose
+
+an address. Secondly, the program can request the system to use an address
+
+the program supplies. The second alternative can cause application portability
+
+problems because the requested address might not always be available. Differences
+
+in virtual address space can be particularly troublesome between different
+
+architectures, but the same problems can arise within a single architecture.&#13;</P
+><P
+>Processes' address spaces typically have three segments that can change
+
+size from one execution to the next: the stack (through setrlimit); the data
+
+segment (through malloc); and the dynamic segment area (through mmap).  Changes
+
+in one area may affect the virtual addresses available for another. Consequently
+
+an address that is available in one process execution might not be available
+
+in the next. Thus a program that used mmap to request a mapping at a specific
+
+address could appear to work in some environments and fail in others. For
+
+this reason programs that want to establish a mapping in their address space
+
+should let the system choose the address.</P
+><P
+>Despite these warnings about requesting specific addresses the facility
+
+can be used properly.  For example, a multiprocess application might map several
+
+files into the address space of each process and build relative pointers among
+
+the files' data.  This could be done by having each process ask for a certain
+
+amount of memory at an address chosen by the system.  After each process receives
+
+its own private address from the system it would map the desired files into
+
+memory at specific addresses within the original area.  This collection of
+
+mappings could be at different addresses in each process but their relative
+
+positions would be fixed.  Without the ability to ask for specific addresses,
+
+the application could not build shared data structures because the relative
+
+positions for files in each process would be unpredictable.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN828"
+>Processor execution modes</A
+></H3
+><P
+>Two execution modes exist in z/Architecture: problem (user) state and
+
+supervisor state. Processes run in problem state (the less privileged).  The
+
+operating system kernel runs in supervisor state.  A program executes an supervisor
+
+call (svc) instruction to change execution modes.</P
+><P
+>Note that the ABI does not define the implementation of individual system
+
+calls. Instead programs shall use the system libraries. Programs with embedded
+
+system call or trap instructions do not conform to the ABI.</P
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H2
+CLASS="SECT1"
+><A
+NAME="EXCEPTIONINT"
+>Exception interface</A
+></H2
+><P
+>The z/Architecture exception mechanism allows the processor to change
+
+to supervisor state as a result of six different causes: system calls, I/O
+
+interrupts, external interrupts, machine checks, restart interruptions or
+
+program checks (unusual conditions arising in the execution of instructions).&#13;</P
+><P
+>When exceptions occur: <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>information (such as the address of the next instruction to
+
+be executed after control is returned to the original program) is saved,</P
+></LI
+><LI
+><P
+>program control passes from user to supervisor level, and&#13;</P
+></LI
+><LI
+><P
+>software continues execution at an address (the exception
+
+vector) predetermined for each exception.</P
+></LI
+></OL
+></P
+><P
+>Exceptions may be synchronous or asynchronous. Synchronous exceptions,
+
+being caused by instruction execution, can be explicitly generated by a process.
+
+The operating system handles an exception either by completing the faulting
+
+operation in a manner transparent to the application or by delivering a signal
+
+to the application. The correspondence between exceptions and signals is shown
+
+in <A
+HREF="#EXCEPTIONS"
+>Table 12</A
+>.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="EXCEPTIONS"
+></A
+><P
+><B
+>Table 12. Exceptions and Signals</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+>Exception Name</P
+></TD
+><TD
+><P
+>Signal</P
+></TD
+><TD
+><P
+>Examples</P
+></TD
+></TR
+><TR
+><TD
+><P
+>Illegal instruction</P
+></TD
+><TD
+><P
+>SIGILL</P
+></TD
+><TD
+><P
+>Illegal or privileged instruction, Invalid instruction
+
+form, Optional, unimplemented instruction</P
+></TD
+></TR
+><TR
+><TD
+><P
+>Storage access</P
+></TD
+><TD
+><P
+>SIGSEGV</P
+></TD
+><TD
+><P
+>Unmapped instruction or data location access,
+
+Storage protection violation</P
+></TD
+></TR
+><TR
+><TD
+><P
+>Alignment</P
+></TD
+><TD
+><P
+>SIGBUS</P
+></TD
+><TD
+><P
+>Invalid data item alignment, Invalid memory access&#13;</P
+></TD
+></TR
+><TR
+><TD
+><P
+>Breakpoint</P
+></TD
+><TD
+><P
+>SIGTRAP</P
+></TD
+><TD
+><P
+>Breakpoint program check</P
+></TD
+></TR
+><TR
+><TD
+><P
+>Floating exception</P
+></TD
+><TD
+><P
+>SIGFPE</P
+></TD
+><TD
+><P
+>Floating point overflow or underflow, Floating
+
+point divide by zero, Floating point conversion overflow, Other enabled floating
+
+point exceptions</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The signals that an exception may give rise to are SIGILL, SIGSEGV,
+
+SIGBUS, SIGTRAP, and SIGFPE.  If one of these signals is generated due to
+
+an exception when the signal is blocked, the behavior is undefined.</P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H2
+CLASS="SECT1"
+><A
+NAME="PROCINIT"
+>Process initialization</A
+></H2
+><P
+>This section describes the machine state that exec creates for "infant"
+
+processes, including argument passing, register usage, and stack frame layout.
+
+Programming language systems use this initial program state to establish a
+
+standard environment for their application programs. For example, a C program
+
+begins executing at a function named main, conventionally declared in the
+
+way described in <A
+HREF="#DECLMAIN"
+>Figure 21</A
+>:</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="DECLMAIN"
+></A
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN901"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>&nbsp;&nbsp;&nbsp;extern&nbsp;int&nbsp;main&nbsp;(int&nbsp;argc,&nbsp;char<br>
+<br>
+*argv[&nbsp;],&nbsp;char&nbsp;*envp[&nbsp;]);</P
+><P
+></P
+></DIV
+><P
+><B
+>Figure 21. Declaration for main</B
+></P
+></DIV
+><P
+>Briefly, argc is a non-negative argument count; argv is an array of
+
+argument strings, with argv[argc] == 0, and envp is an array of environment
+
+strings, also terminated by a NULL pointer.</P
+><P
+>Although this section does not describe C program initialization, it
+
+gives the information necessary to implement the call to main or to the entry
+
+point for a program in any other language.</P
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN905"
+>Registers</A
+></H3
+><P
+>When a process is first entered (from an exec system call), the contents
+
+of registers other than those listed below are unspecified. Consequently,
+
+a program that requires registers to have specific values must set them explicitly
+
+during process initialization.  It should not rely on the operating system
+
+to set all registers to 0.  Following are the registers whose contents are
+
+specified:</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN908"
+></A
+><P
+><B
+>Table 13. </B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+>r15</P
+></TD
+><TD
+><P
+>The initial stack pointer, aligned to a 8-byte
+
+boundary and pointing to a stack location that contains the argument count
+
+(see <A
+HREF="#PROCESSSTACK"
+>the Section called <I
+>Process stack</I
+></A
+> for further information about the initial
+
+stack layout)</P
+></TD
+></TR
+><TR
+><TD
+><P
+>fpc</P
+></TD
+><TD
+><P
+>The floating point control register contains 0,
+
+specifying "round to nearest" mode and the disabling of floating-point exceptions&#13;</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="PROCESSSTACK"
+>Process stack</A
+></H3
+><P
+>Every process has a stack, but the system defines no fixed stack address.
+
+Furthermore, a program's stack address can change from one system to another &#8211; even
+
+from one process invocation to another. Thus the process initialization code
+
+must use the stack address in general purpose register r15. Data in the stack
+
+segment at addresses below the stack pointer contain undefined values.</P
+><P
+>Whereas the argument and environment vectors transmit information from
+
+one application program to another, the auxiliary vector conveys information
+
+from the operating system to the program. This vector is an array of structures,
+
+which are defined in <A
+HREF="#AUXSTRUCT"
+>Figure 22</A
+>.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="AUXSTRUCT"
+></A
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN932"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>typedef&nbsp;struct&nbsp;{<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;long&nbsp;a_type;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;union&nbsp;{<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;long&nbsp;a_val;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;*a_ptr;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;(*a_fcn)();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;a_un;<br>
+<br>
+}&nbsp;auxv_t;</P
+><P
+></P
+></DIV
+><P
+><B
+>Figure 22. Auxiliary vector structure</B
+></P
+></DIV
+><P
+>The structures are interpreted according to the a_type member, as shown
+
+in <A
+HREF="#AUXTYPES"
+>Table 14</A
+>.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AUXTYPES"
+></A
+><P
+><B
+>Table 14. Auxiliary Vector Types, a_type</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+>Name</P
+></TD
+><TD
+><P
+>Value</P
+></TD
+><TD
+><P
+>a_un</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_NULL</P
+></TD
+><TD
+><P
+>0</P
+></TD
+><TD
+><P
+>ignored</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_IGNORE</P
+></TD
+><TD
+><P
+>1</P
+></TD
+><TD
+><P
+>ignored</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_EXECFD</P
+></TD
+><TD
+><P
+>2</P
+></TD
+><TD
+><P
+>a_val</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_PHDR</P
+></TD
+><TD
+><P
+>3</P
+></TD
+><TD
+><P
+>a_ptr</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_PHENT</P
+></TD
+><TD
+><P
+>4</P
+></TD
+><TD
+><P
+>a_val</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_PHNUM</P
+></TD
+><TD
+><P
+>5</P
+></TD
+><TD
+><P
+>a_val</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_PAGESZ</P
+></TD
+><TD
+><P
+>6</P
+></TD
+><TD
+><P
+>a_val</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_BASE</P
+></TD
+><TD
+><P
+>7</P
+></TD
+><TD
+><P
+>a_ptr</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_FLAGS</P
+></TD
+><TD
+><P
+>8</P
+></TD
+><TD
+><P
+>a_val</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_ENTRY</P
+></TD
+><TD
+><P
+>9</P
+></TD
+><TD
+><P
+>a_ptr</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_NOTELF</P
+></TD
+><TD
+><P
+>10</P
+></TD
+><TD
+><P
+>a_val</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_UID</P
+></TD
+><TD
+><P
+>11</P
+></TD
+><TD
+><P
+>a_val</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_EUID</P
+></TD
+><TD
+><P
+>12</P
+></TD
+><TD
+><P
+>a_val</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_GID</P
+></TD
+><TD
+><P
+>13</P
+></TD
+><TD
+><P
+>a_val</P
+></TD
+></TR
+><TR
+><TD
+><P
+>AT_EGID</P
+></TD
+><TD
+><P
+>14</P
+></TD
+><TD
+><P
+>a_val</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>a_type auxiliary vector types are described in 'Auxiliary Vector Types
+
+Description' below.</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><P
+><B
+>Auxiliary Vector Types Description</B
+></P
+><DL
+><DT
+>AT_NULL</DT
+><DD
+><P
+>The auxiliary vector has no fixed length; so an entry of this type is
+
+used to denote the end of the vector. The corresponding value of a_un is undefined.&#13;</P
+></DD
+><DT
+>AT_IGNORE</DT
+><DD
+><P
+>This type indicates the entry has no meaning. The corresponding value
+
+of a_un is undefined.</P
+></DD
+><DT
+>AT_EXECFD</DT
+><DD
+><P
+>exec may pass control to an interpreter program. When this happens,
+
+the system places either an entry of type AT_EXECFD or one of type AT_PHDR
+
+in the auxiliary vector. The a_val field in the AT_EXECFD entry contains a
+
+file descriptor for the application program's object file.</P
+></DD
+><DT
+>AT_PHDR</DT
+><DD
+><P
+>Under some conditions, the system creates the memory image of the application
+
+program before passing control to an interpreter program. When this happens,
+
+the a_ptr field of the AT_PHDR entry tells the interpreter where to find the
+
+program header table in the memory image. If the AT_PHDR entry is present,
+
+entries of types AT_PHENT, AT_PHNUM and AT_ENTRY must also be present.  See
+
+the section <A
+HREF="#CHPROGLOAD"
+>the Chapter called <I
+>Program loading and dynamic linking</I
+></A
+> for more information about the program
+
+header table.</P
+></DD
+><DT
+>AT_PHENT</DT
+><DD
+><P
+>The a_val field of this entry holds the size, in bytes, of one entry
+
+in the program header table at which the AT_PHDR entry points.</P
+></DD
+><DT
+>AT_PHNUM</DT
+><DD
+><P
+>The a_val field of this entry holds the number of entries in the program
+
+header table at which the AT_PHDR entry points.</P
+></DD
+><DT
+>AT_PAGESZ</DT
+><DD
+><P
+>If present this entry's a_val field gives the system page size in bytes.
+
+The same information is also available through sysconf.</P
+></DD
+><DT
+>AT_BASE</DT
+><DD
+><P
+>The a_ptr member of this entry holds the base address at which the interpreter
+
+program was loaded into memory.</P
+></DD
+><DT
+>AT_FLAGS</DT
+><DD
+><P
+>If present, the a_val field of this entry holds 1-bit flags. Undefined
+
+bits are set to zero.</P
+></DD
+><DT
+>AT_ENTRY</DT
+><DD
+><P
+>The a_ptr field of this entry holds the entry point of the application
+
+program to which the interpreter program should transfer control.</P
+></DD
+><DT
+>AT_NOTELF</DT
+><DD
+><P
+>The a_val field of this entry is non-zero if the program is in another
+
+format than ELF, for example in the old COFF format.</P
+></DD
+><DT
+>AT_UID</DT
+><DD
+><P
+>The a_ptr field of this entry holds the real user id of the process.&#13;</P
+></DD
+><DT
+>AT_EUID</DT
+><DD
+><P
+>The a_ptr field of this entry holds the effective user id of the process.&#13;</P
+></DD
+><DT
+>AT_GID</DT
+><DD
+><P
+>The a_ptr field of this entry holds the real group id of the process.&#13;</P
+></DD
+><DT
+>AT_EGID</DT
+><DD
+><P
+>The a_ptr field of this entry holds the effective group id of the process.&#13;</P
+></DD
+></DL
+></DIV
+><P
+>Other auxiliary vector types are reserved. No flags are currently defined
+
+for AT_FLAGS on the zSeries architecture.</P
+><P
+>When a process receives control, its stack holds the arguments, environment,
+
+and auxiliary vector from exec.  Argument strings, environment strings, and
+
+the auxiliary information appear in no specific order within the information
+
+block; the system makes no guarantees about their relative arrangement.  The
+
+system may also leave an unspecified amount of memory between the null auxiliary
+
+vector entry and the beginning of the information block. A sample initial
+
+stack is shown in <A
+HREF="#INISTACK"
+>Figure 23</A
+>.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="INISTACK"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/inipst64.png"></P
+></DIV
+><P
+><B
+>Figure 23. Initial Process Stack</B
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H2
+CLASS="SECT1"
+><A
+NAME="CODINGEXAMPLES"
+>Coding examples</A
+></H2
+><P
+>This section describes example code sequences for fundamental operations
+
+such as calling functions, accessing static objects, and transferring control
+
+from one part of a program to another. Previous sections discussed how a program
+
+may use the machine or the operating system, and they specified what a program
+
+may and may not assume about the execution environment.  Unlike previous material,
+
+the information in this section illustrates how operations may be done, not
+
+how they must be done.</P
+><P
+>As before, examples use the ANSI C language.  Other programming languages
+
+may use the same conventions displayed below, but failure to do so does not
+
+prevent a program from conforming to the ABI.  Two main object code models
+
+are available:</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Absolute code</DT
+><DD
+><P
+>Instructions can hold absolute addresses under this model. To execute
+
+properly, the program must be loaded at a specific virtual address, making
+
+the program's absolute addresses coincide with the process' virtual addresses.&#13;</P
+></DD
+><DT
+>Position-independent code</DT
+><DD
+><P
+>Instructions under this model hold relative addresses, not absolute
+
+addresses. Consequently, the code is not tied to a specific load address,
+
+allowing it to execute properly at various positions in virtual memory.</P
+></DD
+></DL
+></DIV
+><P
+>The following sections describe the differences between these models.
+
+When different, code sequences for the models appear together for easier comparison.&#13;</P
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="./stylesheet-images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The examples below show code fragments with various simplifications.
+
+They are intended to explain addressing modes, not to show optimal code sequences
+
+or to reproduce compiler output.</P
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN1143"
+>Code model overview</A
+></H3
+><P
+>When the system creates a process image, the executable file portion
+
+of the process has fixed addresses and the system chooses shared object library
+
+virtual addresses to avoid conflicts with other segments in the process. 
+
+To maximize text sharing, shared objects conventionally use position-independent
+
+code, in which instructions contain no absolute addresses.  Shared object
+
+text segments can be loaded at various virtual addresses without having to
+
+change the segment images. Thus multiple processes can share a single shared
+
+object text segment, even if the segment resides at a different virtual address
+
+in each process.</P
+><P
+>Position-independent code relies on two techniques:</P
+><P
+></P
+><UL
+><LI
+><P
+>Control transfer instructions hold addresses relative to the
+
+Current Instruction Address (CIA), or use registers that hold the transfer
+
+address. A CIA-relative branch computes its destination address in terms of
+
+the CIA, not relative to any absolute address.</P
+></LI
+><LI
+><P
+>When the program requires an absolute address, it computes
+
+the desired value. Instead of embedding absolute addresses in instructions
+
+(in the text segment),  the compiler generates code to calculate an absolute
+
+address (in a register or in the stack or data segment) during execution.&#13;</P
+></LI
+></UL
+><P
+>Because z/Architecture provides CIA-relative branch instructions and
+
+also branch instructions using registers that hold the transfer address, compilers
+
+can satisfy the first condition easily.</P
+><P
+>A Global Offset Table (GOT), provides information for address calculation.
+
+Position-independent object files (executable and shared object files) have
+
+a table in their data segment that holds addresses. When the system creates
+
+the memory image for an object file, the table entries are relocated to reflect
+
+the absolute virtual address as assigned for an individual process.  Because
+
+data segments are private for each process, the table entries can change &#8211; unlike
+
+text segments, which multiple processes share.</P
+><P
+>Two position-independent models give programs a choice between more
+
+efficient code with some size restrictions and less efficient code without
+
+those restrictions.  Because of the processor architecture, a GOT with no
+
+more than 512 entries (4096 bytes) is more efficient than a larger one. Programs
+
+that need more entries must use the larger, more general code. In the following
+
+sections, the term "small model position-independent code" is used to refer
+
+to code that assumes the smaller GOT, and "large model position-independent
+
+code" is used to refer to the general code.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN1155"
+>Function prolog and epilog</A
+></H3
+><P
+>This section describes the prolog and epilog code of functions . A function's
+
+prolog establishes a stack frame, if necessary, and may save any nonvolatile
+
+registers it uses. A function's epilog generally restores registers that were
+
+saved in the prolog code, restores the previous stack frame, and returns to
+
+the caller.</P
+><DIV
+CLASS="SECT3"
+><HR><H4
+CLASS="SECT3"
+><A
+NAME="AEN1158"
+>Prolog</A
+></H4
+><P
+>The prolog of a function has to save the state of the calling function
+
+and set up the base register for the code of the function body. The following
+
+is in general done by the function prolog: <P
+></P
+><UL
+><LI
+><P
+>Save all registers used within the function which the calling
+
+function assumes to be non-volatile.</P
+></LI
+><LI
+><P
+>Set up the base register for the literal pool.</P
+></LI
+><LI
+><P
+>Allocate stack space by decrementing the stack pointer.</P
+></LI
+><LI
+><P
+>Set up the dynamic chain by storing the old stack pointer
+
+value at stack location zero if the "back chain" is implemented.</P
+></LI
+><LI
+><P
+>Set up the GOT pointer if the compiler is generating position
+
+independent code. </P
+><P
+>(A function that is position independent will probably want to load
+
+a pointer to the GOT into a nonvolatile register. This may be omitted if the
+
+function makes no external data references. If external data references are
+
+only made within conditional code, loading the GOT pointer may be deferred
+
+until it is known to be needed.)</P
+></LI
+><LI
+><P
+>Set up the frame pointer if the function allocates stack space
+
+dynamically (with alloca).</P
+></LI
+></UL
+></P
+><P
+>The compiler tries to do as little as possible of the above; the ideal
+
+case is to do nothing at all (for a leaf function without symbolic references).&#13;</P
+></DIV
+><DIV
+CLASS="SECT3"
+><HR><H4
+CLASS="SECT3"
+><A
+NAME="AEN1176"
+>Epilog</A
+></H4
+><P
+>The epilog of a function restores the registers saved in the prolog
+
+(which include the stack pointer) and branches to the return address.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><HR><H4
+CLASS="SECT3"
+><A
+NAME="AEN1179"
+>Prolog and epilog example</A
+></H4
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PROLCODE"
+></A
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1183"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>.section&nbsp;&nbsp;.rodata<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.align&nbsp;2<br>
+<br>
+.LC0:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.string&nbsp;"hello,&nbsp;world\n"<br>
+<br>
+.text<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.align&nbsp;4<br>
+<br>
+.globl&nbsp;&nbsp;&nbsp;&nbsp;main<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.type&nbsp;&nbsp;main,@function<br>
+<br>
+main:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Prolog<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STMG&nbsp;&nbsp;&nbsp;11,15,88(15)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Save&nbsp;callers&nbsp;registers<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;&nbsp;13,.LT0_0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Load&nbsp;literal&nbsp;pool&nbsp;pointer<br>
+<br>
+.section&nbsp;&nbsp;.rodata&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Switch&nbsp;for&nbsp;literal&nbsp;pool<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.align&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;&nbsp;to&nbsp;read-only&nbsp;data&nbsp;section<br>
+<br>
+.LT0_0:<br>
+<br>
+.LC2:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.quad&nbsp;&nbsp;65536<br>
+<br>
+.LTN0_0:<br>
+<br>
+.text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Back&nbsp;to&nbsp;text&nbsp;section<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LGR&nbsp;&nbsp;&nbsp;&nbsp;1,15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Load&nbsp;stack&nbsp;pointer&nbsp;in&nbsp;GPR&nbsp;1<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AGHI&nbsp;&nbsp;&nbsp;15,-160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Allocate&nbsp;stack&nbsp;space<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STG&nbsp;&nbsp;&nbsp;&nbsp;1,0(15)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Store&nbsp;backchain<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Prolog&nbsp;end<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;&nbsp;2,.LC0<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3,.LC2-.LT0_0(13)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRASL&nbsp;&nbsp;14,printf<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LGHI&nbsp;&nbsp;&nbsp;2,0<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Epilog<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4,272(15)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Load&nbsp;return&nbsp;address<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LMG&nbsp;&nbsp;&nbsp;&nbsp;11,15,248(15)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Restore&nbsp;registers<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Branch&nbsp;back&nbsp;to&nbsp;caller<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Epilog&nbsp;end</P
+><P
+></P
+></DIV
+><P
+><B
+>Figure 24. Prolog and epilog example</B
+></P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN1185"
+>Profiling</A
+></H3
+><P
+>This section shows a way of providing profiling (entry counting) on
+
+zSeries systems. An ABI-conforming system is not required to provide profiling;
+
+however if it does this is one possible (not required) implementation.</P
+><P
+>If a function is to be profiled it has to call the _mcount routine after
+
+the function prolog. This routine has a special linkage. It gets an address
+
+in register 1 and returns without having changed any register. The address
+
+is a pointer to a word-aligned one-word static data area, initialized to zero,
+
+in which the _mcount routine is to maintain a count of the number of times
+
+the function is called.</P
+><P
+>For example <A
+HREF="#PROFCODE"
+>Figure 25</A
+> shows how the code after the function
+
+prolog may look.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PROFCODE"
+></A
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1193"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STMG&nbsp;&nbsp;&nbsp;&nbsp;7,15,56(15)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#<br>
+<br>
+Save&nbsp;callers&nbsp;registers<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LGR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Stack&nbsp;pointer<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AGHI&nbsp;&nbsp;&nbsp;&nbsp;15,-160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Allocate&nbsp;new<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,0(15)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Save&nbsp;backchain<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LGR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11,15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Local&nbsp;stack&nbsp;pointer<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.data<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.align&nbsp;4<br>
+<br>
+.LP0:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.quad&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Profile&nbsp;counter<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.text<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Function&nbsp;profiler<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STG&nbsp;&nbsp;&nbsp;14,8(15)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Preserve&nbsp;r14<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;1,.LPO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Load&nbsp;address&nbsp;of&nbsp;profile&nbsp;counter<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRASL&nbsp;14,_mcount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Branch&nbsp;to&nbsp;_mcount<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;14,8(15)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Restore&nbsp;r14</P
+><P
+></P
+></DIV
+><P
+><B
+>Figure 25. Code for profiling</B
+></P
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN1195"
+>Data objects</A
+></H3
+><P
+>This section describes only objects with static storage duration. It
+
+excludes stack-resident objects because programs always compute their virtual
+
+addresses relative to the stack or frame pointers.</P
+><P
+>Because zSeries instructions cannot hold 64-bit addresses directly,
+
+a program has to build an address in a register and access memory through
+
+that register. In order to do so a function normally has a literal pool that
+
+holds the addresses of data objects used by the function. Register 13 is set
+
+up in the function prolog to point to the start of this literal pool.</P
+><P
+>Position-independent code cannot contain absolute addresses. In order
+
+to access a local symbol the literal pool contains the (signed) offset of
+
+the symbol relative to the start of the pool. Combining the offset loaded
+
+from the literal pool with the address in register 13 gives the absolute address
+
+of the local symbol. In the case of a global symbol the address of the symbol
+
+has to be loaded from the Global Offset Table. The offset in the GOT can either
+
+be contained in the instruction itself or in the literal pool. See <A
+HREF="#ADDRESSES"
+>Figure 26</A
+> for
+
+an example.</P
+><P
+><A
+HREF="#ADDRESSES"
+>Figure 26</A
+> through <A
+HREF="#LARGEGOT"
+>Figure 28</A
+> show sample
+
+assembly language equivalents to C language code for absolute and position-independent
+
+compilations. It is assumed that all shared objects are compiled as position-independent
+
+and only executable modules may have absolute addresses. The code in the figures
+
+contains many redundant operations as it is only intended to show how each
+
+C statement could have been compiled independently of its context. The function
+
+prolog is not shown, and it is assumed that it has loaded the address of the
+
+literal pool in register 13.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="ADDRESSES"
+></A
+><A
+NAME="AEN1206"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1207"
+></A
+><P
+><B
+>Table 15. </B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="TOP"
+><P
+>C</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>zSeries machine instructions (Assembler)&#13;</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1222"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>extern&nbsp;int&nbsp;src;<br>
+<br>
+extern&nbsp;int&nbsp;dst;<br>
+<br>
+extern&nbsp;int&nbsp;*ptr;<br>
+<br>
+<br>
+<br>
+dst&nbsp;=&nbsp;src;<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ptr&nbsp;=&nbsp;&#38;dst;<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+*ptr&nbsp;=&nbsp;src;</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1226"
+></A
+><P
+CLASS="LITERALLAYOUT"
+><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;1,dst<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;2,src<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MVC&nbsp;&nbsp;&nbsp;0(4,1),0(2)<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;1,ptr<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;2,dst<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STG&nbsp;&nbsp;&nbsp;2,0(1)<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;2,ptr<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;1,0(2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;2,src<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MVC&nbsp;&nbsp;<br>
+<br>
+0(4,1),0(2)</P
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 26. Absolute addressing</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="SMALLGOT"
+></A
+><A
+NAME="AEN1230"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1231"
+></A
+><P
+><B
+>Table 16. </B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="TOP"
+><P
+>C</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>zSeries machine instructions (Assembler)&#13;</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1246"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>extern&nbsp;int&nbsp;src;<br>
+<br>
+extern&nbsp;int&nbsp;dst;<br>
+<br>
+extern&nbsp;int&nbsp;*ptr;<br>
+<br>
+<br>
+<br>
+dst&nbsp;=&nbsp;src;<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ptr&nbsp;=&nbsp;&#38;dst;<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+*ptr&nbsp;=&nbsp;src;</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1250"
+></A
+><P
+CLASS="LITERALLAYOUT"
+><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;12,_GLOBAL_OFFSET_TABLE_<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;1,dst@GOT12(12)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;2,src@GOT12(12)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LGF&nbsp;&nbsp;&nbsp;3,0(2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ST&nbsp;&nbsp;&nbsp;&nbsp;3,0(1)<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;12,_GLOBAL_OFFSET_TABLE_<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;1,ptr@GOT12(12)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;2,dst@GOT12(12)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STG&nbsp;&nbsp;&nbsp;2,0(1)<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;12,_GLOBAL_OFFSET_TABLE_<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;2,ptr@GOT12(12)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;1,0(2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;2,src@GOT12(12)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LGF&nbsp;&nbsp;&nbsp;3,0(2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ST&nbsp;&nbsp;&nbsp;<br>
+<br>
+3,0(1)</P
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 27. Small model position-independent addressing</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="LARGEGOT"
+></A
+><A
+NAME="AEN1254"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1255"
+></A
+><P
+><B
+>Table 17. </B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="TOP"
+><P
+>C</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>zSeries Assembler</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1270"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>extern&nbsp;int&nbsp;src;<br>
+<br>
+extern&nbsp;int&nbsp;dst;<br>
+<br>
+extern&nbsp;int&nbsp;*ptr;<br>
+<br>
+<br>
+<br>
+dst&nbsp;=&nbsp;src;<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ptr&nbsp;=&nbsp;&#38;dst;<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+*ptr&nbsp;=&nbsp;src;</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1274"
+></A
+><P
+CLASS="LITERALLAYOUT"
+><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;2,dst@GOT<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;2,0(2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;3,src@GOT<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;3,0(3)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MVC&nbsp;&nbsp;&nbsp;0(4,2),0(3)<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;2,ptr@GOT<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;2,0(2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;3,dst@GOT<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;3,0(3)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STG&nbsp;&nbsp;&nbsp;3,0(2)<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;2,ptr@GOT<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;2,0(2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;1,0(2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;3,src@GOT<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;3,0(3)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MVC&nbsp;&nbsp;<br>
+<br>
+0(4,1),0(3)</P
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 28. Large model position-independent addressing</B
+></P
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN1276"
+>Function calls</A
+></H3
+><P
+>Programs can use the z/Architecture BRASL  instruction to make direct
+
+function calls. A BRASL instruction has a self-relative branch displacement
+
+that can reach 4 GBytes in either direction. To call functions beyond this
+
+limit (inter-module calls) load the address in a register and use the BASR
+
+instruction for the call. Register 14 is used as the first operand of BASR
+
+to hold the return address as shown in <A
+HREF="#FNCALLDIRECT"
+>Figure 29</A
+>.</P
+><P
+>The called function may be in the same module (executable or shared
+
+object) as the caller, or it may be in a different module. In the former case,
+
+if the called function is not in a shared object, the linkage editor resolves
+
+the symbol. In all other cases the linkage editor cannot directly resolve
+
+the symbol. Instead the linkage editor generates "glue" code and resolves
+
+the symbol to point to the glue code. The dynamic linker will provide the
+
+real address of the function in the Global Offset Table. The glue code loads
+
+this address and branches to the function itself. See <A
+HREF="#PROCEDURELINKAGETABLE"
+>the Section called <I
+>Procedure Linkage Table</I
+> in the Chapter called <I
+>Program loading and dynamic linking</I
+></A
+> for
+
+more details.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FNCALLDIRECT"
+></A
+><A
+NAME="AEN1284"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1285"
+></A
+><P
+><B
+>Table 18. </B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="TOP"
+><P
+>C</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>zSeries machine instructions (Assembler)&#13;</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1300"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>extern&nbsp;void&nbsp;func();<br>
+<br>
+extern&nbsp;void&nbsp;(*ptr)();<br>
+<br>
+<br>
+<br>
+ptr&nbsp;=&nbsp;func;<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+func();<br>
+<br>
+<br>
+<br>
+(*ptr)&nbsp;();</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1304"
+></A
+><P
+CLASS="LITERALLAYOUT"
+><br>
+<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;1,ptr<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;2,func<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STG&nbsp;&nbsp;&nbsp;2,0(1)<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRASL&nbsp;14,func<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;1,ptr<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;1,0(1)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BASR&nbsp;<br>
+<br>
+14,1</P
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 29. Absolute  function call</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FNSMALLDIRECT"
+></A
+><A
+NAME="AEN1308"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1309"
+></A
+><P
+><B
+>Table 19. </B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="TOP"
+><P
+>C</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>zSeries machine instructions (Assembler)&#13;</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1324"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>extern&nbsp;void&nbsp;func();<br>
+<br>
+extern&nbsp;void&nbsp;(*ptr)();<br>
+<br>
+<br>
+<br>
+ptr&nbsp;=&nbsp;func;<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+func();<br>
+<br>
+<br>
+<br>
+(*ptr)&nbsp;();</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1328"
+></A
+><P
+CLASS="LITERALLAYOUT"
+><br>
+<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;12,_GLOBAL_OFFSET_TABLE_<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;1,ptr@GOT12(12)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;2,func@GOT12(12)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STG&nbsp;&nbsp;&nbsp;2,0(1)<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRASL&nbsp;14,func@PLT<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;12,_GLOBAL_OFFSET_TABLE_<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;1,ptr@GOT12(12)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;1,0(1)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BASR&nbsp;<br>
+<br>
+14,1</P
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 30. Small model position-independent  function call</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FNLARGEDIRECT"
+></A
+><A
+NAME="AEN1332"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1333"
+></A
+><P
+><B
+>Table 20. </B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="TOP"
+><P
+>C</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>zSeries machine instructions (Assembler)&#13;</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1348"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>extern&nbsp;void&nbsp;func();<br>
+<br>
+extern&nbsp;void&nbsp;(*ptr)();<br>
+<br>
+<br>
+<br>
+ptr&nbsp;=&nbsp;func;<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+func();<br>
+<br>
+<br>
+<br>
+(*ptr)&nbsp;();</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1352"
+></A
+><P
+CLASS="LITERALLAYOUT"
+><br>
+<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;2,ptr@GOT<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;2,0(2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;3,func@GOT<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;3,0(3)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STG&nbsp;&nbsp;&nbsp;3,0(2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRASL&nbsp;14,func@PLT<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;2,ptr@GOT<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;2,0(2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;2,0(2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BASR&nbsp;<br>
+<br>
+14,2</P
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 31. Large model position-independent  function call</B
+></P
+></DIV
+><P
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN1355"
+>Branching</A
+></H3
+><P
+>Programs use branch instructions to control their execution flow. z/Architecture
+
+has a variety of branch instructions. The most commonly used of these performs
+
+a self-relative jump with a 128-Kbyte range (up to 64 Kbytes in either direction).
+
+For large functions another self-relative jump is available with a range of
+
+4 Gbytes (up to 2 Gbytes in either direction).</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="BRANCHINSN"
+></A
+><A
+NAME="AEN1360"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1361"
+></A
+><P
+><B
+>Table 21. </B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="TOP"
+><P
+>C</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>zSeries machine instructions (Assembler)&#13;</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1376"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>label:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto&nbsp;label;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+farlabel:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goto&nbsp;farlabel;</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1380"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>.L01:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRC&nbsp;15,.L01<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+.L02:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRCL<br>
+<br>
+15,.L02</P
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 32. Branch instruction</B
+></P
+></DIV
+><P
+></P
+><P
+>C language switch statements provide multi-way selection. When the case
+
+labels of a switch statement satisfy grouping constraints the compiler implements
+
+the selection with an address table. The following examples use several simplifying
+
+conventions to hide irrelevant details:</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>The selection expression resides in register 2.</P
+></LI
+><LI
+><P
+>The case label constants begin at zero.</P
+></LI
+><LI
+><P
+>The case labels, the default, and the address table use assembly
+
+names .Lcasei, .Ldef and .Ltab respectively.</P
+></LI
+></OL
+><DIV
+CLASS="FIGURE"
+><A
+NAME="ABSSWITCH"
+></A
+><A
+NAME="AEN1393"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1394"
+></A
+><P
+><B
+>Table 22. </B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="TOP"
+><P
+>C</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>zSeries machine instructions (Assembler)&#13;</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1409"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>switch(j)<br>
+<br>
+{<br>
+<br>
+case&nbsp;0:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+case&nbsp;1:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+case&nbsp;3:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+default:<br>
+<br>
+}</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1413"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LGHI&nbsp;&nbsp;1,3<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLGR&nbsp;&nbsp;2,1<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRC&nbsp;&nbsp;&nbsp;2,.Ldef<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLLG&nbsp;&nbsp;2,2,3<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;1,.Ltab<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;3,0(1,2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BR&nbsp;&nbsp;&nbsp;&nbsp;3<br>
+<br>
+.Ltab:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.quad&nbsp;.Lcase0<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.quad&nbsp;.Lcase1<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.quad&nbsp;.Ldef<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.quad<br>
+<br>
+.Lcase3</P
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 33. Absolute switch code</B
+></P
+></DIV
+><DIV
+CLASS="FIGURE"
+><A
+NAME="INDSWITCH"
+></A
+><A
+NAME="AEN1417"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1418"
+></A
+><P
+><B
+>Table 23. </B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+VALIGN="TOP"
+><P
+>C</P
+></TH
+><TH
+VALIGN="TOP"
+><P
+>zSeries machine instructions (Assembler)&#13;</P
+></TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1433"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>switch(j)<br>
+<br>
+{<br>
+<br>
+case&nbsp;0:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+case&nbsp;1:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+case&nbsp;3:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+<br>
+default:<br>
+<br>
+}</P
+><P
+></P
+></DIV
+></P
+></TD
+><TD
+><P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN1437"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Literal<br>
+<br>
+pool<br>
+<br>
+.LT0:<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Code<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LGHI&nbsp;&nbsp;1,3<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLGR&nbsp;&nbsp;2,1<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRC&nbsp;&nbsp;&nbsp;2,.Ldef<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SLLG&nbsp;&nbsp;2,2,3<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;1,.Ltab<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;3,0(1,2)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AGR&nbsp;&nbsp;&nbsp;3,13<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BR&nbsp;&nbsp;&nbsp;&nbsp;3<br>
+<br>
+.Ltab:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.quad&nbsp;.Lcase0-.LT0<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.quad&nbsp;.Lcase1-.LT0<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.quad&nbsp;.Ldef-.LT0<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.quad<br>
+<br>
+.Lcase3-.LT0</P
+><P
+></P
+></DIV
+></P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></BLOCKQUOTE
+><P
+><B
+>Figure 34. Position-independent switch code, all models</B
+></P
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="DYNAMICSTACK"
+>Dynamic stack space allocation</A
+></H3
+><P
+>The GNU C compiler, and most recent compilers, support dynamic stack
+
+space allocation via alloca.</P
+><P
+><A
+HREF="#DYNSTACKALLOC"
+>Figure 35</A
+> shows the stack frame before and after
+
+dynamic stack allocation. The local variables area is used for storage of
+
+function data, such as local variables, whose sizes are known to the compiler.
+
+This area is allocated at function entry and does not change in size or position
+
+during the function's activation.</P
+><P
+>The parameter list area holds "overflow" arguments passed in calls to
+
+other functions. (See the OTHER label in <A
+HREF="#PARAMETERPASSING"
+>the Section called <I
+>Parameter passing</I
+></A
+>.)
+
+Its size is also known to the compiler and can be allocated along with the
+
+fixed frame area at function entry. However, the standard calling sequence
+
+requires that the parameter list area begin at a fixed offset (160) from the
+
+stack pointer, so this area must move when dynamic stack allocation occurs.&#13;</P
+><P
+>Data in the parameter list area are naturally addressed at constant
+
+offsets from the stack pointer. However, in the presence of dynamic stack
+
+allocation, the offsets from the stack pointer to the data in the local variables
+
+area are not constant. To provide addressability a frame pointer is established
+
+to locate the local variables area consistently throughout the function's
+
+activation.</P
+><P
+>Dynamic stack allocation is accomplished by "opening" the stack just
+
+above the parameter list area. The following steps show the process in detail:&#13;</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>After a new stack frame is acquired, and before the first
+
+dynamic space allocation, a new register, the frame pointer or FP, is set
+
+to the value of the stack pointer. The frame pointer is used for references
+
+to the function's local, non-static variables. The frame pointer does not
+
+change during the execution of a function, even though the stack pointer may
+
+change as a result of dynamic allocation.</P
+></LI
+><LI
+><P
+>The amount of dynamic space to be allocated is rounded up
+
+to a multiple of 8 bytes, so that 8-byte stack alignment is maintained.</P
+></LI
+><LI
+><P
+>The stack pointer is decreased by the rounded byte count,
+
+and the address of the previous stack frame (the back chain) may be stored
+
+at the word addressed by the new stack pointer. The back chain is not necessary
+
+to restore from this allocation at the end of the function since the frame
+
+pointer can be used to restore the stack pointer.</P
+></LI
+></OL
+><P
+><A
+HREF="#DYNSTACKALLOC"
+>Figure 35</A
+> is a snapshot of the stack layout after
+
+the prolog code has dynamically extended the stack frame.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="DYNSTACKALLOC"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/dynams64.png"></P
+></DIV
+><P
+><B
+>Figure 35. Dynamic Stack Space Allocation</B
+></P
+></DIV
+><P
+>The above process can be repeated as many times as desired within a
+
+single function activation. When it is time to return, the stack pointer is
+
+set to the value of the back chain, thereby removing all dynamically allocated
+
+stack space along with the rest of the stack frame. Naturally, a program must
+
+not reference the dynamically allocated stack area after it has been freed.&#13;</P
+><P
+>Even in the presence of signals, the above dynamic allocation scheme
+
+is "safe." If a signal interrupts allocation, one of three things can happen:&#13;</P
+><P
+></P
+><UL
+><LI
+><P
+>The signal handler can return. The process then resumes the
+
+dynamic allocation from the point of interruption.</P
+></LI
+><LI
+><P
+>The signal handler can execute a non-local goto or a jump.
+
+This resets the process to a new context in a previous stack frame, automatically
+
+discarding the dynamic allocation.</P
+></LI
+><LI
+><P
+>The process can terminate.</P
+></LI
+></UL
+><P
+>Regardless of when the signal arrives during dynamic allocation, the
+
+result is a consistent (though possibly dead) process.</P
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H2
+CLASS="SECT1"
+><A
+NAME="AEN1472"
+>DWARF definition</A
+></H2
+><P
+>This section defines the "Debug with Arbitrary Record Format" (DWARF)
+
+debugging format for the zSeries processor family. The zSeries ABI does not
+
+define a debug format. However, all systems that do implement DWARF shall
+
+use the following definitions.</P
+><P
+>DWARF is a specification developed for symbolic source-level debugging.
+
+The debugging information format does not favor the design of any compiler
+
+or debugger.</P
+><P
+>The DWARF definition requires some machine-specific definitions. The
+
+register number mapping is specified for the zSeries processors in <A
+HREF="#DWARFREG"
+>Table 24</A
+>.&#13;</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="DWARFREG"
+></A
+><P
+><B
+>Table 24. DWARF register number mapping</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+>DWARF number</P
+></TD
+><TD
+><P
+>zSeries register</P
+></TD
+></TR
+><TR
+><TD
+><P
+>0-15</P
+></TD
+><TD
+><P
+>gpr0-gpr15</P
+></TD
+></TR
+><TR
+><TD
+><P
+>16</P
+></TD
+><TD
+><P
+>fpr0</P
+></TD
+></TR
+><TR
+><TD
+><P
+>17</P
+></TD
+><TD
+><P
+>fpr2</P
+></TD
+></TR
+><TR
+><TD
+><P
+>18</P
+></TD
+><TD
+><P
+>fpr4</P
+></TD
+></TR
+><TR
+><TD
+><P
+>19</P
+></TD
+><TD
+><P
+>fpr6</P
+></TD
+></TR
+><TR
+><TD
+><P
+>20</P
+></TD
+><TD
+><P
+>fpr1</P
+></TD
+></TR
+><TR
+><TD
+><P
+>21</P
+></TD
+><TD
+><P
+>fpr3</P
+></TD
+></TR
+><TR
+><TD
+><P
+>22</P
+></TD
+><TD
+><P
+>fpr5</P
+></TD
+></TR
+><TR
+><TD
+><P
+>23</P
+></TD
+><TD
+><P
+>fpr7</P
+></TD
+></TR
+><TR
+><TD
+><P
+>24</P
+></TD
+><TD
+><P
+>fpr8</P
+></TD
+></TR
+><TR
+><TD
+><P
+>25</P
+></TD
+><TD
+><P
+>fpr10</P
+></TD
+></TR
+><TR
+><TD
+><P
+>26</P
+></TD
+><TD
+><P
+>fpr12</P
+></TD
+></TR
+><TR
+><TD
+><P
+>27</P
+></TD
+><TD
+><P
+>fpr14</P
+></TD
+></TR
+><TR
+><TD
+><P
+>28</P
+></TD
+><TD
+><P
+>fpr9</P
+></TD
+></TR
+><TR
+><TD
+><P
+>29</P
+></TD
+><TD
+><P
+>fpr11</P
+></TD
+></TR
+><TR
+><TD
+><P
+>30</P
+></TD
+><TD
+><P
+>fpr13</P
+></TD
+></TR
+><TR
+><TD
+><P
+>31</P
+></TD
+><TD
+><P
+>fpr15</P
+></TD
+></TR
+><TR
+><TD
+><P
+>32&#8211;47</P
+></TD
+><TD
+><P
+>cr0-cr15</P
+></TD
+></TR
+><TR
+><TD
+><P
+>48&#8211;63</P
+></TD
+><TD
+><P
+>ar0-ar15</P
+></TD
+></TR
+><TR
+><TD
+><P
+>64</P
+></TD
+><TD
+><P
+>PSW mask</P
+></TD
+></TR
+><TR
+><TD
+><P
+>65</P
+></TD
+><TD
+><P
+>PSW address</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="CHOBJFILES"
+></A
+>Object files</H1
+><P
+>This section describes the Executable and Linking Format (ELF).</P
+><DIV
+CLASS="SECT1"
+><HR><H2
+CLASS="SECT1"
+><A
+NAME="AEN1597"
+>ELF Header</A
+></H2
+><DIV
+CLASS="SECT2"
+><H3
+CLASS="SECT2"
+><A
+NAME="AEN1599"
+>Machine Information</A
+></H3
+><P
+>For file identification in e_ident the zSeries processor family requires
+
+the values shown in <A
+HREF="#EIDENT"
+>Table 1</A
+>.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="EIDENT"
+></A
+><P
+><B
+>Table 1. Auxiliary Vector Types Description</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+>Position</P
+></TD
+><TD
+><P
+>Value</P
+></TD
+><TD
+><P
+>Comments</P
+></TD
+></TR
+><TR
+><TD
+><P
+>e_ident[EI_CLASS]</P
+></TD
+><TD
+><P
+>ELFCLASS64</P
+></TD
+><TD
+><P
+>For all 64bit implementations</P
+></TD
+></TR
+><TR
+><TD
+><P
+>e_ident[EI_DATA]</P
+></TD
+><TD
+><P
+>ELFDATA64MSB</P
+></TD
+><TD
+><P
+>For all Big-Endian implementations</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The ELF header's e_flags field holds bit flags associated with the file.
+
+Since the zSeries processor family defines no flags, this member contains
+
+zero.</P
+><P
+>Processor identification resides in the ELF header's e_machine field
+
+and must have the value 22, defined as the name EM_S390.</P
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H2
+CLASS="SECT1"
+><A
+NAME="AEN1633"
+>Sections</A
+></H2
+><DIV
+CLASS="SECT2"
+><H3
+CLASS="SECT2"
+><A
+NAME="AEN1635"
+>Special Sections</A
+></H3
+><P
+>Various sections hold program and control information.  The sections
+
+listed in <A
+HREF="#SECTIONS"
+>Table 2</A
+> are used by the system and have the types
+
+and attributes shown.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="SECTIONS"
+></A
+><P
+><B
+>Table 2. Special Sections</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+>Name</P
+></TD
+><TD
+><P
+>Type</P
+></TD
+><TD
+><P
+>Attributes</P
+></TD
+></TR
+><TR
+><TD
+><P
+>.got</P
+></TD
+><TD
+><P
+>SHT_PROGBITS</P
+></TD
+><TD
+><P
+>SHF_ALLOC + SHF_WRITE</P
+></TD
+></TR
+><TR
+><TD
+><P
+>.plt</P
+></TD
+><TD
+><P
+>SHT_PROGBITS</P
+></TD
+><TD
+><P
+>SHF_ALLOC + SHF_WRITE + SHF_EXECINSTR</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>Special sections are described in <A
+HREF="#SECDESC"
+>Table 3</A
+>.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="SECDESC"
+></A
+><P
+><B
+>Table 3. Special Sections Description</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+>Name</P
+></TD
+><TD
+><P
+>Description</P
+></TD
+></TR
+><TR
+><TD
+><P
+>.got</P
+></TD
+><TD
+><P
+>This section holds the Global Offset Table, or
+
+GOT. See <A
+HREF="#CODINGEXAMPLES"
+>the Section called <I
+>Coding examples</I
+> in the Chapter called <I
+>Low-level system information</I
+></A
+> and <A
+HREF="#GLOBALOFFSETTABLE"
+>the Section called <I
+>Global Offset Table</I
+> in the Chapter called <I
+>Program loading and dynamic linking</I
+></A
+> for
+
+more information.</P
+></TD
+></TR
+><TR
+><TD
+><P
+>.plt</P
+></TD
+><TD
+><P
+>This section holds the Procedure Linkage Table,
+
+or PLT. See <A
+HREF="#PROCEDURELINKAGETABLE"
+>the Section called <I
+>Procedure Linkage Table</I
+> in the Chapter called <I
+>Program loading and dynamic linking</I
+></A
+> for more information.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN1693"
+>Symbol Table</A
+></H3
+><DIV
+CLASS="SECT3"
+><H4
+CLASS="SECT3"
+><A
+NAME="SYMBOLVALUES"
+>Symbol Values</A
+></H4
+><P
+>If an executable file contains a reference to a function defined in
+
+one of its associated shared objects, the symbol table section for the file
+
+will contain an entry for that symbol.  The st_shndx field of that symbol
+
+table entry contains SHN_UNDEF.  This informs the dynamic linker that the
+
+symbol definition for that function is not contained in the executable file
+
+itself. If that symbol has been allocated a Procedure Linkage Table entry
+
+in the executable file, and the st_value field for that symbol table entry
+
+is nonzero, the value is the virtual address of the first instruction of that
+
+PLT entry. Otherwise the st_value field contains zero. This PLT entry address
+
+is used by the dynamic linker in resolving references to the address of the
+
+function.  See <A
+HREF="#FUNCTIONADDRESSES"
+>the Section called <I
+>Function Addresses</I
+> in the Chapter called <I
+>Program loading and dynamic linking</I
+></A
+> for details.</P
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN1699"
+>Relocation</A
+></H3
+><DIV
+CLASS="SECT3"
+><H4
+CLASS="SECT3"
+><A
+NAME="AEN1701"
+>Relocation Types</A
+></H4
+><P
+>Relocation entries describe how to alter the instruction and data relocation
+
+fields shown in <A
+HREF="#RELOCFIELDS"
+>Figure 1</A
+> (bit numbers appear in the lower
+
+box corners; byte numbers appear in the upper left box corners).</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="RELOCFIELDS"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/relocf64.png"></P
+></DIV
+><P
+><B
+>Figure 1. Relocation Fields</B
+></P
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>quad64</DT
+><DD
+><P
+>This specifies a 64-bit field occupying 8 bytes, the alignment of which
+
+is 4 bytes unless otherwise specified.</P
+></DD
+><DT
+>word32</DT
+><DD
+><P
+>This specifies a 32-bit field occupying 4 bytes, the alignment of which
+
+is 4 bytes unless otherwise specified.</P
+></DD
+><DT
+>pc32</DT
+><DD
+><P
+>This specifies a 32-bit field occupying 4 bytes with 2-byte alignment.
+
+The signed value in this field is shifted to the left by 1 before it is used
+
+as a program counter relative displacement (for example, the immediate field
+
+of a "Load Address Relative Long" instruction).</P
+></DD
+><DT
+>half16</DT
+><DD
+><P
+>This specifies a 16-bit field occupying 2 bytes with 2-byte alignment
+
+(for example, the immediate field of an "Add Halfword Immediate" instruction).&#13;</P
+></DD
+><DT
+>pc16</DT
+><DD
+><P
+>This specifies a 16-bit field occupying 2 bytes with 2-byte alignment.
+
+The signed value in this field is shifted to the left by 1 before it is used
+
+as a program counter relative displacement (for example, the immediate field
+
+of an "Branch Relative" instruction).</P
+></DD
+><DT
+>low12</DT
+><DD
+><P
+>This specifies a 12-bit field contained within a halfword with a 2-byte
+
+alignment. The 12 bit unsigned value is the displacement of a memory reference.&#13;</P
+></DD
+><DT
+>byte8</DT
+><DD
+><P
+>This specifies a 8-bit field with a 1-byte alignment.</P
+></DD
+></DL
+></DIV
+><P
+>Calculations in <A
+HREF="#RELOCATIONS"
+>Table 4</A
+> assume the actions are
+
+transforming a relocatable file into either an executable or a shared object
+
+file. Conceptually, the linkage editor merges one or more relocatable files
+
+to form the output. It first determines how to combine and locate the input
+
+files, next it updates the symbol values, and then it performs relocations.&#13;</P
+><P
+>Relocations applied to executable or shared object files are similar
+
+and accomplish the same result. The following notations are used in <A
+HREF="#RELOCATIONS"
+>Table 4</A
+>:</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>A</DT
+><DD
+><P
+>Represents the addend used to compute the value of the relocatable field.&#13;</P
+></DD
+><DT
+>B</DT
+><DD
+><P
+>Represents the base address at which a shared object has been loaded
+
+into memory during execution. Generally, a shared object file is built with
+
+a 0 base virtual address, but the execution address will be different.</P
+></DD
+><DT
+>G</DT
+><DD
+><P
+>Represents the section offset or address of the Global Offset Table.
+
+ See <A
+HREF="#CODINGEXAMPLES"
+>the Section called <I
+>Coding examples</I
+> in the Chapter called <I
+>Low-level system information</I
+></A
+> and <A
+HREF="#GLOBALOFFSETTABLE"
+>the Section called <I
+>Global Offset Table</I
+> in the Chapter called <I
+>Program loading and dynamic linking</I
+></A
+> for
+
+more information.</P
+></DD
+><DT
+>L</DT
+><DD
+><P
+>Represents the section offset or address of the Procedure Linkage Table
+
+entry for a symbol.  A PLT entry redirects a function call to the proper destination.
+
+ The linkage editor builds the initial PLT.  See <A
+HREF="#PROCEDURELINKAGETABLE"
+>the Section called <I
+>Procedure Linkage Table</I
+> in the Chapter called <I
+>Program loading and dynamic linking</I
+></A
+> for
+
+more information.</P
+></DD
+><DT
+>O</DT
+><DD
+><P
+>Represents the offset into the GOT at which the address of the relocation
+
+entry's symbol will reside during execution.  See <A
+HREF="#CODINGEXAMPLES"
+>the Section called <I
+>Coding examples</I
+> in the Chapter called <I
+>Low-level system information</I
+></A
+> and <A
+HREF="#GLOBALOFFSETTABLE"
+>the Section called <I
+>Global Offset Table</I
+> in the Chapter called <I
+>Program loading and dynamic linking</I
+></A
+> for more information.</P
+></DD
+><DT
+>P</DT
+><DD
+><P
+>Represents the place (section offset or address) of the storage unit
+
+being relocated (computed using r_offset).</P
+></DD
+><DT
+>R</DT
+><DD
+><P
+>Represents the offset of the symbol within the section in which the
+
+symbol is defined (its section-relative address).</P
+></DD
+><DT
+>S</DT
+><DD
+><P
+>Represents the value of the symbol whose index resides in the relocation
+
+entry.</P
+></DD
+></DL
+></DIV
+><P
+>Relocation entries apply to bytes, halfwords or words. In either case,
+
+the r_offset value designates the offset or virtual address of the first byte
+
+of the affected storage unit.  The relocation type specifies which bits to
+
+change and how to calculate their values.  The zSeries family uses only the
+
+Elf64_Rela relocation entries with explicit addends.  For the relocation entries,
+
+the r_addend field serves as the relocation addend.  In all cases, the offset,
+
+addend, and the computed result use the byte order specified in the ELF header.&#13;</P
+><P
+>The following general rules apply to the interpretation of the relocation
+
+types in <A
+HREF="#RELOCATIONS"
+>Table 4</A
+>:</P
+><P
+></P
+><UL
+><LI
+><P
+>"+" and "-" denote 64-bit modulus addition and subtraction,
+
+respectively.  "&#62;&#62;" denotes arithmetic right-shifting (shifting with sign
+
+copying) of the value of the left operand by the number of bits given by the
+
+right operand.</P
+></LI
+><LI
+><P
+>For relocation type half16, the upper 48 bits of the value
+
+computed must be all ones or all zeroes.  For relocation type pc16, the upper
+
+47 bits of  the value computed must be all ones or all zeroes and the lowest
+
+bit must be zero. For relocation type pc32, the upper 31 bits of  the value
+
+computed must be all ones or all zeroes and the lowest bit must be zero. For
+
+relocation type low12, the upper 52 bits of the value computed must all be
+
+zero and for relocation type byte8, the upper 56 bits of the value computed
+
+must all be zero.</P
+></LI
+><LI
+><P
+>Reference in a calculation to the value G or O implicitly
+
+creates a GOT entry for the indicated symbol and a reference to L implicitly
+
+creates a PLT entry.</P
+></LI
+></UL
+><DIV
+CLASS="TABLE"
+><A
+NAME="RELOCATIONS"
+></A
+><P
+><B
+>Table 4. Relocation Types</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+>Name</P
+></TD
+><TD
+><P
+>Value</P
+></TD
+><TD
+><P
+>Field</P
+></TD
+><TD
+><P
+>Calculation</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_NONE</P
+></TD
+><TD
+><P
+>0</P
+></TD
+><TD
+><P
+>none</P
+></TD
+><TD
+><P
+>none</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_8</P
+></TD
+><TD
+><P
+>1</P
+></TD
+><TD
+><P
+>byte8</P
+></TD
+><TD
+><P
+>S + A</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_12</P
+></TD
+><TD
+><P
+>2</P
+></TD
+><TD
+><P
+>low12</P
+></TD
+><TD
+><P
+>S + A</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_16</P
+></TD
+><TD
+><P
+>3</P
+></TD
+><TD
+><P
+>half16</P
+></TD
+><TD
+><P
+>S + A</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_32</P
+></TD
+><TD
+><P
+>4</P
+></TD
+><TD
+><P
+>word32</P
+></TD
+><TD
+><P
+>S + A</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_PC32</P
+></TD
+><TD
+><P
+>5</P
+></TD
+><TD
+><P
+>word32</P
+></TD
+><TD
+><P
+>S + A - P</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_GOT12</P
+></TD
+><TD
+><P
+>6</P
+></TD
+><TD
+><P
+>low12</P
+></TD
+><TD
+><P
+>O + A</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_GOT32</P
+></TD
+><TD
+><P
+>7</P
+></TD
+><TD
+><P
+>word32</P
+></TD
+><TD
+><P
+>O + A</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_PLT32</P
+></TD
+><TD
+><P
+>8</P
+></TD
+><TD
+><P
+>word32</P
+></TD
+><TD
+><P
+>L + A</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_COPY</P
+></TD
+><TD
+><P
+>9</P
+></TD
+><TD
+><P
+>none</P
+></TD
+><TD
+><P
+>(see below)</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_GLOB_DAT</P
+></TD
+><TD
+><P
+>10</P
+></TD
+><TD
+><P
+>quad64</P
+></TD
+><TD
+><P
+>S + A (see below)</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_JMP_SLOT</P
+></TD
+><TD
+><P
+>11</P
+></TD
+><TD
+><P
+>none</P
+></TD
+><TD
+><P
+>(see below)</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_RELATIVE</P
+></TD
+><TD
+><P
+>12</P
+></TD
+><TD
+><P
+>quad64</P
+></TD
+><TD
+><P
+>B + A (see below)</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_GOTOFF</P
+></TD
+><TD
+><P
+>13</P
+></TD
+><TD
+><P
+>quad64</P
+></TD
+><TD
+><P
+>S + A - G</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_GOTPC</P
+></TD
+><TD
+><P
+>14</P
+></TD
+><TD
+><P
+>quad64</P
+></TD
+><TD
+><P
+>G + A - P</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_GOT16</P
+></TD
+><TD
+><P
+>15</P
+></TD
+><TD
+><P
+>half16</P
+></TD
+><TD
+><P
+>O + A</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_PC16</P
+></TD
+><TD
+><P
+>16</P
+></TD
+><TD
+><P
+>half16</P
+></TD
+><TD
+><P
+>S + A - P</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_PC16DBL</P
+></TD
+><TD
+><P
+>17</P
+></TD
+><TD
+><P
+>pc16</P
+></TD
+><TD
+><P
+>(S + A - P) &#62;&#62; 1</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_PLT16DBL</P
+></TD
+><TD
+><P
+>18</P
+></TD
+><TD
+><P
+>pc16</P
+></TD
+><TD
+><P
+>(L + A - P) &#62;&#62; 1</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_PC32DBL</P
+></TD
+><TD
+><P
+>19</P
+></TD
+><TD
+><P
+>pc32</P
+></TD
+><TD
+><P
+>(S + A - P) &#62;&#62; 1</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_PLT32DBL</P
+></TD
+><TD
+><P
+>20</P
+></TD
+><TD
+><P
+>pc32</P
+></TD
+><TD
+><P
+>(L + A - P) &#62;&#62; 1</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_GOTPCDBL</P
+></TD
+><TD
+><P
+>21</P
+></TD
+><TD
+><P
+>pc32</P
+></TD
+><TD
+><P
+>(G + A - P) &#62;&#62; 1</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_64</P
+></TD
+><TD
+><P
+>22</P
+></TD
+><TD
+><P
+>quad64</P
+></TD
+><TD
+><P
+>S + A</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_PC64</P
+></TD
+><TD
+><P
+>23</P
+></TD
+><TD
+><P
+>quad64</P
+></TD
+><TD
+><P
+>S + A - P</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_GOT64</P
+></TD
+><TD
+><P
+>24</P
+></TD
+><TD
+><P
+>quad64</P
+></TD
+><TD
+><P
+>O + A</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_PLT64</P
+></TD
+><TD
+><P
+>25</P
+></TD
+><TD
+><P
+>quad64</P
+></TD
+><TD
+><P
+>L + A</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_GOTENT</P
+></TD
+><TD
+><P
+>26</P
+></TD
+><TD
+><P
+>pc32</P
+></TD
+><TD
+><P
+>(G + O + A - P) &#62;&#62; 1</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN2051"
+></A
+><P
+><B
+>Table 5. Relocation type descriptions</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+>Name</P
+></TD
+><TD
+><P
+>Description</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_COPY</P
+></TD
+><TD
+><P
+>The linkage editor creates this relocation type
+
+for dynamic linking. Its offset member refers to a location in a writable
+
+segment. The symbol table index specifies a symbol that should exist both
+
+in the current object file and in a shared object. During execution, the dynamic
+
+linker copies data associated with the shared object's symbol to the location
+
+specified by the offset.</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_GLOB_DAT</P
+></TD
+><TD
+><P
+>This relocation type resembles R_390_64, except
+
+that it sets a Global Offset Table entry to the address of the specified symbol.
+
+ This special relocation type allows one to determine the correspondence between
+
+symbols and GOT entries.</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_JMP_SLOT</P
+></TD
+><TD
+><P
+>The linkage editor creates this relocation type
+
+for dynamic linking.  Its offset member gives the location of a Procedure
+
+Linkage Table entry. The dynamic linker modifies the PLT entry to transfer
+
+control to the designated symbol's address (see <A
+HREF="#PROCEDURELINKAGETABLE"
+>the Section called <I
+>Procedure Linkage Table</I
+> in the Chapter called <I
+>Program loading and dynamic linking</I
+></A
+>).&#13;</P
+></TD
+></TR
+><TR
+><TD
+><P
+>R_390_RELATIVE</P
+></TD
+><TD
+><P
+>The linkage editor creates this relocation type
+
+for dynamic linking.  Its offset member gives a location within a shared object
+
+that contains a value representing a relative address.  The dynamic linker
+
+computes the corresponding virtual address by adding the virtual address at
+
+which the shared object was loaded to the relative address. Relocation entries
+
+for this type must specify 0 for the symbol table index.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="CHPROGLOAD"
+></A
+>Program loading and dynamic linking</H1
+><P
+>This section describes how the Executable and Linking Format (ELF) is
+
+used in the construction and execution of programs.</P
+><DIV
+CLASS="SECT1"
+><HR><H2
+CLASS="SECT1"
+><A
+NAME="AEN2086"
+>Program Loading</A
+></H2
+><P
+>As the system creates or augments a process image, it logically copies
+
+a file's segment to a virtual memory segment.  When &#8211; and if &#8211; the
+
+system physically reads the file depends on the program's execution behavior,
+
+on the system load, and so on. A process does not require a physical page
+
+until it references the logical page during execution, and processes commonly
+
+leave many pages unreferenced. Therefore, if physical reads can be delayed
+
+they can frequently be dispensed with, improving system performance. To obtain
+
+this efficiency in practice, executable and shared object files must have
+
+segment images of which the offsets and virtual addresses are congruent modulo
+
+the page size.</P
+><P
+>Virtual addresses and file offsets for the zSeries processor family
+
+segments are congruent modulo the system page size. The value of the p_align
+
+field of each program header in a shared object file must be a multiple of
+
+the system page size. <A
+HREF="#EXECFILE"
+>Figure 1</A
+> is an example of an executable
+
+file assuming an executable program linked with a base address of 0x80000000
+
+(2 Gbytes).</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="EXECFILE"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/execfi64.png"></P
+></DIV
+><P
+><B
+>Figure 1. Executable File Example</B
+></P
+></DIV
+><DIV
+CLASS="TABLE"
+><A
+NAME="PHDR"
+></A
+><P
+><B
+>Table 1. Program Header Segments</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+>Member</P
+></TD
+><TD
+><P
+>Text</P
+></TD
+><TD
+><P
+>Data</P
+></TD
+></TR
+><TR
+><TD
+><P
+>p_type</P
+></TD
+><TD
+><P
+>PT_LOAD</P
+></TD
+><TD
+><P
+>PT_LOAD</P
+></TD
+></TR
+><TR
+><TD
+><P
+>p_offset</P
+></TD
+><TD
+><P
+>0x0</P
+></TD
+><TD
+><P
+>0x1bf58</P
+></TD
+></TR
+><TR
+><TD
+><P
+>p_vaddr</P
+></TD
+><TD
+><P
+>0x80000000</P
+></TD
+><TD
+><P
+>0x8001cf58</P
+></TD
+></TR
+><TR
+><TD
+><P
+>p_paddr</P
+></TD
+><TD
+><P
+>unspecified</P
+></TD
+><TD
+><P
+>unspecified</P
+></TD
+></TR
+><TR
+><TD
+><P
+>p_filesz</P
+></TD
+><TD
+><P
+>0x1bf58</P
+></TD
+><TD
+><P
+>0x17c4</P
+></TD
+></TR
+><TR
+><TD
+><P
+>p_memsz</P
+></TD
+><TD
+><P
+>0x1bf58</P
+></TD
+><TD
+><P
+>0x2578</P
+></TD
+></TR
+><TR
+><TD
+><P
+>p_flags</P
+></TD
+><TD
+><P
+>PF_R+PF_X</P
+></TD
+><TD
+><P
+>PF_R+PF_W</P
+></TD
+></TR
+><TR
+><TD
+><P
+>p_align</P
+></TD
+><TD
+><P
+>0x1000</P
+></TD
+><TD
+><P
+>0x1000</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>Although the file offsets and virtual addresses are congruent modulo
+
+4 Kbytes for both text and data, up to four file pages can hold impure text
+
+or data (depending on page size and file system block size).</P
+><P
+></P
+><UL
+><LI
+><P
+>The first text page contains the ELF header, the program header
+
+table, and other information.</P
+></LI
+><LI
+><P
+>The last text page may hold a copy of the beginning of data.&#13;</P
+></LI
+><LI
+><P
+>The first data page may have a copy of the end of text.</P
+></LI
+><LI
+><P
+>The last data page may contain file information not relevant
+
+to the running process.</P
+></LI
+></UL
+><P
+>Logically, the system enforces memory permissions as if each segment
+
+were complete and separate; segment addresses are adjusted to ensure that
+
+each logical page in the address space has a single set of permissions.  In
+
+the example in <A
+HREF="#PHDR"
+>Table 1</A
+> the file region holding the end of text
+
+and the beginning of data is mapped twice; at one virtual address for text
+
+and at a different virtual address for data.</P
+><P
+>The end of the data segment requires special handling for uninitialized
+
+data, which the system defines to begin with zero values.  Thus if the last
+
+data page of a file includes information beyond the logical memory page, the
+
+extraneous data must be set to zero by the loader, rather than to the unknown
+
+contents of the executable file.  'Impurities' in the other three segments
+
+are not logically part of the process image, and whether the system clears
+
+them is unspecified.  The memory image for the program in <A
+HREF="#PHDR"
+>Table 1</A
+> is
+
+presented in <A
+HREF="#PIMGSEG"
+>Figure 2</A
+>.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PIMGSEG"
+></A
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="pics/procim64.png"></P
+></DIV
+><P
+><B
+>Figure 2. Process Image Segments</B
+></P
+></DIV
+><P
+>One aspect of segment loading differs between executable files and shared
+
+objects.  Executable file segments may contain absolute code.  For the process
+
+to execute correctly, the segments must reside at the virtual addresses assigned
+
+when building the executable file, with the system using the p_vaddr values
+
+unchanged as virtual addresses.</P
+><P
+>On the other hand, shared object segments typically contain position-independent
+
+code.  This allows a segment's virtual address to change from one process
+
+to another, without invalidating execution behavior. Though the system chooses
+
+virtual addresses for individual processes, it maintains the "relative positions"
+
+of the segments. Because position-independent code uses relative addressing
+
+between segments, the difference between virtual addresses in memory must
+
+match the difference between virtual addresses in the file.  <A
+HREF="#SOSEG"
+>Table 2</A
+> shows
+
+possible shared object virtual address assignments for several processes,
+
+illustrating constant relative positioning.  The table also illustrates the
+
+base address computations.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="SOSEG"
+></A
+><P
+><B
+>Table 2. Shared Object Segment Example for 42&#8211;bit address space</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+><P
+>Source</P
+></TD
+><TD
+><P
+>Text</P
+></TD
+><TD
+><P
+>Data</P
+></TD
+><TD
+><P
+>Base Address</P
+></TD
+></TR
+><TR
+><TD
+><P
+>File</P
+></TD
+><TD
+><P
+>0x00000000200</P
+></TD
+><TD
+><P
+>0x0000002a400</P
+></TD
+><TD
+><P
+></P
+></TD
+></TR
+><TR
+><TD
+><P
+>Process 1</P
+></TD
+><TD
+><P
+>0x20000000000</P
+></TD
+><TD
+><P
+>0x2000002a400</P
+></TD
+><TD
+><P
+>0x20000000000</P
+></TD
+></TR
+><TR
+><TD
+><P
+>Process 2</P
+></TD
+><TD
+><P
+>0x20000010000</P
+></TD
+><TD
+><P
+>0x2000003a400</P
+></TD
+><TD
+><P
+>0x20000010000</P
+></TD
+></TR
+><TR
+><TD
+><P
+>Process 3</P
+></TD
+><TD
+><P
+>0x20000020000</P
+></TD
+><TD
+><P
+>0x2000004a400</P
+></TD
+><TD
+><P
+>0x20000020000</P
+></TD
+></TR
+><TR
+><TD
+><P
+>Process 4</P
+></TD
+><TD
+><P
+>0x20000030000</P
+></TD
+><TD
+><P
+>0x2000005a400</P
+></TD
+><TD
+><P
+>0x20000030000</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H2
+CLASS="SECT1"
+><A
+NAME="DYNAMICLINKING"
+>Dynamic Linking</A
+></H2
+><DIV
+CLASS="SECT2"
+><H3
+CLASS="SECT2"
+><A
+NAME="AEN2253"
+>Dynamic Section</A
+></H3
+><P
+>Dynamic section entries give information to the dynamic linker.  Some
+
+of this information is processor-specific, including the interpretation of
+
+some entries in the dynamic structure.</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>DT_PLTGOT</DT
+><DD
+><P
+>The d_ptr field of this entry gives the address of the first byte in
+
+the Procedure Linkage Table (.PLT in <A
+HREF="#PROCEDURELINKAGETABLE"
+>the Section called <I
+>Procedure Linkage Table</I
+></A
+>).&#13;</P
+></DD
+><DT
+>DT_JMPREL</DT
+><DD
+><P
+>This entry is associated with a table of relocation entries for the
+
+PLT.  For zSeries this entry is mandatory both for executable and shared object
+
+files. Moreover, the relocation table's entries must have a one-to-one correspondence
+
+with the PLT. The table of DT_JMPREL relocation entries is wholly contained
+
+within the DT_RELA referenced table. See <A
+HREF="#PROCEDURELINKAGETABLE"
+>the Section called <I
+>Procedure Linkage Table</I
+></A
+> for
+
+more information.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="GLOBALOFFSETTABLE"
+>Global Offset Table</A
+></H3
+><P
+>Position-independent code cannot, in general, contain absolute virtual
+
+addresses.  Global Offset Tables hold absolute addresses in private data,
+
+thus making the addresses available without compromising the position-independence
+
+and sharability of a program's text.  A program references its GOT using position-independent
+
+addressing and extracts absolute values, thus redirecting position-independent
+
+references to absolute locations.</P
+><P
+>When the dynamic linker creates memory segments for a loadable object
+
+file, it processes the relocation entries, some of which will be of type R_390_GLOB_DAT,
+
+referring to the GOT.  The dynamic linker determines the associated symbol
+
+values, calculates their absolute addresses, and sets the GOT entries to the
+
+proper values. Although the absolute addresses are unknown when the linkage
+
+editor builds an object file, the dynamic linker knows the addresses of all
+
+memory segments and can thus calculate the absolute addresses of the symbols
+
+contained therein.</P
+><P
+>A GOT entry provides direct access to the absolute address of a symbol
+
+without compromising position-independence and sharability. Because the executable
+
+file and shared objects have separate GOTs, a symbol may appear in several
+
+tables.  The dynamic linker processes all the GOT relocations before giving
+
+control to any code in the process image, thus ensuring the absolute addresses
+
+are available during execution.</P
+><P
+>The dynamic linker may choose different memory segment addresses for
+
+the same shared object in different programs; it may even choose different
+
+library addresses for different executions of the same program.  Nevertheless,
+
+memory segments do not change addresses once the process image is established.
+
+As long as a process exists, its memory segments reside at fixed virtual addresses.&#13;</P
+><P
+>The format and interpretation of the Global Offset Table is processor
+
+specific. For zSeries the symbol _GLOBAL_OFFSET_TABLE_ may be used to access
+
+the table.  The symbol refers to the start of the .got section. Two words
+
+in the GOT are reserved:</P
+><P
+></P
+><UL
+><LI
+><P
+>The word at _GLOBAL_OFFSET_TABLE_[0] is set by the linkage
+
+editor to hold the address of the dynamic structure, referenced with the symbol
+
+_DYNAMIC. This allows a program, such as the dynamic linker, to find its own
+
+dynamic structure without having yet processed its relocation entries.  This
+
+is especially important for the dynamic linker, because it must initialize
+
+itself without relying on other programs to relocate its memory image.</P
+></LI
+><LI
+><P
+>The word at _GLOBAL_OFFSET_TABLE_[1] is reserved for future
+
+use.</P
+></LI
+></UL
+><P
+>The Global Offset Table resides in the ELF .got section.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="FUNCTIONADDRESSES"
+>Function Addresses</A
+></H3
+><P
+>References to a function address from an executable file and from the
+
+shared objects associated with the file must resolve to the same value. References
+
+from within shared objects will normally be resolved (by the dynamic linker)
+
+to the virtual address of the function itself.  References from within the
+
+executable file to a function defined in a shared object will normally be
+
+resolved (by the linkage editor) to the address of the Procedure Linkage Table
+
+entry for that function within the executable file.</P
+><P
+>To allow comparisons of function addresses to work as expected, if an
+
+executable file references a function defined in a shared object, the linkage
+
+editor will place the address of the PLT entry for that function in its associated
+
+symbol table entry.  See <A
+HREF="#SYMBOLVALUES"
+>the Section called <I
+>Symbol Values</I
+> in the Chapter called <I
+>Object files</I
+></A
+> for details. The dynamic
+
+linker treats such symbol table entries specially.  If the dynamic linker
+
+is searching for a symbol and encounters a symbol table entry for that symbol
+
+in the executable file, it normally follows these rules:</P
+><P
+></P
+><UL
+><LI
+><P
+>If the st_shndx field of the symbol table entry is not SHN_UNDEF,
+
+the dynamic linker has found a definition for the symbol and uses its st_value
+
+field as the symbol's address.</P
+></LI
+><LI
+><P
+>If the st_shndx field is SHN_UNDEF and the symbol is of type
+
+STT_FUNC and the st_value field is not zero, the dynamic linker recognizes
+
+this entry as special and uses the st_value field as the symbol's address.&#13;</P
+></LI
+><LI
+><P
+>Otherwise, the dynamic linker considers the symbol to be undefined
+
+within the executable file and continues processing.</P
+></LI
+></UL
+><P
+>Some relocations are associated with PLT entries. These entries are
+
+used for direct function calls rather than for references to function addresses.
+
+These relocations are not treated specially as described above because the
+
+dynamic linker must not redirect PLT entries to point to themselves.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="PROCEDURELINKAGETABLE"
+>Procedure Linkage Table</A
+></H3
+><P
+>Much as the Global Offset Table redirects position-independent address
+
+calculations to absolute locations, the Procedure Linkage Table redirects
+
+position-independent function calls to absolute locations. The linkage editor
+
+cannot resolve execution transfers (such as function calls) from one executable
+
+or shared object to another, so instead it arranges for the program to transfer
+
+control to entries in the PLT. The dynamic linker determines the absolute
+
+addresses of the destinations and stores them in the GOT, from which they
+
+are loaded by the PLT entry. The dynamic linker can thus redirect the entries
+
+without compromising the position-independence and sharability of the program
+
+text.  Executable files and shared object files have separate PLTs.</P
+><P
+>As mentioned above, a relocation table is associated with the PLT. The
+
+DT_JMPREL entry in the _DYNAMIC array gives the location of the first relocation
+
+entry.  The relocation table entries match the PLT entries in a one-to-one
+
+correspondence (relocation table entry 1 applies to PLT entry 1 and so on).
+
+ The relocation type for each entry shall be R_390_JMP_SLOT. The relocation
+
+offset shall specify the address of the GOT entry containing the address of
+
+the function and the symbol table index shall reference the appropriate symbol.&#13;</P
+><P
+>To illustrate Procedure Linkage Tables, <A
+HREF="#PLTEX"
+>Figure 3</A
+> shows
+
+how the linkage editor might initialize the PLT when linking a shared executable
+
+or shared object.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PLTEX"
+></A
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN2301"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;PLT<br>
+<br>
+for&nbsp;executables&nbsp;(not&nbsp;position&nbsp;independent)<br>
+<br>
+PLT1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BASR&nbsp;&nbsp;1,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Establish&nbsp;base<br>
+<br>
+BASE1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,AGOTENT-BASE1(1)&nbsp;#&nbsp;Load&nbsp;address&nbsp;of&nbsp;the&nbsp;GOT&nbsp;entry<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,0(0,1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Load&nbsp;function&nbsp;address&nbsp;from&nbsp;the&nbsp;GOT<br>
+<br>
+to&nbsp;r1<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BCR&nbsp;&nbsp;&nbsp;15,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Jump&nbsp;to&nbsp;address<br>
+<br>
+RET1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BASR&nbsp;&nbsp;1,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Return&nbsp;from&nbsp;GOT&nbsp;first&nbsp;time&nbsp;(lazy<br>
+<br>
+binding)<br>
+<br>
+BASE2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,ASYMOFF-BASE2(1)&nbsp;#&nbsp;Load&nbsp;offset&nbsp;in&nbsp;symbol&nbsp;table&nbsp;to&nbsp;r1<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRC&nbsp;&nbsp;&nbsp;15,-x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Jump&nbsp;to&nbsp;start&nbsp;of&nbsp;PLT<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.word&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Filler<br>
+<br>
+AGOTENT&nbsp;&nbsp;&nbsp;.long&nbsp;?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Address&nbsp;of&nbsp;the&nbsp;GOT&nbsp;entry<br>
+<br>
+ASYMOFF&nbsp;&nbsp;&nbsp;.long&nbsp;?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Offset&nbsp;into&nbsp;the&nbsp;symbol&nbsp;table<br>
+<br>
+<br>
+<br>
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;PLT&nbsp;for&nbsp;shared&nbsp;objects&nbsp;(position<br>
+<br>
+independent)<br>
+<br>
+PLT1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;1,&#60;fn&#62;@GOTENT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Load&nbsp;address&nbsp;of&nbsp;GOT&nbsp;entry&nbsp;in<br>
+<br>
+r1<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;1,0(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Load&nbsp;function&nbsp;address&nbsp;from&nbsp;the&nbsp;GOT<br>
+<br>
+to&nbsp;r1<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BCR&nbsp;&nbsp;&nbsp;15,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Jump&nbsp;to&nbsp;address<br>
+<br>
+RET1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BASR&nbsp;&nbsp;1,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Return&nbsp;from&nbsp;GOT&nbsp;first&nbsp;time&nbsp;(lazy<br>
+<br>
+binding)<br>
+<br>
+BASE2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LGF&nbsp;&nbsp;&nbsp;1,ASYMOFF-BASE2(1)&nbsp;#&nbsp;Load&nbsp;offset&nbsp;in&nbsp;symbol&nbsp;table&nbsp;to&nbsp;r1<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRCL&nbsp;&nbsp;15,-x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Jump&nbsp;to&nbsp;start&nbsp;of&nbsp;PLT<br>
+<br>
+ASYMOFF&nbsp;&nbsp;&nbsp;.long&nbsp;?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Offset&nbsp;into&nbsp;symbol<br>
+<br>
+table</P
+><P
+></P
+></DIV
+><P
+><B
+>Figure 3. Procedure Linkage Table Example</B
+></P
+></DIV
+><P
+>As described below the dynamic linker and the program cooperate to resolve
+
+symbolic references through the PLT. Again, the details described below are
+
+for explanation only. The precise execution-time behavior of the dynamic linker
+
+is not specified.</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>The caller of a function in a different shared object transfers
+
+control to the start of the PLT entry associated with the function.</P
+></LI
+><LI
+><P
+>The first part of the PLT entry loads the address from the
+
+GOT entry associated with the function to be called. The control is transferred
+
+to the code referenced by the address. If the function has already been called
+
+at least once, or lazy binding is not used, then the address found in the
+
+GOT is the address of the function.</P
+></LI
+><LI
+><P
+>If a function has never been called and lazy binding is used
+
+then the address in the GOT points to the second half of the PLT. The second
+
+half loads the offset in the symbol table associated with the called function.
+
+Control is then transferred to the special first entry of the PLT.</P
+></LI
+><LI
+><P
+>This first entry of the PLT entry (<A
+HREF="#PLT0EX"
+>Figure 4</A
+>)
+
+calls the dynamic linker giving it the offset into the symbol table and the
+
+address of a structure that identifies the location of the caller.</P
+></LI
+><LI
+><P
+>The dynamic linker finds the real address of the symbol. It
+
+will store this address in the GOT entry of the function in the object code
+
+of the caller and it will then transfer control to the function.</P
+></LI
+><LI
+><P
+>Subsequent calls to the function from this object will find
+
+the resolved address in the first half of the PLT entry and will transfer
+
+control directly without invoking the dynamic linker.</P
+></LI
+></OL
+><DIV
+CLASS="FIGURE"
+><A
+NAME="PLT0EX"
+></A
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN2320"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;PLT0<br>
+<br>
+for&nbsp;static&nbsp;object&nbsp;(not&nbsp;position-independent)<br>
+<br>
+PLT0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ST&nbsp;&nbsp;&nbsp;&nbsp;1,28(15)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;R1&nbsp;has&nbsp;offset&nbsp;into&nbsp;symbol&nbsp;table<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BASR&nbsp;&nbsp;1,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Establish&nbsp;base<br>
+<br>
+BASE1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,AGOT-BASE1(1)&nbsp;#&nbsp;Get&nbsp;address&nbsp;of&nbsp;GOT<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MVC&nbsp;&nbsp;&nbsp;24(4,15),4(1)&nbsp;&nbsp;&nbsp;#&nbsp;Move&nbsp;loader&nbsp;info&nbsp;to&nbsp;stack<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,8(1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Get&nbsp;address&nbsp;of&nbsp;loader<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BR&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Jump&nbsp;to&nbsp;loader<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.word&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Filler<br>
+<br>
+AGOT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.long&nbsp;got&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Address&nbsp;of&nbsp;GOT<br>
+<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;PLT0&nbsp;for&nbsp;shared&nbsp;object<br>
+<br>
+(position-independent)<br>
+<br>
+PLT0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STG&nbsp;&nbsp;&nbsp;1,56(15)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;R1&nbsp;has&nbsp;offset&nbsp;into&nbsp;symbol&nbsp;table<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LARL&nbsp;&nbsp;1,_GLOBAL_OFFSET_TABLE_<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MVC&nbsp;&nbsp;&nbsp;48(8,15),8(1)&nbsp;&nbsp;&nbsp;#&nbsp;move&nbsp;loader&nbsp;info&nbsp;(object&nbsp;struct<br>
+<br>
+address)&nbsp;to&nbsp;stack<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LG&nbsp;&nbsp;&nbsp;&nbsp;1,16(12)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Entry&nbsp;address&nbsp;of&nbsp;loader&nbsp;in&nbsp;R1<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BCR&nbsp;&nbsp;&nbsp;15,1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Jump&nbsp;to<br>
+<br>
+loader</P
+><P
+></P
+></DIV
+><P
+><B
+>Figure 4. Special first entry in Procedure Linkage Table</B
+></P
+></DIV
+><P
+>The LD_BIND_NOW environment variable can change dynamic linking behavior.
+
+If its value is not null the dynamic linker resolves the function call binding
+
+at load time, before transferring control to the program. In other words the
+
+dynamic linker processes relocation entries of type R_390_JMP_SLOT during
+
+process initialization.  If LD_BIND_NOW is null the dynamic linker evaluates
+
+PLT entries lazily, delaying symbol resolution and relocation until the first
+
+execution of a table entry.</P
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="./stylesheet-images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Lazy binding generally improves overall application performance because
+
+unused symbols do not incur the overhead of dynamic linking. Nevertheless,
+
+two situations make lazy binding undesirable for some applications: <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>The initial reference to a shared object function takes longer
+
+than subsequent calls because the dynamic linker intercepts the call to resolve
+
+the symbol, and some applications cannot tolerate this unpredictability.</P
+></LI
+><LI
+><P
+>If an error occurs and the dynamic linker cannot resolve the
+
+symbol, the dynamic linker will terminate the program. Under lazy binding,
+
+this might occur at arbitrary times. Once again, some applications cannot
+
+tolerate this unpredictability. By turning off lazy binding, the dynamic linker
+
+forces the failure to occur during process initialization, before the application
+
+receives control.</P
+></LI
+></OL
+></P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPENDIX"
+><HR><H1
+><A
+NAME="AEN2330"
+></A
+></H1
+><DIV
+CLASS="SECT1"
+><H2
+CLASS="SECT1"
+><A
+NAME="AEN2332"
+>GNU Free Documentation License</A
+></H2
+><P
+>A current copy of the license can be found at:</P
+><P
+>http://www.linuxbase.org/spec/refspecs/LSB_1.2.0/gLSB/gfdl.html</P
+><P
+>Version 1.1, March 2000</P
+><P
+>Copyright (C) 2000 Free Software Foundation, Inc. 59 Temple Place, Suite
+
+330, Boston, MA 02111-1307 USA      Everyone is permitted to copy and distribute
+
+verbatim copies of this license document, but changing it is not allowed.&#13;</P
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN2339"
+>PREAMBLE</A
+></H3
+><P
+>The purpose of this License is to make a manual, textbook, or other
+
+written document "free" in the sense of freedom: to assure everyone the effective
+
+freedom to copy and redistribute it, with or without modifying it, either
+
+commercially or noncommercially. Secondarily, this License preserves for the
+
+author and publisher a way to get credit for their work, while not being considered
+
+responsible for modifications made by others.  This License is a kind of "copyleft",
+
+which means that derivative works of the document must themselves be free
+
+in the same sense. It complements the GNU General Public License, which is
+
+a copyleft license designed for free software.  We have designed this License
+
+in order to use it for manuals for free software, because free software needs
+
+free documentation: a free program should come with manuals providing the
+
+same freedoms that the software does. But this License is not limited to software
+
+manuals; it can be used for any textual work, regardless of subject matter
+
+or whether it is published as a printed book. We recommend this License principally for
+
+works whose purpose is instruction or reference.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN2342"
+>APPLICABILITY AND DEFINITIONS</A
+></H3
+><P
+>This License applies to any manual or other work that contains a notice
+
+placed by the copyright holder saying it can be distributed under the terms
+
+of this License. The "Document", below, refers to any such manual or work.
+
+Any member of the public is a licensee, and is addressed as "you".</P
+><P
+>A "Modified Version" of the Document means any work containing the Document
+
+or a portion of it, either copied verbatim, or with modifications and/or translated
+
+into another language.</P
+><P
+>A "Secondary Section" is a named appendix or a front-matter section
+
+of the Document that deals exclusively with the relationship of the publishers
+
+or authors of the Document to the Document's overall subject (or to related
+
+matters) and contains nothing that could fall directly within that overall
+
+subject. (For example, if the Document is in part a textbook of mathematics,
+
+a Secondary Section may not explain any mathematics.) The relationship could
+
+be a matter of historical connection with the subject or with related matters,
+
+or of legal, commercial, philosophical, ethical or political position regarding
+
+them.</P
+><P
+>The "Invariant Sections" are certain Secondary Sections whose titles
+
+are designated, as being those of Invariant Sections, in the notice that says
+
+that the Document is released under this License.</P
+><P
+>The "Cover Texts" are certain short passages of text that are listed,
+
+as Front-Cover Texts or Back-Cover Texts, in the notice that says that the
+
+Document is released under this License.</P
+><P
+>A "Transparent" copy of the Document means a machine-readable copy,
+
+represented in a format whose specification is available to the general public,
+
+whose contents can be viewed and edited directly and straightforwardly with
+
+generic text editors or (for images composed of pixels) generic paint programs
+
+or (for drawings) some widely available drawing editor, and that is suitable
+
+for input to text formatters or for automatic translation to a variety of
+
+formats suitable for input to text formatters. A copy made in an otherwise
+
+Transparent file format whose markup has been designed to thwart or discourage
+
+subsequent modification by readers is not Transparent. A copy that is not
+
+"Transparent" is called "Opaque".</P
+><P
+>Examples of suitable formats for Transparent copies include plain ASCII
+
+without markup, Texinfo input format, LaTeX input format, SGML or XML using
+
+a publicly available DTD, and standard-conforming simple HTML designed for
+
+human modification. Opaque formats include PostScript, PDF, proprietary formats
+
+that can be read and edited only by proprietary word processors, SGML or XML
+
+for which the DTD and/or processing tools are not generally available, and
+
+the machine-generated HTML produced by some word processors for output purposes
+
+only.</P
+><P
+>The "Title Page" means, for a printed book, the title page itself, plus
+
+such following pages as are needed to hold, legibly, the material this License
+
+requires to appear in the title page. For works in formats which do not have
+
+any title page as such, "Title Page" means the text near the most prominent
+
+appearance of the work's title, preceding the beginning of the body of the
+
+text.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN2352"
+>VERBATIM COPYING</A
+></H3
+><P
+>You may copy and distribute the Document in any medium, either commercially
+
+or noncommercially, provided that this License, the copyright notices, and
+
+the license notice saying this License applies to the Document are reproduced
+
+in all copies, and that you add no other conditions whatsoever to those of
+
+this License. You may not use technical measures to obstruct or control the
+
+reading or further copying of the copies you make or distribute. However,
+
+you may accept compensation in exchange for copies. If you distribute a large enough
+
+number of copies you must also follow the conditions in section 3.</P
+><P
+>You may also lend copies, under the same conditions stated above, and
+
+you may publicly display copies.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN2356"
+>COPYING IN QUANTITY</A
+></H3
+><P
+>If you publish printed copies of the Document numbering more than 100,
+
+and the Document's license notice requires Cover Texts, you must enclose the
+
+copies in covers that carry, clearly and legibly, all these Cover Texts: Front-Cover
+
+Texts on the front cover, and Back-Cover Texts on the back cover. Both covers
+
+must also clearly and legibly identify you as the publisher of these copies.
+
+The front cover must present the full title with all words of the title equally
+
+prominent and visible. You may add other material on the covers in addition.
+
+Copying with changes limited to the covers, as long as they preserve the title
+
+of the Document and satisfy these conditions, can be treated as verbatim copying
+
+in other respects.</P
+><P
+>If the required texts for either cover are too voluminous to fit legibly,
+
+you should put the first ones listed (as many as fit reasonably) on the actual
+
+cover, and continue the rest onto adjacent pages.</P
+><P
+>If you publish or distribute Opaque copies of the Document numbering
+
+more than 100, you must either include a machine-readable Transparent copy
+
+along with each Opaque copy, or state in or with each Opaque copy a publicly-accessible
+
+computer-network location containing a complete Transparent copy of the Document,
+
+free of added material, which the general network-using public has access
+
+to download anonymously at no charge using public-standard network protocols.
+
+If you use the latter option, you must take reasonably prudent steps, when
+
+you begin distribution of Opaque copies in quantity, to ensure that this Transparent
+
+copy will remain thus accessible at the stated location until at least one
+
+year after the last time you distribute an Opaque copy (directly or through
+
+your agents or retailers) of that edition to the public.</P
+><P
+>It is requested, but not required, that you contact the authors of the
+
+Document well before redistributing any large number of copies, to give them
+
+a chance to provide you with an updated version of the Document.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN2362"
+>MODIFICATIONS</A
+></H3
+><P
+>You may copy and distribute a Modified Version of the Document under
+
+the conditions of sections 2 and 3 above, provided that you release the Modified
+
+Version under precisely this License, with the Modified Version filling the
+
+role of the Document, thus licensing distribution and modification of the
+
+Modified Version to whoever possesses a copy of it. In addition, you must
+
+do these things in the Modified Version:</P
+><P
+></P
+><UL
+><LI
+><P
+>Use in the Title Page (and on the covers, if any) a title
+
+distinct from that of the Document, and from those of previous versions (which
+
+should, if there were      any, be listed in the History section of the Document).
+
+You may use the same title as a previous version if the original publisher
+
+of that version gives      permission.</P
+></LI
+><LI
+><P
+>List on the Title Page, as authors, one or more persons or
+
+entities responsible for authorship of the modifications in the Modified Version,
+
+together with at      least five of the principal authors of the Document
+
+(all of its principal authors, if it has less than five).</P
+></LI
+><LI
+><P
+>State on the Title page the name of the publisher of the Modified
+
+Version, as the publisher.</P
+></LI
+><LI
+><P
+>Preserve all the copyright notices of the Document.</P
+></LI
+><LI
+><P
+>Add an appropriate copyright notice for your modifications
+
+adjacent to the other copyright notices.</P
+></LI
+><LI
+><P
+>Include, immediately after the copyright notices, a license
+
+notice giving the public permission to use the Modified Version under the
+
+terms of this License, in      the form shown in the Addendum below.</P
+></LI
+><LI
+><P
+>Preserve in that license notice the full lists of Invariant
+
+Sections and required Cover Texts given in the Document's license notice.&#13;</P
+></LI
+><LI
+><P
+>Include an unaltered copy of this License.</P
+></LI
+><LI
+><P
+>Preserve the section entitled "History", and its title, and
+
+add to it an item stating at least the title, year, new authors, and publisher
+
+of the Modified Version as      given on the Title Page. If there is no section
+
+entitled "History" in the Document, create one stating the title, year, authors,
+
+and publisher of the Document as      given on its Title Page, then add an
+
+item describing the Modified Version as stated in the previous sentence.</P
+></LI
+><LI
+><P
+> Preserve the network location, if any, given in the Document
+
+for public access to a Transparent copy of the Document, and likewise the
+
+network locations      given in the Document for previous versions it was
+
+based on. These may be placed in the "History" section. You may omit a network
+
+location for a work that      was published at least four years before the
+
+Document itself, or if the original publisher of the version it refers to
+
+gives permission.</P
+></LI
+><LI
+><P
+>In any section entitled "Acknowledgements" or "Dedications",
+
+preserve the section's title, and preserve in the section all the substance
+
+and tone of each of the      contributor acknowledgements and/or dedications
+
+given therein.</P
+></LI
+><LI
+><P
+>Preserve all the Invariant Sections of the Document, unaltered
+
+in their text and in their titles. Section numbers or the equivalent are not
+
+considered part of the      section titles.</P
+></LI
+><LI
+><P
+>Delete any section entitled "Endorsements". Such a section
+
+may not be included in the Modified Version.</P
+></LI
+><LI
+><P
+>Do not retitle any existing section as "Endorsements" or to
+
+conflict in title with any Invariant Section.</P
+></LI
+></UL
+><P
+>If the Modified Version includes new front-matter sections or appendices
+
+that qualify as Secondary Sections and contain no material copied from the
+
+Document, you may at your option designate some or all of these sections as
+
+invariant. To do this, add their titles to the list of Invariant Sections
+
+in the Modified Version's license notice. These titles must be distinct from
+
+any other section titles.</P
+><P
+>You may add a section entitled "Endorsements", provided it contains
+
+nothing but endorsements of your Modified Version by various parties--for
+
+example, statements of peer review or that the text has been approved by an
+
+organization as the authoritative definition of a standard.</P
+><P
+>You may add a passage of up to five words as a Front-Cover Text, and
+
+a passage of up to 25 words as a Back-Cover Text, to the end of the list of
+
+Cover Texts in the Modified Version. Only one passage of Front-Cover Text
+
+and one of Back-Cover Text may be added by (or through arrangements made by)
+
+any one entity. If the Document already includes a cover text for the same
+
+cover, previously added by you or by arrangement made by the same entity you
+
+are acting on behalf of, you may not add another; but you may replace the
+
+old one, on explicit permission from the previous publisher that added the
+
+old one.</P
+><P
+>The author(s) and publisher(s) of the Document do not by this License
+
+give permission to use their names for publicity for or to assert or imply
+
+endorsement of any Modified Version.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN2398"
+>COMBINING DOCUMENTS</A
+></H3
+><P
+>You may combine the Document with other documents released under this
+
+License, under the terms defined in section 4 above for modified versions,
+
+provided that you include in the combination all of the Invariant Sections
+
+of all of the original documents, unmodified, and list them all as Invariant
+
+Sections of your combined work in its license notice.</P
+><P
+>The combined work need only contain one copy of this License, and multiple
+
+identical Invariant Sections may be replaced with a single copy. If there
+
+are multiple Invariant Sections with the same name but different contents,
+
+make the title of each such section unique by adding at the end of it, in
+
+parentheses, the name of the original author or publisher of that section
+
+if known, or else a unique number. Make the same adjustment to the section
+
+titles in the list of Invariant Sections in the license notice of the combined
+
+work.</P
+><P
+>In the combination, you must combine any sections entitled "History"
+
+in the various original documents, forming one section entitled "History";
+
+likewise combine any sections entitled "Acknowledgements", and any sections
+
+entitled "Dedications". You must delete all sections entitled "Endorsements."&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN2403"
+>COLLECTIONS OF DOCUMENTS</A
+></H3
+><P
+>You may make a collection consisting of the Document and other documents
+
+released under this License, and replace the individual copies of this License
+
+in the various documents with a single copy that is included in the collection,
+
+provided that you follow the rules of this License for verbatim copying of
+
+each of the documents in all other respects.</P
+><P
+>You may extract a single document from such a collection, and distribute
+
+it individually under this License, provided you insert a copy of this License
+
+into the extracted document, and follow this License in all other respects
+
+regarding verbatim copying of that document.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN2407"
+>AGGREGATION WITH INDEPENDENT WORKS</A
+></H3
+><P
+>A compilation of the Document or its derivatives with other separate
+
+and independent documents or works, in or on a volume of a storage or distribution
+
+medium, does not as a whole count as a Modified Version of the Document, provided
+
+no compilation copyright is claimed for the compilation. Such a compilation
+
+is called an "aggregate", and this License does not apply to the other self-contained
+
+works thus compiled with the Document, on account of their being thus compiled,
+
+if they are not themselves derivative works of the Document.</P
+><P
+>If the Cover Text requirement of section 3 is applicable to these copies
+
+of the Document, then if the Document is less than one quarter of the entire
+
+aggregate, the Document's Cover Texts may be placed on covers that surround
+
+only the Document within the aggregate. Otherwise they must appear on covers
+
+around the whole aggregate.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN2411"
+>TRANSLATION</A
+></H3
+><P
+>Translation is considered a kind of modification, so you may distribute
+
+translations of the Document under the terms of section 4. Replacing Invariant
+
+Sections with translations requires special permission from their copyright
+
+holders, but you may include translations of some or all Invariant Sections
+
+in addition to the original versions of these Invariant Sections. You may
+
+include a translation of this License provided that you also include the original
+
+English version of this License. In case of a disagreement between the translation
+
+and the original English version of this License, the original English version
+
+will prevail.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN2414"
+>TERMINATION</A
+></H3
+><P
+>You may not copy, modify, sublicense, or distribute the Document except
+
+as expressly provided for under this License. Any other attempt to copy, modify,
+
+sublicense or distribute the Document is void, and will automatically terminate
+
+your rights under this License. However, parties who have received copies,
+
+or rights, from you under this License will not have their licenses terminated
+
+so long as such parties remain in full compliance.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN2417"
+>FUTURE REVISIONS OF THIS LICENSE</A
+></H3
+><P
+>The Free Software Foundation may publish new, revised versions of the
+
+GNU Free Documentation License from time to time. Such new versions will be
+
+similar in spirit to the present version, but may differ in detail to address
+
+new problems or concerns. See http://www.gnu.org/copyleft/.</P
+><P
+>Each version of the License is given a distinguishing version number.
+
+If the Document specifies that a particular numbered version of this License
+
+"or any later version" applies to it, you have the option of following the
+
+terms and conditions either of that specified version or of any later version
+
+that has been published (not as a draft) by the Free Software Foundation.
+
+If the Document does not specify a version number of this License, you may
+
+choose any version ever published (not as a draft) by the Free Software Foundation.&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><HR><H3
+CLASS="SECT2"
+><A
+NAME="AEN2421"
+>How to use this License for your documents</A
+></H3
+><P
+>To use this License in a document you have written, include a copy of
+
+the License in the document and put the following copyright and license notices
+
+just after the title page:</P
+><DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN2424"
+></A
+><P
+CLASS="LITERALLAYOUT"
+>	Copyright&nbsp;(c)&nbsp;YEAR&nbsp;YOUR&nbsp;NAME.<br>
+<br>
+Permission&nbsp;is&nbsp;granted&nbsp;to&nbsp;copy,&nbsp;distribute&nbsp;<br>
+<br>
+	and/or&nbsp;modify&nbsp;this&nbsp;document&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;Free<br>
+<br>
+Documentation&nbsp;<br>
+<br>
+	License,&nbsp;Version&nbsp;1.1&nbsp;or&nbsp;any&nbsp;later&nbsp;version&nbsp;published&nbsp;by&nbsp;the&nbsp;Free<br>
+<br>
+Software&nbsp;Foundation;&nbsp;<br>
+<br>
+	with&nbsp;the&nbsp;Invariant&nbsp;Sections&nbsp;being&nbsp;LIST&nbsp;THEIR&nbsp;TITLES,&nbsp;with&nbsp;the<br>
+<br>
+Front-Cover&nbsp;<br>
+<br>
+	Texts&nbsp;being&nbsp;LIST,&nbsp;and&nbsp;with&nbsp;the&nbsp;Back-Cover&nbsp;Texts&nbsp;	being&nbsp;LIST.&nbsp;<br>
+<br>
+	A&nbsp;copy&nbsp;of&nbsp;the&nbsp;license&nbsp;is&nbsp;included&nbsp;in&nbsp;the&nbsp;section&nbsp;entitled<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"GNU&nbsp;Free&nbsp;Documentation&nbsp;License".</P
+><P
+></P
+></DIV
+><P
+>If you have no Invariant Sections, write "with no Invariant Sections"
+
+instead of saying which ones are invariant. If you have no Front-Cover Texts,
+
+write "no Front-Cover Texts" instead of "Front-Cover Texts being LIST"; likewise
+
+for Back-Cover Texts.</P
+><P
+>If your document contains nontrivial examples of program code, we recommend
+
+releasing these examples in parallel under your choice of free software license,
+
+such as the GNU General Public License, to permit their use in free software.&#13;</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="CHAPTER"
+><HR><H1
+><A
+NAME="NOTICES"
+></A
+>Notices</H1
+><P
+>This information was developed for products and services offered in
+
+the U.S.A. IBM may not offer the products, services, or features discussed
+
+in this document in other countries. Consult your local IBM representative
+
+for information about the products and services currently available in your
+
+area. Any reference to an IBM product, program, or service is not intended
+
+to state or imply that only that IBM product, program, or service may be used.
+
+Any functionally equivalent product, program, or service that does not infringe
+
+any IBM intellectual property right may be used instead. However, it is the
+
+user's responsibility to evaluate and verify the operation of any non-IBM
+
+product, program, or service.</P
+><P
+>IBM may have patents or pending patent applications covering subject
+
+matter described in this document. The furnishing of this document does not
+
+give you any license to these patents. You can send license inquiries, in
+
+writing, to:  <P
+CLASS="ADDRESS"
+>IBM&nbsp;Director&nbsp;of&nbsp;Licensing<br>
+<br>
+IBM&nbsp;Corporation<br>
+<br>
+North&nbsp;Castle&nbsp;Drive<br>
+<br>
+Armonk,&nbsp;NY&nbsp;&nbsp;10504-1785<br>
+<br>
+U.S.A.</P
+></P
+><P
+>For license inquiries regarding double-byte (DBCS) information, contact
+
+the IBM Intellectual Property Department in your country or send inquiries,
+
+in writing, to: <P
+CLASS="ADDRESS"
+>IBM&nbsp;World&nbsp;Trade&nbsp;Asia&nbsp;Corporation<br>
+<br>
+Licensing<br>
+<br>
+2-31&nbsp;Roppongi&nbsp;3-chome,&nbsp;Minato-ku<br>
+<br>
+Tokyo&nbsp;106-0032,&nbsp;Japan</P
+></P
+><P
+>The following paragraph does not apply to the United Kingdom or any
+
+other country where such provisions are inconsistent with local law: INTERNATIONAL
+
+BUSINESS MACHINES CORPORATION PROVIDES THIS PUBLICATION <SPAN
+CLASS="QUOTE"
+>"AS IS"</SPAN
+> WITHOUT
+
+WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED
+
+TO, THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS
+
+FOR A PARTICULAR PURPOSE. Some states do not allow disclaimer of express or
+
+implied warranties in certain transactions, therefore, this statement may
+
+not apply to you.</P
+><P
+>This information could include technical inaccuracies or typographical
+
+errors. Changes are periodically made to the information herein; these changes
+
+will be incorporated in new editions of the publication. IBM may make improvements
+
+and/or changes in the product(s) and/or the program(s) described in this publication
+
+at any time without notice.</P
+><P
+>Any references in this information to non-IBM Web sites are provided
+
+for convenience only and do not in any manner serve as an endorsement of those
+
+Web sites. The materials at those Web sites are not part of the materials
+
+for this IBM product and use of those Web sites is at your own risk.</P
+><P
+>IBM may use or distribute any of the information you supply in any way
+
+it believes appropriate without incurring any obligation to you.</P
+><P
+>Information concerning non-IBM products was obtained from the suppliers
+
+of those products, their published announcements or other publicly available
+
+sources. IBM has not tested those products and cannot confirm the accuracy
+
+of performance, compatibility or any other claims related to non-IBM products.
+
+Questions on the capabilities of non-IBM products should be addressed to the
+
+suppliers of those products.</P
+><P
+>COPYRIGHT LICENSE:</P
+><P
+>This information contains sample application programs in source language,
+
+which illustrate programming techniques on various operating platforms. You
+
+may copy, modify, and distribute these sample programs in any form without
+
+payment to IBM, for the purposes of developing, using, marketing or distributing
+
+application programs conforming to the application programming interface for
+
+the operating platform for which the sample programs are written. These examples
+
+have not been thoroughly tested under all conditions. IBM, therefore, cannot
+
+guarantee or imply reliability, serviceability, or function of these programs.
+
+You may copy, modify, and distribute these sample programs in any form without
+
+payment to IBM for the purposes of developing, using, marketing, or distributing
+
+application programs conforming to IBM's application programming interfaces.&#13;</P
+><DIV
+CLASS="SECT1"
+><HR><H2
+CLASS="SECT1"
+><A
+NAME="AEN2443"
+>Programming interface information</A
+></H2
+><P
+>This book contains information and examples which are not intended to
+
+be used as a programming interface of Linux for zSeries.</P
+></DIV
+><DIV
+CLASS="SECT1"
+><HR><H2
+CLASS="SECT1"
+><A
+NAME="TRADEMARKS"
+>Trademarks</A
+></H2
+><P
+>The following terms are trademarks of International Business Machines
+
+Corporation in the United States, other countries, or both:</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN2449"
+></A
+><P
+><B
+>Table 1. </B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>IBM</P
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>ESA/390</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>S/390</P
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>System/390</P
+></TD
+></TR
+><TR
+><TD
+><P
+>zSeries</P
+></TD
+><TD
+><P
+>z/Architecture</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>Linux is a registered trademark of Linus Torvalds and others.</P
+><P
+>Other company, product, and service names may be trademarks or service
+
+marks of others.</P
+></DIV
+></DIV
+><DIV
+CLASS="APPENDIX"
+><HR><H1
+><A
+NAME="AEN2472"
+></A
+></H1
+><P
+>Related publications: <P
+></P
+><UL
+><LI
+><P
+>[<SPAN
+CLASS="CITATION"
+><I
+CLASS="CITETITLE"
+>z/Architecture Principles of Operation&#13;</I
+></SPAN
+>]: SA22&#8211;7832</P
+></LI
+><LI
+><P
+>[<SPAN
+CLASS="CITATION"
+><I
+CLASS="CITETITLE"
+>System V Application Binary Interface&#13;</I
+></SPAN
+>]</P
+></LI
+></UL
+></P
+></DIV
+><DIV
+CLASS="INDEX"
+><HR><H1
+><A
+NAME="AEN2484"
+></A
+>Index</H1
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,417 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>DWARF Extensions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Object Format"
+HREF="tocobjformat.html"><LINK
+REL="PREVIOUS"
+TITLE="Symbol Mapping"
+HREF="symmap.html"><LINK
+REL="NEXT"
+TITLE="Exception Frames"
+HREF="ehframechpt.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="symmap.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 10. Object Format</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="ehframechpt.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="DWARFEXT"
+>10.5. DWARF Extensions</A
+></H1
+><P
+>The LSB does not specify debugging information, however, some additional
+sections contain information which is encoded using the the encoding as
+specified by <A
+HREF="informativerefs.html#STD.DWARF4"
+>DWARF Debugging Information Format, Version 4</A
+> with extensions defined here.&#13;</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="DWARFEHENCODING"
+>10.5.1. DWARF Exception Header Encoding</A
+></H2
+><P
+>The DWARF Exception Header Encoding is used to describe the type of data used
+in the <SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame</SAMP
+>  and
+<SAMP
+CLASS="COMPUTEROUTPUT"
+>.eh_frame_hdr</SAMP
+> section. The upper 4
+bits indicate how the value is to be applied. The lower 4 bits indicate the
+format of the data.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1101"
+></A
+><P
+><B
+>Table 10-5. DWARF Exception Header value format</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+>Name</TH
+><TH
+>Value</TH
+><TH
+>Meaning</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+>DW_EH_PE_absptr</TD
+><TD
+>0x00</TD
+><TD
+>The Value is a literal pointer whose size is determined by the architecture.</TD
+></TR
+><TR
+><TD
+>DW_EH_PE_uleb128</TD
+><TD
+>0x01</TD
+><TD
+>Unsigned value is encoded using the Little Endian Base 128 (LEB128)
+as defined by <A
+HREF="informativerefs.html#STD.DWARF4"
+>DWARF Debugging Information Format, Version 4</A
+>.</TD
+></TR
+><TR
+><TD
+>DW_EH_PE_udata2</TD
+><TD
+>0x02</TD
+><TD
+>A 2 bytes unsigned value.</TD
+></TR
+><TR
+><TD
+>DW_EH_PE_udata4</TD
+><TD
+>0x03</TD
+><TD
+>A 4 bytes unsigned value.</TD
+></TR
+><TR
+><TD
+>DW_EH_PE_udata8</TD
+><TD
+>0x04</TD
+><TD
+>An 8 bytes unsigned value.</TD
+></TR
+><TR
+><TD
+>DW_EH_PE_sleb128</TD
+><TD
+>0x09</TD
+><TD
+>Signed value is encoded using the Little Endian Base 128 (LEB128)
+as defined by <A
+HREF="informativerefs.html#STD.DWARF4"
+>DWARF Debugging Information Format, Version 4</A
+>.</TD
+></TR
+><TR
+><TD
+>DW_EH_PE_sdata2</TD
+><TD
+>0x0A</TD
+><TD
+>A 2 bytes signed value.</TD
+></TR
+><TR
+><TD
+>DW_EH_PE_sdata4</TD
+><TD
+>0x0B</TD
+><TD
+>A 4 bytes signed value.</TD
+></TR
+><TR
+><TD
+>DW_EH_PE_sdata8</TD
+><TD
+>0x0C</TD
+><TD
+>An 8 bytes signed value.</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1148"
+></A
+><P
+><B
+>Table 10-6. DWARF Exception Header application</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+>Name</TH
+><TH
+>Value</TH
+><TH
+>Meaning</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+>DW_EH_PE_pcrel</TD
+><TD
+>0x10</TD
+><TD
+>Value is relative to the current program counter.</TD
+></TR
+><TR
+><TD
+>DW_EH_PE_textrel</TD
+><TD
+>0x20</TD
+><TD
+>Value is relative to the beginning of the .text section.</TD
+></TR
+><TR
+><TD
+>DW_EH_PE_datarel</TD
+><TD
+>0x30</TD
+><TD
+>Value is relative to the beginning of the .got or .eh_frame_hdr section.</TD
+></TR
+><TR
+><TD
+>DW_EH_PE_funcrel</TD
+><TD
+>0x40</TD
+><TD
+>Value is relative to the beginning of the function.</TD
+></TR
+><TR
+><TD
+>DW_EH_PE_aligned</TD
+><TD
+>0x50</TD
+><TD
+>Value is aligned to an address unit sized boundary.</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>One special encoding, 0xff (DW_EH_PE_omit), shall be used to indicate that no value ispresent.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="DWARFCFIEXT"
+>10.5.2. DWARF CFI Extensions</A
+></H2
+><P
+>In addition to the Call Frame Instructions defined in section 6.4.2 of <A
+HREF="informativerefs.html#STD.DWARF4"
+>DWARF Debugging Information Format, Version 4</A
+>,
+the following additional Call Frame Instructions may also be used.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="AEN1182"
+></A
+><P
+><B
+>Table 10-7. Additional DWARF Call Frame Instructions</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><THEAD
+><TR
+><TH
+>Name</TH
+><TH
+>Value</TH
+><TH
+>Meaning</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+>DW_CFA_GNU_args_size</TD
+><TD
+>0x2e</TD
+><TD
+>The DW_CFA_GNU_args_size instruction takes an unsigned LEB128 operand
+representing an argument size. This instruction specifies the total of the
+size of the arguments which have been pushed onto the stack.</TD
+></TR
+><TR
+><TD
+>DW_CFA_GNU_negative_offset_extended</TD
+><TD
+>0x2f</TD
+><TD
+>The DW_CFA_def_cfa_sf instruction takes two operands: an unsigned LEB128 value representing a register
+number and an unsigned LEB128 which represents the magnitude of the offset. This instruction is identical
+to DW_CFA_offset_extended_sf except that the operand is subtracted to produce the offset. This
+instructions is obsoleted by DW_CFA_offset_extended_sf.</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="symmap.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="ehframechpt.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Symbol Mapping</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tocobjformat.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Exception Frames</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

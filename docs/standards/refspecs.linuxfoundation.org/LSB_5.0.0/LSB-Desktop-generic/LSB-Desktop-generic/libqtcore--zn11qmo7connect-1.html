@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>_ZN11QMetaObject7connectEPK7QObjectiS2_iiPi</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libQtCore"
+HREF="libqtcoreman.html"><LINK
+REL="PREVIOUS"
+TITLE="_Z7qgetenvPKc"
+HREF="libqtcore--z7qgetenvpkc.html"><LINK
+REL="NEXT"
+TITLE="_ZN16QCoreApplication10unixSignalEi"
+HREF="libqtcore--zn16qcoreapplication10unixsignal.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libqtcore--z7qgetenvpkc.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libqtcore--zn16qcoreapplication10unixsignal.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="LIBQTCORE--ZN11QMO7CONNECT-1"
+></A
+>_ZN11QMetaObject7connectEPK7QObjectiS2_iiPi</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN76188"
+></A
+><H2
+>Name</H2
+>QMetaObject::connect&nbsp;--&nbsp;connect signals</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN76191"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN76192"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>&#13;#include &#60;QtCore/qmetaobject.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>bool
+<TT
+CLASS="FUNCTION"
+>QMetaObject::connect</TT
+></CODE
+>(const QObject *
+<TT
+CLASS="PARAMETER"
+><I
+>sender</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>signal_index</I
+></TT
+>, const QObject *
+<TT
+CLASS="PARAMETER"
+><I
+>receiver</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>method_index</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+>, int *
+<TT
+CLASS="PARAMETER"
+><I
+>types</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN76209"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>QMetaObject::connect()</TT
+> function
+shall connect the signal with <TT
+CLASS="PARAMETER"
+><I
+>signal_index</I
+></TT
+>
+index from the sender to the receiver's slot.</P
+><P
+>The <TT
+CLASS="PARAMETER"
+><I
+>type</I
+></TT
+> specifies connection type
+and should have one of the Qt::ConnectionType values.</P
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>types</I
+></TT
+> is a 0-terminated vector of meta
+types for queued connections.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>signal_index</I
+></TT
+> is -1, then 
+the function shall effectively connect all signals
+from the sender to the receiver's slot.</P
+><P
+>This function is not intended to be used by applications directly,
+but may appear among appliction dependencies as a result of usage
+of other functions and macros.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libqtcore--z7qgetenvpkc.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libqtcore--zn16qcoreapplication10unixsignal.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>_Z7qgetenvPKc</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libqtcoreman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>_ZN16QCoreApplication10unixSignalEi</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,554 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>getopt_long</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="getopt"
+HREF="libutil-getopt-3.html"><LINK
+REL="NEXT"
+TITLE="getopt_long_only"
+HREF="baselib-getopt-long-only-3.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libutil-getopt-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-getopt-long-only-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-GETOPT-LONG-3"
+></A
+>getopt_long</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN15540"
+></A
+><H2
+>Name</H2
+>getopt_long&nbsp;--&nbsp;parse command line options</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN15543"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN15546"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#define _GNU_SOURCE
+#include &#60;getopt.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int 
+  <TT
+CLASS="FUNCTION"
+>getopt_long</TT
+></CODE
+>(int 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>argc</I
+></TT
+></I
+></TT
+>, char * const 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>argv</I
+></TT
+>[]</I
+></TT
+>, const char *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>opstring</I
+></TT
+></I
+></TT
+>, const struct option *
+  <TT
+CLASS="PARAMETER"
+><I
+>longopts</I
+></TT
+>, int *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>longindex</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15565"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="FUNCTION"
+>getopt_long()</TT
+> works like <TT
+CLASS="FUNCTION"
+>getopt()</TT
+> 
+except that it also accepts long options, started out by two dashes. 
+Long option names may be abbreviated if the abbreviation is unique or 
+is an exact match for some defined option. A long option may take a 
+parameter, of the form <TT
+CLASS="LITERAL"
+>--arg=param</TT
+> or 
+<TT
+CLASS="LITERAL"
+>--arg param</TT
+>.</P
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>longopts</I
+></TT
+> is a pointer to the first element of an 
+array of struct <TT
+CLASS="STRUCTNAME"
+>option</TT
+> declared in 
+<TT
+CLASS="FILENAME"
+>getopt.h</TT
+> as:
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SYNOPSIS"
+>  struct option {
+             const char *name;
+             int has_arg;
+             int *flag;
+             int val;
+  };</PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>The fields in this structure have the following meaning:
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN15581"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>name</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The name of the long option.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN15586"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>has_arg</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>One of: 
+<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><CODE
+CLASS="CONSTANT"
+>no_argument</CODE
+> (or 0) if the option does not take an argument,</TD
+></TR
+><TR
+><TD
+><CODE
+CLASS="CONSTANT"
+>required_argument</CODE
+> (or 1) if the option requires an argument,  or</TD
+></TR
+><TR
+><TD
+><CODE
+CLASS="CONSTANT"
+>optional_argument</CODE
+>  (or  2) if the option takes an optional argument.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN15598"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>flag</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>specifies how results are returned for a long option.   
+If  flag
+is  <CODE
+CLASS="CONSTANT"
+>NULL</CODE
+>,  then  
+<TT
+CLASS="FUNCTION"
+>getopt_long()</TT
+> shall return <CODE
+CLASS="STRUCTFIELD"
+>val</CODE
+>.
+(For example, the
+calling program may set val to the equivalent short option character.)
+Otherwise, <TT
+CLASS="FUNCTION"
+>getopt_long()</TT
+> returns 
+<SPAN
+CLASS="RETURNVALUE"
+>0</SPAN
+>, and <CODE
+CLASS="STRUCTFIELD"
+>flag</CODE
+> shall point to
+a variable which shall be set to <CODE
+CLASS="STRUCTFIELD"
+>val</CODE
+>
+if the option is found, but left unchanged if the option is not found.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN15610"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>val</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The value to return, or to load into the variable pointed to
+by flag.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>longindex</I
+></TT
+> is not <CODE
+CLASS="CONSTANT"
+>NULL</CODE
+>,
+it points to a variable which is set to the index of the long option
+relative to <TT
+CLASS="PARAMETER"
+><I
+>longopts</I
+></TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15619"
+></A
+><H2
+>Return Value</H2
+><P
+><TT
+CLASS="FUNCTION"
+>getopt_long()</TT
+> returns the option character if a short 
+option was found successfully, or "<SPAN
+CLASS="RETURNVALUE"
+>:</SPAN
+>" if 
+there was a missing parameter for one of the options, or 
+"<SPAN
+CLASS="RETURNVALUE"
+>?</SPAN
+>" for an unknown option character, or 
+<SPAN
+CLASS="RETURNVALUE"
+>-1</SPAN
+> for the end of the option list.</P
+><P
+>For a long option, 
+<TT
+CLASS="FUNCTION"
+>getopt_long()</TT
+> returns <CODE
+CLASS="STRUCTFIELD"
+>val</CODE
+> 
+if <CODE
+CLASS="STRUCTFIELD"
+>flag</CODE
+> is <TT
+CLASS="LITERAL"
+>NULL</TT
+>, and <SPAN
+CLASS="RETURNVALUE"
+>0</SPAN
+> 
+otherwise. Error and <SPAN
+CLASS="RETURNVALUE"
+>-1</SPAN
+> returns are the 
+same as for <TT
+CLASS="FUNCTION"
+>getopt()</TT
+>, plus 
+"<SPAN
+CLASS="RETURNVALUE"
+>?</SPAN
+>" for an ambiguous match or an 
+extraneous parameter.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libutil-getopt-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-getopt-long-only-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>getopt</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>getopt_long_only</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

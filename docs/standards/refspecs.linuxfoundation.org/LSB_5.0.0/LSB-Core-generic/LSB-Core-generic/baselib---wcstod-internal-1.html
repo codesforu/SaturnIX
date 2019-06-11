@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>__wcstod_internal</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="__wcsrtombs_chk"
+HREF="baselib---wcsrtombs-chk-1.html"><LINK
+REL="NEXT"
+TITLE="__wcstof_internal"
+HREF="baselib---wcstof-internal-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib---wcsrtombs-chk-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib---wcstof-internal-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB---WCSTOD-INTERNAL-1"
+></A
+>__wcstod_internal</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN11277"
+></A
+><H2
+>Name</H2
+>__wcstod_internal&nbsp;--&nbsp;underlying function for wcstod</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN11280"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN11281"
+></A
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>double 
+  <TT
+CLASS="FUNCTION"
+>__wcstod_internal</TT
+></CODE
+>(const wchar_t *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>nptr</I
+></TT
+></I
+></TT
+>, wchar_t * *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>endptr</I
+></TT
+></I
+></TT
+>, int 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>group</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN11294"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+> shall be <TT
+CLASS="LITERAL"
+>0</TT
+> or the 
+behavior of <TT
+CLASS="FUNCTION"
+>__wcstod_internal()</TT
+> is undefined. </P
+><P
+><TT
+CLASS="LITERAL"
+>__wcstod_internal(<TT
+CLASS="PARAMETER"
+><I
+>nptr</I
+></TT
+>, 
+<TT
+CLASS="PARAMETER"
+><I
+>endptr</I
+></TT
+>, <TT
+CLASS="LITERAL"
+>0</TT
+>)</TT
+> 
+shall behave as
+<TT
+CLASS="LITERAL"
+>wcstod(<TT
+CLASS="PARAMETER"
+><I
+>nptr</I
+></TT
+>, 
+<TT
+CLASS="PARAMETER"
+><I
+>endptr</I
+></TT
+>)</TT
+> as specified by
+<A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>.</P
+><P
+><TT
+CLASS="FUNCTION"
+>__wcstod_internal()</TT
+> is not in the source standard; 
+it is only in the binary standard.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib---wcsrtombs-chk-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib---wcstof-internal-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>__wcsrtombs_chk</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>__wcstof_internal</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,455 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libSM</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="graphlib.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libSM"
+HREF="libsm.html"><LINK
+REL="NEXT"
+TITLE="Interfaces for libICE"
+HREF="libice.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libsm.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libice.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBSM-DDEFS"
+>6.5. Data Definitions for libSM</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libSM.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN4038"
+>6.5.1. X11/SM/SM.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SM_Error	0
+#define SmDialogError	0
+#define SmInteractStyleNone	0
+#define SmProtoMinor	0
+#define SmRestartIfRunning	0
+#define SmSaveGlobal	0
+#define SM_RegisterClient	1
+#define SmDialogNormal	1
+#define SmInteractStyleErrors	1
+#define SmProtoMajor	1
+#define SmRestartAnyway	1
+#define SmSaveLocal	1
+#define SM_ShutdownCancelled	10
+#define SM_CloseConnection	11
+#define SM_SetProperties	12
+#define SM_DeleteProperties	13
+#define SM_GetProperties	14
+#define SM_PropertiesReply	15
+#define SM_SaveYourselfPhase2Request	16
+#define SM_SaveYourselfPhase2	17
+#define SM_SaveComplete	18
+#define SM_RegisterClientReply	2
+#define SmInteractStyleAny	2
+#define SmRestartImmediately	2
+#define SmSaveBoth	2
+#define SM_SaveYourself	3
+#define SmRestartNever	3
+#define SM_SaveYourselfRequest	4
+#define SM_InteractRequest	5
+#define SM_Interact	6
+#define SM_InteractDone	7
+#define SM_SaveYourselfDone	8
+#define SM_Die	9
+#define SmARRAY8	"ARRAY8"
+#define SmCARD8	"CARD8"
+#define SmCloneCommand	"CloneCommand"
+#define SmCurrentDirectory	"CurrentDirectory"
+#define SmDiscardCommand	"DiscardCommand"
+#define SmEnvironment	"Environment"
+#define SmLISTofARRAY8	"LISTofARRAY8"
+#define SmProcessID	"ProcessID"
+#define SmProgram	"Program"
+#define SmResignCommand	"ResignCommand"
+#define SmRestartCommand	"RestartCommand"
+#define SmRestartStyleHint	"RestartStyleHint"
+#define SmShutdownCommand	"ShutdownCommand"
+#define SmUserID	"UserID"</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN4042"
+>6.5.2. X11/SM/SMlib.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define SmcSaveYourselfProcMask	(1L &#60;&#60; 0)
+#define SmsRegisterClientProcMask	(1L &#60;&#60; 0)
+#define SmcDieProcMask	(1L &#60;&#60; 1)
+#define SmsInteractRequestProcMask	(1L &#60;&#60; 1)
+#define SmcSaveCompleteProcMask	(1L &#60;&#60; 2)
+#define SmsInteractDoneProcMask	(1L &#60;&#60; 2)
+#define SmcShutdownCancelledProcMask	(1L &#60;&#60; 3)
+#define SmsSaveYourselfRequestProcMask	(1L &#60;&#60; 3)
+#define SmsSaveYourselfP2RequestProcMask	(1L &#60;&#60; 4)
+#define SmsSaveYourselfDoneProcMask	(1L &#60;&#60; 5)
+#define SmsCloseConnectionProcMask	(1L &#60;&#60; 6)
+#define SmsSetPropertiesProcMask	(1L &#60;&#60; 7)
+#define SmsDeletePropertiesProcMask	(1L &#60;&#60; 8)
+#define SmsGetPropertiesProcMask	(1L &#60;&#60; 9)
+
+typedef void *SmPointer;
+typedef struct {
+    int length;
+    SmPointer value;
+} SmPropValue;
+typedef struct {
+    char *name;
+    char *type;
+    int num_vals;
+    SmPropValue *vals;
+} SmProp;
+struct _SmcConn;
+typedef struct _SmcConn *SmcConn;
+typedef void (*SmcSaveYourselfProc) (SmcConn, SmPointer, int, int, int,
+				     int);
+typedef void (*SmcDieProc) (SmcConn, SmPointer);
+typedef void (*SmcSaveCompleteProc) (SmcConn, SmPointer);
+typedef void (*SmcShutdownCancelledProc) (SmcConn, SmPointer);
+typedef struct {
+    struct {
+	SmcSaveYourselfProc callback;
+	SmPointer client_data;
+    } save_yourself;
+    struct {
+	SmcDieProc callback;
+	SmPointer client_data;
+    } die;
+    struct {
+	SmcSaveCompleteProc callback;
+	SmPointer client_data;
+    } save_complete;
+    struct {
+	SmcShutdownCancelledProc callback;
+	SmPointer client_data;
+    } shutdown_cancelled;
+} SmcCallbacks;
+struct _SmsConn;
+typedef struct _SmsConn *SmsConn;
+typedef void (*SmsErrorHandler) (SmsConn, int, int, long unsigned int, int,
+				 int, SmPointer);
+typedef void (*SmcErrorHandler) (SmcConn, int, int, long unsigned int, int,
+				 int, SmPointer);
+typedef int (*SmsRegisterClientProc) (SmsConn, SmPointer, char *);
+typedef void (*SmsInteractRequestProc) (SmsConn, SmPointer, int);
+typedef void (*SmsInteractDoneProc) (SmsConn, SmPointer, int);
+typedef void (*SmsSaveYourselfRequestProc) (SmsConn, SmPointer, int, int,
+					    int, int, int);
+typedef void (*SmsSaveYourselfPhase2RequestProc) (SmsConn, SmPointer);
+typedef void (*SmsSaveYourselfDoneProc) (SmsConn, SmPointer, int);
+typedef void (*SmsCloseConnectionProc) (SmsConn, SmPointer, int, char **);
+typedef void (*SmsSetPropertiesProc) (SmsConn, SmPointer, int, SmProp * *);
+typedef void (*SmsDeletePropertiesProc) (SmsConn, SmPointer, int, char **);
+typedef void (*SmsGetPropertiesProc) (SmsConn, SmPointer);
+typedef struct {
+    struct {
+	SmsRegisterClientProc callback;
+	SmPointer manager_data;
+    } register_client;
+    struct {
+	SmsInteractRequestProc callback;
+	SmPointer manager_data;
+    } interact_request;
+    struct {
+	SmsInteractDoneProc callback;
+	SmPointer manager_data;
+    } interact_done;
+    struct {
+	SmsSaveYourselfRequestProc callback;
+	SmPointer manager_data;
+    } save_yourself_request;
+    struct {
+	SmsSaveYourselfPhase2RequestProc callback;
+	SmPointer manager_data;
+    } save_yourself_phase2_request;
+    struct {
+	SmsSaveYourselfDoneProc callback;
+	SmPointer manager_data;
+    } save_yourself_done;
+    struct {
+	SmsCloseConnectionProc callback;
+	SmPointer manager_data;
+    } close_connection;
+    struct {
+	SmsSetPropertiesProc callback;
+	SmPointer manager_data;
+    } set_properties;
+    struct {
+	SmsDeletePropertiesProc callback;
+	SmPointer manager_data;
+    } delete_properties;
+    struct {
+	SmsGetPropertiesProc callback;
+	SmPointer manager_data;
+    } get_properties;
+} SmsCallbacks;
+typedef int (*SmsNewClientProc) (SmsConn, SmPointer, long unsigned int *,
+				 SmsCallbacks *, char **);
+typedef void (*SmcPropReplyProc) (SmcConn, SmPointer, int, SmProp * *);
+typedef void (*SmcInteractProc) (SmcConn, SmPointer);
+typedef void (*SmcSaveYourselfPhase2Proc) (SmcConn, SmPointer);
+typedef enum {
+    SmcClosedNow = 0,
+    SmcClosedASAP = 1,
+    SmcConnectionInUse = 2
+} SmcCloseStatus;
+extern void SmFreeProperty(SmProp *);
+extern void SmFreeReasons(int, char **);
+extern char *SmcClientID(SmcConn);
+extern SmcCloseStatus SmcCloseConnection(SmcConn, int, char **);
+extern void SmcDeleteProperties(SmcConn, int, char **);
+extern IceConn SmcGetIceConnection(SmcConn);
+extern int SmcGetProperties(SmcConn, SmcPropReplyProc, SmPointer);
+extern void SmcInteractDone(SmcConn, int);
+extern int SmcInteractRequest(SmcConn, int, SmcInteractProc, SmPointer);
+extern void SmcModifyCallbacks(SmcConn, long unsigned int, SmcCallbacks *);
+extern SmcConn SmcOpenConnection(char *, SmPointer, int, int,
+				 long unsigned int, SmcCallbacks *, char *,
+				 char **, int, char *);
+extern int SmcProtocolRevision(SmcConn);
+extern int SmcProtocolVersion(SmcConn);
+extern char *SmcRelease(SmcConn);
+extern void SmcRequestSaveYourself(SmcConn, int, int, int, int, int);
+extern int SmcRequestSaveYourselfPhase2(SmcConn, SmcSaveYourselfPhase2Proc,
+					SmPointer);
+extern void SmcSaveYourselfDone(SmcConn, int);
+extern SmcErrorHandler SmcSetErrorHandler(SmcErrorHandler);
+extern void SmcSetProperties(SmcConn, int, SmProp * *);
+extern char *SmcVendor(SmcConn);
+extern void SmsCleanUp(SmsConn);
+extern char *SmsClientHostName(SmsConn);
+extern char *SmsClientID(SmsConn);
+extern void SmsDie(SmsConn);
+extern char *SmsGenerateClientID(SmsConn);
+extern IceConn SmsGetIceConnection(SmsConn);
+extern int SmsInitialize(char *, char *, SmsNewClientProc, SmPointer,
+			 IceHostBasedAuthProc, int, char *);
+extern void SmsInteract(SmsConn);
+extern int SmsProtocolRevision(SmsConn);
+extern int SmsProtocolVersion(SmsConn);
+extern int SmsRegisterClientReply(SmsConn, char *);
+extern void SmsReturnProperties(SmsConn, int, SmProp * *);
+extern void SmsSaveComplete(SmsConn);
+extern void SmsSaveYourself(SmsConn, int, int, int, int);
+extern void SmsSaveYourselfPhase2(SmsConn);
+extern SmsErrorHandler SmsSetErrorHandler(SmsErrorHandler);
+extern void SmsShutdownCancelled(SmsConn);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN4046"
+>6.5.3. X11/SM/SMproto.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define sz_smSaveYourselfMsg	16
+#define sz_smSaveYourselfRequestMsg	16
+#define sz_smCloseConnectionMsg	8
+#define sz_smDeletePropertiesMsg	8
+#define sz_smDieMsg	8
+#define sz_smGetPropertiesMsg	8
+#define sz_smInteractDoneMsg	8
+#define sz_smInteractMsg	8
+#define sz_smInteractRequestMsg	8
+#define sz_smPropertiesReplyMsg	8
+#define sz_smRegisterClientMsg	8
+#define sz_smRegisterClientReplyMsg	8
+#define sz_smSaveCompleteMsg	8
+#define sz_smSaveYourselfDoneMsg	8
+#define sz_smSaveYourselfPhase2Msg	8
+#define sz_smSaveYourselfPhase2RequestMsg	8
+#define sz_smSetPropertiesMsg	8
+#define sz_smShutdownCancelledMsg	8</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libsm.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libice.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libSM</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="graphlib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interfaces for libICE</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

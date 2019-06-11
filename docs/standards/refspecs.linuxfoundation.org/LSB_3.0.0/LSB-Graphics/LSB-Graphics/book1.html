@@ -1,0 +1,492 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Linux Standard Base Graphics Module Specification 3.0RC2</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="NEXT"
+TITLE="Foreword"
+HREF="overview.html"></HEAD
+><BODY
+CLASS="BOOK"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="AEN1"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+>Linux Standard Base Graphics Module Specification 3.0RC2</A
+></H1
+><P
+CLASS="COPYRIGHT"
+><A
+HREF="LEGAL.html"
+>Copyright</A
+> &copy; 2004, 2005 Free Standards Group</P
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="overview.html"
+>Foreword</A
+></DT
+><DT
+><A
+HREF="intro.html"
+>Introduction</A
+></DT
+><DT
+>I. <A
+HREF="tocintro.html"
+>Introductory Elements</A
+></DT
+><DD
+><DL
+><DT
+>1. <A
+HREF="scope.html"
+>Scope</A
+></DT
+><DT
+>2. <A
+HREF="normativerefs.html"
+>Normative References</A
+></DT
+><DT
+>3. <A
+HREF="requirements.html"
+>Requirements</A
+></DT
+><DD
+><DL
+><DT
+>3.1. <A
+HREF="requirements.html#RLIBRARIES"
+>Relevant Libraries</A
+></DT
+></DL
+></DD
+><DT
+>4. <A
+HREF="def.html"
+>Definitions</A
+></DT
+><DT
+>5. <A
+HREF="terms.html"
+>Terminology</A
+></DT
+></DL
+></DD
+><DT
+>II. <A
+HREF="tocgraphlib.html"
+>Graphic Libraries</A
+></DT
+><DD
+><DL
+><DT
+>6. <A
+HREF="graphlib.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>6.1. <A
+HREF="graphlib.html#LIBX11"
+>Interfaces for libX11</A
+></DT
+><DT
+>6.2. <A
+HREF="libx11-ddefs.html"
+>Data Definitions for libX11</A
+></DT
+><DT
+>6.3. <A
+HREF="libx11man.html"
+>Interface Definitions for libX11</A
+></DT
+><DT
+>6.4. <A
+HREF="libsm.html"
+>Interfaces for libSM</A
+></DT
+><DT
+>6.5. <A
+HREF="libsm-ddefs.html"
+>Data Definitions for libSM</A
+></DT
+><DT
+>6.6. <A
+HREF="libice.html"
+>Interfaces for libICE</A
+></DT
+><DT
+>6.7. <A
+HREF="libice-ddefs.html"
+>Data Definitions for libICE</A
+></DT
+><DT
+>6.8. <A
+HREF="libxt.html"
+>Interfaces for libXt</A
+></DT
+><DT
+>6.9. <A
+HREF="libxt-ddefs.html"
+>Data Definitions for libXt</A
+></DT
+><DT
+>6.10. <A
+HREF="libxtman.html"
+>Interface Definitions for libXt</A
+></DT
+><DT
+>6.11. <A
+HREF="libxext.html"
+>Interfaces for libXext</A
+></DT
+><DT
+>6.12. <A
+HREF="libxext-ddefs.html"
+>Data Definitions for libXext</A
+></DT
+><DT
+>6.13. <A
+HREF="libxi.html"
+>Interfaces for libXi</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>III. <A
+HREF="tocopengl.html"
+>OpenGL Libraries</A
+></DT
+><DD
+><DL
+><DT
+>7. <A
+HREF="opengllib.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>7.1. <A
+HREF="opengllib.html#LIBGL"
+>Interfaces for libGL</A
+></DT
+><DT
+>7.2. <A
+HREF="libgl-ddefs.html"
+>Data Definitions for libGL</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>IV. <A
+HREF="packagefmt.html"
+>Package Information</A
+></DT
+><DD
+><DL
+><DT
+>8. <A
+HREF="graphpkg.html"
+>Package Dependencies</A
+></DT
+><DD
+><DL
+><DT
+>8.1. <A
+HREF="graphpkg.html#PKGDEPEND"
+>Package Dependencies</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>A. <A
+HREF="gfdl.html"
+>GNU Free Documentation License</A
+></DT
+><DD
+><DL
+><DT
+>A.1. <A
+HREF="gfdl.html#GFDL-0"
+>PREAMBLE</A
+></DT
+><DT
+>A.2. <A
+HREF="gfdl-1.html"
+>APPLICABILITY AND DEFINITIONS</A
+></DT
+><DT
+>A.3. <A
+HREF="gfdl-2.html"
+>VERBATIM COPYING</A
+></DT
+><DT
+>A.4. <A
+HREF="gfdl-3.html"
+>COPYING IN QUANTITY</A
+></DT
+><DT
+>A.5. <A
+HREF="gfdl-4.html"
+>MODIFICATIONS</A
+></DT
+><DT
+>A.6. <A
+HREF="gfdl-5.html"
+>COMBINING DOCUMENTS</A
+></DT
+><DT
+>A.7. <A
+HREF="gfdl-6.html"
+>COLLECTIONS OF DOCUMENTS</A
+></DT
+><DT
+>A.8. <A
+HREF="gfdl-7.html"
+>AGGREGATION WITH INDEPENDENT WORKS</A
+></DT
+><DT
+>A.9. <A
+HREF="gfdl-8.html"
+>TRANSLATION</A
+></DT
+><DT
+>A.10. <A
+HREF="gfdl-9.html"
+>TERMINATION</A
+></DT
+><DT
+>A.11. <A
+HREF="gfdl-10.html"
+>FUTURE REVISIONS OF THIS LICENSE</A
+></DT
+><DT
+>A.12. <A
+HREF="gfdl-11.html"
+>How to use this License for your documents</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Tables</B
+></DT
+><DT
+>2-1. <A
+HREF="normativerefs.html#AEN57"
+>Normative References</A
+></DT
+><DT
+>3-1. <A
+HREF="requirements.html#TBL-GRAPHICS-STDLIB"
+>Standard Library Names</A
+></DT
+><DT
+>6-1. <A
+HREF="graphlib.html#LIB-LIBX11-DEF"
+>libX11 Definition</A
+></DT
+><DT
+>6-2. <A
+HREF="graphlib.html#TBL-LIBX11-X-W-INTS"
+>libX11 - X Windows System Interface Function Interfaces</A
+></DT
+><DT
+>6-3. <A
+HREF="graphlib.html#TBL-LIBX11-X-W-DATA"
+>libX11 - X Windows System Interface Data Interfaces</A
+></DT
+><DT
+>6-4. <A
+HREF="libsm.html#LIB-LIBSM-DEF"
+>libSM Definition</A
+></DT
+><DT
+>6-5. <A
+HREF="libsm.html#TBL-LIBSM-SES-INTS"
+>libSM - Session Management Functions Function Interfaces</A
+></DT
+><DT
+>6-6. <A
+HREF="libice.html#LIB-LIBICE-DEF"
+>libICE Definition</A
+></DT
+><DT
+>6-7. <A
+HREF="libice.html#TBL-LIBICE-ICE-INTS"
+>libICE - ICE Functions Function Interfaces</A
+></DT
+><DT
+>6-8. <A
+HREF="libxt.html#LIB-LIBXT-DEF"
+>libXt Definition</A
+></DT
+><DT
+>6-9. <A
+HREF="libxt.html#TBL-LIBXT-X-T-INTS"
+>libXt - X Toolkit Function Interfaces</A
+></DT
+><DT
+>6-10. <A
+HREF="libxt.html#TBL-LIBXT-X-T-DATA"
+>libXt - X Toolkit Data Interfaces</A
+></DT
+><DT
+>6-11. <A
+HREF="libxext.html#LIB-LIBXEXT-DEF"
+>libXext Definition</A
+></DT
+><DT
+>6-12. <A
+HREF="libxext.html#TBL-LIBXEXT-X-S-INTS"
+>libXext - X Shape Extension Function Interfaces</A
+></DT
+><DT
+>6-13. <A
+HREF="libxext.html#TBL-LIBXEXT-X-D-INTS"
+>libXext - X Display Power Management Signaling Extension Function Interfaces</A
+></DT
+><DT
+>6-14. <A
+HREF="libxext.html#TBL-LIBXEXT-1-INTS"
+>libXext - X Shared Memory Extensions Function Interfaces</A
+></DT
+><DT
+>6-15. <A
+HREF="libxext.html#TBL-LIBXEXT-2-INTS"
+>libXext - X Synchronization Extension Function Interfaces</A
+></DT
+><DT
+>6-16. <A
+HREF="libxext.html#TBL-LIBXEXT-3-INTS"
+>libXext - X Security Extension Function Interfaces</A
+></DT
+><DT
+>6-17. <A
+HREF="libxext.html#TBL-LIBXEXT-4-INTS"
+>libXext - X Double Buffer Extension Function Interfaces</A
+></DT
+><DT
+>6-18. <A
+HREF="libxext.html#TBL-LIBXEXT-X-E-INTS"
+>libXext - X Extended Visual Interface Extension Function Interfaces</A
+></DT
+><DT
+>6-19. <A
+HREF="libxi.html#LIB-LIBXI-DEF"
+>libXi Definition</A
+></DT
+><DT
+>6-20. <A
+HREF="libxi.html#TBL-LIBXI-XIN-INTS"
+>libXi - XInput Function Interfaces</A
+></DT
+><DT
+>7-1. <A
+HREF="opengllib.html#LIB-LIBGL-DEF"
+>libGL Definition</A
+></DT
+><DT
+>7-2. <A
+HREF="opengllib.html#TBL-LIBGL-GL--INTS"
+>libGL - GL X interface Function Interfaces</A
+></DT
+><DT
+>7-3. <A
+HREF="opengllib.html#TBL-LIBGL-OPE-INTS"
+>libGL - OpenGL Function Interfaces</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="overview.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Foreword</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>_Unwind_GetGR</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libgcc_s"
+HREF="libgcc-sman.html"><LINK
+REL="PREVIOUS"
+TITLE="_Unwind_GetCFA"
+HREF="baselib--unwind-getcfa.html"><LINK
+REL="NEXT"
+TITLE="_Unwind_GetIP"
+HREF="baselib--unwind-getip.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib--unwind-getcfa.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib--unwind-getip.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB--UNWIND-GETGR"
+></A
+>_Unwind_GetGR</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN26512"
+></A
+><H2
+>Name</H2
+>_Unwind_GetGR&nbsp;--&nbsp;private C++ error handling method</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN26515"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN26518"
+></A
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>_Unwind_Word
+  <TT
+CLASS="FUNCTION"
+>_Unwind_GetGR</TT
+></CODE
+>(struct _Unwind_Context *
+  <TT
+CLASS="PARAMETER"
+><I
+>context</I
+></TT
+>, int
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>index</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN26527"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="FUNCTION"
+>_Unwind_GetGR()</TT
+> returns data at
+<TT
+CLASS="PARAMETER"
+><I
+>index</I
+></TT
+> found in <TT
+CLASS="PARAMETER"
+><I
+>context</I
+></TT
+>.
+The register is identified by its index: <TT
+CLASS="LITERAL"
+>0</TT
+> to 
+<TT
+CLASS="LITERAL"
+>31</TT
+> are for the fixed registers, and 
+<TT
+CLASS="LITERAL"
+>32</TT
+> to <TT
+CLASS="LITERAL"
+>127</TT
+> are for the stacked 
+registers.</P
+><P
+>During the two phases of unwinding, only <SPAN
+CLASS="TOKEN"
+>GR1</SPAN
+> has 
+a guaranteed value, which is the global pointer of the frame referenced 
+by the unwind <TT
+CLASS="PARAMETER"
+><I
+>context</I
+></TT
+>. If the register has its 
+<SPAN
+CLASS="TOKEN"
+>NAT</SPAN
+> bit set, the behavior is unspecified.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib--unwind-getcfa.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib--unwind-getip.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>_Unwind_GetCFA</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libgcc-sman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>_Unwind_GetIP</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

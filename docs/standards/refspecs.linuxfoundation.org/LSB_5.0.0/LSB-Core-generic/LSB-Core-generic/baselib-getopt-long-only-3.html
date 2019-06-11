@@ -1,0 +1,354 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>getopt_long_only</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="getopt_long"
+HREF="baselib-getopt-long-3.html"><LINK
+REL="NEXT"
+TITLE="getpagesize"
+HREF="baselib-getpagesize.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-getopt-long-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-getpagesize.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-GETOPT-LONG-ONLY-3"
+></A
+>getopt_long_only</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN15639"
+></A
+><H2
+>Name</H2
+>getopt_long_only&nbsp;--&nbsp;parse command line options</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN15642"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN15645"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#define _GNU_SOURCE
+#include &#60;getopt.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int 
+  <TT
+CLASS="FUNCTION"
+>getopt_long_only</TT
+></CODE
+>(int 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>argc</I
+></TT
+></I
+></TT
+>, char * const 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>argv</I
+></TT
+>[]</I
+></TT
+>, const char *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>optstring</I
+></TT
+></I
+></TT
+>, const struct option *
+  <TT
+CLASS="PARAMETER"
+><I
+>longopts</I
+></TT
+>, int *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>longindex</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15664"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="FUNCTION"
+>getopt_long_only()</TT
+> is like 
+<TT
+CLASS="FUNCTION"
+>getopt_long()</TT
+>, but "<SPAN
+CLASS="TOKEN"
+>-</SPAN
+>" as well as 
+"<SPAN
+CLASS="TOKEN"
+>--</SPAN
+>" can indicate a long option. If an option that 
+starts with "<SPAN
+CLASS="TOKEN"
+>-</SPAN
+>" (not "<SPAN
+CLASS="TOKEN"
+>--</SPAN
+>") doesn't 
+match a long option, but does match a short option, it is parsed as 
+a short option instead.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>The <TT
+CLASS="FUNCTION"
+>getopt_long_only()</TT
+> function is intended only
+for supporting certain programs whose command line syntax was designed
+before the Utility Syntax Guidelines of <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>
+were developed.  New programs should generally call
+<TT
+CLASS="FUNCTION"
+>getopt_long()</TT
+> instead, which provides the --option
+syntax for long options, which is preferred by GNU and consistent with
+<A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN15681"
+></A
+><H2
+>Return Value</H2
+><P
+><TT
+CLASS="FUNCTION"
+>getopt_long_only()</TT
+> returns the option character if the 
+option was found successfully, or "<SPAN
+CLASS="RETURNVALUE"
+>:</SPAN
+>" if 
+there was a missing parameter for one of the options, or 
+"<SPAN
+CLASS="RETURNVALUE"
+>?</SPAN
+>" for an unknown option character, or 
+<SPAN
+CLASS="RETURNVALUE"
+>-1</SPAN
+> for the end of the option list.</P
+><P
+><TT
+CLASS="FUNCTION"
+>getopt_long_only()</TT
+> also returns the option character 
+when a short option is recognized. For a long option, they return val 
+if flag is <TT
+CLASS="LITERAL"
+>NULL</TT
+>, and <SPAN
+CLASS="RETURNVALUE"
+>0</SPAN
+> 
+otherwise. Error and <SPAN
+CLASS="RETURNVALUE"
+>-1</SPAN
+> returns are the 
+same as for <TT
+CLASS="FUNCTION"
+>getopt()</TT
+>, plus 
+"<SPAN
+CLASS="RETURNVALUE"
+>?</SPAN
+>" for an ambiguous match or an 
+extraneous parameter.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-getopt-long-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-getpagesize.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>getopt_long</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>getpagesize</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

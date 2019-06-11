@@ -1,0 +1,691 @@
+<HTML
+><HEAD
+><TITLE
+>Command Behavior</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command and Utilities"
+HREF="command.html"><LINK
+REL="PREVIOUS"
+TITLE="Command and Utilities"
+HREF="command.html"><LINK
+REL="NEXT"
+TITLE="ar"
+HREF="ar.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="command.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 15. Command and Utilities</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="ar.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="CMDBEHAV">Command Behavior</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="ar.html"
+>ar</A
+>&nbsp;--&nbsp;create and maintain library archives</DT
+><DT
+><A
+HREF="at.html"
+>at</A
+>&nbsp;--&nbsp;examine or delete jobs for later execution</DT
+><DT
+><A
+HREF="awk.html"
+>awk</A
+>&nbsp;--&nbsp;pattern scanning and processing language</DT
+><DT
+><A
+HREF="batch.html"
+>batch</A
+>&nbsp;--&nbsp;execute commands when the system load permits</DT
+><DT
+><A
+HREF="bc.html"
+>bc</A
+>&nbsp;--&nbsp;An arbitrary precision calculator language</DT
+><DT
+><A
+HREF="cat.html"
+>cat</A
+>&nbsp;--&nbsp;concatenate and print files</DT
+><DT
+><A
+HREF="chfn.html"
+>chfn</A
+>&nbsp;--&nbsp;change user name and information</DT
+><DT
+><A
+HREF="chgrp.html"
+>chgrp</A
+>&nbsp;--&nbsp;change group ownership</DT
+><DT
+><A
+HREF="chmod.html"
+>chmod</A
+>&nbsp;--&nbsp;change file access permissions</DT
+><DT
+><A
+HREF="chown.html"
+>chown</A
+>&nbsp;--&nbsp;change file owner and group</DT
+><DT
+><A
+HREF="chsh.html"
+>chsh</A
+>&nbsp;--&nbsp;change login shell</DT
+><DT
+><A
+HREF="col.html"
+>col</A
+>&nbsp;--&nbsp;filter reverse line feeds from input</DT
+><DT
+><A
+HREF="cp.html"
+>cp</A
+>&nbsp;--&nbsp;copy files and directories</DT
+><DT
+><A
+HREF="cpio.html"
+>cpio</A
+>&nbsp;--&nbsp;copy file archives in and out</DT
+><DT
+><A
+HREF="crontab.html"
+>crontab</A
+>&nbsp;--&nbsp;maintain crontab files for individual users</DT
+><DT
+><A
+HREF="csplit.html"
+>csplit</A
+>&nbsp;--&nbsp;split a file into sections determined by context lines</DT
+><DT
+><A
+HREF="cut.html"
+>cut</A
+>&nbsp;--&nbsp;split a file into sections determined by context lines</DT
+><DT
+><A
+HREF="date.html"
+>date</A
+>&nbsp;--&nbsp;print or set the system date and time</DT
+><DT
+><A
+HREF="dd.html"
+>dd</A
+>&nbsp;--&nbsp;convert and copy a file</DT
+><DT
+><A
+HREF="df.html"
+>df</A
+>&nbsp;--&nbsp;report filesystem disk space usage</DT
+><DT
+><A
+HREF="diff.html"
+>diff</A
+>&nbsp;--&nbsp;find differences between two files</DT
+><DT
+><A
+HREF="dmesg.html"
+>dmesg</A
+>&nbsp;--&nbsp;print or control the kernel ring buffer</DT
+><DT
+><A
+HREF="du.html"
+>du</A
+>&nbsp;--&nbsp;estimate file space usage</DT
+><DT
+><A
+HREF="echo.html"
+>echo</A
+>&nbsp;--&nbsp;display a line of text</DT
+><DT
+><A
+HREF="egrep.html"
+>egrep</A
+>&nbsp;--&nbsp;search a file with an ERE pattern</DT
+><DT
+><A
+HREF="env.html"
+>env</A
+>&nbsp;--&nbsp;run a program in a modified environment</DT
+><DT
+><A
+HREF="expand.html"
+>expand</A
+>&nbsp;--&nbsp;convert tabs to spaces</DT
+><DT
+><A
+HREF="expr.html"
+>expr</A
+>&nbsp;--&nbsp;evaluate expressions</DT
+><DT
+><A
+HREF="fgrep.html"
+>fgrep</A
+>&nbsp;--&nbsp;search a file with an ERE pattern</DT
+><DT
+><A
+HREF="file.html"
+>file</A
+>&nbsp;--&nbsp;determine file type</DT
+><DT
+><A
+HREF="find.html"
+>find</A
+>&nbsp;--&nbsp;search for files in a directory hierarchy</DT
+><DT
+><A
+HREF="fuser.html"
+>fuser</A
+>&nbsp;--&nbsp;identify processes using files or sockets</DT
+><DT
+><A
+HREF="gencat.html"
+>gencat</A
+>&nbsp;--&nbsp;generate a formatted message catalogue</DT
+><DT
+><A
+HREF="grep.html"
+>grep</A
+>&nbsp;--&nbsp;print lines matching a pattern</DT
+><DT
+><A
+HREF="groupadd.html"
+>groupadd</A
+>&nbsp;--&nbsp;create a new group</DT
+><DT
+><A
+HREF="groupdel.html"
+>groupdel</A
+>&nbsp;--&nbsp;delete a group</DT
+><DT
+><A
+HREF="groupmod.html"
+>groupmod</A
+>&nbsp;--&nbsp;modify a group</DT
+><DT
+><A
+HREF="groups.html"
+>groups</A
+>&nbsp;--&nbsp;display a group</DT
+><DT
+><A
+HREF="gunzip.html"
+>gunzip</A
+>&nbsp;--&nbsp;uncompress files</DT
+><DT
+><A
+HREF="gzip.html"
+>gzip</A
+>&nbsp;--&nbsp;compress or expand files</DT
+><DT
+><A
+HREF="head.html"
+>head</A
+>&nbsp;--&nbsp;output the first part of files</DT
+><DT
+><A
+HREF="hostname.html"
+>hostname</A
+>&nbsp;--&nbsp;show the system's host name</DT
+><DT
+><A
+HREF="iconv.html"
+>iconv</A
+>&nbsp;--&nbsp;convert file character encoding</DT
+><DT
+><A
+HREF="install.html"
+>install</A
+>&nbsp;--&nbsp;copy files and set attributes</DT
+><DT
+><A
+HREF="installinitd.html"
+>install_initd</A
+>&nbsp;--&nbsp;install an init.d file</DT
+><DT
+><A
+HREF="ipcrm.html"
+>ipcrm</A
+>&nbsp;--&nbsp;provide information on ipc facilities</DT
+><DT
+><A
+HREF="ipcs.html"
+>ipcs</A
+>&nbsp;--&nbsp;provide information on ipc facilities</DT
+><DT
+><A
+HREF="killall.html"
+>killall</A
+>&nbsp;--&nbsp;kill processes by name</DT
+><DT
+><A
+HREF="ln.html"
+>ln</A
+>&nbsp;--&nbsp;make links between files</DT
+><DT
+><A
+HREF="localedef.html"
+>localedef</A
+>&nbsp;--&nbsp;compile locale definition files</DT
+><DT
+><A
+HREF="lpr.html"
+>lpr</A
+>&nbsp;--&nbsp;off line print</DT
+><DT
+><A
+HREF="ls.html"
+>ls</A
+>&nbsp;--&nbsp;list directory contents</DT
+><DT
+><A
+HREF="lsbrelease.html"
+>lsb_release</A
+>&nbsp;--&nbsp;print distribution specific information</DT
+><DT
+><A
+HREF="m4.html"
+>m4</A
+>&nbsp;--&nbsp;macro processor</DT
+><DT
+><A
+HREF="make.html"
+>make</A
+>&nbsp;--&nbsp;maintain, update and regenerate groups of programs</DT
+><DT
+><A
+HREF="man.html"
+>man</A
+>&nbsp;--&nbsp;display system documentation</DT
+><DT
+><A
+HREF="md5sum.html"
+>md5sum</A
+>&nbsp;--&nbsp;generates or checks MD5 message digests</DT
+><DT
+><A
+HREF="mkdir.html"
+>mkdir</A
+>&nbsp;--&nbsp;make directories</DT
+><DT
+><A
+HREF="mknod.html"
+>mknod</A
+>&nbsp;--&nbsp;make block or character special files</DT
+><DT
+><A
+HREF="mktemp.html"
+>mktemp</A
+>&nbsp;--&nbsp;make temporary file name (unique)</DT
+><DT
+><A
+HREF="more.html"
+>more</A
+>&nbsp;--&nbsp;file perusal filter for crt viewing</DT
+><DT
+><A
+HREF="mount.html"
+>mount</A
+>&nbsp;--&nbsp;mount a file system </DT
+><DT
+><A
+HREF="mv.html"
+>mv</A
+>&nbsp;--&nbsp;move (rename) files</DT
+><DT
+><A
+HREF="newgrp.html"
+>newgrp</A
+>&nbsp;--&nbsp;change group ID</DT
+><DT
+><A
+HREF="nice.html"
+>nice</A
+>&nbsp;--&nbsp;run a program with modified scheduling priority</DT
+><DT
+><A
+HREF="nl.html"
+>nl</A
+>&nbsp;--&nbsp;number lines of files</DT
+><DT
+><A
+HREF="nohup.html"
+>nohup</A
+>&nbsp;--&nbsp;runs a command immune to hangups, with output to a non-tty</DT
+><DT
+><A
+HREF="od.html"
+>od</A
+>&nbsp;--&nbsp;dump files in octal and other formats </DT
+><DT
+><A
+HREF="passwd.html"
+>passwd</A
+>&nbsp;--&nbsp;change user password</DT
+><DT
+><A
+HREF="paste.html"
+>paste</A
+>&nbsp;--&nbsp;merge lines of files</DT
+><DT
+><A
+HREF="patch.html"
+>patch</A
+>&nbsp;--&nbsp;apply a diff file to an original</DT
+><DT
+><A
+HREF="pathchk.html"
+>pathchk</A
+>&nbsp;--&nbsp;check whether file names are valid or portable</DT
+><DT
+><A
+HREF="pidof.html"
+>pidof</A
+>&nbsp;--&nbsp;find the process ID of a running program</DT
+><DT
+><A
+HREF="pr.html"
+>pr</A
+>&nbsp;--&nbsp;split a file into sections determined by context lines</DT
+><DT
+><A
+HREF="printf.html"
+>printf</A
+>&nbsp;--&nbsp;format and print data</DT
+><DT
+><A
+HREF="pwd.html"
+>pwd</A
+>&nbsp;--&nbsp;print name of current/working directory</DT
+><DT
+><A
+HREF="removeinitd.html"
+>remove_initd</A
+>&nbsp;--&nbsp;clean up boot script system modifications introduced by install_initd</DT
+><DT
+><A
+HREF="renice.html"
+>renice</A
+>&nbsp;--&nbsp;alter priority of running processes</DT
+><DT
+><A
+HREF="rm.html"
+>rm</A
+>&nbsp;--&nbsp;remove files or directories</DT
+><DT
+><A
+HREF="rmdir.html"
+>rmdir</A
+>&nbsp;--&nbsp;remove empty directories</DT
+><DT
+><A
+HREF="rsync.html"
+>rsync</A
+>&nbsp;--&nbsp;faster, flexible replacement for rcp</DT
+><DT
+><A
+HREF="sed.html"
+>sed</A
+>&nbsp;--&nbsp;stream editor</DT
+><DT
+><A
+HREF="baselib-sendmail-1.html"
+>sendmail</A
+>&nbsp;--&nbsp;an electronic mail transport agent</DT
+><DT
+><A
+HREF="shutdown.html"
+>shutdown</A
+>&nbsp;--&nbsp;bring the system down</DT
+><DT
+><A
+HREF="sleep.html"
+>sleep</A
+>&nbsp;--&nbsp;delay for a specified amount of time</DT
+><DT
+><A
+HREF="sort.html"
+>sort</A
+>&nbsp;--&nbsp;sort, merge or sequence check text files </DT
+><DT
+><A
+HREF="split.html"
+>split</A
+>&nbsp;--&nbsp;split a file into pieces</DT
+><DT
+><A
+HREF="strip.html"
+>strip</A
+>&nbsp;--&nbsp;remove unnecessary information from executable files </DT
+><DT
+><A
+HREF="su.html"
+>su</A
+>&nbsp;--&nbsp;change user ID or become super-user</DT
+><DT
+><A
+HREF="sum.html"
+>sum</A
+>&nbsp;--&nbsp;print checksum and block count of a file (deprecated)</DT
+><DT
+><A
+HREF="sync.html"
+>sync</A
+>&nbsp;--&nbsp;flush filesystem buffers</DT
+><DT
+><A
+HREF="tail.html"
+>tail</A
+>&nbsp;--&nbsp;output the last part of files</DT
+><DT
+><A
+HREF="tar.html"
+>tar</A
+>&nbsp;--&nbsp;file archiver</DT
+><DT
+><A
+HREF="tee.html"
+>tee</A
+>&nbsp;--&nbsp;read from standard input and write to standard output and files</DT
+><DT
+><A
+HREF="test.html"
+>test</A
+>&nbsp;--&nbsp;check file types and compare values</DT
+><DT
+><A
+HREF="time.html"
+>time</A
+>&nbsp;--&nbsp;run programs and summarize system resource usage</DT
+><DT
+><A
+HREF="touch.html"
+>touch</A
+>&nbsp;--&nbsp;change file access and modification times</DT
+><DT
+><A
+HREF="tr.html"
+>tr</A
+>&nbsp;--&nbsp;translate or delete characters</DT
+><DT
+><A
+HREF="tty.html"
+>tty</A
+>&nbsp;--&nbsp;print the file name of the terminal connected to standard input</DT
+><DT
+><A
+HREF="umount.html"
+>umount</A
+>&nbsp;--&nbsp;unmount file systems</DT
+><DT
+><A
+HREF="uname.html"
+>uname</A
+>&nbsp;--&nbsp;return system name </DT
+><DT
+><A
+HREF="unexpand.html"
+>unexpand</A
+>&nbsp;--&nbsp;convert spaces to tabs</DT
+><DT
+><A
+HREF="uniq.html"
+>uniq</A
+>&nbsp;--&nbsp;remove duplicate lines from a sorted file</DT
+><DT
+><A
+HREF="useradd.html"
+>useradd</A
+>&nbsp;--&nbsp;create a new user or update default new user information</DT
+><DT
+><A
+HREF="userdel.html"
+>userdel</A
+>&nbsp;--&nbsp;delete a user account and related files</DT
+><DT
+><A
+HREF="usermod.html"
+>usermod</A
+>&nbsp;--&nbsp;modify a user account</DT
+><DT
+><A
+HREF="wc.html"
+>wc</A
+>&nbsp;--&nbsp;print the number of bytes, words, and lines in files</DT
+><DT
+><A
+HREF="xargs.html"
+>xargs</A
+>&nbsp;--&nbsp;build and execute command lines from standard input</DT
+></DL
+></DIV
+><P
+>This section contains descriptions for commands and utilities whose
+specified behavior in the LSB contradicts or extends the standards
+referenced. It also contains commands and utilities only required by
+the LSB and not specified by other standards.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="command.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="ar.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Command and Utilities</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="command.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>ar</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

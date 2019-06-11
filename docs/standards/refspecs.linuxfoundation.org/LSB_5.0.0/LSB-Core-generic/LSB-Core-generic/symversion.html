@@ -1,0 +1,1196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Symbol Versioning</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Object Format"
+HREF="tocobjformat.html"><LINK
+REL="PREVIOUS"
+TITLE="Exception Frames"
+HREF="ehframechpt.html"><LINK
+REL="NEXT"
+TITLE="ABI note tag"
+HREF="noteabitag.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="ehframechpt.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 10. Object Format</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="noteabitag.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="SYMVERSION"
+>10.7. Symbol Versioning</A
+></H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1505"
+>10.7.1. Introduction</A
+></H2
+><P
+>This chapter describes the Symbol Versioning mechanism. All ELF objects may
+provide or depend on versioned symbols. Symbol Versioning is implemented by 3
+section types: 
+<TT
+CLASS="SYMBOL"
+>SHT_GNU_versym</TT
+>, <TT
+CLASS="SYMBOL"
+>SHT_GNU_verdef</TT
+>, and <TT
+CLASS="SYMBOL"
+>SHT_GNU_verneed</TT
+>.</P
+><P
+>The prefix <TT
+CLASS="SYMBOL"
+>Elfxx</TT
+> in the following descriptions and code fragments stands for 
+either "<TT
+CLASS="SYMBOL"
+>Elf32</TT
+>" or "<TT
+CLASS="SYMBOL"
+>Elf64</TT
+>", depending on the architecture.</P
+><P
+>Versions are described by strings. The structures that are used for symbol
+versions also contain a member that holds the ELF hashing values of the
+strings. This allows for more efficient processing.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SYMVERTBL"
+>10.7.2. Symbol Version Table</A
+></H2
+><P
+>The special section <TT
+CLASS="SYMBOL"
+>.gnu.version</TT
+>
+which has a section type of <TT
+CLASS="SYMBOL"
+>SHT_GNU_versym</TT
+>
+shall contain the Symbol Version Table. This section shall have the same number 
+of entries as the Dynamic Symbol Table in the <TT
+CLASS="SYMBOL"
+>.dynsym</TT
+> section.</P
+><P
+>The <TT
+CLASS="SYMBOL"
+>.gnu.version</TT
+> section shall contain an array of elements of type 
+<TT
+CLASS="SYMBOL"
+>Elfxx_Half</TT
+>.
+Each entry specifies the version defined for or required by the corresponding 
+symbol in the Dynamic Symbol Table.</P
+><P
+>The values in the Symbol Version Table are specific to the object in which they 
+are located. These values are identifiers that are provided by the the 
+<CODE
+CLASS="STRUCTFIELD"
+>vna_other</CODE
+> member of the 
+<TT
+CLASS="STRUCTNAME"
+>Elfxx_Vernaux</TT
+> structure or the 
+<CODE
+CLASS="STRUCTFIELD"
+>vd_ndx</CODE
+> member of the 
+<TT
+CLASS="STRUCTNAME"
+>Elfxx_Verdef</TT
+> structure.</P
+><P
+>The values 0 and 1 are reserved.</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1536"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>0</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The symbol is local, not available outside the object.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1540"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>1</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The symbol is defined in this object and is globally available.</P
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+>All other values are used to identify version strings located in one of the
+other Symbol Version sections. The value itself is not the version associated
+with the symbol. The string identified by the value defines the version of
+the symbol.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SYMVERDEFS"
+>10.7.3. Version Definitions</A
+></H2
+><P
+>The special section <TT
+CLASS="SYMBOL"
+>.gnu.version_d</TT
+> which has a section type of 
+<TT
+CLASS="SYMBOL"
+>SHT_GNU_verdef </TT
+>
+shall contain symbol version definitions. The number of entries in this section 
+shall be contained in the <TT
+CLASS="SYMBOL"
+>DT_VERDEFNUM</TT
+> entry of the Dynamic Section 
+<TT
+CLASS="SYMBOL"
+>.dynamic</TT
+>. 
+The <TT
+CLASS="SYMBOL"
+>sh_link</TT
+> member of the section header (see figure 4-8 in the 
+<A
+HREF="normativerefs.html#STD.GABI41"
+>System V ABI</A
+>) 
+shall point to the section that contains the strings referenced by this section.</P
+><P
+>The section shall contain an array of <TT
+CLASS="SYMBOL"
+>Elfxx_Verdef</TT
+> structures, as described in 
+<A
+HREF="symversion.html#VERDEFENTRIES"
+>Figure 10-1</A
+>, optionally followed by an array of <TT
+CLASS="SYMBOL"
+>Elfxx_Verdaux</TT
+> structures, as 
+defined in <A
+HREF="symversion.html#VERDEFEXTS"
+>Figure 10-2</A
+>.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="VERDEFENTRIES"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef struct {
+	Elfxx_Half    vd_version;
+	Elfxx_Half    vd_flags;
+	Elfxx_Half    vd_ndx;
+	Elfxx_Half    vd_cnt;
+	Elfxx_Word    vd_hash;
+	Elfxx_Word    vd_aux;
+	Elfxx_Word    vd_next;
+} Elfxx_Verdef;</PRE
+></TD
+></TR
+></TABLE
+><P
+><B
+>Figure 10-1. Version Definition Entries</B
+></P
+></DIV
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1563"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vd_version</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Version revision. This field shall be set to <TT
+CLASS="LITERAL"
+>1</TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1569"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vd_flags</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Version information flag bitmask.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1574"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vd_ndx</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Version index numeric value referencing the SHT_GNU_versym section.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1579"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vd_cnt</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Number of associated verdaux array entries.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1584"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vd_hash</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Version name hash value (ELF hash function).</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1589"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vd_aux</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Offset in bytes to a corresponding entry in an array
+of <TT
+CLASS="SYMBOL"
+>Elfxx_Verdaux</TT
+> structures as defined in
+<A
+HREF="symversion.html#VERDEFEXTS"
+>Figure 10-2</A
+></P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1596"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vd_next</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Offset to the next verdef entry, in bytes.</P
+></TD
+></TR
+></TBODY
+></TABLE
+><DIV
+CLASS="FIGURE"
+><A
+NAME="VERDEFEXTS"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef struct {
+	Elfxx_Word    vda_name;
+	Elfxx_Word    vda_next;
+} Elfxx_Verdaux;</PRE
+></TD
+></TR
+></TABLE
+><P
+><B
+>Figure 10-2. Version Definition Auxiliary Entries</B
+></P
+></DIV
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1605"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vda_name</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Offset to the version or dependency name string in the section header, in bytes.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1610"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vda_next</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Offset to the next verdaux entry, in bytes.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SYMVERRQMTS"
+>10.7.4. Version Requirements</A
+></H2
+><P
+>The special section <TT
+CLASS="SYMBOL"
+>.gnu.version_r</TT
+> which has a section type of 
+<TT
+CLASS="SYMBOL"
+>SHT_GNU_verneed</TT
+>
+shall contain required symbol version definitions. The number of entries in 
+this section shall be contained in the <TT
+CLASS="SYMBOL"
+>DT_VERNEEDNUM</TT
+> entry of the Dynamic 
+Section <TT
+CLASS="SYMBOL"
+>.dynamic</TT
+>. 
+The <CODE
+CLASS="STRUCTFIELD"
+>sh_link</CODE
+> member of the section header (see figure 4-8 in 
+<A
+HREF="normativerefs.html#STD.GABI41"
+>System V ABI</A
+>)
+shall point to the section that contains the strings referenced by this section.</P
+><P
+>The section shall contain an array of <TT
+CLASS="SYMBOL"
+>Elfxx_Verneed</TT
+> structures, as described in 
+<A
+HREF="symversion.html#VERNEEDFIG"
+>Figure 10-3</A
+>, optionally followed by an array of 
+<TT
+CLASS="SYMBOL"
+>Elfxx_Vernaux</TT
+> structures, as 
+defined in <A
+HREF="symversion.html#VERNEEDEXTFIG"
+>Figure 10-4</A
+>.</P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="VERNEEDFIG"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef struct {
+	Elfxx_Half    vn_version;
+	Elfxx_Half    vn_cnt;
+	Elfxx_Word    vn_file;
+	Elfxx_Word    vn_aux;
+	Elfxx_Word    vn_next;
+} Elfxx_Verneed;</PRE
+></TD
+></TR
+></TABLE
+><P
+><B
+>Figure 10-3. Version Needed Entries</B
+></P
+></DIV
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1633"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vn_version</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Version of structure. This value is currently set to 1, and will be reset if the versioning implementation is incompatibly altered.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1638"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vn_cnt</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Number of associated verneed array entries.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1643"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vn_file</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Offset to the file name string in the section header, in bytes.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1648"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vn_aux</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Offset to a corresponding entry in the vernaux array, in bytes.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1653"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vn_next</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Offset to the next verneed entry, in bytes.</P
+></TD
+></TR
+></TBODY
+></TABLE
+><DIV
+CLASS="FIGURE"
+><A
+NAME="VERNEEDEXTFIG"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>typedef struct {
+	Elfxx_Word    vna_hash;
+	Elfxx_Half    vna_flags;
+	Elfxx_Half    vna_other;
+	Elfxx_Word    vna_name;
+	Elfxx_Word    vna_next;
+} Elfxx_Vernaux;</PRE
+></TD
+></TR
+></TABLE
+><P
+><B
+>Figure 10-4. Version Needed Auxiliary Entries</B
+></P
+></DIV
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1662"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vna_hash</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Dependency name hash value (ELF hash function).</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1667"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vna_flags</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Dependency information flag bitmask.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1672"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vna_other</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Object file version identifier used in the .gnu.version symbol version array. Bit number 15 controls whether or not the object is hidden; if this bit is set, the object cannot be used and the static linker will ignore the symbol's presence in the object.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1677"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vna_name</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Offset to the dependency name string in the section header, in bytes.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN1682"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="STRUCTFIELD"
+>vna_next</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Offset to the next vernaux entry, in bytes.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SYMSTARTSEQ"
+>10.7.5. Startup Sequence</A
+></H2
+><P
+>When loading a sharable object the system shall analyze version definition data 
+from the loaded object to assure that it meets the version requirements of the 
+calling object. This step is referred to as definition testing. The dynamic 
+loader shall retrieve the entries in the caller's <TT
+CLASS="SYMBOL"
+>Elfxx_Verneed</TT
+> array and 
+attempt to find matching definition information in the loaded <TT
+CLASS="SYMBOL"
+>Elfxx_Verdef</TT
+>
+table.</P
+><P
+>Each object and dependency shall be tested in turn. If a symbol definition is 
+missing and the <TT
+CLASS="SYMBOL"
+>vna_flags</TT
+> bit for <TT
+CLASS="SYMBOL"
+>VER_FLG_WEAK</TT
+> is not set, the loader shall 
+return an error and exit. If the <TT
+CLASS="SYMBOL"
+>vna_flags</TT
+> bit for <TT
+CLASS="SYMBOL"
+>VER_FLG_WEAK</TT
+> is set in the 
+<TT
+CLASS="SYMBOL"
+>Elfxx_Vernaux</TT
+> entry, and the loader shall issue a warning and continue 
+operation.</P
+><P
+>When the versions referenced by undefined symbols in the loaded object are 
+found, version availability is certified. The test completes without error and 
+the object shall be made available.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="SYMRESOLUTION"
+>10.7.6. Symbol Resolution</A
+></H2
+><P
+>When symbol versioning is used in an object, relocations extend 
+definition testing beyond the simple match of symbol
+name strings: the version of the reference shall also equal the name of
+the definition. </P
+><P
+>The same index that is used in the symbol table can be
+referenced in the <TT
+CLASS="SYMBOL"
+>SHT_GNU_versym</TT
+> section, and the value of this index is
+then used to acquire name data. The corresponding requirement string is
+retrieved from the <TT
+CLASS="SYMBOL"
+>Elfxx_Verneed</TT
+> array, and likewise, the corresponding
+definition string from the <TT
+CLASS="SYMBOL"
+>Elfxx_Verdef</TT
+> table.</P
+><P
+>If the high order bit (bit number 15)
+of the version symbolis set, the object cannot be used
+and the static linker shall ignore the symbol's presence in the object.</P
+><P
+>When an object with a reference and an object with the definition are being 
+linked, the following rules shall govern the result:
+<P
+></P
+><UL
+><LI
+STYLE="list-style-type: BULLET"
+><P
+>The object with the reference and the object with the definitions both use 
+versioning. All described matching is processed in this case. A fatal error 
+shall be triggered when no matching definition can be found in the object whose 
+name is the one referenced by the <CODE
+CLASS="STRUCTFIELD"
+>vn_name</CODE
+> element in the 
+<TT
+CLASS="STRUCTNAME"
+>Elfxx_Verneed</TT
+> entry.</P
+></LI
+><LI
+STYLE="list-style-type: BULLET"
+><P
+>The object with the reference does not use versioning, while the object with 
+the definitions does. In this instance, only the definitions with index numbers 
+1 and 2 will be used in the reference match, the same identified by the static 
+linker as the base definition. In cases where the static linker was not used, 
+such as in calls to <TT
+CLASS="FUNCTION"
+>dlopen()</TT
+>, a version that does not have the base definition 
+index shall be acceptable if it is the only version for which the symbol is 
+defined.</P
+></LI
+><LI
+STYLE="list-style-type: BULLET"
+><P
+>The object with the reference uses versioning, but the object with the 
+definitions specifies none. A matching symbol shall be accepted in this case. A 
+fatal error shall be triggered if a corruption in the required symbols list 
+obscures an outdated object file and causes a match on the object filename in 
+the <TT
+CLASS="SYMBOL"
+>Elfxx_Verneed</TT
+> entry.</P
+></LI
+><LI
+STYLE="list-style-type: BULLET"
+><P
+>Neither the object with the reference nor the object with the definitions use 
+versioning. The behavior in this instance shall default to pre-existing symbol 
+rules.</P
+></LI
+></UL
+></P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="ehframechpt.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="noteabitag.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Exception Frames</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tocobjformat.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>ABI note tag</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

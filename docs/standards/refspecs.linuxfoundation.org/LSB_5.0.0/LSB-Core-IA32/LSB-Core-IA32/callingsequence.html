@@ -1,0 +1,369 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Function Calling Sequence</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for X86"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Low Level System Information"
+HREF="lowlevel.html"><LINK
+REL="PREVIOUS"
+TITLE="Low Level System Information"
+HREF="lowlevel.html"><LINK
+REL="NEXT"
+TITLE="Operating System Interface"
+HREF="osinterface.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for X86</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="lowlevel.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 7. Low Level System Information</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="osinterface.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="CALLINGSEQUENCE"
+>7.2. Function Calling Sequence</A
+></H1
+><P
+>LSB-conforming applications shall use the function calling sequence as defined
+in Chapter 3 of the 
+<A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="CPUREGISTERS"
+>7.2.1. Registers</A
+></H2
+><P
+>LSB-conforming applications shall use the general registers provided by the architecture
+in the manner described in 
+Chapter 3 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="FPUREGISTERS"
+>7.2.2. Floating Point Registers</A
+></H2
+><P
+>LSB-conforming applications shall use the floating point registers provided by the architecture
+in the manner described in 
+Chapter 3 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="STACKFRAME"
+>7.2.3. Stack Frame</A
+></H2
+><P
+>LSB-conforming applications shall use the stack frame in the manner
+specified in
+Chapter 3 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="ARGUMENTS"
+>7.2.4. Arguments</A
+></H2
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="INTEGRALPOINTERARG"
+>7.2.4.1. Integral/Pointer</A
+></H3
+><P
+>Integral and pointer arguments to functions shall be passed as specified in
+Chapter 3 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="FLOATINGPOINTARG"
+>7.2.4.2. Floating Point</A
+></H3
+><P
+>Floating point arguments to functions shall be passed as specified in
+Chapter 3 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="STRUCTUNITONARG"
+>7.2.4.3. Struct and Union Arguments</A
+></H3
+><P
+>Structure and union arguments to functions shall be passed as specified in
+Chapter 3 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="VARIABLEARGS"
+>7.2.4.4. Variable Arguments</A
+></H3
+><P
+>As described in 
+Chapter 3 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>,
+LSB-conforming applications using variable argument lists
+shall use the facilities defined in the
+header file
+<TT
+CLASS="FILENAME"
+>&#60;stdarg.h&#62;</TT
+> 
+to deal with variable argument lists.
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>This is a requirement of <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+>
+and <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+> as well as
+<A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+></BLOCKQUOTE
+></DIV
+></P
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="RETURNVALUES"
+>7.2.5. Return Values</A
+></H2
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="VOIDRET"
+>7.2.5.1. Void</A
+></H3
+><P
+>As described in chapter 3 of
+<A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>,
+functions returning no value need not set any register to any particular value.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="INTEGRALPOINTERRET"
+>7.2.5.2. Integral/Pointer</A
+></H3
+><P
+>Functions return scalar values (integer or pointer), shall do so as specified
+in Chapter 3 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="FLOATINGPOINTRET"
+>7.2.5.3. Floating Point</A
+></H3
+><P
+>Functions return floating point values shall do so as specified
+in Chapter 3 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+></DIV
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="STRUCTUNITONRET"
+>7.2.5.4. Struct and Union</A
+></H3
+><P
+>Functions that return a structure or union shall do so as specified
+in Chapter 3 of the <A
+HREF="normativerefs.html#STD.IA32.ABI.4"
+>System V ABI, IA32 Supplement</A
+>.</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="lowlevel.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="osinterface.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Low Level System Information</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="lowlevel.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Operating System Interface</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,176 @@
+<HTML
+><HEAD
+><TITLE
+>Package Naming</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Software Installation"
+HREF="swinstall.html"><LINK
+REL="PREVIOUS"
+TITLE="Package Tools"
+HREF="pkgtools.html"><LINK
+REL="NEXT"
+TITLE="Package Dependencies"
+HREF="pkgdepend.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="pkgtools.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 14. Software Installation</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="pkgdepend.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="PKGNAMECONV">Package Naming</H1
+><P
+>Because there is no consistent packaging naming among the various
+Linux distributions, it is necessary for LSB-conformant packages to
+adhere the following naming rules to avoid conflicts with packages 
+provided by the distributions.</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>All LSB package names must begin with the prefix "lsb-" to avoid conflicting
+with existing packages used by Linux distributions.</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>If the package name contains only one hyphen (including the one in the 
+"lsb-" prefix) then the package name must be assigned by the 
+<A
+HREF="http://www.lanana.org"
+TARGET="_top"
+>Linux Assigned Names and 
+Numbers Authority</A
+> (LANANA), which shall maintain a
+registry of LSB names.</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>If the package name contains more than one hyphen (i.e., 
+"lsb-www.redhat.com-redhat-database", "lsb-gnome-gnumeric"), then 
+the portion of the package name between first and second hyphens must 
+either be an LSB provider name assigned by the LANANA, or it may be 
+one of the owners' fully-qualified domain name in lower case (e.g., 
+"debian.org", "staroffice.sun.com"). The LSB provider name assigned 
+by LANANA must only consist of the ASCII characters [a-z0-9].</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="pkgtools.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="pkgdepend.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Package Tools</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="swinstall.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Package Dependencies</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

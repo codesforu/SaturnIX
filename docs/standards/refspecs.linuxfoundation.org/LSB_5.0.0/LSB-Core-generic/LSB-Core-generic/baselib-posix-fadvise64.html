@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>posix_fadvise64</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="pmap_unset"
+HREF="baselib-pmap-unset-3.html"><LINK
+REL="NEXT"
+TITLE="posix_fallocate64"
+HREF="baselib-posix-fallocate64.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-pmap-unset-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-posix-fallocate64.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-POSIX-FADVISE64"
+></A
+>posix_fadvise64</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN18229"
+></A
+><H2
+>Name</H2
+>posix_fadvise64&nbsp;--&nbsp;File advisory information (Large File Support)</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN18232"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN18233"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;fcntl.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>posix_fadvise64</TT
+></CODE
+>(int
+<TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>, off64_t
+<TT
+CLASS="PARAMETER"
+><I
+>offset</I
+></TT
+>, off64_t
+<TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>advice</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN18246"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>posix_fadvise64()</TT
+> function is a large-file
+version of the <TT
+CLASS="FUNCTION"
+>posix_fadvise()</TT
+> function defined in
+<A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>.
+It shall advise the implementation on the expected behavior of the
+application with respect to the data in the file associated with the open file descriptor, 
+<TT
+CLASS="PARAMETER"
+><I
+>fd</I
+></TT
+>, starting
+at <TT
+CLASS="PARAMETER"
+><I
+>offset</I
+></TT
+> and continuing for <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+> bytes. 
+The specified range need not currently exist in the file. If <TT
+CLASS="PARAMETER"
+><I
+>len</I
+></TT
+>
+is zero, all data following <TT
+CLASS="PARAMETER"
+><I
+>offset</I
+></TT
+> is specified. 
+The implementation may use this information to
+optimize handling of the specified data. The <TT
+CLASS="FUNCTION"
+>posix_fadvise()</TT
+> function shall have no effect on the
+semantics of other operations on the specified data, although it may affect the performance of
+other operations.</P
+><P
+>The advice to be applied to the data is specified by the <TT
+CLASS="PARAMETER"
+><I
+>advice</I
+></TT
+> parameter, as specified
+in <TT
+CLASS="FUNCTION"
+>posix_fadvise()</TT
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN18263"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <TT
+CLASS="FUNCTION"
+>posix_fadvise64()</TT
+> shall return <SPAN
+CLASS="RETURNVALUE"
+>0</SPAN
+>. Otherwise
+an error number shall be returned to indicate the error.
+See <TT
+CLASS="FUNCTION"
+>posix_fadvise()</TT
+> for possible error values.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-pmap-unset-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-posix-fallocate64.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>pmap_unset</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>posix_fallocate64</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

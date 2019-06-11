@@ -1,0 +1,299 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Linux Standard Base Printing Specification 4.1</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="NEXT"
+TITLE="Foreword"
+HREF="overview.html"></HEAD
+><BODY
+CLASS="BOOK"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="AEN1"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+>Linux Standard Base Printing Specification 4.1</A
+></H1
+><P
+CLASS="COPYRIGHT"
+><A
+HREF="LEGAL.html"
+>Copyright</A
+> &copy; 2010 Linux Foundation</P
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="overview.html"
+>Foreword</A
+></DT
+><DT
+><A
+HREF="status.html"
+>Status of this Document</A
+></DT
+><DT
+><A
+HREF="intro.html"
+>Introduction</A
+></DT
+><DT
+>I. <A
+HREF="tocintro.html"
+>Introductory Elements</A
+></DT
+><DD
+><DL
+><DT
+>1. <A
+HREF="scope.html"
+>Scope</A
+></DT
+><DT
+>2. <A
+HREF="normativerefs.html"
+>Normative References</A
+></DT
+><DT
+>3. <A
+HREF="requirements.html"
+>Requirements</A
+></DT
+><DD
+><DL
+><DT
+>3.1. <A
+HREF="requirements.html#XLIBRARIES"
+>Relevant Libraries</A
+></DT
+></DL
+></DD
+><DT
+>4. <A
+HREF="defs.html"
+>Terms and Definitions</A
+></DT
+><DT
+>5. <A
+HREF="docconv.html"
+>Documentation Conventions</A
+></DT
+><DT
+>6. <A
+HREF="ppdext.html"
+>PPD Format Extensions</A
+></DT
+></DL
+></DD
+><DT
+>II. <A
+HREF="toccupslib.html"
+>LSB Printing Libraries</A
+></DT
+><DD
+><DL
+><DT
+>7. <A
+HREF="libcupslib.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>7.1. <A
+HREF="libcupslib.html#LIBCUPS"
+>Interfaces for libcups</A
+></DT
+><DT
+>7.2. <A
+HREF="libcups-ddefs.html"
+>Data Definitions for libcups</A
+></DT
+><DT
+>7.3. <A
+HREF="libcupsman.html"
+>Interface Definitions for libcups</A
+></DT
+><DT
+>7.4. <A
+HREF="libcupsimage.html"
+>Interfaces for libcupsimage</A
+></DT
+><DT
+>7.5. <A
+HREF="libcupsimage-ddefs.html"
+>Data Definitions for libcupsimage</A
+></DT
+><DT
+>7.6. <A
+HREF="libcupsimageman.html"
+>Interface Definitions for libcupsimage</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>III. <A
+HREF="tocprintcommand.html"
+>Printing Commands</A
+></DT
+><DD
+><DL
+><DT
+>8. <A
+HREF="printcommand.html"
+>Printing Commands</A
+></DT
+><DD
+><DL
+><DT
+>8.1. <A
+HREF="printcommand.html#PRINTCMD"
+>Printing Commands</A
+></DT
+><DT
+>8.2. <A
+HREF="cmdbehav.html"
+>Command Behavior</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>IV. <A
+HREF="tocexecenv.html"
+>Execution Environment</A
+></DT
+><DD
+><DL
+><DT
+>9. <A
+HREF="execenvfhs.html"
+>File System Hierarchy</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Tables</B
+></DT
+><DT
+>2-1. <A
+HREF="normativerefs.html#AEN102"
+>Normative References</A
+></DT
+><DT
+>3-1. <A
+HREF="requirements.html#TBL-XML-STDLIB"
+>Standard Library Names</A
+></DT
+><DT
+>7-1. <A
+HREF="libcupslib.html#LIB-LIBCUPS-DEF"
+>libcups Definition</A
+></DT
+><DT
+>7-2. <A
+HREF="libcupslib.html#TBL-LIBCUPS-CUPS-INTS"
+>libcups - CUPS Convenience ABI Function Interfaces</A
+></DT
+><DT
+>7-3. <A
+HREF="libcupsimage.html#LIB-LIBCUPSIMAGE-DEF"
+>libcupsimage Definition</A
+></DT
+><DT
+>7-4. <A
+HREF="libcupsimage.html#TBL-LIBCUPSIMAGE-CUPS-INTS"
+>libcupsimage - CUPS Raster ABI Function Interfaces</A
+></DT
+><DT
+>8-1. <A
+HREF="printcommand.html#TBL-CMDS"
+>Commands And Utilities</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="overview.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Foreword</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>deflateReset</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libz"
+HREF="libzman.html"><LINK
+REL="PREVIOUS"
+TITLE="deflateParams"
+HREF="zlib-deflateparams-1.html"><LINK
+REL="NEXT"
+TITLE="deflateSetDictionary"
+HREF="zlib-deflatesetdictionary-1.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="zlib-deflateparams-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="zlib-deflatesetdictionary-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="ZLIB-DEFLATERESET-1"
+></A
+>deflateReset</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN29782"
+></A
+><H2
+>Name</H2
+>deflateReset&nbsp;--&nbsp;reset compression stream state</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN29787"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN29788"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;zlib.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>deflateReset</TT
+></CODE
+>(z_streamp
+<TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29795"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>deflateReset()</TT
+> function shall reset all state
+associated with <TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+>.
+All pending output shall be discarded, and the counts of processed
+bytes (<CODE
+CLASS="STRUCTFIELD"
+>total_in</CODE
+> and 
+<CODE
+CLASS="STRUCTFIELD"
+>total_out</CODE
+>) shall be reset to zero.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29802"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <TT
+CLASS="FUNCTION"
+>deflateReset()</TT
+> shall return  
+<SPAN
+CLASS="RETURNVALUE"
+>Z_OK</SPAN
+>.
+Otherwise it shall return <SPAN
+CLASS="RETURNVALUE"
+>Z_STREAM_ERROR</SPAN
+>
+to indicate the error.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN29808"
+></A
+><H2
+>Errors</H2
+><P
+>On error, <TT
+CLASS="FUNCTION"
+>deflateReset()</TT
+> shall return 
+<SPAN
+CLASS="RETURNVALUE"
+>Z_STREAM_ERROR</SPAN
+>. The following conditions
+shall be treated as an error:
+<P
+></P
+><UL
+><LI
+><P
+>The state in <TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+> is inconsistent or inappropriate.</P
+></LI
+><LI
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>stream</I
+></TT
+> 
+is <CODE
+CLASS="CONSTANT"
+>NULL</CODE
+>.</P
+></LI
+></UL
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="zlib-deflateparams-1.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="zlib-deflatesetdictionary-1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>deflateParams</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libzman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>deflateSetDictionary</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

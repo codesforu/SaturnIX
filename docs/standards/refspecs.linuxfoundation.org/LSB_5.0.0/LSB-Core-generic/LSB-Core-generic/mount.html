@@ -1,0 +1,1101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>mount</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="more"
+HREF="more.html"><LINK
+REL="NEXT"
+TITLE="msgfmt"
+HREF="msgfmt.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="more.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="msgfmt.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="MOUNT"
+></A
+>mount</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN59238"
+></A
+><H2
+>Name</H2
+>mount&nbsp;--&nbsp;mount a file system </DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN59241"
+></A
+><H2
+>Synopsis</H2
+><TT
+CLASS="CMDSYNOPSIS"
+><B
+CLASS="COMMAND"
+>mount</B
+> [-hV]<BR><B
+CLASS="COMMAND"
+>mount</B
+> [-a] [-fFnrsvw] [-t <TT
+CLASS="REPLACEABLE"
+><I
+>vfstype</I
+></TT
+>]<BR><B
+CLASS="COMMAND"
+>mount</B
+> [-fnrsvw] [-o <TT
+CLASS="REPLACEABLE"
+><I
+>options</I
+></TT
+> [,...]] [device | dir]<BR><B
+CLASS="COMMAND"
+>mount</B
+> [-fnrsvw] [-t <TT
+CLASS="REPLACEABLE"
+><I
+>vfstype</I
+></TT
+>] [-o options]  device   dir </TT
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN59268"
+></A
+><H2
+>Description</H2
+><P
+>As described in <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>, all files in the system
+are organized in a directed graph, known as the file hierarchy,
+rooted at <TT
+CLASS="FILENAME"
+>/</TT
+>.
+These files can be spread out over
+several underlying devices.
+The <B
+CLASS="COMMAND"
+>mount</B
+> command shall attach the file system
+found on some underlying device to the file hierarchy. </P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN59274"
+></A
+><H2
+>Options</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59277"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-v</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>invoke verbose mode. The <B
+CLASS="COMMAND"
+>mount</B
+> command shall provide diagnostic
+messages on <CODE
+CLASS="VARNAME"
+>stdout</CODE
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59283"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-a</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>mount all file systems (of the given types) mentioned in <TT
+CLASS="FILENAME"
+>/etc/fstab</TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59288"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-F</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>If the <TT
+CLASS="PARAMETER"
+><I
+>-a</I
+></TT
+> option is also present,
+fork a new incarnation of <B
+CLASS="COMMAND"
+>mount</B
+>
+for each device to be mounted.  This will do the mounts on different devices or
+different NFS servers in parallel.  </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59294"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-f</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>cause everything to be done except for the actual system call; if
+it's not obvious, this `fakes' mounting the file system.  </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59298"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-n</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>mount without writing in <TT
+CLASS="FILENAME"
+>/etc/mtab</TT
+>.  This is necessary for example
+when <TT
+CLASS="FILENAME"
+>/etc</TT
+> is on a read-only file system.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59304"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-s</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>ignore <B
+CLASS="COMMAND"
+>mount</B
+> options not supported by a 
+file system type.  Not all file systems support this option. </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59309"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-r</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>mount the file system read-only. A synonym is <TT
+CLASS="PARAMETER"
+><I
+>-o ro</I
+></TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59314"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-w</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>mount the file system read/write. (default) A synonym is
+<TT
+CLASS="PARAMETER"
+><I
+>-o rw</I
+></TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59319"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-L label</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>If the file <TT
+CLASS="FILENAME"
+>/proc/partitions</TT
+> is supported,
+mount the partition that has the specified label.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59324"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-U uuid</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>If the file <TT
+CLASS="FILENAME"
+>/proc/partitions</TT
+> is supported,
+mount the partition that has the specified uuid.  </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59329"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-t vfstype</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>indicate a file system type of <TT
+CLASS="PARAMETER"
+><I
+>vfstype</I
+></TT
+>. </P
+><P
+>More than one type may be specified in a comma separated list.  The
+list of file system types can be prefixed with <TT
+CLASS="LITERAL"
+>no</TT
+> to specify the file
+system types on which no action should be taken.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59336"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-o</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>options are specified with a <TT
+CLASS="PARAMETER"
+><I
+>-o</I
+></TT
+> flag followed by a comma-separated
+string of options.  Some of these options are only useful when they
+appear in the <TT
+CLASS="FILENAME"
+>/etc/fstab</TT
+> file.  The following options apply to any
+file system that is being mounted:</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59343"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>async</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>perform all I/O to the file system asynchronously.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59347"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>atime</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>update inode access time for each access. (default)</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59351"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>auto</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>in <TT
+CLASS="FILENAME"
+>/etc/fstab</TT
+>,
+indicate the device is mountable with <TT
+CLASS="PARAMETER"
+><I
+>-a</I
+></TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59357"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>defaults</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>use default options:
+<TT
+CLASS="LITERAL"
+>rw</TT
+>, <TT
+CLASS="LITERAL"
+>suid</TT
+>, <TT
+CLASS="LITERAL"
+>dev</TT
+>, <TT
+CLASS="LITERAL"
+>exec</TT
+>, <TT
+CLASS="LITERAL"
+>auto</TT
+>, <TT
+CLASS="LITERAL"
+>nouser</TT
+>, <TT
+CLASS="LITERAL"
+>async</TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59376"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>dev</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>interpret character or block special devices on the file system.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59380"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>exec</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>permit execution of binaries.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59384"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>noatime</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>do not update file access times on this file system.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59388"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>noauto</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>in <TT
+CLASS="FILENAME"
+>/etc/fstab</TT
+>,
+indicates the device is only explicitly mountable.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59393"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>nodev</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>do not interpret character or block special devices on the file
+system.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59397"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>noexec</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>do not allow execution of any binaries on the mounted file system.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59401"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>nosuid</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>do not allow set-user-identifier or set-group-identifier bits to take
+effect.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59405"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>nouser</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>forbid an unprivileged user to mount the file system.
+(default)</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59409"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>remount</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>remount an already-mounted file system.  This is commonly
+used to change the mount options for a file system, especially to make a
+read-only file system writable.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59413"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ro</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>mount the file system read-only.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59417"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>rw</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>mount the file system read-write.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59421"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>suid</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>allow set-user-identifier or set-group-identifier bits to take effect.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59425"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>sync</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>do all I/O to the file system synchronously.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59429"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>user</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>allow an unprivilieged user to mount the file system.  This option implies
+the options 
+<TT
+CLASS="LITERAL"
+>noexec</TT
+>, <TT
+CLASS="LITERAL"
+>nosuid</TT
+>, <TT
+CLASS="LITERAL"
+>nodev</TT
+>
+unless overridden by subsequent options.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN59440"
+></A
+><H2
+>LSB Deprecated Options</H2
+><P
+>The behaviors specified in this section are expected to
+disappear from a future version of the LSB; applications should only
+use the non-LSB-deprecated behaviors.</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59444"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-V</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>output version and exit.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="more.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="msgfmt.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>more</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>msgfmt</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

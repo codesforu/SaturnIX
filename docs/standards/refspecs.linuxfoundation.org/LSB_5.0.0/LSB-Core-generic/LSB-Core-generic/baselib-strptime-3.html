@@ -1,0 +1,273 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>strptime</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="strerror_r"
+HREF="baselib-strerror-r.html"><LINK
+REL="NEXT"
+TITLE="strsep"
+HREF="baselib-strsep-3.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-strerror-r.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-strsep-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-STRPTIME-3"
+></A
+>strptime</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN20088"
+></A
+><H2
+>Name</H2
+>strptime&nbsp;--&nbsp;parse a time string</DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20091"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>strptime()</TT
+> shall behave as specified in the
+<I
+CLASS="CITETITLE"
+><A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+></I
+> with differences as listed below.</P
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN20097"
+></A
+><H3
+>Number of leading zeroes may be limited</H3
+><P
+>The <I
+CLASS="CITETITLE"
+><A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+></I
+> specifies fields for which "leading zeros are
+permitted but not required"; however, applications shall not expect to 
+be able to supply more leading zeroes for these fields than would be 
+implied by the range of the field. Implementations may choose to 
+either match an input with excess leading zeroes, or treat this as a 
+non-matching input.  For example, <CODE
+CLASS="VARNAME"
+>%j</CODE
+> has a range of 
+<TT
+CLASS="LITERAL"
+>001</TT
+> to <TT
+CLASS="LITERAL"
+>366</TT
+>, so <TT
+CLASS="LITERAL"
+>0</TT
+>, 
+<TT
+CLASS="LITERAL"
+>00</TT
+>, <TT
+CLASS="LITERAL"
+>000</TT
+>, <TT
+CLASS="LITERAL"
+>001</TT
+>, 
+and <TT
+CLASS="LITERAL"
+>045</TT
+> are acceptable inputs, but inputs such as 
+<TT
+CLASS="LITERAL"
+>0000</TT
+>, <TT
+CLASS="LITERAL"
+>0366</TT
+> and the like are not.</P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN20112"
+></A
+><H2
+>Rationale</H2
+><P
+><I
+CLASS="EMPHASIS"
+>glibc</I
+> developers consider it appropriate behavior 
+to forbid excess leading zeroes.  When trying to parse a given input
+against several format strings, forbidding excess leading zeroes could
+be helpful.  For example, if one matches <TT
+CLASS="LITERAL"
+>0011-12-26</TT
+> 
+against <TT
+CLASS="LITERAL"
+>%m-%d-%Y</TT
+> and then against 
+<TT
+CLASS="LITERAL"
+>%Y-%m-%d</TT
+>, it seems useful for the first match to fail, 
+as it would be perverse to parse that date as November 12, year 26.  
+The second pattern parses it as December 26, year 11.</P
+><P
+>The <I
+CLASS="CITETITLE"
+><A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+></I
+> is 
+not explicit that an unlimited number of leading zeroes are required, 
+although it may imply this. The <ACRONYM
+CLASS="ACRONYM"
+>LSB</ACRONYM
+> explicitly 
+allows implementations to have either behavior. Future versions of this 
+standard may require implementations to forbid excess leading zeroes.</P
+><P
+>An Interpretation Request is
+currently pending against <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+> for this matter.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-strerror-r.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-strsep-3.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>strerror_r</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>strsep</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

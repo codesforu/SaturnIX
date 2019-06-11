@@ -1,0 +1,547 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Printing Libraries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Imaging Specification"
+HREF="book1.html"><LINK
+REL="PREVIOUS"
+TITLE="PPD Format Extensions"
+HREF="ppdext.html"><LINK
+REL="NEXT"
+TITLE="Libraries"
+HREF="libcupslib.html"></HEAD
+><BODY
+CLASS="PART"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Imaging Specification</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="ppdext.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libcupslib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="PART"
+><A
+NAME="TOCCUPSLIB"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+>II. Printing Libraries</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>7. <A
+HREF="libcupslib.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>7.1. <A
+HREF="libcupslib.html#LIBCUPS"
+>Interfaces for libcups</A
+></DT
+><DD
+><DL
+><DT
+>7.1.1. <A
+HREF="libcupslib.html#AEN408"
+>CUPS Convenience ABI</A
+></DT
+></DL
+></DD
+><DT
+>7.2. <A
+HREF="libcups-ddefs.html"
+>Data Definitions for libcups</A
+></DT
+><DD
+><DL
+><DT
+>7.2.1. <A
+HREF="libcups-ddefs.html#AEN1016"
+>cups/cups.h</A
+></DT
+><DT
+>7.2.2. <A
+HREF="libcups-ddefs.html#AEN1020"
+>cups/http.h</A
+></DT
+><DT
+>7.2.3. <A
+HREF="libcups-ddefs.html#AEN1024"
+>cups/ipp.h</A
+></DT
+><DT
+>7.2.4. <A
+HREF="libcups-ddefs.html#AEN1028"
+>cups/ppd.h</A
+></DT
+></DL
+></DD
+><DT
+>7.3. <A
+HREF="libcupsman.html"
+>Interface Definitions for libcups</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="libcups.cupsadddest.1.html"
+>cupsAddDest</A
+>&nbsp;--&nbsp;Add a destination to the list of destinations.</DT
+><DT
+><A
+HREF="libcups.cupsaddoption.1.html"
+>cupsAddOption</A
+>&nbsp;--&nbsp;Add an option to an option array.</DT
+><DT
+><A
+HREF="libcups.cupscanceljob.1.html"
+>cupsCancelJob</A
+>&nbsp;--&nbsp;Cancel a print job on the default server.</DT
+><DT
+><A
+HREF="libcups.cupsencryption.1.html"
+>cupsEncryption</A
+>&nbsp;--&nbsp;Get the default encryption settings.</DT
+><DT
+><A
+HREF="libcups.cupsfreedests.1.html"
+>cupsFreeDests</A
+>&nbsp;--&nbsp;Free the memory used by the list of destinations.</DT
+><DT
+><A
+HREF="libcups.cupsfreejobs.1.html"
+>cupsFreeJobs</A
+>&nbsp;--&nbsp;Free memory used by job data.</DT
+><DT
+><A
+HREF="libcups.cupsfreeoptions.1.html"
+>cupsFreeOptions</A
+>&nbsp;--&nbsp;Free all memory used by options.</DT
+><DT
+><A
+HREF="libcups.cupsgetdefault.1.html"
+>cupsGetDefault</A
+>&nbsp;--&nbsp;Get the default printer or class for the default server.</DT
+><DT
+><A
+HREF="libcups.cupsgetdest.1.html"
+>cupsGetDest</A
+>&nbsp;--&nbsp;Get the named destination from the list.</DT
+><DT
+><A
+HREF="libcups.cupsgetdests.1.html"
+>cupsGetDests</A
+>&nbsp;--&nbsp;Get the list of destinations from the default server.</DT
+><DT
+><A
+HREF="libcups.cupsgetjobs.1.html"
+>cupsGetJobs</A
+>&nbsp;--&nbsp;Get the jobs from the default server.</DT
+><DT
+><A
+HREF="libcups.cupsgetoption.1.html"
+>cupsGetOption</A
+>&nbsp;--&nbsp;Get an option value.</DT
+><DT
+><A
+HREF="libcups.cupsgetppd.1.html"
+>cupsGetPPD</A
+>&nbsp;--&nbsp;Get the PPD file for a printer on the default server.</DT
+><DT
+><A
+HREF="libcups.cupsgetpassword.1.html"
+>cupsGetPassword</A
+>&nbsp;--&nbsp;Get a password from the user.</DT
+><DT
+><A
+HREF="libcups.cupslangencoding.1.html"
+>cupsLangEncoding</A
+>&nbsp;--&nbsp;Return the character encoding (us-ascii, etc.)</DT
+><DT
+><A
+HREF="libcups.cupslangflush.1.html"
+>cupsLangFlush</A
+>&nbsp;--&nbsp;Flush all language data out of the cache.</DT
+><DT
+><A
+HREF="libcups.cupslangfree.1.html"
+>cupsLangFree</A
+>&nbsp;--&nbsp;Free language data.</DT
+><DT
+><A
+HREF="libcups.cupslangget.1.html"
+>cupsLangGet</A
+>&nbsp;--&nbsp;Get a language.</DT
+><DT
+><A
+HREF="libcups.cupslasterror.1.html"
+>cupsLastError</A
+>&nbsp;--&nbsp;Return the last IPP status code.</DT
+><DT
+><A
+HREF="libcups.cupsmarkoptions.1.html"
+>cupsMarkOptions</A
+>&nbsp;--&nbsp;Mark command-line options in a PPD file.</DT
+><DT
+><A
+HREF="libcups.cupsparseoptions.1.html"
+>cupsParseOptions</A
+>&nbsp;--&nbsp;Parse options from a command-line argument.</DT
+><DT
+><A
+HREF="libcups.cupsprintfile.1.html"
+>cupsPrintFile</A
+>&nbsp;--&nbsp;Print a file to a printer or class on the default server.</DT
+><DT
+><A
+HREF="libcups.cupsprintfiles.1.html"
+>cupsPrintFiles</A
+>&nbsp;--&nbsp;Print one or more files to a printer or class on the</DT
+><DT
+><A
+HREF="libcups.cupsserver.1.html"
+>cupsServer</A
+>&nbsp;--&nbsp;Return the hostname/address of the default server.</DT
+><DT
+><A
+HREF="libcups.cupssetdests.1.html"
+>cupsSetDests</A
+>&nbsp;--&nbsp;Save the list of destinations for the default server.</DT
+><DT
+><A
+HREF="libcups.cupssetencryption.1.html"
+>cupsSetEncryption</A
+>&nbsp;--&nbsp;Set the encryption preference.</DT
+><DT
+><A
+HREF="libcups.cupssetpasswordcb.1.html"
+>cupsSetPasswordCB</A
+>&nbsp;--&nbsp;Set the password callback for CUPS.</DT
+><DT
+><A
+HREF="libcups.cupssetserver.1.html"
+>cupsSetServer</A
+>&nbsp;--&nbsp;Set the default server name.</DT
+><DT
+><A
+HREF="libcups.cupssetuser.1.html"
+>cupsSetUser</A
+>&nbsp;--&nbsp;Set the default user name.</DT
+><DT
+><A
+HREF="libcups.cupstempfd.1.html"
+>cupsTempFd</A
+>&nbsp;--&nbsp;Creates a temporary file.</DT
+><DT
+><A
+HREF="libcups.cupsuser.1.html"
+>cupsUser</A
+>&nbsp;--&nbsp;Return the current user's name.</DT
+><DT
+><A
+HREF="libcups.ppdclose.1.html"
+>ppdClose</A
+>&nbsp;--&nbsp;Free all memory used by the PPD file.</DT
+><DT
+><A
+HREF="libcups.ppdcollect.1.html"
+>ppdCollect</A
+>&nbsp;--&nbsp;Collect all marked options that reside in the specified</DT
+><DT
+><A
+HREF="libcups.ppdconflicts.1.html"
+>ppdConflicts</A
+>&nbsp;--&nbsp;Check to see if there are any conflicts.</DT
+><DT
+><A
+HREF="libcups.ppdemit.1.html"
+>ppdEmit</A
+>&nbsp;--&nbsp;Emit code for marked options to a file.</DT
+><DT
+><A
+HREF="libcups.ppdemitfd.1.html"
+>ppdEmitFd</A
+>&nbsp;--&nbsp;Emit code for marked options to a file.</DT
+><DT
+><A
+HREF="libcups.ppdemitjcl.1.html"
+>ppdEmitJCL</A
+>&nbsp;--&nbsp;Emit code for JCL options to a file.</DT
+><DT
+><A
+HREF="libcups.ppderrorstring.1.html"
+>ppdErrorString</A
+>&nbsp;--&nbsp;Returns the text assocated with a status.</DT
+><DT
+><A
+HREF="libcups.ppdfindattr.1.html"
+>ppdFindAttr</A
+>&nbsp;--&nbsp;Find the first matching attribute...</DT
+><DT
+><A
+HREF="libcups.ppdfindchoice.1.html"
+>ppdFindChoice</A
+>&nbsp;--&nbsp;Return a pointer to an option choice.</DT
+><DT
+><A
+HREF="libcups.ppdfindmarkedchoice.1.html"
+>ppdFindMarkedChoice</A
+>&nbsp;--&nbsp;Return the marked choice for the specified option.</DT
+><DT
+><A
+HREF="libcups.ppdfindnextattr.1.html"
+>ppdFindNextAttr</A
+>&nbsp;--&nbsp;Find the next matching attribute...</DT
+><DT
+><A
+HREF="libcups.ppdfindoption.1.html"
+>ppdFindOption</A
+>&nbsp;--&nbsp;Return a pointer to the specified option.</DT
+><DT
+><A
+HREF="libcups.ppdismarked.1.html"
+>ppdIsMarked</A
+>&nbsp;--&nbsp;Check to see if an option is marked...</DT
+><DT
+><A
+HREF="libcups.ppdlasterror.1.html"
+>ppdLastError</A
+>&nbsp;--&nbsp;Return the status from the last ppdOpen*().</DT
+><DT
+><A
+HREF="libcups.ppdmarkdefaults.1.html"
+>ppdMarkDefaults</A
+>&nbsp;--&nbsp;Mark all default options in the PPD file.</DT
+><DT
+><A
+HREF="libcups.ppdmarkoption.1.html"
+>ppdMarkOption</A
+>&nbsp;--&nbsp;Mark an option in a PPD file.</DT
+><DT
+><A
+HREF="libcups.ppdopen.1.html"
+>ppdOpen</A
+>&nbsp;--&nbsp;Read a PPD file into memory.</DT
+><DT
+><A
+HREF="libcups.ppdopenfd.1.html"
+>ppdOpenFd</A
+>&nbsp;--&nbsp;Read a PPD file into memory.</DT
+><DT
+><A
+HREF="libcups.ppdopenfile.1.html"
+>ppdOpenFile</A
+>&nbsp;--&nbsp;Read a PPD file into memory.</DT
+><DT
+><A
+HREF="libcups.ppdpagelength.1.html"
+>ppdPageLength</A
+>&nbsp;--&nbsp;Get the page length for the given size.</DT
+><DT
+><A
+HREF="libcups.ppdpagesize.1.html"
+>ppdPageSize</A
+>&nbsp;--&nbsp;Get the page size record for the given size.</DT
+><DT
+><A
+HREF="libcups.ppdpagewidth.1.html"
+>ppdPageWidth</A
+>&nbsp;--&nbsp;Get the page width for the given size.</DT
+><DT
+><A
+HREF="libcups.ppdsetconformance.1.html"
+>ppdSetConformance</A
+>&nbsp;--&nbsp;Set the conformance level for PPD files.</DT
+></DL
+></DD
+><DT
+>7.4. <A
+HREF="libcupsimage.html"
+>Interfaces for libcupsimage</A
+></DT
+><DD
+><DL
+><DT
+>7.4.1. <A
+HREF="libcupsimage.html#AEN2431"
+>CUPS Raster ABI</A
+></DT
+></DL
+></DD
+><DT
+>7.5. <A
+HREF="libcupsimage-ddefs.html"
+>Data Definitions for libcupsimage</A
+></DT
+><DD
+><DL
+><DT
+>7.5.1. <A
+HREF="libcupsimage-ddefs.html#AEN2495"
+>cups/raster.h</A
+></DT
+></DL
+></DD
+><DT
+>7.6. <A
+HREF="libcupsimageman.html"
+>Interface Definitions for libcupsimage</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="libcupsimage.cupsrasterclose.1.html"
+>cupsRasterClose</A
+>&nbsp;--&nbsp;Close a raster stream.</DT
+><DT
+><A
+HREF="libcupsimage.cupsrasteropen.1.html"
+>cupsRasterOpen</A
+>&nbsp;--&nbsp;Open a raster stream.</DT
+><DT
+><A
+HREF="libcupsimage.cupsrasterreadheader.1.html"
+>cupsRasterReadHeader</A
+>&nbsp;--&nbsp;Read a raster page header and store it in a</DT
+><DT
+><A
+HREF="libcupsimage.cupsrasterreadpixels.1.html"
+>cupsRasterReadPixels</A
+>&nbsp;--&nbsp;Read raster pixels.</DT
+><DT
+><A
+HREF="libcupsimage.cupsrasterwriteheader.1.html"
+>cupsRasterWriteHeader</A
+>&nbsp;--&nbsp;Write a raster page header from a V1 page</DT
+><DT
+><A
+HREF="libcupsimage.cupsrasterwritepixels.1.html"
+>cupsRasterWritePixels</A
+>&nbsp;--&nbsp;Write raster pixels.</DT
+></DL
+></DD
+></DL
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="ppdext.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libcupslib.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PPD Format Extensions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Libraries</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

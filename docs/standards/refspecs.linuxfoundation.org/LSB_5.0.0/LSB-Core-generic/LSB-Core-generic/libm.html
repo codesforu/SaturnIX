@@ -1,0 +1,2098 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libm</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Base Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="xdrstdio_create"
+HREF="baselib-xdrstdio-create-3.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libm"
+HREF="libm-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-xdrstdio-create-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 14. Base Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libm-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBM"
+>14.6. Interfaces for libm</A
+></H1
+><P
+><A
+HREF="libm.html#LIB-LIBM-DEF"
+>Table 14-38</A
+> defines the library name and shared object name
+for the libm library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBM-DEF"
+></A
+><P
+><B
+>Table 14-38. libm Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libm</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>See architecture specific part.</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBM.1"
+></A
+>[LSB] <A
+HREF="normativerefs.html#STD.LSB"
+>This Specification</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBM.2"
+></A
+>[SUSv3] <A
+HREF="normativerefs.html#STD.SUSV3"
+>POSIX 1003.1-2001 (ISO/IEC 9945-2003)</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBM.3"
+></A
+>[SUSv4] <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN21464"
+>14.6.1. Math</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN21467"
+>14.6.1.1. Interfaces for Math</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for Math specified in <A
+HREF="libm.html#TBL-LIBM-MATH-INTS"
+>Table 14-39</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBM-MATH-INTS"
+></A
+><P
+><B
+>Table 14-39. libm - Math Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>__finite <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>__finitef <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>__finitel <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>__fpclassify <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>__fpclassifyf <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>__signbit <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>__signbitf <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>acos <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>acosf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>acosh <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>acoshf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>acoshl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>acosl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>asin <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>asinf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>asinh <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>asinhf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>asinhl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>asinl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atan <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>atan2 <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atan2f <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atan2l <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atanf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>atanh <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atanhf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atanhl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atanl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cabs <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cabsf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cabsl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cacos <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cacosf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cacosh <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cacoshf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cacoshl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cacosl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>carg <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cargf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cargl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>casin <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>casinf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>casinh <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>casinhf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>casinhl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>casinl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>catan <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>catanf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>catanh <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>catanhf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>catanhl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>catanl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cbrt <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cbrtf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cbrtl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ccos <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>ccosf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ccosh <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ccoshf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ccoshl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>ccosl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ceil <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ceilf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ceill <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cexp <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cexpf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cexpl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cimag <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cimagf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cimagl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>clog <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>clog10 <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>clog10f <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>clog10l <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>clogf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>clogl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>conj <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>conjf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>conjl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>copysign <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>copysignf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>copysignl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cos <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cosf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cosh <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>coshf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>coshl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cosl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cpow <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cpowf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cpowl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cproj <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cprojf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cprojl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>creal <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>crealf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>creall <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csin <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csinf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csinh <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>csinhf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csinhl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csinl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csqrt <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>csqrtf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csqrtl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ctan <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ctanf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>ctanh <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ctanhf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ctanhl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ctanl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>drem <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>dremf <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>dreml <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>erf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>erfc <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>erfcf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>erfcl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>erff <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>erfl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>exp <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>exp10 <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>exp10f <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>exp10l <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>exp2 <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>exp2f <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>expf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>expl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>expm1 <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>expm1f <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>expm1l <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fabs <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fabsf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fabsl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fdim <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fdimf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fdiml <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>feclearexcept <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fedisableexcept <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>feenableexcept <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>fegetenv <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fegetexcept <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>fegetexceptflag <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fegetround <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>feholdexcept <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>feraiseexcept <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fesetenv <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fesetexceptflag <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fesetround <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fetestexcept <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>feupdateenv <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>finite <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>finitef <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>finitel <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>floor <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>floorf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>floorl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fma <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmaf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fmal <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmax <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmaxf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmaxl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fmin <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fminf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fminl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmod <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fmodf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmodl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>frexp <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>frexpf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>frexpl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>gamma <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>gammaf <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>gammal <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>hypot <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>hypotf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>hypotl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ilogb <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>ilogbf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ilogbl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>j0 <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>j0f <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>j0l <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>j1 <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>j1f <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>j1l <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>jn <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>jnf <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>jnl <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>ldexp <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>ldexpf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ldexpl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lgamma <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lgamma_r <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>lgammaf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lgammaf_r <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>lgammal <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lgammal_r <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>llrint <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>llrintf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>llrintl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>llround <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>llroundf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>llroundl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log10 <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>log10f <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log10l <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log1p <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log1pf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>log1pl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log2 <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log2f <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log2l <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>logb <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>logbf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>logbl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>logf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>logl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lrint <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lrintf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lrintl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>lround <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lroundf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lroundl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>matherr <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>modf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>modff <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>modfl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nan <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>nanf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nanl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nearbyint <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nearbyintf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>nearbyintl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nextafter <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nextafterf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nextafterl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>nexttoward <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nexttowardf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nexttowardl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>pow <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>pow10 <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>pow10f <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>pow10l <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>powf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>powl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>remainder <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>remainderf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>remainderl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>remquo <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>remquof <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>remquol <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>rint <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>rintf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>rintl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>round <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>roundf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>roundl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>scalb <A
+HREF="libm.html#REFSTD.LIBM.2"
+>[SUSv3]</A
+></TD
+><TD
+>scalbf <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>scalbl <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>scalbln <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>scalblnf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>scalblnl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>scalbn <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>scalbnf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>scalbnl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>significand <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>significandf <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>significandl <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>sin <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sincos <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>sincosf <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>sincosl <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>sinf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sinh <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sinhf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>sinhl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sinl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sqrt <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sqrtf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>sqrtl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tan <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tanf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tanh <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>tanhf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tanhl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tanl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tgamma <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>tgammaf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tgammal <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>trunc <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>truncf <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>truncl <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>y0 <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>y0f <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>y0l <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>y1 <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>y1f <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>y1l <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>yn <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>ynf <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>ynl <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the generic deprecated functions
+for Math specified in <A
+HREF="libm.html#TBL-LIBM-MATH-DEPINTS"
+>Table 14-40</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>These interfaces are deprecated, and applications
+should avoid using them.
+These interfaces may be withdrawn
+in future releases of this specification.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBM-MATH-DEPINTS"
+></A
+><P
+><B
+>Table 14-40. libm - Math Deprecated Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>drem <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>dremf <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>dreml <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>finite <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>finitef <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>finitel <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>gamma <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>gammaf <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>gammal <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>matherr <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the generic data interfaces
+for Math specified in <A
+HREF="libm.html#TBL-LIBM-MATH-DATA"
+>Table 14-41</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBM-MATH-DATA"
+></A
+><P
+><B
+>Table 14-41. libm - Math Data Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>signgam <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-xdrstdio-create-3.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libm-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>xdrstdio_create</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libm</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

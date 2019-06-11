@@ -1,0 +1,410 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>dl_iterate_phdr</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="dgettext"
+HREF="baselib-dgettext.html"><LINK
+REL="NEXT"
+TITLE="dngettext"
+HREF="baselib-dngettext.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-dgettext.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-dngettext.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-DL-ITERATE-PHDR-1"
+></A
+>dl_iterate_phdr</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN13293"
+></A
+><H2
+>Name</H2
+>dl_iterate_phdr&nbsp;--&nbsp;iterate over a program's loaded shared objects</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN13298"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN13299"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;link.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>dl_iterate_phdr</TT
+></CODE
+>(int(*<TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>)
+(struct dl_phdr_info *, size_t, void *), void *<TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13309"
+></A
+><H2
+>Description</H2
+><P
+><TT
+CLASS="FUNCTION"
+>dl_iterate_phdr()</TT
+> allows a program to iterate
+over the shared objects it has loaded.  
+The function described by the <TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+> parameter
+is called once for each loaded shared object, allowing an action
+to be taken for each one.  <TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+> is
+called with three arguments which are filled in by the implementation:
+a pointer to a structure of type <TT
+CLASS="STRUCTNAME"
+>dl_phdr_info</TT
+>
+containing information about the shared object; an integer size
+of the structure; and a copy of the <TT
+CLASS="PARAMETER"
+><I
+>data</I
+></TT
+>
+argument to <TT
+CLASS="FUNCTION"
+>dl_iterate_phdr()</TT
+>.  If 
+<TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+> returns a non-zero value,
+<TT
+CLASS="FUNCTION"
+>dl_iterate_phdr()</TT
+> will stop processing, even
+if there are unprocessed shared objects.  The order of
+processing is unspecified.</P
+><P
+>The <TT
+CLASS="STRUCTNAME"
+>dl_phdr_info</TT
+> structure has the following
+members (note that on 64-bit architectures the types here shown
+as <SPAN
+CLASS="TYPE"
+>Elf32_<TT
+CLASS="REPLACEABLE"
+><I
+>type</I
+></TT
+></SPAN
+> will
+instead be <SPAN
+CLASS="TYPE"
+>Elf64_<TT
+CLASS="REPLACEABLE"
+><I
+>type</I
+></TT
+></SPAN
+>):
+<DIV
+CLASS="INFORMALEXAMPLE"
+><P
+></P
+><A
+NAME="AEN13326"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>    Elf32_Addr dlpi_addr;
+    const char *dlpi_name;
+    const Elf32_Phdr *dlpi_phdr;
+    Elf32_Half dlpi_phnum;
+    unsigned long long int dlpi_adds;
+    unsigned long long int dlpi_subs;
+    size_t dlpi_tls_modid;
+    void *dlpi_tls_data;</PRE
+></TD
+></TR
+></TABLE
+><P
+></P
+></DIV
+></P
+><P
+><CODE
+CLASS="STRUCTFIELD"
+>dlpi_addr</CODE
+> contains the base address
+of the shared object.</P
+><P
+><CODE
+CLASS="STRUCTFIELD"
+>dlpi_name</CODE
+> is a null-terminated string
+giving the pathname from which the shared object was loaded.</P
+><P
+><CODE
+CLASS="STRUCTFIELD"
+>dlpi_phdr</CODE
+> is a pointer to an array
+of program headers for this shared object, while
+<CODE
+CLASS="STRUCTFIELD"
+>dlpi_phnum</CODE
+> is the number of
+entries in this array.</P
+><P
+><CODE
+CLASS="STRUCTFIELD"
+>dlpi_adds</CODE
+> and
+<CODE
+CLASS="STRUCTFIELD"
+>dlpi_subs</CODE
+> are
+incremented when shared objects are added or removed, respectively.</P
+><P
+><CODE
+CLASS="STRUCTFIELD"
+>dlpi_tls_modid</CODE
+>
+contains the module ID used in TLS relocations, 
+if there is a <CODE
+CLASS="CONSTANT"
+>PT_TLS</CODE
+> segment.
+Otherwise the value shall be zero.</P
+><P
+><CODE
+CLASS="STRUCTFIELD"
+>dlpi_tls_data</CODE
+>
+contains the address of the calling thread's instance
+of this module's <CODE
+CLASS="CONSTANT"
+>PT_TLS</CODE
+> segment,
+if there is one and it has been allocated in the calling thread.
+Otherwise the value shall be a null pointer.</P
+><P
+>Some implementations may not provide all fields in
+<TT
+CLASS="STRUCTNAME"
+>dl_phdr_info</TT
+>, although the
+first four are always mandatory.  Applications are
+advised to have the callback function check the size
+parameter before examining the later members.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13346"
+></A
+><H2
+>Return Value</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>dl_iterate_phdr()</TT
+> function returns whatever value
+was  returned  by the last call to <TT
+CLASS="PARAMETER"
+><I
+>callback</I
+></TT
+>.
+This will be zero if processing completed normally, since processing
+does not continue unless the callback function returns zero.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13351"
+></A
+><H2
+>Errors</H2
+><P
+>No errors are defined by <TT
+CLASS="FUNCTION"
+>dl_iterate_phdr()</TT
+>;
+as noted the callback function must use a zero return to indicate
+success but may assign any meaning it wishes to non-zero returns.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-dgettext.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-dngettext.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>dgettext</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>dngettext</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

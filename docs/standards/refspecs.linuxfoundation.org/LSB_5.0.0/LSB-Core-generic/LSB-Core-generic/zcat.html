@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>zcat</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="xargs"
+HREF="xargs.html"><LINK
+REL="NEXT"
+TITLE="Execution Environment"
+HREF="tocexecenv.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="xargs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="tocexecenv.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="ZCAT"
+></A
+>zcat</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN60940"
+></A
+><H2
+>Name</H2
+>zcat&nbsp;--&nbsp;uncompress files to standard output</DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN60943"
+></A
+><H2
+>Description</H2
+><P
+>The <B
+CLASS="COMMAND"
+>zcat</B
+> utility shall behave as described
+in <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>, with differences listed below.</P
+><P
+>The <A
+HREF="normativerefs.html#STD.FHS"
+>Filesystem Hierarchy Standard</A
+> requires that if 
+<B
+CLASS="COMMAND"
+>zcat</B
+> exists, it must be a symbolic or hard link
+to <TT
+CLASS="FILENAME"
+>/bin/gzip</TT
+>.  This specification additionally
+allows <B
+CLASS="COMMAND"
+>zcat</B
+> to be a wrapper script which
+calls <B
+CLASS="COMMAND"
+>gzip -c -d</B
+>.</P
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN60954"
+></A
+><H3
+>Differences</H3
+><P
+>The <B
+CLASS="COMMAND"
+>zcat</B
+> utility shall write to standard output the uncompressed form of files
+that have been compressed using any of the compression methods supported by the
+<B
+CLASS="COMMAND"
+>gzip</B
+> utility. It is the equivalent of 
+<B
+CLASS="COMMAND"
+>gzip -c -d</B
+>. Input files are not affected.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="xargs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="tocexecenv.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>xargs</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Execution Environment</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

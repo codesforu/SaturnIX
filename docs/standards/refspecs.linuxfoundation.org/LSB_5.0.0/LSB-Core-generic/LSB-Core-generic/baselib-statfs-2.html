@@ -1,0 +1,559 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>statfs</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="sscanf"
+HREF="baselib-sscanf.html"><LINK
+REL="NEXT"
+TITLE="statfs64"
+HREF="baselib-statfs64.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-sscanf.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-statfs64.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-STATFS-2"
+></A
+>statfs</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN19825"
+></A
+><H2
+>Name</H2
+>statfs&nbsp;--&nbsp;(deprecated)</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN19828"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN19829"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;sys/statfs.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int 
+  <TT
+CLASS="FUNCTION"
+>statfs</TT
+></CODE
+>(const char *<TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>, struct statfs *<TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19838"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>statfs()</TT
+> function returns information about a mounted 
+file system.  The file system is identified by <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>,
+a path name of a file within the mounted filesystem.
+The results are placed in the structure pointed to by</P
+><P
+>Fields that are undefined for a particular file system shall
+be set to
+<TT
+CLASS="LITERAL"
+>0</TT
+>.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>Application developers should use the <TT
+CLASS="FUNCTION"
+>statvfs()</TT
+> function
+to obtain general file system information. Applications should only
+use the <TT
+CLASS="FUNCTION"
+>statfs()</TT
+> function if they must determine
+the file system type, which need not be provided by 
+<TT
+CLASS="FUNCTION"
+>statvfs()</TT
+>.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19850"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, the <TT
+CLASS="FUNCTION"
+>statfs()</TT
+> function shall
+return <SPAN
+CLASS="RETURNVALUE"
+>0</SPAN
+> and set the fields of the
+structure idenfitied by <TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+> accordingly.
+On error, the <TT
+CLASS="FUNCTION"
+>statfs()</TT
+> function shall
+return <SPAN
+CLASS="RETURNVALUE"
+>-1</SPAN
+> and set
+<CODE
+CLASS="VARNAME"
+>errno</CODE
+> accordingly.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN19859"
+></A
+><H2
+>Errors</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19862"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ENOTDIR</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>A component of the path prefix of <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+> is 
+not a directory.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19867"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ENAMETOOLONG</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+> is too long.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19872"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ENOENT</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The file referred to by <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+> does not exist.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19877"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EACCES</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Search permission is denied for a component of the path prefix of 
+<TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19882"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ELOOP</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Too many symbolic links were encountered in translating 
+<TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19887"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EFAULT</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+><TT
+CLASS="PARAMETER"
+><I
+>buf</I
+></TT
+> or <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+> points to 
+an invalid address.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19893"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>EIO</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>An I/O error occurred while reading from or writing to the file system.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19897"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ENOMEM</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Insufficient kernel memory was available.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN19901"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>ENOSYS</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The filesystem <TT
+CLASS="PARAMETER"
+><I
+>path</I
+></TT
+> is on does not support 
+<TT
+CLASS="FUNCTION"
+>statfs()</TT
+>.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-sscanf.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-statfs64.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>sscanf</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>statfs64</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

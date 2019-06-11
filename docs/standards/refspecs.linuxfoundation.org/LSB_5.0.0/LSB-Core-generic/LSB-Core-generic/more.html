@@ -1,0 +1,600 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>more</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="mktemp"
+HREF="mktemp.html"><LINK
+REL="NEXT"
+TITLE="mount"
+HREF="mount.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="mktemp.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="mount.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="MORE"
+></A
+>more</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN59140"
+></A
+><H2
+>Name</H2
+>more&nbsp;--&nbsp;display files on a page-by-page basis</DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN59143"
+></A
+><H2
+>Description</H2
+><P
+><B
+CLASS="COMMAND"
+>more</B
+> is as specified in 
+<A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>, but with
+differences as listed below.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN59148"
+></A
+><H2
+>Differences</H2
+><P
+>The <B
+CLASS="COMMAND"
+>more</B
+> command need not respect the 
+<TT
+CLASS="LITERAL"
+>LINES</TT
+> and <TT
+CLASS="LITERAL"
+>COLUMNS</TT
+> environment variables.</P
+><P
+>The following additional options may be supported:
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59156"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-<TT
+CLASS="REPLACEABLE"
+><I
+>num</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>specifies an integer which is the screen size (in lines).</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59161"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>+<TT
+CLASS="REPLACEABLE"
+><I
+>num</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>starts at line number <TT
+CLASS="REPLACEABLE"
+><I
+>num</I
+></TT
+>.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59167"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>+/<TT
+CLASS="REPLACEABLE"
+><I
+>pattern</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Start at the first line matching the pattern, 
+equivalent to executing the search forward (<TT
+CLASS="LITERAL"
+>/</TT
+>)
+command with the given pattern immediately after opening each file.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></P
+><P
+>The following options from <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+> may behave
+differently:
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59176"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-e</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>has unspecified behavior.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59180"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-i</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>has unspecified behavior.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59184"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-n</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>has unspecified behavior.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59188"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-p</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Either clear the whole screen before displaying any text (instead
+of the usual scrolling behavior), or provide the behavior
+specified by <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>.  In the latter case, the
+syntax is "<TT
+CLASS="PARAMETER"
+><I
+>-p <TT
+CLASS="REPLACEABLE"
+><I
+>command</I
+></TT
+></I
+></TT
+>".</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN59195"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-t</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>has unspecified behavior.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></P
+><P
+>The <B
+CLASS="COMMAND"
+>more</B
+> command need not support the following
+interactive commands:
+
+<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>g</TD
+></TR
+><TR
+><TD
+>G</TD
+></TR
+><TR
+><TD
+>u</TD
+></TR
+><TR
+><TD
+>control u</TD
+></TR
+><TR
+><TD
+>control f</TD
+></TR
+><TR
+><TD
+>newline</TD
+></TR
+><TR
+><TD
+>j</TD
+></TR
+><TR
+><TD
+>k</TD
+></TR
+><TR
+><TD
+>r</TD
+></TR
+><TR
+><TD
+>R</TD
+></TR
+><TR
+><TD
+>m</TD
+></TR
+><TR
+><TD
+>' (return to mark)</TD
+></TR
+><TR
+><TD
+>/!</TD
+></TR
+><TR
+><TD
+>?</TD
+></TR
+><TR
+><TD
+>N</TD
+></TR
+><TR
+><TD
+>:e</TD
+></TR
+><TR
+><TD
+>:t</TD
+></TR
+><TR
+><TD
+>control g</TD
+></TR
+><TR
+><TD
+>ZZ</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN59221"
+></A
+><H2
+>Rationale</H2
+><P
+>The +<TT
+CLASS="REPLACEABLE"
+><I
+>num</I
+></TT
+> and
++/<TT
+CLASS="REPLACEABLE"
+><I
+>string</I
+></TT
+> options are deprecated in 
+<A
+HREF="normativerefs.html#STD.SUSV2"
+>SUSv2</A
+>, and have been removed in <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>; 
+however this specification continues to
+specify them because the publicly available 
+<TT
+CLASS="LITERAL"
+>util-linux</TT
+> package does not support the replacement
+(-p <TT
+CLASS="REPLACEABLE"
+><I
+>command</I
+></TT
+>).  The
++<TT
+CLASS="REPLACEABLE"
+><I
+>command</I
+></TT
+> option as found in 
+<A
+HREF="normativerefs.html#STD.SUSV2"
+>SUSv2</A
+> is more general than is specified here,
+but the <TT
+CLASS="LITERAL"
+>util-linux</TT
+> package appears to only support the more
+specific +<TT
+CLASS="REPLACEABLE"
+><I
+>num</I
+></TT
+> and
++/<TT
+CLASS="REPLACEABLE"
+><I
+>string</I
+></TT
+> forms.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="mktemp.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="mount.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>mktemp</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>mount</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

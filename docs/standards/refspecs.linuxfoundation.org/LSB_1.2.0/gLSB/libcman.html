@@ -1,0 +1,898 @@
+<HTML
+><HEAD
+><TITLE
+>Interfaces Definitions for libc</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libc"
+HREF="libc-ddefs.html"><LINK
+REL="NEXT"
+TITLE="_IO_feof"
+HREF="baselib--io-feof-3.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libc-ddefs.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 11. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib--io-feof-3.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBCMAN">Interfaces Definitions for libc</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="baselib--io-feof-3.html"
+>_IO_feof</A
+>&nbsp;--&nbsp;alias for feof</DT
+><DT
+><A
+HREF="baselib--io-getc-3.html"
+>_IO_getc</A
+>&nbsp;--&nbsp;alias for getc</DT
+><DT
+><A
+HREF="baselib--io-putc-3.html"
+>_IO_putc</A
+>&nbsp;--&nbsp;alias for putc</DT
+><DT
+><A
+HREF="baselib--io-puts-3.html"
+>_IO_puts</A
+>&nbsp;--&nbsp;alias for puts</DT
+><DT
+><A
+HREF="baselib---assert-fail-1.html"
+>__assert_fail</A
+>&nbsp;--&nbsp;abort the program after false assertion</DT
+><DT
+><A
+HREF="baselib---ctype-b.html"
+>__ctype_b</A
+>&nbsp;--&nbsp;array index for ctype functions</DT
+><DT
+><A
+HREF="baselib---ctype-get-mb-cur-max-1.html"
+>__ctype_get_mb_cur_max</A
+>&nbsp;--&nbsp;maximum length of a multibyte character in the current locale</DT
+><DT
+><A
+HREF="libutil---ctype-tolower-2.html"
+>__ctype_tolower</A
+>&nbsp;--&nbsp;convert uppercase letter to lowercase letter</DT
+><DT
+><A
+HREF="libutil---ctype-toupper-2.html"
+>__ctype_toupper</A
+>&nbsp;--&nbsp;convert lowercase letter to uppercase letter</DT
+><DT
+><A
+HREF="baselib---cxa-atexit.html"
+>__cxa_atexit</A
+>&nbsp;--&nbsp;register a function to be called by exit or when a shared library is unloaded</DT
+><DT
+><A
+HREF="baselib-daylight-1.html"
+>__daylight</A
+>&nbsp;--&nbsp;global variable containing daylight</DT
+><DT
+><A
+HREF="baselib---dcgettext.html"
+>__dcgettext</A
+>&nbsp;--&nbsp;used by dcgettext in the translation to look up the MSGID in the DOMAINNAME message catalog for the current locale</DT
+><DT
+><A
+HREF="baselib---environ.html"
+>__environ</A
+>&nbsp;--&nbsp;alias for environ - user environment </DT
+><DT
+><A
+HREF="baselib-errno-location-1.html"
+>__errno_location</A
+>&nbsp;--&nbsp;address of errno variable</DT
+><DT
+><A
+HREF="baselib---fpending.html"
+>__fpending</A
+>&nbsp;--&nbsp;returns in bytes the amount of output pending on a stream</DT
+><DT
+><A
+HREF="baselib---getpagesize.html"
+>__getpagesize</A
+>&nbsp;--&nbsp;alias for getpagesize - get current page size </DT
+><DT
+><A
+HREF="baselib---getpgid-1.html"
+>__getpgid</A
+>&nbsp;--&nbsp;get the process group id</DT
+><DT
+><A
+HREF="baselib-h-errno-location-1.html"
+>__h_errno_location</A
+>&nbsp;--&nbsp;address of h_errno variable</DT
+><DT
+><A
+HREF="baselib---libc-current-sigrtmax-1.html"
+>__libc_current_sigrtmax</A
+>&nbsp;--&nbsp;return number of available real-time signal with lowest priority</DT
+><DT
+><A
+HREF="baselib---libc-current-sigrtmin-1.html"
+>__libc_current_sigrtmin</A
+>&nbsp;--&nbsp;return number of available real-time signal with highest priority</DT
+><DT
+><A
+HREF="baselib---libc-start-main-.html"
+>__libc_start_main</A
+>&nbsp;--&nbsp;initialization routine</DT
+><DT
+><A
+HREF="libutil---lxstat-2.html"
+>__lxstat</A
+>&nbsp;--&nbsp;inline wrapper around call to lxstat</DT
+><DT
+><A
+HREF="baselib---mempcpy.html"
+>__mempcpy</A
+>&nbsp;--&nbsp;copy given number of bytes of source to destination</DT
+><DT
+><A
+HREF="baselib---rawmemchr.html"
+>__rawmemchr</A
+>&nbsp;--&nbsp;scan memory</DT
+><DT
+><A
+HREF="baselib---sigsetjmp-1.html"
+>__sigsetjmp</A
+>&nbsp;--&nbsp;save stack context for non-local goto</DT
+><DT
+><A
+HREF="libutil---stpcpy-2.html"
+>__stpcpy</A
+>&nbsp;--&nbsp;copy a string returning a pointer to its end</DT
+><DT
+><A
+HREF="baselib---strdup-1.html"
+>__strdup</A
+>&nbsp;--&nbsp;alias for strdup</DT
+><DT
+><A
+HREF="baselib---strtod-internal-1.html"
+>__strtod_internal</A
+>&nbsp;--&nbsp;underlying function for strtod</DT
+><DT
+><A
+HREF="baselib-strtof-internal-1.html"
+>__strtof_internal</A
+>&nbsp;--&nbsp;underlying function for strtof</DT
+><DT
+><A
+HREF="baselib---strtok-r-1.html"
+>__strtok_r</A
+>&nbsp;--&nbsp;alias for strtok_r</DT
+><DT
+><A
+HREF="baselib---strtol-internal-1.html"
+>__strtol_internal</A
+>&nbsp;--&nbsp;alias for strtol</DT
+><DT
+><A
+HREF="baselib---strtold-internal-1.html"
+>__strtold_internal</A
+>&nbsp;--&nbsp;underlying function for strtold</DT
+><DT
+><A
+HREF="baselib---strtoll-internal-1.html"
+>__strtoll_internal</A
+>&nbsp;--&nbsp;underlying function for strtoll</DT
+><DT
+><A
+HREF="baselib-strtoul-internal-1.html"
+>__strtoul_internal</A
+>&nbsp;--&nbsp;underlying function for strtoul</DT
+><DT
+><A
+HREF="baselib---strtoull-internal-1.html"
+>__strtoull_internal</A
+>&nbsp;--&nbsp;underlying function for strtoull</DT
+><DT
+><A
+HREF="baselib---sysconf.html"
+>__sysconf</A
+>&nbsp;--&nbsp;get configuration information at runtime</DT
+><DT
+><A
+HREF="baselib---sysv-signal-1.html"
+>__sysv_signal</A
+>&nbsp;--&nbsp;signal handling</DT
+><DT
+><A
+HREF="baselib-timezone-1.html"
+>__timezone</A
+>&nbsp;--&nbsp;global variable containing timezone</DT
+><DT
+><A
+HREF="baselib-tzname-1.html"
+>__tzname</A
+>&nbsp;--&nbsp;global variable containing the timezone</DT
+><DT
+><A
+HREF="baselib---wcstod-internal-1.html"
+>__wcstod_internal</A
+>&nbsp;--&nbsp;underlying function for wcstod</DT
+><DT
+><A
+HREF="baselib---wcstof-internal-1.html"
+>__wcstof_internal</A
+>&nbsp;--&nbsp;underlying function for wcstof</DT
+><DT
+><A
+HREF="baselib---wcstol-internal-1.html"
+>__wcstol_internal</A
+>&nbsp;--&nbsp;underlying function for wcstol</DT
+><DT
+><A
+HREF="baselib---wcstold-internal-1.html"
+>__wcstold_internal</A
+>&nbsp;--&nbsp;underlying function for wcstold</DT
+><DT
+><A
+HREF="baselib---wcstoul-internal-1.html"
+>__wcstoul_internal</A
+>&nbsp;--&nbsp;underlying function for wcstoul</DT
+><DT
+><A
+HREF="baselib---xmknod-1.html"
+>__xmknod</A
+>&nbsp;--&nbsp;make block or character special file</DT
+><DT
+><A
+HREF="baselib-xstat-1.html"
+>__xstat</A
+>&nbsp;--&nbsp;provide inode information</DT
+><DT
+><A
+HREF="baselib-xstat64-1.html"
+>__xstat64</A
+>&nbsp;--&nbsp;provide inode information</DT
+><DT
+><A
+HREF="baselib--environ.html"
+>_environ</A
+>&nbsp;--&nbsp;alias for environ - user environment </DT
+><DT
+><A
+HREF="baselib--nl-msg-cat-cntr.html"
+>_nl_msg_cat_cntr</A
+>&nbsp;--&nbsp;variable defined in loadmsgcat.c which gets incremented every time a new catalog is loaded</DT
+><DT
+><A
+HREF="baselib--obstack-begin.html"
+>_obstack_begin</A
+>&nbsp;--&nbsp;initialize an obstack for use</DT
+><DT
+><A
+HREF="baselib--obstack-newchunk.html"
+>_obstack_newchunk</A
+>&nbsp;--&nbsp;allocate a new current chunk of memory for the obstack</DT
+><DT
+><A
+HREF="baselib--sys-errlist.html"
+>_sys_errlist</A
+>&nbsp;--&nbsp;array containing the "C" locale strings used by strerror()</DT
+><DT
+><A
+HREF="baselib--sys-siglist.html"
+>_sys_siglist</A
+>&nbsp;--&nbsp;array containing the names of the signal names</DT
+><DT
+><A
+HREF="baselib-acct-3.html"
+>acct</A
+>&nbsp;--&nbsp;switch process accounting on or off</DT
+><DT
+><A
+HREF="baselib-adjtime-2.html"
+>adjtime</A
+>&nbsp;--&nbsp;correct the time to allow synchronization of the system clock</DT
+><DT
+><A
+HREF="baselib-adjtimex-3.html"
+>adjtimex</A
+>&nbsp;--&nbsp;tune kernel clock</DT
+><DT
+><A
+HREF="baselib-alphasort-3.html"
+>alphasort</A
+>&nbsp;--&nbsp;compare two directory entries alphabetically (LSB deprecated)</DT
+><DT
+><A
+HREF="baselib-alphasort64.html"
+>alphasort64</A
+>&nbsp;--&nbsp;compare two directory entries alphabetically (LSB deprecated)</DT
+><DT
+><A
+HREF="baselib-bindresvport-3.html"
+>bindresvport</A
+>&nbsp;--&nbsp;bind socket to privileged IP port</DT
+><DT
+><A
+HREF="baselib-cfmakeraw-3.html"
+>cfmakeraw</A
+>&nbsp;--&nbsp;get and set terminal attributes</DT
+><DT
+><A
+HREF="baselib-cfsetspeed-3.html"
+>cfsetspeed</A
+>&nbsp;--&nbsp;manipulate the termios structure</DT
+><DT
+><A
+HREF="baselib-daemon-3.html"
+>daemon</A
+>&nbsp;--&nbsp;run in the background</DT
+><DT
+><A
+HREF="baselib-err-3.html"
+>err</A
+>&nbsp;--&nbsp;display formatted error messages</DT
+><DT
+><A
+HREF="baselib-error-n.html"
+>error</A
+>&nbsp;--&nbsp;print error message</DT
+><DT
+><A
+HREF="baselib-errx-3.html"
+>errx</A
+>&nbsp;--&nbsp;format error messages</DT
+><DT
+><A
+HREF="baselib-flock-2.html"
+>flock</A
+>&nbsp;--&nbsp;apply or remove an advisory lock on an open file</DT
+><DT
+><A
+HREF="baselib-fstatfs-2.html"
+>fstatfs</A
+>&nbsp;--&nbsp;get file system statistics</DT
+><DT
+><A
+HREF="baselib-fwprintf-3.html"
+>fwprintf</A
+>&nbsp;--&nbsp;formatted wide character output conversion</DT
+><DT
+><A
+HREF="baselib-getdomainname.html"
+>getdomainname</A
+>&nbsp;--&nbsp;get NIS domain name.</DT
+><DT
+><A
+HREF="baselib-gethostbyname-3.html"
+>gethostbyname</A
+>&nbsp;--&nbsp;get network host entry</DT
+><DT
+><A
+HREF="baselib-gethostbyname-r-3.html"
+>gethostbyname_r</A
+>&nbsp;--&nbsp;find network host database entry matching host name</DT
+><DT
+><A
+HREF="baselib-getloadavg-3.html"
+>getloadavg</A
+>&nbsp;--&nbsp;get system load averages</DT
+><DT
+><A
+HREF="libutil-getopt-3.html"
+>getopt</A
+>&nbsp;--&nbsp;parse command line options</DT
+><DT
+><A
+HREF="baselib-getopt-long-3.html"
+>getopt_long</A
+>&nbsp;--&nbsp;parse command line options</DT
+><DT
+><A
+HREF="baselib-getopt-long-only-3.html"
+>getopt_long_only</A
+>&nbsp;--&nbsp;parse command line options</DT
+><DT
+><A
+HREF="baselib-getprotobyname-3.html"
+>getprotobyname</A
+>&nbsp;--&nbsp;get protocol entry</DT
+><DT
+><A
+HREF="baselib-getprotoent-3.html"
+>getprotoent</A
+>&nbsp;--&nbsp;get protocol entry</DT
+><DT
+><A
+HREF="baselib-getpwnam-r.html"
+>getpwnam_r</A
+>&nbsp;--&nbsp;reentrant version of getpwnam</DT
+><DT
+><A
+HREF="baselib-getservbyname-3.html"
+>getservbyname</A
+>&nbsp;--&nbsp;get service entry</DT
+><DT
+><A
+HREF="baselib-getservent-3.html"
+>getservent</A
+>&nbsp;--&nbsp;get service entry</DT
+><DT
+><A
+HREF="baselib-gettext.html"
+>gettext</A
+>&nbsp;--&nbsp;look up MSGID in the current default message catalog for the current LC_MESSAGES locale</DT
+><DT
+><A
+HREF="baselib-getutent-3.html"
+>getutent</A
+>&nbsp;--&nbsp;access utmp file entries	</DT
+><DT
+><A
+HREF="baselib-getutent-r-3.html"
+>getutent_r</A
+>&nbsp;--&nbsp;access utmp file entries</DT
+><DT
+><A
+HREF="baselib-glob64.html"
+>glob64</A
+>&nbsp;--&nbsp;find pathnames matching a pattern  (Large File Support)</DT
+><DT
+><A
+HREF="baselib-globfree64.html"
+>globfree64</A
+>&nbsp;--&nbsp;free memory from glob64() (Large File Support)</DT
+><DT
+><A
+HREF="baselib-initgroups-3.html"
+>initgroups</A
+>&nbsp;--&nbsp;initialize the supplementary group access list</DT
+><DT
+><A
+HREF="baselib-isblank-3.html"
+>isblank</A
+>&nbsp;--&nbsp;character classification routine</DT
+><DT
+><A
+HREF="baselib-iswblank-3.html"
+>iswblank</A
+>&nbsp;--&nbsp;test for whitespace wide character</DT
+><DT
+><A
+HREF="baselib-iswctype-3.html"
+>iswctype</A
+>&nbsp;--&nbsp;wide character classification</DT
+><DT
+><A
+HREF="baselib-kill-3.html"
+>kill</A
+>&nbsp;--&nbsp;send a signal</DT
+><DT
+><A
+HREF="baselib-mbsnrtowcs-3.html"
+>mbsnrtowcs</A
+>&nbsp;--&nbsp;convert a multibyte string to a wide character string</DT
+><DT
+><A
+HREF="baselib-memmem-3.html"
+>memmem</A
+>&nbsp;--&nbsp;locate a substring</DT
+><DT
+><A
+HREF="baselib-memrchr.html"
+>memrchr</A
+>&nbsp;--&nbsp;scan memory for a character</DT
+><DT
+><A
+HREF="baselib-obstack-free.html"
+>obstack_free</A
+>&nbsp;--&nbsp;free an object in the obstack</DT
+><DT
+><A
+HREF="baselib-opterr-3.html"
+>opterr</A
+>&nbsp;--&nbsp;external variable used in getopt()</DT
+><DT
+><A
+HREF="baselib-optind-3.html"
+>optind</A
+>&nbsp;--&nbsp;external variable used in getopt()</DT
+><DT
+><A
+HREF="baselib-optopt-3.html"
+>optopt</A
+>&nbsp;--&nbsp;external variable used in getopt()</DT
+><DT
+><A
+HREF="baselib-psignal-3.html"
+>psignal</A
+>&nbsp;--&nbsp;print signal message</DT
+><DT
+><A
+HREF="baselib-random-r-3.html"
+>random_r</A
+>&nbsp;--&nbsp;generate random number</DT
+><DT
+><A
+HREF="baselib-setbuffer-3.html"
+>setbuffer</A
+>&nbsp;--&nbsp;stream buffering operation</DT
+><DT
+><A
+HREF="baselib-setdomainname.html"
+>setdomainname</A
+>&nbsp;--&nbsp;set NIS domain name.</DT
+><DT
+><A
+HREF="baselib-setegid-2.html"
+>setegid</A
+>&nbsp;--&nbsp;set effective group ID</DT
+><DT
+><A
+HREF="baselib-setenv-3.html"
+>setenv</A
+>&nbsp;--&nbsp;change or add an environment variable</DT
+><DT
+><A
+HREF="baselib-seteuid-2.html"
+>seteuid</A
+>&nbsp;--&nbsp;set effective user ID</DT
+><DT
+><A
+HREF="baselib-setgroups-2.html"
+>setgroups</A
+>&nbsp;--&nbsp;set list of supplementary group IDs</DT
+><DT
+><A
+HREF="baselib-sethostid-2.html"
+>sethostid</A
+>&nbsp;--&nbsp;set the unique identifier of the current host</DT
+><DT
+><A
+HREF="baselib-sethostname-2.html"
+>sethostname</A
+>&nbsp;--&nbsp;set host name</DT
+><DT
+><A
+HREF="baselib-setmntent-3.html"
+>setmntent</A
+>&nbsp;--&nbsp;get file system descriptor file entry</DT
+><DT
+><A
+HREF="baselib-setutent-3.html"
+>setutent</A
+>&nbsp;--&nbsp;access utmp file entries</DT
+><DT
+><A
+HREF="baselib-sigandset.html"
+>sigandset</A
+>&nbsp;--&nbsp;build a new signal set by combining the two input sets using logical AND</DT
+><DT
+><A
+HREF="baselib-sigblock-2.html"
+>sigblock</A
+>&nbsp;--&nbsp;manipulate the signal mask</DT
+><DT
+><A
+HREF="baselib-siggetmask-2.html"
+>siggetmask</A
+>&nbsp;--&nbsp;manipulate the signal mask</DT
+><DT
+><A
+HREF="baselib-sigisemptyset.html"
+>sigisemptyset</A
+>&nbsp;--&nbsp;signal function - check for empty SET</DT
+><DT
+><A
+HREF="baselib-sigorset.html"
+>sigorset</A
+>&nbsp;--&nbsp;build a new signal set by combining the two input sets using logical OR</DT
+><DT
+><A
+HREF="baselib-sigreturn-2.html"
+>sigreturn</A
+>&nbsp;--&nbsp;return from signal handler and cleanup stack frame</DT
+><DT
+><A
+HREF="baselib-statfs-2.html"
+>statfs</A
+>&nbsp;--&nbsp;get file system statistics</DT
+><DT
+><A
+HREF="baselib-stime-2.html"
+>stime</A
+>&nbsp;--&nbsp;set time</DT
+><DT
+><A
+HREF="baselib-stpcpy-3.html"
+>stpcpy</A
+>&nbsp;--&nbsp;copy a string returning a pointer to its end</DT
+><DT
+><A
+HREF="baselib-stpncpy-3.html"
+>stpncpy</A
+>&nbsp;--&nbsp;copy a fixed-size string, returning a pointer to its end</DT
+><DT
+><A
+HREF="baselib-strcasestr.html"
+>strcasestr</A
+>&nbsp;--&nbsp;locate a substring - ignores the case of both strings</DT
+><DT
+><A
+HREF="baselib-strerror-r.html"
+>strerror_r</A
+>&nbsp;--&nbsp;reentrant version of strerror</DT
+><DT
+><A
+HREF="baselib-strfry-3.html"
+>strfry</A
+>&nbsp;--&nbsp;randomize a string</DT
+><DT
+><A
+HREF="baselib-strndup.html"
+>strndup</A
+>&nbsp;--&nbsp;return a malloc'd copy of at most the specified number of bytes of a string </DT
+><DT
+><A
+HREF="baselib-strnlen-3.html"
+>strnlen</A
+>&nbsp;--&nbsp;determine the length of a fixed-size string</DT
+><DT
+><A
+HREF="baselib-strptime-3.html"
+>strptime</A
+>&nbsp;--&nbsp;parse a time string</DT
+><DT
+><A
+HREF="baselib-strsep-3.html"
+>strsep</A
+>&nbsp;--&nbsp;extract token from string</DT
+><DT
+><A
+HREF="baselib-strsignal-3.html"
+>strsignal</A
+>&nbsp;--&nbsp;return string describing signal</DT
+><DT
+><A
+HREF="baselib-strtok-r-3.html"
+>strtok_r</A
+>&nbsp;--&nbsp;extract tokens from strings</DT
+><DT
+><A
+HREF="baselib-strtoq-3.html"
+>strtoq</A
+>&nbsp;--&nbsp;convert string value to a long or quad_t integer</DT
+><DT
+><A
+HREF="baselib-strtouq-3.html"
+>strtouq</A
+>&nbsp;--&nbsp;convert a string to an uquad_t</DT
+><DT
+><A
+HREF="baselib-strverscmp.html"
+>strverscmp</A
+>&nbsp;--&nbsp;compare strings holding name and indices/version numbers</DT
+><DT
+><A
+HREF="baselib-system-3.html"
+>system</A
+>&nbsp;--&nbsp;execute a shell command</DT
+><DT
+><A
+HREF="baselib-unlink-3.html"
+>unlink</A
+>&nbsp;--&nbsp;remove a directory entry</DT
+><DT
+><A
+HREF="baselib-unsetenv-3.html"
+>unsetenv</A
+>&nbsp;--&nbsp;delete an environment variable</DT
+><DT
+><A
+HREF="baselib-vasprintf.html"
+>vasprintf</A
+>&nbsp;--&nbsp;write formatted output to a string dynamically allocated with malloc and store the address of the string</DT
+><DT
+><A
+HREF="baselib-vdprintf.html"
+>vdprintf</A
+>&nbsp;--&nbsp;write formatted output to a file descriptor</DT
+><DT
+><A
+HREF="baselib-verrx-3.html"
+>verrx</A
+>&nbsp;--&nbsp;display formatted error messages</DT
+><DT
+><A
+HREF="baselib-vsyslog-3.html"
+>vsyslog</A
+>&nbsp;--&nbsp;log to system log</DT
+><DT
+><A
+HREF="baselib-wait4-2.html"
+>wait4</A
+>&nbsp;--&nbsp;wait for process termination, BSD style</DT
+><DT
+><A
+HREF="baselib-warn-3.html"
+>warn</A
+>&nbsp;--&nbsp;formatted error messages</DT
+><DT
+><A
+HREF="baselib-warnx-3.html"
+>warnx</A
+>&nbsp;--&nbsp;formatted error messages</DT
+><DT
+><A
+HREF="baselib-wcpcpy-3.html"
+>wcpcpy</A
+>&nbsp;--&nbsp;copy a wide character string, returning a pointer to its end</DT
+><DT
+><A
+HREF="baselib-wcpncpy-3.html"
+>wcpncpy</A
+>&nbsp;--&nbsp;copy a fixed-size string of wide characters, returning a pointer to its end</DT
+><DT
+><A
+HREF="baselib-wcscasecmp-3.html"
+>wcscasecmp</A
+>&nbsp;--&nbsp;compare two wide-character strings, ignoring case</DT
+><DT
+><A
+HREF="baselib-wcsdup-3.html"
+>wcsdup</A
+>&nbsp;--&nbsp;duplicate a wide-character string</DT
+><DT
+><A
+HREF="baselib-wcsncasecmp-3.html"
+>wcsncasecmp</A
+>&nbsp;--&nbsp;compare two fixed-size wide-character strings, ignoring case</DT
+><DT
+><A
+HREF="baselib-wcsnlen-3.html"
+>wcsnlen</A
+>&nbsp;--&nbsp;determine the length of a fixed-size wide-character string</DT
+><DT
+><A
+HREF="baselib-wcsnrtombs-3.html"
+>wcsnrtombs</A
+>&nbsp;--&nbsp;convert a wide character string to a multi-byte string</DT
+><DT
+><A
+HREF="baselib-wcstoq.html"
+>wcstoq</A
+>&nbsp;--&nbsp;convert initial portion of wide string NPTR to long int representation</DT
+><DT
+><A
+HREF="baselib-wcstouq.html"
+>wcstouq</A
+>&nbsp;--&nbsp;convert initial portion of wide string NPTR to unsigned long long int representation</DT
+></DL
+></DIV
+><P
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libc-ddefs.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib--io-feof-3.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libc</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>_IO_feof</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,405 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interface Definitions for libjpeg</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="libjpeg62.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libjpeg"
+HREF="libjpeg-ddefs.html"><LINK
+REL="NEXT"
+TITLE="jpeg_CreateCompress"
+HREF="libjpeg.jpeg.createcompress.1.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libjpeg-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 9. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libjpeg.jpeg.createcompress.1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBJPEGMAN"
+>9.3. Interface Definitions for libjpeg</A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="libjpeg.jpeg.createcompress.1.html"
+>jpeg_CreateCompress</A
+>&nbsp;--&nbsp;allocate and initialize a JPEG compression object</DT
+><DT
+><A
+HREF="libjpeg.jpeg.createdecompress.1.html"
+>jpeg_CreateDecompress</A
+>&nbsp;--&nbsp;allocate and initialize a JPEG decompression object</DT
+><DT
+><A
+HREF="libjpeg.jpeg.abort.1.html"
+>jpeg_abort</A
+>&nbsp;--&nbsp;aborts the compression or decompression cycle</DT
+><DT
+><A
+HREF="libjpeg.jpeg.abort.compress.1.html"
+>jpeg_abort_compress</A
+>&nbsp;--&nbsp;abort processing of JPEG compression operation</DT
+><DT
+><A
+HREF="libjpeg.jpeg.abort.decompress.1.html"
+>jpeg_abort_decompress</A
+>&nbsp;--&nbsp;abort processing of JPEG decompression operation</DT
+><DT
+><A
+HREF="libjpeg.jpeg.add.quant.table.1.html"
+>jpeg_add_quant_table</A
+>&nbsp;--&nbsp;add a quantization table</DT
+><DT
+><A
+HREF="libjpeg.jpeg.alloc.huff.table.1.html"
+>jpeg_alloc_huff_table</A
+>&nbsp;--&nbsp;allocate Huffman table</DT
+><DT
+><A
+HREF="libjpeg.jpeg.alloc.quant.table.1.html"
+>jpeg_alloc_quant_table</A
+>&nbsp;--&nbsp;allocate quantization table</DT
+><DT
+><A
+HREF="libjpeg.jpeg.calc.output.dimensions.1.html"
+>jpeg_calc_output_dimensions</A
+>&nbsp;--&nbsp;compute output image dimensions</DT
+><DT
+><A
+HREF="libjpeg.jpeg.consume.input.1.html"
+>jpeg_consume_input</A
+>&nbsp;--&nbsp;decode input data</DT
+><DT
+><A
+HREF="libjpeg.jpeg.copy.critical.parameters.1.html"
+>jpeg_copy_critical_parameters</A
+>&nbsp;--&nbsp;copy critical compression parameters from source decompression
+object</DT
+><DT
+><A
+HREF="libjpeg.jpeg.default.colorspace.1.html"
+>jpeg_default_colorspace</A
+>&nbsp;--&nbsp;set default colorspace based on input image's color space</DT
+><DT
+><A
+HREF="libjpeg.jpeg.destroy.1.html"
+>jpeg_destroy</A
+>&nbsp;--&nbsp;deallocation of a JPEG object</DT
+><DT
+><A
+HREF="libjpeg.jpeg.destroy.compress.1.html"
+>jpeg_destroy_compress</A
+>&nbsp;--&nbsp;deallocate a JPEG compression object</DT
+><DT
+><A
+HREF="libjpeg.jpeg.destroy.decompress.1.html"
+>jpeg_destroy_decompress</A
+>&nbsp;--&nbsp;deallocate a JPEG decompression object</DT
+><DT
+><A
+HREF="libjpeg.jpeg.finish.compress.1.html"
+>jpeg_finish_compress</A
+>&nbsp;--&nbsp;complete the compression cycle</DT
+><DT
+><A
+HREF="libjpeg.jpeg.finish.decompress.1.html"
+>jpeg_finish_decompress</A
+>&nbsp;--&nbsp;complete decompression cycle</DT
+><DT
+><A
+HREF="libjpeg.jpeg.finish.output.1.html"
+>jpeg_finish_output</A
+>&nbsp;--&nbsp;complete pass in buffered-image mode</DT
+><DT
+><A
+HREF="libjpeg.jpeg.has.multiple.scans.1.html"
+>jpeg_has_multiple_scans</A
+>&nbsp;--&nbsp;test if input image has multiple scans</DT
+><DT
+><A
+HREF="libjpeg.jpeg.input.complete.1.html"
+>jpeg_input_complete</A
+>&nbsp;--&nbsp;test for end-of-image</DT
+><DT
+><A
+HREF="libjpeg.jpeg.new.colormap.1.html"
+>jpeg_new_colormap</A
+>&nbsp;--&nbsp;switch to a new external colormap between output passes</DT
+><DT
+><A
+HREF="libjpeg.jpeg.quality.scaling.1.html"
+>jpeg_quality_scaling</A
+>&nbsp;--&nbsp;convert quality scaling to percentage scaling factor</DT
+><DT
+><A
+HREF="libjpeg.jpeg.read.coefficients.1.html"
+>jpeg_read_coefficients</A
+>&nbsp;--&nbsp;read the contents of JPEG file as DCT coefficients</DT
+><DT
+><A
+HREF="libjpeg.jpeg.read.header.1.html"
+>jpeg_read_header</A
+>&nbsp;--&nbsp;read start of JPEG datastream</DT
+><DT
+><A
+HREF="libjpeg.jpeg.read.raw.data.1.html"
+>jpeg_read_raw_data</A
+>&nbsp;--&nbsp;read raw downsampled image data</DT
+><DT
+><A
+HREF="libjpeg.jpeg.read.scanlines.1.html"
+>jpeg_read_scanlines</A
+>&nbsp;--&nbsp;read scanlines of data from JPEG decompressor</DT
+><DT
+><A
+HREF="libjpeg.jpeg.resync.to.restart.1.html"
+>jpeg_resync_to_restart</A
+>&nbsp;--&nbsp;resync if marker other than expected restart marker found</DT
+><DT
+><A
+HREF="libjpeg.jpeg.save.markers.1.html"
+>jpeg_save_markers</A
+>&nbsp;--&nbsp;save the contents of special markers</DT
+><DT
+><A
+HREF="libjpeg.jpeg.set.colorspace.1.html"
+>jpeg_set_colorspace</A
+>&nbsp;--&nbsp;set JPEG file's colorspace</DT
+><DT
+><A
+HREF="libjpeg.jpeg.set.defaults.1.html"
+>jpeg_set_defaults</A
+>&nbsp;--&nbsp;set compression parameters to default values</DT
+><DT
+><A
+HREF="libjpeg.jpeg.set.linear.quality.1.html"
+>jpeg_set_linear_quality</A
+>&nbsp;--&nbsp;construct JPEG quantization tables for indicated scale factor</DT
+><DT
+><A
+HREF="libjpeg.jpeg.set.marker.processor.1.html"
+>jpeg_set_marker_processor</A
+>&nbsp;--&nbsp;set processor method for COM or APPn markers</DT
+><DT
+><A
+HREF="libjpeg.jpeg.set.quality.1.html"
+>jpeg_set_quality</A
+>&nbsp;--&nbsp;construct JPEG quantization tables for indicated quality</DT
+><DT
+><A
+HREF="libjpeg.jpeg.simple.progression.1.html"
+>jpeg_simple_progression</A
+>&nbsp;--&nbsp;generate scan script for writing progressive JPEG file</DT
+><DT
+><A
+HREF="libjpeg.jpeg.start.compress.1.html"
+>jpeg_start_compress</A
+>&nbsp;--&nbsp;initialize a compression cycle</DT
+><DT
+><A
+HREF="libjpeg.jpeg.start.decompress.1.html"
+>jpeg_start_decompress</A
+>&nbsp;--&nbsp;initialize a decompression cycle</DT
+><DT
+><A
+HREF="libjpeg.jpeg.start.output.1.html"
+>jpeg_start_output</A
+>&nbsp;--&nbsp;initialize for a pass in buffered-image mode</DT
+><DT
+><A
+HREF="libjpeg.jpeg.std.error.1.html"
+>jpeg_std_error</A
+>&nbsp;--&nbsp;update error manager with error handling routines</DT
+><DT
+><A
+HREF="libjpeg.jpeg.stdio.dest.1.html"
+>jpeg_stdio_dest</A
+>&nbsp;--&nbsp;Initialize state for output to stdio stream</DT
+><DT
+><A
+HREF="libjpeg.jpeg.stdio.src.1.html"
+>jpeg_stdio_src</A
+>&nbsp;--&nbsp;Initialize state for input from stdio stream</DT
+><DT
+><A
+HREF="libjpeg.jpeg.suppress.tables.1.html"
+>jpeg_suppress_tables</A
+>&nbsp;--&nbsp;control quantization and Huffman table suppression</DT
+><DT
+><A
+HREF="libjpeg.jpeg.write.coefficients.1.html"
+>jpeg_write_coefficients</A
+>&nbsp;--&nbsp;Compression initialization for writing raw-coefficient data</DT
+><DT
+><A
+HREF="libjpeg.jpeg.write.m.byte.1.html"
+>jpeg_write_m_byte</A
+>&nbsp;--&nbsp;emit a byte of special marker data</DT
+><DT
+><A
+HREF="libjpeg.jpeg.write.m.header.1.html"
+>jpeg_write_m_header</A
+>&nbsp;--&nbsp;emit header for special marker</DT
+><DT
+><A
+HREF="libjpeg.jpeg.write.marker.1.html"
+>jpeg_write_marker</A
+>&nbsp;--&nbsp;write special marker data</DT
+><DT
+><A
+HREF="libjpeg.jpeg.write.raw.data.1.html"
+>jpeg_write_raw_data</A
+>&nbsp;--&nbsp;write raw downsampled image data</DT
+><DT
+><A
+HREF="libjpeg.jpeg.write.scanlines.1.html"
+>jpeg_write_scanlines</A
+>&nbsp;--&nbsp;write scanlines of data to JPEG compressor</DT
+><DT
+><A
+HREF="libjpeg.jpeg.write.tables.1.html"
+>jpeg_write_tables</A
+>&nbsp;--&nbsp;create a tables-only file</DT
+></DL
+></DIV
+><P
+>The interfaces defined on the following pages are included in libjpeg and are defined
+by this specification.
+Unless otherwise noted, these interfaces shall be included
+in the source standard.</P
+><P
+>Other interfaces listed in <A
+HREF="libjpeg62.html#LIBJPEG"
+>Section 9.1</A
+> shall behave as described
+in the referenced base document.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libjpeg-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libjpeg.jpeg.createcompress.1.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libjpeg</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libjpeg62.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>jpeg_CreateCompress</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

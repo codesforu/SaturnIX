@@ -1,0 +1,286 @@
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libICE</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="graphlib.html"><LINK
+REL="PREVIOUS"
+TITLE="Interfaces for libICE"
+HREF="libice.html"><LINK
+REL="NEXT"
+TITLE="Interfaces for libXt"
+HREF="libxt.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libice.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 13. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libxt.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBICE-DDEFS">Data Definitions for libICE</H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN11050">X11/ICE/ICElib.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+typedef void *IcePointer;
+typedef enum
+{
+  IcePoAuthHaveReply, IcePoAuthRejected, IcePoAuthFailed, IcePoAuthDoneCleanup
+}
+IcePoAuthStatus;
+typedef enum
+{
+  IcePaAuthContinue, IcePaAuthAccepted, IcePaAuthRejected, IcePaAuthFailed
+}
+IcePaAuthStatus;
+typedef enum
+{
+  IceConnectPending, IceConnectAccepted, IceConnectRejected, IceConnectIOError
+}
+IceConnectStatus;
+typedef enum
+{
+  IceProtocolSetupSuccess, IceProtocolSetupFailure, IceProtocolSetupIOError,
+    IceProtocolAlreadyActive
+}
+IceProtocolSetupStatus;
+typedef enum
+{
+  IceAcceptSuccess, IceAcceptFailure, IceAcceptBadMalloc
+}
+IceAcceptStatus;
+typedef enum
+{
+  IceClosedNow, IceClosedASAP, IceConnectionInUse,
+    IceStartedShutdownNegotiation
+}
+IceCloseStatus;
+typedef enum
+{
+  IceProcessMessagesSuccess, IceProcessMessagesIOError,
+    IceProcessMessagesConnectionClosed
+}
+IceProcessMessagesStatus;
+
+
+typedef struct
+{
+  unsigned long sequence_of_request;
+  int major_opcode_of_request;
+  int minor_opcode_of_request;
+  IcePointer reply;
+}
+IceReplyWaitInfo;
+
+
+typedef struct _IceConn *IceConn;
+typedef struct _IceListenObj *IceListenObj;
+
+
+typedef void (*IceWatchProc) (void);
+typedef void (*IcePoProcessMsgProc) (void);
+typedef void (*IcePaProcessMsgProc) (void);
+typedef IcePoAuthStatus (*IcePoAuthProc) (void);
+typedef IcePaAuthStatus (*IcePaAuthProc) (void);
+typedef int (*IceHostBasedAuthProc) (void);
+typedef int (*IceProtocolSetupProc) (void);
+typedef void (*IceProtocolActivateProc) (void);
+typedef void (*IceIOErrorProc) (void);
+typedef void (*IcePingReplyProc) (void);
+typedef void (*IceErrorHandler) (void);
+typedef void (*IceIOErrorHandler) (void);
+
+
+typedef struct
+{
+  int major_version;
+  int minor_version;
+  IcePoProcessMsgProc process_msg_proc;
+}
+IcePoVersionRec;
+typedef struct
+{
+  int major_version;
+  int minor_version;
+  IcePaProcessMsgProc process_msg_proc;
+}
+IcePaVersionRec;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN11054">X11/ICE/ICEutil.h</H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;
+
+typedef struct
+{
+  char *protocol_name;
+  unsigned short protocol_data_length;
+  char *protocol_data;
+  char *network_id;
+  char *auth_name;
+  unsigned short auth_data_length;
+  char *auth_data;
+}
+IceAuthFileEntry;
+typedef struct
+{
+  char *protocol_name;
+  char *network_id;
+  char *auth_name;
+  unsigned short auth_data_length;
+  char *auth_data;
+}
+IceAuthDataEntry;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libice.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libxt.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interfaces for libICE</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="graphlib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interfaces for libXt</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

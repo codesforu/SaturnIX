@@ -1,0 +1,469 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libXi</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="graphlib.html"><LINK
+REL="PREVIOUS"
+TITLE="Interface Definitions for libXext"
+HREF="libxextman.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libXi"
+HREF="libxi-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libxextman.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libxi-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBXI"
+>6.15. Interfaces for libXi</A
+></H1
+><P
+><A
+HREF="libxi.html#LIB-LIBXI-DEF"
+>Table 6-20</A
+> defines the library name and shared object name
+for the libXi library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBXI-DEF"
+></A
+><P
+><B
+>Table 6-20. libXi Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libXi</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libXi.so.6</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBXI.1"
+></A
+>[XINPUT] <A
+HREF="normativerefs.html#STD.XINPUT"
+>X11 Input Library</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6710"
+>6.15.1. XInput</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN6713"
+>6.15.1.1. Interfaces for XInput</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for XInput specified in <A
+HREF="libxi.html#TBL-LIBXI-XINPU-INTS"
+>Table 6-21</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBXI-XINPU-INTS"
+></A
+><P
+><B
+>Table 6-21. libXi - XInput Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>XAllowDeviceEvents <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XChangeDeviceControl <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XChangeDeviceDontPropagateList <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XChangeDeviceKeyMapping <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+></TR
+><TR
+><TD
+>XChangeFeedbackControl <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XChangeKeyboardDevice <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XChangePointerDevice <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XCloseDevice <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+></TR
+><TR
+><TD
+>XDeviceBell <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XFreeDeviceControl <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XFreeDeviceList <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XFreeDeviceMotionEvents <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+></TR
+><TR
+><TD
+>XFreeDeviceState <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XFreeFeedbackList <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XGetDeviceButtonMapping <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XGetDeviceControl <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+></TR
+><TR
+><TD
+>XGetDeviceDontPropagateList <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XGetDeviceFocus <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XGetDeviceKeyMapping <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XGetDeviceModifierMapping <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+></TR
+><TR
+><TD
+>XGetDeviceMotionEvents <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XGetExtensionVersion <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XGetFeedbackControl <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XGetSelectedExtensionEvents <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+></TR
+><TR
+><TD
+>XGrabDevice <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XGrabDeviceButton <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XGrabDeviceKey <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XListInputDevices <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+></TR
+><TR
+><TD
+>XOpenDevice <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XQueryDeviceState <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XSelectExtensionEvent <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XSendExtensionEvent <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+></TR
+><TR
+><TD
+>XSetDeviceButtonMapping <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XSetDeviceFocus <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XSetDeviceMode <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XSetDeviceModifierMapping <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+></TR
+><TR
+><TD
+>XSetDeviceValuators <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XUngrabDevice <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XUngrabDeviceButton <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+><TD
+>XUngrabDeviceKey <A
+HREF="libxi.html#REFSTD.LIBXI.1"
+>[XINPUT]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libxextman.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libxi-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Interface Definitions for libXext</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="graphlib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libXi</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,2631 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Data Definitions for libfreetype</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="libfreetypechap.html"><LINK
+REL="PREVIOUS"
+TITLE="Libraries"
+HREF="libfreetypechap.html"><LINK
+REL="NEXT"
+TITLE="Interface Definitions for libfreetype"
+HREF="libfreetypeman.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libfreetypechap.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 12. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libfreetypeman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBFREETYPE-DDEFS"
+>12.2. Data Definitions for libfreetype</A
+></H1
+><P
+>This section defines global identifiers and their values that are associated
+with interfaces contained in libfreetype.
+These definitions are organized into groups that
+correspond to system headers. This convention is used as a
+convenience for the reader, and does not imply the existence
+of these headers, or their content.
+Where an interface is defined as requiring a particular system header file
+all of the data definitions for that system header file presented here shall be in effect.</P
+><P
+>This section gives data definitions to promote binary application
+portability, not to repeat source interface definitions available
+elsewhere. System providers and application developers should use this ABI
+to supplement - not to replace - source interface definition specifications.</P
+><P
+>This specification uses the <A
+HREF="normativerefs.html#STD.ISOC99"
+>ISO C (1999)</A
+> C Language as the reference programming language, and data definitions are specified in ISO C format. The C language is used here as a convenient notation. Using a C language description of these data objects does not preclude their use by other programming languages.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19863"
+>12.2.1. freetype/config/ftheader.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define FT_BEGIN_HEADER
+#define FT_END_HEADER
+#define FT_ERRORDEF_(e,v,s)	 \
+	FT_ERRORDEF( FT_ERR_CAT( FT_ERR_PREFIX, e ), v + FT_ERR_BASE, s )
+#define FT_NOERRORDEF_(e,v,s)	 \
+	FT_ERRORDEF( FT_ERR_CAT( FT_ERR_PREFIX, e ), v, s )
+#define FT_ERR_BASE	0
+#define FT_CONFIG_CONFIG_H	&#60;freetype/config/ftconfig.h&#62;
+#define FT_CONFIG_MODULES_H	&#60;freetype/config/ftmodule.h&#62;
+#define FT_CONFIG_OPTIONS_H	&#60;freetype/config/ftoption.h&#62;
+#define FT_CONFIG_STANDARD_LIBRARY_H	&#60;freetype/config/ftstdlib.h&#62;
+#define FT_FREETYPE_H	&#60;freetype/freetype.h&#62;
+#define FT_BBOX_H	&#60;freetype/ftbbox.h&#62;
+#define FT_BDF_H	&#60;freetype/ftbdf.h&#62;
+#define FT_BITMAP_H	&#60;freetype/ftbitmap.h&#62;
+#define FT_CACHE_H	&#60;freetype/ftcache.h&#62;
+#define FT_CACHE_INTERNAL_CACHE_H	&#60;freetype/ftcache.h&#62;
+#define FT_CACHE_INTERNAL_GLYPH_H	&#60;freetype/ftcache.h&#62;
+#define FT_CACHE_INTERNAL_IMAGE_H	&#60;freetype/ftcache.h&#62;
+#define FT_CACHE_INTERNAL_MANAGER_H	&#60;freetype/ftcache.h&#62;
+#define FT_CACHE_INTERNAL_MRU_H	&#60;freetype/ftcache.h&#62;
+#define FT_CACHE_INTERNAL_SBITS_H	&#60;freetype/ftcache.h&#62;
+#define FT_CACHE_MANAGER_H	&#60;freetype/ftcache.h&#62;
+#define FT_ERROR_DEFINITIONS_H	&#60;freetype/fterrdef.h&#62;
+#define FT_ERRORS_H	&#60;freetype/fterrors.h&#62;
+#define FT_GLYPH_H	&#60;freetype/ftglyph.h&#62;
+#define FT_GZIP_H	&#60;freetype/ftgzip.h&#62;
+#define FT_IMAGE_H	&#60;freetype/ftimage.h&#62;
+#define FT_INCREMENTAL_H	&#60;freetype/ftincrem.h&#62;
+#define FT_LIST_H	&#60;freetype/ftlist.h&#62;
+#define FT_LZW_H	&#60;freetype/ftlzw.h&#62;
+#define FT_MAC_H	&#60;freetype/ftmac.h&#62;
+#define FT_MULTIPLE_MASTERS_H	&#60;freetype/ftmm.h&#62;
+#define FT_MODULE_H	&#60;freetype/ftmodapi.h&#62;
+#define FT_MODULE_ERRORS_H	&#60;freetype/ftmoderr.h&#62;
+#define FT_OPENTYPE_VALIDATE_H	&#60;freetype/ftotval.h&#62;
+#define FT_OUTLINE_H	&#60;freetype/ftoutln.h&#62;
+#define FT_RENDER_H	&#60;freetype/ftrender.h&#62;
+#define FT_SIZES_H	&#60;freetype/ftsizes.h&#62;
+#define FT_SFNT_NAMES_H	&#60;freetype/ftsnames.h&#62;
+#define FT_STROKER_H	&#60;freetype/ftstroke.h&#62;
+#define FT_SYNTHESIS_H	&#60;freetype/ftsynth.h&#62;
+#define FT_SYSTEM_H	&#60;freetype/ftsystem.h&#62;
+#define FT_TRIGONOMETRY_H	&#60;freetype/fttrigon.h&#62;
+#define FT_TYPES_H	&#60;freetype/fttypes.h&#62;
+#define FT_WINFONTS_H	&#60;freetype/ftwinfnt.h&#62;
+#define FT_XFREE86_H	&#60;freetype/ftxf86.h&#62;
+#define FT_TYPE1_TABLES_H	&#60;freetype/t1tables.h&#62;
+#define FT_TRUETYPE_IDS_H	&#60;freetype/ttnameid.h&#62;
+#define FT_TRUETYPE_TABLES_H	&#60;freetype/tttables.h&#62;
+#define FT_TRUETYPE_TAGS_H	&#60;freetype/tttags.h&#62;
+#define FT_TRUETYPE_UNPATENTED_H	&#60;freetype/ttunpat.h&#62;
+#define FT_ERRORDEF(e,v,s)	e = v,
+#define FT_ERROR_START_LIST	enum {
+#define FT_CACHE_CHARMAP_H	FT_CACHE_H
+#define FT_CACHE_IMAGE_H	FT_CACHE_H
+#define FT_CACHE_SMALL_BITMAPS_H	FT_CACHE_H
+#define FT_ERR_PREFIX	FT_Err_
+#define FT_ERROR_END_LIST	FT_ERR_CAT( FT_ERR_PREFIX, Max ) };
+#define FT_ERR_CAT(x,y)	FT_ERR_XCAT( x, y )
+#define FT_ERR_XCAT(x,y)	x ## y</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19867"
+>12.2.2. freetype/config/ftoption.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define FT_CONFIG_OPTION_ADOBE_GLYPH_LIST
+#define FT_CONFIG_OPTION_GUESSING_EMBEDDED_RFORK
+#define FT_CONFIG_OPTION_MAC_FONTS
+#define FT_CONFIG_OPTION_POSTSCRIPT_NAMES
+#define FT_CONFIG_OPTION_USE_LZW
+#define FT_CONFIG_OPTION_USE_ZLIB
+#define TT_CONFIG_CMAP_FORMAT_0
+#define TT_CONFIG_CMAP_FORMAT_10
+#define TT_CONFIG_CMAP_FORMAT_12
+#define TT_CONFIG_CMAP_FORMAT_2
+#define TT_CONFIG_CMAP_FORMAT_4
+#define TT_CONFIG_CMAP_FORMAT_6
+#define TT_CONFIG_CMAP_FORMAT_8
+#define TT_CONFIG_OPTION_EMBEDDED_BITMAPS
+#define TT_CONFIG_OPTION_GX_VAR_SUPPORT
+#define TT_CONFIG_OPTION_INTERPRETER_SWITCH
+#define TT_CONFIG_OPTION_POSTSCRIPT_NAMES
+#define TT_CONFIG_OPTION_SFNT_NAMES
+#define TT_CONFIG_OPTION_UNPATENTED_HINTING
+#define T1_MAX_SUBRS_CALLS	16
+#define FT_RENDER_POOL_SIZE	16384L
+#define T1_MAX_CHARSTRINGS_OPERANDS	256
+#define FT_MAX_MODULES	32
+#define T1_MAX_DICT_DEPTH	5</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19871"
+>12.2.3. freetype/config/ftstdlib.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define ft_atol	atol
+#define ft_exit	exit
+#define FT_INT_MAX	INT_MAX
+#define ft_isalnum	isalnum
+#define ft_isdigit	isdigit
+#define ft_islower	islower
+#define ft_isupper	isupper
+#define ft_isxdigit	isxdigit
+#define ft_jmp_buf	jmp_buf
+#define ft_longjmp	longjmp
+#define ft_memcmp	memcmp
+#define ft_memcpy	memcpy
+#define ft_memmove	memmove
+#define ft_memset	memset
+#define ft_ptrdiff_t	ptrdiff_t
+#define ft_qsort	qsort
+#define ft_setjmp	setjmp
+#define ft_sprintf	sprintf
+#define ft_strcat	strcat
+#define ft_strcmp	strcmp
+#define ft_strcpy	strcpy
+#define ft_strlen	strlen
+#define ft_strncmp	strncmp
+#define ft_strncpy	strncpy
+#define ft_strrchr	strrchr
+#define FT_UINT_MAX	UINT_MAX
+#define FT_ULONG_MAX	ULONG_MAX</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19875"
+>12.2.4. freetype/freetype.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define FT_HAS_FAST_GLYPHS(face)	 \
+	( face-&#62;face_flags &#38; FT_FACE_FLAG_FAST_GLYPHS )
+#define FT_HAS_FIXED_SIZES(face)	 \
+	( face-&#62;face_flags &#38; FT_FACE_FLAG_FIXED_SIZES )
+#define FT_IS_FIXED_WIDTH(face)	 \
+	( face-&#62;face_flags &#38; FT_FACE_FLAG_FIXED_WIDTH )
+#define FT_HAS_GLYPH_NAMES(face)	 \
+	( face-&#62;face_flags &#38; FT_FACE_FLAG_GLYPH_NAMES )
+#define FT_HAS_HORIZONTAL(face)	 \
+	( face-&#62;face_flags &#38; FT_FACE_FLAG_HORIZONTAL )
+#define FT_HAS_MULTIPLE_MASTERS(face)	 \
+	( face-&#62;face_flags &#38; FT_FACE_FLAG_MULTIPLE_MASTERS )
+#define FT_ENC_TAG(value,a,b,c,d)	 \
+	value = ( ( (FT_UInt32)(a) &#60;&#60; 24 ) | ( (FT_UInt32)(b) &#60;&#60; 16 ) | ( \
+	(FT_UInt32)(c) &#60;&#60; 8 ) | (FT_UInt32)(d) )
+#define FT_LOAD_TARGET_(x)	( (FT_Int32)( (x) &#38; 15 ) &#60;&#60; 16 )
+#define FT_LOAD_TARGET_MODE(x)	( (FT_Render_Mode)( ( (x) &#62;16 ) &#38; 15 ) )
+#define FT_STYLE_FLAG_ITALIC	( 1 &#60;&#60; 0 )
+#define FT_STYLE_FLAG_BOLD	( 1 &#60;&#60; 1 )
+#define FT_FACE_FLAG_SCALABLE	( 1L &#60;&#60; 0 )
+#define FT_FACE_FLAG_FIXED_SIZES	( 1L &#60;&#60; 1 )
+#define FT_FACE_FLAG_EXTERNAL_STREAM	( 1L &#60;&#60; 10 )
+#define FT_FACE_FLAG_FIXED_WIDTH	( 1L &#60;&#60; 2 )
+#define FT_FACE_FLAG_SFNT	( 1L &#60;&#60; 3 )
+#define FT_FACE_FLAG_HORIZONTAL	( 1L &#60;&#60; 4 )
+#define FT_FACE_FLAG_VERTICAL	( 1L &#60;&#60; 5 )
+#define FT_FACE_FLAG_KERNING	( 1L &#60;&#60; 6 )
+#define FT_FACE_FLAG_FAST_GLYPHS	( 1L &#60;&#60; 7 )
+#define FT_FACE_FLAG_MULTIPLE_MASTERS	( 1L &#60;&#60; 8 )
+#define FT_FACE_FLAG_GLYPH_NAMES	( 1L &#60;&#60; 9 )
+#define FT_HAS_KERNING(face)	( face-&#62;face_flags &#38; FT_FACE_FLAG_KERNING )
+#define FT_IS_SCALABLE(face)	( face-&#62;face_flags &#38; FT_FACE_FLAG_SCALABLE )
+#define FT_IS_SFNT(face)	( face-&#62;face_flags &#38; FT_FACE_FLAG_SFNT )
+#define FT_HAS_VERTICAL(face)	( face-&#62;face_flags &#38; FT_FACE_FLAG_VERTICAL )
+#define FT_LOAD_DEFAULT	0x0
+#define FT_LOAD_NO_SCALE	0x1
+#define FT_OPEN_MEMORY	0x1
+#define FT_LOAD_VERTICAL_LAYOUT	0x10
+#define FT_OPEN_PARAMS	0x10
+#define FT_LOAD_MONOCHROME	0x1000
+#define FT_LOAD_NO_HINTING	0x2
+#define FT_OPEN_STREAM	0x2
+#define FT_LOAD_FORCE_AUTOHINT	0x20
+#define FT_LOAD_IGNORE_GLOBAL_ADVANCE_WIDTH	0x200
+#define FT_LOAD_LINEAR_DESIGN	0x2000
+#define FT_LOAD_RENDER	0x4
+#define FT_OPEN_PATHNAME	0x4
+#define FT_LOAD_CROP_BITMAP	0x40
+#define FT_LOAD_NO_RECURSE	0x400
+#define FT_LOAD_SBITS_ONLY	0x4000
+#define FT_LOAD_NO_BITMAP	0x8
+#define FT_OPEN_DRIVER	0x8
+#define FT_LOAD_PEDANTIC	0x80
+#define FT_LOAD_IGNORE_TRANSFORM	0x800
+#define FT_LOAD_NO_AUTOHINT	0x8000U
+#define FREETYPE_MINOR	1
+#define FREETYPE_PATCH	10
+#define FREETYPE_MAJOR	2
+#define FT_LOAD_TARGET_LCD	FT_LOAD_TARGET_( FT_RENDER_MODE_LCD )
+#define FT_LOAD_TARGET_LCD_V	FT_LOAD_TARGET_( FT_RENDER_MODE_LCD_V )
+#define FT_LOAD_TARGET_LIGHT	FT_LOAD_TARGET_( FT_RENDER_MODE_LIGHT )
+#define FT_LOAD_TARGET_MONO	FT_LOAD_TARGET_( FT_RENDER_MODE_MONO )
+#define FT_LOAD_TARGET_NORMAL	FT_LOAD_TARGET_( FT_RENDER_MODE_NORMAL )
+
+typedef struct FT_FaceRec_ *FT_Face;
+typedef struct FT_ModuleRec_ *FT_Module;
+typedef struct FT_LibraryRec_ *FT_Library;
+typedef struct FT_ModuleRec_ FT_ModuleRec;
+typedef struct FT_RendererRec_ *FT_Renderer;
+typedef struct FT_GlyphSlotRec_ *FT_GlyphSlot;
+struct FT_GlyphSlotRec_ {
+    FT_Library library;
+    FT_Face face;
+    FT_GlyphSlot next;
+    FT_UInt reserved;
+    FT_Generic generic;
+    FT_Glyph_Metrics metrics;
+    FT_Fixed linearHoriAdvance;
+    FT_Fixed linearVertAdvance;
+    FT_Vector advance;
+    FT_Glyph_Format format;
+    FT_Bitmap bitmap;
+    FT_Int bitmap_left;
+    FT_Int bitmap_top;
+    FT_Outline outline;
+    FT_UInt num_subglyphs;
+    FT_SubGlyph subglyphs;
+    void *control_data;
+    long int control_len;
+    FT_Pos lsb_delta;
+    FT_Pos rsb_delta;
+    void *other;
+    FT_Slot_Internal internal;
+};
+typedef struct FT_Glyph_Metrics_ {
+    FT_Pos width;
+    FT_Pos height;
+    FT_Pos horiBearingX;
+    FT_Pos horiBearingY;
+    FT_Pos horiAdvance;
+    FT_Pos vertBearingX;
+    FT_Pos vertBearingY;
+    FT_Pos vertAdvance;
+} FT_Glyph_Metrics;
+typedef struct FT_SubGlyphRec_ *FT_SubGlyph;
+typedef struct FT_Slot_InternalRec_ *FT_Slot_Internal;
+struct FT_CharMapRec_ {
+    FT_Face face;
+    FT_Encoding encoding;
+    FT_UShort platform_id;
+    FT_UShort encoding_id;
+};
+typedef enum FT_Encoding_ {
+    FT_ENCODING_NONE = 0,
+    FT_ENCODING_MS_SYMBOL = 1937337698,
+    FT_ENCODING_UNICODE = 1970170211,
+    FT_ENCODING_SJIS = 1936353651,
+    FT_ENCODING_GB2312 = 1734484000,
+    FT_ENCODING_BIG5 = 1651074869,
+    FT_ENCODING_WANSUNG = 2002873971,
+    FT_ENCODING_JOHAB = 1785686113,
+    FT_ENCODING_MS_SJIS = 1936353651,
+    FT_ENCODING_MS_GB2312 = 1734484000,
+    FT_ENCODING_MS_BIG5 = 1651074869,
+    FT_ENCODING_MS_WANSUNG = 2002873971,
+    FT_ENCODING_MS_JOHAB = 1785686113,
+    FT_ENCODING_ADOBE_STANDARD = 1094995778,
+    FT_ENCODING_ADOBE_EXPERT = 1094992453,
+    FT_ENCODING_ADOBE_CUSTOM = 1094992451,
+    FT_ENCODING_ADOBE_LATIN_1 = 1818326065,
+    FT_ENCODING_OLD_LATIN_2 = 1818326066,
+    FT_ENCODING_APPLE_ROMAN = 1634889070
+} FT_Encoding;
+typedef struct FT_CharMapRec_ *FT_CharMap;
+typedef long int FT_F26Dot6;
+typedef enum FT_Render_Mode_ {
+    FT_RENDER_MODE_NORMAL = 0,
+    FT_RENDER_MODE_LIGHT = 1,
+    FT_RENDER_MODE_MONO = 2,
+    FT_RENDER_MODE_LCD = 3,
+    FT_RENDER_MODE_LCD_V = 4,
+    FT_RENDER_MODE_MAX = 5
+} FT_Render_Mode;
+typedef struct FT_Parameter_ {
+    FT_ULong tag;
+    FT_Pointer data;
+} FT_Parameter;
+typedef struct FT_Open_Args_ {
+    FT_UInt flags;
+    const FT_Byte *memory_base;
+    FT_Long memory_size;
+    FT_String *pathname;
+    FT_Stream stream;
+    FT_Module driver;
+    FT_Int num_params;
+    FT_Parameter *params;
+} FT_Open_Args;
+struct FT_SizeRec_ {
+    FT_Face face;
+    FT_Generic generic;
+    FT_Size_Metrics metrics;
+    FT_Size_Internal internal;
+};
+typedef struct FT_Size_Metrics_ {
+    FT_UShort x_ppem;
+    FT_UShort y_ppem;
+    FT_Fixed x_scale;
+    FT_Fixed y_scale;
+    FT_Pos ascender;
+    FT_Pos descender;
+    FT_Pos height;
+    FT_Pos max_advance;
+} FT_Size_Metrics;
+typedef struct FT_Size_InternalRec_ *FT_Size_Internal;
+typedef struct FT_SizeRec_ *FT_Size;
+typedef struct FT_Bitmap_Size_ {
+    FT_Short height;
+    FT_Short width;
+    FT_Pos size;
+    FT_Pos x_ppem;
+    FT_Pos y_ppem;
+} FT_Bitmap_Size;
+typedef struct FT_Face_InternalRec_ *FT_Face_Internal;
+typedef struct FT_DriverRec_ *FT_Driver;
+typedef struct FT_FaceRec_ {
+    FT_Long num_faces;
+    FT_Long face_index;
+    FT_Long face_flags;
+    FT_Long style_flags;
+    FT_Long num_glyphs;
+    const FT_String *family_name;
+    const FT_String *style_name;
+    FT_Int num_fixed_sizes;
+    FT_Bitmap_Size *available_sizes;
+    FT_Int num_charmaps;
+    FT_CharMap *charmaps;
+    FT_Generic generic;
+    FT_BBox bbox;
+    FT_UShort units_per_EM;
+    FT_Short ascender;
+    FT_Short descender;
+    FT_Short height;
+    FT_Short max_advance_width;
+    FT_Short max_advance_height;
+    FT_Short underline_position;
+    FT_Short underline_thickness;
+    FT_GlyphSlot glyph;
+    FT_Size size;
+    FT_CharMap charmap;
+    FT_Driver driver;
+    FT_Memory memory;
+    FT_Stream stream;
+    FT_ListRec sizes_list;
+    FT_Generic autohint;
+    void *extensions;
+    FT_Face_Internal internal;
+} FT_FaceRec;
+typedef enum FT_Kerning_Mode_ {
+    FT_KERNING_DEFAULT = 0,
+    FT_KERNING_UNFITTED = 1,
+    FT_KERNING_UNSCALED = 2
+} FT_Kerning_Mode;
+extern FT_Error FT_Attach_File(FT_Face, const char *);
+extern FT_Error FT_Attach_Stream(FT_Face, FT_Open_Args *);
+extern FT_Fixed FT_CeilFix(FT_Fixed);
+extern FT_Long FT_DivFix(FT_Long, FT_Long);
+extern FT_Error FT_Done_Face(FT_Face);
+extern FT_Error FT_Done_FreeType(FT_Library);
+extern FT_Fixed FT_FloorFix(FT_Fixed);
+extern FT_UInt FT_Get_Char_Index(FT_Face, FT_ULong);
+extern FT_Int FT_Get_Charmap_Index(FT_CharMap);
+extern FT_ULong FT_Get_First_Char(FT_Face, FT_UInt *);
+extern FT_Error FT_Get_Glyph_Name(FT_Face, FT_UInt, FT_Pointer, FT_UInt);
+extern FT_Error FT_Get_Kerning(FT_Face, FT_UInt, FT_UInt, FT_UInt,
+			       FT_Vector *);
+extern FT_UInt FT_Get_Name_Index(FT_Face, FT_String *);
+extern FT_ULong FT_Get_Next_Char(FT_Face, FT_ULong, FT_UInt *);
+extern const char *FT_Get_Postscript_Name(FT_Face);
+extern FT_Error FT_Init_FreeType(FT_Library *);
+extern void FT_Library_Version(FT_Library, FT_Int *, FT_Int *, FT_Int *);
+extern FT_Error FT_Load_Char(FT_Face, FT_ULong, FT_Int32);
+extern FT_Error FT_Load_Glyph(FT_Face, FT_UInt, FT_Int32);
+extern FT_Long FT_MulDiv(FT_Long, FT_Long, FT_Long);
+extern FT_Long FT_MulFix(FT_Long, FT_Long);
+extern FT_Error FT_New_Face(FT_Library, const char *, FT_Long, FT_Face *);
+extern FT_Error FT_New_Memory_Face(FT_Library, const FT_Byte *, FT_Long,
+				   FT_Long, FT_Face *);
+extern FT_Error FT_Open_Face(FT_Library, const FT_Open_Args *, FT_Long,
+			     FT_Face *);
+extern FT_Error FT_Render_Glyph(FT_GlyphSlot, FT_Render_Mode);
+extern FT_Fixed FT_RoundFix(FT_Fixed);
+extern FT_Error FT_Select_Charmap(FT_Face, FT_Encoding);
+extern FT_Error FT_Set_Char_Size(FT_Face, FT_F26Dot6, FT_F26Dot6, FT_UInt,
+				 FT_UInt);
+extern FT_Error FT_Set_Charmap(FT_Face, FT_CharMap);
+extern FT_Error FT_Set_Pixel_Sizes(FT_Face, FT_UInt, FT_UInt);
+extern void FT_Set_Transform(FT_Face, FT_Matrix *, FT_Vector *);
+extern void FT_Vector_Transform(FT_Vector *, const FT_Matrix *);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19879"
+>12.2.5. freetype/ftbbox.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;extern FT_Error FT_Outline_Get_BBox(FT_Outline *, FT_BBox *);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19883"
+>12.2.6. freetype/ftbdf.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef enum BDF_PropertyType_ {
+    BDF_PROPERTY_TYPE_NONE = 0,
+    BDF_PROPERTY_TYPE_ATOM = 1,
+    BDF_PROPERTY_TYPE_INTEGER = 2,
+    BDF_PROPERTY_TYPE_CARDINAL = 3
+} BDF_PropertyType;
+typedef struct BDF_PropertyRec_ {
+    BDF_PropertyType type;
+    union {
+	const char *atom;
+	FT_Int32 integer;
+	FT_UInt32 cardinal;
+    } u;
+} BDF_PropertyRec;
+extern FT_Error FT_Get_BDF_Charset_ID(FT_Face, const char **,
+				      const char **);
+extern FT_Error FT_Get_BDF_Property(FT_Face, const char *,
+				    BDF_PropertyRec *);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19887"
+>12.2.7. freetype/ftbitmap.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;extern FT_Error FT_Bitmap_Convert(FT_Library, const FT_Bitmap *,
+				  FT_Bitmap *, FT_Int);
+extern FT_Error FT_Bitmap_Copy(FT_Library, const FT_Bitmap *, FT_Bitmap *);
+extern FT_Error FT_Bitmap_Done(FT_Library, FT_Bitmap *);
+extern FT_Error FT_Bitmap_Embolden(FT_Library, FT_Bitmap *, FT_Pos,
+				   FT_Pos);
+extern void FT_Bitmap_New(FT_Bitmap *);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19891"
+>12.2.8. freetype/fterrors.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;enum {
+    FT_Err_Ok = 0x00,
+    FT_Err_Cannot_Open_Resource = 0x01,
+    FT_Err_Unknown_File_Format = 0x02,
+    FT_Err_Invalid_File_Format = 0x03,
+    FT_Err_Invalid_Version = 0x04,
+    FT_Err_Lower_Module_Version = 0x05,
+    FT_Err_Invalid_Argument = 0x06,
+    FT_Err_Unimplemented_Feature = 0x07,
+    FT_Err_Invalid_Table = 0x08,
+    FT_Err_Invalid_Offset = 0x09,
+    FT_Err_Invalid_Glyph_Index = 0x10,
+    FT_Err_Invalid_Character_Code = 0x11,
+    FT_Err_Invalid_Glyph_Format = 0x12,
+    FT_Err_Cannot_Render_Glyph = 0x13,
+    FT_Err_Invalid_Outline = 0x14,
+    FT_Err_Invalid_Composite = 0x15,
+    FT_Err_Too_Many_Hints = 0x16,
+    FT_Err_Invalid_Pixel_Size = 0x17,
+    FT_Err_Invalid_Handle = 0x20,
+    FT_Err_Invalid_Library_Handle = 0x21,
+    FT_Err_Invalid_Driver_Handle = 0x22,
+    FT_Err_Invalid_Face_Handle = 0x23,
+    FT_Err_Invalid_Size_Handle = 0x24,
+    FT_Err_Invalid_Slot_Handle = 0x25,
+    FT_Err_Invalid_CharMap_Handle = 0x26,
+    FT_Err_Invalid_Cache_Handle = 0x27,
+    FT_Err_Invalid_Stream_Handle = 0x28,
+    FT_Err_Too_Many_Drivers = 0x30,
+    FT_Err_Too_Many_Extensions = 0x31,
+    FT_Err_Out_Of_Memory = 0x40,
+    FT_Err_Unlisted_Object = 0x41,
+    FT_Err_Cannot_Open_Stream = 0x51,
+    FT_Err_Invalid_Stream_Seek = 0x52,
+    FT_Err_Invalid_Stream_Skip = 0x53,
+    FT_Err_Invalid_Stream_Read = 0x54,
+    FT_Err_Invalid_Stream_Operation = 0x55,
+    FT_Err_Invalid_Frame_Operation = 0x56,
+    FT_Err_Nested_Frame_Access = 0x57,
+    FT_Err_Invalid_Frame_Read = 0x58,
+    FT_Err_Raster_Uninitialized = 0x60,
+    FT_Err_Raster_Corrupted = 0x61,
+    FT_Err_Raster_Overflow = 0x62,
+    FT_Err_Raster_Negative_Height = 0x63,
+    FT_Err_Too_Many_Caches = 0x70,
+    FT_Err_Invalid_Opcode = 0x80,
+    FT_Err_Too_Few_Arguments = 0x81,
+    FT_Err_Stack_Overflow = 0x82,
+    FT_Err_Code_Overflow = 0x83,
+    FT_Err_Bad_Argument = 0x84,
+    FT_Err_Divide_By_Zero = 0x85,
+    FT_Err_Invalid_Reference = 0x86,
+    FT_Err_Debug_OpCode = 0x87,
+    FT_Err_ENDF_In_Exec_Stream = 0x88,
+    FT_Err_Nested_DEFS = 0x89,
+    FT_Err_Invalid_CodeRange = 0x8A,
+    FT_Err_Execution_Too_Long = 0x8B,
+    FT_Err_Too_Many_Function_Defs = 0x8C,
+    FT_Err_Too_Many_Instruction_Defs = 0x8D,
+    FT_Err_Table_Missing = 0x8E,
+    FT_Err_Horiz_Header_Missing = 0x8F,
+    FT_Err_Locations_Missing = 0x90,
+    FT_Err_Name_Table_Missing = 0x91,
+    FT_Err_CMap_Table_Missing = 0x92,
+    FT_Err_Hmtx_Table_Missing = 0x93,
+    FT_Err_Post_Table_Missing = 0x94,
+    FT_Err_Invalid_Horiz_Metrics = 0x95,
+    FT_Err_Invalid_CharMap_Format = 0x96,
+    FT_Err_Invalid_PPem = 0x97,
+    FT_Err_Invalid_Vert_Metrics = 0x98,
+    FT_Err_Could_Not_Find_Context = 0x99,
+    FT_Err_Invalid_Post_Table_Format = 0x9A,
+    FT_Err_Invalid_Post_Table = 0x9B,
+    FT_Err_Syntax_Error = 0xA0,
+    FT_Err_Stack_Underflow = 0xA1,
+    FT_Err_Ignore = 0xA2,
+    FT_Err_Missing_Startfont_Field = 0xB0,
+    FT_Err_Missing_Font_Field = 0xB1,
+    FT_Err_Missing_Size_Field = 0xB2,
+    FT_Err_Missing_Chars_Field = 0xB3,
+    FT_Err_Missing_Startchar_Field = 0xB4,
+    FT_Err_Missing_Encoding_Field = 0xB5,
+    FT_Err_Missing_Bbx_Field = 0xB6,
+    FT_Err_Bbx_Too_Big = 0xB7,
+    FT_Err_Max = 0xB8
+};</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19895"
+>12.2.9. freetype/ftglyph.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct FT_Glyph_Class_ {
+    FT_Long glyph_size;
+    FT_Glyph_Format glyph_format;
+    FT_Glyph_InitFunc glyph_init;
+    FT_Glyph_DoneFunc glyph_done;
+    FT_Glyph_CopyFunc glyph_copy;
+    FT_Glyph_TransformFunc glyph_transform;
+    FT_Glyph_GetBBoxFunc glyph_bbox;
+    FT_Glyph_PrepareFunc glyph_prepare;
+} FT_Glyph_Class;
+typedef struct FT_GlyphRec_ *FT_Glyph;
+typedef FT_Error(*FT_Glyph_InitFunc) (FT_Glyph, FT_GlyphSlot);
+typedef void (*FT_Glyph_DoneFunc) (FT_Glyph);
+typedef FT_Error(*FT_Glyph_CopyFunc) (FT_Glyph, FT_Glyph);
+typedef void (*FT_Glyph_TransformFunc) (FT_Glyph, const FT_Matrix *,
+					const FT_Vector *);
+typedef void (*FT_Glyph_GetBBoxFunc) (FT_Glyph, FT_BBox *);
+typedef FT_Error(*FT_Glyph_PrepareFunc) (FT_Glyph, FT_GlyphSlot);
+typedef enum FT_Glyph_BBox_Mode_ {
+    FT_GLYPH_BBOX_UNSCALED = 0,
+    FT_GLYPH_BBOX_SUBPIXELS = 0,
+    FT_GLYPH_BBOX_GRIDFIT = 1,
+    FT_GLYPH_BBOX_TRUNCATE = 2,
+    FT_GLYPH_BBOX_PIXELS = 3
+} FT_Glyph_BBox_Mode;
+struct FT_OutlineGlyphRec_ {
+    FT_GlyphRec root;
+    FT_Outline outline;
+};
+typedef struct FT_OutlineGlyphRec_ *FT_OutlineGlyph;
+typedef struct FT_GlyphRec_ {
+    FT_Library library;
+    const FT_Glyph_Class *clazz;
+    FT_Glyph_Format format;
+    FT_Vector advance;
+} FT_GlyphRec;
+struct FT_BitmapGlyphRec_ {
+    FT_GlyphRec root;
+    FT_Int left;
+    FT_Int top;
+    FT_Bitmap bitmap;
+};
+typedef struct FT_BitmapGlyphRec_ *FT_BitmapGlyph;
+extern void FT_Done_Glyph(FT_Glyph);
+extern FT_Error FT_Get_Glyph(FT_GlyphSlot, FT_Glyph *);
+extern FT_Error FT_Glyph_Copy(FT_Glyph, FT_Glyph *);
+extern void FT_Glyph_Get_CBox(FT_Glyph, FT_UInt, FT_BBox *);
+extern FT_Error FT_Glyph_To_Bitmap(FT_Glyph *, FT_Render_Mode, FT_Vector *,
+				   FT_Bool);
+extern FT_Error FT_Glyph_Transform(FT_Glyph, FT_Matrix *, FT_Vector *);
+extern FT_Error FT_Matrix_Invert(FT_Matrix *);
+extern void FT_Matrix_Multiply(const FT_Matrix *, FT_Matrix *);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19899"
+>12.2.10. freetype/ftimage.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define FT_CURVE_TAG_TOUCH_BOTH	 \
+	( FT_CURVE_TAG_TOUCH_X | FT_CURVE_TAG_TOUCH_Y )
+#define FT_IMAGE_TAG(value,_x1,_x2,_x3,_x4)	 \
+	value = ( ( (unsigned long)_x1 &#60;&#60; 24 ) | ( (unsigned long)_x2 &#60;&#60; 16 ) \
+	| ( (unsigned long)_x3 &#60;&#60; 8 ) | (unsigned long)_x4 )
+#define FT_CURVE_TAG(flag)	( flag &#38; 3 )
+#define FT_CURVE_TAG_CONIC	0
+#define FT_OUTLINE_NONE	0x0
+#define FT_RASTER_FLAG_DEFAULT	0x0
+#define FT_OUTLINE_OWNER	0x1
+#define FT_RASTER_FLAG_AA	0x1
+#define FT_OUTLINE_HIGH_PRECISION	0x100
+#define FT_OUTLINE_EVEN_ODD_FILL	0x2
+#define FT_RASTER_FLAG_DIRECT	0x2
+#define FT_OUTLINE_SINGLE_PASS	0x200
+#define FT_OUTLINE_REVERSE_FILL	0x4
+#define FT_RASTER_FLAG_CLIP	0x4
+#define FT_OUTLINE_IGNORE_DROPOUTS	0x8
+#define FT_CURVE_TAG_ON	1
+#define FT_CURVE_TAG_TOUCH_Y	16
+#define FT_CURVE_TAG_CUBIC	2
+#define FT_CURVE_TAG_TOUCH_X	8
+#define FT_Curve_Tag_Conic	FT_CURVE_TAG_CONIC
+#define FT_Curve_Tag_Cubic	FT_CURVE_TAG_CUBIC
+#define FT_Curve_Tag_On	FT_CURVE_TAG_ON
+#define FT_Curve_Tag_Touch_X	FT_CURVE_TAG_TOUCH_X
+#define FT_Curve_Tag_Touch_Y	FT_CURVE_TAG_TOUCH_Y
+#define FT_Outline_ConicTo_Func	FT_Outline_ConicToFunc
+#define FT_Outline_CubicTo_Func	FT_Outline_CubicToFunc
+#define FT_Outline_LineTo_Func	FT_Outline_LineToFunc
+#define FT_Outline_MoveTo_Func	FT_Outline_MoveToFunc
+#define FT_Raster_Done_Func	FT_Raster_DoneFunc
+#define FT_Raster_New_Func	FT_Raster_NewFunc
+#define FT_Raster_Render_Func	FT_Raster_RenderFunc
+#define FT_Raster_Reset_Func	FT_Raster_ResetFunc
+#define FT_Raster_Set_Mode_Func	FT_Raster_SetModeFunc
+#define FT_Raster_Span_Func	FT_SpanFunc
+
+typedef struct FT_Bitmap_ {
+    int rows;
+    int width;
+    int pitch;
+    unsigned char *buffer;
+    short num_grays;
+    char pixel_mode;
+    char palette_mode;
+    void *palette;
+} FT_Bitmap;
+typedef long int FT_Pos;
+typedef struct FT_Vector_ {
+    FT_Pos x;
+    FT_Pos y;
+} FT_Vector;
+typedef struct FT_Outline_ {
+    short n_contours;
+    short n_points;
+    FT_Vector *points;
+    char *tags;
+    short int *contours;
+    int flags;
+} FT_Outline;
+typedef enum FT_Glyph_Format_ {
+    FT_GLYPH_FORMAT_NONE = 0,
+    FT_GLYPH_FORMAT_COMPOSITE = 1668246896,
+    FT_GLYPH_FORMAT_BITMAP = 1651078259,
+    FT_GLYPH_FORMAT_OUTLINE = 1869968492,
+    FT_GLYPH_FORMAT_PLOTTER = 1886154612
+} FT_Glyph_Format;
+typedef struct FT_BBox_ {
+    FT_Pos xMin;
+    FT_Pos yMin;
+    FT_Pos xMax;
+    FT_Pos yMax;
+} FT_BBox;
+typedef struct FT_RasterRec_ *FT_Raster;
+typedef int (*FT_Raster_NewFunc) (void *, FT_Raster *);
+typedef void (*FT_Raster_ResetFunc) (FT_Raster, unsigned char *,
+				     long unsigned int);
+typedef int (*FT_Raster_SetModeFunc) (FT_Raster, long unsigned int,
+				      void *);
+typedef struct FT_Span_ {
+    short x;
+    unsigned short len;
+    unsigned char coverage;
+} FT_Span;
+typedef void (*FT_SpanFunc) (int, int, const FT_Span *, void *);
+typedef int (*FT_Raster_BitTest_Func) (int, int, void *);
+typedef void (*FT_Raster_BitSet_Func) (int, int, void *);
+typedef struct FT_Raster_Params_ {
+    const FT_Bitmap *target;
+    const void *source;
+    int flags;
+    FT_SpanFunc gray_spans;
+    FT_SpanFunc black_spans;
+    FT_Raster_BitTest_Func bit_test;
+    FT_Raster_BitSet_Func bit_set;
+    void *user;
+    FT_BBox clip_box;
+} FT_Raster_Params;
+typedef int (*FT_Raster_RenderFunc) (FT_Raster, const FT_Raster_Params *);
+typedef void (*FT_Raster_DoneFunc) (FT_Raster);
+typedef struct FT_Raster_Funcs_ {
+    FT_Glyph_Format glyph_format;
+    FT_Raster_NewFunc raster_new;
+    FT_Raster_ResetFunc raster_reset;
+    FT_Raster_SetModeFunc raster_set_mode;
+    FT_Raster_RenderFunc raster_render;
+    FT_Raster_DoneFunc raster_done;
+} FT_Raster_Funcs;
+typedef int (*FT_Outline_MoveToFunc) (const FT_Vector *, void *);
+typedef int (*FT_Outline_LineToFunc) (const FT_Vector *, void *);
+typedef int (*FT_Outline_ConicToFunc) (const FT_Vector *,
+				       const FT_Vector *, void *);
+typedef int (*FT_Outline_CubicToFunc) (const FT_Vector *,
+				       const FT_Vector *,
+				       const FT_Vector *, void *);
+typedef struct FT_Outline_Funcs_ {
+    FT_Outline_MoveToFunc move_to;
+    FT_Outline_LineToFunc line_to;
+    FT_Outline_ConicToFunc conic_to;
+    FT_Outline_CubicToFunc cubic_to;
+    int shift;
+    FT_Pos delta;
+} FT_Outline_Funcs;
+typedef enum FT_Pixel_Mode_ {
+    FT_PIXEL_MODE_NONE = 0,
+    FT_PIXEL_MODE_MONO,
+    FT_PIXEL_MODE_GRAY,
+    FT_PIXEL_MODE_GRAY2,
+    FT_PIXEL_MODE_GRAY4,
+    FT_PIXEL_MODE_LCD,
+    FT_PIXEL_MODE_LCD_V,
+    FT_PIXEL_MODE_MAX
+} FT_Pixel_Mode;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19903"
+>12.2.11. freetype/ftincrem.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define FT_PARAM_TAG_INCREMENTAL	FT_MAKE_TAG( 'i', 'n', 'c', 'r' )</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19907"
+>12.2.12. freetype/ftlist.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef void (*FT_List_Destructor) (FT_Memory, void *, void *);
+typedef FT_Error(*FT_List_Iterator) (FT_ListNode, void *);
+extern void FT_List_Add(FT_List, FT_ListNode);
+extern void FT_List_Finalize(FT_List, FT_List_Destructor, FT_Memory,
+			     void *);
+extern FT_ListNode FT_List_Find(FT_List, void *);
+extern void FT_List_Insert(FT_List, FT_ListNode);
+extern FT_Error FT_List_Iterate(FT_List, FT_List_Iterator, void *);
+extern void FT_List_Remove(FT_List, FT_ListNode);
+extern void FT_List_Up(FT_List, FT_ListNode);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19911"
+>12.2.13. freetype/ftmm.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct FT_MM_Axis_ {
+    FT_String *name;
+    FT_Long minimum;
+    FT_Long maximum;
+} FT_MM_Axis;
+typedef struct FT_Multi_Master_ {
+    FT_UInt num_axis;
+    FT_UInt num_designs;
+    FT_MM_Axis axis[4];
+} FT_Multi_Master;
+typedef struct FT_Var_Axis_ {
+    FT_String *name;
+    FT_Fixed minimum;
+    FT_Fixed def;
+    FT_Fixed maximum;
+    FT_ULong tag;
+    FT_UInt strid;
+} FT_Var_Axis;
+typedef struct FT_Var_Named_Style_ {
+    FT_Fixed *coords;
+    FT_UInt strid;
+} FT_Var_Named_Style;
+typedef struct FT_MM_Var_ {
+    FT_UInt num_axis;
+    FT_UInt num_designs;
+    FT_UInt num_namedstyles;
+    FT_Var_Axis *axis;
+    FT_Var_Named_Style *namedstyle;
+} FT_MM_Var;
+extern FT_Error FT_Get_MM_Var(FT_Face, FT_MM_Var * *);
+extern FT_Error FT_Get_Multi_Master(FT_Face, FT_Multi_Master *);
+extern FT_Error FT_Set_MM_Blend_Coordinates(FT_Face, FT_UInt, FT_Fixed *);
+extern FT_Error FT_Set_MM_Design_Coordinates(FT_Face, FT_UInt, FT_Long *);
+extern FT_Error FT_Set_Var_Blend_Coordinates(FT_Face, FT_UInt, FT_Fixed *);
+extern FT_Error FT_Set_Var_Design_Coordinates(FT_Face, FT_UInt,
+					      FT_Fixed *);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19915"
+>12.2.14. freetype/ftmodapi.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define FT_MODULE_DRIVER_SCALABLE	0x100
+#define FT_MODULE_DRIVER_NO_OUTLINES	0x200
+#define FT_MODULE_DRIVER_HAS_HINTER	0x400
+#define FT_MODULE_FONT_DRIVER	1
+#define FT_MODULE_RENDERER	2
+#define FT_MODULE_HINTER	4
+#define FT_MODULE_STYLER	8
+
+typedef FT_Error(*FT_Module_Constructor) (FT_Module);
+typedef void (*FT_Module_Destructor) (FT_Module);
+typedef FT_Pointer FT_Module_Interface;
+typedef FT_Module_Interface(*FT_Module_Requester) (FT_Module,
+						   const char *);
+typedef struct FT_Module_Class_ {
+    FT_ULong module_flags;
+    FT_Long module_size;
+    const FT_String *module_name;
+    FT_Fixed module_version;
+    FT_Fixed module_requires;
+    const void *module_interface;
+    FT_Module_Constructor module_init;
+    FT_Module_Destructor module_done;
+    FT_Module_Requester get_interface;
+} FT_Module_Class;
+typedef void (*FT_DebugHook_Func) (void *);
+extern void FT_Add_Default_Modules(FT_Library);
+extern FT_Error FT_Add_Module(FT_Library, const FT_Module_Class *);
+extern FT_Error FT_Done_Library(FT_Library);
+extern FT_Module FT_Get_Module(FT_Library, const char *);
+extern FT_Error FT_New_Library(FT_Memory, FT_Library *);
+extern FT_Error FT_Remove_Module(FT_Library, FT_Module);
+extern void FT_Set_Debug_Hook(FT_Library, FT_UInt, FT_DebugHook_Func);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19919"
+>12.2.15. freetype/ftmoderr.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define FT_MODERR_START_LIST	enum {
+#define FT_MODERRDEF(e,v,s)	FT_Mod_Err_ ## e = 0,
+#define FT_MODERR_END_LIST	FT_Mod_Err_Max };</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19923"
+>12.2.16. freetype/ftotval.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define FT_VALIDATE_OT	 \
+	FT_VALIDATE_BASE | FT_VALIDATE_GDEF | FT_VALIDATE_GPOS | \
+	FT_VALIDATE_GSUB | FT_VALIDATE_JSTF
+#define FT_VALIDATE_BASE	0x0100
+#define FT_VALIDATE_GDEF	0x0200
+#define FT_VALIDATE_GPOS	0x0400
+#define FT_VALIDATE_GSUB	0x0800
+#define FT_VALIDATE_JSTF	0x1000
+
+extern FT_Error FT_OpenType_Validate(FT_Face, FT_UInt, FT_Bytes *,
+				     FT_Bytes *, FT_Bytes *, FT_Bytes *,
+				     FT_Bytes *);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19927"
+>12.2.17. freetype/ftoutln.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef enum {
+    FT_ORIENTATION_TRUETYPE = 0,
+    FT_ORIENTATION_POSTSCRIPT = 1,
+    FT_ORIENTATION_FILL_RIGHT = 0,
+    FT_ORIENTATION_FILL_LEFT = 1
+} FT_Orientation;
+extern FT_Error FT_Outline_Check(FT_Outline *);
+extern FT_Error FT_Outline_Copy(const FT_Outline *, FT_Outline *);
+extern FT_Error FT_Outline_Decompose(FT_Outline *,
+				     const FT_Outline_Funcs *, void *);
+extern FT_Error FT_Outline_Done(FT_Library, FT_Outline *);
+extern FT_Error FT_Outline_Get_Bitmap(FT_Library, FT_Outline *,
+				      const FT_Bitmap *);
+extern void FT_Outline_Get_CBox(const FT_Outline *, FT_BBox *);
+extern FT_Orientation FT_Outline_Get_Orientation(FT_Outline *);
+extern FT_Error FT_Outline_New(FT_Library, FT_UInt, FT_Int, FT_Outline *);
+extern FT_Error FT_Outline_Render(FT_Library, FT_Outline *,
+				  FT_Raster_Params *);
+extern void FT_Outline_Reverse(FT_Outline *);
+extern void FT_Outline_Transform(const FT_Outline *, const FT_Matrix *);
+extern void FT_Outline_Translate(const FT_Outline *, FT_Pos, FT_Pos);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19931"
+>12.2.18. freetype/ftpfr.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;extern FT_Error FT_Get_PFR_Advance(FT_Face, FT_UInt, FT_Pos *);
+extern FT_Error FT_Get_PFR_Kerning(FT_Face, FT_UInt, FT_UInt, FT_Vector *);
+extern FT_Error FT_Get_PFR_Metrics(FT_Face, FT_UInt *, FT_UInt *,
+				   FT_Fixed *, FT_Fixed *);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19935"
+>12.2.19. freetype/ftrender.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define FT_Glyph_Done_Func	FT_Glyph_DoneFunc
+#define FT_Glyph_BBox_Func	FT_Glyph_GetBBoxFunc
+#define FT_Glyph_Init_Func	FT_Glyph_InitFunc
+#define FT_Glyph_Prepare_Func	FT_Glyph_PrepareFunc
+#define FTRenderer_getCBox	FT_Renderer_GetCBoxFunc
+#define FTRenderer_render	FT_Renderer_RenderFunc
+#define FTRenderer_setMode	FT_Renderer_SetModeFunc
+#define FTRenderer_transform	FT_Renderer_TransformFunc
+
+typedef FT_Error(*FT_Renderer_RenderFunc) (FT_Renderer, FT_GlyphSlot,
+					   FT_UInt, const FT_Vector *);
+typedef FT_Error(*FT_Renderer_TransformFunc) (FT_Renderer, FT_GlyphSlot,
+					      const FT_Matrix *,
+					      const FT_Vector *);
+typedef void (*FT_Renderer_GetCBoxFunc) (FT_Renderer, FT_GlyphSlot,
+					 FT_BBox *);
+typedef FT_Error(*FT_Renderer_SetModeFunc) (FT_Renderer, FT_ULong,
+					    FT_Pointer);
+typedef struct FT_Renderer_Class_ {
+    FT_Module_Class root;
+    FT_Glyph_Format glyph_format;
+    FT_Renderer_RenderFunc render_glyph;
+    FT_Renderer_TransformFunc transform_glyph;
+    FT_Renderer_GetCBoxFunc get_glyph_cbox;
+    FT_Renderer_SetModeFunc set_mode;
+    FT_Raster_Funcs *raster_class;
+} FT_Renderer_Class;
+extern FT_Renderer FT_Get_Renderer(FT_Library, FT_Glyph_Format);
+extern FT_Error FT_Set_Renderer(FT_Library, FT_Renderer, FT_UInt,
+				FT_Parameter *);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19939"
+>12.2.20. freetype/ftsizes.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;extern FT_Error FT_Activate_Size(FT_Size);
+extern FT_Error FT_Done_Size(FT_Size);
+extern FT_Error FT_New_Size(FT_Face, FT_Size *);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19943"
+>12.2.21. freetype/ftsnames.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef struct FT_SfntName_ {
+    FT_UShort platform_id;
+    FT_UShort encoding_id;
+    FT_UShort language_id;
+    FT_UShort name_id;
+    FT_Byte *string;
+    FT_UInt string_len;
+} FT_SfntName;
+extern FT_Error FT_Get_Sfnt_Name(FT_Face, FT_UInt, FT_SfntName *);
+extern FT_UInt FT_Get_Sfnt_Name_Count(FT_Face);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19947"
+>12.2.22. freetype/ftstroke.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef enum {
+    FT_STROKER_LINECAP_BUTT = 0,
+    FT_STROKER_LINECAP_ROUND = 1,
+    FT_STROKER_LINECAP_SQUARE = 2
+} FT_Stroker_LineCap;
+typedef enum {
+    FT_STROKER_LINEJOIN_ROUND = 0,
+    FT_STROKER_LINEJOIN_BEVEL = 1,
+    FT_STROKER_LINEJOIN_MITER = 2
+} FT_Stroker_LineJoin;
+typedef struct FT_StrokerRec_ *FT_Stroker;
+typedef enum {
+    FT_STROKER_BORDER_LEFT = 0,
+    FT_STROKER_BORDER_RIGHT = 1
+} FT_StrokerBorder;
+extern FT_Error FT_Glyph_Stroke(FT_Glyph *, FT_Stroker, FT_Bool);
+extern FT_Error FT_Glyph_StrokeBorder(FT_Glyph *, FT_Stroker, FT_Bool,
+				      FT_Bool);
+extern FT_StrokerBorder FT_Outline_GetInsideBorder(FT_Outline *);
+extern FT_StrokerBorder FT_Outline_GetOutsideBorder(FT_Outline *);
+extern FT_Error FT_Stroker_BeginSubPath(FT_Stroker, FT_Vector *, FT_Bool);
+extern FT_Error FT_Stroker_ConicTo(FT_Stroker, FT_Vector *, FT_Vector *);
+extern FT_Error FT_Stroker_CubicTo(FT_Stroker, FT_Vector *, FT_Vector *,
+				   FT_Vector *);
+extern void FT_Stroker_Done(FT_Stroker);
+extern FT_Error FT_Stroker_EndSubPath(FT_Stroker);
+extern void FT_Stroker_Export(FT_Stroker, FT_Outline *);
+extern void FT_Stroker_ExportBorder(FT_Stroker, FT_StrokerBorder,
+				    FT_Outline *);
+extern FT_Error FT_Stroker_GetBorderCounts(FT_Stroker, FT_StrokerBorder,
+					   FT_UInt *, FT_UInt *);
+extern FT_Error FT_Stroker_GetCounts(FT_Stroker, FT_UInt *, FT_UInt *);
+extern FT_Error FT_Stroker_LineTo(FT_Stroker, FT_Vector *);
+extern FT_Error FT_Stroker_New(FT_Library, FT_Stroker *);
+extern FT_Error FT_Stroker_ParseOutline(FT_Stroker, FT_Outline *, FT_Bool);
+extern void FT_Stroker_Rewind(FT_Stroker);
+extern void FT_Stroker_Set(FT_Stroker, FT_Fixed, FT_Stroker_LineCap,
+			   FT_Stroker_LineJoin, FT_Fixed);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19951"
+>12.2.23. freetype/ftsystem.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;struct FT_MemoryRec_ {
+    void *user;
+    FT_Alloc_Func alloc;
+    FT_Free_Func free;
+    FT_Realloc_Func realloc;
+};
+typedef struct FT_MemoryRec_ *FT_Memory;
+typedef void *(*FT_Alloc_Func) (FT_Memory, long int);
+typedef void (*FT_Free_Func) (FT_Memory, void *);
+typedef void *(*FT_Realloc_Func) (FT_Memory, long int, long int, void *);
+union FT_StreamDesc_ {
+    long int value;
+    void *pointer;
+};
+struct FT_StreamRec_ {
+    unsigned char *base;
+    long unsigned int size;
+    long unsigned int pos;
+    FT_StreamDesc descriptor;
+    FT_StreamDesc pathname;
+    FT_Stream_IoFunc read;
+    FT_Stream_CloseFunc close;
+    FT_Memory memory;
+    unsigned char *cursor;
+    unsigned char *limit;
+};
+typedef union FT_StreamDesc_ {
+    long int value;
+    void *pointer;
+} FT_StreamDesc;
+typedef struct FT_StreamRec_ *FT_Stream;
+typedef long unsigned int (*FT_Stream_IoFunc) (FT_Stream,
+					       long unsigned int,
+					       unsigned char *,
+					       long unsigned int);
+typedef void (*FT_Stream_CloseFunc) (FT_Stream);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19955"
+>12.2.24. freetype/fttrigon.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define FT_ANGLE_PI	( 180L &#60;&#60; 16 )
+#define FT_ANGLE_2PI	( FT_ANGLE_PI * 2 )
+#define FT_ANGLE_PI2	( FT_ANGLE_PI / 2 )
+#define FT_ANGLE_PI4	( FT_ANGLE_PI / 4 )
+
+typedef FT_Fixed FT_Angle;
+extern FT_Angle FT_Angle_Diff(FT_Angle, FT_Angle);
+extern FT_Angle FT_Atan2(FT_Fixed, FT_Fixed);
+extern FT_Fixed FT_Cos(FT_Angle);
+extern FT_Fixed FT_Sin(FT_Angle);
+extern FT_Fixed FT_Tan(FT_Angle);
+extern void FT_Vector_From_Polar(FT_Vector *, FT_Fixed, FT_Angle);
+extern FT_Fixed FT_Vector_Length(FT_Vector *);
+extern void FT_Vector_Polarize(FT_Vector *, FT_Fixed *, FT_Angle *);
+extern void FT_Vector_Rotate(FT_Vector *, FT_Angle);
+extern void FT_Vector_Unit(FT_Vector *, FT_Angle);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19959"
+>12.2.25. freetype/fttypes.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define FT_MAKE_TAG(_x1,_x2,_x3,_x4)	 \
+	( ( (FT_ULong)_x1 &#60;&#60; 24 ) | ( (FT_ULong)_x2 &#60;&#60; 16 ) | ( (FT_ULong)_x3 \
+	&#60;&#60; 8 ) | (FT_ULong)_x4 )
+#define FT_BOOL(x)	( (FT_Bool)( x ) )
+#define FT_IS_EMPTY(list)	( (list).head == 0 )
+#define FT_ERROR_BASE(x)	( (x) &#38; 0xFF )
+#define FT_ERROR_MODULE(x)	( (x) &#38; 0xFF00U )
+
+typedef unsigned int FT_UInt;
+typedef struct FT_ListNodeRec_ *FT_ListNode;
+typedef struct FT_ListRec_ *FT_List;
+typedef int FT_Error;
+typedef void (*FT_Generic_Finalizer) (void *);
+typedef struct FT_Generic_ {
+    void *data;
+    FT_Generic_Finalizer finalizer;
+} FT_Generic;
+typedef int FT_Int;
+typedef long unsigned int FT_ULong;
+typedef long int FT_Long;
+typedef char FT_String;
+typedef long int FT_Fixed;
+typedef void *FT_Pointer;
+typedef struct FT_ListRec_ {
+    FT_ListNode head;
+    FT_ListNode tail;
+} FT_ListRec;
+typedef short unsigned int FT_UShort;
+typedef struct FT_Matrix_ {
+    FT_Fixed xx;
+    FT_Fixed xy;
+    FT_Fixed yx;
+    FT_Fixed yy;
+} FT_Matrix;
+typedef unsigned char FT_Bool;
+typedef unsigned char FT_Byte;
+typedef int FT_Int32;
+typedef unsigned int FT_UInt32;
+typedef const FT_Byte *FT_Bytes;
+typedef short int FT_Short;
+typedef struct FT_ListNodeRec_ {
+    FT_ListNode prev;
+    FT_ListNode next;
+    void *data;
+} FT_ListNodeRec;
+typedef char FT_Char;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19963"
+>12.2.26. freetype/ftxf86.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;extern const char *FT_Get_X11_Font_Format(FT_Face);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19967"
+>12.2.27. freetype/t1tables.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define T1_MAX_MM_DESIGNS	16
+#define T1_MAX_MM_MAP_POINTS	20
+#define T1_MAX_MM_AXIS	4
+#define t1_blend_blue_scale	T1_BLEND_BLUE_SCALE
+#define t1_blend_blue_shift	T1_BLEND_BLUE_SHIFT
+#define t1_blend_blue_values	T1_BLEND_BLUE_VALUES
+#define t1_blend_family_blues	T1_BLEND_FAMILY_BLUES
+#define t1_blend_family_other_blues	T1_BLEND_FAMILY_OTHER_BLUES
+#define t1_blend_force_bold	T1_BLEND_FORCE_BOLD
+#define t1_blend_italic_angle	T1_BLEND_ITALIC_ANGLE
+#define t1_blend_max	T1_BLEND_MAX
+#define t1_blend_other_blues	T1_BLEND_OTHER_BLUES
+#define t1_blend_standard_height	T1_BLEND_STANDARD_HEIGHT
+#define t1_blend_standard_widths	T1_BLEND_STANDARD_WIDTH
+#define t1_blend_stem_snap_heights	T1_BLEND_STEM_SNAP_HEIGHTS
+#define t1_blend_stem_snap_widths	T1_BLEND_STEM_SNAP_WIDTHS
+#define t1_blend_underline_position	T1_BLEND_UNDERLINE_POSITION
+#define t1_blend_underline_thickness	T1_BLEND_UNDERLINE_THICKNESS
+
+typedef struct PS_PrivateRec_ {
+    FT_Int unique_id;
+    FT_Int lenIV;
+    FT_Byte num_blue_values;
+    FT_Byte num_other_blues;
+    FT_Byte num_family_blues;
+    FT_Byte num_family_other_blues;
+    FT_Short blue_values[14];
+    FT_Short other_blues[10];
+    FT_Short family_blues[14];
+    FT_Short family_other_blues[10];
+    FT_Fixed blue_scale;
+    FT_Int blue_shift;
+    FT_Int blue_fuzz;
+    FT_UShort standard_width[1];
+    FT_UShort standard_height[1];
+    FT_Byte num_snap_widths;
+    FT_Byte num_snap_heights;
+    FT_Bool force_bold;
+    FT_Bool round_stem_up;
+    FT_Short snap_widths[13];
+    FT_Short snap_heights[13];
+    FT_Fixed expansion_factor;
+    FT_Long language_group;
+    FT_Long password;
+    FT_Short min_feature[2];
+} PS_PrivateRec;
+typedef struct PS_FontInfoRec {
+    FT_String *version;
+    FT_String *notice;
+    FT_String *full_name;
+    FT_String *family_name;
+    FT_String *weight;
+    FT_Long italic_angle;
+    FT_Bool is_fixed_pitch;
+    FT_Short underline_position;
+    FT_UShort underline_thickness;
+} PS_FontInfoRec;
+typedef enum {
+    T1_BLEND_UNDERLINE_POSITION,
+    T1_BLEND_UNDERLINE_THICKNESS,
+    T1_BLEND_ITALIC_ANGLE,
+    T1_BLEND_BLUE_VALUES,
+    T1_BLEND_OTHER_BLUES,
+    T1_BLEND_STANDARD_WIDTH,
+    T1_BLEND_STANDARD_HEIGHT,
+    T1_BLEND_STEM_SNAP_WIDTHS,
+    T1_BLEND_STEM_SNAP_HEIGHTS,
+    T1_BLEND_BLUE_SCALE,
+    T1_BLEND_BLUE_SHIFT,
+    T1_BLEND_FAMILY_BLUES,
+    T1_BLEND_FAMILY_OTHER_BLUES,
+    T1_BLEND_FORCE_BOLD,
+    T1_BLEND_MAX
+} T1_Blend_Flags;
+extern FT_Error FT_Get_PS_Font_Info(FT_Face, PS_FontInfoRec *);
+extern FT_Error FT_Get_PS_Font_Private(FT_Face, PS_PrivateRec *);
+extern FT_Int FT_Has_PS_Glyph_Names(FT_Face);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19971"
+>12.2.28. freetype/ttnameid.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define TT_MS_LANGID_KIRGHIZ_KIRGHIZ_REPUBLIC	 \
+	TT_MS_LANGID_KIRGHIZ_KIRGHIZSTAN
+#define TT_MS_LANGID_SOTHO_SOUTHERN_SOUTH_AFRICA	 \
+	TT_MS_LANGID_SEPEDI_SOUTH_AFRICA
+#define TT_UCR_COMBINING_DIACRITICAL_MARKS_SYMB	 \
+	TT_UCR_COMBINING_DIACRITICS_SYMB
+#define TT_UCR_BASIC_LATIN	(1L &#60;&#60; 0)
+#define TT_UCR_COMBINING_HALF_MARKS	(1L &#60;&#60; 0)
+#define TT_UCR_SUPERSCRIPTS_SUBSCRIPTS	(1L &#60;&#60; 0)
+#define TT_UCR_CJK_COMPATIBILITY_FORMS	(1L &#60;&#60; 1)
+#define TT_UCR_CURRENCY_SYMBOLS	(1L &#60;&#60; 1)
+#define TT_UCR_LATIN1_SUPPLEMENT	(1L &#60;&#60; 1)
+#define TT_UCR_ARMENIAN	(1L &#60;&#60; 10)
+#define TT_UCR_ENCLOSED_ALPHANUMERICS	(1L &#60;&#60; 10)
+#define TT_UCR_MYANMAR	(1L &#60;&#60; 10)
+#define TT_UCR_BOX_DRAWING	(1L &#60;&#60; 11)
+#define TT_UCR_ETHIOPIC	(1L &#60;&#60; 11)
+#define TT_UCR_HEBREW	(1L &#60;&#60; 11)
+#define TT_UCR_BLOCK_ELEMENTS	(1L &#60;&#60; 12)
+#define TT_UCR_CHEROKEE	(1L &#60;&#60; 12)
+#define TT_UCR_ARABIC	(1L &#60;&#60; 13)
+#define TT_UCR_CANADIAN_ABORIGINAL_SYLLABICS	(1L &#60;&#60; 13)
+#define TT_UCR_GEOMETRIC_SHAPES	(1L &#60;&#60; 13)
+#define TT_UCR_MISCELLANEOUS_SYMBOLS	(1L &#60;&#60; 14)
+#define TT_UCR_OGHAM	(1L &#60;&#60; 14)
+#define TT_UCR_DEVANAGARI	(1L &#60;&#60; 15)
+#define TT_UCR_DINGBATS	(1L &#60;&#60; 15)
+#define TT_UCR_RUNIC	(1L &#60;&#60; 15)
+#define TT_UCR_BENGALI	(1L &#60;&#60; 16)
+#define TT_UCR_CJK_SYMBOLS	(1L &#60;&#60; 16)
+#define TT_UCR_KHMER	(1L &#60;&#60; 16)
+#define TT_UCR_GURMUKHI	(1L &#60;&#60; 17)
+#define TT_UCR_HIRAGANA	(1L &#60;&#60; 17)
+#define TT_UCR_MONGOLIAN	(1L &#60;&#60; 17)
+#define TT_UCR_BRAILLE	(1L &#60;&#60; 18)
+#define TT_UCR_GUJARATI	(1L &#60;&#60; 18)
+#define TT_UCR_KATAKANA	(1L &#60;&#60; 18)
+#define TT_UCR_BOPOMOFO	(1L &#60;&#60; 19)
+#define TT_UCR_ORIYA	(1L &#60;&#60; 19)
+#define TT_UCR_YI	(1L &#60;&#60; 19)
+#define TT_UCR_COMBINING_DIACRITICS_SYMB	(1L &#60;&#60; 2)
+#define TT_UCR_LATIN_EXTENDED_A	(1L &#60;&#60; 2)
+#define TT_UCR_SMALL_FORM_VARIANTS	(1L &#60;&#60; 2)
+#define TT_UCR_HANGUL_COMPATIBILITY_JAMO	(1L &#60;&#60; 20)
+#define TT_UCR_PHILIPPINE	(1L &#60;&#60; 20)
+#define TT_UCR_TAMIL	(1L &#60;&#60; 20)
+#define TT_UCR_CJK_MISC	(1L &#60;&#60; 21)
+#define TT_UCR_OLD_ITALIC	(1L &#60;&#60; 21)
+#define TT_UCR_TELUGU	(1L &#60;&#60; 21)
+#define TT_UCR_ENCLOSED_CJK_LETTERS_MONTHS	(1L &#60;&#60; 22)
+#define TT_UCR_GOTHIC	(1L &#60;&#60; 22)
+#define TT_UCR_KANNADA	(1L &#60;&#60; 22)
+#define TT_UCR_CJK_COMPATIBILITY	(1L &#60;&#60; 23)
+#define TT_UCR_DESERET	(1L &#60;&#60; 23)
+#define TT_UCR_MALAYALAM	(1L &#60;&#60; 23)
+#define TT_UCR_HANGUL	(1L &#60;&#60; 24)
+#define TT_UCR_MUSICAL_SYMBOLS	(1L &#60;&#60; 24)
+#define TT_UCR_THAI	(1L &#60;&#60; 24)
+#define TT_UCR_LAO	(1L &#60;&#60; 25)
+#define TT_UCR_MATH_ALPHANUMERIC_SYMBOLS	(1L &#60;&#60; 25)
+#define TT_UCR_SURROGATES	(1L &#60;&#60; 25)
+#define TT_UCR_GEORGIAN	(1L &#60;&#60; 26)
+#define TT_UCR_PRIVATE_USE_SUPPLEMENTARY	(1L &#60;&#60; 26)
+#define TT_UCR_CJK_UNIFIED_IDEOGRAPHS	(1L &#60;&#60; 27)
+#define TT_UCR_VARIATION_SELECTORS	(1L &#60;&#60; 27)
+#define TT_UCR_HANGUL_JAMO	(1L &#60;&#60; 28)
+#define TT_UCR_PRIVATE_USE	(1L &#60;&#60; 28)
+#define TT_UCR_TAGS	(1L &#60;&#60; 28)
+#define TT_UCR_CJK_COMPATIBILITY_IDEOGRAPHS	(1L &#60;&#60; 29)
+#define TT_UCR_LATIN_EXTENDED_ADDITIONAL	(1L &#60;&#60; 29)
+#define TT_UCR_ARABIC_PRESENTATIONS_B	(1L &#60;&#60; 3)
+#define TT_UCR_LATIN_EXTENDED_B	(1L &#60;&#60; 3)
+#define TT_UCR_LETTERLIKE_SYMBOLS	(1L &#60;&#60; 3)
+#define TT_UCR_ALPHABETIC_PRESENTATION_FORMS	(1L &#60;&#60; 30)
+#define TT_UCR_GREEK_EXTENDED	(1L &#60;&#60; 30)
+#define TT_UCR_ARABIC_PRESENTATIONS_A	(1L &#60;&#60; 31)
+#define TT_UCR_GENERAL_PUNCTUATION	(1L &#60;&#60; 31)
+#define TT_UCR_HALFWIDTH_FULLWIDTH_FORMS	(1L &#60;&#60; 4)
+#define TT_UCR_IPA_EXTENSIONS	(1L &#60;&#60; 4)
+#define TT_UCR_NUMBER_FORMS	(1L &#60;&#60; 4)
+#define TT_UCR_ARROWS	(1L &#60;&#60; 5)
+#define TT_UCR_SPACING_MODIFIER	(1L &#60;&#60; 5)
+#define TT_UCR_SPECIALS	(1L &#60;&#60; 5)
+#define TT_UCR_COMBINING_DIACRITICS	(1L &#60;&#60; 6)
+#define TT_UCR_MATHEMATICAL_OPERATORS	(1L &#60;&#60; 6)
+#define TT_UCR_TIBETAN	(1L &#60;&#60; 6)
+#define TT_UCR_GREEK	(1L &#60;&#60; 7)
+#define TT_UCR_MISCELLANEOUS_TECHNICAL	(1L &#60;&#60; 7)
+#define TT_UCR_SYRIAC	(1L &#60;&#60; 7)
+#define TT_UCR_CONTROL_PICTURES	(1L &#60;&#60; 8)
+#define TT_UCR_THAANA	(1L &#60;&#60; 8)
+#define TT_UCR_CYRILLIC	(1L &#60;&#60; 9)
+#define TT_UCR_OCR	(1L &#60;&#60; 9)
+#define TT_UCR_SINHALA	(1L &#60;&#60; 9)
+#define TT_ADOBE_ID_STANDARD	0
+#define TT_APPLE_ID_DEFAULT	0
+#define TT_ISO_ID_7BIT_ASCII	0
+#define TT_MAC_ID_ROMAN	0
+#define TT_MAC_LANGID_ENGLISH	0
+#define TT_MS_ID_SYMBOL_CS	0
+#define TT_NAME_ID_COPYRIGHT	0
+#define TT_PLATFORM_APPLE_UNICODE	0
+#define TT_MS_LANGID_ARABIC_GENERAL	0x0001
+#define TT_MS_LANGID_CHINESE_GENERAL	0x0004
+#define TT_MS_LANGID_ENGLISH_GENERAL	0x0009
+#define TT_MS_LANGID_ARABIC_SAUDI_ARABIA	0x0401
+#define TT_MS_LANGID_BULGARIAN_BULGARIA	0x0402
+#define TT_MS_LANGID_CATALAN_SPAIN	0x0403
+#define TT_MS_LANGID_CHINESE_TAIWAN	0x0404
+#define TT_MS_LANGID_CZECH_CZECH_REPUBLIC	0x0405
+#define TT_MS_LANGID_DANISH_DENMARK	0x0406
+#define TT_MS_LANGID_GERMAN_GERMANY	0x0407
+#define TT_MS_LANGID_GREEK_GREECE	0x0408
+#define TT_MS_LANGID_ENGLISH_UNITED_STATES	0x0409
+#define TT_MS_LANGID_SPANISH_SPAIN_TRADITIONAL_SORT	0x040a
+#define TT_MS_LANGID_FINNISH_FINLAND	0x040b
+#define TT_MS_LANGID_FRENCH_FRANCE	0x040c
+#define TT_MS_LANGID_HEBREW_ISRAEL	0x040d
+#define TT_MS_LANGID_HUNGARIAN_HUNGARY	0x040e
+#define TT_MS_LANGID_ICELANDIC_ICELAND	0x040f
+#define TT_MS_LANGID_ITALIAN_ITALY	0x0410
+#define TT_MS_LANGID_JAPANESE_JAPAN	0x0411
+#define TT_MS_LANGID_KOREAN_EXTENDED_WANSUNG_KOREA	0x0412
+#define TT_MS_LANGID_DUTCH_NETHERLANDS	0x0413
+#define TT_MS_LANGID_NORWEGIAN_NORWAY_BOKMAL	0x0414
+#define TT_MS_LANGID_POLISH_POLAND	0x0415
+#define TT_MS_LANGID_PORTUGUESE_BRAZIL	0x0416
+#define TT_MS_LANGID_RHAETO_ROMANIC_SWITZERLAND	0x0417
+#define TT_MS_LANGID_ROMANIAN_ROMANIA	0x0418
+#define TT_MS_LANGID_RUSSIAN_RUSSIA	0x0419
+#define TT_MS_LANGID_CROATIAN_CROATIA	0x041a
+#define TT_MS_LANGID_SLOVAK_SLOVAKIA	0x041b
+#define TT_MS_LANGID_ALBANIAN_ALBANIA	0x041c
+#define TT_MS_LANGID_SWEDISH_SWEDEN	0x041d
+#define TT_MS_LANGID_THAI_THAILAND	0x041e
+#define TT_MS_LANGID_TURKISH_TURKEY	0x041f
+#define TT_MS_LANGID_URDU_PAKISTAN	0x0420
+#define TT_MS_LANGID_INDONESIAN_INDONESIA	0x0421
+#define TT_MS_LANGID_UKRAINIAN_UKRAINE	0x0422
+#define TT_MS_LANGID_BELARUSIAN_BELARUS	0x0423
+#define TT_MS_LANGID_SLOVENE_SLOVENIA	0x0424
+#define TT_MS_LANGID_ESTONIAN_ESTONIA	0x0425
+#define TT_MS_LANGID_LATVIAN_LATVIA	0x0426
+#define TT_MS_LANGID_LITHUANIAN_LITHUANIA	0x0427
+#define TT_MS_LANGID_TAJIK_TAJIKISTAN	0x0428
+#define TT_MS_LANGID_FARSI_IRAN	0x0429
+#define TT_MS_LANGID_VIETNAMESE_VIET_NAM	0x042a
+#define TT_MS_LANGID_ARMENIAN_ARMENIA	0x042b
+#define TT_MS_LANGID_AZERI_AZERBAIJAN_LATIN	0x042c
+#define TT_MS_LANGID_BASQUE_SPAIN	0x042d
+#define TT_MS_LANGID_SORBIAN_GERMANY	0x042e
+#define TT_MS_LANGID_MACEDONIAN_MACEDONIA	0x042f
+#define TT_MS_LANGID_SUTU_SOUTH_AFRICA	0x0430
+#define TT_MS_LANGID_TSONGA_SOUTH_AFRICA	0x0431
+#define TT_MS_LANGID_TSWANA_SOUTH_AFRICA	0x0432
+#define TT_MS_LANGID_VENDA_SOUTH_AFRICA	0x0433
+#define TT_MS_LANGID_XHOSA_SOUTH_AFRICA	0x0434
+#define TT_MS_LANGID_ZULU_SOUTH_AFRICA	0x0435
+#define TT_MS_LANGID_AFRIKAANS_SOUTH_AFRICA	0x0436
+#define TT_MS_LANGID_GEORGIAN_GEORGIA	0x0437
+#define TT_MS_LANGID_FAEROESE_FAEROE_ISLANDS	0x0438
+#define TT_MS_LANGID_HINDI_INDIA	0x0439
+#define TT_MS_LANGID_MALTESE_MALTA	0x043a
+#define TT_MS_LANGID_SAAMI_LAPONIA	0x043b
+#define TT_MS_LANGID_SAMI_NORTHERN_NORWAY	0x043b
+#define TT_MS_LANGID_IRISH_GAELIC_IRELAND	0x043c
+#define TT_MS_LANGID_YIDDISH_GERMANY	0x043d
+#define TT_MS_LANGID_MALAY_MALAYSIA	0x043e
+#define TT_MS_LANGID_KAZAK_KAZAKSTAN	0x043f
+#define TT_MS_LANGID_KIRGHIZ_KIRGHIZSTAN	0x0440
+#define TT_MS_LANGID_SWAHILI_KENYA	0x0441
+#define TT_MS_LANGID_TURKMEN_TURKMENISTAN	0x0442
+#define TT_MS_LANGID_UZBEK_UZBEKISTAN_LATIN	0x0443
+#define TT_MS_LANGID_TATAR_TATARSTAN	0x0444
+#define TT_MS_LANGID_BENGALI_INDIA	0x0445
+#define TT_MS_LANGID_PUNJABI_INDIA	0x0446
+#define TT_MS_LANGID_GUJARATI_INDIA	0x0447
+#define TT_MS_LANGID_ORIYA_INDIA	0x0448
+#define TT_MS_LANGID_TAMIL_INDIA	0x0449
+#define TT_MS_LANGID_TELUGU_INDIA	0x044a
+#define TT_MS_LANGID_KANNADA_INDIA	0x044b
+#define TT_MS_LANGID_MALAYALAM_INDIA	0x044c
+#define TT_MS_LANGID_ASSAMESE_INDIA	0x044d
+#define TT_MS_LANGID_MARATHI_INDIA	0x044e
+#define TT_MS_LANGID_SANSKRIT_INDIA	0x044f
+#define TT_MS_LANGID_MONGOLIAN_MONGOLIA	0x0450
+#define TT_MS_LANGID_TIBETAN_CHINA	0x0451
+#define TT_MS_LANGID_WELSH_WALES	0x0452
+#define TT_MS_LANGID_KHMER_CAMBODIA	0x0453
+#define TT_MS_LANGID_LAO_LAOS	0x0454
+#define TT_MS_LANGID_BURMESE_MYANMAR	0x0455
+#define TT_MS_LANGID_GALICIAN_SPAIN	0x0456
+#define TT_MS_LANGID_KONKANI_INDIA	0x0457
+#define TT_MS_LANGID_MANIPURI_INDIA	0x0458
+#define TT_MS_LANGID_SINDHI_INDIA	0x0459
+#define TT_MS_LANGID_SYRIAC_SYRIA	0x045a
+#define TT_MS_LANGID_SINHALESE_SRI_LANKA	0x045b
+#define TT_MS_LANGID_CHEROKEE_UNITED_STATES	0x045c
+#define TT_MS_LANGID_INUKTITUT_CANADA	0x045d
+#define TT_MS_LANGID_AMHARIC_ETHIOPIA	0x045e
+#define TT_MS_LANGID_TAMAZIGHT_MOROCCO	0x045f
+#define TT_MS_LANGID_KASHMIRI_PAKISTAN	0x0460
+#define TT_MS_LANGID_NEPALI_NEPAL	0x0461
+#define TT_MS_LANGID_FRISIAN_NETHERLANDS	0x0462
+#define TT_MS_LANGID_PASHTO_AFGHANISTAN	0x0463
+#define TT_MS_LANGID_FILIPINO_PHILIPPINES	0x0464
+#define TT_MS_LANGID_DHIVEHI_MALDIVES	0x0465
+#define TT_MS_LANGID_EDO_NIGERIA	0x0466
+#define TT_MS_LANGID_FULFULDE_NIGERIA	0x0467
+#define TT_MS_LANGID_HAUSA_NIGERIA	0x0468
+#define TT_MS_LANGID_IBIBIO_NIGERIA	0x0469
+#define TT_MS_LANGID_YORUBA_NIGERIA	0x046a
+#define TT_MS_LANGID_QUECHUA_BOLIVIA	0x046b
+#define TT_MS_LANGID_SEPEDI_SOUTH_AFRICA	0x046c
+#define TT_MS_LANGID_IGBO_NIGERIA	0x0470
+#define TT_MS_LANGID_KANURI_NIGERIA	0x0471
+#define TT_MS_LANGID_OROMO_ETHIOPIA	0x0472
+#define TT_MS_LANGID_TIGRIGNA_ETHIOPIA	0x0473
+#define TT_MS_LANGID_GUARANI_PARAGUAY	0x0474
+#define TT_MS_LANGID_HAWAIIAN_UNITED_STATES	0x0475
+#define TT_MS_LANGID_LATIN	0x0476
+#define TT_MS_LANGID_SOMALI_SOMALIA	0x0477
+#define TT_MS_LANGID_YI_CHINA	0x0478
+#define TT_MS_LANGID_PAPIAMENTU_NETHERLANDS_ANTILLES	0x0479
+#define TT_MS_LANGID_UIGHUR_CHINA	0x0480
+#define TT_MS_LANGID_MAORI_NEW_ZEALAND	0x0481
+#define TT_MS_LANGID_ARABIC_IRAQ	0x0801
+#define TT_MS_LANGID_CHINESE_PRC	0x0804
+#define TT_MS_LANGID_GERMAN_SWITZERLAND	0x0807
+#define TT_MS_LANGID_ENGLISH_UNITED_KINGDOM	0x0809
+#define TT_MS_LANGID_SPANISH_MEXICO	0x080a
+#define TT_MS_LANGID_FRENCH_BELGIUM	0x080c
+#define TT_MS_LANGID_ITALIAN_SWITZERLAND	0x0810
+#define TT_MS_LANGID_KOREAN_JOHAB_KOREA	0x0812
+#define TT_MS_LANGID_DUTCH_BELGIUM	0x0813
+#define TT_MS_LANGID_NORWEGIAN_NORWAY_NYNORSK	0x0814
+#define TT_MS_LANGID_PORTUGUESE_PORTUGAL	0x0816
+#define TT_MS_LANGID_MOLDAVIAN_MOLDAVIA	0x0818
+#define TT_MS_LANGID_RUSSIAN_MOLDAVIA	0x0819
+#define TT_MS_LANGID_SERBIAN_SERBIA_LATIN	0x081a
+#define TT_MS_LANGID_SWEDISH_FINLAND	0x081d
+#define TT_MS_LANGID_URDU_INDIA	0x0820
+#define TT_MS_LANGID_CLASSIC_LITHUANIAN_LITHUANIA	0x0827
+#define TT_MS_LANGID_AZERI_AZERBAIJAN_CYRILLIC	0x082c
+#define TT_MS_LANGID_SAMI_NORTHERN_SWEDEN	0x083b
+#define TT_MS_LANGID_SCOTTISH_GAELIC_UNITED_KINGDOM	0x083c
+#define TT_MS_LANGID_MALAY_BRUNEI_DARUSSALAM	0x083e
+#define TT_MS_LANGID_UZBEK_UZBEKISTAN_CYRILLIC	0x0843
+#define TT_MS_LANGID_BENGALI_BANGLADESH	0x0845
+#define TT_MS_LANGID_PUNJABI_ARABIC_PAKISTAN	0x0846
+#define TT_MS_LANGID_MONGOLIAN_MONGOLIA_MONGOLIAN	0x0850
+#define TT_MS_LANGID_DZONGHKA_BHUTAN	0x0851
+#define TT_MS_LANGID_SINDHI_PAKISTAN	0x0859
+#define TT_MS_LANGID_TAMAZIGHT_MOROCCO_LATIN	0x085f
+#define TT_MS_LANGID_KASHMIRI_SASIA	0x0860
+#define TT_MS_LANGID_NEPALI_INDIA	0x0861
+#define TT_MS_LANGID_QUECHUA_ECUADOR	0x086b
+#define TT_MS_LANGID_TIGRIGNA_ERYTHREA	0x0873
+#define TT_MS_LANGID_ARABIC_EGYPT	0x0c01
+#define TT_MS_LANGID_CHINESE_HONG_KONG	0x0c04
+#define TT_MS_LANGID_GERMAN_AUSTRIA	0x0c07
+#define TT_MS_LANGID_ENGLISH_AUSTRALIA	0x0c09
+#define TT_MS_LANGID_SPANISH_SPAIN_INTERNATIONAL_SORT	0x0c0a
+#define TT_MS_LANGID_FRENCH_CANADA	0x0c0c
+#define TT_MS_LANGID_SERBIAN_SERBIA_CYRILLIC	0x0c1a
+#define TT_MS_LANGID_SAMI_NORTHERN_FINLAND	0x0C3b
+#define TT_MS_LANGID_QUECHUA_PERU	0x0c6b
+#define TT_MS_LANGID_ARABIC_LIBYA	0x1001
+#define TT_MS_LANGID_CHINESE_SINGAPORE	0x1004
+#define TT_MS_LANGID_GERMAN_LUXEMBOURG	0x1007
+#define TT_MS_LANGID_ENGLISH_CANADA	0x1009
+#define TT_MS_LANGID_SPANISH_GUATEMALA	0x100a
+#define TT_MS_LANGID_FRENCH_SWITZERLAND	0x100c
+#define TT_MS_LANGID_CROATIAN_BOSNIA_HERZEGOVINA	0x101a
+#define TT_MS_LANGID_SAMI_LULE_NORWAY	0x103b
+#define TT_MS_LANGID_ARABIC_ALGERIA	0x1401
+#define TT_MS_LANGID_CHINESE_MACAU	0x1404
+#define TT_MS_LANGID_GERMAN_LIECHTENSTEI	0x1407
+#define TT_MS_LANGID_ENGLISH_NEW_ZEALAND	0x1409
+#define TT_MS_LANGID_SPANISH_COSTA_RICA	0x140a
+#define TT_MS_LANGID_FRENCH_LUXEMBOURG	0x140c
+#define TT_MS_LANGID_BOSNIAN_BOSNIA_HERZEGOVINA	0x141a
+#define TT_MS_LANGID_SAMI_LULE_SWEDEN	0x143b
+#define TT_MS_LANGID_ARABIC_MOROCCO	0x1801
+#define TT_MS_LANGID_ENGLISH_IRELAND	0x1809
+#define TT_MS_LANGID_SPANISH_PANAMA	0x180a
+#define TT_MS_LANGID_FRENCH_MONACO	0x180c
+#define TT_MS_LANGID_SERBIAN_BOSNIA_HERZ_CYRILLIC	0x181a
+#define TT_MS_LANGID_SERBIAN_BOSNIA_HERZ_LATIN	0x181a
+#define TT_MS_LANGID_SAMI_SOUTHERN_NORWAY	0x183b
+#define TT_MS_LANGID_ARABIC_TUNISIA	0x1c01
+#define TT_MS_LANGID_ENGLISH_SOUTH_AFRICA	0x1c09
+#define TT_MS_LANGID_SPANISH_DOMINICAN_REPUBLIC	0x1c0a
+#define TT_MS_LANGID_FRENCH_WEST_INDIES	0x1c0c
+#define TT_MS_LANGID_SAMI_SOUTHERN_SWEDEN	0x1C3b
+#define TT_MS_LANGID_ARABIC_OMAN	0x2001
+#define TT_MS_LANGID_ENGLISH_JAMAICA	0x2009
+#define TT_MS_LANGID_SPANISH_VENEZUELA	0x200a
+#define TT_MS_LANGID_FRENCH_REUNION	0x200c
+#define TT_MS_LANGID_SAMI_SKOLT_FINLAND	0x203b
+#define TT_MS_LANGID_ARABIC_YEMEN	0x2401
+#define TT_MS_LANGID_ENGLISH_CARIBBEAN	0x2409
+#define TT_MS_LANGID_SPANISH_COLOMBIA	0x240a
+#define TT_MS_LANGID_FRENCH_CONGO	0x240c
+#define TT_MS_LANGID_SAMI_INARI_FINLAND	0x243b
+#define TT_MS_LANGID_ARABIC_SYRIA	0x2801
+#define TT_MS_LANGID_ENGLISH_BELIZE	0x2809
+#define TT_MS_LANGID_SPANISH_PERU	0x280a
+#define TT_MS_LANGID_FRENCH_SENEGAL	0x280c
+#define TT_MS_LANGID_ARABIC_JORDAN	0x2c01
+#define TT_MS_LANGID_ENGLISH_TRINIDAD	0x2c09
+#define TT_MS_LANGID_SPANISH_ARGENTINA	0x2c0a
+#define TT_MS_LANGID_FRENCH_CAMEROON	0x2c0c
+#define TT_MS_LANGID_ARABIC_LEBANON	0x3001
+#define TT_MS_LANGID_ENGLISH_ZIMBABWE	0x3009
+#define TT_MS_LANGID_SPANISH_ECUADOR	0x300a
+#define TT_MS_LANGID_FRENCH_COTE_D_IVOIRE	0x300c
+#define TT_MS_LANGID_ARABIC_KUWAIT	0x3401
+#define TT_MS_LANGID_ENGLISH_PHILIPPINES	0x3409
+#define TT_MS_LANGID_SPANISH_CHILE	0x340a
+#define TT_MS_LANGID_FRENCH_MALI	0x340c
+#define TT_MS_LANGID_ARABIC_UAE	0x3801
+#define TT_MS_LANGID_ENGLISH_INDONESIA	0x3809
+#define TT_MS_LANGID_SPANISH_URUGUAY	0x380a
+#define TT_MS_LANGID_FRENCH_MOROCCO	0x380c
+#define TT_MS_LANGID_ARABIC_BAHRAIN	0x3c01
+#define TT_MS_LANGID_ENGLISH_HONG_KONG	0x3c09
+#define TT_MS_LANGID_SPANISH_PARAGUAY	0x3c0a
+#define TT_MS_LANGID_FRENCH_HAITI	0x3c0c
+#define TT_MS_LANGID_ARABIC_QATAR	0x4001
+#define TT_MS_LANGID_ENGLISH_INDIA	0x4009
+#define TT_MS_LANGID_SPANISH_BOLIVIA	0x400a
+#define TT_MS_LANGID_ENGLISH_MALAYSIA	0x4409
+#define TT_MS_LANGID_SPANISH_EL_SALVADOR	0x440a
+#define TT_MS_LANGID_ENGLISH_SINGAPORE	0x4809
+#define TT_MS_LANGID_SPANISH_HONDURAS	0x480a
+#define TT_MS_LANGID_SPANISH_NICARAGUA	0x4c0a
+#define TT_MS_LANGID_SPANISH_PUERTO_RICO	0x500a
+#define TT_MS_LANGID_SPANISH_UNITED_STATES	0x540a
+#define TT_MS_LANGID_SPANISH_LATIN_AMERICA	0xE40aU
+#define TT_MS_LANGID_FRENCH_NORTH_AFRICA	0xE40cU
+#define TT_ADOBE_ID_EXPERT	1
+#define TT_APPLE_ID_UNICODE_1_1	1
+#define TT_ISO_ID_10646	1
+#define TT_MAC_ID_JAPANESE	1
+#define TT_MAC_LANGID_FRENCH	1
+#define TT_MS_ID_UNICODE_CS	1
+#define TT_NAME_ID_FONT_FAMILY	1
+#define TT_PLATFORM_MACINTOSH	1
+#define TT_MAC_ID_GURMUKHI	10
+#define TT_MAC_LANGID_HEBREW	10
+#define TT_MS_ID_UCS_4	10
+#define TT_NAME_ID_DESCRIPTION	10
+#define TT_MAC_ID_GUJARATI	11
+#define TT_MAC_LANGID_JAPANESE	11
+#define TT_NAME_ID_VENDOR_URL	11
+#define TT_MAC_ID_ORIYA	12
+#define TT_MAC_LANGID_ARABIC	12
+#define TT_NAME_ID_DESIGNER_URL	12
+#define TT_MAC_LANGID_WELSH	128
+#define TT_MAC_LANGID_BASQUE	129
+#define TT_MAC_ID_BENGALI	13
+#define TT_MAC_LANGID_FINNISH	13
+#define TT_NAME_ID_LICENSE	13
+#define TT_MAC_LANGID_CATALAN	130
+#define TT_MAC_LANGID_LATIN	131
+#define TT_MAC_LANGID_QUECHUA	132
+#define TT_MAC_LANGID_GUARANI	133
+#define TT_MAC_LANGID_AYMARA	134
+#define TT_MAC_LANGID_TATAR	135
+#define TT_MAC_LANGID_UIGHUR	136
+#define TT_MAC_LANGID_DZONGKHA	137
+#define TT_MAC_LANGID_JAVANESE	138
+#define TT_MAC_LANGID_SUNDANESE	139
+#define TT_MAC_ID_TAMIL	14
+#define TT_MAC_LANGID_GREEK	14
+#define TT_NAME_ID_LICENSE_URL	14
+#define TT_MAC_LANGID_GALICIAN	140
+#define TT_MAC_LANGID_AFRIKAANS	141
+#define TT_MAC_LANGID_BRETON	142
+#define TT_MAC_LANGID_INUKTITUT	143
+#define TT_MAC_LANGID_SCOTTISH_GAELIC	144
+#define TT_MAC_LANGID_MANX_GAELIC	145
+#define TT_MAC_LANGID_IRISH_GAELIC	146
+#define TT_MAC_LANGID_TONGAN	147
+#define TT_MAC_LANGID_GREEK_POLYTONIC	148
+#define TT_MAC_LANGID_GREELANDIC	149
+#define TT_MAC_ID_TELUGU	15
+#define TT_MAC_LANGID_ICELANDIC	15
+#define TT_MAC_LANGID_AZERBAIJANI_ROMAN_SCRIPT	150
+#define TT_MAC_ID_KANNADA	16
+#define TT_MAC_LANGID_MALTESE	16
+#define TT_NAME_ID_PREFERRED_FAMILY	16
+#define TT_MAC_ID_MALAYALAM	17
+#define TT_MAC_LANGID_TURKISH	17
+#define TT_NAME_ID_PREFERRED_SUBFAMILY	17
+#define TT_MAC_ID_SINHALESE	18
+#define TT_MAC_LANGID_CROATIAN	18
+#define TT_NAME_ID_MAC_FULL_NAME	18
+#define TT_MAC_ID_BURMESE	19
+#define TT_MAC_LANGID_CHINESE_TRADITIONAL	19
+#define TT_NAME_ID_SAMPLE_TEXT	19
+#define TT_ADOBE_ID_CUSTOM	2
+#define TT_APPLE_ID_ISO_10646	2
+#define TT_ISO_ID_8859_1	2
+#define TT_MAC_ID_TRADITIONAL_CHINESE	2
+#define TT_MAC_LANGID_GERMAN	2
+#define TT_MS_ID_SJIS	2
+#define TT_NAME_ID_FONT_SUBFAMILY	2
+#define TT_PLATFORM_ISO	2
+#define TT_MAC_ID_KHMER	20
+#define TT_MAC_LANGID_URDU	20
+#define TT_NAME_ID_CID_FINDFONT_NAME	20
+#define TT_MAC_ID_THAI	21
+#define TT_MAC_LANGID_HINDI	21
+#define TT_MAC_ID_LAOTIAN	22
+#define TT_MAC_LANGID_THAI	22
+#define TT_MAC_ID_GEORGIAN	23
+#define TT_MAC_LANGID_KOREAN	23
+#define TT_MAC_ID_ARMENIAN	24
+#define TT_MAC_LANGID_LITHUANIAN	24
+#define TT_MAC_ID_MALDIVIAN	25
+#define TT_MAC_ID_SIMPLIFIED_CHINESE	25
+#define TT_MAC_LANGID_POLISH	25
+#define TT_MAC_ID_TIBETAN	26
+#define TT_MAC_LANGID_HUNGARIAN	26
+#define TT_MAC_ID_MONGOLIAN	27
+#define TT_MAC_LANGID_ESTONIAN	27
+#define TT_MAC_ID_GEEZ	28
+#define TT_MAC_LANGID_LETTISH	28
+#define TT_MAC_ID_SLAVIC	29
+#define TT_MAC_LANGID_SAAMISK	29
+#define TT_ADOBE_ID_LATIN_1	3
+#define TT_APPLE_ID_UNICODE_2_0	3
+#define TT_MAC_ID_KOREAN	3
+#define TT_MAC_LANGID_ITALIAN	3
+#define TT_MS_ID_GB2312	3
+#define TT_NAME_ID_UNIQUE_ID	3
+#define TT_PLATFORM_MICROSOFT	3
+#define TT_MAC_ID_VIETNAMESE	30
+#define TT_MAC_LANGID_FAEROESE	30
+#define TT_MAC_ID_SINDHI	31
+#define TT_MAC_LANGID_FARSI	31
+#define TT_MAC_ID_UNINTERP	32
+#define TT_MAC_LANGID_RUSSIAN	32
+#define TT_MAC_LANGID_CHINESE_SIMPLIFIED	33
+#define TT_MAC_LANGID_FLEMISH	34
+#define TT_MAC_LANGID_IRISH	35
+#define TT_MAC_LANGID_ALBANIAN	36
+#define TT_MAC_LANGID_ROMANIAN	37
+#define TT_MAC_LANGID_CZECH	38
+#define TT_MAC_LANGID_SLOVAK	39
+#define TT_APPLE_ID_UNICODE_32	4
+#define TT_MAC_ID_ARABIC	4
+#define TT_MAC_LANGID_DUTCH	4
+#define TT_MS_ID_BIG_5	4
+#define TT_NAME_ID_FULL_NAME	4
+#define TT_PLATFORM_CUSTOM	4
+#define TT_MAC_LANGID_SLOVENIAN	40
+#define TT_MAC_LANGID_YIDDISH	41
+#define TT_MAC_LANGID_SERBIAN	42
+#define TT_MAC_LANGID_MACEDONIAN	43
+#define TT_MAC_LANGID_BULGARIAN	44
+#define TT_MAC_LANGID_UKRAINIAN	45
+#define TT_MAC_LANGID_BYELORUSSIAN	46
+#define TT_MAC_LANGID_UZBEK	47
+#define TT_MAC_LANGID_KAZAKH	48
+#define TT_MAC_LANGID_AZERBAIJANI	49
+#define TT_MAC_LANGID_AZERBAIJANI_CYRILLIC_SCRIPT	49
+#define TT_MAC_ID_HEBREW	5
+#define TT_MAC_LANGID_SWEDISH	5
+#define TT_MS_ID_WANSUNG	5
+#define TT_NAME_ID_VERSION_STRING	5
+#define TT_MAC_LANGID_AZERBAIJANI_ARABIC_SCRIPT	50
+#define TT_MAC_LANGID_ARMENIAN	51
+#define TT_MAC_LANGID_GEORGIAN	52
+#define TT_MAC_LANGID_MOLDAVIAN	53
+#define TT_MAC_LANGID_KIRGHIZ	54
+#define TT_MAC_LANGID_TAJIKI	55
+#define TT_MAC_LANGID_TURKMEN	56
+#define TT_MAC_LANGID_MONGOLIAN	57
+#define TT_MAC_LANGID_MONGOLIAN_MONGOLIAN_SCRIPT	57
+#define TT_MAC_LANGID_MONGOLIAN_CYRILLIC_SCRIPT	58
+#define TT_MAC_LANGID_PASHTO	59
+#define TT_MAC_ID_GREEK	6
+#define TT_MAC_LANGID_SPANISH	6
+#define TT_MS_ID_JOHAB	6
+#define TT_NAME_ID_PS_NAME	6
+#define TT_MAC_LANGID_KURDISH	60
+#define TT_MAC_LANGID_KASHMIRI	61
+#define TT_MAC_LANGID_SINDHI	62
+#define TT_MAC_LANGID_TIBETAN	63
+#define TT_MAC_LANGID_NEPALI	64
+#define TT_MAC_LANGID_SANSKRIT	65
+#define TT_MAC_LANGID_MARATHI	66
+#define TT_MAC_LANGID_BENGALI	67
+#define TT_MAC_LANGID_ASSAMESE	68
+#define TT_MAC_LANGID_GUJARATI	69
+#define TT_MAC_ID_RUSSIAN	7
+#define TT_MAC_LANGID_DANISH	7
+#define TT_NAME_ID_TRADEMARK	7
+#define TT_PLATFORM_ADOBE	7
+#define TT_MAC_LANGID_PUNJABI	70
+#define TT_MAC_LANGID_ORIYA	71
+#define TT_MAC_LANGID_MALAYALAM	72
+#define TT_MAC_LANGID_KANNADA	73
+#define TT_MAC_LANGID_TAMIL	74
+#define TT_MAC_LANGID_TELUGU	75
+#define TT_MAC_LANGID_SINHALESE	76
+#define TT_MAC_LANGID_BURMESE	77
+#define TT_MAC_LANGID_KHMER	78
+#define TT_MAC_LANGID_LAO	79
+#define TT_MAC_ID_RSYMBOL	8
+#define TT_MAC_LANGID_PORTUGUESE	8
+#define TT_NAME_ID_MANUFACTURER	8
+#define TT_MAC_LANGID_VIETNAMESE	80
+#define TT_MAC_LANGID_INDONESIAN	81
+#define TT_MAC_LANGID_TAGALOG	82
+#define TT_MAC_LANGID_MALAY_ROMAN_SCRIPT	83
+#define TT_MAC_LANGID_MALAY_ARABIC_SCRIPT	84
+#define TT_MAC_LANGID_AMHARIC	85
+#define TT_MAC_LANGID_TIGRINYA	86
+#define TT_MAC_LANGID_GALLA	87
+#define TT_MAC_LANGID_SOMALI	88
+#define TT_MAC_LANGID_SWAHILI	89
+#define TT_MAC_ID_DEVANAGARI	9
+#define TT_MAC_LANGID_NORWEGIAN	9
+#define TT_NAME_ID_DESIGNER	9
+#define TT_MAC_LANGID_RUANDA	90
+#define TT_MAC_LANGID_RUNDI	91
+#define TT_MAC_LANGID_CHEWA	92
+#define TT_MAC_LANGID_MALAGASY	93
+#define TT_MAC_LANGID_ESPERANTO	94
+#define TT_MS_LANGID_DIVEHI_MALDIVES	TT_MS_LANGID_DHIVEHI_MALDIVES
+#define TT_MS_LANGID_TIBETAN_BHUTAN	TT_MS_LANGID_DZONGHKA_BHUTAN
+#define TT_MS_LANGID_FRENCH_ZAIRE	TT_MS_LANGID_FRENCH_CONGO
+#define TT_MS_LANGID_KASHMIRI_INDIA	TT_MS_LANGID_KASHMIRI_SASIA
+#define TT_MS_LANGID_TIGRIGNA_ERYTREA	TT_MS_LANGID_TIGRIGNA_ERYTHREA
+#define TT_UCR_ARABIC_PRESENTATION_FORMS_A	TT_UCR_ARABIC_PRESENTATIONS_A
+#define TT_UCR_ARABIC_PRESENTATION_FORMS_B	TT_UCR_ARABIC_PRESENTATIONS_B
+#define TT_UCR_KANBUN	TT_UCR_CJK_MISC
+#define TT_UCR_COMBINING_DIACRITICAL_MARKS	TT_UCR_COMBINING_DIACRITICS</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19975"
+>12.2.29. freetype/tttables.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;typedef enum {
+    ft_sfnt_head = 0,
+    ft_sfnt_maxp = 1,
+    ft_sfnt_os2 = 2,
+    ft_sfnt_hhea = 3,
+    ft_sfnt_vhea = 4,
+    ft_sfnt_post = 5,
+    ft_sfnt_pclt = 6,
+    sfnt_max = 7
+} FT_Sfnt_Tag;
+typedef struct TT_Header_ {
+    FT_Fixed Table_Version;
+    FT_Fixed Font_Revision;
+    FT_Long CheckSum_Adjust;
+    FT_Long Magic_Number;
+    FT_UShort Flags;
+    FT_UShort Units_Per_EM;
+    FT_Long Created[2];
+    FT_Long Modified[2];
+    FT_Short xMin;
+    FT_Short yMin;
+    FT_Short xMax;
+    FT_Short yMax;
+    FT_UShort Mac_Style;
+    FT_UShort Lowest_Rec_PPEM;
+    FT_Short Font_Direction;
+    FT_Short Index_To_Loc_Format;
+    FT_Short Glyph_Data_Format;
+} TT_Header;
+typedef struct TT_HoriHeader_ {
+    FT_Fixed Version;
+    FT_Short Ascender;
+    FT_Short Descender;
+    FT_Short Line_Gap;
+    FT_UShort advance_Width_Max;
+    FT_Short min_Left_Side_Bearing;
+    FT_Short min_Right_Side_Bearing;
+    FT_Short xMax_Extent;
+    FT_Short caret_Slope_Rise;
+    FT_Short caret_Slope_Run;
+    FT_Short caret_Offset;
+    FT_Short Reserved[4];
+    FT_Short metric_Data_Format;
+    FT_UShort number_Of_HMetrics;
+    void *long_metrics;
+    void *short_metrics;
+} TT_HoriHeader;
+typedef struct TT_VertHeader_ {
+    FT_Fixed Version;
+    FT_Short Ascender;
+    FT_Short Descender;
+    FT_Short Line_Gap;
+    FT_UShort advance_Height_Max;
+    FT_Short min_Top_Side_Bearing;
+    FT_Short min_Bottom_Side_Bearing;
+    FT_Short yMax_Extent;
+    FT_Short caret_Slope_Rise;
+    FT_Short caret_Slope_Run;
+    FT_Short caret_Offset;
+    FT_Short Reserved[4];
+    FT_Short metric_Data_Format;
+    FT_UShort number_Of_VMetrics;
+    void *long_metrics;
+    void *short_metrics;
+} TT_VertHeader;
+typedef struct TT_OS2_ {
+    FT_UShort version;
+    FT_Short xAvgCharWidth;
+    FT_UShort usWeightClass;
+    FT_UShort usWidthClass;
+    FT_Short fsType;
+    FT_Short ySubscriptXSize;
+    FT_Short ySubscriptYSize;
+    FT_Short ySubscriptXOffset;
+    FT_Short ySubscriptYOffset;
+    FT_Short ySuperscriptXSize;
+    FT_Short ySuperscriptYSize;
+    FT_Short ySuperscriptXOffset;
+    FT_Short ySuperscriptYOffset;
+    FT_Short yStrikeoutSize;
+    FT_Short yStrikeoutPosition;
+    FT_Short sFamilyClass;
+    FT_Byte panose[10];
+    FT_ULong ulUnicodeRange1;
+    FT_ULong ulUnicodeRange2;
+    FT_ULong ulUnicodeRange3;
+    FT_ULong ulUnicodeRange4;
+    FT_Char achVendID[4];
+    FT_UShort fsSelection;
+    FT_UShort usFirstCharIndex;
+    FT_UShort usLastCharIndex;
+    FT_Short sTypoAscender;
+    FT_Short sTypoDescender;
+    FT_Short sTypoLineGap;
+    FT_UShort usWinAscent;
+    FT_UShort usWinDescent;
+    FT_ULong ulCodePageRange1;
+    FT_ULong ulCodePageRange2;
+    FT_Short sxHeight;
+    FT_Short sCapHeight;
+    FT_UShort usDefaultChar;
+    FT_UShort usBreakChar;
+    FT_UShort usMaxContext;
+} TT_OS2;
+typedef struct TT_Postscript_ {
+    FT_Fixed FormatType;
+    FT_Fixed italicAngle;
+    FT_Short underlinePosition;
+    FT_Short underlineThickness;
+    FT_ULong isFixedPitch;
+    FT_ULong minMemType42;
+    FT_ULong maxMemType42;
+    FT_ULong minMemType1;
+    FT_ULong maxMemType1;
+} TT_Postscript;
+typedef struct TT_PCLT_ {
+    FT_Fixed Version;
+    FT_ULong FontNumber;
+    FT_UShort Pitch;
+    FT_UShort xHeight;
+    FT_UShort Style;
+    FT_UShort TypeFamily;
+    FT_UShort CapHeight;
+    FT_UShort SymbolSet;
+    FT_Char TypeFace[16];
+    FT_Char CharacterComplement[8];
+    FT_Char FileName[6];
+    FT_Char StrokeWeight;
+    FT_Char WidthType;
+    FT_Byte SerifStyle;
+    FT_Byte Reserved;
+} TT_PCLT;
+typedef struct TT_MaxProfile_ {
+    FT_Fixed version;
+    FT_UShort numGlyphs;
+    FT_UShort maxPoints;
+    FT_UShort maxContours;
+    FT_UShort maxCompositePoints;
+    FT_UShort maxCompositeContours;
+    FT_UShort maxZones;
+    FT_UShort maxTwilightPoints;
+    FT_UShort maxStorage;
+    FT_UShort maxFunctionDefs;
+    FT_UShort maxInstructionDefs;
+    FT_UShort maxStackElements;
+    FT_UShort maxSizeOfInstructions;
+    FT_UShort maxComponentElements;
+    FT_UShort maxComponentDepth;
+} TT_MaxProfile;
+extern FT_ULong FT_Get_CMap_Language_ID(FT_CharMap);
+extern void *FT_Get_Sfnt_Table(FT_Face, FT_Sfnt_Tag);
+extern FT_Error FT_Load_Sfnt_Table(FT_Face, FT_ULong, FT_Long, FT_Byte *,
+				   FT_ULong *);
+extern FT_Error FT_Sfnt_Table_Info(FT_Face, FT_UInt, FT_ULong *,
+				   FT_ULong *);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19979"
+>12.2.30. freetype/tttags.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define TTAG_avar	FT_MAKE_TAG( 'a', 'v', 'a', 'r' )
+#define TTAG_BASE	FT_MAKE_TAG( 'B', 'A', 'S', 'E' )
+#define TTAG_bdat	FT_MAKE_TAG( 'b', 'd', 'a', 't' )
+#define TTAG_bhed	FT_MAKE_TAG( 'b', 'h', 'e', 'd' )
+#define TTAG_bloc	FT_MAKE_TAG( 'b', 'l', 'o', 'c' )
+#define TTAG_CFF	FT_MAKE_TAG( 'C', 'F', 'F', ' ' )
+#define TTAG_cmap	FT_MAKE_TAG( 'c', 'm', 'a', 'p' )
+#define TTAG_cvar	FT_MAKE_TAG( 'c', 'v', 'a', 'r' )
+#define TTAG_cvt	FT_MAKE_TAG( 'c', 'v', 't', ' ' )
+#define TTAG_DSIG	FT_MAKE_TAG( 'D', 'S', 'I', 'G' )
+#define TTAG_EBDT	FT_MAKE_TAG( 'E', 'B', 'D', 'T' )
+#define TTAG_EBLC	FT_MAKE_TAG( 'E', 'B', 'L', 'C' )
+#define TTAG_EBSC	FT_MAKE_TAG( 'E', 'B', 'S', 'C' )
+#define TTAG_fpgm	FT_MAKE_TAG( 'f', 'p', 'g', 'm' )
+#define TTAG_fvar	FT_MAKE_TAG( 'f', 'v', 'a', 'r' )
+#define TTAG_gasp	FT_MAKE_TAG( 'g', 'a', 's', 'p' )
+#define TTAG_GDEF	FT_MAKE_TAG( 'G', 'D', 'E', 'F' )
+#define TTAG_glyf	FT_MAKE_TAG( 'g', 'l', 'y', 'f' )
+#define TTAG_GPOS	FT_MAKE_TAG( 'G', 'P', 'O', 'S' )
+#define TTAG_GSUB	FT_MAKE_TAG( 'G', 'S', 'U', 'B' )
+#define TTAG_gvar	FT_MAKE_TAG( 'g', 'v', 'a', 'r' )
+#define TTAG_hdmx	FT_MAKE_TAG( 'h', 'd', 'm', 'x' )
+#define TTAG_head	FT_MAKE_TAG( 'h', 'e', 'a', 'd' )
+#define TTAG_hhea	FT_MAKE_TAG( 'h', 'h', 'e', 'a' )
+#define TTAG_hmtx	FT_MAKE_TAG( 'h', 'm', 't', 'x' )
+#define TTAG_JSTF	FT_MAKE_TAG( 'J', 'S', 'T', 'F' )
+#define TTAG_kern	FT_MAKE_TAG( 'k', 'e', 'r', 'n' )
+#define TTAG_loca	FT_MAKE_TAG( 'l', 'o', 'c', 'a' )
+#define TTAG_LTSH	FT_MAKE_TAG( 'L', 'T', 'S', 'H' )
+#define TTAG_maxp	FT_MAKE_TAG( 'm', 'a', 'x', 'p' )
+#define TTAG_MMFX	FT_MAKE_TAG( 'M', 'M', 'F', 'X' )
+#define TTAG_MMSD	FT_MAKE_TAG( 'M', 'M', 'S', 'D' )
+#define TTAG_name	FT_MAKE_TAG( 'n', 'a', 'm', 'e' )
+#define TTAG_OS2	FT_MAKE_TAG( 'O', 'S', '/', '2' )
+#define TTAG_OTTO	FT_MAKE_TAG( 'O', 'T', 'T', 'O' )
+#define TTAG_PCLT	FT_MAKE_TAG( 'P', 'C', 'L', 'T' )
+#define TTAG_post	FT_MAKE_TAG( 'p', 'o', 's', 't' )
+#define TTAG_prep	FT_MAKE_TAG( 'p', 'r', 'e', 'p' )
+#define TTAG_true	FT_MAKE_TAG( 't', 'r', 'u', 'e' )
+#define TTAG_ttc	FT_MAKE_TAG( 't', 't', 'c', ' ' )
+#define TTAG_ttcf	FT_MAKE_TAG( 't', 't', 'c', 'f' )
+#define TTAG_VDMX	FT_MAKE_TAG( 'V', 'D', 'M', 'X' )
+#define TTAG_vhea	FT_MAKE_TAG( 'v', 'h', 'e', 'a' )
+#define TTAG_vmtx	FT_MAKE_TAG( 'v', 'm', 't', 'x' )</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN19983"
+>12.2.31. freetype/ttunpat.h</A
+></H2
+><P
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>&#13;#define FT_PARAM_TAG_UNPATENTED_HINTING	FT_MAKE_TAG( 'u', 'n', 'p', 'a' )</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libfreetypechap.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libfreetypeman.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Libraries</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libfreetypechap.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Interface Definitions for libfreetype</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

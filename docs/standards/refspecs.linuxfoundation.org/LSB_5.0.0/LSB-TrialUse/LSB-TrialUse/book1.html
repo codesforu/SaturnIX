@@ -1,0 +1,406 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Linux Standard Base Trial Use Specification</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="NEXT"
+TITLE="Foreword"
+HREF="overview.html"></HEAD
+><BODY
+CLASS="BOOK"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="AEN1"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+>Linux Standard Base Trial Use Specification</A
+></H1
+><P
+CLASS="EDITION"
+>LSB Trial Use 5.0&nbsp;Edition </P
+><P
+CLASS="COPYRIGHT"
+><A
+HREF="LEGAL.html"
+>Copyright</A
+> &copy; 2015 Linux Foundation</P
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="overview.html"
+>Foreword</A
+></DT
+><DT
+><A
+HREF="status.html"
+>Status of this Document</A
+></DT
+><DT
+><A
+HREF="intro.html"
+>Introduction</A
+></DT
+><DT
+>I. <A
+HREF="tocintro.html"
+>Introductory Elements</A
+></DT
+><DD
+><DL
+><DT
+>1. <A
+HREF="scope.html"
+>Scope</A
+></DT
+><DT
+>2. <A
+HREF="normativerefs.html"
+>Normative References</A
+></DT
+><DT
+>3. <A
+HREF="requirements.html"
+>Requirements</A
+></DT
+><DD
+><DL
+><DT
+>3.1. <A
+HREF="requirements.html#TUMLIBRARIES"
+>TUM Libraries</A
+></DT
+><DT
+>3.2. <A
+HREF="gtk3libraries.html"
+>Gtk3 Libraries</A
+></DT
+></DL
+></DD
+><DT
+>4. <A
+HREF="defs.html"
+>Terms and Definitions</A
+></DT
+><DT
+>5. <A
+HREF="docconv.html"
+>Documentation Conventions</A
+></DT
+></DL
+></DD
+><DT
+>II. <A
+HREF="toclibpng15.html"
+>PNG15 library</A
+></DT
+><DD
+><DL
+><DT
+>6. <A
+HREF="libpng15ch.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>6.1. <A
+HREF="libpng15ch.html#LIBPNG15"
+>Interfaces for libpng15</A
+></DT
+><DT
+>6.2. <A
+HREF="libpng15man.html"
+>Interface Definitions for libpng15</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>III. <A
+HREF="tocgtk3.html"
+>GTK+ Stack Libraries</A
+></DT
+><DD
+><DL
+><DT
+>7. <A
+HREF="gtk3.html"
+>Libraries</A
+></DT
+><DD
+><DL
+><DT
+>7.1. <A
+HREF="gtk3.html#AEN5165"
+>Introduction</A
+></DT
+><DT
+>7.2. <A
+HREF="libgdk-3.html"
+>Interfaces for libgdk-3</A
+></DT
+><DT
+>7.3. <A
+HREF="libgdk-3-ddefs.html"
+>Data Definitions for libgdk-3</A
+></DT
+><DT
+>7.4. <A
+HREF="libgtk-3.html"
+>Interfaces for libgtk-3</A
+></DT
+><DT
+>7.5. <A
+HREF="libgtk-3-ddefs.html"
+>Data Definitions for libgtk-3</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>A. <A
+HREF="app-a.html"
+>Alphabetical Listing of Interfaces by Library</A
+></DT
+><DD
+><DL
+><DT
+>A.1. <A
+HREF="app-a.html#APP-LIBPNG15"
+>libpng15</A
+></DT
+><DT
+>A.2. <A
+HREF="app-libgdk-3.html"
+>libgdk-3</A
+></DT
+><DT
+>A.3. <A
+HREF="app-libgtk-3.html"
+>libgtk-3</A
+></DT
+></DL
+></DD
+><DT
+>B. <A
+HREF="gfdl.html"
+>GNU Free Documentation License (Informative)</A
+></DT
+><DD
+><DL
+><DT
+>B.1. <A
+HREF="gfdl.html#GFDL-0"
+>PREAMBLE</A
+></DT
+><DT
+>B.2. <A
+HREF="gfdl-1.html"
+>APPLICABILITY AND DEFINITIONS</A
+></DT
+><DT
+>B.3. <A
+HREF="gfdl-2.html"
+>VERBATIM COPYING</A
+></DT
+><DT
+>B.4. <A
+HREF="gfdl-3.html"
+>COPYING IN QUANTITY</A
+></DT
+><DT
+>B.5. <A
+HREF="gfdl-4.html"
+>MODIFICATIONS</A
+></DT
+><DT
+>B.6. <A
+HREF="gfdl-5.html"
+>COMBINING DOCUMENTS</A
+></DT
+><DT
+>B.7. <A
+HREF="gfdl-6.html"
+>COLLECTIONS OF DOCUMENTS</A
+></DT
+><DT
+>B.8. <A
+HREF="gfdl-7.html"
+>AGGREGATION WITH INDEPENDENT WORKS</A
+></DT
+><DT
+>B.9. <A
+HREF="gfdl-8.html"
+>TRANSLATION</A
+></DT
+><DT
+>B.10. <A
+HREF="gfdl-9.html"
+>TERMINATION</A
+></DT
+><DT
+>B.11. <A
+HREF="gfdl-10.html"
+>FUTURE REVISIONS OF THIS LICENSE</A
+></DT
+><DT
+>B.12. <A
+HREF="gfdl-11.html"
+>How to use this License for your documents</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Tables</B
+></DT
+><DT
+>2-1. <A
+HREF="normativerefs.html#AEN95"
+>Informative References</A
+></DT
+><DT
+>3-1. <A
+HREF="requirements.html#TBL-TOOLKIT-TUM-STDLIB"
+>Standard Library Names</A
+></DT
+><DT
+>3-2. <A
+HREF="gtk3libraries.html#TBL-TOOLKIT-GTK3-STDLIB"
+>Standard Library Names</A
+></DT
+><DT
+>6-1. <A
+HREF="libpng15ch.html#LIB-LIBPNG15-DEF"
+>libpng15 Definition</A
+></DT
+><DT
+>6-2. <A
+HREF="libpng15ch.html#TBL-LIBPNG15-LIBPN-INTS"
+>libpng15 - libpng15 interfaces Function Interfaces</A
+></DT
+><DT
+>6-3. <A
+HREF="libpng15ch.html#TBL-LIBPNG15-LIBPN-DEPINTS"
+>libpng15 - libpng15 interfaces Deprecated Function Interfaces</A
+></DT
+><DT
+>7-1. <A
+HREF="libgdk-3.html#LIB-LIBGDK-3-DEF"
+>libgdk-3 Definition</A
+></DT
+><DT
+>7-2. <A
+HREF="libgdk-3.html#TBL-LIBGDK-3-LIBGD-INTS"
+>libgdk-3 - libgdk-3 interfaces Function Interfaces</A
+></DT
+><DT
+>7-3. <A
+HREF="libgtk-3.html#LIB-LIBGTK-3-DEF"
+>libgtk-3 Definition</A
+></DT
+><DT
+>7-4. <A
+HREF="libgtk-3.html#TBL-LIBGTK-3-LIBGT-INTS"
+>libgtk-3 - libgtk-3 interfaces Function Interfaces</A
+></DT
+><DT
+>A-1. <A
+HREF="app-a.html#AEN22272"
+>libpng15 Function Interfaces</A
+></DT
+><DT
+>A-2. <A
+HREF="app-libgdk-3.html#AEN22827"
+>libgdk-3 Function Interfaces</A
+></DT
+><DT
+>A-3. <A
+HREF="app-libgtk-3.html#AEN23992"
+>libgtk-3 Function Interfaces</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="overview.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Foreword</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

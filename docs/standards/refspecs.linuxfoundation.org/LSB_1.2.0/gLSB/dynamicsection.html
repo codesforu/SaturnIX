@@ -1,0 +1,477 @@
+<HTML
+><HEAD
+><TITLE
+>Dynamic Entries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Dynamic Linking"
+HREF="tocdynlnk.html"><LINK
+REL="PREVIOUS"
+TITLE="Program Loading and Dynamic Linking"
+HREF="dynlnk.html"><LINK
+REL="NEXT"
+TITLE="Program Interpreter"
+HREF="programinterpreter.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="dynlnk.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="programinterpreter.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="DYNAMICSECTION">Chapter 9. Dynamic Entries</H1
+><P
+>A dynamic entry's <TT
+CLASS="COMPUTEROUTPUT"
+>d_tag member</TT
+> control
+the interpretation of <TT
+CLASS="COMPUTEROUTPUT"
+>d_un</TT
+>.</P
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="DYNSECTENT">Dynamic Entries</H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1044">ELF Dynamic Entries</H2
+><P
+>The following dynamic entries are defined in the System V 
+Application Binary Interface, Edition 4.1.
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>DT_BIND_NOW</DT
+><DD
+><P
+>Process relocations of object</P
+></DD
+><DT
+>DT_DEBUG</DT
+><DD
+><P
+>For debugging; unspecified</P
+></DD
+><DT
+>DT_FINI</DT
+><DD
+><P
+>Address of termination function</P
+></DD
+><DT
+>DT_HASH</DT
+><DD
+><P
+>Address of symbol hash table</P
+></DD
+><DT
+>DT_HIPROC</DT
+><DD
+><P
+>End of processor-specific</P
+></DD
+><DT
+>DT_INIT</DT
+><DD
+><P
+>Address of init function</P
+></DD
+><DT
+>DT_JMPREL</DT
+><DD
+><P
+>Address of PLT relocs</P
+></DD
+><DT
+>DT_LOPROC</DT
+><DD
+><P
+>Start of processor-specific</P
+></DD
+><DT
+>DT_NEEDED</DT
+><DD
+><P
+>Name of needed library</P
+></DD
+><DT
+>DT_NULL</DT
+><DD
+><P
+>Marks end of dynamic section</P
+></DD
+><DT
+>DT_PLTREL</DT
+><DD
+><P
+>Type of reloc in PLT</P
+></DD
+><DT
+>DT_PLTRELSZ</DT
+><DD
+><P
+>Size in bytes of PLT relocs</P
+></DD
+><DT
+>DT_REL</DT
+><DD
+><P
+>Address of Rel relocs</P
+></DD
+><DT
+>DT_RELA</DT
+><DD
+><P
+>Address of Rela relocs</P
+></DD
+><DT
+>DT_RELAENT</DT
+><DD
+><P
+>Size of one Rela reloc</P
+></DD
+><DT
+>DT_RELASZ</DT
+><DD
+><P
+>Total size of Rela relocs</P
+></DD
+><DT
+>DT_RELENT</DT
+><DD
+><P
+>Size of one Rel reloc</P
+></DD
+><DT
+>DT_RELSZ</DT
+><DD
+><P
+>Total size of Rel relocs</P
+></DD
+><DT
+>DT_RPATH</DT
+><DD
+><P
+>Library search path</P
+></DD
+><DT
+>DT_SONAME</DT
+><DD
+><P
+>Name of shared object</P
+></DD
+><DT
+>DT_STRSZ</DT
+><DD
+><P
+>Size of string table</P
+></DD
+><DT
+>DT_STRTAB</DT
+><DD
+><P
+>Address of string table</P
+></DD
+><DT
+>DT_SYMBOLIC</DT
+><DD
+><P
+>Start symbol search here</P
+></DD
+><DT
+>DT_SYMENT</DT
+><DD
+><P
+>Size of one symbol table entry</P
+></DD
+><DT
+>DT_SYMTAB</DT
+><DD
+><P
+>Address of symbol table</P
+></DD
+><DT
+>DT_TEXTREL</DT
+><DD
+><P
+>Reloc might modify .text</P
+></DD
+></DL
+></DIV
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1152">Additional Dynamic Entries</H2
+><P
+>The following dynamic entries are defined here.
+<P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>DT_ADDRRNGHI</DT
+><DD
+><P
+>Values from DT_ADDRRNGLO through DT_ADDRRNGHI are reserved for definition by an archLSB.</P
+></DD
+><DT
+>DT_ADDRRNGLO</DT
+><DD
+><P
+>Values from DT_ADDRRNGLO through DT_ADDRRNGHI are reserved for definition by an archLSB.</P
+></DD
+><DT
+>DT_AUXILIARY</DT
+><DD
+><P
+>Shared object to load before self</P
+></DD
+><DT
+>DT_FILTER</DT
+><DD
+><P
+>Shared object to get values from</P
+></DD
+><DT
+>DT_FINI_ARRAY</DT
+><DD
+><P
+>The address of an array of pointers to termination functions.</P
+></DD
+><DT
+>DT_FINI_ARRAYSZ</DT
+><DD
+><P
+>Size in bytes of DT_FINI_ARRAY</P
+></DD
+><DT
+>DT_HIOS</DT
+><DD
+><P
+>Values from DT_LOOS through DT_HIOS are reserved for definition by specific operating systems.</P
+></DD
+><DT
+>DT_INIT_ARRAY</DT
+><DD
+><P
+>The address of an array of pointers to initialization functions.</P
+></DD
+><DT
+>DT_INIT_ARRAYSZ</DT
+><DD
+><P
+>Size in bytes of DT_INIT_ARRAY</P
+></DD
+><DT
+>DT_LOOS</DT
+><DD
+><P
+>Values from DT_LOOS through DT_HIOS are reserved for definition by specific operating systems.</P
+></DD
+><DT
+>DT_NUM</DT
+><DD
+><P
+>Number of dynamic entry tags defined (excepting reserved ranges).</P
+></DD
+><DT
+>DT_RELCOUNT</DT
+><DD
+><P
+>All Elf32_Rel R_*_RELATIVE relocations have been placed into a single block and this entry specifies the number of entries in that block. This permits ld.so.1 to streamline the processing of RELATIVE relocations.</P
+></DD
+><DT
+>DT_SYMINENT</DT
+><DD
+><P
+>Entry size of syminfo</P
+></DD
+><DT
+>DT_SYMINFO</DT
+><DD
+><P
+>Address of the Syminfo table.</P
+></DD
+><DT
+>DT_SYMINSZ</DT
+><DD
+><P
+>Size of syminfo table (in bytes)</P
+></DD
+><DT
+>DT_VALRNGHI</DT
+><DD
+><P
+>Entries which fall between DT_VALRNGHI &#38; DT_VALRNGLO use the Dyn.d_un.d_val field of the Elf*_Dyn structure.</P
+></DD
+><DT
+>DT_VALRNGLO</DT
+><DD
+><P
+>Entries which fall between DT_VALRNGHI &#38; DT_VALRNGLO use the Dyn.d_un.d_val field of the Elf*_Dyn structure.</P
+></DD
+><DT
+>DT_VERDEF</DT
+><DD
+><P
+>Address of version definition table</P
+></DD
+><DT
+>DT_VERDEFNUM</DT
+><DD
+><P
+>Number of version definitions</P
+></DD
+><DT
+>DT_VERNEED</DT
+><DD
+><P
+>Address of table with needed versions</P
+></DD
+><DT
+>DT_VERNEEDNUM</DT
+><DD
+><P
+>Number of needed versions</P
+></DD
+><DT
+>DT_VERSYM</DT
+><DD
+><P
+>Address of the table provided by the .gnu.version section.</P
+></DD
+></DL
+></DIV
+>&#13;</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="dynlnk.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="programinterpreter.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Program Loading and Dynamic Linking</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tocdynlnk.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Program Interpreter</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

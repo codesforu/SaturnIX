@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>png_get_cHRM</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libpng12"
+HREF="libpng12man.html"><LINK
+REL="PREVIOUS"
+TITLE="png_get_bit_depth"
+HREF="libpng12-png-get-bit-depth.html"><LINK
+REL="NEXT"
+TITLE="png_get_channels"
+HREF="libpng12-png-get-channels.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpng12-png-get-bit-depth.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpng12-png-get-channels.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="LIBPNG12-PNG-GET-CHRM"
+></A
+>png_get_cHRM</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN13689"
+></A
+><H2
+>Name</H2
+>png_get_cHRM&nbsp;--&nbsp;get CIE chromacities and referenced white point for given image</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN13694"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN13695"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;png.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>png_uint_32
+<TT
+CLASS="FUNCTION"
+>png_get_cHRM</TT
+></CODE
+>(png_structp
+<TT
+CLASS="PARAMETER"
+><I
+>png_ptr</I
+></TT
+>, png_infop
+<TT
+CLASS="PARAMETER"
+><I
+>info_ptr</I
+></TT
+>, double *
+<TT
+CLASS="PARAMETER"
+><I
+>white_x</I
+></TT
+>, double *
+<TT
+CLASS="PARAMETER"
+><I
+>white_y</I
+></TT
+>, double *
+<TT
+CLASS="PARAMETER"
+><I
+>red_x</I
+></TT
+>, double *
+<TT
+CLASS="PARAMETER"
+><I
+>red_y</I
+></TT
+>, double *
+<TT
+CLASS="PARAMETER"
+><I
+>green_x</I
+></TT
+>, double *
+<TT
+CLASS="PARAMETER"
+><I
+>green_y</I
+></TT
+>, double *
+<TT
+CLASS="PARAMETER"
+><I
+>blue_x</I
+></TT
+>, double *
+<TT
+CLASS="PARAMETER"
+><I
+>blue_y</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13720"
+></A
+><H2
+>Description</H2
+><P
+>png_get_cHRM() shall return the CIE x,y chromaticities of the red, green and
+blue display primaries used in the image and the referenced white point from the
+cHRM chunk in the image.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13723"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, png_get_cHRM() shall return PNG_INFO_cHRM. Otherwise, the function
+shall return 0.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpng12-png-get-bit-depth.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpng12-png-get-channels.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>png_get_bit_depth</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libpng12man.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>png_get_channels</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,447 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>bindresvport</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="bind_textdomain_codeset"
+HREF="baselib-bind-textdomain-codeset.html"><LINK
+REL="NEXT"
+TITLE="bindtextdomain"
+HREF="baselib-bindtextdomain.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-bind-textdomain-codeset.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-bindtextdomain.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-BINDRESVPORT-3"
+></A
+>bindresvport</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN12833"
+></A
+><H2
+>Name</H2
+>bindresvport&nbsp;--&nbsp;bind socket to privileged IP port</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN12836"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN12839"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;sys/types.h&#62;
+#include &#60;rpc/rpc.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int 
+  <TT
+CLASS="FUNCTION"
+>bindresvport</TT
+></CODE
+>(int 
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>sd</I
+></TT
+></I
+></TT
+>, struct sockaddr_in *
+  <TT
+CLASS="PARAMETER"
+><I
+><TT
+CLASS="REPLACEABLE"
+><I
+>sin</I
+></TT
+></I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12850"
+></A
+><H2
+>Description</H2
+><P
+>If the process has appropriate privilege, the
+<TT
+CLASS="FUNCTION"
+>bindresvport()</TT
+> function shall bind
+a socket to an anonymous privileged IP port,
+that is, arbitrarily selected from the range
+<TT
+CLASS="LITERAL"
+>512</TT
+> through <TT
+CLASS="LITERAL"
+>1023</TT
+>.</P
+><P
+>If the bind is successful and <TT
+CLASS="PARAMETER"
+><I
+>sin</I
+></TT
+> 
+is not <CODE
+CLASS="CONSTANT"
+>NULL</CODE
+>, and the port number
+bound to is returned in the <CODE
+CLASS="STRUCTFIELD"
+>sin_port</CODE
+>
+member of <TT
+CLASS="PARAMETER"
+><I
+>sin</I
+></TT
+>.
+Any caller-supplied value of <CODE
+CLASS="STRUCTFIELD"
+>sin_port</CODE
+>
+is ignored.</P
+><P
+>If <TT
+CLASS="PARAMETER"
+><I
+>sin</I
+></TT
+> is <CODE
+CLASS="CONSTANT"
+>NULL</CODE
+>,
+the address family is taken to be
+<CODE
+CLASS="CONSTANT"
+>AF_INET</CODE
+> and an available
+privileged port is bound to.
+Since there is no <TT
+CLASS="STRUCTNAME"
+>sockaddr_in</TT
+>
+structure, the port number chosen cannot be returned.
+The <TT
+CLASS="FUNCTION"
+>getsockname()</TT
+> may be used to
+query for this information.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12870"
+></A
+><H2
+>Return Value</H2
+><P
+>On success, <SPAN
+CLASS="RETURNVALUE"
+>0</SPAN
+> is returned. 
+On error, <SPAN
+CLASS="RETURNVALUE"
+>-1</SPAN
+> is returned and
+<CODE
+CLASS="VARNAME"
+>errno</CODE
+> is set to indicate the error.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN12876"
+></A
+><H2
+>Errors</H2
+><P
+><TT
+CLASS="FUNCTION"
+>bindresvport()</TT
+> may fail in the same
+way as <TT
+CLASS="FUNCTION"
+>bind()</TT
+> in <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>.
+The following additional or differing failures may occur:</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN12883"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>EADDRINUSE</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>All privileged ports are in use.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN12888"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>EAFNOSUPPORT</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The specified address is not a valid address for the
+address family of the specified socket, or the
+address family is not supported.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN12893"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>EPFNOSUPPORT</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The same meaning as <CODE
+CLASS="CONSTANT"
+>EAFNOSUPPORT</CODE
+>.
+Some older implementations may return this error instead.</P
+></TD
+></TR
+></TBODY
+></TABLE
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>At this time, only <CODE
+CLASS="CONSTANT"
+>AF_INET</CODE
+>
+is supported.
+Applications should be prepared for either the
+<CODE
+CLASS="CONSTANT"
+>EAFNOSUPPORT</CODE
+> or
+<CODE
+CLASS="CONSTANT"
+>EPFNOSUPPORT</CODE
+> error to be indicated.</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-bind-textdomain-codeset.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-bindtextdomain.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>bind_textdomain_codeset</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>bindtextdomain</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

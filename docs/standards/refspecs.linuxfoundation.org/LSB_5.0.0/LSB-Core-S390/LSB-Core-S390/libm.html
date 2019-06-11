@@ -1,0 +1,3179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interfaces for libm</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification for S390"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libc"
+HREF="libc-ddefs.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libm"
+HREF="libm-ddefs.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification for S390</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libc-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 10. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libm-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBM"
+>10.4. Interfaces for libm</A
+></H1
+><P
+><A
+HREF="libm.html#LIB-LIBM-DEF"
+>Table 10-37</A
+> defines the library name and shared object name
+for the libm library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBM-DEF"
+></A
+><P
+><B
+>Table 10-37. libm Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libm</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libm.so.6</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBM.1"
+></A
+>[LSB] <A
+HREF="normativerefs.html#STD.LSB"
+>LSB Core - Generic</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBM.2"
+></A
+>[SUSv3] <A
+HREF="normativerefs.html#STD.SUSV3"
+>POSIX 1003.1-2001 (ISO/IEC 9945-2003)</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBM.3"
+></A
+>[SUSv4] <A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN6120"
+>10.4.1. Math</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN6123"
+>10.4.1.1. Interfaces for Math</A
+></H3
+><P
+>An LSB conforming implementation shall provide the architecture specific functions
+for Math specified in <A
+HREF="libm.html#TBL-LIBM-MATH-INTS"
+>Table 10-38</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBM-MATH-INTS"
+></A
+><P
+><B
+>Table 10-38. libm - Math Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>__finite(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>__finitef(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>__finitel(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>__finitel(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>__fpclassify(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>__fpclassifyf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>__fpclassifyl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>__signbit(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>__signbitf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>__signbitl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>acos(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>acosf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>acosh(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>acoshf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>acoshl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>acoshl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>acosl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>acosl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>asin(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>asinf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>asinh(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>asinhf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>asinhl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>asinhl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>asinl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>asinl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atan(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atan2(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>atan2f(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atan2l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atan2l(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atanf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>atanh(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atanhf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atanhl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atanhl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>atanl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atanl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cabs(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cabsf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cabsl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cabsl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cacos(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cacosf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cacosh(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cacoshf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cacoshl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cacoshl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cacosl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cacosl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>carg(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cargf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cargl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cargl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>casin(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>casinf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>casinh(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>casinhf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>casinhl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>casinhl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>casinl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>casinl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>catan(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>catanf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>catanh(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>catanhf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>catanhl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>catanhl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>catanl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>catanl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cbrt(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cbrtf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cbrtl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cbrtl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ccos(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ccosf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>ccosh(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ccoshf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ccoshl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ccoshl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>ccosl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ccosl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ceil(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ceilf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>ceill(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ceill(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cexp(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cexpf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cexpl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cexpl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cimag(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cimagf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cimagl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cimagl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>clog(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>clog10(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>clog10f(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>clog10l(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>clog10l(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>clogf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>clogl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>clogl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>conj(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>conjf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>conjl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>conjl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>copysign(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>copysignf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>copysignl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>copysignl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cos(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cosf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cosh(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>coshf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>coshl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>coshl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cosl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cosl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cpow(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cpowf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cpowl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cpowl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cproj(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cprojf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cprojl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cprojl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>creal(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>crealf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>creall(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>creall(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csin(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csinf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>csinh(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csinhf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csinhl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csinhl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>csinl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csinl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csqrt(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csqrtf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>csqrtl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csqrtl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ctan(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ctanf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>ctanh(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ctanhf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ctanhl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ctanhl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>ctanl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ctanl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>drem(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>dremf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>dreml(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>dreml(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>erf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>erfc(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>erfcf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>erfcl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>erfcl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>erff(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>erfl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>erfl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>exp(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>exp10(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>exp10f(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>exp10l(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>exp10l(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>exp2(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>exp2f(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>exp2l(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>expf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>expl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>expl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>expm1(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>expm1f(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>expm1l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>expm1l(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fabs(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fabsf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fabsl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fabsl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fdim(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fdimf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fdiml(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fdiml(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>feclearexcept(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fedisableexcept(GLIBC_2.2) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>feenableexcept(GLIBC_2.2) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>fegetenv(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fegetexcept(GLIBC_2.2) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>fegetexceptflag(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fegetround(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>feholdexcept(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>feraiseexcept(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fesetenv(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fesetexceptflag(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fesetround(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fetestexcept(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>feupdateenv(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>finite(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>finitef(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>finitel(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>finitel(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>floor(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>floorf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>floorl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>floorl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fma(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fmaf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmal(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmal(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmax(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fmaxf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmaxl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmaxl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmin(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fminf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fminl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fminl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmod(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fmodf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmodl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmodl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>frexp(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>frexpf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>frexpl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>frexpl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>gamma(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>gammaf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>gammal(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>gammal(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>hypot(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>hypotf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>hypotl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>hypotl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ilogb(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>ilogbf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ilogbl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ilogbl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>j0(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>j0f(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>j0l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>j0l(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>j1(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>j1f(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>j1l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>j1l(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>jn(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>jnf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>jnl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>jnl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>ldexp(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>ldexpf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ldexpl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ldexpl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lgamma(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>lgamma_r(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>lgammaf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lgammaf_r(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>lgammal(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>lgammal(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lgammal_r(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>lgammal_r(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>llrint(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>llrintf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>llrintl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>llrintl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>llround(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>llroundf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>llroundl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>llroundl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>log10(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log10f(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log10l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log10l(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>log1p(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log1pf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log1pl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log1pl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>log2(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log2f(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log2l(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log2l(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>logb(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>logbf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>logbl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>logbl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>logf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>logl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>logl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lrint(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>lrintf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lrintl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lrintl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lround(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>lroundf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lroundl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lroundl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>matherr(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>modf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>modff(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>modfl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>modfl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>nan(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nanf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nanl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nanl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>nearbyint(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nearbyintf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nearbyintl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nearbyintl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>nextafter(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nextafterf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nextafterl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nextafterl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>nexttoward(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nexttoward(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nexttowardf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nexttowardf(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>nexttowardl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nexttowardl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>pow(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>pow10(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>pow10f(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>pow10l(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>pow10l(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>powf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>powl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>powl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>remainder(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>remainderf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>remainderl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>remainderl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>remquo(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>remquof(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>remquol(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>remquol(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>rint(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>rintf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>rintl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>rintl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>round(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>roundf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>roundl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>roundl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>scalb(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.2"
+>[SUSv3]</A
+></TD
+><TD
+>scalbf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>scalbl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>scalbl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>scalbln(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>scalblnf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>scalblnl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>scalblnl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>scalbn(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>scalbnf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>scalbnl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>scalbnl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>significand(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>significandf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>significandl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>significandl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>sin(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sincos(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>sincosf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>sincosl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>sincosl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>sinf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>sinh(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sinhf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sinhl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sinhl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>sinl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sinl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sqrt(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sqrtf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>sqrtl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sqrtl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tan(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tanf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>tanh(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tanhf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tanhl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tanhl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>tanl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tanl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tgamma(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tgammaf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>tgammal(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tgammal(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>trunc(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>truncf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>truncl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>truncl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>y0(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>y0f(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>y0l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>y0l(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>y1(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>y1f(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>y1l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>y1l(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>yn(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ynf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>ynl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>ynl(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the architecture specific deprecated functions
+for Math specified in <A
+HREF="libm.html#TBL-LIBM-MATH-DEPINTS"
+>Table 10-39</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>These interfaces are deprecated, and applications
+should avoid using them.
+These interfaces may be withdrawn
+in future releases of this specification.</P
+></BLOCKQUOTE
+></DIV
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBM-MATH-DEPINTS"
+></A
+><P
+><B
+>Table 10-39. libm - Math Deprecated Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>__finitel(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>acoshl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>acosl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>asinhl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>asinl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atan2l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atanhl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>atanl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cabsl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cacoshl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cacosl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cargl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>casinhl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>casinl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>catanhl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>catanl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cbrtl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ccoshl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ccosl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ceill(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cexpl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cimagl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>clog10l(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>clogl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>conjl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>copysignl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>coshl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cosl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>cpowl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>cprojl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>creall(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csinhl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>csinl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>csqrtl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ctanhl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ctanl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>drem(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>dremf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>dreml(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>dreml(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>erfcl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>erfl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>exp10l(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>expl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>expm1l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fabsl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fdiml(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>finite(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>finitef(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>finitel(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>finitel(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>floorl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>fmal(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmaxl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fminl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>fmodl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>frexpl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>gamma(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>gammaf(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>gammal(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>gammal(GLIBC_2.4) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>hypotl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>ilogbl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>j0l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>j1l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>jnl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>ldexpl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lgammal(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>lgammal_r(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>llrintl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>llroundl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log10l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>log1pl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>log2l(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>logbl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>logl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>lrintl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>lroundl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>matherr(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>modfl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>nanl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nearbyintl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nextafterl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nexttoward(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>nexttowardf(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>nexttowardl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>pow10l(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>powl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>remainderl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>remquol(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>rintl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>roundl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>scalbl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>scalblnl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>scalbnl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>significandl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>sincosl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>sinhl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sinl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>sqrtl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>tanhl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tanl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>tgammal(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>truncl(GLIBC_2.1) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+></TR
+><TR
+><TD
+>y0l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>y1l(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>ynl(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.1"
+>[LSB]</A
+></TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>An LSB conforming implementation shall provide the architecture specific data interfaces
+for Math specified in <A
+HREF="libm.html#TBL-LIBM-MATH-DATA"
+>Table 10-40</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBM-MATH-DATA"
+></A
+><P
+><B
+>Table 10-40. libm - Math Data Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>signgam(GLIBC_2.0) <A
+HREF="libm.html#REFSTD.LIBM.3"
+>[SUSv4]</A
+></TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+><TD
+>&nbsp;</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libc-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libm-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libc</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libm</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

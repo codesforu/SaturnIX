@@ -1,0 +1,230 @@
+<HTML
+><HEAD
+><TITLE
+>Standard Shell Exceptions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Standard Shell"
+HREF="stdshell.html"><LINK
+REL="PREVIOUS"
+TITLE="Standard Shell"
+HREF="stdshell.html"><LINK
+REL="NEXT"
+TITLE="Standard Shell Rationale"
+HREF="stdshellrat.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="stdshell.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 16. Standard Shell</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="stdshellrat.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="STDSHELLEXCEPTIONS">Standard Shell Exceptions</H1
+><P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="STDSHELLEXCEPT-1">Pathname of $0</H2
+><P
+>When the shell searches for a command name in the PATH and finds a
+shell script, POSIX specifies that it shall pass the command name as
+argv[0] and in the child shell script, $0 shall be set from argv[0]
+(POSIX Standard, section 3.9.1.1, line 779-784).</P
+><P
+>However, for an LSB shell, the system may implement either this
+behavior or $0 may be set to an absolute pathname of the shell script.
+<A
+NAME="AEN18647"
+HREF="#FTN.AEN18647"
+>[1]</A
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="STDSHELLEXCEPT-2">Sourcing non-executable files</H2
+><P
+><P
+></P
+><UL
+><LI
+><P
+>When PATH is used to locate a file for the dot utility, and a matching
+file is on the PATH but is not readable, the behavior is undefined
+(unlike POSIX which apparently requires the shell to continue searching
+through the rest of the PATH, POSIX Standard, section 3.14.4, line
+1493-1498).</P
+></LI
+></UL
+></P
+></DIV
+></DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN18647"
+HREF="stdshellexceptions.html#AEN18647"
+>[1]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>For example, bash behaves in the following way:
+
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>$ cat ~/prefix/bin/mycommand
+#!/bin/sh
+echo $0
+$ PATH=~/prefix/bin mycommand
+/home/kingdon/prefix/bin/mycommand
+$ </PRE
+></TD
+></TR
+></TABLE
+>
+
+With a POSIX shell, the output would be "mycommand".</P
+><P
+>When bash is executing an executable rather than a shell script, it
+seems to behave in the POSIX way.</P
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="stdshell.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="stdshellrat.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Standard Shell</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="stdshell.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Standard Shell Rationale</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

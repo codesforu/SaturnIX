@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interface Definitions for libpam</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Base Libraries"
+HREF="baselib.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libpam"
+HREF="libpam-ddefs.html"><LINK
+REL="NEXT"
+TITLE="pam_acct_mgmt"
+HREF="baselib-pam-acct-mgmt.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpam-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 14. Base Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-pam-acct-mgmt.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBPAMMAN"
+>14.25. Interface Definitions for libpam</A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="baselib-pam-acct-mgmt.html"
+>pam_acct_mgmt</A
+>&nbsp;--&nbsp;establish the status of a user's account</DT
+><DT
+><A
+HREF="baselib-pam-authenticate.html"
+>pam_authenticate</A
+>&nbsp;--&nbsp;authenticate the user</DT
+><DT
+><A
+HREF="baselib-pam-chauthtok.html"
+>pam_chauthtok</A
+>&nbsp;--&nbsp;change the authentication token for a given user</DT
+><DT
+><A
+HREF="baselib-pam-close-session.html"
+>pam_close_session</A
+>&nbsp;--&nbsp;indicate that an authenticated session has ended</DT
+><DT
+><A
+HREF="baselib-pam-end.html"
+>pam_end</A
+>&nbsp;--&nbsp;terminate the use of the PAM library</DT
+><DT
+><A
+HREF="baselib-pam-fail-delay.html"
+>pam_fail_delay</A
+>&nbsp;--&nbsp;specify delay time to use on authentication error</DT
+><DT
+><A
+HREF="baselib-pam-get-item.html"
+>pam_get_item</A
+>&nbsp;--&nbsp;obtain the value of the indicated item.</DT
+><DT
+><A
+HREF="baselib-pam-getenv.html"
+>pam_getenv</A
+>&nbsp;--&nbsp;get a PAM environment variable</DT
+><DT
+><A
+HREF="baselib-pam-getenvlist.html"
+>pam_getenvlist</A
+>&nbsp;--&nbsp;returns a pointer to the complete PAM environment.</DT
+><DT
+><A
+HREF="baselib-pam-open-session.html"
+>pam_open_session</A
+>&nbsp;--&nbsp;indicate session has started</DT
+><DT
+><A
+HREF="baselib-pam-putenv.html"
+>pam_putenv</A
+>&nbsp;--&nbsp;Add, replace or delete a PAM environment variable</DT
+><DT
+><A
+HREF="baselib-pam-set-item.html"
+>pam_set_item</A
+>&nbsp;--&nbsp;(re)set the value of an item.</DT
+><DT
+><A
+HREF="baselib-pam-setcred.html"
+>pam_setcred</A
+>&nbsp;--&nbsp;set the module-specific credentials of the user</DT
+><DT
+><A
+HREF="baselib-pam-start.html"
+>pam_start</A
+>&nbsp;--&nbsp;initialize the PAM library</DT
+><DT
+><A
+HREF="baselib-pam-strerror.html"
+>pam_strerror</A
+>&nbsp;--&nbsp;returns a string describing the PAM error</DT
+></DL
+></DIV
+><P
+>The interfaces defined on the following pages are included in libpam and are defined
+by this specification.
+Unless otherwise noted, these interfaces shall be included
+in the source standard.</P
+><P
+>Other interfaces listed in <A
+HREF="libpam.html"
+>Section 14.23</A
+> shall behave as described
+in the referenced base document.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpam-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-pam-acct-mgmt.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libpam</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="baselib.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>pam_acct_mgmt</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,444 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>getsockopt</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libc"
+HREF="libcman.html"><LINK
+REL="PREVIOUS"
+TITLE="getservent_r"
+HREF="baselib-getservent-r.html"><LINK
+REL="NEXT"
+TITLE="gettext"
+HREF="baselib-gettext.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="baselib-getservent-r.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="baselib-gettext.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="BASELIB-GETSOCKOPT-1"
+></A
+>getsockopt</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN16218"
+></A
+><H2
+>Name</H2
+>getsockopt&nbsp;--&nbsp;get socket options</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN16223"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN16224"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;sys/socket.h&#62;
+#include &#60;netinet/ip.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>int
+<TT
+CLASS="FUNCTION"
+>getsockopt</TT
+></CODE
+>(int
+<TT
+CLASS="PARAMETER"
+><I
+>socket</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>level</I
+></TT
+>, int
+<TT
+CLASS="PARAMETER"
+><I
+>option_name</I
+></TT
+>, void * restrict
+<TT
+CLASS="PARAMETER"
+><I
+>option_value</I
+></TT
+>, socklen_t * restrict
+<TT
+CLASS="PARAMETER"
+><I
+>option_len</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN16239"
+></A
+><H2
+>Description</H2
+><P
+>The <TT
+CLASS="FUNCTION"
+>getsockopt()</TT
+> function shall behave as specified in 
+<I
+CLASS="CITETITLE"
+><A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+></I
+>, 
+with the following extensions.</P
+><DIV
+CLASS="REFSECT2"
+><A
+NAME="AEN16245"
+></A
+><H3
+>IP Protocol Level Options</H3
+><P
+>If the <TT
+CLASS="PARAMETER"
+><I
+>level</I
+></TT
+> parameter is 
+<CODE
+CLASS="CONSTANT"
+>IPPROTO_IP</CODE
+>, the following values shall be supported for
+<TT
+CLASS="PARAMETER"
+><I
+>option_name</I
+></TT
+> (see <A
+HREF="informativerefs.html#STD.RFC791"
+>RFC 791:Internet Protocol</A
+> for
+further details):
+<P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16253"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>IP_OPTIONS</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Get the Internet Protocol options sent with
+every packet from this socket. 
+The <TT
+CLASS="PARAMETER"
+><I
+>option_value</I
+></TT
+> shall point to a
+memory buffer in which the options shall be placed; 
+on entry <TT
+CLASS="PARAMETER"
+><I
+>option_len</I
+></TT
+> shall point to an integer value
+indicating the maximum size of the memory buffer, in bytes. On successful
+return, the value referenced by <TT
+CLASS="PARAMETER"
+><I
+>option_len</I
+></TT
+> shall
+be updated to the size of data copied to the buffer. For IPv4, the
+maximum length of options is 40 bytes.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16261"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>IP_TTL</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Get the current unicast Internet Protocol
+Time To Live value used when sending packets with this socket.
+The <TT
+CLASS="PARAMETER"
+><I
+>option_value</I
+></TT
+> shall point to a buffer large
+enough to hold the time to live value (at least 1 byte),
+and <TT
+CLASS="PARAMETER"
+><I
+>option_len</I
+></TT
+>
+shall point to an integer value holding the maximum size of that buffer.
+On successful return, the value
+referenced by <TT
+CLASS="PARAMETER"
+><I
+>option_len</I
+></TT
+> shall be updated
+to contain the number of bytes copied into the buffer, which shall be no
+larger than the initial value,
+and <TT
+CLASS="PARAMETER"
+><I
+>option_value</I
+></TT
+>
+shall point to an integer containing the time to live value.</P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN16270"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><CODE
+CLASS="CONSTANT"
+>IP_TOS</CODE
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Get the Internet Protocol type of service indicator
+used when sending packets with this socket.
+The <TT
+CLASS="PARAMETER"
+><I
+>option_value</I
+></TT
+> shall point to a buffer large
+enough to hold the type of service indicator (at least 1 byte),
+and <TT
+CLASS="PARAMETER"
+><I
+>option_len</I
+></TT
+>
+shall point to an integer value holding the maximum size of that buffer.
+On successful return, the value
+referenced by <TT
+CLASS="PARAMETER"
+><I
+>option_len</I
+></TT
+> shall be updated
+to contain the number of bytes copied into the buffer, which shall be no
+larger than the initial value,
+and <TT
+CLASS="PARAMETER"
+><I
+>option_value</I
+></TT
+>
+shall point to an integer containing the time to live value.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="baselib-getservent-r.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="baselib-gettext.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>getservent_r</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libcman.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>gettext</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

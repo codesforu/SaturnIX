@@ -1,0 +1,2290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Libraries</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Cairo Vector Graphics library"
+HREF="toclibcairo.html"><LINK
+REL="PREVIOUS"
+TITLE="Cairo Vector Graphics library"
+HREF="toclibcairo.html"><LINK
+REL="NEXT"
+TITLE="Data Definitions for libcairo"
+HREF="libcairo-ddefs.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="toclibcairo.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libcairo-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="LIBCAIROCHAP"
+></A
+>Chapter 15. Libraries</H1
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBCAIRO"
+>15.1. Interfaces for libcairo</A
+></H1
+><P
+><A
+HREF="libcairochap.html#LIB-LIBCAIRO-DEF"
+>Table 15-1</A
+> defines the library name and shared object name
+for the libcairo library</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="LIB-LIBCAIRO-DEF"
+></A
+><P
+><B
+>Table 15-1. libcairo Definition</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>Library:</TD
+><TD
+>libcairo</TD
+></TR
+><TR
+><TD
+>SONAME:</TD
+><TD
+>libcairo.so.2</TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><P
+>The behavior of the interfaces in this library is specified by the following specifications:<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+><A
+NAME="REFSTD.LIBCAIRO.1"
+></A
+>[Cairo 1.12.4] <A
+HREF="informativerefs.html#STD.CAIRO"
+>Cairo API Reference</A
+></TD
+></TR
+><TR
+><TD
+><A
+NAME="REFSTD.LIBCAIRO.2"
+></A
+>[LSB] <A
+HREF="normativerefs.html#STD.LSB"
+>This Specification</A
+></TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN20682"
+>15.1.1. Cairo Vector Graphics Library</A
+></H2
+><P
+></P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN20685"
+>15.1.1.1. Interfaces for Cairo Vector Graphics Library</A
+></H3
+><P
+>An LSB conforming implementation shall provide the generic functions
+for Cairo Vector Graphics Library specified in <A
+HREF="libcairochap.html#TBL-LIBCAIRO-CAIRO-INTS"
+>Table 15-2</A
+>,
+with the full mandatory functionality as described in the referenced
+underlying specification.</P
+><DIV
+CLASS="TABLE"
+><A
+NAME="TBL-LIBCAIRO-CAIRO-INTS"
+></A
+><P
+><B
+>Table 15-2. libcairo - Cairo Vector Graphics Library Function Interfaces</B
+></P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+CELLSPACING="0"
+CELLPADDING="4"
+CLASS="CALSTABLE"
+><TBODY
+><TR
+><TD
+>cairo_append_path <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_arc <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_arc_negative <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_clip <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_clip_preserve <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_close_path <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_copy_page <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_copy_path <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_copy_path_flat <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_curve_to <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_destroy <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_device_acquire <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_device_destroy <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_device_finish <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_device_flush <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_device_get_reference_count <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_device_get_type <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_device_get_user_data <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_device_observer_elapsed <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+><TD
+>cairo_device_observer_fill_elapsed <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_device_observer_glyphs_elapsed <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+><TD
+>cairo_device_observer_mask_elapsed <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+><TD
+>cairo_device_observer_paint_elapsed <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_device_observer_print <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+><TD
+>cairo_device_observer_stroke_elapsed <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+><TD
+>cairo_device_reference <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_device_release <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_device_set_user_data <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_device_status <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_device_to_user <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_device_to_user_distance <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_fill <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_fill_extents <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_fill_preserve <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_extents <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_font_face_destroy <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_face_get_type <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_face_get_user_data <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_font_face_reference <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_face_set_user_data <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_face_status <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_font_options_copy <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_options_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_options_destroy <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_font_options_equal <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_options_get_antialias <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_options_get_hint_metrics <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_font_options_get_hint_style <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_options_get_subpixel_order <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_options_hash <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_font_options_merge <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_options_set_antialias <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_options_set_hint_metrics <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_font_options_set_hint_style <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_options_set_subpixel_order <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_font_options_status <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_format_stride_for_width <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_ft_font_face_create_for_ft_face <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_ft_font_face_create_for_pattern <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_ft_font_face_get_synthesize <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_ft_font_face_set_synthesize <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_ft_font_face_unset_synthesize <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_ft_font_options_substitute <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_ft_scaled_font_lock_face <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_ft_scaled_font_unlock_face <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_get_antialias <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_get_current_point <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_get_fill_rule <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_get_font_face <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_get_font_matrix <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_get_font_options <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_get_group_target <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_get_line_cap <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_get_line_join <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_get_line_width <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_get_matrix <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_get_miter_limit <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_get_operator <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_get_source <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_get_target <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_get_tolerance <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_glyph_allocate <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_glyph_extents <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_glyph_free <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_glyph_path <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_has_current_point <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_identity_matrix <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_image_surface_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_image_surface_create_for_data <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_image_surface_create_from_png <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_image_surface_create_from_png_stream <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_image_surface_get_data <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_image_surface_get_format <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_image_surface_get_height <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_image_surface_get_stride <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_image_surface_get_width <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_in_clip <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_in_fill <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_in_stroke <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_line_to <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_mask <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_mask_surface <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_matrix_init <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_matrix_init_identity <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_matrix_init_rotate <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_matrix_init_scale <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_matrix_init_translate <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_matrix_invert <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_matrix_multiply <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_matrix_rotate <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_matrix_scale <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_matrix_transform_distance <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_matrix_transform_point <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_matrix_translate <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_mesh_pattern_begin_patch <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_mesh_pattern_curve_to <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_mesh_pattern_end_patch <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_mesh_pattern_get_control_point <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_mesh_pattern_get_corner_color_rgba <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_mesh_pattern_get_patch_count <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_mesh_pattern_get_path <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_mesh_pattern_line_to <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_mesh_pattern_move_to <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_mesh_pattern_set_control_point <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_mesh_pattern_set_corner_color_rgb <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_mesh_pattern_set_corner_color_rgba <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_move_to <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_new_path <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_new_sub_path <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_paint <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_paint_with_alpha <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_path_destroy <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_path_extents <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pattern_add_color_stop_rgb <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_pattern_add_color_stop_rgba <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pattern_create_for_surface <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pattern_create_linear <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_pattern_create_mesh <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pattern_create_radial <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pattern_create_raster_source <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_pattern_create_rgb <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pattern_create_rgba <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pattern_destroy <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_pattern_get_extend <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pattern_get_filter <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pattern_get_matrix <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_pattern_get_type <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pattern_reference <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pattern_set_extend <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_pattern_set_filter <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pattern_set_matrix <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pattern_status <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_pdf_get_versions <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pdf_surface_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pdf_surface_create_for_stream <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_pdf_surface_restrict_to_version <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pdf_surface_set_size <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pdf_version_to_string <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_pop_group <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_pop_group_to_source <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_ps_get_levels <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_ps_level_to_string <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_ps_surface_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_ps_surface_create_for_stream <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_ps_surface_dsc_begin_page_setup <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_ps_surface_dsc_begin_setup <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_ps_surface_dsc_comment <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_ps_surface_get_eps <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_ps_surface_restrict_to_level <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_ps_surface_set_eps <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_ps_surface_set_size <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_push_group <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_push_group_with_content <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_raster_source_pattern_get_acquire <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_raster_source_pattern_get_callback_data <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_raster_source_pattern_get_copy <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_raster_source_pattern_get_finish <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_raster_source_pattern_get_snapshot <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_raster_source_pattern_set_acquire <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_raster_source_pattern_set_callback_data <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_raster_source_pattern_set_copy <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_raster_source_pattern_set_finish <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_raster_source_pattern_set_snapshot <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_recording_surface_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_recording_surface_get_extents <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_recording_surface_ink_extents <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_rectangle <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_reference <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_region_contains_point <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_contains_rectangle <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_copy <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_region_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_create_rectangle <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_create_rectangles <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_region_destroy <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_equal <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_get_extents <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_region_get_rectangle <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_intersect <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_intersect_rectangle <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_region_is_empty <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_num_rectangles <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_reference <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_region_status <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_subtract <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_subtract_rectangle <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_region_translate <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_union <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_union_rectangle <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_region_xor <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_region_xor_rectangle <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_rel_curve_to <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_rel_line_to <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_rel_move_to <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_reset_clip <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_restore <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_rotate <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_save <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_scale <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_scaled_font_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_scaled_font_destroy <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_scaled_font_extents <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_scaled_font_get_ctm <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_scaled_font_get_font_face <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_scaled_font_get_font_matrix <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_scaled_font_get_font_options <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_scaled_font_get_scale_matrix <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_scaled_font_get_type <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_scaled_font_glyph_extents <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_scaled_font_reference <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_scaled_font_status <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_scaled_font_text_extents <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_scaled_font_text_to_glyphs <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_script_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_script_create_for_stream <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_script_from_recording_surface <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_script_get_mode <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_script_set_mode <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_script_surface_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_script_surface_create_for_target <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_script_write_comment <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_select_font_face <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_set_antialias <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_set_dash <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_set_fill_rule <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_set_font_face <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_set_font_matrix <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_set_font_options <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_set_font_size <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_set_line_cap <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_set_line_join <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_set_line_width <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_set_matrix <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_set_miter_limit <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_set_operator <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_set_scaled_font <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_set_source <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_set_source_rgb <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_set_source_rgba <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_set_source_surface <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_set_tolerance <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_show_glyphs <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_show_page <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_show_text <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_show_text_glyphs <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_status <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_status_to_string <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_stroke <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_stroke_extents <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_stroke_preserve <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_copy_page <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_create_for_rectangle <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_surface_create_observer <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+><TD
+>cairo_surface_create_similar <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_create_similar_image <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_surface_destroy <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_finish <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_flush <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_surface_get_content <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_get_device <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_get_device_offset <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_surface_get_fallback_resolution <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_get_font_options <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_get_mime_data <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_surface_get_type <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_get_user_data <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_has_show_text_glyphs <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_surface_map_to_image <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_mark_dirty <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_mark_dirty_rectangle <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_surface_observer_add_fill_callback <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+><TD
+>cairo_surface_observer_add_finish_callback <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+><TD
+>cairo_surface_observer_add_flush_callback <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_surface_observer_add_glyphs_callback <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+><TD
+>cairo_surface_observer_add_mask_callback <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+><TD
+>cairo_surface_observer_add_paint_callback <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_surface_observer_add_stroke_callback <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+><TD
+>cairo_surface_observer_elapsed <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+><TD
+>cairo_surface_observer_print <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.2"
+>[LSB]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_surface_reference <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_set_device_offset <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_set_fallback_resolution <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_surface_set_mime_data <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_set_user_data <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_show_page <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_surface_status <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_supports_mime_type <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_unmap_image <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_surface_write_to_png <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_surface_write_to_png_stream <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_svg_get_versions <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_svg_surface_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_svg_surface_create_for_stream <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_svg_surface_restrict_to_version <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_svg_version_to_string <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_text_cluster_allocate <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_text_cluster_free <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_text_extents <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_text_path <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_toy_font_face_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_toy_font_face_get_family <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_toy_font_face_get_slant <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_toy_font_face_get_weight <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_transform <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_translate <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_user_font_face_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_user_font_face_get_init_func <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_user_font_face_get_render_glyph_func <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_user_font_face_get_text_to_glyphs_func <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_user_font_face_get_unicode_to_glyph_func <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_user_font_face_set_init_func <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_user_font_face_set_render_glyph_func <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_user_font_face_set_text_to_glyphs_func <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_user_font_face_set_unicode_to_glyph_func <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_user_to_device <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_user_to_device_distance <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_version <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_version_string <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_xcb_device_get_connection <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_xcb_surface_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_xcb_surface_create_for_bitmap <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_xcb_surface_set_drawable <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_xcb_surface_set_size <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_xlib_surface_create <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_xlib_surface_create_for_bitmap <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_xlib_surface_create_with_xrender_format <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_xlib_surface_get_depth <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_xlib_surface_get_display <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_xlib_surface_get_drawable <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_xlib_surface_get_height <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_xlib_surface_get_screen <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_xlib_surface_get_visual <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_xlib_surface_get_width <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+><TR
+><TD
+>cairo_xlib_surface_get_xrender_format <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_xlib_surface_set_drawable <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+><TD
+>cairo_xlib_surface_set_size <A
+HREF="libcairochap.html#REFSTD.LIBCAIRO.1"
+>[Cairo 1.12.4]</A
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="toclibcairo.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libcairo-ddefs.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Cairo Vector Graphics library</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="toclibcairo.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Data Definitions for libcairo</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,819 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Interface Definitions for libQtGui</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Libraries"
+HREF="qt.html"><LINK
+REL="PREVIOUS"
+TITLE="Data Definitions for libQtGui"
+HREF="libqtgui-ddefs.html"><LINK
+REL="NEXT"
+TITLE="_ZN11QGridLayout21setDefaultPositioningEiN2Qt11OrientationE"
+HREF="libqtgui--zn11qgl21setdefpos.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libqtgui-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 18. Libraries</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libqtgui--zn11qgl21setdefpos.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="LIBQTGUIMAN"
+>18.7. Interface Definitions for libQtGui</A
+></H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="libqtgui--zn11qgl21setdefpos.html"
+>_ZN11QGridLayout21setDefaultPositioningEiN2Qt11OrientationE</A
+>&nbsp;--&nbsp;set the positioning mode</DT
+><DT
+><A
+HREF="libqtgui--zn11qhv13updatesection.html"
+>_ZN11QHeaderView13updateSectionEi</A
+>&nbsp;--&nbsp;update HeaderView section</DT
+><DT
+><A
+HREF="libqtgui--z12qpe13setsystemclip.html"
+>_ZN12QPaintEngine13setSystemClipERK7QRegion</A
+>&nbsp;--&nbsp;set the system clip for the engine</DT
+><DT
+><A
+HREF="libqtgui--z12qpe13setsystemrect.html"
+>_ZN12QPaintEngine13setSystemRectERK5QRect</A
+>&nbsp;--&nbsp;set the target rect for drawing within the backing store</DT
+><DT
+><A
+HREF="libqtgui--zn12qpe14setpaintdevice.html"
+>_ZN12QPaintEngine14setPaintDeviceEP12QPaintDevice</A
+>&nbsp;--&nbsp;set the paintdevice that the engine operates on</DT
+><DT
+><A
+HREF="qtgui-qpixmapcache-cachelimit.html"
+>QPixmapCache::cacheLimit</A
+>&nbsp;--&nbsp;UUID greater-than comparison operator</DT
+><DT
+><A
+HREF="libqtgui--znk13qgi15addtoindex.html"
+>_ZN13QGraphicsItem10addToIndexEv</A
+>&nbsp;--&nbsp;add the item from the scene's index</DT
+><DT
+><A
+HREF="libqtgui--zn13qgi12setextension.html"
+>_ZN13QGraphicsItem12setExtensionENS_9ExtensionERK8QVariant</A
+>&nbsp;--&nbsp;set extension for the item</DT
+><DT
+><A
+HREF="libqtgui--znk13qgi15rmfromindex.html"
+>_ZN13QGraphicsItem15removeFromIndexEv</A
+>&nbsp;--&nbsp;remove the item from the scene's index</DT
+><DT
+><A
+HREF="libqtgui--zn13qic14setfocuswidget-1.html"
+>_ZN13QInputContext14setFocusWidgetEP7QWidget</A
+>&nbsp;--&nbsp;set the input focus for the current context</DT
+><DT
+><A
+HREF="libqtgui--zn13qtd14appendundoitem.html"
+>_ZN13QTextDocument14appendUndoItemEP17QAbstractUndoItem</A
+>&nbsp;--&nbsp;append an item to the undo stack</DT
+><DT
+><A
+HREF="libqtgui--zn17qaiv13doitemslayout-1.html"
+>_ZN17QAbstractItemView13doItemsLayoutEv</A
+>&nbsp;--&nbsp;lay out the items in the view</DT
+><DT
+><A
+HREF="libqtgui--zn17qaiv16updateeditordata-1.html"
+>_ZN17QAbstractItemView16updateEditorDataEv</A
+>&nbsp;--&nbsp;update the data shown in the open editor widgets in the view</DT
+><DT
+><A
+HREF="libqtgui--zn17qaiv22updateeditorgeoms.html"
+>_ZN17QAbstractItemView22updateEditorGeometriesEv</A
+>&nbsp;--&nbsp;update geometry of open editor widgets in the view</DT
+><DT
+><A
+HREF="libqtgui--zn17qaiv23verticalsbaction-1.html"
+>_ZN17QAbstractItemView23verticalScrollbarActionEi</A
+>&nbsp;--&nbsp;dummy hook</DT
+><DT
+><A
+HREF="libqtgui--zn17qaiv25horizontalsbaction.html"
+>_ZN17QAbstractItemView25horizontalScrollbarActionEi</A
+>&nbsp;--&nbsp;dummy hook</DT
+><DT
+><A
+HREF="libqtgui--zn17qgli12setextension-1.html"
+>_ZN17QGraphicsLineItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant</A
+>&nbsp;--&nbsp;set extension for the item</DT
+><DT
+><A
+HREF="libqtgui--zn17qgpi12setextension-1.html"
+>_ZN17QGraphicsPathItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant</A
+>&nbsp;--&nbsp;set extension for the item</DT
+><DT
+><A
+HREF="libqtgui--zn17qgri12setextension-1.html"
+>_ZN17QGraphicsRectItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant</A
+>&nbsp;--&nbsp;set extension for the item</DT
+><DT
+><A
+HREF="libqtgui--zn17qgti12setextension-1.html"
+>_ZN17QGraphicsTextItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant</A
+>&nbsp;--&nbsp;set extension for the item</DT
+><DT
+><A
+HREF="libqtgui--zn18qdreventc1-1.html"
+>_ZN18QDragResponseEventC1Eb, _ZN18QDragResponseEventC2Eb</A
+>&nbsp;--&nbsp;QDragResponseEvent constructor</DT
+><DT
+><A
+HREF="libqtgui--zn19qgpi12setextension-1.html"
+>_ZN19QGraphicsPixmapItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant</A
+>&nbsp;--&nbsp;set extension for the item</DT
+><DT
+><A
+HREF="libqtgui--zn27qgse9setwidget.html"
+>_ZN19QGraphicsSceneEvent9setWidgetEP7QWidget</A
+>&nbsp;--&nbsp;Sets the widget related to the event</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsec1en6qevent4typee.html"
+>_ZN19QGraphicsSceneEventC1EN6QEvent4TypeE, _ZN19QGraphicsSceneEventC2EN6QEvent4TypeE</A
+>&nbsp;--&nbsp;QGraphicsSceneEvent constructor</DT
+><DT
+><A
+HREF="libqtgui--zn19qtoolbarcec1-1.html"
+>_ZN19QToolBarChangeEventC1Eb, _ZN19QToolBarChangeEventC2Eb</A
+>&nbsp;--&nbsp;QToolBarChangeEvent constructor</DT
+><DT
+><A
+HREF="libqtgui--zn20qgei12setextension-1.html"
+>_ZN20QGraphicsEllipseItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant</A
+>&nbsp;--&nbsp;set extension for the item</DT
+><DT
+><A
+HREF="libqtgui--zn20qgpi12setextension-1.html"
+>_ZN20QGraphicsPolygonItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant</A
+>&nbsp;--&nbsp;set extension for the item</DT
+><DT
+><A
+HREF="libqtgui--zn24qgshee11setscenepos.html"
+>_ZN23QGraphicsSceneHelpEvent11setScenePosERK7QPointF</A
+>&nbsp;--&nbsp;set the event mouse position relative to the scene</DT
+><DT
+><A
+HREF="libqtgui--zn27qgshee12setscreenpos.html"
+>_ZN23QGraphicsSceneHelpEvent12setScreenPosERK6QPoint</A
+>&nbsp;--&nbsp;set the event mouse position relative to the screen</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsheec1en6qevent4typee.html"
+>_ZN23QGraphicsSceneHelpEventC1EN6QEvent4TypeE, _ZN23QGraphicsSceneHelpEventC2EN6QEvent4TypeE</A
+>&nbsp;--&nbsp;QGraphicsSceneHelpEvent constructor</DT
+><DT
+><A
+HREF="libqtgui--zn23qgsti12setextension-1.html"
+>_ZN23QGraphicsSimpleTextItem12setExtensionEN13QGraphicsItem9ExtensionERK8QVariant</A
+>&nbsp;--&nbsp;set extension for the item</DT
+><DT
+><A
+HREF="libqtgui--zn24qapsd7printer-1.html"
+>_ZN24QAbstractPageSetupDialog7printerEv</A
+>&nbsp;--&nbsp;get the printer that this page setup dialog is operating on</DT
+><DT
+><A
+HREF="libqtgui--zn24qapsdc1ep-1.html"
+>_ZN24QAbstractPageSetupDialogC1EP8QPrinterP7QWidget, _ZN24QAbstractPageSetupDialogC2EP8QPrinterP7QWidget</A
+>&nbsp;--&nbsp;QAbstractPageSetupDialog constructor</DT
+><DT
+><A
+HREF="libqtgui--zn24qgshoe11setscenepos.html"
+>_ZN24QGraphicsSceneHoverEvent11setScenePosERK7QPointF</A
+>&nbsp;--&nbsp;set the event mouse position relative to the scene</DT
+><DT
+><A
+HREF="libqtgui--zn27qgshoe12setscreenpos.html"
+>_ZN24QGraphicsSceneHoverEvent12setScreenPosERK6QPoint</A
+>&nbsp;--&nbsp;set the event mouse position relative to the screen</DT
+><DT
+><A
+HREF="libqtgui--zn27qgshoe6setpos.html"
+>_ZN24QGraphicsSceneHoverEvent6setPosERK7QPointF</A
+>&nbsp;--&nbsp;set the event mouse position relative to the widget that generated the event</DT
+><DT
+><A
+HREF="libqtgui--zn27qgshoec1en6qevent4typee.html"
+>_ZN24QGraphicsSceneHoverEventC1EN6QEvent4TypeE, _ZN24QGraphicsSceneHoverEventC2EN6QEvent4TypeE</A
+>&nbsp;--&nbsp;QGraphicsSceneHoverEvent constructor</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsme10setbuttons.html"
+>_ZN24QGraphicsSceneMouseEvent10setButtonsE6QFlagsIN2Qt11MouseButtonEE</A
+>&nbsp;--&nbsp;set the mouse buttons that were pressed when the event was created</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsme6setlastpos.html"
+>_ZN24QGraphicsSceneMouseEvent10setLastPosERK7QPointF</A
+>&nbsp;--&nbsp;set the last recorded mouse cursor position in item coordinates</DT
+><DT
+><A
+HREF="libqtgui--zn24qgsme11setscenepos.html"
+>_ZN24QGraphicsSceneMouseEvent11setScenePosERK7QPointF</A
+>&nbsp;--&nbsp;set the event mouse position relative to the scene</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsme12setmodifiers.html"
+>_ZN24QGraphicsSceneMouseEvent12setModifiersE6QFlagsIN2Qt16KeyboardModifierEE</A
+>&nbsp;--&nbsp;set the keyboard modifiers that were active when the event was created</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsme12setscreenpos.html"
+>_ZN24QGraphicsSceneMouseEvent12setScreenPosERK6QPoint</A
+>&nbsp;--&nbsp;set the event mouse position relative to the screen</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsme6setlastscenepos.html"
+>_ZN24QGraphicsSceneMouseEvent15setLastScenePosERK7QPointF</A
+>&nbsp;--&nbsp;set the last recorded mouse cursor position in scene coordinates</DT
+><DT
+><A
+HREF="libqtgui--zn24qgsme9setbuttondownpos.html"
+>_ZN24QGraphicsSceneMouseEvent16setButtonDownPosEN2Qt11MouseButtonERK7QPointF</A
+>&nbsp;--&nbsp;set the mouse position where the specified button was clicked in item coordinates</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsme6setlastscreenpos.html"
+>_ZN24QGraphicsSceneMouseEvent16setLastScreenPosERK6QPoint</A
+>&nbsp;--&nbsp;set the last recorded mouse cursor position in screen coordinates</DT
+><DT
+><A
+HREF="libqtgui--zn24qgsme9setbuttondscpos.html"
+>_ZN24QGraphicsSceneMouseEvent21setButtonDownScenePosEN2Qt11MouseButtonERK7QPointF</A
+>&nbsp;--&nbsp;set the mouse position where the specified button was clicked in scene coordinates</DT
+><DT
+><A
+HREF="libqtgui--zn24qgsme9setbuttondscrpos.html"
+>_ZN24QGraphicsSceneMouseEvent22setButtonDownScreenPosEN2Qt11MouseButtonERK6QPoint</A
+>&nbsp;--&nbsp;set the mouse position where the specified button was clicked in screen coordinates</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsme6setpos.html"
+>_ZN24QGraphicsSceneMouseEvent6setPosERK7QPointF</A
+>&nbsp;--&nbsp;set the event mouse position relative to the widget that generated the event</DT
+><DT
+><A
+HREF="libqtgui--zn24qgsme9setbutton.html"
+>_ZN24QGraphicsSceneMouseEvent9setButtonEN2Qt11MouseButtonE</A
+>&nbsp;--&nbsp;set the mouse button associated with event</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsmec1en6qevent4typee.html"
+>_ZN24QGraphicsSceneMouseEventC1EN6QEvent4TypeE, _ZN24QGraphicsSceneMouseEventC2EN6QEvent4TypeE</A
+>&nbsp;--&nbsp;QGraphicsSceneMouseEvent constructor</DT
+><DT
+><A
+HREF="libqtgui--zn27qgswe10setbuttons.html"
+>_ZN24QGraphicsSceneWheelEvent10setButtonsE6QFlagsIN2Qt11MouseButtonEE</A
+>&nbsp;--&nbsp;set the mouse buttons that were pressed when the event was created</DT
+><DT
+><A
+HREF="libqtgui--zn24qgswe11setscenepos.html"
+>_ZN24QGraphicsSceneWheelEvent11setScenePosERK7QPointF</A
+>&nbsp;--&nbsp;set the event mouse position relative to the scene</DT
+><DT
+><A
+HREF="libqtgui--zn27qgswe12setmodifiers.html"
+>_ZN24QGraphicsSceneWheelEvent12setModifiersE6QFlagsIN2Qt16KeyboardModifierEE</A
+>&nbsp;--&nbsp;set the keyboard modifiers that were active when the event was created</DT
+><DT
+><A
+HREF="libqtgui--zn27qgswe12setscreenpos.html"
+>_ZN24QGraphicsSceneWheelEvent12setScreenPosERK6QPoint</A
+>&nbsp;--&nbsp;set the event mouse position relative to the screen</DT
+><DT
+><A
+HREF="libqtgui--zn27qgswe6setpos.html"
+>_ZN24QGraphicsSceneWheelEvent6setPosERK7QPointF</A
+>&nbsp;--&nbsp;set the event mouse position relative to the widget that generated the event</DT
+><DT
+><A
+HREF="libqtgui--zn27qgswe8setdelta.html"
+>_ZN24QGraphicsSceneWheelEvent8setDeltaEi</A
+>&nbsp;--&nbsp;set the distance that the wheel is rotated</DT
+><DT
+><A
+HREF="libqtgui--zn27qgswec1en6qevent4typee.html"
+>_ZN24QGraphicsSceneWheelEventC1EN6QEvent4TypeE, _ZN24QGraphicsSceneWheelEventC2EN6QEvent4TypeE</A
+>&nbsp;--&nbsp;QGraphicsSceneWheelEvent constructor</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsdde10setbuttons.html"
+>_ZN27QGraphicsSceneDragDropEvent10setButtonsE6QFlagsIN2Qt11MouseButtonEE</A
+>&nbsp;--&nbsp;set the mouse buttons that were pressed when the event was created</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsdde11setmimedata.html"
+>_ZN27QGraphicsSceneDragDropEvent11setMimeDataEPK9QMimeData</A
+>&nbsp;--&nbsp;set the MIME data for the event</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsdde11setscenepos.html"
+>_ZN27QGraphicsSceneDragDropEvent11setScenePosERK7QPointF</A
+>&nbsp;--&nbsp;set the event mouse position relative to the scene</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsdde12setmodifiers.html"
+>_ZN27QGraphicsSceneDragDropEvent12setModifiersE6QFlagsIN2Qt16KeyboardModifierEE</A
+>&nbsp;--&nbsp;set the keyboard modifiers that were active when the event was created</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsdde12setscreenpos.html"
+>_ZN27QGraphicsSceneDragDropEvent12setScreenPosERK6QPoint</A
+>&nbsp;--&nbsp;set the event mouse position relative to the screen</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsdde17setproposedaction.html"
+>_ZN27QGraphicsSceneDragDropEvent17setProposedActionEN2Qt10DropActionE</A
+>&nbsp;--&nbsp;set the proposed action for the event</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsddevent18setpossibleactions.html"
+>_ZN27QGraphicsSceneDragDropEvent18setPossibleActionsE6QFlagsIN2Qt10DropActionEE</A
+>&nbsp;--&nbsp;set the possible drop actions that the drag can result in</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsdde6setpos.html"
+>_ZN27QGraphicsSceneDragDropEvent6setPosERK7QPointF</A
+>&nbsp;--&nbsp;set the event mouse position relative to the widget that generated the event</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsdde9setsource.html"
+>_ZN27QGraphicsSceneDragDropEvent9setSourceEP7QWidget</A
+>&nbsp;--&nbsp;set the source widget for the event</DT
+><DT
+><A
+HREF="libqtgui--zn27qgsddec1en6qevent4typee.html"
+>_ZN27QGraphicsSceneDragDropEventC1EN6QEvent4TypeE, _ZN27QGraphicsSceneDragDropEventC2EN6QEvent4TypeE</A
+>&nbsp;--&nbsp;QGraphicsSceneDragDropEvent constructor</DT
+><DT
+><A
+HREF="libqtgui--zn2qt12codecforhtml.html"
+>_ZN2Qt12codecForHtmlERK10QByteArray</A
+>&nbsp;--&nbsp;detect encoding of the provided snippet of html </DT
+><DT
+><A
+HREF="libqtgui--zn30qgscme11setscenepos.html"
+>_ZN30QGraphicsSceneContextMenuEvent11setScenePosERK7QPointF</A
+>&nbsp;--&nbsp;set the event mouse position relative to the scene</DT
+><DT
+><A
+HREF="libqtgui--zn30qgscme12setmodifiers.html"
+>_ZN30QGraphicsSceneContextMenuEvent12setModifiersE6QFlagsIN2Qt16KeyboardModifierEE</A
+>&nbsp;--&nbsp;set the keyboard modifiers that were activa when the event was created</DT
+><DT
+><A
+HREF="libqtgui--zn30qgsctme12setscreenpos.html"
+>_ZN30QGraphicsSceneContextMenuEvent12setScreenPosERK6QPoint</A
+>&nbsp;--&nbsp;set the event mouse position relative to the scene</DT
+><DT
+><A
+HREF="libqtgui--zn30qgscme6setpos.html"
+>_ZN30QGraphicsSceneContextMenuEvent6setPosERK7QPointF</A
+>&nbsp;--&nbsp;set the event mouse position relative to the widget that generated the event</DT
+><DT
+><A
+HREF="libqtgui--zn30qgscme9setreason.html"
+>_ZN30QGraphicsSceneContextMenuEvent9setReasonENS_6ReasonE</A
+>&nbsp;--&nbsp;set the reason for the context menu event</DT
+><DT
+><A
+HREF="libqtgui--zn30qgscmec1en6qevent4typee.html"
+>_ZN30QGraphicsSceneContextMenuEventC1EN6QEvent4TypeE, _ZN30QGraphicsSceneContextMenuEventC2EN6QEvent4TypeE</A
+>&nbsp;--&nbsp;QGraphicsSceneContextMenuEvent constructor</DT
+><DT
+><A
+HREF="libqtgui--zn5qfont7cleanupev-1.html"
+>_ZN5QFont7cleanupEv</A
+>&nbsp;--&nbsp;cleanup the font system</DT
+><DT
+><A
+HREF="libqtgui--zn6qcolor10invalidateev.html"
+>_ZN6QColor10invalidateEv</A
+>&nbsp;--&nbsp;mark the color as invalid</DT
+><DT
+><A
+HREF="libqtgui--z7ql11widgetevent.html"
+>_ZN7QLayout11widgetEventEP6QEvent</A
+>&nbsp;--&nbsp;perform child widget layout when the parent widget is resized</DT
+><DT
+><A
+HREF="libqtgui--z7qp19x11setdefscr.html"
+>_ZN7QPixmap19x11SetDefaultScreenEi</A
+>&nbsp;--&nbsp;sets the default screen of the QPixmap object</DT
+><DT
+><A
+HREF="libqtgui--zn7qw11createwinid-1.html"
+>_ZN7QWidget11createWinIdEv</A
+>&nbsp;--&nbsp;ensure that the widget is known to the windowing system</DT
+><DT
+><A
+HREF="libqtgui--zn7qw19overridewindowstate-1.html"
+>_ZN7QWidget19overrideWindowStateE6QFlagsIN2Qt11WindowStateEE</A
+>&nbsp;--&nbsp;set the window state on child widgets</DT
+><DT
+><A
+HREF="libqtgui--zn8qmb15setcornerwidget-1.html"
+>_ZN8QMenuBar15setCornerWidgetEP7QWidgetN2Qt6CornerE</A
+>&nbsp;--&nbsp;set the position of the widget</DT
+><DT
+><A
+HREF="libqtgui--zn9qlv13doitemslayout-1.html"
+>_ZN9QListView13doItemsLayoutEv</A
+>&nbsp;--&nbsp;layout items</DT
+><DT
+><A
+HREF="libqtgui--zn9qlv14resizecontents-1.html"
+>_ZN9QListView14resizeContentsEii</A
+>&nbsp;--&nbsp;resize the internal contents of the view</DT
+><DT
+><A
+HREF="libqtgui--znk11qpm13setproxymodel-1.html"
+>_ZNK11QProxyModel13setProxyModelERK11QModelIndex</A
+>&nbsp;--&nbsp;change the model pointer to point to the proxy model</DT
+><DT
+><A
+HREF="libqtgui--znk11qpm14connecttomodel-1.html"
+>_ZNK11QProxyModel14connectToModelEPK18QAbstractItemModel</A
+>&nbsp;--&nbsp;connect to all the signals emitted by the model</DT
+><DT
+><A
+HREF="libqtgui--znk11qpm14setsourcemodel-1.html"
+>_ZNK11QProxyModel14setSourceModelERK11QModelIndex</A
+>&nbsp;--&nbsp;INSERT PURPOSE HERE</DT
+><DT
+><A
+HREF="libqtgui--znk11qpm19disconnectfromml-1.html"
+>_ZNK11QProxyModel19disconnectFromModelEPK18QAbstractItemModel</A
+>&nbsp;--&nbsp;disconnect from all signals emitted by the model</DT
+><DT
+><A
+HREF="libqtgui--z12qpe10systemclip.html"
+>_ZNK12QPaintEngine10systemClipEv</A
+>&nbsp;--&nbsp;get the system clip</DT
+><DT
+><A
+HREF="libqtgui--z12qpe10systemrect.html"
+>_ZNK12QPaintEngine10systemRectEv</A
+>&nbsp;--&nbsp;retrieve the rect for drawing within the backing store</DT
+><DT
+><A
+HREF="libqtgui--z12qpe16coordinateoffset.html"
+>_ZNK12QPaintEngine16coordinateOffsetEv</A
+>&nbsp;--&nbsp;get the offset from the painters origo to the engines origo</DT
+><DT
+><A
+HREF="libqtgui--znk13qgi17supportsextension-1.html"
+>_ZNK13QGraphicsItem17supportsExtensionENS_9ExtensionE</A
+>&nbsp;--&nbsp;check if the item supports the extension</DT
+><DT
+><A
+HREF="libqtgui--znk13qgi9extension.html"
+>_ZNK13QGraphicsItem9extensionERK8QVariant</A
+>&nbsp;--&nbsp;auxiliary virtual function</DT
+><DT
+><A
+HREF="libqtgui--znk13qic11focuswidget-1.html"
+>_ZNK13QInputContext11focusWidgetEv</A
+>&nbsp;--&nbsp;get the widget that has an input focus for this input context</DT
+><DT
+><A
+HREF="libqtgui--znk13qid10decoration-1.html"
+>_ZNK13QItemDelegate10decorationERK20QStyleOptionViewItemRK8QVariant</A
+>&nbsp;--&nbsp;get the pixmap used to decorate the root of the item view</DT
+><DT
+><A
+HREF="libqtgui--znk13qid8selected-1.html"
+>_ZNK13QItemDelegate8selectedERK7QPixmapRK8QPaletteb</A
+>&nbsp;--&nbsp;get the selected version of the given pixmap using the given palette</DT
+><DT
+><A
+HREF="libqtgui--znk13qtd7frameat-1.html"
+>_ZNK13QTextDocument7frameAtEi</A
+>&nbsp;--&nbsp;get the frame that contains the given cursor position</DT
+><DT
+><A
+HREF="libqtgui--znk14qtc12lastposition-1.html"
+>_ZNK14QTextTableCell12lastPositionEv</A
+>&nbsp;--&nbsp;get the last position in the cell's document</DT
+><DT
+><A
+HREF="libqtgui--znk14qttc13firstposition-1.html"
+>_ZNK14QTextTableCell13firstPositionEv</A
+>&nbsp;--&nbsp;get the first position in the cell's document</DT
+><DT
+><A
+HREF="libqtgui--znk17qgli17supportsext-1.html"
+>_ZNK17QGraphicsLineItem17supportsExtensionEN13QGraphicsItem9ExtensionE</A
+>&nbsp;--&nbsp;check if the item supports the extension</DT
+><DT
+><A
+HREF="libqtgui--znk17qgli9extension-1.html"
+>_ZNK17QGraphicsLineItem9extensionERK8QVariant</A
+>&nbsp;--&nbsp;get the item's extension</DT
+><DT
+><A
+HREF="libqtgui--znk17qgpi17supportsext-1.html"
+>_ZNK17QGraphicsPathItem17supportsExtensionEN13QGraphicsItem9ExtensionE</A
+>&nbsp;--&nbsp;check if the item supports the extension</DT
+><DT
+><A
+HREF="libqtgui--znk17qgpi9extension.html"
+>_ZNK17QGraphicsPathItem9extensionERK8QVariant</A
+>&nbsp;--&nbsp;get the item's extension</DT
+><DT
+><A
+HREF="libqtgui--znk17qgri17supportsext-1.html"
+>_ZNK17QGraphicsRectItem17supportsExtensionEN13QGraphicsItem9ExtensionE</A
+>&nbsp;--&nbsp;check if the item supports the extension</DT
+><DT
+><A
+HREF="libqtgui--znk17qgri9extension-1.html"
+>_ZNK17QGraphicsRectItem9extensionERK8QVariant</A
+>&nbsp;--&nbsp;get the item's extension</DT
+><DT
+><A
+HREF="libqtgui--znk17qgti17supportsext-1.html"
+>_ZNK17QGraphicsTextItem17supportsExtensionEN13QGraphicsItem9ExtensionE</A
+>&nbsp;--&nbsp;check if the item supports the extension</DT
+><DT
+><A
+HREF="libqtgui--znk17qgti9extension-1.html"
+>_ZNK17QGraphicsTextItem9extensionERK8QVariant</A
+>&nbsp;--&nbsp;get the item's extension</DT
+><DT
+><A
+HREF="libqtgui--znk19qgpi17supportsext-1.html"
+>_ZNK19QGraphicsPixmapItem17supportsExtensionEN13QGraphicsItem9ExtensionE</A
+>&nbsp;--&nbsp;check if the item supports the extension</DT
+><DT
+><A
+HREF="libqtgui--znk19qgpi9extension-1.html"
+>_ZNK19QGraphicsPixmapItem9extensionERK8QVariant</A
+>&nbsp;--&nbsp;get the item's extension</DT
+><DT
+><A
+HREF="libqtgui--znk20qgei17supportsext-1.html"
+>_ZNK20QGraphicsEllipseItem17supportsExtensionEN13QGraphicsItem9ExtensionE</A
+>&nbsp;--&nbsp;check if the item supports the extension</DT
+><DT
+><A
+HREF="libqtgui--znk20qgei9extension-1.html"
+>_ZNK20QGraphicsEllipseItem9extensionERK8QVariant</A
+>&nbsp;--&nbsp;get the item's extension</DT
+><DT
+><A
+HREF="libqtgui--znk20qgpi17supportsext-1.html"
+>_ZNK20QGraphicsPolygonItem17supportsExtensionEN13QGraphicsItem9ExtensionE</A
+>&nbsp;--&nbsp;check if the item supports the extension</DT
+><DT
+><A
+HREF="libqtgui--znk20qgpi9extension-1.html"
+>_ZNK20QGraphicsPolygonItem9extensionERK8QVariant</A
+>&nbsp;--&nbsp;get the item's extension</DT
+><DT
+><A
+HREF="libqtgui--znk23qgsti17supportsext-1.html"
+>_ZNK23QGraphicsSimpleTextItem17supportsExtensionEN13QGraphicsItem9ExtensionE</A
+>&nbsp;--&nbsp;check if the item supports the extension</DT
+><DT
+><A
+HREF="libqtgui--znk23qgsti9extension-1.html"
+>_ZNK23QGraphicsSimpleTextItem9extensionERK8QVariant</A
+>&nbsp;--&nbsp;get the item's extension</DT
+><DT
+><A
+HREF="libqtgui--znk6qi7devtype-1.html"
+>_ZNK6QImage7devTypeEv</A
+>&nbsp;--&nbsp;get identifier designating that the object is a QImage</DT
+><DT
+><A
+HREF="libqtgui--z7ql13totalsizehint.html"
+>_ZNK7QLayout13totalSizeHintEv</A
+>&nbsp;--&nbsp;get the preferred size for the layout</DT
+><DT
+><A
+HREF="libqtgui--z7ql13totalmaximumsize.html"
+>_ZNK7QLayout16totalMaximumSizeEv</A
+>&nbsp;--&nbsp;get the maximum size of the layout</DT
+><DT
+><A
+HREF="libqtgui--z7ql13totalminimumsize.html"
+>_ZNK7QLayout16totalMinimumSizeEv</A
+>&nbsp;--&nbsp;get the minimum size of the layout</DT
+><DT
+><A
+HREF="libqtgui--z7ql19totalheightforwidth.html"
+>_ZNK7QLayout19totalHeightForWidthEi</A
+>&nbsp;--&nbsp;get the preferred height for the layout</DT
+><DT
+><A
+HREF="libqtgui--znk7qpx7devtype-1.html"
+>_ZNK7QPixmap7devTypeEv</A
+>&nbsp;--&nbsp;get identifier designating that the object is a QPixmap</DT
+><DT
+><A
+HREF="libqtgui--znk7qwt7devtype-1.html"
+>_ZNK7QWidget7devTypeEv</A
+>&nbsp;--&nbsp;get identifier designating that the object is a QWidget</DT
+><DT
+><A
+HREF="libqtgui--znk8qmb12cornerwidget-1.html"
+>_ZNK8QMenuBar12cornerWidgetEN2Qt6CornerE</A
+>&nbsp;--&nbsp;get the widget in the left of the first or the right of the last menu</DT
+><DT
+><A
+HREF="libqtgui--znk8qmb14actiongeometry-1.html"
+>_ZNK8QMenuBar14actionGeometryEP7QAction</A
+>&nbsp;--&nbsp;get geometry of an action</DT
+><DT
+><A
+HREF="libqtgui--znk8qmb8actionat-1.html"
+>_ZNK8QMenuBar8actionAtERK6QPoint</A
+>&nbsp;--&nbsp;get the item at the given point</DT
+><DT
+><A
+HREF="libqtgui-z8qpainter3map.html"
+>_ZNK8QPainter3mapEiiPiS0_</A
+>&nbsp;--&nbsp;apply the painter's transformation on the given point</DT
+><DT
+><A
+HREF="libqtgui--znk8qpt7devtype-1.html"
+>_ZNK8QPicture7devTypeEv</A
+>&nbsp;--&nbsp;get identifier designating that the object is a QPicture</DT
+><DT
+><A
+HREF="libqtgui--znk8qpr7devtype-1.html"
+>_ZNK8QPrinter7devTypeEv</A
+>&nbsp;--&nbsp;get identifier designating that the object is a QPrinter</DT
+><DT
+><A
+HREF="libqtgui--znk8qtb14actiongeometry-1.html"
+>_ZNK8QToolBar14actionGeometryEP7QAction</A
+>&nbsp;--&nbsp;get geometry of the toolbar item associated with the given action</DT
+><DT
+><A
+HREF="libqtgui--z9qfi8overline.html"
+>_ZNK9QFontInfo8overlineEv</A
+>&nbsp;--&nbsp;get the overline value of the matched window system font</DT
+><DT
+><A
+HREF="libqtgui--z9qfi9strikeout.html"
+>_ZNK9QFontInfo9strikeOutEv</A
+>&nbsp;--&nbsp;get the underline value of the matched window system font</DT
+><DT
+><A
+HREF="libqtgui--z9qfi9underline.html"
+>_ZNK9QFontInfo9underlineEv</A
+>&nbsp;--&nbsp;get the underline value of the matched window system font</DT
+></DL
+></DIV
+><P
+>The interfaces defined on the following pages are included in libQtGui and are defined
+by this specification.
+Unless otherwise noted, these interfaces shall be included
+in the source standard.</P
+><P
+>Other interfaces listed in <A
+HREF="libqtgui.html"
+>Section 18.5</A
+> shall behave as described
+in the referenced base document.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libqtgui-ddefs.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libqtgui--zn11qgl21setdefpos.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Data Definitions for libQtGui</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="qt.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>_ZN11QGridLayout21setDefaultPositioningEiN2Qt11OrientationE</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,328 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>groupmod</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="groupdel"
+HREF="groupdel.html"><LINK
+REL="NEXT"
+TITLE="groups"
+HREF="groups.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="groupdel.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="groups.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="GROUPMOD"
+></A
+>groupmod</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN58229"
+></A
+><H2
+>Name</H2
+>groupmod&nbsp;--&nbsp;modify a group</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN58232"
+></A
+><H2
+>Synopsis</H2
+><TT
+CLASS="CMDSYNOPSIS"
+><B
+CLASS="COMMAND"
+>groupmod</B
+> [-g <TT
+CLASS="REPLACEABLE"
+><I
+>gid</I
+></TT
+> [-o]] [-n <TT
+CLASS="REPLACEABLE"
+><I
+>group_name</I
+></TT
+>]  group </TT
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58241"
+></A
+><H2
+>Description</H2
+><P
+>If the caller has appropriate privilege, the 
+<B
+CLASS="COMMAND"
+>groupmod</B
+> command shall modify the entry in the system
+group database corresponding to a group named 
+<TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+>.</P
+><P
+>The <B
+CLASS="COMMAND"
+>groupmod</B
+> command is a system administration utility,
+see <A
+HREF="fhs-sysadmin.html"
+>Path For System Administration Utilities</A
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58249"
+></A
+><H2
+>Options</H2
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58252"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>-g <TT
+CLASS="REPLACEABLE"
+><I
+>gid</I
+></TT
+> [-o]</I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Modify the group's group ID, setting it to <TT
+CLASS="PARAMETER"
+><I
+>gid</I
+></TT
+>.
+If the <TT
+CLASS="PARAMETER"
+><I
+>-o</I
+></TT
+> option is not used, no other
+group shall have this group ID.
+The value of <TT
+CLASS="PARAMETER"
+><I
+>gid</I
+></TT
+>shall be non-negative.  
+<DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+STYLE="color: #006600; background-color: #FFFFCC;"
+><B
+>Note: </B
+>Only the group ID in the database is altered; any files with group
+ownership set to the original group ID are unchanged by this modification.</P
+></BLOCKQUOTE
+></DIV
+></P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58263"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+><TT
+CLASS="PARAMETER"
+><I
+>-n <TT
+CLASS="REPLACEABLE"
+><I
+>group_name</I
+></TT
+></I
+></TT
+></SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>changes the name of the group from <TT
+CLASS="PARAMETER"
+><I
+>group</I
+></TT
+> to 
+<TT
+CLASS="PARAMETER"
+><I
+>group_name</I
+></TT
+>.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="groupdel.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="groups.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>groupdel</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>groups</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

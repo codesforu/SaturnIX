@@ -1,0 +1,439 @@
+<HTML
+><HEAD
+><TITLE
+>Script names</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.76b+
+"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Specification 1.2"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="System Initialization"
+HREF="sysinit.html"><LINK
+REL="PREVIOUS"
+TITLE="Facility names"
+HREF="facilname.html"><LINK
+REL="NEXT"
+TITLE="Init script Functions"
+HREF="iniscrptfunc.html"></HEAD
+><BODY
+CLASS="SECT1"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Specification 1.2</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="facilname.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 22. System Initialization</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="iniscrptfunc.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="SCRPTNAMES">Script names</H1
+><P
+>Since the init.d scripts must live in a single directory, they must 
+come from a single namespace.  Three means of assigning names from
+this namespace are available:</P
+><P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>Assigned namespace.  This namespace consists of names which
+only use the character set [a-z0-9].  This space is
+desirable for scripts which system administrators may
+often wish to run manually: e.g., "/etc/init.d/named restart"
+In order to avoid conflicts these init.d names must be reserved
+through the Linux Assigned Names and Numbers Authority (LANANA).  
+Information about the LANANA may be found at
+<A
+HREF="http://www.lanana.org"
+TARGET="_top"
+>www.lanana.org</A
+>.</P
+><P
+>Commonly used names shall be reserved in advance; 
+developers for projects should be encouraged to reserve names
+from LANANA, so that each distribution can use the same
+name, and to avoid conflicts with other projects.</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>Hierarchical namespace.  This namespace consists of scripts
+names which look like this: [hier1]-[hier2]-...-[name],
+where name is again taken the character set [a-z0-9], 
+and where there may be one or more [hier-n] components.  
+[hier1] may either be an LSB provider name assigned
+by the LANANA, or it may be owners' DNS name in lower case, with at
+least one '.' (e.g., "debian.org", "staroffice.sun.com").
+The LSB provider name assigned by LANANA 
+must only consist of the ASCII characters [a-z0-9].</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>Reserved namespace.  This namespace consists of script names
+which begin with the character '_', and is reserved for
+distribution use only.  This namespace should be used
+for core packages only, and in general use of this
+namespace is highly discouraged.  &#13;</P
+></LI
+></UL
+><P
+>In general, if a package or some system function is likely to be used
+on multiple systems, the package developers or the distribution SHOULD
+get a registered name through LANANA, and distributions should strive to
+use the same name whenever possible.  For applications which may not
+be "core" or may not be commonly installed, the hierarchical namespace
+may be more appropriate.  An advantage to the hierarchical namespace
+is that there is no need to consult with the LANANA before obtaining an
+assigned name.</P
+><P
+>Short names are highly desirable, since many system
+administrators like to use them to manually start and stop services.
+Given this, they should be standardized on a per-package basis.  This
+is the rationale behind having a LANANA organization to assign these
+names.  The LANANA may be called upon to handle other namespace issues,
+such as package/prerequisites naming (which is essential to making 
+prerequisites to work correctly).</P
+><P
+>This specification shall pre-define the following script names as
+being reserved to the LANANA.  They reflect names which are commonly in
+use today by distributions to start up various system programs/daemons.
+The behavior of these scripts are not specified here, and not all
+distributions may use all of these script names.
+<A
+NAME="AEN19062"
+HREF="#FTN.AEN19062"
+>[1]</A
+>
+
+<P
+></P
+><UL
+><LI
+STYLE="list-style-type: disc"
+><P
+>autofs</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>apmd</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>atd</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>crond</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>dhclient</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>dhcpcd</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>gpm</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>exim</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>halt</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>hotplug</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>identd</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>inet</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>httpd</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>kudzu</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>klogd</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>lpd</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>mcserv</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>named</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>nfs</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>nfslock</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>pcmcia</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>portmap</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>postfix</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>random</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>routed</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>rstatd</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>rusersd</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>rwhod</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>sendmail</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>samba</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>smb</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>snmpd</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>sshd</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>syslog</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>xfs</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>xntpd</P
+></LI
+><LI
+STYLE="list-style-type: disc"
+><P
+>ypbind</P
+></LI
+></UL
+></P
+></DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN19062"
+HREF="scrptnames.html#AEN19062"
+>[1]</A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>In a future version of this specification, this list will be removed in favor
+of the coresponding list at
+<A
+HREF="http://www.lanana.org"
+TARGET="_top"
+>www.lanana.org</A
+>.</P
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="facilname.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="iniscrptfunc.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Facility names</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="sysinit.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Init script Functions</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

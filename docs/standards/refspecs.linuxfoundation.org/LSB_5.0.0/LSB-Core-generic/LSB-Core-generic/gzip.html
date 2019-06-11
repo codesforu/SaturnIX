@@ -1,0 +1,522 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>gzip</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Core Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Command Behavior"
+HREF="cmdbehav.html"><LINK
+REL="PREVIOUS"
+TITLE="gunzip"
+HREF="gunzip.html"><LINK
+REL="NEXT"
+TITLE="hostname"
+HREF="hostname.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Core Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="gunzip.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="hostname.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="GZIP"
+></A
+>gzip</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN58312"
+></A
+><H2
+>Name</H2
+>gzip&nbsp;--&nbsp;compress or expand files</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN58315"
+></A
+><H2
+>Synopsis</H2
+><TT
+CLASS="CMDSYNOPSIS"
+><B
+CLASS="COMMAND"
+>gzip</B
+> [-cdfhlLnNrtvV19] [-S suffix] [name...]</TT
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58321"
+></A
+><H2
+>Description</H2
+><P
+>The <B
+CLASS="COMMAND"
+>gzip</B
+> command shall attempt to reduce the size of 
+the named files.
+Whenever possible, each file is replaced by one with the
+extension <TT
+CLASS="FILENAME"
+>.gz</TT
+>,
+while keeping the same ownership, modes, access and
+modification times. If no files are specified, or if a file name is
+<TT
+CLASS="FILENAME"
+>-</TT
+>, 
+the standard input is compressed to the standard output. 
+<B
+CLASS="COMMAND"
+>gzip</B
+>
+shall only attempt to compress regular files.  In particular, it will
+ignore symbolic links.</P
+><P
+>When compressing, gzip uses the deflate algorithm specified in 
+<A
+HREF="informativerefs.html#STD.RFC1951"
+>RFC 1951: DEFLATE Compressed Data Format Specification</A
+>
+and stores the result in a file using the gzip file format specified
+in <A
+HREF="informativerefs.html#STD.RFC1952"
+>RFC 1952: GZIP File Format Specification</A
+>.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58331"
+></A
+><H2
+>Options</H2
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>-c, --stdout, --to-stdout</DT
+><DD
+><P
+>writes output on standard output, leaving the original files unchanged.  If
+there are several input files, the output consists of a sequence of
+independently compressed members. To obtain better compression,
+concatenate all input files before compressing them.</P
+></DD
+><DT
+>-d, --decompress, --uncompress</DT
+><DD
+><P
+>the name operands are compressed files, and <B
+CLASS="COMMAND"
+>gzip</B
+>
+shall decompress them.</P
+></DD
+><DT
+>-f, --force</DT
+><DD
+><P
+>forces compression or decompression even if the file has multiple links
+or the corresponding file already exists, or if the compressed data is
+read from or written to a terminal. If the input data is not in a
+format recognized by <B
+CLASS="COMMAND"
+>gzip</B
+>, and if the option 
+<TT
+CLASS="PARAMETER"
+><I
+>--stdout</I
+></TT
+>
+is also given, copy the input data without change to the standard ouput: 
+let <B
+CLASS="COMMAND"
+>gzip</B
+> behave as <B
+CLASS="COMMAND"
+>cat</B
+>. If <TT
+CLASS="PARAMETER"
+><I
+>-f</I
+></TT
+> is 
+not given, and when not running in the background, <B
+CLASS="COMMAND"
+>gzip</B
+> 
+prompts to verify whether an existing file should be overwritten.</P
+></DD
+><DT
+>-l, --list</DT
+><DD
+><P
+>lists the compressed size, uncompressed size, ratio and uncompressed 
+name for each compressed file. For files that are not in <B
+CLASS="COMMAND"
+>gzip</B
+>
+format, the uncompressed size shall be given as 
+<CODE
+CLASS="CONSTANT"
+>-1</CODE
+>.
+If the <TT
+CLASS="PARAMETER"
+><I
+>--verbose</I
+></TT
+> or <TT
+CLASS="PARAMETER"
+><I
+>-v</I
+></TT
+> option
+is also specified, the
+crc and timestamp for the uncompressed file shall also be displayed.</P
+><P
+>For decompression, <B
+CLASS="COMMAND"
+>gzip</B
+> shall support at least
+the following compression methods:
+<P
+></P
+><UL
+><LI
+><P
+>deflate (<A
+HREF="informativerefs.html#STD.RFC1951"
+>RFC 1951: DEFLATE Compressed Data Format Specification</A
+>)</P
+></LI
+><LI
+><P
+>compress (<A
+HREF="normativerefs.html#STD.SUSV4"
+>POSIX 1003.1-2008 (ISO/IEC 9945-2009)</A
+>)</P
+></LI
+></UL
+>
+The crc shall be given as 
+<CODE
+CLASS="CONSTANT"
+>ffffffff</CODE
+> for a file
+not in <B
+CLASS="COMMAND"
+>gzip</B
+> format.</P
+><P
+>If the <TT
+CLASS="PARAMETER"
+><I
+>--name</I
+></TT
+> or <TT
+CLASS="PARAMETER"
+><I
+>-N</I
+></TT
+> option
+is also specified, the uncompressed name, date and time are those stored
+within the compressed file, if present.</P
+><P
+>If the <TT
+CLASS="PARAMETER"
+><I
+>--quiet</I
+></TT
+> or <TT
+CLASS="PARAMETER"
+><I
+>-q</I
+></TT
+> option
+is also specified, the 
+title and totals lines are not displayed.</P
+></DD
+><DT
+>-L, --license</DT
+><DD
+><P
+>displays the <B
+CLASS="COMMAND"
+>gzip</B
+> license and quit.</P
+></DD
+><DT
+>-n, --no-name</DT
+><DD
+><P
+>does not save the original file name and time stamp by default when 
+compressing. (The original name is always saved if the name had to be
+truncated.)  When decompressing, do not restore the original file name
+if present (remove only the gzip suffix from the compressed file name)
+and do not restore the original time stamp if present (copy it from
+the compressed file). This option is the default when decompressing.</P
+></DD
+><DT
+>-N, --name</DT
+><DD
+><P
+>always saves the original file name and time stamp when compressing;
+this is the default.  When decompressing, restore the original file
+name and time stamp if present. This option is useful on systems which
+have a limit on file name length or when the time stamp has been lost
+after a file transfer.</P
+></DD
+><DT
+>-q, --quiet</DT
+><DD
+><P
+>suppresses all warnings.</P
+></DD
+><DT
+>-r, --recursive</DT
+><DD
+><P
+>travels the directory structure recursively. If any of the file names
+specified on the command line are directories, <B
+CLASS="COMMAND"
+>gzip</B
+> 
+will descend into the directory and compress all the files it finds there 
+(or decompress them in the case of <B
+CLASS="COMMAND"
+>gunzip</B
+>).</P
+></DD
+><DT
+>-S .suf, --sufix .suf</DT
+><DD
+><P
+>uses suffix <TT
+CLASS="FILENAME"
+>.suf</TT
+> instead of <TT
+CLASS="FILENAME"
+>.gz</TT
+>.</P
+></DD
+><DT
+>-t, --test</DT
+><DD
+><P
+>checks the compressed file integrity.</P
+></DD
+><DT
+>-v, --verbose</DT
+><DD
+><P
+>displays the name and percentage reduction for each file
+compressed or decompressed.</P
+></DD
+><DT
+>-#, --fast, --best</DT
+><DD
+><P
+>regulates the speed of compression using the specified digit #, where
+<TT
+CLASS="PARAMETER"
+><I
+>-1</I
+></TT
+> or <TT
+CLASS="PARAMETER"
+><I
+>--fast</I
+></TT
+> indicates the fastest compression method (less
+compression) and <TT
+CLASS="PARAMETER"
+><I
+>-9</I
+></TT
+> or <TT
+CLASS="PARAMETER"
+><I
+>--best</I
+></TT
+> indicates the slowest compression method
+(best compression).  The default compression level is <TT
+CLASS="PARAMETER"
+><I
+>-6</I
+></TT
+>
+(that is,
+biased towards high compression at expense of speed).</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN58424"
+></A
+><H2
+>LSB Deprecated Options</H2
+><P
+>The behaviors specified in this section are expected to
+disappear from a future version of the LSB; applications should only
+use the non-LSB-deprecated behaviors.</P
+><P
+></P
+><TABLE
+CLASS="VARIABLELIST"
+BORDER="0"
+CELLSPACING="1"
+CELLPADDING="1"
+><TBODY
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><A
+NAME="AEN58428"
+></A
+><SPAN
+STYLE="white-space: nowrap"
+>-V, --version</SPAN
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5"
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>displays the version number and compilation options, then quits.</P
+></TD
+></TR
+></TBODY
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="gunzip.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="hostname.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>gunzip</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="cmdbehav.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>hostname</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,328 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>png_create_read_struct_2</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Linux Standard Base Desktop Specification, Generic Part"
+HREF="book1.html"><LINK
+REL="UP"
+TITLE="Interface Definitions for libpng12"
+HREF="libpng12man.html"><LINK
+REL="PREVIOUS"
+TITLE="png_create_read_struct"
+HREF="libpng12-png-create-read-struct.html"><LINK
+REL="NEXT"
+TITLE="png_create_write_struct"
+HREF="libpng12-png-create-write-struct.html"></HEAD
+><BODY
+CLASS="REFENTRY"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Linux Standard Base Desktop Specification, Generic Part</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="libpng12-png-create-read-struct.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="libpng12-png-create-write-struct.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><H1
+><A
+NAME="LIBPNG12-PNG-CREATE-READ-STRUCT-2"
+></A
+>png_create_read_struct_2</H1
+><DIV
+CLASS="REFNAMEDIV"
+><A
+NAME="AEN13132"
+></A
+><H2
+>Name</H2
+>png_create_read_struct_2&nbsp;--&nbsp;register custom read function</DIV
+><DIV
+CLASS="REFSYNOPSISDIV"
+><A
+NAME="AEN13137"
+></A
+><H2
+>Synopsis</H2
+><DIV
+CLASS="FUNCSYNOPSIS"
+><P
+></P
+><A
+NAME="AEN13138"
+></A
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="FUNCSYNOPSISINFO"
+>#include &#60;png.h&#62;</PRE
+></TD
+></TR
+></TABLE
+><P
+><CODE
+><CODE
+CLASS="FUNCDEF"
+>png_structp
+<TT
+CLASS="FUNCTION"
+>png_create_read_struct_2</TT
+></CODE
+>(png_const_charp
+<TT
+CLASS="PARAMETER"
+><I
+>user_png_ver</I
+></TT
+>, png_voidp
+<TT
+CLASS="PARAMETER"
+><I
+>error_ptr</I
+></TT
+>, png_error_ptr
+<TT
+CLASS="PARAMETER"
+><I
+>error_fn</I
+></TT
+>, png_error_ptr
+<TT
+CLASS="PARAMETER"
+><I
+>warn_fn</I
+></TT
+>, png_voidp
+<TT
+CLASS="PARAMETER"
+><I
+>mem_ptr</I
+></TT
+>, png_malloc_ptr
+<TT
+CLASS="PARAMETER"
+><I
+>malloc_fn</I
+></TT
+>, png_free_ptr
+<TT
+CLASS="PARAMETER"
+><I
+>free_fn</I
+></TT
+>);</CODE
+></P
+><P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13157"
+></A
+><H2
+>Description</H2
+><P
+>This interface shall register a custom read function 
+and allocate and initialize a <SPAN
+CLASS="TYPE"
+>png_struct</SPAN
+> structure.
+For handling errors and warnings, as well as allocating and deallocating memory,
+the application can pass functions as arguments.
+Otherwise, the default error handling functions
+<CODE
+CLASS="VARNAME"
+>stderr</CODE
+> and <TT
+CLASS="FUNCTION"
+>longjmp()</TT
+> will be used. 
+The error handling routine must not return to the calling routine.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>user_png_ver</I
+></TT
+> 
+shall specify the version string of the library, which
+must be <CODE
+CLASS="CONSTANT"
+>PNG_LIBPNG_VER_STRING</CODE
+>.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>error_ptr</I
+></TT
+> shall specify a user-defined structure for error functions.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>error_fn</I
+></TT
+> shall specify an optional user-defined
+function for printing errors and aborting.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>warn_fn</I
+></TT
+> shall specify an optional user-defined function for warnings.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>mem_ptr</I
+></TT
+> shall specify the memory to allocate.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>malloc_fn</I
+></TT
+> shall specify an optional user-defined memory allocation function.</P
+><P
+>The parameter <TT
+CLASS="PARAMETER"
+><I
+>free_fn</I
+></TT
+> shall specify an optional user-defined memory deallocation function.</P
+></DIV
+><DIV
+CLASS="REFSECT1"
+><A
+NAME="AEN13178"
+></A
+><H2
+>Application Usage (informative)</H2
+><P
+>You should define <CODE
+CLASS="CONSTANT"
+>PNG_USER_MEM_SUPPORTED</CODE
+>
+before you call <TT
+CLASS="FUNCTION"
+>png_create_read_struct2()</TT
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="libpng12-png-create-read-struct.html"
+ACCESSKEY="P"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="libpng12-png-create-write-struct.html"
+ACCESSKEY="N"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>png_create_read_struct</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="libpng12man.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>png_create_write_struct</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>
