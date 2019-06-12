@@ -16,30 +16,30 @@ Goals
 --------
 
 Functional for test:
-- run in QEMU
-- run in VirtualBox
-- shell
+- run in QEMU (added 2019)
+- run in VirtualBox (added 2019)
 
 Self-standing and toolchain:
-- compiler Clang/GCC (2019)
-- standard C library (C11, ISO/IEC 9899:2011) (2019)
-- Rust/Cargo (2019)
+- compiler Clang/GCC (added 2019)
+- standard C library (C11, ISO/IEC 9899:2011) (added 2019)
+- Rust/Cargo (added 2019)
 
 Compliance with standards:  
-- compliance with Linux standard (Linux Standard Base) (LSB 5.0, released 3. June 2015) (2019)
-- compliance with POSIX (POSIX.1-2017) (IEEE Std 1003.1-2017), and the Single UNIX Specification (SUSv4-2018) (2019)
-- intepreter for Android Apps
+- compliance with Linux standard (Linux Standard Base) (LSB 5.0, released 3. June 2015) (added 2019)
+- compliance with POSIX (POSIX.1-2017) (IEEE Std 1003.1-2017), and the Single UNIX Specification (SUSv4-2018) (added 2019)
+- intepreter for Android Apps (added 2019)
+- binary compatible with Windows 10 LTSC 2019 (added 2019)
 
 Support for architectures:  
-- RISC-V (32/64)
-- ARM
-- x86 (32/64)
+- RISC-V (32/64) (added 2019)
+- ARM (added 2019)
+- x86 (32/64) (added 2019)
 
 Ultimate security:  
-- formal verification if possiable
-- memory address randomlization
-- advanced cryptography
+- formal verification if possiable (added 2019)
+- memory address randomlization(added 2019)
+- port advanced cryptography from OpenBSD (added 2019)
 
 User Interface:  
-- command line console, Unicode (ISO/IEC 10646) (UTF-8)
-- GUI (gtk3+) (LSB) (GNOME3, KDE/PLASMA)
+- command line console, Unicode (ISO/IEC 10646) (UTF-8) (added 2019)
+- GUI (gtk3+) (LSB) (GNOME3, KDE/PLASMA) (adden 2019)
