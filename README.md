@@ -15,6 +15,11 @@ Licence
 Goals
 --------
 
+Functional for test:
+- run in QEMU
+- run in VirtualBox
+- shell
+
 Self-standing and toolchain:
 - compiler Clang/GCC (2019)
 - standard C library (C11, ISO/IEC 9899:2011) (2019)
@@ -36,5 +41,5 @@ Ultimate security:
 - advanced cryptography
 
 User Interface:  
-- command line console, Unicode (ISO/IEC 10646)
+- command line console, Unicode (ISO/IEC 10646) (UTF-8)
 - GUI (gtk3+) (LSB) (GNOME3, KDE/PLASMA)
