@@ -14,22 +14,27 @@ Licence
 
 Goals
 --------
+
 Self-standing and toolchain:
 - compiler Clang/GCC (2019)
 - standard C library (C11, ISO/IEC 9899:2011) (2019)
 - Rust/Cargo (2019)
+
 Compliance with standards:  
 - compliance with Linux standard (Linux Standard Base) (LSB 5.0, released 3. June 2015) (2019)
 - compliance with POSIX (POSIX.1-2017) (IEEE Std 1003.1-2017), and the Single UNIX Specification (SUSv4-2018) (2019)
 - intepreter for Android Apps
+
 Support for architectures:  
 - RISC-V (32/64)
 - ARM
 - x86 (32/64)
+
 Ultimate security:  
 - formal verification if possiable
 - memory address randomlization
 - advanced cryptography
+
 User Interface:  
 - command line console, Unicode (ISO/IEC 10646)
 - GUI (gtk3+) (LSB) (GNOME3, KDE/PLASMA)
