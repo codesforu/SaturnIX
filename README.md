@@ -42,4 +42,5 @@ Ultimate security:
 
 User Interface:  
 - command line console, Unicode (ISO/IEC 10646) (UTF-8) (added 2019)
-- GUI (gtk3+) (LSB) (GNOME3, KDE/PLASMA) (adden 2019)
+- GUI (gtk3+) (LSB) (GNOME3, KDE/PLASMA) (added 2019)
+- bash 5.0 (added 2019)
