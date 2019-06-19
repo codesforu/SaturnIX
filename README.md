@@ -43,3 +43,14 @@ Ultimate security:
 User Interface:  
 - command line console, Unicode (ISO/IEC 10646) (UTF-8) (added 2019)
 - GUI (gtk3+) (LSB) (GNOME3, KDE/PLASMA) (adden 2019)
+
+Components
+--------
+
+Kernels:
+- seL4 (added 2018)
+- rux (added 2019)
+
+Drivers:
+- port Linux drivers or run Linux as servers in userspace (added 2019)
+- Using Rump kernels to run unmodified NetBSD drivers on seL4 (Rumprun Unikernel) (added 2018)
