@@ -1,7 +1,7 @@
 SaturnIX
 ========
 
- **SaturnIX** (/'sætərniks/), is a micro-kernel operating system project, started in 2019 as personal hobby, aiming at research. Hopefully it will become a useable general-purpose operating system one day. Contributions are welcome! :)  
+ **SaturnIX** (/'sætərniks/), is the name of a micro-kernel operating system that this projet is going to implement, started in 2019 as personal hobby. Hopefully it will become a useable and stable general-purpose operating system one day. Contributions are welcome! :)  
  External Link for ***Saturn IX***, an irregular satellite of Saturn:  
  https://www.wikipedia.org/w/index.php?title=Saturn_IX
 
@@ -40,7 +40,19 @@ Ultimate security:
 - memory address randomlization(added 2019)
 - port advanced cryptography from OpenBSD (added 2019)
 
+Kernel:  
+- seL4 (preferred) (added 2019)
+- rux (added 2019)
+
+Drivers:  
+- NetBSD Rump kernel drivers (added 2019)
+- Linux drivers (port or run Linux kernel as server) (added 2019)
+
 User Interface:  
 - command line console, Unicode (ISO/IEC 10646) (UTF-8) (added 2019)
 - GUI (gtk3+) (LSB) (GNOME3, KDE/PLASMA) (added 2019)
+
+Applications:  
 - bash 5.0 (added 2019)
+- vim (added 2019)
+- OpenBSD Secure Shell (added 2019)
