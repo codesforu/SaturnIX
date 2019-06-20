@@ -6,3 +6,11 @@
 	path = src/kernel/rux
 	url = git://github.com/codesforu/rux.git
 	branch = master
+[submodule "src/net/picoTCP/picotcp"]
+	path = src/net/picoTCP/picotcp
+	url = git://github.com/tass-belgium/picotcp.git
+	branch = master
+[submodule "src/net/picoTCP/picotcp-bsd"]
+	path = src/net/picoTCP/picotcp-bsd
+	url = git://github.com/tass-belgium/picotcp-bsd.git
+	branch = master
