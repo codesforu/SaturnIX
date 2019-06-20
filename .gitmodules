@@ -5,4 +5,4 @@
 [submodule "src/kernel/rux"]
 	path = src/kernel/rux
 	url = git://github.com/codesforu/rux.git
-	branch =master
+	branch = master
