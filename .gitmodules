@@ -1,6 +1,8 @@
 [submodule "src/kernels/seL4"]
 	path = src/kernels/seL4
-	url = https://github.com/codesforu/seL4.git
+	url = https://github.com/seL4/seL4.git
+	branch = master
 [submodule "src/kernels/rux"]
 	path = src/kernels/rux
 	url = https://github.com/codesforu/rux.git
+	branch =master
