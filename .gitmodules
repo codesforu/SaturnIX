@@ -14,3 +14,6 @@
 	path = src/net/picoTCP/picotcp-bsd
 	url = git://github.com/tass-belgium/picotcp-bsd.git
 	branch = master
+[submodule "src/net/picoTCP/picotcp-modules"]
+	path = src/net/picoTCP/picotcp-modules
+	url = git://github.com/tass-belgium/picotcp-modules.git
