@@ -41,18 +41,26 @@ Ultimate security:
 - port advanced cryptography from OpenBSD (added 2019)
 
 Kernel:  
-- seL4 (preferred) (added 2019)
+- seL4 10.1.1 (preferred 2020)
+- seL4 (added 2019)
 - rux (added 2019)
 
 Drivers:  
 - NetBSD Rump kernel drivers (added 2019)
 - Linux drivers (port or run Linux kernel as server) (added 2019)
 
+Package Manager
+- nix (added 2020)
+- dpkg, rpm... (added 2020)
+
 User Interface:  
 - command line console, Unicode (ISO/IEC 10646) (UTF-8) (added 2019)
 - GUI (gtk3+) (LSB) (GNOME3, KDE/PLASMA) (added 2019)
 
 Applications:  
-- bash 5.0 (added 2019)
-- vim (added 2019)
-- OpenBSD Secure Shell (added 2019)
+- Bash 5.0 (added 2019)
+- Vim (added 2019)
+- SSH OpenBSD Secure Shell (added 2019)
+- nano 5.0 (4.9)(added 2020)
+- Inkscape 1.0 (added 2020)
+- GIMP 2.10 (added 2020)
